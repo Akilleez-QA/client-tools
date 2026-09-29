@@ -1,0 +1,35 @@
+{
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "candidate": "58ecb70c4a6317d4ac6a54ff8853c1ffac5737b2",
+  "outcome": "passed",
+  "commands": [
+    [
+      "C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\MSBuild.exe",
+      "C:\\ci-link-proof-clean\\build-tree\\src\\build\\win32\\swg.sln",
+      "/t:SwgClient:Rebuild",
+      "/p:Configuration=Release",
+      "/p:Platform=Win32",
+      "/m:2",
+      "/v:normal"
+    ],
+    [
+      "C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\MSBuild.exe",
+      "C:\\ci-link-proof-clean\\build-tree\\src\\build\\win32\\swg.sln",
+      "/t:SwgClient",
+      "/p:Configuration=Release",
+      "/p:Platform=Win32",
+      "/m:2",
+      "/v:normal"
+    ],
+    [
+      "C:\\ci-dpvs-review\\python\\python.exe",
+      "C:\\ci-link-tools\\tools\\test-link-inputs\\compare.py",
+      "C:\\ci-link-proof-clean\\product-before.exe",
+      "C:\\ci-link-proof-clean\\product-after.exe",
+      "--output",
+      "C:\\ci-link-proof-clean\\comparison.json"
+    ]
+  ],
+  "base_archive_sha256": "46dc39de5ad05543ec6929b5d4adfe9571054b21834faf5c55befd31fc7ce207",
+  "candidate_archive_sha256": "e077216a567030b4827f396349fcdf7bf9525151699b1611eb7ac8fef23217de"
+}

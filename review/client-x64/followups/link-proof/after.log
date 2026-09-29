@@ -1,0 +1,1040 @@
+base=949451032647e45e42c3aaef3f41b132c8af36e3
+candidate=58ecb70c4a6317d4ac6a54ff8853c1ffac5737b2
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 9/29/2026 9:37:13 AM.
+     1>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" on node 1 (SwgClient target(s)).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Release|Win32".
+     1>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (1) is building "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) on node 1 (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRemoteDebugServer\build\win32\sharedRemoteDebugServer.vcxproj" (4) on node 2 (default targets).
+     4>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRe.AFA9AD0A.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedRemoteDebugServer.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRemoteDebugServer\build\win32\..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRemoteDebugServer.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRe.AFA9AD0A.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRe.AFA9AD0A.tlog\sharedRemoteDebugServer.lastbuildstate".
+     4>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRemoteDebugServer\build\win32\sharedRemoteDebugServer.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj" (3) on node 1 (default targets).
+     3>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClien.EAA23F07.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\ui\build\win32\ui.vcxproj" (5) on node 2 (default targets).
+     5>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\ui\Release\ui.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         ui.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\ui\build\win32\.\..\..\..\..\..\..\compile\win32\ui\Release\ui.lib
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\ui\Release\ui.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\ui\Release\ui.tlog\ui.lastbuildstate".
+     5>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\ui\build\win32\ui.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFoundation\build\win32\sharedFoundation.vcxproj" (6) on node 2 (default targets).
+     6>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedFoundation.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFoundation\build\win32\..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.tlog\sharedFoundation.lastbuildstate".
+     6>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFoundation\build\win32\sharedFoundation.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedUtility\build\win32\sharedUtility.vcxproj" (7) on node 2 (default targets).
+     7>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     3>ClCompile:
+         All outputs are up-to-date.
+     7>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedUtility.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedUtility\build\win32\..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.tlog\sharedUtility.lastbuildstate".
+     7>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedUtility\build\win32\sharedUtility.vcxproj" (default targets).
+     3>ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCollision\build\win32\sharedCollision.vcxproj" (8) on node 2 (default targets).
+     8>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     3>Lib:
+         All outputs are up-to-date.
+     8>ClCompile:
+         All outputs are up-to-date.
+     3>Lib:
+         swgClientUserInterface.vcxproj -> C:\ci-link-proof-clean\build-tree\src\game\client\library\swgClientUserInterface\build\win32\..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClientUserInterface.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClien.EAA23F07.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClien.EAA23F07.tlog\swgClientUserInterface.lastbuildstate".
+     3>Done Building Project "C:\ci-link-proof-clean\build-tree\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj" (default targets).
+     8>ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientGame\build\win32\clientGame.vcxproj" (9) on node 1 (default targets).
+     9>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     8>Lib:
+         All outputs are up-to-date.
+         sharedCollision.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCollision\build\win32\..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.tlog\sharedCollision.lastbuildstate".
+     8>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCollision\build\win32\sharedCollision.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\zlib-1.2.3\zlib.vcxproj" (10) on node 2 (default targets).
+    10>InitializeBuildStatus:
+         Creating "..\..\..\..\compile\win32\zlib\Release\zlib.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         zlib.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\zlib-1.2.3\..\..\..\..\compile\win32\zlib\Release\zlib.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\compile\win32\zlib\Release\zlib.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\compile\win32\zlib\Release\zlib.tlog\zlib.lastbuildstate".
+    10>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\zlib-1.2.3\zlib.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFile\build\win32\sharedFile.vcxproj" (11) on node 2 (default targets).
+    11>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedFile.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFile\build\win32\..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.tlog\sharedFile.lastbuildstate".
+    11>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFile\build\win32\sharedFile.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMemoryManager\build\win32\sharedMemoryManager.vcxproj" (12) on node 2 (default targets).
+    12>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMe.DC2CD926.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     9>ClCompile:
+         All outputs are up-to-date.
+    12>Lib:
+         All outputs are up-to-date.
+         sharedMemoryManager.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMemoryManager\build\win32\..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMemoryManager.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMe.DC2CD926.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMe.DC2CD926.tlog\sharedMemoryManager.lastbuildstate".
+    12>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMemoryManager\build\win32\sharedMemoryManager.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedDebug\build\win32\sharedDebug.vcxproj" (13) on node 2 (default targets).
+    13>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     9>ClCompile:
+         All outputs are up-to-date.
+    13>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedDebug.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedDebug\build\win32\..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.tlog\sharedDebug.lastbuildstate".
+    13>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedDebug\build\win32\sharedDebug.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCompression\build\win32\sharedCompression.vcxproj" (14) on node 2 (default targets).
+    14>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCo.6BD52B35.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     9>Lib:
+         All outputs are up-to-date.
+         clientGame.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientGame\build\win32\..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.lib
+    14>ClCompile:
+         All outputs are up-to-date.
+     9>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.tlog\clientGame.lastbuildstate".
+     9>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientGame\build\win32\clientGame.vcxproj" (default targets).
+    14>ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedTerrain\build\win32\sharedTerrain.vcxproj" (15) on node 1 (default targets).
+    15>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    14>Lib:
+         All outputs are up-to-date.
+         sharedCompression.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCompression\build\win32\..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCompression.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCo.6BD52B35.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCo.6BD52B35.tlog\sharedCompression.lastbuildstate".
+    14>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCompression\build\win32\sharedCompression.vcxproj" (default targets).
+    15>ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientObject\build\win32\clientObject.vcxproj" (16) on node 2 (default targets).
+    16>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    15>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    16>ClCompile:
+         All outputs are up-to-date.
+    15>Lib:
+         sharedTerrain.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedTerrain\build\win32\..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.tlog\sharedTerrain.lastbuildstate".
+    15>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedTerrain\build\win32\sharedTerrain.vcxproj" (default targets).
+    16>ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\crypto\build\win32\crypto.vcxproj" (17) on node 1 (default targets).
+    17>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\crypto\Release\crypto.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    16>Lib:
+         All outputs are up-to-date.
+         clientObject.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientObject\build\win32\..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.lib
+    17>ClCompile:
+         All outputs are up-to-date.
+    16>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.tlog\clientObject.lastbuildstate".
+    16>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientObject\build\win32\clientObject.vcxproj" (default targets).
+    17>Lib:
+         All outputs are up-to-date.
+         crypto.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\crypto\build\win32\..\..\..\..\..\..\compile\win32\crypto\Release\crypto.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\crypto\Release\crypto.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\crypto\Release\crypto.tlog\crypto.lastbuildstate".
+    17>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\crypto\build\win32\crypto.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFoundationTypes\build\win32\sharedFoundationTypes.vcxproj" (18) on node 2 (default targets).
+    18>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFoundationTypes\Release\sharedFo.D6CC353F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFoundationTypes\Release\sharedFo.D6CC353F.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFoundationTypes\Release\sharedFo.D6CC353F.tlog\sharedFoundationTypes.lastbuildstate".
+    18>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFoundationTypes\build\win32\sharedFoundationTypes.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientSkeletalAnimation\build\win32\clientSkeletalAnimation.vcxproj" (19) on node 1 (default targets).
+    19>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSk.66BCFD48.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\libMozilla\build\win32\libMozilla.vcxproj" (20) on node 2 (default targets).
+    20>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\libMozilla\Release\libMozilla.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         libMozilla.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\libMozilla\build\win32\..\..\..\..\..\..\compile\win32\libMozilla\Release\libMozilla.lib
+    19>ClCompile:
+         All outputs are up-to-date.
+    20>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\libMozilla\Release\libMozilla.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\libMozilla\Release\libMozilla.tlog\libMozilla.lastbuildstate".
+    20>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\libMozilla\build\win32\libMozilla.vcxproj" (default targets).
+    19>ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientUserInterface\build\win32\clientUserInterface.vcxproj" (21) on node 2 (default targets).
+    21>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUs.92605A4D.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    19>Lib:
+         All outputs are up-to-date.
+         clientSkeletalAnimation.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientSkeletalAnimation\build\win32\..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSkeletalAnimation.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSk.66BCFD48.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSk.66BCFD48.tlog\clientSkeletalAnimation.lastbuildstate".
+    19>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientSkeletalAnimation\build\win32\clientSkeletalAnimation.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedInputMap\build\win32\sharedInputMap.vcxproj" (22) on node 1 (default targets).
+    22>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    21>ClCompile:
+         All outputs are up-to-date.
+    22>Lib:
+         sharedInputMap.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedInputMap\build\win32\..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.tlog\sharedInputMap.lastbuildstate".
+    22>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedInputMap\build\win32\sharedInputMap.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\unicodeArchive\build\win32\unicodeArchive.vcxproj" (23) on node 1 (default targets).
+    23>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    21>ClCompile:
+         All outputs are up-to-date.
+    23>Lib:
+         All outputs are up-to-date.
+         unicodeArchive.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\unicodeArchive\build\win32\..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.tlog\unicodeArchive.lastbuildstate".
+    23>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\unicodeArchive\build\win32\unicodeArchive.vcxproj" (default targets).
+    21>Lib:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFractal\build\win32\sharedFractal.vcxproj" (24) on node 1 (default targets).
+    24>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    21>Lib:
+         clientUserInterface.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientUserInterface\build\win32\..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUserInterface.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUs.92605A4D.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUs.92605A4D.tlog\clientUserInterface.lastbuildstate".
+    21>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientUserInterface\build\win32\clientUserInterface.vcxproj" (default targets).
+    24>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\libEverQuestTCG\build\win32\libEverQuestTCG.vcxproj" (25) on node 2 (default targets).
+    25>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    24>Lib:
+         All outputs are up-to-date.
+    25>ClCompile:
+         All outputs are up-to-date.
+    24>Lib:
+         sharedFractal.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFractal\build\win32\..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.tlog\sharedFractal.lastbuildstate".
+    24>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedFractal\build\win32\sharedFractal.vcxproj" (default targets).
+    25>Lib:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientAudio\build\win32\clientAudio.vcxproj" (26) on node 1 (default targets).
+    26>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    25>Lib:
+         libEverQuestTCG.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\libEverQuestTCG\build\win32\..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.tlog\libEverQuestTCG.lastbuildstate".
+    25>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\libEverQuestTCG\build\win32\libEverQuestTCG.vcxproj" (default targets).
+    26>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\udplibrary\udplibrary.vcxproj" (27) on node 2 (default targets).
+    27>InitializeBuildStatus:
+         Creating ".\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    26>Lib:
+         All outputs are up-to-date.
+         clientAudio.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientAudio\build\win32\..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.tlog\clientAudio.lastbuildstate".
+    26>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientAudio\build\win32\clientAudio.vcxproj" (default targets).
+    27>Lib:
+         All outputs are up-to-date.
+         udplibrary.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\udplibrary\.\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.lib
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.tlog\udplibrary.lastbuildstate".
+    27>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\udplibrary\udplibrary.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedPathfinding\build\win32\sharedPathfinding.vcxproj" (28) on node 1 (default targets).
+    28>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPa.7D707A5A.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedGame\build\win32\sharedGame.vcxproj" (29) on node 2 (default targets).
+    29>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    28>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedPathfinding.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedPathfinding\build\win32\..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPathfinding.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPa.7D707A5A.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPa.7D707A5A.tlog\sharedPathfinding.lastbuildstate".
+    28>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedPathfinding\build\win32\sharedPathfinding.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedNetworkMessages\build\win32\sharedNetworkMessages.vcxproj" (30) on node 1 (default targets).
+    30>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNe.DECF2964.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    29>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedGame.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedGame\build\win32\..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.tlog\sharedGame.lastbuildstate".
+    29>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedGame\build\win32\sharedGame.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\archive\build\win32\archive.vcxproj" (31) on node 2 (default targets).
+    31>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\archive\Release\archive.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    30>ClCompile:
+         All outputs are up-to-date.
+    31>Lib:
+         archive.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\archive\build\win32\..\..\..\..\..\..\compile\win32\archive\Release\archive.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\archive\Release\archive.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\archive\Release\archive.tlog\archive.lastbuildstate".
+    31>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\archive\build\win32\archive.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\fileInterface\build\win32\fileInterface.vcxproj" (32) on node 2 (default targets).
+    32>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         fileInterface.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\fileInterface\build\win32\..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.tlog\fileInterface.lastbuildstate".
+    32>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\fileInterface\build\win32\fileInterface.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMath\build\win32\sharedMath.vcxproj" (33) on node 2 (default targets).
+    33>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    30>ClCompile:
+         All outputs are up-to-date.
+    33>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    30>Lib:
+         All outputs are up-to-date.
+         sharedNetworkMessages.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedNetworkMessages\build\win32\..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNetworkMessages.lib
+    33>Lib:
+         All outputs are up-to-date.
+    30>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNe.DECF2964.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNe.DECF2964.tlog\sharedNetworkMessages.lastbuildstate".
+    30>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedNetworkMessages\build\win32\sharedNetworkMessages.vcxproj" (default targets).
+    33>Lib:
+         sharedMath.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMath\build\win32\..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.tlog\sharedMath.lastbuildstate".
+    33>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMath\build\win32\sharedMath.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\SHAREDSKILLSYSTEM\build\win32\sharedSkillSystem.vcxproj" (34) on node 1 (default targets).
+    34>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSk.83EA2B87.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedIoWin\build\win32\sharedIoWin.vcxproj" (35) on node 2 (default targets).
+    35>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    34>ClCompile:
+         All outputs are up-to-date.
+    35>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    34>Lib:
+         All outputs are up-to-date.
+         sharedSkillSystem.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\SHAREDSKILLSYSTEM\build\win32\..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSkillSystem.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSk.83EA2B87.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSk.83EA2B87.tlog\sharedSkillSystem.lastbuildstate".
+    34>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\SHAREDSKILLSYSTEM\build\win32\sharedSkillSystem.vcxproj" (default targets).
+    35>Lib:
+         All outputs are up-to-date.
+         sharedIoWin.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedIoWin\build\win32\..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.tlog\sharedIoWin.lastbuildstate".
+    35>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedIoWin\build\win32\sharedIoWin.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedXml\build\win32\sharedXml.vcxproj" (36) on node 1 (default targets).
+    36>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedSynchronization\build\win32\sharedSynchronization.vcxproj" (37) on node 2 (default targets).
+    37>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSy.2FE4E38D.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    36>ClCompile:
+         All outputs are up-to-date.
+    37>ClCompile:
+         All outputs are up-to-date.
+    36>Lib:
+         All outputs are up-to-date.
+    37>ClCompile:
+         All outputs are up-to-date.
+    36>Lib:
+         sharedXml.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedXml\build\win32\..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.tlog\sharedXml.lastbuildstate".
+    36>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedXml\build\win32\sharedXml.vcxproj" (default targets).
+    37>Lib:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientGraphics\build\win32\clientGraphics.vcxproj" (38) on node 1 (default targets).
+    38>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    37>Lib:
+         sharedSynchronization.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedSynchronization\build\win32\..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSynchronization.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSy.2FE4E38D.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSy.2FE4E38D.tlog\sharedSynchronization.lastbuildstate".
+    37>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedSynchronization\build\win32\sharedSynchronization.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientTextureRenderer\build\win32\clientTextureRenderer.vcxproj" (39) on node 2 (default targets).
+    39>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTe.F1FDC6AF.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    38>ClCompile:
+         All outputs are up-to-date.
+    39>ClCompile:
+         All outputs are up-to-date.
+    38>ClCompile:
+         All outputs are up-to-date.
+    39>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         clientTextureRenderer.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientTextureRenderer\build\win32\..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTextureRenderer.lib
+    38>Lib:
+         All outputs are up-to-date.
+    39>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTe.F1FDC6AF.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTe.F1FDC6AF.tlog\clientTextureRenderer.lastbuildstate".
+    39>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientTextureRenderer\build\win32\clientTextureRenderer.vcxproj" (default targets).
+    38>Lib:
+         clientGraphics.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientGraphics\build\win32\..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.tlog\clientGraphics.lastbuildstate".
+    38>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientGraphics\build\win32\clientGraphics.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\game\shared\library\swgSharedUtility\build\win32\swgSharedUtility.vcxproj" (40) on node 2 (default targets).
+    40>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientTerrain\build\win32\clientTerrain.vcxproj" (41) on node 1 (default targets).
+    41>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    40>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    41>ClCompile:
+         All outputs are up-to-date.
+    40>Lib:
+         All outputs are up-to-date.
+    41>ClCompile:
+         All outputs are up-to-date.
+    40>Lib:
+         swgSharedUtility.vcxproj -> C:\ci-link-proof-clean\build-tree\src\game\shared\library\swgSharedUtility\build\win32\..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.tlog\swgSharedUtility.lastbuildstate".
+    40>Done Building Project "C:\ci-link-proof-clean\build-tree\src\game\shared\library\swgSharedUtility\build\win32\swgSharedUtility.vcxproj" (default targets).
+    41>Lib:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMathArchive\build\win32\sharedMathArchive.vcxproj" (42) on node 2 (default targets).
+    42>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMathArchive\Release\sharedMa.0202ADB3.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMathArchive\Release\sharedMa.0202ADB3.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMathArchive\Release\sharedMa.0202ADB3.tlog\sharedMathArchive.lastbuildstate".
+    42>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMathArchive\build\win32\sharedMathArchive.vcxproj" (default targets).
+    41>Lib:
+         clientTerrain.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientTerrain\build\win32\..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.tlog\clientTerrain.lastbuildstate".
+    41>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientTerrain\build\win32\clientTerrain.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\localizationArchive\build\win32\localizationArchive.vcxproj" (43) on node 1 (default targets).
+    43>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\localizationArchive\Release\localiza.A8036EC1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\game\shared\library\swgSharedNetworkMessages\build\win32\swgSharedNetworkMessages.vcxproj" (44) on node 2 (default targets).
+    44>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgShare.FCC0F2B5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    43>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    44>ClCompile:
+         All outputs are up-to-date.
+    43>Lib:
+         All outputs are up-to-date.
+    44>ClCompile:
+         All outputs are up-to-date.
+    43>Lib:
+         localizationArchive.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\localizationArchive\build\win32\..\..\..\..\..\..\compile\win32\localizationArchive\Release\localizationArchive.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\localizationArchive\Release\localiza.A8036EC1.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\localizationArchive\Release\localiza.A8036EC1.tlog\localizationArchive.lastbuildstate".
+    43>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\localizationArchive\build\win32\localizationArchive.vcxproj" (default targets).
+    44>Lib:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedObject\build\win32\sharedObject.vcxproj" (45) on node 1 (default targets).
+    45>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    44>Lib:
+         swgSharedNetworkMessages.vcxproj -> C:\ci-link-proof-clean\build-tree\src\game\shared\library\swgSharedNetworkMessages\build\win32\..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgSharedNetworkMessages.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgShare.FCC0F2B5.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgShare.FCC0F2B5.tlog\swgSharedNetworkMessages.lastbuildstate".
+    44>Done Building Project "C:\ci-link-proof-clean\build-tree\src\game\shared\library\swgSharedNetworkMessages\build\win32\swgSharedNetworkMessages.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\localization\build\win32\localization.vcxproj" (46) on node 2 (default targets).
+    46>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\localization\Release\localization.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    45>ClCompile:
+         All outputs are up-to-date.
+    46>ClCompile:
+         All outputs are up-to-date.
+    45>ClCompile:
+         All outputs are up-to-date.
+    46>Lib:
+         All outputs are up-to-date.
+         localization.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\localization\build\win32\..\..\..\..\..\..\compile\win32\localization\Release\localization.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\localization\Release\localization.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\localization\Release\localization.tlog\localization.lastbuildstate".
+    46>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\localization\build\win32\localization.vcxproj" (default targets).
+    45>Lib:
+         All outputs are up-to-date.
+         sharedObject.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedObject\build\win32\..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.tlog\sharedObject.lastbuildstate".
+    45>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedObject\build\win32\sharedObject.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedThread\build\win32\sharedThread.vcxproj" (47) on node 2 (default targets).
+    47>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientBugReporting\build\win32\clientBugReporting.vcxproj" (48) on node 1 (default targets).
+    48>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBu.147D02D6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    47>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    48>ClCompile:
+         All outputs are up-to-date.
+    47>Lib:
+         All outputs are up-to-date.
+    48>ClCompile:
+         All outputs are up-to-date.
+    47>Lib:
+         sharedThread.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedThread\build\win32\..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.tlog\sharedThread.lastbuildstate".
+    47>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedThread\build\win32\sharedThread.vcxproj" (default targets).
+    48>Lib:
+         All outputs are up-to-date.
+         clientBugReporting.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientBugReporting\build\win32\..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBugReporting.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBu.147D02D6.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBu.147D02D6.tlog\clientBugReporting.lastbuildstate".
+    48>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientBugReporting\build\win32\clientBugReporting.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedImage\build\win32\sharedImage.vcxproj" (49) on node 2 (default targets).
+    49>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedStatusWindow\build\win32\sharedStatusWindow.vcxproj" (50) on node 1 (default targets).
+    50>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedSt.AE9205DD.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    49>ClCompile:
+         All outputs are up-to-date.
+    50>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    49>Lib:
+         All outputs are up-to-date.
+         sharedImage.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedImage\build\win32\..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.tlog\sharedImage.lastbuildstate".
+    49>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedImage\build\win32\sharedImage.vcxproj" (default targets).
+    50>Lib:
+         All outputs are up-to-date.
+         sharedStatusWindow.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedStatusWindow\build\win32\..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedStatusWindow.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedSt.AE9205DD.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedSt.AE9205DD.tlog\sharedStatusWindow.lastbuildstate".
+    50>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedStatusWindow\build\win32\sharedStatusWindow.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientParticle\build\win32\clientParticle.vcxproj" (51) on node 2 (default targets).
+    51>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" (52) on node 1 (default targets).
+    52>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\dpvs\Release\dpvs.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    51>ClCompile:
+         All outputs are up-to-date.
+    52>ClCompile:
+         All outputs are up-to-date.
+    51>ClCompile:
+         All outputs are up-to-date.
+    52>ResourceCompile:
+         All outputs are up-to-date.
+    51>Lib:
+         All outputs are up-to-date.
+         clientParticle.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientParticle\build\win32\..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.tlog\clientParticle.lastbuildstate".
+    51>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientParticle\build\win32\clientParticle.vcxproj" (default targets).
+    52>Link:
+         All outputs are up-to-date.
+         dpvs.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\dpvs\implementation\msvc8\.\..\..\..\..\..\..\compile\win32\dpvs\Release\dpvs.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\dpvs\Release\dpvs.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\dpvs\Release\dpvs.tlog\dpvs.lastbuildstate".
+    52>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRandom\build\win32\sharedRandom.vcxproj" (53) on node 2 (default targets).
+    53>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRegex\build\win32\sharedRegex.vcxproj" (54) on node 1 (default targets).
+    54>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    53>ClCompile:
+         All outputs are up-to-date.
+    54>ClCompile:
+         All outputs are up-to-date.
+    53>ClCompile:
+         All outputs are up-to-date.
+    54>ClCompile:
+         All outputs are up-to-date.
+    53>Lib:
+         All outputs are up-to-date.
+         sharedRandom.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRandom\build\win32\..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.tlog\sharedRandom.lastbuildstate".
+    53>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRandom\build\win32\sharedRandom.vcxproj" (default targets).
+    54>Lib:
+         All outputs are up-to-date.
+         sharedRegex.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRegex\build\win32\..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.tlog\sharedRegex.lastbuildstate".
+    54>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedRegex\build\win32\sharedRegex.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedSwitcher\build\win32\sharedSwitcher.vcxproj" (55) on node 2 (default targets).
+    55>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCommandParser\build\win32\sharedCommandParser.vcxproj" (56) on node 1 (default targets).
+    56>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCo.20D4D8EB.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    55>ClCompile:
+         All outputs are up-to-date.
+    56>ClCompile:
+         All outputs are up-to-date.
+    55>ClCompile:
+         All outputs are up-to-date.
+    56>Lib:
+         All outputs are up-to-date.
+    55>Lib:
+         All outputs are up-to-date.
+    56>Lib:
+         sharedCommandParser.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCommandParser\build\win32\..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCommandParser.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCo.20D4D8EB.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCo.20D4D8EB.tlog\sharedCommandParser.lastbuildstate".
+    56>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedCommandParser\build\win32\sharedCommandParser.vcxproj" (default targets).
+    55>Lib:
+         sharedSwitcher.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedSwitcher\build\win32\..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.tlog\sharedSwitcher.lastbuildstate".
+    55>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedSwitcher\build\win32\sharedSwitcher.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientAnimation\build\win32\clientAnimation.vcxproj" (57) on node 1 (default targets).
+    57>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\ours\library\unicode\build\win32\unicode.vcxproj" (58) on node 2 (default targets).
+    58>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\unicode\Release\unicode.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    57>ClCompile:
+         All outputs are up-to-date.
+    58>ClCompile:
+         All outputs are up-to-date.
+    57>ClCompile:
+         All outputs are up-to-date.
+    58>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    57>Lib:
+         All outputs are up-to-date.
+    58>Lib:
+         unicode.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\ours\library\unicode\build\win32\..\..\..\..\..\..\compile\win32\unicode\Release\unicode.lib
+    57>Lib:
+         clientAnimation.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientAnimation\build\win32\..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.lib
+    58>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\unicode\Release\unicode.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\unicode\Release\unicode.tlog\unicode.lastbuildstate".
+    57>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.tlog\clientAnimation.lastbuildstate".
+    58>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\ours\library\unicode\build\win32\unicode.vcxproj" (default targets).
+    57>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientAnimation\build\win32\clientAnimation.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedLog\build\win32\sharedLog.vcxproj" (59) on node 1 (default targets).
+    59>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMessageDispatch\build\win32\sharedMessageDispatch.vcxproj" (60) on node 2 (default targets).
+    60>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMe.C87164F5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    59>ClCompile:
+         All outputs are up-to-date.
+    60>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    59>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    60>Lib:
+         All outputs are up-to-date.
+    59>Lib:
+         sharedLog.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedLog\build\win32\..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.lib
+    60>Lib:
+         sharedMessageDispatch.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMessageDispatch\build\win32\..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMessageDispatch.lib
+    59>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.tlog\sharedLog.lastbuildstate".
+    59>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedLog\build\win32\sharedLog.vcxproj" (default targets).
+    60>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMe.C87164F5.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMe.C87164F5.tlog\sharedMessageDispatch.lastbuildstate".
+    60>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedMessageDispatch\build\win32\sharedMessageDispatch.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientDirectInput\build\win32\clientDirectInput.vcxproj" (61) on node 1 (default targets).
+    61>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDi.F1B57BF8.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\blat194\build\win32\blat.vcxproj" (62) on node 2 (default targets).
+    62>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\blat\Release\blat.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    61>ClCompile:
+         All outputs are up-to-date.
+    62>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    61>ClCompile:
+         All outputs are up-to-date.
+    62>Lib:
+         All outputs are up-to-date.
+    61>Lib:
+         All outputs are up-to-date.
+    62>Lib:
+         blat.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\blat194\build\win32\.\..\..\..\..\..\..\compile\win32\blat\Release\blat.lib
+    61>Lib:
+         clientDirectInput.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientDirectInput\build\win32\..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDirectInput.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDi.F1B57BF8.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDi.F1B57BF8.tlog\clientDirectInput.lastbuildstate".
+    61>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\library\clientDirectInput\build\win32\clientDirectInput.vcxproj" (default targets).
+    62>FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\blat\Release\blat.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\blat\Release\blat.tlog\blat.lastbuildstate".
+    62>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\blat194\build\win32\blat.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (63) on node 1 (default targets).
+    63>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (63) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\application\DllExport\build\win32\DllExport.vcxproj" (68) on node 2 (default targets).
+    68>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         DllExport.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\application\DllExport\build\win32\.\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.tlog\DllExport.lastbuildstate".
+    68>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\application\DllExport\build\win32\DllExport.vcxproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj.metaproj" (66) on node 1 (default targets).
+    66>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj.metaproj" (66) is building "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj" (70) on node 1 (default targets).
+    70>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    63>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (63) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj" (71) on node 2 (default targets).
+    71>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj.metaproj" (67) on node 1 (default targets).
+    67>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj.metaproj" (67) is building "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" (69) on node 1 (default targets).
+    69>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    71>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    69>ClCompile:
+         All outputs are up-to-date.
+    71>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.dll) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\Direct3d9_ffp\Release\gl06_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+    71>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_ffp) does not match the Linker's OutputFile property value (gl06_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+       ClCompile:
+         All outputs are up-to-date.
+    71>Link:
+         All outputs are up-to-date.
+    69>Lib:
+         All outputs are up-to-date.
+    71>Link:
+         Direct3d9_ffp.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.tlog\Direct3d9_ffp.lastbuildstate".
+    71>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj" (default targets).
+    69>Lib:
+         sharedNetwork.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedNetwork\build\win32\..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.lib
+    63>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (default targets).
+    69>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.tlog\sharedNetwork.lastbuildstate".
+    69>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" (default targets).
+    67>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj.metaproj" (default targets).
+    70>Lib:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (65) on node 1 (default targets).
+    65>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (65) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj" (72) on node 2 (default targets).
+    72>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    70>Lib:
+         lcdui.vcxproj -> C:\ci-link-proof-clean\build-tree\src\external\3rd\library\lcdui_src\build\win32\..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.lib
+    72>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    72>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.dll) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\Direct3d9_vsps\Release\gl07_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+    72>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_vsps) does not match the Linker's OutputFile property value (gl07_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+       Link:
+         All outputs are up-to-date.
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (64) on node 1 (default targets).
+    64>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (64) is building "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj" (73) on node 1 (default targets).
+    73>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    72>Link:
+         Direct3d9_vsps.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.tlog\Direct3d9_vsps.lastbuildstate".
+    72>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj" (default targets).
+    73>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    73>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.dll) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\Direct3d9\Release\gl05_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+    73>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9) does not match the Linker's OutputFile property value (gl05_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+       Link:
+         All outputs are up-to-date.
+         Direct3d9.vcxproj -> C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.dll
+    65>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (default targets).
+    70>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.tlog\lcdui.lastbuildstate".
+    70>Done Building Project "C:\ci-link-proof-clean\build-tree\src\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj" (default targets).
+    66>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj.metaproj" (default targets).
+    73>FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.tlog\Direct3d9.lastbuildstate".
+    73>Done Building Project "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj" (default targets).
+    64>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (default targets).
+     2>Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (74) on node 1 (default targets).
+    74>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+    74>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exe) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\SwgClient_r.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(SwgClient) does not match the Linker's OutputFile property value (SwgClient_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient_r.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedDebug\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\libMozilla\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\pcre\4.1\win32\lib /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\archive\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\blat\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientAnimation\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientAudio\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientBugReporting\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientDirectInput\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientGame\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientGraphics\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientObject\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientParticle\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientSkeletalAnimation\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientTerrain\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientTextureRenderer\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientUserInterface\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\crypto\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\Direct3d9\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\Direct3d9_ffp\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\Direct3d9_vsps\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\DllExport\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\fileInterface\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\lcdui\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\libEverQuestTCG\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\libMozilla\include\private\lib\release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\localization\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\localizationArchive\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedCollision\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedCommandParser\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedCompression\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRelease\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedFile\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedFoundation\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedFractal\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedGame\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedImage\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedInputMap\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedIoWin\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedLog\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedMath\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedMemoryManager\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedMessageDispatch\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedNetwork\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedNetworkMessages\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedObject\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedPathfinding\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRandom\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRegex\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRemoteDebugServer\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedSkillSystem\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedStatusWindow\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedSwitcher\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedSynchronization\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedTerrain\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedThread\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedUtility\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedXml\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\SwgClient\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgClientUserInterface\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgServerNetworkMessages\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgSharedNetworkMessages\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgSharedUtility\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\udplibrary\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\ui\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\unicode\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\unicodeArchive\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\zlib\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\alienbrain110\Lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\alienbrain122\Lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\alienbrain123\Lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\atiDxtc /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\ati_compress /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\atlmfc\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\atlmfc\lib\INTEL /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\bink\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\DejaInsight /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\directx9\lib /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\dpvs\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\lcdui\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\libjpeg\lib /LIBPATH:"..\..\..\..\..\..\..\src\external\3rd\library\libxml2-2.6.7.win32\lib" /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya4\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya5\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya7\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya8\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\miles\lib\win /LIBPATH:"..\..\..\..\..\..\..\src\external\3rd\library\miles-7.2e\lib\win" /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\ms_unicode /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\nvtristrip /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\oracle_win32\ora80\oci\lib\bc /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\oracle_win32\ora80\oci\lib\msvc /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\perforce\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\plugins\accessible /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\plugins\designer /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\plugins\imageformats /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\accessible /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\codecs /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\designer /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\imageformats /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\sqldrivers /LIBPATH:"..\..\..\..\..\..\..\src\external\3rd\library\soePlatform\libs\Win32-Release" /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\stationapi /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\stlport453\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\tinyxml\build\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\tinyxml\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\AudioCapture\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\CaptureCommon\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\ImageCapture\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\PICTools\Lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\Smart\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\SoeUtil\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\VideoCapture\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\ZlibUtil\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\vivox\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\vivoxSharedWrapper\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\zlib\lib\win32 archive.lib blat.lib clientAnimation.lib clientAudio.lib clientBugReporting.lib clientDirectInput.lib clientGame.lib clientGraphics.lib clientObject.lib clientParticle.lib clientSkeletalAnimation.lib clientTerrain.lib clientTextureRenderer.lib clientUserInterface.lib crypto.lib gl05_r.lib gl06_r.lib gl07_r.lib fileInterface.lib lcdui.lib libEverQuestTCG.lib localization.lib localizationArchive.lib sharedCollision.lib sharedCommandParser.lib sharedCompression.lib sharedFile.lib sharedFoundation.lib sharedFractal.lib sharedGame.lib sharedImage.lib sharedInputMap.lib sharedIoWin.lib sharedLog.lib sharedMath.lib sharedMemoryManager.lib sharedMessageDispatch.lib sharedNetwork.lib sharedNetworkMessages.lib sharedObject.lib sharedPathfinding.lib sharedRandom.lib sharedRegex.lib sharedSkillSystem.lib sharedStatusWindow.lib sharedSwitcher.lib sharedSynchronization.lib sharedTerrain.lib sharedThread.lib sharedUtility.lib sharedXml.lib swgClientUserInterface.lib swgSharedNetworkMessages.lib swgSharedUtility.lib udplibrary.lib ui.lib unicode.lib unicodeArchive.lib sharedDebug.lib zlib.lib ATI_Compress.lib atldload.lib atlsd.lib eafxisd.lib atl.lib EAFXISD.lib MFCM80D.lib MFCM80UD.lib MFCS80D.lib MFCS80UD.lib NafxcWD.lib NAFXISD.lib UafxcWD.lib mfc80d.lib mfc80ud.lib mfcdload.lib mfcs80d.lib mfcs80ud.lib nafxcwd.lib nafxisd.lib uafxcwd.lib binkw32.lib DejaDLL.Win32.lib DejaLib.Win32.lib DejaLib.X360.lib d3d9.lib d3dx.lib d3dx9.lib d3dx9dt.lib ddraw.lib dinput8.lib dsetup.lib dsound.lib DxErr9.lib dxguid.lib dpvs.lib lgLcd.lib libjpeg.lib nspr4.lib plc4.lib profdirserviceprovider_s.lib xpcom.lib xul.lib "libxml2-win32-release.lib" Mss32.lib unicows.lib NvTriStrip.lib Base.lib Base_vchat.lib ChatAPI.lib ChatMono.lib CommodityAPI.lib dbgutil.lib monapi.lib Network.lib rdp.lib TcpLibrary.lib VChatAPI.lib 989crypt.lib stlport_vc71_stldebug_static.lib tinyxmld.lib tinyxmld_STL.lib AudioCapture.lib CaptureCommon_release.lib ImageCapture_release.lib picn20md.lib Smart_debug.lib SoeUtil_debug.lib VideoCapture_release.lib ZlibUtil_release.lib "libsndfile-1.lib" vivoxplatform.lib vivoxsdk.lib vivoxSharedWrapper_Release.lib vivoxSharedWrapper_release.lib sharedRemoteDebugServer.lib VideoCapture_release.lib ImageCapture_release.lib Smart_release.lib SoeUtil_release.lib ZlibUtil_release.lib picn20m.lib ws2_32.lib winmm.lib libpcre.a "libxml2-win32-release.lib" mss32.lib mswsock.lib libMozilla.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libc /NODEFAULTLIB:MSVCRT /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient_r.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.lib" /MACHINE:X86 /SAFESEH:NO ..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.res
+         ..\..\..\..\..\..\compile\win32\SwgClient\Release\ClientMain.obj
+         ..\..\..\..\..\..\compile\win32\SwgClient\Release\FirstSwgClient.obj
+         ..\..\..\..\..\..\compile\win32\SwgClient\Release\WinMain.obj
+            Creating library ..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.lib and object ..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exp
+    74>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>sharedXml.lib(XmlTreeDocument.obj) : warning LNK4049: locally defined symbol _xmlFree imported [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(dll_main.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(dll_main.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(fstream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(fstream.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(ios.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ios.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(streambuf.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(stdio_streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(stdio_streambuf.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(iostream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(iostream.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(codecvt.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(codecvt.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(collate.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(collate.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(ctype.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ctype.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(monetary.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(monetary.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(num_get.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(num_put.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(num_get_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get_float.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(num_put_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put_float.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(numpunct.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(numpunct.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(time_facets.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(time_facets.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(messages.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(messages.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(locale_impl.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(locale_impl.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>stlport_vc71_stldebug_static.lib(c_locale.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(c_locale.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    74>vivoxSharedWrapper_Release.lib(vivox.obj) : warning LNK4099: PDB 'vc80_ib_1.pdb' was not found with 'vivoxSharedWrapper_Release.lib(vivox.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\vc80_ib_1.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         SwgClient.vcxproj -> C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exe
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.tlog\SwgClient.lastbuildstate".
+    74>Done Building Project "C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (default targets).
+     2>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default targets).
+     1>Done Building Project "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (SwgClient target(s)).
+
+Build succeeded.
+
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (default target) (63) ->
+       "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj" (default target) (71) ->
+       (DoLinkOutputFilesMatch target) -> 
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.dll) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\Direct3d9_ffp\Release\gl06_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_ffp) does not match the Linker's OutputFile property value (gl06_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+
+
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (default target) (65) ->
+       "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj" (default target) (72) ->
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.dll) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\Direct3d9_vsps\Release\gl07_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_vsps) does not match the Linker's OutputFile property value (gl07_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+
+
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (default target) (64) ->
+       "C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj" (default target) (73) ->
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.dll) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\Direct3d9\Release\gl05_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9) does not match the Linker's OutputFile property value (gl05_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+
+
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (default target) (74) ->
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exe) does not match the Linker's OutputFile property value (C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\SwgClient_r.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(SwgClient) does not match the Linker's OutputFile property value (SwgClient_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+
+
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "C:\ci-link-proof-clean\build-tree\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (default target) (74) ->
+       (Link target) -> 
+         LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         sharedXml.lib(XmlTreeDocument.obj) : warning LNK4049: locally defined symbol _xmlFree imported [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(dll_main.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(dll_main.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(fstream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(fstream.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(ios.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ios.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(streambuf.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(stdio_streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(stdio_streambuf.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(iostream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(iostream.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(codecvt.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(codecvt.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(collate.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(collate.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(ctype.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ctype.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(monetary.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(monetary.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_get.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_put.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_get_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get_float.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_put_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put_float.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(numpunct.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(numpunct.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(time_facets.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(time_facets.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(messages.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(messages.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(locale_impl.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(locale_impl.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(c_locale.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(c_locale.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         vivoxSharedWrapper_Release.lib(vivox.obj) : warning LNK4099: PDB 'vc80_ib_1.pdb' was not found with 'vivoxSharedWrapper_Release.lib(vivox.obj)' or at 'C:\ci-link-proof-clean\build-tree\src\compile\win32\SwgClient\Release\vc80_ib_1.pdb'; linking object as if no debug info [C:\ci-link-proof-clean\build-tree\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+
+    30 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:16.32
