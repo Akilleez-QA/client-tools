@@ -1,0 +1,13 @@
+find: Failed to restore initial working directory: /root: Permission denied
+sizeof(long)=4
+PASS  Clock::timeMs() returns a 64-bit value
+PASS  Clock::getFrameStartTimeMs() returns a 64-bit value
+PASS  Scheduler: callback due after the 2^32 ms wrap does not fire 50 ms after it was set
+PASS  Scheduler: callback does not fire 900 ms after it was set
+PASS  Scheduler: callback fires exactly when due, past the wrap
+PASS  Scheduler: current count keeps all 64 bits
+PASS  durationMs<int>: plain duration past 2^32 ms
+PASS  durationMs: 0 when end precedes start
+PASS  durationMs<uint32_t> saturates
+PASS  durationMs<int> saturates
+ALL PASS

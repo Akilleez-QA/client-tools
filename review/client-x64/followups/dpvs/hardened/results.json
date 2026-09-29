@@ -1,0 +1,477 @@
+{
+  "provenance": {
+    "source_revision": "ebce07521eba3b4c92eccf5aaf3bdcb3d6f475c4",
+    "source_archive_sha256": "0671ca8d1a3d18fe12ee4990390f74240c85627a99e48b704cd37c00bbb4683c"
+  },
+  "runtime": [
+    {
+      "platform": "Win32",
+      "configuration": "Release",
+      "dll_sha256": "8941294a3e3821e59ef958faab5ef60fd81fe4fe4df06629cc53c310d9c333a6",
+      "build_exit": 0,
+      "probe_exits": [
+        0,
+        0
+      ],
+      "stress_queries": 192,
+      "occlusion_frames": 64
+    },
+    {
+      "platform": "Win32",
+      "configuration": "Debug",
+      "dll_sha256": "75fafd5c366fd2590f679ee6436467bad8971dc28e2622b59c5d8e04edb53894",
+      "build_exit": 0,
+      "probe_exits": [
+        0,
+        0
+      ],
+      "stress_queries": 192,
+      "occlusion_frames": 64
+    },
+    {
+      "platform": "x64",
+      "configuration": "Release",
+      "dll_sha256": "63f28a5a707235784a9bc2327c8a1a3c66c1f82d1a75b01e8d588cdc2edbdb6f",
+      "build_exit": 0,
+      "probe_exits": [
+        0,
+        0
+      ],
+      "stress_queries": 192,
+      "occlusion_frames": 64
+    },
+    {
+      "platform": "x64",
+      "configuration": "Debug",
+      "dll_sha256": "484da33aafaf7f63273849105ae1b86b3e61ffca6b8bfe2079d8695347e87d2e",
+      "build_exit": 0,
+      "probe_exits": [
+        0,
+        0
+      ],
+      "stress_queries": 192,
+      "occlusion_frames": 64
+    }
+  ],
+  "numerical": {
+    "numerical": {
+      "rows": 38880,
+      "counts": {
+        "F": 6240,
+        "R": 24960,
+        "M": 1440,
+        "D": 6240
+      },
+      "differences": [
+        {
+          "row": 19,
+          "win32": [
+            "M",
+            "0",
+            "2",
+            "0",
+            "00000000",
+            "00000000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "2",
+            "0",
+            "80000000",
+            "80000000"
+          ]
+        },
+        {
+          "row": 20,
+          "win32": [
+            "M",
+            "0",
+            "2",
+            "1",
+            "80000000",
+            "80000000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "2",
+            "1",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "row": 39,
+          "win32": [
+            "M",
+            "0",
+            "3",
+            "0",
+            "00000000",
+            "3f7fffff"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "3",
+            "0",
+            "80000000",
+            "3f7fffff"
+          ]
+        },
+        {
+          "row": 40,
+          "win32": [
+            "M",
+            "0",
+            "3",
+            "1",
+            "bf7fffff",
+            "80000000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "3",
+            "1",
+            "bf7fffff",
+            "00000000"
+          ]
+        },
+        {
+          "row": 41,
+          "win32": [
+            "M",
+            "0",
+            "3",
+            "2",
+            "00000000",
+            "00000000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "3",
+            "2",
+            "80000000",
+            "80000000"
+          ]
+        },
+        {
+          "row": 65,
+          "win32": [
+            "M",
+            "0",
+            "4",
+            "0",
+            "00000000",
+            "3f800000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "4",
+            "0",
+            "80000000",
+            "3f800000"
+          ]
+        },
+        {
+          "row": 66,
+          "win32": [
+            "M",
+            "0",
+            "4",
+            "1",
+            "bf800000",
+            "80000000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "4",
+            "1",
+            "bf800000",
+            "00000000"
+          ]
+        },
+        {
+          "row": 67,
+          "win32": [
+            "M",
+            "0",
+            "4",
+            "2",
+            "00000000",
+            "3f7fffff"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "4",
+            "2",
+            "80000000",
+            "3f7fffff"
+          ]
+        },
+        {
+          "row": 97,
+          "win32": [
+            "M",
+            "0",
+            "5",
+            "0",
+            "00000000",
+            "3f800001"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "5",
+            "0",
+            "80000000",
+            "3f800001"
+          ]
+        },
+        {
+          "row": 98,
+          "win32": [
+            "M",
+            "0",
+            "5",
+            "1",
+            "bf800001",
+            "80000000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "5",
+            "1",
+            "bf800001",
+            "00000000"
+          ]
+        },
+        {
+          "row": 99,
+          "win32": [
+            "M",
+            "0",
+            "5",
+            "2",
+            "00000000",
+            "3f800000"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "5",
+            "2",
+            "80000000",
+            "3f800000"
+          ]
+        },
+        {
+          "row": 137,
+          "win32": [
+            "M",
+            "0",
+            "6",
+            "2",
+            "00000000",
+            "3f800001"
+          ],
+          "x64": [
+            "M",
+            "0",
+            "6",
+            "2",
+            "80000000",
+            "3f800001"
+          ]
+        },
+        {
+          "row": 24339,
+          "win32": [
+            "M",
+            "25",
+            "3",
+            "0",
+            "caffffff",
+            "00000000"
+          ],
+          "x64": [
+            "M",
+            "25",
+            "3",
+            "0",
+            "caffffff",
+            "80000000"
+          ]
+        },
+        {
+          "row": 24340,
+          "win32": [
+            "M",
+            "25",
+            "3",
+            "1",
+            "80000000",
+            "4affffff"
+          ],
+          "x64": [
+            "M",
+            "25",
+            "3",
+            "1",
+            "00000000",
+            "4affffff"
+          ]
+        },
+        {
+          "row": 24367,
+          "win32": [
+            "M",
+            "25",
+            "4",
+            "2",
+            "caffffff",
+            "00000000"
+          ],
+          "x64": [
+            "M",
+            "25",
+            "4",
+            "2",
+            "caffffff",
+            "80000000"
+          ]
+        }
+      ]
+    },
+    "caller": {
+      "rows": 11978,
+      "counts": {
+        "R": 8394,
+        "C": 3584
+      },
+      "differences": [
+        {
+          "row": 10491,
+          "win32": [
+            "C",
+            "299",
+            "4",
+            "b2762091",
+            "-1",
+            "befa410a",
+            "be45a171",
+            "3f59cd8d",
+            "bff44867",
+            "3fa66666",
+            "b2a5c8db",
+            "403f5c29"
+          ],
+          "x64": [
+            "C",
+            "299",
+            "4",
+            "b2762092",
+            "-1",
+            "befa410a",
+            "be45a171",
+            "3f59cd8d",
+            "bff44867",
+            "3fa66666",
+            "b2a5c8db",
+            "403f5c29"
+          ]
+        }
+      ]
+    }
+  },
+  "baseline_comparison": {
+    "normalized_equal": true,
+    "size_base": 583680,
+    "size_candidate": 583680,
+    "differing_bytes": 0,
+    "first_differences": [],
+    "base_normalized_fields": [
+      [
+        264,
+        4,
+        "COFF timestamp"
+      ],
+      [
+        548852,
+        4,
+        "export timestamp"
+      ],
+      [
+        468916,
+        4,
+        "debug timestamp"
+      ],
+      [
+        536452,
+        20,
+        "PDB GUID and age"
+      ],
+      [
+        468944,
+        4,
+        "debug timestamp"
+      ],
+      [
+        474244,
+        20,
+        "DPVS_BUILD_TIME"
+      ]
+    ],
+    "candidate_normalized_fields": [
+      [
+        264,
+        4,
+        "COFF timestamp"
+      ],
+      [
+        548852,
+        4,
+        "export timestamp"
+      ],
+      [
+        468916,
+        4,
+        "debug timestamp"
+      ],
+      [
+        536452,
+        20,
+        "PDB GUID and age"
+      ],
+      [
+        536472,
+        73,
+        "PDB Win32 path capitalization (case only)"
+      ],
+      [
+        468944,
+        4,
+        "debug timestamp"
+      ],
+      [
+        474244,
+        20,
+        "DPVS_BUILD_TIME"
+      ]
+    ],
+    "raw_sections_equal": {
+      ".text": true,
+      ".rdata": false,
+      ".data": true,
+      ".rsrc": true,
+      ".reloc": true
+    }
+  }
+}

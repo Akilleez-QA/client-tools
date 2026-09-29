@@ -1,0 +1,27 @@
+find: Failed to restore initial working directory: /root: Permission denied
+WARNING:     (4942c0e3): OsFile::open refusing /tmp/osfile_test.EfQ3Hj/2GiB.bin: file size 2147483648 is larger than the 2147483647 byte limit of the file API
+WARNING:     (4942c0e3): OsFile::open refusing /tmp/osfile_test.EfQ3Hj/3GiB.bin: file size 3221225472 is larger than the 2147483647 byte limit of the file API
+sizeof(long)=8 sizeof(off_t)=8
+PASS  /tmp/osfile_test.EfQ3Hj/small.bin: exists
+PASS  /tmp/osfile_test.EfQ3Hj/small.bin: getFileSize is its size
+PASS  /tmp/osfile_test.EfQ3Hj/small.bin: opens with its length
+PASS  /tmp/osfile_test.EfQ3Hj/2GiB-1.bin: exists
+PASS  /tmp/osfile_test.EfQ3Hj/2GiB-1.bin: getFileSize is its size
+PASS  /tmp/osfile_test.EfQ3Hj/2GiB-1.bin: opens with its length
+PASS  /tmp/osfile_test.EfQ3Hj/2GiB.bin: exists
+PASS  /tmp/osfile_test.EfQ3Hj/2GiB.bin: getFileSize is -1 (unusable)
+    (4942c0e3): OsFile::open refusing /tmp/osfile_test.EfQ3Hj/2GiB.bin: file size 2147483648 is larger than the 2147483647 byte limit of the file API
+PASS  /tmp/osfile_test.EfQ3Hj/2GiB.bin: open refuses it
+PASS  /tmp/osfile_test.EfQ3Hj/3GiB.bin: exists
+PASS  /tmp/osfile_test.EfQ3Hj/3GiB.bin: getFileSize is -1 (unusable)
+    (4942c0e3): OsFile::open refusing /tmp/osfile_test.EfQ3Hj/3GiB.bin: file size 3221225472 is larger than the 2147483647 byte limit of the file API
+PASS  /tmp/osfile_test.EfQ3Hj/3GiB.bin: open refuses it
+PASS  missing file: does not exist
+PASS  missing file: getFileSize is -1
+WARNING:     (4942c0e3): OsFile::open refusing /tmp/osfile_test.EfQ3Hj/2GiB.bin: file size 2147483648 is larger than the 2147483647 byte limit of the file API
+WARNING:     (33d989f9): TreeFile::SearchTree failed to open /tmp/osfile_test.EfQ3Hj/2GiB.bin; it will not be searched
+    (4942c0e3): OsFile::open refusing /tmp/osfile_test.EfQ3Hj/2GiB.bin: file size 2147483648 is larger than the 2147483647 byte limit of the file API
+    (33d989f9): TreeFile::SearchTree failed to open /tmp/osfile_test.EfQ3Hj/2GiB.bin; it will not be searched
+      addSearchTree returned; exists("foo.iff")=0
+PASS  TreeFile::addSearchTree on a refused file: no crash, nothing found
+ALL PASS

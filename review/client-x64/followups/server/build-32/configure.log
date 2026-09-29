@@ -1,0 +1,38 @@
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /home/swg/gcc-fmt
+-- Check for working C compiler: /home/swg/gcc-fmt - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /home/swg/gxx-fmt
+-- Check for working CXX compiler: /home/swg/gxx-fmt - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found BISON: /usr/bin/bison (found version "3.0.4") 
+-- Found FLEX: /usr/bin/flex (found version "2.6.4") 
+-- Found JNI: /usr/java/lib/libjawt.so  
+-- Found LibXml2: /usr/lib32/libxml2.so  
+-- Found Oracle: /usr/lib/oracle/18.3/client/lib/libclntsh.so;/usr/lib/oracle/18.3/client/lib/libocci.so;/usr/lib/oracle/18.3/client/lib/libnnz18.so  
+-- Found PCRE: /usr/lib32/libpcre.so  
+-- Found Perl: /usr/bin/perl (found version "5.26.1") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found ZLIB: /usr/lib32/libz.so (found version "1.2.11") 
+-- Found CURL: /usr/lib32/libcurl.so (found version "7.66.0")  
+-- Found Curses: /usr/lib32/libncurses.so  
+Using Compiler: GNU
+-- CMAKE_CXX_FLAGS_RELEASE="-O0 -DDEBUG_LEVEL=0 -DPRODUCTION=1"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/validation/build-32

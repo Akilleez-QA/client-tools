@@ -1,0 +1,28 @@
+{
+  "source_commit": "8e57911e",
+  "source_archive_sha256": "a7f3b681cf145b85d50adb04edb098d25d228ae87ff2c5aaa53ccf0be70c1b85",
+  "source_manifest_unchanged": true,
+  "configuration": "RELEASE with CMAKE_CXX_FLAGS_RELEASE=-O0; compiler wrappers append -Wformat",
+  "builds": {
+    "32": "PASS",
+    "64": "PASS"
+  },
+  "oracle_fixtures_per_abi": {
+    "binding": 62,
+    "snapshot_send": 19,
+    "cluster_list": 7
+  },
+  "clock_each_abi": "ALL PASS",
+  "osfile_each_abi": "ALL PASS",
+  "miff_each_abi": "33 cases, 0 failed",
+  "cluster_process_count_each_start": 84,
+  "starts": [
+    "64",
+    "64 restart",
+    "32"
+  ],
+  "remaining_processes_after_shutdown_each": 0,
+  "gameplay_retested": false,
+  "save_acknowledgement_proven": false,
+  "broken_pipe_notices_present": true
+}

@@ -1,0 +1,11 @@
+WARNING:     (dfb56a6f): DatabaseError: cluster_list.port = 65536 does not fit the unsigned 16-bit destination (TaskGetClusterList, cluster 92 (int32test-bad): the cluster is skipped). The operation fails; the value is not clamped.
+PASS: connected to the scratch schema
+PASS: seed clusters 91 (port 44463), 92 (port 65536), 93 (NULL port)
+    (dfb56a6f): DatabaseError: cluster_list.port = 65536 does not fit the unsigned 16-bit destination (TaskGetClusterList, cluster 92 (int32test-bad): the cluster is skipped). The operation fails; the value is not clamped.
+PASS: TaskGetClusterList::process succeeds
+  clusters served: int32test-a int32test-c 
+PASS: cluster 92 (port 65536) is skipped
+PASS: cluster 91 is served with port 44463
+PASS: cluster 93 (NULL port) is served with the configured central service port
+PASS: rollback: the scratch schema is unchanged
+ALL PASSED: 0 failure(s)

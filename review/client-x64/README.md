@@ -1,5 +1,9 @@
 # Client x64 review packet
 
+Current follow-up: [CI, reproducibility and final-head server validation](followups/README.md).
+The original tables and manifests below record the **initial submission baselines**;
+client #23 and #24 now also contain separately tested CI/reproducibility commits.
+
 These are separate review branches on `Akilleez-QA/client-tools`, based on upstream `949451032647e45e42c3aaef3f41b132c8af36e3`. They are published so cloud reviewers can inspect the source and evidence. No pull requests or issue comments were opened.
 
 | Review | Branch | Head | Scope |

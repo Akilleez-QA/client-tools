@@ -1,0 +1,96 @@
+WARNING:     (dfb56a6f): DatabaseError: unit uint8 300 = 300 does not fit the unsigned 8-bit destination (harness). The operation fails; the value is not clamped.
+WARNING:     (dfb56a6f): DatabaseError: unit uint8 -1 = -1 does not fit the unsigned 8-bit destination (harness). The operation fails; the value is not clamped.
+WARNING:     (dfb56a6f): DatabaseError: unit int8 -999 (a NULL column's sentinel) = -999 does not fit the signed 8-bit destination (harness). The operation fails; the value is not clamped.
+WARNING: (0x00000000080E132C) : WARNING dfb56a6f: 
+DatabaseError: unit ub4 2^32 = 4294967296 does not fit the unsigned 32-bit destination (harness). The operation fails; the value is not clamped.
+WARNING:     (dfb56a6f): DatabaseError: unit ub2 65536 = 65536 does not fit the unsigned 16-bit destination (harness). The operation fails; the value is not clamped.
+WARNING: (0x00000000080E132C) : WARNING dfb56a6f: 
+DatabaseError: unit time + 7h = 2147508847 does not fit the signed 32-bit destination (harness). The operation fails; the value is not clamped.
+WARNING: (0x00000000080C9297) : WARNING dfb56a6f: 
+DatabaseError: unit = 2147483648 does not fit the signed 32-bit destination (lazy context). The operation fails; the value is not clamped.
+WARNING:     (dfb56a6f): DatabaseError: unit size_t -2 = -2 does not fit the unsigned 32-bit destination (harness). The operation fails; the value is not clamped.
+WARNING:     (a1f8046c): Database error: ORA-01455: converting column overflows integer datatype
+
+Unhandled Database Error - ORA-01455: converting column overflows integer datatype
+
+ABI: 32-bit (sizeof(long)=4)
+    (dfb56a6f): DatabaseError: unit uint8 300 = 300 does not fit the unsigned 8-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: 300 -> uint8 fails, destination unchanged
+    (dfb56a6f): DatabaseError: unit uint8 -1 = -1 does not fit the unsigned 8-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: -1 -> uint8 fails
+PASS: checkedNarrow: 255 -> uint8
+    (dfb56a6f): DatabaseError: unit int8 -999 (a NULL column's sentinel) = -999 does not fit the signed 8-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: -999 -> int8 fails
+(0x00000000080E132C) : WARNING dfb56a6f: 
+DatabaseError: unit ub4 2^32 = 4294967296 does not fit the unsigned 32-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: 2^32 -> ub4 fails
+PASS: checkedNarrow: 2^32-1 -> ub4
+    (dfb56a6f): DatabaseError: unit ub2 65536 = 65536 does not fit the unsigned 16-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: 65536 -> ub2 fails
+PASS: checkedNarrow: 65535 -> ub2
+(0x00000000080E132C) : WARNING dfb56a6f: 
+DatabaseError: unit time + 7h = 2147508847 does not fit the signed 32-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: INT_MAX + 7h -> int fails
+(0x00000000080C9297) : WARNING dfb56a6f: 
+DatabaseError: unit = 2147483648 does not fit the signed 32-bit destination (lazy context). The operation fails; the value is not clamped.
+PASS: checkedNarrow: 2^31 -> int fails (lazy context)
+PASS: checkedNarrow: INT_MIN -> int
+    (dfb56a6f): DatabaseError: unit size_t -2 = -2 does not fit the unsigned 32-bit destination (harness). The operation fails; the value is not clamped.
+PASS: checkedNarrow: -2 -> size_t fails
+PASS: BindableInt32 default is NULL (sentinel -999, not 0)
+PASS: BindableInt32 set
+PASS: BindableInt32 setNull
+PASS: int32_t is 4 bytes
+PASS: connected to the scratch schema
+PASS: create scratch table int32test_values
+PASS: create the scratch cursor function
+PASS: create VAOFNUMBER varray
+PASS: push BindableUint32 2404701341
+PASS: push NULL BindableInt32
+PASS: push BindableInt32 -5
+PASS: push BindableInt64 2^40
+PASS: push NULL BindableUint32 (IsNULL form)
+PASS: push NULL BindableDouble (no value read, no conversion)
+PASS: push BindableUint32 call time 0x80000000
+PASS: insert varray through table(:arr)
+PASS: insert BindableUint32 4294967295 as a parameter
+PASS: rowCount() of that insert is 1
+PASS: select int32test_values
+PASS: eight rows stored
+  stored: -1890265955 | NULL | -5 | 1099511627776 | NULL | NULL | -2147483648 | -1
+PASS: NULL BindableDouble element stored as NULL
+PASS: call time 0x80000000 stored as -2147483648, read back bit-exactly as 2147483648
+PASS: CRC 2404701341 stored as -1890265955 and read back as 2404701341
+PASS: NULL BindableInt32 element stored as NULL (not 0, not -999)
+PASS: BindableInt32 -5 round-trips
+PASS: BindableInt64 2^40 stored at 64 bits
+PASS: NULL BindableUint32 element stored as NULL
+PASS: CRC 4294967295 parameter stored as -1, read back as 4294967295
+PASS: PL/SQL in/out int and string parameters (bind lengths through preprocessBinds)
+PASS: out parameters: 42, "abcx"
+PASS: select NULL into BindableInt32
+PASS: NULL column fetched as NULL
+PASS: manual commit mode
+PASS: seed objects 770000001..770000010
+PASS: give object 770000002 a negative template CRC
+PASS: fill object_list with the 10 objects
+PASS: exec loader.load_object
+PASS: load finished without error
+  batches: 4 4 2
+PASS: fetch returned 4, 4, 2
+PASS: stored template CRC -1890265955 loads as uint32 2404701341
+PASS: short final batch post-processed only its 2 rows
+PASS: seed node_x = 3000000000 on object 770000007
+PASS: refill object_list
+    (a1f8046c): Database error: ORA-01455: converting column overflows integer datatype
+
+  exec=1, last fetch=-1, rows delivered before the failure=4
+PASS: load of the out-of-range row fails (fetch returns -1, ORA-01455 logged above)
+PASS: no clamped or wrapped value was delivered
+PASS: seed resource types 770000101 (5), 770000102 (7), 770000103 (NULL)
+PASS: exec depleted-timestamp cursor
+PASS: batch 1: 5 and 7
+  batch 2 row 0: isNull=1 uint32=0 double=-999 bool=0
+PASS: NULL depleted_timestamp in a reused row reads NULL with the type's null value, not the previous batch's 5 (double and bool too)
+PASS: rollback: the scratch schema is unchanged
+ALL PASSED: 0 failure(s)
