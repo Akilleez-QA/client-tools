@@ -1,0 +1,945 @@
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 9/29/2026 8:12:40 AM.
+     1>Project "C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" on node 1 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file ".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.tlog\dpvs.lastbuildstate".
+       InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I..\..\interface /I..\include /Zi /nologo /W4 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D DPVS_DLL /D DPVS_BUILD_LIBRARY /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /FAs /Fa".\..\..\..\..\..\..\compile\x64\dpvs\Debug\\" /Fo".\..\..\..\..\..\..\compile\x64\dpvs\Debug\\" /Fd".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs-compile.pdb" /Gd /TP /errorReport:queue ..\sources\dpvsAABB.cpp ..\sources\dpvsArray.cpp ..\sources\dpvsBitMath.cpp ..\sources\dpvsBlockBuffer.cpp ..\sources\dpvsBounds.cpp ..\sources\dpvsClipPolygon.cpp ..\sources\dpvsDatabase.cpp ..\sources\dpvsDataPasser.cpp ..\sources\dpvsDebug.cpp ..\sources\dpvsGameCube.cpp ..\sources\dpvsHZBuffer.cpp ..\sources\dpvsImpCamera.cpp ..\sources\dpvsImpCell.cpp ..\sources\dpvsImpCommander.cpp ..\sources\dpvsImpMeshModel.cpp ..\sources\dpvsImpMiscModel.cpp ..\sources\dpvsImpModel.cpp ..\sources\dpvsImpObject.cpp ..\sources\dpvsImpPhysicalPortal.cpp ..\sources\dpvsImpRegionOfInfluence.cpp ..\sources\dpvsImpVirtualPortal.cpp ..\sources\dpvsInstanceCount.cpp ..\sources\dpvsIntersect.cpp ..\sources\dpvsLibraryServices.cpp ..\sources\dpvsMath.cpp ..\sources\dpvsMatrix.cpp ..\sources\dpvsMatrixConverter.cpp ..\sources\dpvsMemory.cpp ..\sources\dpvsMemoryPool.cpp ..\sources\dpvsMesh.cpp ..\sources\dpvsMT.cpp ..\sources\dpvsNameHash.cpp ..\sources\dpvsOBB.cpp ..\sources\dpvsOcclusionBuffer.cpp ..\sources\dpvsOcclusionBuffer_Buffer.cpp ..\sources\dpvsOcclusionBuffer_CacheFiller.cpp ..\sources\dpvsOcclusionBuffer_Edges.cpp ..\sources\dpvsOcclusionBuffer_Render.cpp ..\sources\dpvsOcclusionBuffer_Stencil.cpp ..\sources\dpvsOcclusionBuffer_Test.cpp ..\sources\dpvsOcclusionBuffer_ZGradient.cpp ..\sources\dpvsOcclusionBuffer_ZGradientPS2.cpp ..\sources\dpvsPPCTest.cpp ..\sources\dpvsPS2Test.cpp ..\sources\dpvsRandom.cpp ..\sources\dpvsRectangle.cpp ..\sources\dpvsRecursionSolver.cpp ..\sources\dpvsRemoteDebugger.cpp ..\sources\dpvsScratchpad.cpp ..\sources\dpvsSilhouette.cpp ..\sources\dpvsSilhouetteCache.cpp ..\sources\dpvsSilhouetteCacheCommon.cpp ..\sources\dpvsSilhouetteMath.cpp ..\sources\dpvsStatistics.cpp ..\sources\dpvsSurface.cpp ..\sources\dpvsSweepAndPrune.cpp ..\sources\dpvsSystem.cpp ..\sources\dpvsTempAllocator.cpp ..\sources\dpvsTempArray.cpp ..\sources\dpvsUtility.cpp ..\sources\dpvsVisibilityQuery.cpp ..\sources\dpvsVisibilityQuery_Resolve.cpp ..\sources\dpvsVisibilityQuery_Test.cpp ..\sources\dpvsVisibilityQuery_Traverse.cpp ..\sources\dpvsVQData.cpp ..\sources\dpvsWindows.cpp ..\sources\dpvsWrapper.cpp ..\sources\dpvsWrapperCreate.cpp ..\sources\dpvsWriteQueue.cpp ..\sources\dpvsX86.cpp
+         dpvsAABB.cpp
+         dpvsArray.cpp
+         dpvsBitMath.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsBlockBuffer.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsBounds.cpp
+         dpvsClipPolygon.cpp
+         dpvsDatabase.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(60) : while compiling class template member function 'DPVS::TempArray<DPVS::AABB,false>::TempArray(int)'
+                 ..\sources\dpvsDatabase.cpp(2187) : see reference to function template instantiation 'DPVS::TempArray<DPVS::AABB,false>::TempArray(int)' being compiled
+                 ..\sources\dpvsDatabase.cpp(2187) : see reference to class template instantiation 'DPVS::TempArray<DPVS::AABB,false>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsDatabase.cpp(1030) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Node>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Node
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(78) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::TraversalElement
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(70) : while compiling class template member function 'void DPVS::Array<Item>::resize(int)'
+                 with
+                 [
+                     Item=DPVS::TraversalElement
+                 ]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsPriorityQueue.hpp(56) : see reference to function template instantiation 'void DPVS::Array<Item>::resize(int)' being compiled
+                 with
+                 [
+                     Item=DPVS::TraversalElement
+                 ]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsPriorityQueue.hpp(68) : see reference to class template instantiation 'DPVS::Array<Item>' being compiled
+                 with
+                 [
+                     Item=DPVS::TraversalElement
+                 ]
+                 ..\sources\dpvsDatabase.cpp(397) : see reference to class template instantiation 'DPVS::PQueue<DPVS::TraversalElement>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(236) : while compiling class template member function 'void DPVS::Set<DPVS::ImpObject *>::rehash(size_t)'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(471) : see reference to function template instantiation 'void DPVS::Set<DPVS::ImpObject *>::rehash(size_t)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(322) : while compiling class template member function 'DPVS::Set<DPVS::ImpObject *>::Set(void)'
+                 ..\sources\dpvsDatabase.cpp(484) : see reference to function template instantiation 'DPVS::Set<DPVS::ImpObject *>::Set(void)' being compiled
+                 ..\sources\dpvsDatabase.cpp(396) : see reference to class template instantiation 'DPVS::Set<DPVS::ImpObject *>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsDataPasser.cpp
+         dpvsDebug.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsDebug.cpp(79) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Surface>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Surface
+                 ]
+         dpvsGameCube.cpp
+         dpvsHZBuffer.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsHZBuffer.cpp(1163): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsImpCamera.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsImpCamera.cpp(90) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::VisibilityQuery>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::VisibilityQuery
+                 ]
+         dpvsImpCell.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsImpCell.cpp(56) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::IDatabase>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::IDatabase
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(236) : while compiling class template member function 'void DPVS::Set<DPVS::Camera *>::rehash(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(471) : see reference to function template instantiation 'void DPVS::Set<DPVS::Camera *>::rehash(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(322) : while compiling class template member function 'DPVS::Set<DPVS::Camera *>::Set(void)'
+                 ..\sources\dpvsImpCell.cpp(61) : see reference to function template instantiation 'DPVS::Set<DPVS::Camera *>::Set(void)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsImpCell.hpp(104) : see reference to class template instantiation 'DPVS::Set<DPVS::Camera *>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsImpCommander.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsImpMeshModel.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(60) : while compiling class template member function 'DPVS::TempArray<DPVS::Vector3i,false>::TempArray(int)'
+                 ..\sources\dpvsImpMeshModel.cpp(395) : see reference to function template instantiation 'DPVS::TempArray<DPVS::Vector3i,false>::TempArray(int)' being compiled
+                 ..\sources\dpvsImpMeshModel.cpp(395) : see reference to class template instantiation 'DPVS::TempArray<DPVS::Vector3i,false>' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsImpMiscModel.cpp
+         dpvsImpModel.cpp
+         dpvsImpObject.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsImpObject.cpp(1397): warning C4244: 'argument' : conversion from 'DPVS::UPTR' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsImpObject.cpp(1642) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::ImpObject::Dynamic>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::ImpObject::Dynamic
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::ImpObject *>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::ImpObject *>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(209) : while compiling class template member function 'DPVS::DynamicArray<DPVS::ImpObject *>::DynamicArray(void)'
+                 ..\sources\dpvsImpObject.cpp(842) : see reference to function template instantiation 'DPVS::DynamicArray<DPVS::ImpObject *>::DynamicArray(void)' being compiled
+                 ..\sources\dpvsImpObject.cpp(842) : see reference to class template instantiation 'DPVS::DynamicArray<DPVS::ImpObject *>' being compiled
+         dpvsImpPhysicalPortal.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsImpPhysicalPortal.cpp(82) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Set<DPVS::ImpVirtualPortal *>>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Set<DPVS::ImpVirtualPortal *>
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(236) : while compiling class template member function 'void DPVS::Set<DPVS::ImpVirtualPortal *>::rehash(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(471) : see reference to function template instantiation 'void DPVS::Set<DPVS::ImpVirtualPortal *>::rehash(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(457) : while compiling class template member function 'bool DPVS::Set<DPVS::ImpVirtualPortal *>::contains(const S &) const'
+                 with
+                 [
+                     S=DPVS::ImpVirtualPortal *
+                 ]
+                 ..\sources\dpvsImpPhysicalPortal.cpp(64) : see reference to function template instantiation 'bool DPVS::Set<DPVS::ImpVirtualPortal *>::contains(const S &) const' being compiled
+                 with
+                 [
+                     S=DPVS::ImpVirtualPortal *
+                 ]
+                 ..\sources\dpvsImpPhysicalPortal.cpp(49) : see reference to class template instantiation 'DPVS::Set<DPVS::ImpVirtualPortal *>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsImpRegionOfInfluence.cpp
+         Generating Code...
+         Compiling...
+         dpvsImpVirtualPortal.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsImpVirtualPortal.cpp(44) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Matrix4x3>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Matrix4x3
+                 ]
+         dpvsInstanceCount.cpp
+         dpvsIntersect.cpp
+         dpvsLibraryServices.cpp
+     1>..\sources\dpvsLibraryServices.cpp(80): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+         dpvsMath.cpp
+         dpvsMatrix.cpp
+         dpvsMatrixConverter.cpp
+         dpvsMemory.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsMemory.cpp(391): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(236) : while compiling class template member function 'void DPVS::Set<void *>::rehash(size_t)'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(471) : see reference to function template instantiation 'void DPVS::Set<void *>::rehash(size_t)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(322) : while compiling class template member function 'DPVS::Set<void *>::Set(void)'
+                 ..\sources\dpvsMemory.cpp(68) : see reference to function template instantiation 'DPVS::Set<void *>::Set(void)' being compiled
+                 ..\sources\dpvsMemory.cpp(65) : see reference to class template instantiation 'DPVS::Set<void *>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsMemoryPool.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsMemoryPool.cpp(529): warning C4244: '-=' : conversion from 'DPVS::UPTR' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsMemoryPool.cpp(581): warning C4244: '+=' : conversion from 'DPVS::UPTR' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsMemoryPool.cpp(623): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsMesh.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsMesh.cpp(126) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<DPVS::Vector3>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::Vector3
+                 ]
+         dpvsMT.cpp
+         dpvsNameHash.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsNameHash.cpp(87) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Hash<const void *,char *>>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Hash<const void *,char *>
+                 ]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(227) : while compiling class template member function 'void DPVS::Hash<const void *,char *>::rehash(void)'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(96) : see reference to function template instantiation 'void DPVS::Hash<const void *,char *>::rehash(void)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(94) : while compiling class template member function 'void DPVS::Hash<const void *,char *>::insert(const Key &,const Value &)'
+                 with
+                 [
+                     Key=const void *
+         ,            Value=char *
+                 ]
+                 ..\sources\dpvsNameHash.cpp(91) : see reference to function template instantiation 'void DPVS::Hash<const void *,char *>::insert(const Key &,const Value &)' being compiled
+                 with
+                 [
+                     Key=const void *
+         ,            Value=char *
+                 ]
+                 ..\sources\dpvsNameHash.cpp(42) : see reference to class template instantiation 'DPVS::Hash<const void *,char *>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsOBB.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(60) : while compiling class template member function 'DPVS::TempArray<DPVS::Vector3,false>::TempArray(int)'
+                 ..\sources\dpvsOBB.cpp(173) : see reference to function template instantiation 'DPVS::TempArray<DPVS::Vector3,false>::TempArray(int)' being compiled
+                 ..\sources\dpvsOBB.cpp(173) : see reference to class template instantiation 'DPVS::TempArray<DPVS::Vector3,false>' being compiled
+         dpvsOcclusionBuffer.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsOcclusionBuffer.cpp(217): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsOcclusionBuffer.cpp(218): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsOcclusionBuffer.cpp(210) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::OcclusionBuffer::Cache>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::OcclusionBuffer::Cache
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(78) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::OcclusionBuffer::EdgeManager::Entry
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(70) : while compiling class template member function 'void DPVS::Array<DPVS::OcclusionBuffer::EdgeManager::Entry>::resize(int)'
+                 ..\sources\dpvsOcclusionBuffer.cpp(303) : see reference to function template instantiation 'void DPVS::Array<DPVS::OcclusionBuffer::EdgeManager::Entry>::resize(int)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsOcclusionBuffer.hpp(246) : see reference to class template instantiation 'DPVS::Array<DPVS::OcclusionBuffer::EdgeManager::Entry>' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsOcclusionBuffer_Buffer.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsOcclusionBuffer_Buffer.cpp(158) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<DPVS::QWORD>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::QWORD
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsOcclusionBuffer_Buffer.cpp(733) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Surface>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Surface
+                 ]
+         dpvsOcclusionBuffer_CacheFiller.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsOcclusionBuffer_Edges.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(295): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(295) : while compiling class template member function 'DPVS::Guard<DPVS::OcclusionBuffer::Edge>::Guard(DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge> &)'
+                 ..\sources\dpvsOcclusionBuffer_Edges.cpp(875) : see reference to function template instantiation 'DPVS::Guard<DPVS::OcclusionBuffer::Edge>::Guard(DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge> &)' being compiled
+                 ..\sources\dpvsOcclusionBuffer_Edges.cpp(875) : see reference to class template instantiation 'DPVS::Guard<DPVS::OcclusionBuffer::Edge>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(227) : while compiling class template member function 'size_t DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>::getElements(void) const'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(295) : see reference to function template instantiation 'size_t DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>::getElements(void) const' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsOcclusionBuffer.hpp(340) : see reference to class template instantiation 'DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::OcclusionBuffer::Edge
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::OcclusionBuffer::Edge>::resize(size_t)' being compiled
+         dpvsOcclusionBuffer_Render.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsOcclusionBuffer_Stencil.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsOcclusionBuffer_Test.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         Generating Code...
+         Compiling...
+         dpvsOcclusionBuffer_ZGradient.cpp
+     1>..\sources\dpvsOcclusionBuffer_ZGradient.cpp(453): warning C4918: 'p' : invalid character in pragma optimization list [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsOcclusionBuffer_ZGradientPS2.cpp
+         dpvsPPCTest.cpp
+         dpvsPS2Test.cpp
+         dpvsRandom.cpp
+         dpvsRectangle.cpp
+         dpvsRecursionSolver.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsRecursionSolver.cpp(76) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Hash<DPVS::RecursionSolver::Transition,int>>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Hash<DPVS::RecursionSolver::Transition,int>
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(179): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(174) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>::reset(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(217) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>::reset(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(214) : while compiling class template member function 'DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>::DynamicArray(size_t)'
+                 ..\sources\dpvsRecursionSolver.cpp(80) : see reference to function template instantiation 'DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>::DynamicArray(size_t)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsRecursionSolver.hpp(108) : see reference to class template instantiation 'DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::RecursionSolver::CellTransition>::resize(size_t)' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(227) : while compiling class template member function 'void DPVS::Hash<DPVS::RecursionSolver::Transition,int>::rehash(void)'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(96) : see reference to function template instantiation 'void DPVS::Hash<DPVS::RecursionSolver::Transition,int>::rehash(void)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(94) : while compiling class template member function 'void DPVS::Hash<DPVS::RecursionSolver::Transition,int>::insert(const Key &,const Value &)'
+                 with
+                 [
+                     Key=DPVS::RecursionSolver::Transition
+         ,            Value=int
+                 ]
+                 ..\sources\dpvsRecursionSolver.cpp(255) : see reference to function template instantiation 'void DPVS::Hash<DPVS::RecursionSolver::Transition,int>::insert(const Key &,const Value &)' being compiled
+                 with
+                 [
+                     Key=DPVS::RecursionSolver::Transition
+         ,            Value=int
+                 ]
+                 ..\sources\dpvsRecursionSolver.cpp(55) : see reference to class template instantiation 'DPVS::Hash<DPVS::RecursionSolver::Transition,int>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::RecursionSolver::Transition
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::RecursionSolver::Transition>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::RecursionSolver::Transition>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsRemoteDebugger.cpp
+         dpvsScratchpad.cpp
+         dpvsSilhouette.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(99) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::Vector2
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(92) : while compiling class template member function 'void DPVS::Array<DPVS::Vector2>::reset(int)'
+                 ..\sources\dpvsSilhouette.cpp(188) : see reference to function template instantiation 'void DPVS::Array<DPVS::Vector2>::reset(int)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSilhouette.hpp(85) : see reference to class template instantiation 'DPVS::Array<DPVS::Vector2>' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsSilhouetteCache.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsSilhouetteCache.cpp(754): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsRecycler.hpp(67): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsRecycler.hpp(62) : while compiling class template member function 'unsigned char *DPVS::Recycler<unsigned char>::allocate(size_t)'
+                 ..\sources\dpvsSilhouetteCache.cpp(638) : see reference to function template instantiation 'unsigned char *DPVS::Recycler<unsigned char>::allocate(size_t)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSilhouetteCache.hpp(233) : see reference to class template instantiation 'DPVS::Recycler<unsigned char>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsSilhouetteCache.cpp(354) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::SilhouetteCache::Node>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::SilhouetteCache::Node
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(99) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::SilhouetteCache::CachedVertex
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(92) : while compiling class template member function 'void DPVS::Array<DPVS::SilhouetteCache::CachedVertex>::reset(int)'
+                 ..\sources\dpvsSilhouetteCache.cpp(571) : see reference to function template instantiation 'void DPVS::Array<DPVS::SilhouetteCache::CachedVertex>::reset(int)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSilhouetteCache.hpp(232) : see reference to class template instantiation 'DPVS::Array<DPVS::SilhouetteCache::CachedVertex>' being compiled
+         dpvsSilhouetteCacheCommon.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(60) : while compiling class template member function 'DPVS::TempArray<DPVS::Vector4,false>::TempArray(int)'
+                 ..\sources\dpvsSilhouetteCacheCommon.cpp(310) : see reference to function template instantiation 'DPVS::TempArray<DPVS::Vector4,false>::TempArray(int)' being compiled
+                 ..\sources\dpvsSilhouetteCacheCommon.cpp(310) : see reference to class template instantiation 'DPVS::TempArray<DPVS::Vector4,false>' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsWeldHash.hpp(137): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsWeldHash.hpp(127) : while compiling class template member function 'int DPVS::WeldHash<DPVS::Vector3i>::getIndex(const T &)'
+                 with
+                 [
+                     T=DPVS::Vector3i
+                 ]
+                 ..\sources\dpvsSilhouetteCacheCommon.cpp(1024) : see reference to function template instantiation 'int DPVS::WeldHash<DPVS::Vector3i>::getIndex(const T &)' being compiled
+                 with
+                 [
+                     T=DPVS::Vector3i
+                 ]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSilhouetteCache.hpp(235) : see reference to class template instantiation 'DPVS::WeldHash<DPVS::Vector3i>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsSilhouetteCacheCommon.cpp(96) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::SilhouetteCache>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::SilhouetteCache
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(99) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::SilhouetteCache::CachedVertex
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(92) : while compiling class template member function 'void DPVS::Array<DPVS::SilhouetteCache::CachedVertex>::reset(int)'
+                 ..\sources\dpvsSilhouetteCacheCommon.cpp(1078) : see reference to function template instantiation 'void DPVS::Array<DPVS::SilhouetteCache::CachedVertex>::reset(int)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSilhouetteCache.hpp(232) : see reference to class template instantiation 'DPVS::Array<DPVS::SilhouetteCache::CachedVertex>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(227) : while compiling class template member function 'void DPVS::Hash<DPVS::Vector2i,int>::rehash(void)'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(96) : see reference to function template instantiation 'void DPVS::Hash<DPVS::Vector2i,int>::rehash(void)' being compiled
+                 ..\sources\dpvsSilhouetteCacheCommon.cpp(366) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::Hash<DPVS::Vector2i,int>>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::Hash<DPVS::Vector2i,int>
+                 ]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsSilhouetteMath.cpp
+         dpvsStatistics.cpp
+         dpvsSurface.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsSweepAndPrune.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(60) : while compiling class template member function 'DPVS::TempArray<DPVS::ImpSweepAndPrune::ROIData,false>::TempArray(int)'
+                 ..\sources\dpvsSweepAndPrune.cpp(687) : see reference to function template instantiation 'DPVS::TempArray<DPVS::ImpSweepAndPrune::ROIData,false>::TempArray(int)' being compiled
+                 ..\sources\dpvsSweepAndPrune.cpp(687) : see reference to class template instantiation 'DPVS::TempArray<DPVS::ImpSweepAndPrune::ROIData,false>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsSweepAndPrune.cpp(1050) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::ImpSweepAndPrune>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::ImpSweepAndPrune
+                 ]
+         dpvsSystem.cpp
+         dpvsTempAllocator.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::TempAllocator::AllocationInfo>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::TempAllocator::AllocationInfo>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(209) : while compiling class template member function 'DPVS::DynamicArray<DPVS::TempAllocator::AllocationInfo>::DynamicArray(void)'
+                 ..\sources\dpvsTempAllocator.cpp(44) : see reference to function template instantiation 'DPVS::DynamicArray<DPVS::TempAllocator::AllocationInfo>::DynamicArray(void)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempAllocator.hpp(58) : see reference to class template instantiation 'DPVS::DynamicArray<DPVS::TempAllocator::AllocationInfo>' being compiled
+         dpvsTempArray.cpp
+         dpvsUtility.cpp
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(60) : while compiling class template member function 'DPVS::TempArray<DPVS::Vector3i,true>::TempArray(int)'
+                 ..\sources\dpvsUtility.cpp(1383) : see reference to function template instantiation 'DPVS::TempArray<DPVS::Vector3i,true>::TempArray(int)' being compiled
+                 ..\sources\dpvsUtility.cpp(1383) : see reference to class template instantiation 'DPVS::TempArray<DPVS::Vector3i,true>' being compiled
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsUtility.cpp(510) : see reference to function template instantiation 'T *DPVS::NEW<ImpObjectSplitter::Object>(void)' being compiled
+                 with
+                 [
+                     T=ImpObjectSplitter::Object
+                 ]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(99) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<T>(int)' being compiled
+                 with
+                 [
+                     T=ImpObjectSplitter::Vertex
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(92) : while compiling class template member function 'void DPVS::Array<ImpObjectSplitter::Vertex>::reset(int)'
+                 ..\sources\dpvsUtility.cpp(1185) : see reference to function template instantiation 'void DPVS::Array<ImpObjectSplitter::Vertex>::reset(int)' being compiled
+                 ..\sources\dpvsUtility.cpp(158) : see reference to class template instantiation 'DPVS::Array<ImpObjectSplitter::Vertex>' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<ImpObjectSplitter::Triangle *>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<ImpObjectSplitter::Triangle *>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(209) : while compiling class template member function 'DPVS::DynamicArray<ImpObjectSplitter::Triangle *>::DynamicArray(void)'
+                 ..\sources\dpvsUtility.cpp(1167) : see reference to function template instantiation 'DPVS::DynamicArray<ImpObjectSplitter::Triangle *>::DynamicArray(void)' being compiled
+                 ..\sources\dpvsUtility.cpp(197) : see reference to class template instantiation 'DPVS::DynamicArray<ImpObjectSplitter::Triangle *>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(227) : while compiling class template member function 'void DPVS::Hash<DPVS::UINT32,ImpObjectSplitter::Bucket *>::rehash(void)'
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(276) : see reference to function template instantiation 'void DPVS::Hash<DPVS::UINT32,ImpObjectSplitter::Bucket *>::rehash(void)' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(274) : while compiling class template member function 'DPVS::Hash<DPVS::UINT32,ImpObjectSplitter::Bucket *>::Hash(void)'
+                 ..\sources\dpvsUtility.cpp(1167) : see reference to function template instantiation 'DPVS::Hash<DPVS::UINT32,ImpObjectSplitter::Bucket *>::Hash(void)' being compiled
+                 ..\sources\dpvsUtility.cpp(198) : see reference to class template instantiation 'DPVS::Hash<DPVS::UINT32,ImpObjectSplitter::Bucket *>' being compiled
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         Generating Code...
+         Compiling...
+         dpvsVisibilityQuery.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsVisibilityQuery.cpp(838): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsVisibilityQuery.cpp(839): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsVisibilityQuery.cpp(105) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::SweepAndPrune>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::SweepAndPrune
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(209) : while compiling class template member function 'DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::DynamicArray(void)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsXFirstTraversal.hpp(161) : see reference to function template instantiation 'DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::DynamicArray(void)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsXFirstTraversal.hpp(249) : see reference to class template instantiation 'DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsVisibilityQuery.hpp(240) : see reference to class template instantiation 'DPVS::DepthFirstTraversal<DPVS::ImpCamera *>' being compiled
+         dpvsVisibilityQuery_Resolve.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsVisibilityQuery_Resolve.cpp(268): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\float.h(120) : see declaration of '_controlfp'
+     1>..\sources\dpvsVisibilityQuery_Resolve.cpp(269): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\float.h(120) : see declaration of '_controlfp'
+     1>..\sources\dpvsVisibilityQuery_Resolve.cpp(397): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\float.h(120) : see declaration of '_controlfp'
+         dpvsVisibilityQuery_Test.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsVisibilityQuery_Test.cpp(361): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsVisibilityQuery_Traverse.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(237) : while compiling class template member function 'void DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::resize(size_t)'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(268) : see reference to function template instantiation 'void DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::resize(size_t)' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(203) : while compiling class template member function 'DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry &DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::operator [](size_t) const'
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsXFirstTraversal.hpp(192) : see reference to function template instantiation 'DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry &DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>::operator [](size_t) const' being compiled
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsXFirstTraversal.hpp(249) : see reference to class template instantiation 'DPVS::DynamicArray<DPVS::DepthFirstTraversal<DPVS::ImpCamera *>::Entry>' being compiled
+                 C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsVisibilityQuery.hpp(240) : see reference to class template instantiation 'DPVS::DepthFirstTraversal<DPVS::ImpCamera *>' being compiled
+         dpvsVQData.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         dpvsWindows.cpp
+         dpvsWrapper.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsWrapper.cpp(1364): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>..\sources\dpvsWrapper.cpp(2480): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsWrapperCreate.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>..\sources\dpvsWrapperCreate.cpp(411): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(428): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(429): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(514): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(515): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(542): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(543): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(569): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(570): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(600): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(601): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(626): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(627): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(652): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(653): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(697): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(698): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(741): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(742): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(767): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(768): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(795): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>..\sources\dpvsWrapperCreate.cpp(796): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsWrapperCreate.cpp(410) : see reference to function template instantiation 'T *DPVS::NEW<DPVS::ImpCamera>(void)' being compiled
+                 with
+                 [
+                     T=DPVS::ImpCamera
+                 ]
+         dpvsWriteQueue.cpp
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+     1>c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+                 ..\sources\dpvsWriteQueue.cpp(458) : see reference to function template instantiation 'T *DPVS::NEW_ARRAY<DPVS::WriteQueue::Bucket>(int)' being compiled
+                 with
+                 [
+                     T=DPVS::WriteQueue::Bucket
+                 ]
+                 c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(35) : see declaration of 'operator new'
+         dpvsX86.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /l"0x0409" /I"C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\..\sources" /I\work\swg\s1\src\external\3rd\library\dpvs\implementation\sources /nologo /fo".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVersion.res" ..\sources\dpvsVersion.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\remotedebugger\lib\ /LIBPATH:"..\hl\lib\win32-x86-msvc\\" odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.pdb" /MAP:".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.map" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.lib" /MACHINE:X64 /DLL .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVersion.res
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsAABB.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsArray.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsBitMath.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsBlockBuffer.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsBounds.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsClipPolygon.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsDatabase.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsDataPasser.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsDebug.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsGameCube.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsHZBuffer.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpCamera.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpCell.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpCommander.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpMeshModel.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpMiscModel.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpModel.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpObject.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpPhysicalPortal.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpRegionOfInfluence.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsImpVirtualPortal.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsInstanceCount.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsIntersect.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsLibraryServices.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMath.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMatrix.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMatrixConverter.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMemory.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMemoryPool.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMesh.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsMT.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsNameHash.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOBB.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_Buffer.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_CacheFiller.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_Edges.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_Render.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_Stencil.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_Test.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_ZGradient.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsOcclusionBuffer_ZGradientPS2.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsPPCTest.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsPS2Test.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsRandom.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsRectangle.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsRecursionSolver.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsRemoteDebugger.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsScratchpad.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSilhouette.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSilhouetteCache.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSilhouetteCacheCommon.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSilhouetteMath.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsStatistics.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSurface.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSweepAndPrune.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsSystem.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsTempAllocator.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsTempArray.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsUtility.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVisibilityQuery.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVisibilityQuery_Resolve.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVisibilityQuery_Test.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVisibilityQuery_Traverse.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsVQData.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsWindows.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsWrapper.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsWrapperCreate.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsWriteQueue.obj
+         .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvsX86.obj
+            Creating library .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.lib and object .\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.exp
+         dpvs.vcxproj -> C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\.\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\x64\dpvs\Debug\dpvs.tlog\dpvs.lastbuildstate".
+     1>Done Building Project "C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+       "C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" (Rebuild target) (1) ->
+       (ClCompile target) -> 
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsHZBuffer.cpp(1163): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsImpObject.cpp(1397): warning C4244: 'argument' : conversion from 'DPVS::UPTR' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsLibraryServices.cpp(80): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsMemory.cpp(391): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(260): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(261): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(272): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsSet.hpp(292): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsMemoryPool.cpp(529): warning C4244: '-=' : conversion from 'DPVS::UPTR' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsMemoryPool.cpp(581): warning C4244: '+=' : conversion from 'DPVS::UPTR' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsMemoryPool.cpp(623): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsOcclusionBuffer.cpp(217): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsOcclusionBuffer.cpp(218): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(295): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsOcclusionBuffer_ZGradient.cpp(453): warning C4918: 'p' : invalid character in pragma optimization list [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(179): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsSilhouetteCache.cpp(754): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsRecycler.hpp(67): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsWeldHash.hpp(137): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsTempArray.hpp(72): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(232): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(233): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsHash.hpp(271): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsVisibilityQuery.cpp(838): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsVisibilityQuery.cpp(839): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsVisibilityQuery_Resolve.cpp(268): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsVisibilityQuery_Resolve.cpp(269): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsVisibilityQuery_Resolve.cpp(397): warning C4996: '_controlfp': This function or variable may be unsafe. Consider using _controlfp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsVisibilityQuery_Test.cpp(361): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsArray.hpp(243): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapper.cpp(1364): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapper.cpp(2480): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(411): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(428): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(429): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(514): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(515): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(542): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(543): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(569): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(570): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(600): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(601): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(626): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(627): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(652): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(653): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(697): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(698): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(741): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(742): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(767): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(768): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(795): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         ..\sources\dpvsWrapperCreate.cpp(796): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(181): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(50): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsBitMath.hpp(53): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+         c:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\include\dpvsNew.hpp(193): warning C4291: 'void *operator new(size_t,void *)' : no matching operator delete found; memory will not be freed if initialization throws an exception [C:\pr-dpvs-review\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj]
+
+    179 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.10

@@ -1,0 +1,29 @@
+{
+  "probe": {
+    "rows": 38880,
+    "identical_to_prior_double_x64": true,
+    "raw_rows_different_from_native_pc64": 15,
+    "examples": [
+      [
+        "M 0 2 0 00000000 00000000",
+        "M 0 2 0 80000000 80000000"
+      ],
+      [
+        "M 0 2 1 80000000 80000000",
+        "M 0 2 1 00000000 00000000"
+      ]
+    ]
+  },
+  "caller": {
+    "rows": 11978,
+    "identical_to_prior_double_x64": true,
+    "raw_rows_different_from_native_pc64": 1,
+    "examples": [
+      [
+        "C 299 4 b2762091 -1 befa410a be45a171 3f59cd8d bff44867 3fa66666 b2a5c8db 403f5c29",
+        "C 299 4 b2762092 -1 befa410a be45a171 3f59cd8d bff44867 3fa66666 b2a5c8db 403f5c29"
+      ]
+    ]
+  },
+  "source_sha256": "81b7be9b2dd448e3c45643e80942016e8ee9e1b22dce63a138e3c0a19b8605c6"
+}

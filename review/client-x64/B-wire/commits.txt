@@ -1,0 +1,402 @@
+commit b5bb8792f2a4a95b047dd62eb62f5f040596feb7
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 05:20:02 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 05:20:02 2026 +0000
+
+    messages: check per-message container counts before writing
+    
+    Nine per-message counts narrowed size() to int on Win64 without a
+    check. Compute each writer's counts with ArchiveCount::fromSize<int>
+    (legacy signed int, unchanged) before its first byte, so a rejected
+    count writes nothing from that writer:
+    
+      ImageDesignChangeMessage::pack         morph and index counts
+      BuffBuilderChangeMessage::pack         component count
+      DroidCommandProgrammingMessage::pack   commands, chipsToAdd, chipsToRemove
+      MessageQueueCraftExperiment::pack      experiment count
+      MessageQueueDraftSlotsDataArchive put  option count
+      CustomerServiceCategoryArchive put     subcategory count
+    
+    Not changed: ClientCentralMessages/ClientLoginMessages tokenSize (local,
+    decode side), MessageQueueResourceWeights and MessageQueueCraftCustomization
+    (8-bit wire fields that truncated identically on Win32), and the
+    MessageQueueCombatAction defender count (debug log only).
+    
+    Nested serializers (draft slots, customer-service subcategories) run
+    after their caller has written bytes; a rejection there cannot roll
+    back the caller's partial output. That needs separate review.
+    
+    Tests: image-design and buff-builder with non-empty maps, compared byte
+    for byte from the first count and decoded with no trailing bytes; the
+    four other writers compile-checked.
+    
+      stock Win32:  47/47 (confirms the new byte literals)
+      this commit:  Win32 50/50, Win64 57/57
+    
+    SWG-Source/src needs the same six edits (prepared as a patch; compiles
+    on Linux -m32 and -m64, server wire suites unchanged at 19/19 and 20/20).
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit ae51d0a633a2f49521fa95cca42315391929c24b
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 05:15:24 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 05:15:24 2026 +0000
+
+    tools: mirror the server's count-site coverage and string boundary tests
+    
+    SWG-Source/src#35 30cf4531 landed the same ArchiveCount helper (byte
+    identical) and the same 16 call-site edits as f87084a3. Mirror its test
+    additions so both repositories check the same things:
+    
+    - count_sites.cpp, verbatim: instantiates every changed generic
+      count-writing overload. Compile coverage only, never called.
+    - 65,534- and 65,535-byte strings through the real encoder must produce
+      the legacy short (FE FF) and long (FF FF + 32-bit length) headers and
+      decode with no trailing bytes. These need no helper and run on every
+      checkout, including the stock oracle, which passes them.
+    
+      this branch:  Win32 46/46, Win64 53/53
+      stock Win32:  43/43, the 3 count-helper checks reported absent
+    
+    Oversized-container rejection at call sites, byte-buffer overflow, full
+    builds and live sessions remain untested.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit f87084a3fa7756158f8db7988f55ce1d4c2ac699
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 04:58:02 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 04:58:02 2026 +0000
+
+    archive: reject container sizes that do not fit their 32-bit wire count
+    
+    On Win32, size_t was 32 bits and every serialized container count fit
+    its field. On Win64 the counts were narrowed with casts, so a size above
+    the field's range would be truncated silently.
+    
+    Add ArchiveCount::fromSize<Count>, which keeps each field's legacy type
+    and signedness and throws std::out_of_range (the same failure behaviour
+    as NetworkMessageTimestamp) when the host size does not fit. Use it at
+    every count the 64-bit build narrows in the generic serializers:
+    
+      Archive.h        std::vector/set/deque length (signed int), std::map
+                       key count (uint32_t), long std::string length
+                       (unsigned int)
+      UnicodeArchive   Unicode::String length (unsigned int)
+      AutoDelta*       11 container and command counts (uint32_t)
+      MissionList      entry count (uint32_t)
+    
+    Each check runs before the first byte is written: the AutoDelta counts
+    are already the first write; the long-string length and the mission
+    list count are hoisted above the 65535 marker and the header fields.
+    Sequence/baseline counters and their wrapping are unchanged. 16-bit
+    fields that already truncated identically on Win32 are out of scope.
+    
+    Helper tests (no large allocations): UINT32_MAX and INT32_MAX pass
+    through; INT32_MAX + 1 into a signed count and, on Win64, UINT32_MAX + 1
+    into an unsigned count throw std::out_of_range.
+    
+      this commit:  Win32 44/44, Win64 51/51
+      stock Win32:  41/41, the 3 helper checks reported absent
+    
+    The tests cover the helper, not each call site's wiring, which would
+    need a container above 2^32 elements; the wiring is by review. The 12
+    per-message "int size = x.size()" counts are a separate follow-up.
+    SWG-Source/src needs the identical helper and matching call sites.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit a081f02370f2ad2e90d6da9d22ad1310f816d21d
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 04:52:34 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 04:52:34 2026 +0000
+
+    messages: use the server's NetworkMessageTimestamp helper verbatim
+    
+    sharedNetworkMessages is shared with SWG-Source/src, which settled the
+    timestamp conversion in 4889e6aa: NetworkMessageTimestamp::fromTime
+    throws std::out_of_range for a time_t outside int32_t. Replace the
+    client-only WireTime.h/toWireTime (FATAL) with that header, byte for
+    byte, and use it at the same three call sites with the same include
+    placement. NetworkMessageTimestamp.h, its public forwarder,
+    ChatOnRequestLog.h and ImageDesignChangeMessage.cpp are now identical
+    to the server; the remaining differences in the two message files
+    predate this work.
+    
+    The rejection tests now run in-process and catch std::out_of_range
+    explicitly: another exception, no exception, or a crash fails. On
+    Win64 they cover INT32_MIN - 1 and INT32_MAX + 1 for all three fields,
+    and require a rejected setter to keep its previous value. On Win32 the
+    run must report them as skipped.
+    
+      stock Win32:              41/41 (out-of-range checks skipped)
+      this commit:              Win32 41/41 (skipped), Win64 47/47
+      a65d8032 (FATAL), Win64:  not OK - the abort is not a pass
+      44652cba (unchecked):     Win64 6 fail - truncated, value lost
+    
+    This settles the helper's failure policy. It does not establish
+    graceful recovery at callers, and the effective MSVC exception flags
+    still need confirming from a real build: every configuration imports
+    an optional per-user Microsoft.Cpp.<Platform>.user.props.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit a65d8032779fdbdc349a1d94db74c55956fedf05
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 04:37:14 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 04:37:14 2026 +0000
+
+    messages: reject timestamps that do not fit the signed 32-bit wire field
+    
+    64-bit builds keep time_t internally; the legacy wire field is signed
+    32-bit. The ImageDesignChangeMessage and BuffBuilderChangeMessage
+    setters and the ChatLogEntry constructor narrowed time_t to int32_t
+    implicitly, so a value past 2038 would have been truncated silently.
+    
+    Convert once, in toWireTime (sharedNetworkMessages/WireTime.h), which
+    FATALs on a value outside int32_t. On Win32 time_t is 32-bit and the
+    check cannot fire.
+    
+    Probe each field with 2147483648 in its own process (FATAL aborts):
+      44652cba, Win64:  3 probes fail (silently truncated)
+      this commit:      Win64 44/44; Win32 41/41 with the 3 probes skipped
+      stock Win32:      41/41 with the 3 probes skipped
+    
+    The server counterpart (SWG-Source/src#35, including the ChatServer
+    caller of getChatMessage) is being done separately.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit 44652cba4eaa70ae7e367ca528aa3ddbf53bc0d3
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 04:28:26 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 04:28:26 2026 +0000
+
+    tools: compare timestamps as signed and require consumed deltas
+    
+    The ChatLogEntry high-bit check compared the decoded time with the
+    unsigned literal 0x80000001u, so it passed whether the field was signed
+    or unsigned. Encode -2147483647 and compare the decoded value as a
+    signed integer. Add INT32_MIN to the timestamp boundary set.
+    
+    Every AutoDeltaVector, AutoDeltaMap and AutoDeltaSet delta check now
+    also requires the delta stream to be fully consumed. The README
+    documents the timestamp rule and each test stub.
+    
+      stock Win32 (reference):        41/41
+      this branch:                    Win32 41/41, Win64 41/41
+      e4e6b7f1 timestamp types:       7 fail on both (INT32_MIN and -1
+                                      decode unsigned, including the
+                                      ChatLogEntry check the old literal hid)
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit 579db9f6a8d94896873b99a33f9a046f59cc100b
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 04:23:33 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 04:23:33 2026 +0000
+
+    messages: keep legacy timestamps signed 32-bit
+    
+    ImageDesignChangeMessage and BuffBuilderChangeMessage startingTime and
+    ChatLogEntry m_time were time_t in the legacy Win32 and Linux -m32
+    builds: signed 32-bit. 2b5e3a48 mirrored SWG-Source/src#35 and made them
+    uint32_t. Bytes are unchanged, but every consumer is signed time_t
+    (SharedImageDesignerManager/SharedBuffBuilderManager: the == 0 sentinel,
+    now - startingTime, time-left arithmetic; server ChatLogManager ctime),
+    and every producer is Os::getRealSystemTime(). No caller relies on an
+    unsigned contract, so a wire value of 0xFFFFFFFF must decode as -1, not
+    4294967295. Moving the limit from 2038 to 2106 would be a separate
+    protocol decision.
+    
+    Store, return and decode these fields as int32_t. Add round-trip
+    fixtures for -1, 0 and INT32_MAX through the real pack/unpack of all
+    three types, with stock Win32 as the reference:
+    
+      stock Win32:        38/38
+      uint32_t (before):  Win32 34/37, Win64 34/37 (-1 fails on all three)
+      this commit:        Win32 38/38, Win64 38/38
+    
+    The harness now compiles ImageDesignChangeMessage.cpp and
+    BuffBuilderChangeMessage.cpp; their pool allocator, message-factory
+    registration and exit chain are stubbed in mission_glue.cpp.
+    
+    Needs the matching server change before either side is pushed.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit e4e6b7f1f58cbead5edbf57bdb57c3a88a6450e8
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 04:16:32 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 04:16:32 2026 +0000
+
+    tools: cover set, queue, packed-map values and real timestamp bytes
+    
+    Close the coverage gaps from review of 1e62bab4:
+    
+    - AutoDeltaMap repeated and replayed deltas.
+    - AutoDeltaSet behind across 2^31 and wrap through zero.
+    - AutoDeltaQueue unsigned skip clamp, wrap and duplicate delta, mirrored
+      verbatim from SWG-Source/src#35 7ace7d51 so both repositories check
+      the same bytes.
+    - AutoDeltaPackedMap with NetworkId keys/values and Unicode::String
+      values, compiling their production translation units.
+    - ChatLogEntry timestamp encoded and decoded by its real serializer.
+    
+    Every expected byte string passes on upstream master built as Win32,
+    the legacy oracle; two set expectations were corrected against it (the
+    set baseline carries no command byte).
+    
+      upstream master:  Win32 29/29, Win64 fails
+      this branch:      Win32 29/29, Win64 29/29
+      before 1e62bab4:  6/28 then ReadException on both
+      client-tools#21:  Win32 fails (8-byte ChatLogEntry time),
+                        Win64 fails 11 checks then bad_alloc
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit 1e62bab469b82f16ab3b0aa3d15b7848f81e310d
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 03:49:25 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 03:49:25 2026 +0000
+
+    archive: keep serialized counters unsigned, as legacy size_t was
+    
+    The legacy command and baseline counters were size_t: 32-bit unsigned
+    on Win32, so AutoDelta delta arithmetic is modulo 2^32. Commit 83a01f58
+    mirrored SWG-Source/src#35 and made several of them int32_t. Signed
+    counters change behaviour, not just type: a client behind by commands
+    that cross 2^31 reads the target as negative, computes a negative skip
+    count, and the size_t loop then reads past the delta (ReadException);
+    ++baselineCommandCount at INT32_MAX is undefined behaviour.
+    
+    Make every serialized counter uint32_t. Bytes are unchanged on both
+    ABIs. Add AutoDeltaMap boundary fixtures (behind across 2^31; wrap
+    through zero), whose bytes pass on upstream master built as Win32, the
+    legacy oracle.
+    
+      upstream master, Win32 (oracle):  14/14
+      previous commit (int32_t):        Win32 6/13 then ReadException, Win64 same
+      this commit:                      Win32 14/14, Win64 14/14
+    
+    SWG-Source/src#35 has the same int32_t counters and needs this change.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit ac1eff0807cdd01dce70e7e20253cddc3459c41a
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 03:49:25 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 03:49:25 2026 +0000
+
+    tools: fail the wire runner unless every expected check passed
+    
+    The runner trusted exit codes alone. A build that compiled the mission
+    fixtures out printed "NOT RUN", exited 0, and the runner reported
+    success. The width check also decided pass/fail from "error:" text
+    rather than the compiler's exit status.
+    
+    Require a clean compile of the width check, a zero exit, no FAIL or
+    NOT RUN line, and exactly EXPECTED_RUNTIME_PASSES PASS lines.
+    
+    Verified by building the fixtures without WIRE_TEST_MISSIONS:
+      previous runner: exit 0 (false pass)
+      this runner:     exit 1, "runtime passes=10/13 problems=1"
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit 4d96d61ee3d8f08feb3d9ceeaae0b7a69079d349
+Author:     Akilleez-QA <scubasteve4sq@gmail.com>
+AuthorDate: Tue Sep 29 03:36:02 2026 +0000
+Commit:     Akilleez-QA <scubasteve4sq@gmail.com>
+CommitDate: Tue Sep 29 03:36:02 2026 +0000
+
+    tools: add Win32/Win64 legacy wire fixtures
+    
+    Port SWG-Source/src#35's tools/test-wire-compatibility to the client.
+    The runner compiles this checkout's real serializers as Win32 and Win64
+    PE binaries (clang MSVC-compat + MinGW-w64) and runs them under Wine
+    against literal legacy32 bytes: packed maps, quest data, AutoDeltaVector
+    counter wrap, and MessageQueueMissionListResponse. A compile-time check
+    asserts the serialized time fields are 4 bytes.
+    
+    Results are recorded in the README; shims and their limits are listed
+    there. This is not MSVC and not a live client.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit 2b5e3a4832b474ac1ab3b996a91b03e45c567fda
+Author:     Claude <noreply@anthropic.com>
+AuthorDate: Tue Sep 29 03:04:48 2026 +0000
+Commit:     Claude <noreply@anthropic.com>
+CommitDate: Tue Sep 29 03:04:48 2026 +0000
+
+    messages: serialize time fields at 32-bit width
+    
+    ImageDesignChangeMessage, BuffBuilderChangeMessage and ChatLogEntry put
+    time_t on the wire. Win32 builds define _USE_32BIT_TIME_T, so these are
+    4 bytes today; MSVC forbids that define on x64, where time_t is 64-bit,
+    and the fields shift every following byte.
+    
+    Store, return and decode these fields as uint32_t, matching
+    SWG-Source/src#35. Setters still accept time_t. Win32 bytes are
+    unchanged.
+    
+    Verified by compile-time wire-width assertions on the real headers
+    (MinGW-w64 + clang MSVC-compat with __MINGW_USE_VC2005_COMPAT, i.e.
+    MSVC time_t semantics):
+      before: Win32 pass, Win64 3/3 assertions fail
+      after:  Win32 pass, Win64 pass
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk
+
+commit 83a01f5883b478409018003a8be6a4486e5a883b
+Author:     Claude <noreply@anthropic.com>
+AuthorDate: Tue Sep 29 03:02:17 2026 +0000
+Commit:     Claude <noreply@anthropic.com>
+CommitDate: Tue Sep 29 03:02:17 2026 +0000
+
+    archive: serialize container counts at fixed 32-bit width
+    
+    On Win64, size_t is the same type as uint64 (unsigned __int64), so every
+    container count and baseline command count passed to Archive::put binds to
+    the 8-byte NetworkIdArchive overload wherever that header is visible. The
+    stock 32-bit server and existing Win32 clients read 4 bytes, so an x64
+    client desynchronizes on the first AutoDelta container, packed map or
+    mission list.
+    
+    Declare every serialized count as int32_t/uint32_t and cast .size() at
+    the call site. The per-site types mirror SWG-Source/src#35 so the shared
+    files converge between repositories. Win32 bytes are unchanged: size_t
+    was already 32 bits there.
+    
+    Verified with the legacy32 wire fixtures from SWG-Source/src#35
+    (tools/test-wire-compatibility), compiled from this checkout as real Win32
+    and Win64 PE binaries (MinGW-w64 + clang MSVC-compat, run under Wine):
+      before: Win32 9/9 pass, Win64 0/9 (4 fail, then ReadException)
+      after:  Win32 9/9 pass, Win64 9/9 pass
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01CyKCfE5CkD8JgCkDkBypFk

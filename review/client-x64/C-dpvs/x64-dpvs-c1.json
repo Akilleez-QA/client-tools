@@ -1,0 +1,24 @@
+{
+  "ref": "x64-dpvs-c1",
+  "sha": "7b5c73da8807ca5a5d12540d9dc4886c4c3e988f",
+  "commits": [
+    "2985e408b7c5b18e16a254da84a50b442c3af985 dpvs: distinguish Windows x64 architecture and pointer width",
+    "346f280aa416f51715dbf886b676d0efcd6eb090 dpvs: use x64 intrinsics for cycle timing and prefetch",
+    "8cb0f754841dd489daa768d811d1451f6944df63 dpvs: retain 64-byte matrix cache entries on x64",
+    "7b5c73da8807ca5a5d12540d9dc4886c4c3e988f dpvs: add isolated x64 Debug and Release build outputs"
+  ],
+  "numstat": [
+    "13\t1\tsrc/external/3rd/library/dpvs/implementation/include/dpvsPrivateDefs.hpp",
+    "9\t1\tsrc/external/3rd/library/dpvs/implementation/include/dpvsSystem.hpp",
+    "50\t23\tsrc/external/3rd/library/dpvs/implementation/msvc8/dpvs.vcxproj",
+    "1\t1\tsrc/external/3rd/library/dpvs/implementation/sources/dpvsImpObject.cpp",
+    "1\t1\tsrc/external/3rd/library/dpvs/implementation/sources/dpvsMath.cpp"
+  ],
+  "files": [
+    "src/external/3rd/library/dpvs/implementation/include/dpvsPrivateDefs.hpp",
+    "src/external/3rd/library/dpvs/implementation/include/dpvsSystem.hpp",
+    "src/external/3rd/library/dpvs/implementation/msvc8/dpvs.vcxproj",
+    "src/external/3rd/library/dpvs/implementation/sources/dpvsImpObject.cpp",
+    "src/external/3rd/library/dpvs/implementation/sources/dpvsMath.cpp"
+  ]
+}

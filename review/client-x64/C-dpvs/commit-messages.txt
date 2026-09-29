@@ -1,0 +1,41 @@
+commit 2985e408b7c5b18e16a254da84a50b442c3af985
+Author: Craig A Ward <scubasteve4sq@gmail.com>
+Commit: Craig A Ward <scubasteve4sq@gmail.com>
+
+    dpvs: distinguish Windows x64 architecture and pointer width
+    
+    Select portable paths instead of Win32 inline assembly and use uintptr_t for UPTR on x64. Keep the x86 reciprocal4 algorithm selected on x64. Other platforms retain their previous types and selection.
+
+commit 346f280aa416f51715dbf886b676d0efcd6eb090
+Author: Craig A Ward <scubasteve4sq@gmail.com>
+Commit: Craig A Ward <scubasteve4sq@gmail.com>
+
+    dpvs: use x64 intrinsics for cycle timing and prefetch
+
+commit 8cb0f754841dd489daa768d811d1451f6944df63
+Author: Craig A Ward <scubasteve4sq@gmail.com>
+Commit: Craig A Ward <scubasteve4sq@gmail.com>
+
+    dpvs: retain 64-byte matrix cache entries on x64
+    
+    Reduce unused padding when pointers are eight bytes. Preserve the existing size assertion and Win32 layout so the fixed scratchpad partition is not overrun.
+
+commit 7b5c73da8807ca5a5d12540d9dc4886c4c3e988f
+Author: Craig A Ward <scubasteve4sq@gmail.com>
+Commit: Craig A Ward <scubasteve4sq@gmail.com>
+
+    dpvs: add isolated x64 Debug and Release build outputs
+    
+    Add x64 configurations using v120 with architecture-specific object, PCH, PDB, map, resource and DLL/import-library paths. Do not advertise an unverified IntelCPP x64 configuration; the broader solution Optimized mapping remains separate work.
+
+commit 14005646e8c126b753e3fb2e68b51344ba4e4709
+Author: Craig A Ward <scubasteve4sq@gmail.com>
+Commit: Craig A Ward <scubasteve4sq@gmail.com>
+
+    dpvs: approximate legacy PC64 math in x64 scalar paths
+    
+    Evaluate plane dots with pairwise double intermediates and floor scaled raster coordinates before narrowing. Keep Win32 assembly unchanged.
+    
+    The diagnostic ground/space trace under Proton shows the existing FPU setter bug leaving hardware and cached state at PC64 after collision. Against real Win32 assembly forced to PC64, the candidate has zero sampled caller sign/zero classifications or raster differences. One negative caller dot differs by one ULP; 15 min/max signed-zero differences remain outside these edits. These are bounded fixtures, not general numerical equivalence.
+    
+    Native Direct3D runtime tracing remains outstanding. Reassess this candidate together with any setPrecision repair: the current reference depends on that legacy bug. Other x87 call sites require their own state evidence.

@@ -1,0 +1,120 @@
+{
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "branches": [
+    {
+      "branch": "x64-link-cleanup",
+      "head": "46a56f6a5219932ab2567970c79144570b97ac36",
+      "commits": [
+        "46a56f6a5219932ab2567970c79144570b97ac36 build: remove unused explicit SwgClient Release link inputs"
+      ],
+      "files": 1,
+      "added": 1,
+      "deleted": 1,
+      "paths": [
+        "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj"
+      ]
+    },
+    {
+      "branch": "x64-fixed-width-wire",
+      "head": "b5bb8792f2a4a95b047dd62eb62f5f040596feb7",
+      "commits": [
+        "83a01f5883b478409018003a8be6a4486e5a883b archive: serialize container counts at fixed 32-bit width",
+        "2b5e3a4832b474ac1ab3b996a91b03e45c567fda messages: serialize time fields at 32-bit width",
+        "4d96d61ee3d8f08feb3d9ceeaae0b7a69079d349 tools: add Win32/Win64 legacy wire fixtures",
+        "ac1eff0807cdd01dce70e7e20253cddc3459c41a tools: fail the wire runner unless every expected check passed",
+        "1e62bab469b82f16ab3b0aa3d15b7848f81e310d archive: keep serialized counters unsigned, as legacy size_t was",
+        "e4e6b7f1f58cbead5edbf57bdb57c3a88a6450e8 tools: cover set, queue, packed-map values and real timestamp bytes",
+        "579db9f6a8d94896873b99a33f9a046f59cc100b messages: keep legacy timestamps signed 32-bit",
+        "44652cba4eaa70ae7e367ca528aa3ddbf53bc0d3 tools: compare timestamps as signed and require consumed deltas",
+        "a65d8032779fdbdc349a1d94db74c55956fedf05 messages: reject timestamps that do not fit the signed 32-bit wire field",
+        "a081f02370f2ad2e90d6da9d22ad1310f816d21d messages: use the server's NetworkMessageTimestamp helper verbatim",
+        "f87084a3fa7756158f8db7988f55ce1d4c2ac699 archive: reject container sizes that do not fit their 32-bit wire count",
+        "ae51d0a633a2f49521fa95cca42315391929c24b tools: mirror the server's count-site coverage and string boundary tests",
+        "b5bb8792f2a4a95b047dd62eb62f5f040596feb7 messages: check per-message container counts before writing"
+      ],
+      "files": 37,
+      "added": 993,
+      "deleted": 95,
+      "paths": [
+        "src/engine/shared/library/sharedFoundation/src/shared/AutoDeltaNetworkIdPackedMap.h",
+        "src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/build/win32/sharedNetworkMessages.vcxproj",
+        "src/engine/shared/library/sharedNetworkMessages/include/public/sharedNetworkMessages/NetworkMessageTimestamp.h",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/NetworkMessageTimestamp.h",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.h",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.h",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.h",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+        "src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+        "src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+        "src/external/ours/library/archive/build/win32/archive.vcxproj",
+        "src/external/ours/library/archive/include/Archive/ArchiveCount.h",
+        "src/external/ours/library/archive/src/shared/Archive.h",
+        "src/external/ours/library/archive/src/shared/ArchiveCount.h",
+        "src/external/ours/library/archive/src/shared/AutoDeltaMap.h",
+        "src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.h",
+        "src/external/ours/library/archive/src/shared/AutoDeltaQueue.h",
+        "src/external/ours/library/archive/src/shared/AutoDeltaSet.h",
+        "src/external/ours/library/archive/src/shared/AutoDeltaVector.h",
+        "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+        "src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+        "tools/test-wire-compatibility/README.md",
+        "tools/test-wire-compatibility/count_sites.cpp",
+        "tools/test-wire-compatibility/fatal.cpp",
+        "tools/test-wire-compatibility/fixtures.cpp",
+        "tools/test-wire-compatibility/mission_glue.cpp",
+        "tools/test-wire-compatibility/run.py",
+        "tools/test-wire-compatibility/shim/StlForwardDeclaration.h",
+        "tools/test-wire-compatibility/shim/hashmap_shim.h",
+        "tools/test-wire-compatibility/shim/sharedFoundation/FirstSharedFoundation.h",
+        "tools/test-wire-compatibility/wire_types.cpp"
+      ]
+    },
+    {
+      "branch": "x64-dpvs-c1",
+      "head": "7b5c73da8807ca5a5d12540d9dc4886c4c3e988f",
+      "commits": [
+        "2985e408b7c5b18e16a254da84a50b442c3af985 dpvs: distinguish Windows x64 architecture and pointer width",
+        "346f280aa416f51715dbf886b676d0efcd6eb090 dpvs: use x64 intrinsics for cycle timing and prefetch",
+        "8cb0f754841dd489daa768d811d1451f6944df63 dpvs: retain 64-byte matrix cache entries on x64",
+        "7b5c73da8807ca5a5d12540d9dc4886c4c3e988f dpvs: add isolated x64 Debug and Release build outputs"
+      ],
+      "files": 5,
+      "added": 74,
+      "deleted": 27,
+      "paths": [
+        "src/external/3rd/library/dpvs/implementation/include/dpvsPrivateDefs.hpp",
+        "src/external/3rd/library/dpvs/implementation/include/dpvsSystem.hpp",
+        "src/external/3rd/library/dpvs/implementation/msvc8/dpvs.vcxproj",
+        "src/external/3rd/library/dpvs/implementation/sources/dpvsImpObject.cpp",
+        "src/external/3rd/library/dpvs/implementation/sources/dpvsMath.cpp"
+      ]
+    },
+    {
+      "branch": "x64-dpvs",
+      "head": "14005646e8c126b753e3fb2e68b51344ba4e4709",
+      "commits": [
+        "2985e408b7c5b18e16a254da84a50b442c3af985 dpvs: distinguish Windows x64 architecture and pointer width",
+        "346f280aa416f51715dbf886b676d0efcd6eb090 dpvs: use x64 intrinsics for cycle timing and prefetch",
+        "8cb0f754841dd489daa768d811d1451f6944df63 dpvs: retain 64-byte matrix cache entries on x64",
+        "7b5c73da8807ca5a5d12540d9dc4886c4c3e988f dpvs: add isolated x64 Debug and Release build outputs",
+        "14005646e8c126b753e3fb2e68b51344ba4e4709 dpvs: approximate legacy PC64 math in x64 scalar paths"
+      ],
+      "files": 5,
+      "added": 85,
+      "deleted": 27,
+      "paths": [
+        "src/external/3rd/library/dpvs/implementation/include/dpvsPrivateDefs.hpp",
+        "src/external/3rd/library/dpvs/implementation/include/dpvsSystem.hpp",
+        "src/external/3rd/library/dpvs/implementation/msvc8/dpvs.vcxproj",
+        "src/external/3rd/library/dpvs/implementation/sources/dpvsImpObject.cpp",
+        "src/external/3rd/library/dpvs/implementation/sources/dpvsMath.cpp"
+      ]
+    }
+  ]
+}
