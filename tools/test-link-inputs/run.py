@@ -17,8 +17,6 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--base-archive', type=Path, required=True, help='git archive --format=tar of the baseline')
 p.add_argument('--candidate-archive', type=Path, required=True, help='git archive --format=tar of the candidate')
 p.add_argument('--output', type=Path, required=True, help='new disposable directory; must not exist')
-p.add_argument('--environment-template', type=Path, required=True,
-               help='prepared Win32 build tree supplying ignored SDK/configuration files')
 p.add_argument('--msbuild', type=Path, required=True, help='VS2013 MSBuild12 executable')
 a = p.parse_args()
 if os.name != 'nt':
@@ -41,6 +39,10 @@ changed = sorted(x for x in base_files.keys() | head_files.keys()
                  if base_files.get(x) != head_files.get(x))
 if [x for x in changed if not x.startswith('tools/test-link-inputs/')] != [PROJECT]:
     p.error('candidate must change only the SwgClient project plus this test tooling')
+for name in ('run.py', 'compare.py'):
+    archived = head_files.get('tools/test-link-inputs/' + name)
+    if archived != hashlib.sha256((HERE / name).read_bytes()).hexdigest():
+        p.error('running harness must match the candidate archive: ' + name)
 out.mkdir(parents=True)
 work = out / 'build-tree'
 record = {'base': base, 'candidate': head, 'outcome': 'incomplete', 'commands': []}
@@ -55,8 +57,8 @@ def run(cmd, label):
     if r.returncode:
         raise RuntimeError(f'{label} failed: {r.returncode}')
 try:
-    # The template supplies dependencies, not the source oracle or compiled game objects.
-    shutil.copytree(a.environment_template, work, ignore=shutil.ignore_patterns('.git'))
+    # Only archived source is extracted. SDK configuration stays an explicit host prerequisite.
+    work.mkdir()
     record['base_archive_sha256'] = hashlib.sha256(a.base_archive.read_bytes()).hexdigest()
     record['candidate_archive_sha256'] = hashlib.sha256(a.candidate_archive.read_bytes()).hexdigest()
     with tarfile.open(a.base_archive) as archive:
