@@ -10,4 +10,8 @@ The separate numerical fixtures compare real Win32 assembly forced to PC64 again
 
 Open: native Direct3D tracing, allocation-size narrowing, broader Optimized mappings, full-client x64 linking and representative gameplay. Warnings remain. No stubs or feature removals.
 
-Evidence: [validation report](RESULTS.md), [parsed build/runtime results](verified-results.json), [DLL comparison](dll-comparison.json), and [native logs](native-text/).
+Three additional integer paths switch from hand-written x86 code to C++ on x64: highest-set-bit search (`dpvsBitMath`), the byte-reordering return path (`dpvsFiller.hpp`), and the MMX occlusion-buffer cache filler (`dpvsOcclusionBuffer_CacheFiller.cpp`). They have no isolated differential comparison; the integration probes provide indirect coverage without establishing every branch/input or exact integer equivalence.
+
+Raster overflow/non-finite inputs remain untested: converting a floored value outside the `INT32` range with a C++ cast is undefined, whereas x87 `fistp` has invalid-conversion handling (integer indefinite `0x80000000` when the invalid exception is masked). The current fixtures do not establish caller bounds or equivalent handling outside the tested range.
+
+Evidence: [validation report](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/C-dpvs/RESULTS.md), [parsed build/runtime results](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/C-dpvs/verified-results.json), [DLL comparison](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/C-dpvs/dll-comparison.json), and [native logs](https://github.com/Akilleez-QA/client-tools/tree/review/client-x64-evidence/review/client-x64/C-dpvs/native-text).

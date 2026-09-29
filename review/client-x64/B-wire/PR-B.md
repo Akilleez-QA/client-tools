@@ -11,6 +11,10 @@ For the tested representable values, the expected bytes also pass with stock Win
 - 13 commits based on upstream `94945103`; final head `b5bb8792f2a4a95b047dd62eb62f5f040596feb7`.
 - The harness stays in this draft's branch so reviewers can reproduce its fixtures. No separate harness branch or PR has been created.
 
+## Server counterpart
+
+This wire work pairs with [SWG-Source/src#35](https://github.com/SWG-Source/src/pull/35). At client `b5bb8792`, `NetworkMessageTimestamp.h` is byte-identical to server `4889e6aa`, and `ArchiveCount.h` is byte-identical to server `30cf4531`; both helpers remain identical at server `8e57911e`, the per-message-count counterpart. The shared helpers therefore use the same checked-conversion policy and throw `std::out_of_range` on either side. This does not establish identical caller recovery or end-to-end handling of those exceptions.
+
 ## Independent validation
 
 | Source and fixture suite | Win32 | Win64 |
@@ -28,3 +32,5 @@ Native VS2013 v120 Win32 Release `SwgClient` build also passes: 0 errors, 170 wa
 This is not a complete x64 build or gameplay acceptance. Several writers have compile coverage only. `LoginClusterStatus`, oversized containers at actual call sites, byte-buffer overflow, nested serialization rollback, uncaught exceptions and live mixed-width sessions remain open. No claim is made that all wire fields or all Win32 behavior are unchanged.
 
 No upstream PR template was found in the tracked base tree; the sections above are proposed organization, not a repository-mandated template.
+
+Evidence: [validation report](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/B-wire/RESULTS.md), [portable results](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/B-wire/portable-results.json), [native build log](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/B-wire/pr-wire-review-build.log), and [historical commit-message qualifications](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/B-wire/COMMIT-REVIEW.md).

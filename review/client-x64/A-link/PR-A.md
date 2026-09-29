@@ -6,7 +6,7 @@ Scope: one XML line replaced (+1/-1), based on upstream `94945103`. Release is t
 
 ## Validation
 
-See [RESULTS.md](RESULTS.md) for the exact branch/base, native product build and comparison result. These findings apply to explicit link inputs; they do not establish absence of dynamically loaded dependencies or source-level default-library directives.
+See [RESULTS.md](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/A-link/RESULTS.md) for the exact branch/base, native product build and comparison result. These findings apply to explicit link inputs; they do not establish absence of dynamically loaded dependencies or source-level default-library directives.
 
 ## Removed entries
 

@@ -55,3 +55,11 @@ C1 deliberately leaves the known scalar numerical differences unresolved. C2 inc
 Native Direct3D FPU-state tracing remains unverified. Allocation-count narrowing and signed capacity/accounting risks remain open. Neither variant establishes full-client x64 linking or representative gameplay. No stubs or feature removals are included.
 
 No PR template or CONTRIBUTING file is tracked at upstream `94945103` (case-insensitive tree-name search). Local descriptions are `PR-C1.md` and `PR-C2.md`; neither was posted.
+
+## Review follow-up: quantified C1 and unisolated paths
+
+The prior caller-shaped comparison against native Win32 assembly forced to PC64 contains 11,978 rows: 3,584 dot-product rows and 8,394 raster rows. The original scalar path retained by C1 differs in **1,442 of the 3,584 sign/zero classifications**, and in **702 raster rows**, all at scale approximately 7.2. These are sampled numerical differences, not 1,442 demonstrated gameplay failures. See the [original PC64 comparison](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/C-dpvs/prior-pc64/RESULTS.md) and [recorded counts](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/C-dpvs/prior-pc64/comparison.json). This is prior numerical evidence for the retained scalar algorithm, not a new numerical run of C1.
+
+Three additional integer paths switch from hand-written x86 code to C++ on x64: highest-set-bit search (`dpvsBitMath`), the byte-reordering return path (`dpvsFiller.hpp`), and the MMX occlusion-buffer cache filler (`dpvsOcclusionBuffer_CacheFiller.cpp`). They have no isolated differential comparison; the integration probes provide indirect coverage without establishing every branch/input or exact integer equivalence.
+
+Raster overflow/non-finite inputs remain untested: converting a floored value outside the `INT32` range with a C++ cast is undefined, whereas x87 `fistp` has invalid-conversion handling (integer indefinite `0x80000000` when the invalid exception is masked). The current fixtures do not establish caller bounds or equivalent handling outside the tested range.

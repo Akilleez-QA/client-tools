@@ -49,3 +49,7 @@ The resulting `SwgClient_r.exe` is 29,017,600 bytes, SHA256 `0b9097146001f1ad0c8
 See `COMMIT-REVIEW.md` for historical wording that should not be repeated as current guarantees. In particular, signed count rejection changes oversized-input behavior on Win32 too. Passing fixtures establish the listed serializers and boundaries, not complete protocol compatibility, full x64 builds or live gameplay.
 
 Open: `LoginClusterStatus`, oversized containers at actual call sites, byte-buffer overflow, nested serializer rollback, uncaught exceptions and mixed-width sessions. No PR template was found in the tracked upstream base; `PR-B.md` is a local draft only.
+
+## Shared-helper identity check
+
+Git-blob comparison at client `b5bb8792`: `NetworkMessageTimestamp.h` matches server `4889e6aa`, `30cf4531` and `8e57911e` (SHA256 `1724878ec03e51e84213b6b4f76a510595219c53a75c3bb5cf0a56afcbc7ebf4`). `ArchiveCount.h` matches server `30cf4531` and `8e57911e` (SHA256 `52ca20c1c72fe75650cb845a3a3ac7a25dddf368d75438ead071a0c4a0561e38`). These checks establish identical helper contents at those commits, not live protocol acceptance or caller recovery.
