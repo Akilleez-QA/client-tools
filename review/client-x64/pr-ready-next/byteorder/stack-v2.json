@@ -1,0 +1,11 @@
+{
+  "prerequisite_branch": "review-ready/client-imemmove",
+  "prerequisite_head": "9eadbbbebd515a0fffad2133300703dff68bd7ef",
+  "stacked_branch": "review-ready/client-byteorder-x64-stacked",
+  "production_diff_from_prerequisite": "ByteOrder.cpp +26 only",
+  "reason": "Native isolated x64 compilation at8f136d19 failed C2668 at existing Misc.h233; Win32DebugRelease166631cases each passed.",
+  "tested_production_head": "6bd1e1a275c9405e2e3da324df491d93ad374b97",
+  "stacked_head": "110c7b4ba7cf317760119c1b298fabe7d30b61d8",
+  "test_commit": "110c7b4ba7cf317760119c1b298fabe7d30b61d8",
+  "code_inputs_match": "All192 recorded source/test/header hashes match committed tree; README authored afterward, runtime source unchanged."
+}

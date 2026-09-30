@@ -1,0 +1,81 @@
+diff --git a/src/engine/shared/library/sharedNetwork/src/win32/Sock.h b/src/engine/shared/library/sharedNetwork/src/win32/Sock.h
+index d5dbb0288..bac55ca8b 100644
+--- a/src/engine/shared/library/sharedNetwork/src/win32/Sock.h
++++ b/src/engine/shared/library/sharedNetwork/src/win32/Sock.h
+@@ -12,11 +12,12 @@
+ // ======================================================================
+ 
+ #include "sharedNetwork/Address.h"
++#include <stdint.h>
+ 
+ // ======================================================================
+ 
+ const unsigned int SOCK_ERROR = 0xFFFFFFFF;
+-typedef unsigned int SOCKET;
++typedef uintptr_t SOCKET;
+ 
+ /**
+ 	@brief a BSD socket abstraction
+@@ -66,7 +67,7 @@ private:
+ protected:
+ 	void                        setNonBlocking() const;
+ protected:
+-	int                         handle;
++	SOCKET                      handle;
+ 
+ 	/**
+ 		@brief support for setting/getting last error from derived
+diff --git a/src/engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp b/src/engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp
+index 8389546e8..762f5698f 100644
+--- a/src/engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp
++++ b/src/engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp
+@@ -520,7 +520,7 @@ void TcpClient::update()
+ 	OVERLAPPED * overlapped = 0;
+ 	OverlappedTcp * op = 0;
+ 	unsigned long int bytesTransferred = 0;
+-	unsigned long int completionKey = 0;
++	ULONG_PTR completionKey = 0;
+ 	bool success = false;
+ 
+ 	if (m_connected)
+diff --git a/src/engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp b/src/engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp
+index e17fb35e8..2275ff2b0 100644
+--- a/src/engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp
++++ b/src/engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp
+@@ -114,7 +114,7 @@ void TcpServer::update()
+ 	OVERLAPPED * overlapped = 0;
+ 	OverlappedTcp * op = 0;
+ 	unsigned long int bytesTransferred = 0;
+-	unsigned long int completionKey = 0;
++	ULONG_PTR completionKey = 0;
+ 	bool success = false;
+ 
+ 	do
+diff --git a/src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp b/src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp
+index 012819906..d2b3e9f39 100644
+--- a/src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp
++++ b/src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp
+@@ -8,7 +8,8 @@
+ 
+ 
+ #if defined(WIN32)
+-	typedef unsigned int SOCKET;	// avoids us having to include winsock.h just for this
++	#include <stdint.h>
++	typedef uintptr_t SOCKET;	// avoids us having to include winsock.h just for this
+ 	typedef __int64 udp_int64;
+ #else
+ 	typedef int SOCKET;
+diff --git a/src/external/3rd/library/udplibrary/UdpLibrary.hpp b/src/external/3rd/library/udplibrary/UdpLibrary.hpp
+index 77f909b00..7b1e8792b 100644
+--- a/src/external/3rd/library/udplibrary/UdpLibrary.hpp
++++ b/src/external/3rd/library/udplibrary/UdpLibrary.hpp
+@@ -7,7 +7,8 @@
+ #include "hashtable.hpp"
+ 
+ #if defined(WIN32)
+-	typedef unsigned int SOCKET;	// avoids us having to include winsock.h just for this
++	#include <stdint.h>
++	typedef uintptr_t SOCKET;	// avoids us having to include winsock.h just for this
+ 	typedef __int64 udp_int64;
+ #else
+ 	typedef int SOCKET;

@@ -1,0 +1,20 @@
+{
+  "expected_compile_cases": 20,
+  "failed_cases": [
+    "production-amd64-Debug-Sock",
+    "production-amd64-Debug-TcpClient",
+    "reverted-key-amd64-Debug-TcpClient",
+    "production-amd64-Debug-TcpServer",
+    "reverted-key-amd64-Debug-TcpServer",
+    "production-amd64-Release-Sock",
+    "production-amd64-Release-TcpClient",
+    "reverted-key-amd64-Release-TcpClient",
+    "production-amd64-Release-TcpServer",
+    "reverted-key-amd64-Release-TcpServer"
+  ],
+  "observed_compile_cases": 20,
+  "passed": false,
+  "passed_cases": 10,
+  "runtime_checks": 0,
+  "source_inputs_unchanged": true
+}

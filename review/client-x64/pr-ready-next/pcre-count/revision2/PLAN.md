@@ -1,0 +1,3 @@
+# Prospective revision 2 contract
+
+No production edits. Add a checkout-scoped structural assertion binding the declaration and pcre_exec capacity expression, explicitly not an AST or runtime caller test. Reject an in-memory reversion to sizeof(captureData) before compiling or executing the provider. Execute only correctly bounded calls on genuine PCRE 4.1, with 0/1/10/11/20 captures and no-match controls: 25 checks including adjacent sentinels after both calls. Require explicit provider/header paths, hash inputs, preserve commands/output, and propagate any aggregate failure. Run original Win32 provider and source-built providers on both ABIs/configurations. No unsafe historical call, huge allocation, fake header, full-client claim, or vendor redistribution.

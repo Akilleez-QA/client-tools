@@ -1,0 +1,114 @@
+[
+  {
+    "configuration": "Debug",
+    "arch": "x86",
+    "mode": "candidate",
+    "build_exit": 0,
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 332,
+    "run_exit": 0,
+    "output": "PASS 166631 input cases (both directions)\r\n"
+  },
+  {
+    "configuration": "Debug",
+    "arch": "x86",
+    "mode": "baseline",
+    "build_exit": 0,
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 332,
+    "run_exit": 0,
+    "output": "PASS 166631 input cases (both directions)\r\n"
+  },
+  {
+    "configuration": "Debug",
+    "arch": "amd64",
+    "mode": "candidate",
+    "build_exit": 0,
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 34404,
+    "run_exit": 0,
+    "output": "PASS 166631 input cases (both directions)\r\n"
+  },
+  {
+    "configuration": "Debug",
+    "arch": "amd64",
+    "mode": "baseline",
+    "build_exit": 1,
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2",
+    "passed": true
+  },
+  {
+    "configuration": "Debug",
+    "arch": "amd64",
+    "mode": "mutant",
+    "build_exit": 0,
+    "source_sha256": "d1c64350f2dac2ceb10e3d4e4f7034d51c34bd593e6a2b8b3b98091efc193909",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 34404,
+    "run_exit": 1,
+    "output": "FAIL long 80000000\r\n"
+  },
+  {
+    "configuration": "Release",
+    "arch": "x86",
+    "mode": "candidate",
+    "build_exit": 0,
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 332,
+    "run_exit": 0,
+    "output": "PASS 166631 input cases (both directions)\r\n"
+  },
+  {
+    "configuration": "Release",
+    "arch": "x86",
+    "mode": "baseline",
+    "build_exit": 0,
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 332,
+    "run_exit": 0,
+    "output": "PASS 166631 input cases (both directions)\r\n"
+  },
+  {
+    "configuration": "Release",
+    "arch": "amd64",
+    "mode": "candidate",
+    "build_exit": 0,
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 34404,
+    "run_exit": 0,
+    "output": "PASS 166631 input cases (both directions)\r\n"
+  },
+  {
+    "configuration": "Release",
+    "arch": "amd64",
+    "mode": "baseline",
+    "build_exit": 1,
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2",
+    "passed": true
+  },
+  {
+    "configuration": "Release",
+    "arch": "amd64",
+    "mode": "mutant",
+    "build_exit": 0,
+    "source_sha256": "d1c64350f2dac2ceb10e3d4e4f7034d51c34bd593e6a2b8b3b98091efc193909",
+    "passed": true,
+    "production_symbols_bound": true,
+    "object_machine": 34404,
+    "run_exit": 1,
+    "output": "FAIL long 80000000\r\n"
+  }
+]

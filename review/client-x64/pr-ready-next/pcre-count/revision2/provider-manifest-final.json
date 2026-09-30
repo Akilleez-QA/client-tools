@@ -1,0 +1,92 @@
+[
+  {
+    "case": "original-Win32-Debug",
+    "checks": 25,
+    "inputs": {
+      "C:\\pr-pcre18-revision2\\original-header\\pcre.h": "fc0fe608fab7e65c69456ef455d7e09000463e81d6e18ffb0147fcd5338a99bb",
+      "C:\\xml-pcre-next\\legacy-libpcre.a": "c377de21f0b9cebd3f1678810028d9c9908289400e5b3e1fb9f70d28f5663778",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "a8b7b3441d47d226c8098cebbb2323b1f6ee5cc5b8deb3927f794f4360743315",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.EXE": "2f7fea06e2d024a28dd271620ab469e0641e9758a99d5e20e1adad87cb440039"
+    },
+    "caller": {
+      "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+      "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+    }
+  },
+  {
+    "case": "original-Win32-Release",
+    "checks": 25,
+    "inputs": {
+      "C:\\pr-pcre18-revision2\\original-header\\pcre.h": "fc0fe608fab7e65c69456ef455d7e09000463e81d6e18ffb0147fcd5338a99bb",
+      "C:\\xml-pcre-next\\legacy-libpcre.a": "c377de21f0b9cebd3f1678810028d9c9908289400e5b3e1fb9f70d28f5663778",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "a8b7b3441d47d226c8098cebbb2323b1f6ee5cc5b8deb3927f794f4360743315",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.EXE": "2f7fea06e2d024a28dd271620ab469e0641e9758a99d5e20e1adad87cb440039"
+    },
+    "caller": {
+      "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+      "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+    }
+  },
+  {
+    "case": "source-Win32-Debug",
+    "checks": 25,
+    "inputs": {
+      "C:\\pcre-native-v3\\x86-Debug\\pcre-4.1\\pcre.h": "996b3d2b7b52d4c8609f1e1f08c75af49dd643584c3453889df3516fc980b1be",
+      "C:\\parser-integration-v3\\Win32-Debug\\pcre.lib": "951ce887adcb01ca45e293ba7ab86f5a36c142273725b3eedea258f1b022df1d",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "a8b7b3441d47d226c8098cebbb2323b1f6ee5cc5b8deb3927f794f4360743315",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.EXE": "2f7fea06e2d024a28dd271620ab469e0641e9758a99d5e20e1adad87cb440039"
+    },
+    "caller": {
+      "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+      "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+    }
+  },
+  {
+    "case": "source-Win32-Release",
+    "checks": 25,
+    "inputs": {
+      "C:\\pcre-native-v3\\x86-Release\\pcre-4.1\\pcre.h": "996b3d2b7b52d4c8609f1e1f08c75af49dd643584c3453889df3516fc980b1be",
+      "C:\\parser-integration-v3\\Win32-Release\\pcre.lib": "2a583d96415549213eb0d8852d4439aea9023e825738396b0bcfac69fbc14a41",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "a8b7b3441d47d226c8098cebbb2323b1f6ee5cc5b8deb3927f794f4360743315",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.EXE": "2f7fea06e2d024a28dd271620ab469e0641e9758a99d5e20e1adad87cb440039"
+    },
+    "caller": {
+      "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+      "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+    }
+  },
+  {
+    "case": "source-x64-Debug",
+    "checks": 25,
+    "inputs": {
+      "C:\\pcre-native-v3\\amd64-Debug\\pcre-4.1\\pcre.h": "996b3d2b7b52d4c8609f1e1f08c75af49dd643584c3453889df3516fc980b1be",
+      "C:\\parser-integration-v3\\x64-Debug\\pcre.lib": "b9c735e42ed482c35d8ec6a110af9d290c26d646a8cf2069ab0484800951f2a5",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "a8b7b3441d47d226c8098cebbb2323b1f6ee5cc5b8deb3927f794f4360743315",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.EXE": "4f3919c3033446e1edc9c1731779d89211a1a818c81f5205317e92aa48e34ea5"
+    },
+    "caller": {
+      "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+      "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+    }
+  },
+  {
+    "case": "source-x64-Release",
+    "checks": 25,
+    "inputs": {
+      "C:\\pcre-native-v3\\amd64-Release\\pcre-4.1\\pcre.h": "996b3d2b7b52d4c8609f1e1f08c75af49dd643584c3453889df3516fc980b1be",
+      "C:\\parser-integration-v3\\x64-Release\\pcre.lib": "29ab62347a3101aeaed50ffd6f70a07df77ed2ab7e195f808da2d3b92bd3b8be",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+      "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "a8b7b3441d47d226c8098cebbb2323b1f6ee5cc5b8deb3927f794f4360743315",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.EXE": "4f3919c3033446e1edc9c1731779d89211a1a818c81f5205317e92aa48e34ea5"
+    },
+    "caller": {
+      "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+      "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+    }
+  }
+]
