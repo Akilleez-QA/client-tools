@@ -1,0 +1,35 @@
+{
+  "scope": "portable value/ownership only; not MSVC ABI, Windows, job, engine or vendor evidence",
+  "first_attempt": true,
+  "build_command": [
+    "/usr/bin/clang++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "-include",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/portable-v1/native35_compat.h",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/portable-v1/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/candidate/selected-file-services44/selected_services.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/candidate/transport-candidate/codec.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/evidence-v1/selected44-portable"
+  ],
+  "run_command": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/selected-file-services44/evidence-v1/selected44-portable"
+  ],
+  "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+  "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+  "start_epoch": 1790785845.5229845,
+  "build_exit": 0,
+  "run_exit": 0,
+  "end_epoch": 1790785847.4558365,
+  "pass": true
+}

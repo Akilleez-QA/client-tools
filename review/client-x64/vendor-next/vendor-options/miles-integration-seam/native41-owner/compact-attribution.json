@@ -1,0 +1,91 @@
+{
+  "status": "five new compiled objects plus reused owner39; no link/runtime",
+  "raw_results_sha256": "555def1b7a6c02c4438cf1aa961fd3e814faa6c3d6049c61eff0485918c65085",
+  "units": [
+    {
+      "unit": "actual-job",
+      "source": "file-executor33/FileInvocationJob.cpp",
+      "source_sha256": "b744d0cbacd46f135b059f21a6d79fe19fd41f42d8e721323f68d19252fd23a9",
+      "compile_exit": 0,
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "c946d0acac4226b0d65627b0073bfebc28701b2ca79e1ed15c01cb9d278398ec",
+      "forbidden_includes": [],
+      "actual_symbols_log_sha256": "78a21b8f02aab411047c6a6fbca96e2baf971b3abd6a46574100d134b8aa27c6",
+      "selected_undefined_refs": [
+        "?submit@EngineFileWorker@MilesFileExecutor30@@QEAA_NPEAXP6AX0@Z@Z",
+        "?canonicalServices@MilesFileChannel26@@YA?AUFileServices@1@XZ",
+        "??0Invocation@MilesFileChannel26@@QEAA@AEBVRequest@1@AEBUFileServices@1@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z",
+        "?invokeOnAdmittedExecutor@Invocation@MilesFileChannel26@@QEAA_NXZ",
+        "??_E?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@UEAAPEAXI@Z"
+      ],
+      "undefined_AIL_refs": []
+    },
+    {
+      "unit": "file-channel",
+      "source": "file-channel26/file_channel.cpp",
+      "source_sha256": "0acb253aecdf4cf4ec3e6b3193e974c48cb0c2546d1c28af2ea4e5ac2f077b93",
+      "compile_exit": 0,
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "5af494d3892b97f3a17f2bc31ba97e11ff22e4d4f62ad506afc93cd3b86c5eca",
+      "forbidden_includes": [],
+      "actual_symbols_log_sha256": "2cab249350469dde3a4a28aa629616b23c4b9341d7f86b6137d2f61499029b43",
+      "selected_undefined_refs": [
+        "?decodeCall@MilesTransport@@YA_NUBytes@1@AEAUHeader@MilesWire@@AEAUCall@4@@Z",
+        "?encodeResult@MilesTransport@@YA_NUHeader@MilesWire@@AEBUResult@3@UBytes@1@2AEAV?$vector@EV?$allocator@E@std@@@std@@@Z",
+        "?encodeResultInto@MilesTransport@@YA_NUHeader@MilesWire@@AEBUResult@3@UBytes@1@2PEAE_KAEA_K@Z",
+        "?decodeResult@MilesTransport@@YA_NUBytes@1@AEAUHeader@MilesWire@@AEAUResult@4@@Z"
+      ],
+      "undefined_AIL_refs": []
+    },
+    {
+      "unit": "codec",
+      "source": "transport-candidate/codec.cpp",
+      "source_sha256": "9ba3ed648975d856d1715f76a959868f6cd00ca58ac783f3ff075f97e29dfd06",
+      "compile_exit": 0,
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "ff524b1915ce6bf026f48f54335cd1bdd5f214bc568b5a0c0160e2fc84421ea0",
+      "forbidden_includes": [],
+      "actual_symbols_log_sha256": "dfff4cce1e5490e4223942a8ccbe4ffe66484d61886e5b9a3a37befb353d7005",
+      "selected_undefined_refs": [],
+      "undefined_AIL_refs": []
+    },
+    {
+      "unit": "coordinator",
+      "source": "session-file-admission34/coordinator.cpp",
+      "source_sha256": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534",
+      "compile_exit": 0,
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "c94f3760cc3a91410d134fb60c63c25873df9b71bb0c2fb659aceda025742f8e",
+      "forbidden_includes": [],
+      "actual_symbols_log_sha256": "93eac934d290be972daa4bd0321884c8711b9f0b953f8151ee0e23d3856522e4",
+      "selected_undefined_refs": [],
+      "undefined_AIL_refs": []
+    },
+    {
+      "unit": "host-context",
+      "source": "host-callback-context41/call_context.cpp",
+      "source_sha256": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c",
+      "compile_exit": 0,
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "b3b972a455d3a24337bc530af73027b9c7b1b86a5806d27959a262bc6db4cd44",
+      "forbidden_includes": [],
+      "actual_symbols_log_sha256": "758766ad4a88c11c3c8cdd120c0e8ac093b7b4e68c8d6d967a818bae3923c351",
+      "selected_undefined_refs": [],
+      "undefined_AIL_refs": []
+    }
+  ],
+  "reused_owner": {
+    "origin": "native39-owner",
+    "unchanged_before_after": true,
+    "object_sha256": "6ddb61a7b3822826bd52bbb2248a877360eeaa802f0ea1fce944b9294e98cd89",
+    "expected_dependency": [
+      "?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z"
+    ]
+  },
+  "binding": "actual-job still references canonicalServices; no selected-table path claimed"
+}

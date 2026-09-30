@@ -1,0 +1,79 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native41-owner\results\host-context\host-context.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   30, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length  818, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .debug$T
+    Section length   54, #relocs    0, #linenums    0, checksum        0
+008 00000000 SECT4  notype       Static       | .tls$
+    Section length    8, #relocs    0, #linenums    0, checksum        0
+00A 00000000 SECT4  notype       External     | ?current@?A0x181a4903@MilesHostContext@@3PEBVScope@2@EB (class MilesHostContext::Scope const * const MilesHostContext::`anonymous namespace'::current)
+00B 00000000 SECT5  notype       Static       | .text$mn
+    Section length  119, #relocs    6, #linenums    0, checksum 483F2DA7, selection    1 (pick no duplicates)
+00D 00000000 SECT6  notype       Static       | .debug$S
+    Section length  104, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x5)
+00F 00000000 SECT7  notype       Static       | .text$mn
+    Section length   5A, #relocs    4, #linenums    0, checksum 87127A5F, selection    1 (pick no duplicates)
+011 00000000 SECT8  notype       Static       | .debug$S
+    Section length   C0, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x7)
+013 00000000 SECT9  notype       Static       | .text$mn
+    Section length   A7, #relocs    6, #linenums    0, checksum EECC2B35, selection    1 (pick no duplicates)
+015 00000000 SECTA  notype       Static       | .debug$S
+    Section length   FC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x9)
+017 00000000 SECT5  notype ()    External     | ??0Scope@MilesHostContext@@QEAA@AEBUOrigin@1@@Z (public: __cdecl MilesHostContext::Scope::Scope(struct MilesHostContext::Origin const &))
+018 00000000 SECT7  notype ()    External     | ??1Scope@MilesHostContext@@QEAA@XZ (public: __cdecl MilesHostContext::Scope::~Scope(void))
+019 00000000 SECT9  notype ()    External     | ?snapshot@MilesHostContext@@YA?AW4SnapshotResult@1@_KAEAUOrigin@1@@Z (enum MilesHostContext::SnapshotResult __cdecl MilesHostContext::snapshot(unsigned __int64,struct MilesHostContext::Origin &))
+01A 00000000 UNDEF  notype ()    External     | _RTC_InitBase
+01B 00000000 UNDEF  notype ()    External     | _RTC_Shutdown
+01C 00000000 SECT5  notype       Label        | $LN8
+01D 00000000 SECT7  notype       Label        | $LN4
+01E 00000000 SECT9  notype       Label        | $LN6
+01F 00000000 SECTB  notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 73887E32, selection    5 (pick associative Section 0x5)
+021 00000000 SECTB  notype       Static       | $unwind$??0Scope@MilesHostContext@@QEAA@AEBUOrigin@1@@Z
+022 00000000 SECTC  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C58321B4, selection    5 (pick associative Section 0x5)
+024 00000000 SECTC  notype       Static       | $pdata$??0Scope@MilesHostContext@@QEAA@AEBUOrigin@1@@Z
+025 00000000 SECTD  notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 15BCD18D, selection    5 (pick associative Section 0x7)
+027 00000000 SECTD  notype       Static       | $unwind$??1Scope@MilesHostContext@@QEAA@XZ
+028 00000000 SECTE  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C4E6EF0E, selection    5 (pick associative Section 0x7)
+02A 00000000 SECTE  notype       Static       | $pdata$??1Scope@MilesHostContext@@QEAA@XZ
+02B 00000000 SECTF  notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F6A3A49A, selection    5 (pick associative Section 0x9)
+02D 00000000 SECTF  notype       Static       | $unwind$?snapshot@MilesHostContext@@YA?AW4SnapshotResult@1@_KAEAUOrigin@1@@Z
+02E 00000000 SECT10 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A088EE95, selection    5 (pick associative Section 0x9)
+030 00000000 SECT10 notype       Static       | $pdata$?snapshot@MilesHostContext@@YA?AW4SnapshotResult@1@_KAEAUOrigin@1@@Z
+031 00000000 SECT11 notype       Static       | .rtc$IMZ
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+033 00000000 SECT11 notype       Static       | _RTC_InitBase.rtc$IMZ
+034 00000000 SECT12 notype       Static       | .rtc$TMZ
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+036 00000000 SECT12 notype       Static       | _RTC_Shutdown.rtc$TMZ
+037 00000000 UNDEF  notype       External     | _tls_index
+
+String Table Size = 0x284 bytes
+
+  Summary
+
+         AD8 .debug$S
+          54 .debug$T
+          30 .drectve
+          24 .pdata
+           8 .rtc$IMZ
+           8 .rtc$TMZ
+         21A .text$mn
+           8 .tls$
+          1C .xdata

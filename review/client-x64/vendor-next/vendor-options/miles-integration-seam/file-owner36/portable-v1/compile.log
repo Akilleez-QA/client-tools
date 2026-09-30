@@ -1,0 +1,14 @@
+In function ‘void operator delete(void*)’,
+    inlined from ‘std::__shared_count<_Lp>::__shared_count(_Ptr) [with _Ptr = int*; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’ at /usr/include/c++/16/bits/shared_ptr_base.h:986:8,
+    inlined from ‘std::__shared_count<_Lp>::__shared_count(_Ptr, std::false_type) [with _Ptr = int*; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’ at /usr/include/c++/16/bits/shared_ptr_base.h:993:22,
+    inlined from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(_Yp*) [with _Yp = int; <template-parameter-2-2> = void; _Tp = void; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’ at /usr/include/c++/16/bits/shared_ptr_base.h:1556:17,
+    inlined from ‘std::shared_ptr<_Tp>::shared_ptr(_Yp*) [with _Yp = int; <template-parameter-2-2> = void; _Tp = void]’ at /usr/include/c++/16/bits/shared_ptr.h:213:46,
+    inlined from ‘int main()’ at /home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/tests.cpp:48:44:
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/tests.cpp:18:50: error: ‘void free(void*)’ called on pointer returned from a mismatched allocation function [-Werror=mismatched-new-delete]
+   18 | void operator delete(void *p) noexcept {std::free(p);}
+      |                                         ~~~~~~~~~^~~
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/tests.cpp: In function ‘int main()’:
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/tests.cpp:48:43: note: returned from ‘void* operator new(std::size_t)’
+   48 |     std::shared_ptr<void> engine(new int(3));
+      |                                           ^
+cc1plus: all warnings being treated as errors

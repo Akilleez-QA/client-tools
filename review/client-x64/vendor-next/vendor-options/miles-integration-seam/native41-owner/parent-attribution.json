@@ -1,0 +1,55 @@
+{
+  "scope": "parent re-parsed actual raw logs/commands; same experiment, no independent COFF read or native execution",
+  "new_units": [
+    {
+      "unit": "actual-job",
+      "object_sha256_reported": "c946d0acac4226b0d65627b0073bfebc28701b2ca79e1ed15c01cb9d278398ec",
+      "command_sha256": "005d5c8ba5c8014a955f87d175a8c48ce1efd2b2034f6a7d1dab12d8aa83cfdf",
+      "symbols_sha256": "78a21b8f02aab411047c6a6fbca96e2baf971b3abd6a46574100d134b8aa27c6",
+      "actual_header_count": 221,
+      "checked_undefined_symbols": 43,
+      "selected_dependency_refs": [
+        "?submit@EngineFileWorker@MilesFileExecutor30@@QEAA_NPEAXP6AX0@Z@Z",
+        "?canonicalServices@MilesFileChannel26@@YA?AUFileServices@1@XZ"
+      ]
+    },
+    {
+      "unit": "file-channel",
+      "object_sha256_reported": "5af494d3892b97f3a17f2bc31ba97e11ff22e4d4f62ad506afc93cd3b86c5eca",
+      "command_sha256": "9d9e4be3c35b84316b3a336a4ad39e665982cc75d6f18a3169ccc55ce1049903",
+      "symbols_sha256": "2cab249350469dde3a4a28aa629616b23c4b9341d7f86b6137d2f61499029b43",
+      "actual_header_count": 88,
+      "checked_undefined_symbols": 45,
+      "selected_dependency_refs": []
+    },
+    {
+      "unit": "codec",
+      "object_sha256_reported": "ff524b1915ce6bf026f48f54335cd1bdd5f214bc568b5a0c0160e2fc84421ea0",
+      "command_sha256": "a062d5c415a135776a3481c7b4a2ed2263b48256696f82816e69c46d73bf401b",
+      "symbols_sha256": "dfff4cce1e5490e4223942a8ccbe4ffe66484d61886e5b9a3a37befb353d7005",
+      "actual_header_count": 65,
+      "checked_undefined_symbols": 20,
+      "selected_dependency_refs": []
+    },
+    {
+      "unit": "coordinator",
+      "object_sha256_reported": "c94f3760cc3a91410d134fb60c63c25873df9b71bb0c2fb659aceda025742f8e",
+      "command_sha256": "52ed91a4bd92c896a5354b53e79c7fcd2c24318cfe3907a0be68237fd58f9b03",
+      "symbols_sha256": "93eac934d290be972daa4bd0321884c8711b9f0b953f8151ee0e23d3856522e4",
+      "actual_header_count": 67,
+      "checked_undefined_symbols": 26,
+      "selected_dependency_refs": []
+    },
+    {
+      "unit": "host-context",
+      "object_sha256_reported": "b3b972a455d3a24337bc530af73027b9c7b1b86a5806d27959a262bc6db4cd44",
+      "command_sha256": "d755db4251ee4305133a4d60f82496b7bceb65744d549e9bd34d4f3bfffe7a2d",
+      "symbols_sha256": "758766ad4a88c11c3c8cdd120c0e8ac093b7b4e68c8d6d967a818bae3923c351",
+      "actual_header_count": 7,
+      "checked_undefined_symbols": 3,
+      "selected_dependency_refs": []
+    }
+  ],
+  "reused_owner": "native39 with identical before/after artifact hashes; not recompiled by41",
+  "runtime": false
+}

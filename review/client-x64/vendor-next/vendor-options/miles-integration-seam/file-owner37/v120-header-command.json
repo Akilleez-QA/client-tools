@@ -1,0 +1,4 @@
+[
+  "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+  "$ErrorActionPreference='Stop'; $p='C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/type_traits'; Get-FileHash -Algorithm SHA256 $p | Format-List; $s=Get-Content $p; for($i=1166;$i -le 1189;$i++){Write-Output (($i+1).ToString()+': '+$s[$i])}"
+]

@@ -1,0 +1,1491 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native41-owner\results\actual-job\actual-job.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length  34A, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length B2E8, #relocs    8, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .debug$T
+    Section length   50, #relocs    0, #linenums    0, checksum        0
+008 00000000 SECT4  notype       Static       | .text$mn
+    Section length   8D, #relocs    1, #linenums    0, checksum ED1F4969, selection    2 (pick any)
+00A 00000000 SECT5  notype       Static       | .debug$S
+    Section length  114, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x4)
+00C 00000000 SECT6  notype       Static       | .text$mn
+    Section length   8D, #relocs    1, #linenums    0, checksum ED1F4969, selection    2 (pick any)
+00E 00000000 SECT7  notype       Static       | .debug$S
+    Section length  11C, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x6)
+010 00000000 SECT8  notype       Static       | .text$mn
+    Section length   8D, #relocs    1, #linenums    0, checksum ED1F4969, selection    2 (pick any)
+012 00000000 SECT9  notype       Static       | .debug$S
+    Section length   D8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x8)
+014 00000000 SECTA  notype       Static       | .text$mn
+    Section length   ED, #relocs    4, #linenums    0, checksum 2CD489EB, selection    2 (pick any)
+016 00000000 SECTB  notype       Static       | .debug$S
+    Section length  404, #relocs   14, #linenums    0, checksum        0, selection    5 (pick associative Section 0xA)
+018 00000000 SECTC  notype       Static       | .text$x
+    Section length   73, #relocs    4, #linenums    0, checksum  8F975DD, selection    5 (pick associative Section 0xA)
+01A 00000000 SECTD  notype       Static       | .text$mn
+    Section length   62, #relocs    1, #linenums    0, checksum 25AEAA18, selection    2 (pick any)
+01C 00000000 SECTE  notype       Static       | .debug$S
+    Section length  120, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0xD)
+01E 00000000 SECTF  notype       Static       | .text$mn
+    Section length   AB, #relocs    3, #linenums    0, checksum EB810B57, selection    2 (pick any)
+020 00000000 SECT10 notype       Static       | .debug$S
+    Section length  314, #relocs    8, #linenums    0, checksum        0, selection    5 (pick associative Section 0xF)
+022 00000000 SECT11 notype       Static       | .text$x
+    Section length   4C, #relocs    2, #linenums    0, checksum A2867F66, selection    5 (pick associative Section 0xF)
+024 00000000 SECT12 notype       Static       | .text$mn
+    Section length   56, #relocs    1, #linenums    0, checksum 63AF68EE, selection    2 (pick any)
+026 00000000 SECT13 notype       Static       | .debug$S
+    Section length  124, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x12)
+028 00000000 SECT14 notype       Static       | .text$mn
+    Section length  16D, #relocs    6, #linenums    0, checksum 7CA867D8, selection    1 (pick no duplicates)
+02A 00000000 SECT15 notype       Static       | .debug$S
+    Section length  2DC, #relocs    A, #linenums    0, checksum        0, selection    5 (pick associative Section 0x14)
+02C 00000000 SECT16 notype       Static       | .text$x
+    Section length   6F, #relocs    3, #linenums    0, checksum 6B637A05, selection    5 (pick associative Section 0x14)
+02E 00000000 SECT17 notype       Static       | .text$mn
+    Section length  203, #relocs    C, #linenums    0, checksum 7028A877, selection    2 (pick any)
+030 00000000 SECT18 notype       Static       | .debug$S
+    Section length  304, #relocs    E, #linenums    0, checksum        0, selection    5 (pick associative Section 0x17)
+032 00000000 SECT19 notype       Static       | .text$x
+    Section length   72, #relocs    3, #linenums    0, checksum 53654771, selection    5 (pick associative Section 0x17)
+034 00000000 SECT1A notype       Static       | .text$mn
+    Section length   4C, #relocs    2, #linenums    0, checksum 7A0B078B, selection    2 (pick any)
+036 00000000 SECT1B notype       Static       | .debug$S
+    Section length   A0, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x1A)
+038 00000000 SECT1C notype       Static       | .text$mn
+    Section length   6A, #relocs    5, #linenums    0, checksum 1C0B05EC, selection    2 (pick any)
+03A 00000000 SECT1D notype       Static       | .debug$S
+    Section length  134, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x1C)
+03C 00000000 SECT1E notype       Static       | .text$mn
+    Section length   2E, #relocs    1, #linenums    0, checksum 675D5F7E, selection    2 (pick any)
+03E 00000000 SECT1F notype       Static       | .debug$S
+    Section length   C0, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x1E)
+040 00000000 SECT20 notype       Static       | .text$mn
+    Section length   3E, #relocs    1, #linenums    0, checksum B45B6309, selection    2 (pick any)
+042 00000000 SECT21 notype       Static       | .debug$S
+    Section length  108, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x20)
+044 00000000 SECT22 notype       Static       | .text$mn
+    Section length   3E, #relocs    1, #linenums    0, checksum B45B6309, selection    2 (pick any)
+046 00000000 SECT23 notype       Static       | .debug$S
+    Section length  110, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x22)
+048 00000000 SECT24 notype       Static       | .text$mn
+    Section length   3E, #relocs    1, #linenums    0, checksum B45B6309, selection    2 (pick any)
+04A 00000000 SECT25 notype       Static       | .debug$S
+    Section length   CC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x24)
+04C 00000000 SECT26 notype       Static       | .text$mn
+    Section length   41, #relocs    1, #linenums    0, checksum 14EE1C0B, selection    2 (pick any)
+04E 00000000 SECT27 notype       Static       | .debug$S
+    Section length  1D0, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x26)
+050 00000000 SECT28 notype       Static       | .text$mn
+    Section length   8D, #relocs    3, #linenums    0, checksum 9D8EFF29, selection    1 (pick no duplicates)
+052 00000000 SECT29 notype       Static       | .debug$S
+    Section length   DC, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x28)
+054 00000000 SECT2A notype       Static       | .text$mn
+    Section length   CF, #relocs    7, #linenums    0, checksum 871F6EF4, selection    2 (pick any)
+056 00000000 SECT2B notype       Static       | .debug$S
+    Section length   94, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x2A)
+058 00000000 SECT2C notype       Static       | .text$mn
+    Section length   2E, #relocs    1, #linenums    0, checksum 675D5F7E, selection    2 (pick any)
+05A 00000000 SECT2D notype       Static       | .debug$S
+    Section length   8C, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x2C)
+05C 00000000 SECT2E notype       Static       | .text$mn
+    Section length   A1, #relocs    0, #linenums    0, checksum 4C6A8E25, selection    2 (pick any)
+05E 00000000 SECT2F notype       Static       | .debug$S
+    Section length   D8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x2E)
+060 00000000 SECT30 notype       Static       | .text$mn
+    Section length   94, #relocs    2, #linenums    0, checksum 8D268804, selection    2 (pick any)
+062 00000000 SECT31 notype       Static       | .debug$S
+    Section length  10C, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x30)
+064 00000000 SECT32 notype       Static       | .text$mn
+    Section length   51, #relocs    2, #linenums    0, checksum 4F0FC9D4, selection    2 (pick any)
+066 00000000 SECT33 notype       Static       | .debug$S
+    Section length   C0, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x32)
+068 00000000 SECT34 notype       Static       | .text$mn
+    Section length   51, #relocs    2, #linenums    0, checksum 4F0FC9D4, selection    2 (pick any)
+06A 00000000 SECT35 notype       Static       | .debug$S
+    Section length   A4, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x34)
+06C 00000000 SECT36 notype       Static       | .text$mn
+    Section length   51, #relocs    2, #linenums    0, checksum 4F0FC9D4, selection    2 (pick any)
+06E 00000000 SECT37 notype       Static       | .debug$S
+    Section length   A4, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x36)
+070 00000000 SECT38 notype       Static       | .text$mn
+    Section length   51, #relocs    2, #linenums    0, checksum 4F0FC9D4, selection    2 (pick any)
+072 00000000 SECT39 notype       Static       | .debug$S
+    Section length   9C, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x38)
+074 00000000 SECT3A notype       Static       | .text$mn
+    Section length   51, #relocs    2, #linenums    0, checksum 4F0FC9D4, selection    2 (pick any)
+076 00000000 SECT3B notype       Static       | .debug$S
+    Section length   A4, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x3A)
+078 00000000 SECT3C notype       Static       | .text$mn
+    Section length   51, #relocs    2, #linenums    0, checksum 4F0FC9D4, selection    2 (pick any)
+07A 00000000 SECT3D notype       Static       | .debug$S
+    Section length   9C, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x3C)
+07C 00000000 SECT3E notype       Static       | .text$mn
+    Section length   4C, #relocs    2, #linenums    0, checksum 84A447E3, selection    2 (pick any)
+07E 00000000 SECT3F notype       Static       | .debug$S
+    Section length   9C, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x3E)
+080 00000000 SECT40 notype       Static       | .text$di
+    Section length   46, #relocs    6, #linenums    0, checksum 538947F8, selection    2 (pick any)
+082 00000000 SECT41 notype       Static       | .debug$S
+    Section length   C4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x40)
+084 00000000 SECT42 notype       Static       | .text$di
+    Section length   54, #relocs    8, #linenums    0, checksum 2F4DB103, selection    2 (pick any)
+086 00000000 SECT43 notype       Static       | .debug$S
+    Section length   C4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x42)
+088 00000000 SECT44 notype       Static       | .text$di
+    Section length   54, #relocs    8, #linenums    0, checksum 2F4DB103, selection    2 (pick any)
+08A 00000000 SECT45 notype       Static       | .debug$S
+    Section length   C4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x44)
+08C 00000000 SECT46 notype       Static       | .text$di
+    Section length   12, #relocs    1, #linenums    0, checksum 9128486D, selection    2 (pick any)
+08E 00000000 SECT47 notype       Static       | .debug$S
+    Section length  114, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x46)
+090 00000000 SECT48 notype       Static       | .text$di
+    Section length   12, #relocs    1, #linenums    0, checksum 9128486D, selection    2 (pick any)
+092 00000000 SECT49 notype       Static       | .debug$S
+    Section length  13C, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x48)
+094 00000000 SECT4A notype       Static       | .text$di
+    Section length   12, #relocs    1, #linenums    0, checksum 9128486D, selection    2 (pick any)
+096 00000000 SECT4B notype       Static       | .debug$S
+    Section length   B4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x4A)
+098 00000000 SECT4C notype       Static       | .text$di
+    Section length   12, #relocs    1, #linenums    0, checksum 9128486D, selection    2 (pick any)
+09A 00000000 SECT4D notype       Static       | .debug$S
+    Section length   BC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x4C)
+09C 00000000 SECT4E notype       Static       | .text$di
+    Section length   2B, #relocs    0, #linenums    0, checksum 82FF75B0, selection    2 (pick any)
+09E 00000000 SECT4F notype       Static       | .debug$S
+    Section length   AC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x4E)
+0A0 00000000 SECT50 notype       Static       | .text$di
+    Section length   2B, #relocs    0, #linenums    0, checksum 82FF75B0, selection    2 (pick any)
+0A2 00000000 SECT51 notype       Static       | .debug$S
+    Section length   B4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x50)
+0A4 00000000 SECT52 notype       Static       | .text$yd
+    Section length   15, #relocs    2, #linenums    0, checksum 9B378F2C, selection    2 (pick any)
+0A6 00000000 SECT53 notype       Static       | .debug$S
+    Section length   A4, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x52)
+0A8 00000000 SECT54 notype       Static       | .text$yd
+    Section length   15, #relocs    2, #linenums    0, checksum 9B378F2C, selection    2 (pick any)
+0AA 00000000 SECT55 notype       Static       | .debug$S
+    Section length   A4, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x54)
+0AC 00000000 SECT56 notype       Static       | .text$yd
+    Section length   15, #relocs    2, #linenums    0, checksum 9B378F2C, selection    2 (pick any)
+0AE 00000000 SECT57 notype       Static       | .debug$S
+    Section length   A0, #relocs    2, #linenums    0, checksum        0, selection    5 (pick associative Section 0x56)
+0B0 00000000 SECT58 notype       Static       | .text$mn
+    Section length  11F, #relocs    4, #linenums    0, checksum 759FBC8F, selection    2 (pick any)
+0B2 00000000 SECT59 notype       Static       | .debug$S
+    Section length  120, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x58)
+0B4 00000000 SECT5A notype       Static       | .text$mn
+    Section length  3CF, #relocs    4, #linenums    0, checksum 857A4A71, selection    2 (pick any)
+0B6 00000000 SECT5B notype       Static       | .debug$S
+    Section length  690, #relocs   24, #linenums    0, checksum        0, selection    5 (pick associative Section 0x5A)
+0B8 00000000 SECT5C notype       Static       | .text$x
+    Section length   DE, #relocs    6, #linenums    0, checksum 5DB3784F, selection    5 (pick associative Section 0x5A)
+0BA 00000000 SECT5D notype       Static       | .text$mn
+    Section length   77, #relocs    0, #linenums    0, checksum E9E3C824, selection    2 (pick any)
+0BC 00000000 SECT5E notype       Static       | .debug$S
+    Section length   F0, #relocs    8, #linenums    0, checksum        0, selection    5 (pick associative Section 0x5D)
+0BE 00000000 SECT5F notype       Static       | .text$mn
+    Section length   65, #relocs    0, #linenums    0, checksum 4F581651, selection    2 (pick any)
+0C0 00000000 SECT60 notype       Static       | .debug$S
+    Section length   F8, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x5F)
+0C2 00000000 SECT61 notype       Static       | .text$mn
+    Section length   79, #relocs    2, #linenums    0, checksum AA6DFCA3, selection    2 (pick any)
+0C4 00000000 SECT62 notype       Static       | .debug$S
+    Section length   E4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x61)
+0C6 00000000 SECT63 notype       Static       | .text$mn
+    Section length   85, #relocs    0, #linenums    0, checksum F6AC5576, selection    2 (pick any)
+0C8 00000000 SECT64 notype       Static       | .debug$S
+    Section length  104, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x63)
+0CA 00000000 SECT65 notype       Static       | .text$mn
+    Section length   60, #relocs    4, #linenums    0, checksum 4A7CD671, selection    2 (pick any)
+0CC 00000000 SECT66 notype       Static       | .debug$S
+    Section length  130, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x65)
+0CE 00000000 SECT67 notype       Static       | .text$mn
+    Section length    F, #relocs    0, #linenums    0, checksum 7CE167B6, selection    2 (pick any)
+0D0 00000000 SECT68 notype       Static       | .debug$S
+    Section length   DC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x67)
+0D2 00000000 SECT69 notype       Static       | .text$mn
+    Section length  11D, #relocs    5, #linenums    0, checksum  28B94BB, selection    2 (pick any)
+0D4 00000000 SECT6A notype       Static       | .debug$S
+    Section length  158, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x69)
+0D6 00000000 SECT6B notype       Static       | .text$mn
+    Section length   CB, #relocs    0, #linenums    0, checksum C57B1073, selection    2 (pick any)
+0D8 00000000 SECT6C notype       Static       | .debug$S
+    Section length  11C, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x6B)
+0DA 00000000 SECT6D notype       Static       | .text$mn
+    Section length   AA, #relocs    4, #linenums    0, checksum BF0E2790, selection    2 (pick any)
+0DC 00000000 SECT6E notype       Static       | .debug$S
+    Section length  154, #relocs    8, #linenums    0, checksum        0, selection    5 (pick associative Section 0x6D)
+0DE 00000000 SECT6F notype       Static       | .text$mn
+    Section length   AB, #relocs    0, #linenums    0, checksum D4625F12, selection    2 (pick any)
+0E0 00000000 SECT70 notype       Static       | .debug$S
+    Section length   FC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x6F)
+0E2 00000000 SECT71 notype       Static       | .text$mn
+    Section length   CC, #relocs    3, #linenums    0, checksum 6E83AB0A, selection    2 (pick any)
+0E4 00000000 SECT72 notype       Static       | .debug$S
+    Section length  180, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x71)
+0E6 00000000 SECT73 notype       Static       | .text$mn
+    Section length   D0, #relocs    4, #linenums    0, checksum 14D15576, selection    2 (pick any)
+0E8 00000000 SECT74 notype       Static       | .debug$S
+    Section length  114, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x73)
+0EA 00000000 SECT75 notype       Static       | .text$mn
+    Section length  228, #relocs    9, #linenums    0, checksum 2E08D874, selection    2 (pick any)
+0EC 00000000 SECT76 notype       Static       | .debug$S
+    Section length  190, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x75)
+0EE 00000000 SECT77 notype       Static       | .text$mn
+    Section length   A5, #relocs    5, #linenums    0, checksum AF3AB8C3, selection    2 (pick any)
+0F0 00000000 SECT78 notype       Static       | .debug$S
+    Section length  108, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x77)
+0F2 00000000 SECT79 notype       Static       | .text$mn
+    Section length  1C0, #relocs    8, #linenums    0, checksum 85AE72F5, selection    2 (pick any)
+0F4 00000000 SECT7A notype       Static       | .debug$S
+    Section length  150, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x79)
+0F6 00000000 SECT7B notype       Static       | .text$mn
+    Section length   50, #relocs    1, #linenums    0, checksum CD6E19DE, selection    1 (pick no duplicates)
+0F8 00000000 SECT7C notype       Static       | .debug$S
+    Section length   DC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x7B)
+0FA 00000000 SECT7D notype       Static       | .text$mn
+    Section length   80, #relocs    3, #linenums    0, checksum 12A242B0, selection    2 (pick any)
+0FC 00000000 SECT7E notype       Static       | .debug$S
+    Section length  104, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x7D)
+0FE 00000000 SECT7F notype       Static       | .text$mn
+    Section length   30, #relocs    0, #linenums    0, checksum  1E41F1B, selection    2 (pick any)
+100 00000000 SECT80 notype       Static       | .debug$S
+    Section length   E4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x7F)
+102 00000000 SECT81 notype       Static       | .text$mn
+    Section length  48D, #relocs   18, #linenums    0, checksum CE0742FC, selection    1 (pick no duplicates)
+104 00000000 SECT82 notype       Static       | .debug$S
+    Section length  518, #relocs   10, #linenums    0, checksum        0, selection    5 (pick associative Section 0x81)
+106 00000000 SECT83 notype       Static       | .text$x
+    Section length   DB, #relocs    6, #linenums    0, checksum 8739FFD6, selection    5 (pick associative Section 0x81)
+108 00000000 SECT84 notype       Static       | .text$mn
+    Section length   8D, #relocs    0, #linenums    0, checksum E2953349, selection    2 (pick any)
+10A 00000000 SECT85 notype       Static       | .debug$S
+    Section length   EC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x84)
+10C 00000000 SECT86 notype       Static       | .text$mn
+    Section length   54, #relocs    1, #linenums    0, checksum FEECAF71, selection    2 (pick any)
+10E 00000000 SECT87 notype       Static       | .debug$S
+    Section length   FC, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x86)
+110 00000000 SECT88 notype       Static       | .text$mn
+    Section length  151, #relocs    5, #linenums    0, checksum FC56BE9E, selection    2 (pick any)
+112 00000000 SECT89 notype       Static       | .debug$S
+    Section length  1A4, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x88)
+114 00000000 SECT8A notype       Static       | .text$mn
+    Section length   C0, #relocs    6, #linenums    0, checksum C7AF2E09, selection    1 (pick no duplicates)
+116 00000000 SECT8B notype       Static       | .debug$S
+    Section length  39C, #relocs   18, #linenums    0, checksum        0, selection    5 (pick associative Section 0x8A)
+118 00000000 SECT8C notype       Static       | .text$x
+    Section length   50, #relocs    2, #linenums    0, checksum D70434C5, selection    5 (pick associative Section 0x8A)
+11A 00000000 SECT8D notype       Static       | .text$mn
+    Section length   9E, #relocs    3, #linenums    0, checksum 799F0580, selection    2 (pick any)
+11C 00000000 SECT8E notype       Static       | .debug$S
+    Section length   FC, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x8D)
+11E 00000000 SECT8F notype       Static       | .text$mn
+    Section length   A4, #relocs    3, #linenums    0, checksum 14BDD70E, selection    2 (pick any)
+120 00000000 SECT90 notype       Static       | .debug$S
+    Section length   F8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x8F)
+122 00000000 SECT91 notype       Static       | .text$mn
+    Section length   9E, #relocs    3, #linenums    0, checksum 799F0580, selection    2 (pick any)
+124 00000000 SECT92 notype       Static       | .debug$S
+    Section length   F8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x91)
+126 00000000 SECT93 notype       Static       | .text$mn
+    Section length    F, #relocs    1, #linenums    0, checksum 355EDFD9, selection    2 (pick any)
+128 00000000 SECT94 notype       Static       | .debug$S
+    Section length   C4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x93)
+12A 00000000 SECT95 notype       Static       | .text$mn
+    Section length    F, #relocs    1, #linenums    0, checksum 355EDFD9, selection    2 (pick any)
+12C 00000000 SECT96 notype       Static       | .debug$S
+    Section length   C4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x95)
+12E 00000000 SECT97 notype       Static       | .text$mn
+    Section length    F, #relocs    1, #linenums    0, checksum 355EDFD9, selection    2 (pick any)
+130 00000000 SECT98 notype       Static       | .debug$S
+    Section length   C4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x97)
+132 00000000 SECT99 notype       Static       | .text$mn
+    Section length   86, #relocs    1, #linenums    0, checksum 12F276A8, selection    1 (pick no duplicates)
+134 00000000 SECT9A notype       Static       | .debug$S
+    Section length  11C, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x99)
+136 00000000 SECT9B notype       Static       | .text$mn
+    Section length   59, #relocs    1, #linenums    0, checksum F64F0923, selection    1 (pick no duplicates)
+138 00000000 SECT9C notype       Static       | .debug$S
+    Section length   E0, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x9B)
+13A 00000000 SECT9D notype       Static       | .text$mn
+    Section length   37, #relocs    1, #linenums    0, checksum BDB7AB8E, selection    2 (pick any)
+13C 00000000 SECT9E notype       Static       | .debug$S
+    Section length   B8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x9D)
+13E 00000000 UNDEF  notype ()    External     | _purecall
+13F 00000000 UNDEF  notype ()    External     | ??2@YAPEAX_K@Z (void * __cdecl operator new(unsigned __int64))
+140 00000000 UNDEF  notype ()    External     | ??3@YAXPEAX@Z (void __cdecl operator delete(void *))
+141 00000000 UNDEF  notype ()    External     | atexit
+142 00000000 UNDEF  notype ()    External     | ?submit@EngineFileWorker@MilesFileExecutor30@@QEAA_NPEAXP6AX0@Z@Z (public: bool __cdecl MilesFileExecutor30::EngineFileWorker::submit(void *,void (__cdecl*)(void *)))
+143 00000000 UNDEF  notype ()    External     | abort
+144 00000000 UNDEF  notype ()    External     | ??0_Lockit@std@@QEAA@H@Z (public: __cdecl std::_Lockit::_Lockit(int))
+145 00000000 UNDEF  notype ()    External     | ??1_Lockit@std@@QEAA@XZ (public: __cdecl std::_Lockit::~_Lockit(void))
+146 00000000 UNDEF  notype ()    External     | memcpy
+147 00000000 UNDEF  notype ()    External     | strlen
+148 00000000 UNDEF  notype ()    External     | memmove
+149 00000000 UNDEF  notype ()    External     | ??0exception@std@@QEAA@AEBQEBD@Z (public: __cdecl std::exception::exception(char const * const &))
+14A 00000000 UNDEF  notype ()    External     | ??0exception@std@@QEAA@AEBV01@@Z (public: __cdecl std::exception::exception(class std::exception const &))
+14B 00000000 UNDEF  notype ()    External     | ??1exception@std@@UEAA@XZ (public: virtual __cdecl std::exception::~exception(void))
+14C 00000000 UNDEF  notype ()    External     | ?what@exception@std@@UEBAPEBDXZ (public: virtual char const * __cdecl std::exception::what(void)const )
+14D 00000000 UNDEF  notype ()    External     | _hypot
+14E 00000000 SECT9D notype ()    External     | hypot
+14F 00000000 SECT50 notype ()    Static       | ??__Epiecewise_construct@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'piecewise_construct''(void))
+150 00000000 UNDEF  notype ()    External     | ?_Debug_message@std@@YAXPEBG0I@Z (void __cdecl std::_Debug_message(unsigned short const *,unsigned short const *,unsigned int))
+151 00000000 SECT6D notype ()    External     | ?_Orphan_all@_Container_base12@std@@QEAAXXZ (public: void __cdecl std::_Container_base12::_Orphan_all(void))
+152 00000000 SECT4E notype ()    Static       | ??__Eallocator_arg@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'allocator_arg''(void))
+153 00000000 UNDEF  notype ()    External     | ?_Xbad_alloc@std@@YAXXZ (void __cdecl std::_Xbad_alloc(void))
+154 00000000 UNDEF  notype ()    External     | ?_Xlength_error@std@@YAXPEBD@Z (void __cdecl std::_Xlength_error(char const *))
+155 00000000 UNDEF  notype ()    External     | ?_Xout_of_range@std@@YAXPEBD@Z (void __cdecl std::_Xout_of_range(char const *))
+156 00000000 SECT1E notype ()    External     | ??1?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ (public: __cdecl std::_String_val<struct std::_Simple_types<char> >::~_String_val<struct std::_Simple_types<char> >(void))
+157 00000000 SECT1C notype ()    External     | ??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ (public: __cdecl std::_String_alloc<0,struct std::_String_base_types<char,class std::allocator<char> > >::~_String_alloc<0,struct std::_String_base_types<char,class std::allocator<char> > >(void))
+158 00000000 SECT58 notype ()    External     | ?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ (public: void __cdecl std::_String_alloc<0,struct std::_String_base_types<char,class std::allocator<char> > >::_Alloc_proxy(void))
+159 00000000 SECTF  notype ()    External     | ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z (public: __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >(char const *))
+15A 00000000 SECT75 notype ()    External     | ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z (public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,unsigned __int64,unsigned __int64))
+15B 00000000 SECT79 notype ()    External     | ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z (public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign(char const *,unsigned __int64))
+15C 00000000 SECT77 notype ()    External     | ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD@Z (public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign(char const *))
+15D 00000000 SECT88 notype ()    External     | ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z (public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::erase(unsigned __int64,unsigned __int64))
+15E 00000000 SECT5A notype ()    External     | ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z (public: void __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Copy(unsigned __int64,unsigned __int64))
+15F 00000000 SECT63 notype ()    External     | ?_Eos@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K@Z (public: void __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Eos(unsigned __int64))
+160 00000000 SECT69 notype ()    External     | ?_Grow@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA_N_K_N@Z (public: bool __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Grow(unsigned __int64,bool))
+161 00000000 SECT6B notype ()    External     | ?_Inside@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA_NPEBD@Z (public: bool __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Inside(char const *))
+162 00000000 SECT71 notype ()    External     | ?_Tidy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_N_K@Z (public: void __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy(bool,unsigned __int64))
+163 00000000 SECT2C notype ()    External     | ??1runtime_error@std@@UEAA@XZ (public: virtual __cdecl std::runtime_error::~runtime_error(void))
+164 00000000 SECT1A notype ()    External     | ??0runtime_error@std@@QEAA@AEBV01@@Z (public: __cdecl std::runtime_error::runtime_error(class std::runtime_error const &))
+165 00000000 SECT3E notype ()    External     | ??_Gruntime_error@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::runtime_error::`scalar deleting destructor'(unsigned int))
+166 00000000 UNDEF  notype ()    WeakExternal | ??_Eruntime_error@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::runtime_error::`vector deleting destructor'(unsigned int))
+    Default index      165 library search
+168 00000000 SECT5D notype ()    External     | ?_Decref@_Ref_count_base@std@@QEAAXXZ (public: void __cdecl std::_Ref_count_base::_Decref(void))
+169 00000000 SECT67 notype ()    External     | ?_Get_deleter@_Ref_count_base@std@@UEBAPEAXAEBVtype_info@@@Z (public: virtual void * __cdecl std::_Ref_count_base::_Get_deleter(class type_info const &)const )
+16A 00000000 SECT38 notype ()    External     | ??_G_Ref_count_base@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Ref_count_base::`scalar deleting destructor'(unsigned int))
+16B 00000000 UNDEF  notype ()    WeakExternal | ??_E_Ref_count_base@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Ref_count_base::`vector deleting destructor'(unsigned int))
+    Default index      16A library search
+16D 00000000 SECT7F notype ()    External     | ?default_error_condition@error_category@std@@UEBA?AVerror_condition@2@H@Z (public: virtual class std::error_condition __cdecl std::error_category::default_error_condition(int)const )
+16E 00000000 SECT86 notype ()    External     | ?equivalent@error_category@std@@UEBA_NHAEBVerror_condition@2@@Z (public: virtual bool __cdecl std::error_category::equivalent(int,class std::error_condition const &)const )
+16F 00000000 SECT84 notype ()    External     | ?equivalent@error_category@std@@UEBA_NAEBVerror_code@2@H@Z (public: virtual bool __cdecl std::error_category::equivalent(class std::error_code const &,int)const )
+170 00000000 SECT3C notype ()    External     | ??_Gerror_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::error_category::`scalar deleting destructor'(unsigned int))
+171 00000000 UNDEF  notype ()    WeakExternal | ??_Eerror_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::error_category::`vector deleting destructor'(unsigned int))
+    Default index      170 library search
+173 00000000 SECT2E notype ()    External     | ??8error_condition@std@@QEBA_NAEBV01@@Z (public: bool __cdecl std::error_condition::operator==(class std::error_condition const &)const )
+174 00000000 UNDEF  notype ()    External     | ?_Syserror_map@std@@YAPEBDH@Z (char const * __cdecl std::_Syserror_map(int))
+175 00000000 UNDEF  notype ()    External     | ?_Winerror_map@std@@YAPEBDH@Z (char const * __cdecl std::_Winerror_map(int))
+176 00000000 SECT93 notype ()    External     | ?name@_Generic_error_category@std@@UEBAPEBDXZ (public: virtual char const * __cdecl std::_Generic_error_category::name(void)const )
+177 00000000 SECT8D notype ()    External     | ?message@_Generic_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z (public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl std::_Generic_error_category::message(int)const )
+178 00000000 SECT34 notype ()    External     | ??_G_Generic_error_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Generic_error_category::`scalar deleting destructor'(unsigned int))
+179 00000000 UNDEF  notype ()    WeakExternal | ??_E_Generic_error_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Generic_error_category::`vector deleting destructor'(unsigned int))
+    Default index      178 library search
+17B 00000000 SECT95 notype ()    External     | ?name@_Iostream_error_category@std@@UEBAPEBDXZ (public: virtual char const * __cdecl std::_Iostream_error_category::name(void)const )
+17C 00000000 SECT8F notype ()    External     | ?message@_Iostream_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z (public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl std::_Iostream_error_category::message(int)const )
+17D 00000000 SECT36 notype ()    External     | ??_G_Iostream_error_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Iostream_error_category::`scalar deleting destructor'(unsigned int))
+17E 00000000 UNDEF  notype ()    WeakExternal | ??_E_Iostream_error_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Iostream_error_category::`vector deleting destructor'(unsigned int))
+    Default index      17D library search
+180 00000000 SECT97 notype ()    External     | ?name@_System_error_category@std@@UEBAPEBDXZ (public: virtual char const * __cdecl std::_System_error_category::name(void)const )
+181 00000000 SECT91 notype ()    External     | ?message@_System_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z (public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl std::_System_error_category::message(int)const )
+182 00000000 SECT7D notype ()    External     | ?default_error_condition@_System_error_category@std@@UEBA?AVerror_condition@2@H@Z (public: virtual class std::error_condition __cdecl std::_System_error_category::default_error_condition(int)const )
+183 00000000 SECT3A notype ()    External     | ??_G_System_error_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_System_error_category::`scalar deleting destructor'(unsigned int))
+184 00000000 UNDEF  notype ()    WeakExternal | ??_E_System_error_category@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_System_error_category::`vector deleting destructor'(unsigned int))
+    Default index      183 library search
+186 00000000 UNDEF  notype ()    External     | ?canonicalServices@MilesFileChannel26@@YA?AUFileServices@1@XZ (struct MilesFileChannel26::FileServices __cdecl MilesFileChannel26::canonicalServices(void))
+187 00000000 SECT65 notype ()    External     | ?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ (public: void __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Free_proxy(void))
+188 00000000 SECT73 notype ()    External     | ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Tidy(void))
+189 00000000 UNDEF  notype ()    External     | ??0Invocation@MilesFileChannel26@@QEAA@AEBVRequest@1@AEBUFileServices@1@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z (public: __cdecl MilesFileChannel26::Invocation::Invocation(class MilesFileChannel26::Request const &,struct MilesFileChannel26::FileServices const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class std::shared_ptr<void>))
+18A 00000000 UNDEF  notype ()    External     | ?invokeOnAdmittedExecutor@Invocation@MilesFileChannel26@@QEAA_NXZ (public: bool __cdecl MilesFileChannel26::Invocation::invokeOnAdmittedExecutor(void))
+18B 00000000 SECT20 notype ()    External     | ??1?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@QEAA@XZ (public: __cdecl std::shared_ptr<struct MilesFileChannel26::Binding const >::~shared_ptr<struct MilesFileChannel26::Binding const >(void))
+18C 00000000 SECT24 notype ()    External     | ??1?$shared_ptr@X@std@@QEAA@XZ (public: __cdecl std::shared_ptr<void>::~shared_ptr<void>(void))
+18D 00000000 SECT2A notype ()    External     | ??1Invocation@MilesFileChannel26@@QEAA@XZ (public: __cdecl MilesFileChannel26::Invocation::~Invocation(void))
+18E 00000000 SECT81 notype ()    External     | ?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z (public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class MilesFileExecutor30::EngineFileWorker &,class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class std::shared_ptr<void>))
+18F 00000000 SECT28 notype ()    External     | ??1FileInvocationJob@MilesFileExecutor30@@QEAA@XZ (public: __cdecl MilesFileExecutor30::FileInvocationJob::~FileInvocationJob(void))
+190 00000000 SECT99 notype ()    External     | ?status@FileInvocationJob@MilesFileExecutor30@@QEBA?AW4Status@12@XZ (public: enum MilesFileExecutor30::FileInvocationJob::Status __cdecl MilesFileExecutor30::FileInvocationJob::status(void)const )
+191 00000000 SECT9B notype ()    External     | ?wait@FileInvocationJob@MilesFileExecutor30@@QEBA_NXZ (public: bool __cdecl MilesFileExecutor30::FileInvocationJob::wait(void)const )
+192 00000000 SECT7B notype ()    External     | ?completedInvocation@FileInvocationJob@MilesFileExecutor30@@QEBAPEBVInvocation@MilesFileChannel26@@XZ (public: class MilesFileChannel26::Invocation const * __cdecl MilesFileExecutor30::FileInvocationJob::completedInvocation(void)const )
+193 00000000 SECT14 notype ()    External     | ??0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z (private: __cdecl MilesFileExecutor30::FileInvocationJob::FileInvocationJob(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class std::shared_ptr<void>))
+194 00000000 SECT8A notype ()    External     | ?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z (private: static void __cdecl MilesFileExecutor30::FileInvocationJob::execute(void *))
+195 00000000 UNDEF  notype       External     | __imp_CloseHandle
+196 00000000 UNDEF  notype       External     | __imp_SetEvent
+197 00000000 UNDEF  notype       External     | __imp_WaitForSingleObject
+198 00000000 UNDEF  notype       External     | __imp_CreateEventA
+199 00000000 SECT17 notype ()    External     | ??0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z (public: __cdecl MilesFileExecutor30::FileInvocationJob::State::State(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class std::shared_ptr<void>))
+19A 00000000 SECTD  notype ()    External     | ??0?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@$$QEAV01@@Z (public: __cdecl std::_Ptr_base<class MilesFileExecutor30::FileInvocationJob>::_Ptr_base<class MilesFileExecutor30::FileInvocationJob>(class std::_Ptr_base<class MilesFileExecutor30::FileInvocationJob> &&))
+19B 00000000 SECT6F notype ()    External     | ?_Swap@?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAAXAEAV12@@Z (public: void __cdecl std::_Ptr_base<class MilesFileExecutor30::FileInvocationJob>::_Swap(class std::_Ptr_base<class MilesFileExecutor30::FileInvocationJob> &))
+19C 00000000 SECT12 notype ()    External     | ??0?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@AEBV01@@Z (public: __cdecl std::shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<class MilesFileExecutor30::FileInvocationJob>(class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> const &))
+19D 00000000 SECT22 notype ()    External     | ??1?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@XZ (public: __cdecl std::shared_ptr<class MilesFileExecutor30::FileInvocationJob>::~shared_ptr<class MilesFileExecutor30::FileInvocationJob>(void))
+19E 00000000 SECT30 notype ()    External     | ??R?$default_delete@UPendingContext@FileInvocationJob@MilesFileExecutor30@@@std@@QEBAXPEAUPendingContext@FileInvocationJob@MilesFileExecutor30@@@Z (public: void __cdecl std::default_delete<struct MilesFileExecutor30::FileInvocationJob::PendingContext>::operator()(struct MilesFileExecutor30::FileInvocationJob::PendingContext *)const )
+19F 00000000 SECT26 notype ()    External     | ??1?$unique_ptr@UPendingContext@FileInvocationJob@MilesFileExecutor30@@U?$default_delete@UPendingContext@FileInvocationJob@MilesFileExecutor30@@@std@@@std@@QEAA@XZ (public: __cdecl std::unique_ptr<struct MilesFileExecutor30::FileInvocationJob::PendingContext,struct std::default_delete<struct MilesFileExecutor30::FileInvocationJob::PendingContext> >::~unique_ptr<struct MilesFileExecutor30::FileInvocationJob::PendingContext,struct std::default_delete<struct MilesFileExecutor30::FileInvocationJob::PendingContext> >(void))
+1A0 00000000 SECT4  notype ()    External     | ??$_Reset@$$CBUBinding@MilesFileChannel26@@@?$_Ptr_base@$$CBUBinding@MilesFileChannel26@@@std@@QEAAXAEBV01@@Z (public: void __cdecl std::_Ptr_base<struct MilesFileChannel26::Binding const >::_Reset<struct MilesFileChannel26::Binding const >(class std::_Ptr_base<struct MilesFileChannel26::Binding const > const &))
+1A1 00000000 SECT8  notype ()    External     | ??$_Reset@X@?$_Ptr_base@X@std@@QEAAXAEBV01@@Z (public: void __cdecl std::_Ptr_base<void>::_Reset<void>(class std::_Ptr_base<void> const &))
+1A2 00000000 SECT6  notype ()    External     | ??$_Reset@VFileInvocationJob@MilesFileExecutor30@@@?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAAXAEBV01@@Z (public: void __cdecl std::_Ptr_base<class MilesFileExecutor30::FileInvocationJob>::_Reset<class MilesFileExecutor30::FileInvocationJob>(class std::_Ptr_base<class MilesFileExecutor30::FileInvocationJob> const &))
+1A3 00000000 SECT40 notype ()    Static       | ??__E?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::_Generic_error_category std::_Error_objects<int>::_Generic_object''(void))
+1A4 00000000 SECT52 notype ()    Static       | ??__F?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A@@YAXXZ (void __cdecl `dynamic atexit destructor for 'public: static class std::_Generic_error_category std::_Error_objects<int>::_Generic_object''(void))
+1A5 00000000 SECT42 notype ()    Static       | ??__E?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::_Iostream_error_category std::_Error_objects<int>::_Iostream_object''(void))
+1A6 00000000 SECT54 notype ()    Static       | ??__F?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A@@YAXXZ (void __cdecl `dynamic atexit destructor for 'public: static class std::_Iostream_error_category std::_Error_objects<int>::_Iostream_object''(void))
+1A7 00000000 SECT44 notype ()    Static       | ??__E?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::_System_error_category std::_Error_objects<int>::_System_object''(void))
+1A8 00000000 SECT56 notype ()    Static       | ??__F?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ (void __cdecl `dynamic atexit destructor for 'public: static class std::_System_error_category std::_Error_objects<int>::_System_object''(void))
+1A9 00000000 SECTA  notype ()    External     | ??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z (private: void __cdecl std::shared_ptr<class MilesFileExecutor30::FileInvocationJob>::_Resetp<class MilesFileExecutor30::FileInvocationJob>(class MilesFileExecutor30::FileInvocationJob *))
+1AA 00000000 SECT46 notype ()    Static       | ??__E?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2V0locale@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::locale::id std::num_put<char,class std::back_insert_iterator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > >::id''(void))
+1AB 00000000 SECT48 notype ()    Static       | ??__E?id@?$num_put@GV?$back_insert_iterator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@2V0locale@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::locale::id std::num_put<unsigned short,class std::back_insert_iterator<class std::basic_string<unsigned short,struct std::char_traits<unsigned short>,class std::allocator<unsigned short> > > >::id''(void))
+1AC 00000000 SECT61 notype ()    External     | ?_Destroy@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@EEAAXXZ (private: virtual void __cdecl std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::_Destroy(void))
+1AD 00000000 SECT5F notype ()    External     | ?_Delete_this@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@EEAAXXZ (private: virtual void __cdecl std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::_Delete_this(void))
+1AE 00000000 SECT32 notype ()    External     | ??_G?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`scalar deleting destructor'(unsigned int))
+1AF 00000000 UNDEF  notype ()    WeakExternal | ??_E?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`vector deleting destructor'(unsigned int))
+    Default index      1AE library search
+1B1 00000000 SECT4A notype ()    Static       | ??__E?id@?$numpunct@D@std@@2V0locale@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::locale::id std::numpunct<char>::id''(void))
+1B2 00000000 SECT4C notype ()    Static       | ??__E?id@?$numpunct@G@std@@2V0locale@2@A@@YAXXZ (void __cdecl `dynamic initializer for 'public: static class std::locale::id std::numpunct<unsigned short>::id''(void))
+1B3 00000000 SECTC  notype ()    Static       | ?catch$0@?0???$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z@4HA (int `private: void __cdecl std::shared_ptr<class MilesFileExecutor30::FileInvocationJob>::_Resetp<class MilesFileExecutor30::FileInvocationJob>(class MilesFileExecutor30::FileInvocationJob *)'::`1'::catch$0)
+1B4 000000A1 SECT5C notype ()    Static       | ?catch$0@?0??_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z@4HA (int `public: void __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Copy(unsigned __int64,unsigned __int64)'::`1'::catch$0)
+1B5 00000023 SECT8C notype ()    Static       | ?catch$0@?0??execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z@4HA (int `private: static void __cdecl MilesFileExecutor30::FileInvocationJob::execute(void *)'::`1'::catch$0)
+1B6 00000000 SECT5C notype ()    Static       | ?catch$1@?0??_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z@4HA (int `public: void __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::_Copy(unsigned __int64,unsigned __int64)'::`1'::catch$1)
+1B7 00000026 SECT11 notype ()    Static       | ?dtor$0@?0???0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z@4HA (int `public: __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >(char const *)'::`1'::dtor$0)
+1B8 00000000 SECT16 notype ()    Static       | ?dtor$0@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA (int `private: __cdecl MilesFileExecutor30::FileInvocationJob::FileInvocationJob(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<struct MilesFileChannel26::Binding const >::shared_ptr<void>)'::`1'::dtor$0)
+1B9 00000000 SECT19 notype ()    Static       | ?dtor$0@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA (int `public: __cdecl MilesFileExecutor30::FileInvocationJob::State::State(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<struct MilesFileChannel26::Binding const >::shared_ptr<void>)'::`1'::dtor$0)
+1BA 00000000 SECT83 notype ()    Static       | ?dtor$0@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA (int `public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class FileInvocationJob::EngineFileWorker &,class MilesFileChannel26::Request const &,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<void>)'::`1'::dtor$0)
+1BB 00000000 SECT8C notype ()    Static       | ?dtor$0@?0??execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z@4HA (int `private: static void __cdecl MilesFileExecutor30::FileInvocationJob::execute(void *)'::`1'::dtor$0)
+1BC 00000000 SECT11 notype ()    Static       | ?dtor$1@?0???0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z@4HA (int `public: __cdecl std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >(char const *)'::`1'::dtor$1)
+1BD 00000026 SECT16 notype ()    Static       | ?dtor$1@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA (int `private: __cdecl MilesFileExecutor30::FileInvocationJob::FileInvocationJob(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<struct MilesFileChannel26::Binding const >::shared_ptr<void>)'::`1'::dtor$1)
+1BE 00000026 SECT19 notype ()    Static       | ?dtor$1@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA (int `public: __cdecl MilesFileExecutor30::FileInvocationJob::State::State(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<struct MilesFileChannel26::Binding const >::shared_ptr<void>)'::`1'::dtor$1)
+1BF 00000026 SECT83 notype ()    Static       | ?dtor$1@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA (int `public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class FileInvocationJob::EngineFileWorker &,class MilesFileChannel26::Request const &,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<void>)'::`1'::dtor$1)
+1C0 0000004C SECT16 notype ()    Static       | ?dtor$2@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA (int `private: __cdecl MilesFileExecutor30::FileInvocationJob::FileInvocationJob(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<struct MilesFileChannel26::Binding const >::shared_ptr<void>)'::`1'::dtor$2)
+1C1 0000004C SECT83 notype ()    Static       | ?dtor$2@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA (int `public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class FileInvocationJob::EngineFileWorker &,class MilesFileChannel26::Request const &,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<void>)'::`1'::dtor$2)
+1C2 0000004C SECT19 notype ()    Static       | ?dtor$4@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA (int `public: __cdecl MilesFileExecutor30::FileInvocationJob::State::State(class MilesFileChannel26::Request const &,class std::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<struct MilesFileChannel26::Binding const >::shared_ptr<void>)'::`1'::dtor$4)
+1C3 0000006F SECT83 notype ()    Static       | ?dtor$5@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA (int `public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class FileInvocationJob::EngineFileWorker &,class MilesFileChannel26::Request const &,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<void>)'::`1'::dtor$5)
+1C4 00000092 SECT83 notype ()    Static       | ?dtor$6@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA (int `public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class FileInvocationJob::EngineFileWorker &,class MilesFileChannel26::Request const &,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<void>)'::`1'::dtor$6)
+1C5 000000B8 SECT83 notype ()    Static       | ?dtor$8@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA (int `public: static class std::shared_ptr<class MilesFileExecutor30::FileInvocationJob> __cdecl MilesFileExecutor30::FileInvocationJob::enqueueAdmitted(class FileInvocationJob::EngineFileWorker &,class MilesFileChannel26::Request const &,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<struct MilesFileChannel26::Binding const >,class shared_ptr<class MilesFileExecutor30::FileInvocationJob>::shared_ptr<void>)'::`1'::dtor$8)
+1C6 00000000 UNDEF  notype ()    External     | _CxxThrowException
+1C7 00000000 UNDEF  notype ()    External     | _RTC_CheckStackVars
+1C8 00000000 UNDEF  notype ()    External     | _RTC_InitBase
+1C9 00000000 UNDEF  notype ()    External     | _RTC_Shutdown
+1CA 00000000 UNDEF  notype ()    External     | __CxxFrameHandler3
+1CB 00000000 SECT9D notype       Label        | $LN3
+1CC 00000000 SECT6D notype       Label        | $LN8
+1CD 00000000 SECT1E notype       Label        | $LN11
+1CE 00000000 SECT1C notype       Label        | $LN27
+1CF 00000000 SECT58 notype       Label        | $LN24
+1D0 00000000 SECTF  notype       Label        | $LN178
+1D1 00000000 SECT75 notype       Label        | $LN133
+1D2 00000000 SECT79 notype       Label        | $LN136
+1D3 00000000 SECT77 notype       Label        | $LN145
+1D4 00000000 SECT88 notype       Label        | $LN39
+1D5 0000020A SECT5A notype       Label        | $LN19
+1D6 000003CF SECT5A notype       Label        | $LN231
+1D7 00000013 SECT5C notype ()    Static       | __catch$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z$0
+1D8 00000092 SECT5C notype       Label        | $LN17
+1D9 000000B4 SECT5C notype ()    Static       | __catch$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z$1
+1DA 00000000 SECT5A notype       Label        | $LN234
+1DB 00000000 SECT63 notype       Label        | $LN11
+1DC 00000000 SECT69 notype       Label        | $LN85
+1DD 00000000 SECT6B notype       Label        | $LN18
+1DE 00000000 SECT71 notype       Label        | $LN45
+1DF 00000000 SECT2C notype       Label        | $LN3
+1E0 00000000 SECT1A notype       Label        | $LN4
+1E1 00000000 SECT3E notype       Label        | $LN6
+1E2 00000000 SECT5D notype       Label        | $LN7
+1E3 00000000 SECT67 notype       Label        | $LN3
+1E4 00000000 SECT38 notype       Label        | $LN6
+1E5 00000000 SECT7F notype       Label        | $LN5
+1E6 00000000 SECT86 notype       Label        | $LN19
+1E7 00000000 SECT84 notype       Label        | $LN13
+1E8 00000000 SECT3C notype       Label        | $LN6
+1E9 00000000 SECT2E notype       Label        | $LN17
+1EA 00000000 SECT93 notype       Label        | $LN3
+1EB 00000000 SECT8D notype       Label        | $LN170
+1EC 00000000 SECT34 notype       Label        | $LN8
+1ED 00000000 SECT95 notype       Label        | $LN3
+1EE 00000000 SECT8F notype       Label        | $LN170
+1EF 00000000 SECT36 notype       Label        | $LN10
+1F0 00000000 SECT97 notype       Label        | $LN3
+1F1 00000000 SECT91 notype       Label        | $LN170
+1F2 00000000 SECT7D notype       Label        | $LN13
+1F3 00000000 SECT3A notype       Label        | $LN10
+1F4 00000000 SECT65 notype       Label        | $LN24
+1F5 00000000 SECT73 notype       Label        | $LN35
+1F6 00000000 SECT20 notype       Label        | $LN12
+1F7 00000000 SECT24 notype       Label        | $LN12
+1F8 00000000 SECT2A notype       Label        | $LN122
+1F9 00000000 SECT81 notype       Label        | $LN239
+1FA 00000000 SECT28 notype       Label        | $LN134
+1FB 00000000 SECT99 notype       Label        | $LN6
+1FC 00000000 SECT9B notype       Label        | $LN5
+1FD 00000000 SECT7B notype       Label        | $LN5
+1FE 00000000 SECT14 notype       Label        | $LN121
+1FF 00000078 SECT8A notype       Label        | $LN9
+200 000000C0 SECT8A notype       Label        | $LN53
+201 00000036 SECT8C notype ()    Static       | __catch$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$0
+202 00000000 SECT8A notype       Label        | $LN55
+203 00000203 SECT17 notype       Label        | $LN74
+204 00000000 SECT17 notype       Label        | $LN75
+205 00000000 SECTD  notype       Label        | $LN26
+206 00000000 SECT6F notype       Label        | $LN19
+207 00000000 SECT12 notype       Label        | $LN21
+208 00000000 SECT22 notype       Label        | $LN12
+209 00000000 SECT30 notype       Label        | $LN21
+20A 00000000 SECT26 notype       Label        | $LN26
+20B 00000000 SECT4  notype       Label        | $LN17
+20C 00000000 SECT8  notype       Label        | $LN17
+20D 00000000 SECT6  notype       Label        | $LN17
+20E 000000E7 SECTA  notype       Label        | $LN12
+20F 000000ED SECTA  notype       Label        | $LN38
+210 00000013 SECTC  notype ()    Static       | __catch$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z$0
+211 00000000 SECTA  notype       Label        | $LN40
+212 00000000 SECT61 notype       Label        | $LN8
+213 00000000 SECT5F notype       Label        | $LN5
+214 00000000 SECT32 notype       Label        | $LN8
+215 00000000 SECT9F notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 2CE95D5C, selection    5 (pick associative Section 0x9D)
+217 00000000 SECT9F notype       Static       | $unwind$hypot
+218 00000000 SECTA0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 8F085A64, selection    5 (pick associative Section 0x9D)
+21A 00000000 SECTA0 notype       Static       | $pdata$hypot
+21B 00000000 SECTA1 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum EC7E2980, selection    5 (pick associative Section 0x50)
+21D 00000000 SECTA1 notype       Static       | $unwind$??__Epiecewise_construct@std@@YAXXZ
+21E 00000000 SECTA2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A41C7E00, selection    5 (pick associative Section 0x50)
+220 00000000 SECTA2 notype       Static       | $pdata$??__Epiecewise_construct@std@@YAXXZ
+221 00000000 SECTA3 notype       Static       | .rdata
+    Section length   60, #relocs    2, #linenums    0, checksum A826F0EF, selection    5 (pick associative Section 0x6D)
+223 00000000 SECTA3 notype       Static       | ?_Orphan_all@_Container_base12@std@@QEAAXXZ$rtcName$0 (?_Orphan_all@_Container_base12@std@@QEAAXXZ$rtcName$0)
+224 00000010 SECTA3 notype       Static       | ?_Orphan_all@_Container_base12@std@@QEAAXXZ$rtcVarDesc (?_Orphan_all@_Container_base12@std@@QEAAXXZ$rtcVarDesc)
+225 00000050 SECTA3 notype       Static       | ?_Orphan_all@_Container_base12@std@@QEAAXXZ$rtcFrameData (?_Orphan_all@_Container_base12@std@@QEAAXXZ$rtcFrameData)
+226 00000000 SECTA4 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8814CCE6, selection    5 (pick associative Section 0x6D)
+228 00000000 SECTA4 notype       Static       | $unwind$?_Orphan_all@_Container_base12@std@@QEAAXXZ
+229 00000000 SECTA5 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3B8DFB44, selection    5 (pick associative Section 0x6D)
+22B 00000000 SECTA5 notype       Static       | $pdata$?_Orphan_all@_Container_base12@std@@QEAAXXZ
+22C 00000000 SECTA6 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum EC7E2980, selection    5 (pick associative Section 0x4E)
+22E 00000000 SECTA6 notype       Static       | $unwind$??__Eallocator_arg@std@@YAXXZ
+22F 00000000 SECTA7 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A41C7E00, selection    5 (pick associative Section 0x4E)
+231 00000000 SECTA7 notype       Static       | $pdata$??__Eallocator_arg@std@@YAXXZ
+232 00000000 SECTA8 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x1E)
+234 00000000 SECTA8 notype       Static       | $unwind$??1?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ
+235 00000000 SECTA9 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ECFC7064, selection    5 (pick associative Section 0x1E)
+237 00000000 SECTA9 notype       Static       | $pdata$??1?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ
+238 00000000 SECTAA notype       Static       | .rdata
+    Section length   60, #relocs    2, #linenums    0, checksum 9AF941D3, selection    5 (pick associative Section 0x1C)
+23A 00000000 SECTAA notype       Static       | ??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ$rtcName$0 (??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ$rtcName$0)
+23B 00000010 SECTAA notype       Static       | ??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ$rtcVarDesc (??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ$rtcVarDesc)
+23C 00000050 SECTAA notype       Static       | ??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ$rtcFrameData (??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ$rtcFrameData)
+23D 00000000 SECTAB notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 21F61C46, selection    5 (pick associative Section 0x1C)
+23F 00000000 SECTAB notype       Static       | $unwind$??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ
+240 00000000 SECTAC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 412BBC73, selection    5 (pick associative Section 0x1C)
+242 00000000 SECTAC notype       Static       | $pdata$??1?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAA@XZ
+243 00000000 SECTAD notype       Static       | .rdata
+    Section length   60, #relocs    2, #linenums    0, checksum 83F1C6C2, selection    5 (pick associative Section 0x58)
+245 00000000 SECTAD notype       Static       | ?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ$rtcName$0 (?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ$rtcName$0)
+246 00000010 SECTAD notype       Static       | ?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ$rtcVarDesc (?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ$rtcVarDesc)
+247 00000050 SECTAD notype       Static       | ?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ$rtcFrameData (?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ$rtcFrameData)
+248 00000000 SECTAE notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum CC3C910F, selection    5 (pick associative Section 0x58)
+24A 00000000 SECTAE notype       Static       | $unwind$?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ
+24B 00000000 SECTAF notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  3EC2833, selection    5 (pick associative Section 0x58)
+24D 00000000 SECTAF notype       Static       | $pdata$?_Alloc_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QEAAXXZ
+24E 00000000 SECTB0 notype       Static       | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum B47B438C, selection    5 (pick associative Section 0xF)
+250 00000000 SECTB0 notype       Static       | $unwind$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z
+251 00000000 SECTB1 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum F727FBDA, selection    5 (pick associative Section 0xF)
+253 00000000 SECTB1 notype       Static       | $pdata$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z
+254 00000000 SECTB2 notype       Static       | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum 1261A70E, selection    5 (pick associative Section 0xF)
+256 00000000 SECTB2 notype       Static       | $cppxdata$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z
+257 00000000 SECTB3 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0xF)
+259 00000000 SECTB3 notype       Static       | $stateUnwindMap$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z
+25A 00000000 SECTB4 notype       Static       | .xdata
+    Section length   20, #relocs    4, #linenums    0, checksum 6D1B4049, selection    5 (pick associative Section 0xF)
+25C 00000000 SECTB4 notype       Static       | $ip2state$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z
+25D 00000000 SECTB5 notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0xF)
+25F 00000000 SECTB5 notype       Static       | $unwind$?dtor$1@?0???0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z@4HA
+260 00000000 SECTB6 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0xF)
+262 00000000 SECTB6 notype       Static       | $pdata$?dtor$1@?0???0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z@4HA
+263 00000000 SECTB7 notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0xF)
+265 00000000 SECTB7 notype       Static       | $unwind$?dtor$0@?0???0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z@4HA
+266 00000000 SECTB8 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0xF)
+268 00000000 SECTB8 notype       Static       | $pdata$?dtor$0@?0???0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD@Z@4HA
+269 00000000 SECTB9 notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum E7087AD1, selection    5 (pick associative Section 0x75)
+26B 00000000 SECTB9 notype       Static       | $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z
+26C 00000000 SECTBA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BD0C68CA, selection    5 (pick associative Section 0x75)
+26E 00000000 SECTBA notype       Static       | $pdata$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z
+26F 00000000 SECTBB notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum E8DE1F79, selection    5 (pick associative Section 0x79)
+271 00000000 SECTBB notype       Static       | $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z
+272 00000000 SECTBC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum DCD14C83, selection    5 (pick associative Section 0x79)
+274 00000000 SECTBC notype       Static       | $pdata$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z
+275 00000000 SECTBD notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum D844371D, selection    5 (pick associative Section 0x77)
+277 00000000 SECTBD notype       Static       | $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD@Z
+278 00000000 SECTBE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum E2ADE9E8, selection    5 (pick associative Section 0x77)
+27A 00000000 SECTBE notype       Static       | $pdata$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD@Z
+27B 00000000 SECTBF notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 7E565FB5, selection    5 (pick associative Section 0x88)
+27D 00000000 SECTBF notype       Static       | $unwind$?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z
+27E 00000000 SECTC0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3FFBF8EC, selection    5 (pick associative Section 0x88)
+280 00000000 SECTC0 notype       Static       | $pdata$?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z
+281 00000000 SECTC1 notype       Static       | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum DF965CBB, selection    5 (pick associative Section 0x5A)
+283 00000000 SECTC1 notype       Static       | $unwind$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+284 00000000 SECTC2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 926E4F06, selection    5 (pick associative Section 0x5A)
+286 00000000 SECTC2 notype       Static       | $pdata$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+287 00000000 SECTC3 notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum EF6CFB59, selection    5 (pick associative Section 0x5A)
+289 00000000 SECTC3 notype       Static       | $cppxdata$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+28A 00000000 SECTC4 notype       Static       | .xdata
+    Section length   20, #relocs    0, #linenums    0, checksum D8090E82, selection    5 (pick associative Section 0x5A)
+28C 00000000 SECTC4 notype       Static       | $stateUnwindMap$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+28D 00000000 SECTC5 notype       Static       | .xdata
+    Section length   28, #relocs    2, #linenums    0, checksum 3EF07423, selection    5 (pick associative Section 0x5A)
+28F 00000000 SECTC5 notype       Static       | $tryMap$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+290 00000000 SECTC6 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 6B58D0C4, selection    5 (pick associative Section 0x5A)
+292 00000000 SECTC6 notype       Static       | $handlerMap$0$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+293 00000000 SECTC7 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 6B58D0C4, selection    5 (pick associative Section 0x5A)
+295 00000000 SECTC7 notype       Static       | $handlerMap$1$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+296 00000000 SECTC8 notype       Static       | .xdata
+    Section length   50, #relocs    A, #linenums    0, checksum 29998464, selection    5 (pick associative Section 0x5A)
+298 00000000 SECTC8 notype       Static       | $ip2state$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z
+299 00000000 SECTC9 notype       Static       | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum FCC9C048, selection    5 (pick associative Section 0x5A)
+29B 00000000 SECTC9 notype       Static       | $unwind$?catch$1@?0??_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z@4HA
+29C 00000000 SECTCA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 66E7E712, selection    5 (pick associative Section 0x5A)
+29E 00000000 SECTCA notype       Static       | $pdata$?catch$1@?0??_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z@4HA
+29F 00000000 SECTCB notype       Static       | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum FCC9C048, selection    5 (pick associative Section 0x5A)
+2A1 00000000 SECTCB notype       Static       | $unwind$?catch$0@?0??_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z@4HA
+2A2 00000000 SECTCC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 1EC846AC, selection    5 (pick associative Section 0x5A)
+2A4 00000000 SECTCC notype       Static       | $pdata$?catch$0@?0??_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z@4HA
+2A5 00000000 SECTCD notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B34A0BCB, selection    5 (pick associative Section 0x63)
+2A7 00000000 SECTCD notype       Static       | $unwind$?_Eos@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K@Z
+2A8 00000000 SECTCE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 1BDB8BBE, selection    5 (pick associative Section 0x63)
+2AA 00000000 SECTCE notype       Static       | $pdata$?_Eos@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K@Z
+2AB 00000000 SECTCF notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 7E565FB5, selection    5 (pick associative Section 0x69)
+2AD 00000000 SECTCF notype       Static       | $unwind$?_Grow@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA_N_K_N@Z
+2AE 00000000 SECTD0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 41C92F4E, selection    5 (pick associative Section 0x69)
+2B0 00000000 SECTD0 notype       Static       | $pdata$?_Grow@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA_N_K_N@Z
+2B1 00000000 SECTD1 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B34A0BCB, selection    5 (pick associative Section 0x6B)
+2B3 00000000 SECTD1 notype       Static       | $unwind$?_Inside@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA_NPEBD@Z
+2B4 00000000 SECTD2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 27CC5B61, selection    5 (pick associative Section 0x6B)
+2B6 00000000 SECTD2 notype       Static       | $pdata$?_Inside@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA_NPEBD@Z
+2B7 00000000 SECTD3 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum E0DE5F9B, selection    5 (pick associative Section 0x71)
+2B9 00000000 SECTD3 notype       Static       | $unwind$?_Tidy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_N_K@Z
+2BA 00000000 SECTD4 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 2D095278, selection    5 (pick associative Section 0x71)
+2BC 00000000 SECTD4 notype       Static       | $pdata$?_Tidy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_N_K@Z
+2BD 00000000 SECTD5 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x2C)
+2BF 00000000 SECTD5 notype       Static       | $unwind$??1runtime_error@std@@UEAA@XZ
+2C0 00000000 SECTD6 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ECFC7064, selection    5 (pick associative Section 0x2C)
+2C2 00000000 SECTD6 notype       Static       | $pdata$??1runtime_error@std@@UEAA@XZ
+2C3 00000000 SECTD7 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B34A0BCB, selection    5 (pick associative Section 0x1A)
+2C5 00000000 SECTD7 notype       Static       | $unwind$??0runtime_error@std@@QEAA@AEBV01@@Z
+2C6 00000000 SECTD8 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 7E32D7A2, selection    5 (pick associative Section 0x1A)
+2C8 00000000 SECTD8 notype       Static       | $pdata$??0runtime_error@std@@QEAA@AEBV01@@Z
+2C9 00000000 SECTD9 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x3E)
+2CB 00000000 SECTD9 notype       Static       | $unwind$??_Gruntime_error@std@@UEAAPEAXI@Z
+2CC 00000000 SECTDA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 7E32D7A2, selection    5 (pick associative Section 0x3E)
+2CE 00000000 SECTDA notype       Static       | $pdata$??_Gruntime_error@std@@UEAAPEAXI@Z
+2CF 00000000 SECTDB notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x5D)
+2D1 00000000 SECTDB notype       Static       | $unwind$?_Decref@_Ref_count_base@std@@QEAAXXZ
+2D2 00000000 SECTDC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A6959889, selection    5 (pick associative Section 0x5D)
+2D4 00000000 SECTDC notype       Static       | $pdata$?_Decref@_Ref_count_base@std@@QEAAXXZ
+2D5 00000000 SECTDD notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 86016890, selection    5 (pick associative Section 0x67)
+2D7 00000000 SECTDD notype       Static       | $unwind$?_Get_deleter@_Ref_count_base@std@@UEBAPEAXAEBVtype_info@@@Z
+2D8 00000000 SECTDE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D92012AC, selection    5 (pick associative Section 0x67)
+2DA 00000000 SECTDE notype       Static       | $pdata$?_Get_deleter@_Ref_count_base@std@@UEBAPEAXAEBVtype_info@@@Z
+2DB 00000000 SECTDF notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x38)
+2DD 00000000 SECTDF notype       Static       | $unwind$??_G_Ref_count_base@std@@UEAAPEAXI@Z
+2DE 00000000 SECTE0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 998CF358, selection    5 (pick associative Section 0x38)
+2E0 00000000 SECTE0 notype       Static       | $pdata$??_G_Ref_count_base@std@@UEAAPEAXI@Z
+2E1 00000000 SECTE1 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 64C0703A, selection    5 (pick associative Section 0x7F)
+2E3 00000000 SECTE1 notype       Static       | $unwind$?default_error_condition@error_category@std@@UEBA?AVerror_condition@2@H@Z
+2E4 00000000 SECTE2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 85CD537D, selection    5 (pick associative Section 0x7F)
+2E6 00000000 SECTE2 notype       Static       | $pdata$?default_error_condition@error_category@std@@UEBA?AVerror_condition@2@H@Z
+2E7 00000000 SECTE3 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum E0DE5F9B, selection    5 (pick associative Section 0x86)
+2E9 00000000 SECTE3 notype       Static       | $unwind$?equivalent@error_category@std@@UEBA_NHAEBVerror_condition@2@@Z
+2EA 00000000 SECTE4 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D16CFD3C, selection    5 (pick associative Section 0x86)
+2EC 00000000 SECTE4 notype       Static       | $pdata$?equivalent@error_category@std@@UEBA_NHAEBVerror_condition@2@@Z
+2ED 00000000 SECTE5 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9F634435, selection    5 (pick associative Section 0x84)
+2EF 00000000 SECTE5 notype       Static       | $unwind$?equivalent@error_category@std@@UEBA_NAEBVerror_code@2@H@Z
+2F0 00000000 SECTE6 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C83E900B, selection    5 (pick associative Section 0x84)
+2F2 00000000 SECTE6 notype       Static       | $pdata$?equivalent@error_category@std@@UEBA_NAEBVerror_code@2@H@Z
+2F3 00000000 SECTE7 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x3C)
+2F5 00000000 SECTE7 notype       Static       | $unwind$??_Gerror_category@std@@UEAAPEAXI@Z
+2F6 00000000 SECTE8 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 998CF358, selection    5 (pick associative Section 0x3C)
+2F8 00000000 SECTE8 notype       Static       | $pdata$??_Gerror_category@std@@UEAAPEAXI@Z
+2F9 00000000 SECTE9 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B34A0BCB, selection    5 (pick associative Section 0x2E)
+2FB 00000000 SECTE9 notype       Static       | $unwind$??8error_condition@std@@QEBA_NAEBV01@@Z
+2FC 00000000 SECTEA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 66E7E712, selection    5 (pick associative Section 0x2E)
+2FE 00000000 SECTEA notype       Static       | $pdata$??8error_condition@std@@QEBA_NAEBV01@@Z
+2FF 00000000 SECTEB notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 15BCD18D, selection    5 (pick associative Section 0x93)
+301 00000000 SECTEB notype       Static       | $unwind$?name@_Generic_error_category@std@@UEBAPEBDXZ
+302 00000000 SECTEC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D92012AC, selection    5 (pick associative Section 0x93)
+304 00000000 SECTEC notype       Static       | $pdata$?name@_Generic_error_category@std@@UEBAPEBDXZ
+305 00000000 SECTED notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum E8DE1F79, selection    5 (pick associative Section 0x8D)
+307 00000000 SECTED notype       Static       | $unwind$?message@_Generic_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z
+308 00000000 SECTEE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3A0AA6C3, selection    5 (pick associative Section 0x8D)
+30A 00000000 SECTEE notype       Static       | $pdata$?message@_Generic_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z
+30B 00000000 SECTEF notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x34)
+30D 00000000 SECTEF notype       Static       | $unwind$??_G_Generic_error_category@std@@UEAAPEAXI@Z
+30E 00000000 SECTF0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 998CF358, selection    5 (pick associative Section 0x34)
+310 00000000 SECTF0 notype       Static       | $pdata$??_G_Generic_error_category@std@@UEAAPEAXI@Z
+311 00000000 SECTF1 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 15BCD18D, selection    5 (pick associative Section 0x95)
+313 00000000 SECTF1 notype       Static       | $unwind$?name@_Iostream_error_category@std@@UEBAPEBDXZ
+314 00000000 SECTF2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D92012AC, selection    5 (pick associative Section 0x95)
+316 00000000 SECTF2 notype       Static       | $pdata$?name@_Iostream_error_category@std@@UEBAPEBDXZ
+317 00000000 SECTF3 notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 3E87FC64, selection    5 (pick associative Section 0x8F)
+319 00000000 SECTF3 notype       Static       | $unwind$?message@_Iostream_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z
+31A 00000000 SECTF4 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 2E07E976, selection    5 (pick associative Section 0x8F)
+31C 00000000 SECTF4 notype       Static       | $pdata$?message@_Iostream_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z
+31D 00000000 SECTF5 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x36)
+31F 00000000 SECTF5 notype       Static       | $unwind$??_G_Iostream_error_category@std@@UEAAPEAXI@Z
+320 00000000 SECTF6 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 998CF358, selection    5 (pick associative Section 0x36)
+322 00000000 SECTF6 notype       Static       | $pdata$??_G_Iostream_error_category@std@@UEAAPEAXI@Z
+323 00000000 SECTF7 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 15BCD18D, selection    5 (pick associative Section 0x97)
+325 00000000 SECTF7 notype       Static       | $unwind$?name@_System_error_category@std@@UEBAPEBDXZ
+326 00000000 SECTF8 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D92012AC, selection    5 (pick associative Section 0x97)
+328 00000000 SECTF8 notype       Static       | $pdata$?name@_System_error_category@std@@UEBAPEBDXZ
+329 00000000 SECTF9 notype       Static       | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum E8DE1F79, selection    5 (pick associative Section 0x91)
+32B 00000000 SECTF9 notype       Static       | $unwind$?message@_System_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z
+32C 00000000 SECTFA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3A0AA6C3, selection    5 (pick associative Section 0x91)
+32E 00000000 SECTFA notype       Static       | $pdata$?message@_System_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z
+32F 00000000 SECTFB notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9F634435, selection    5 (pick associative Section 0x7D)
+331 00000000 SECTFB notype       Static       | $unwind$?default_error_condition@_System_error_category@std@@UEBA?AVerror_condition@2@H@Z
+332 00000000 SECTFC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 533B85DA, selection    5 (pick associative Section 0x7D)
+334 00000000 SECTFC notype       Static       | $pdata$?default_error_condition@_System_error_category@std@@UEBA?AVerror_condition@2@H@Z
+335 00000000 SECTFD notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x3A)
+337 00000000 SECTFD notype       Static       | $unwind$??_G_System_error_category@std@@UEAAPEAXI@Z
+338 00000000 SECTFE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 998CF358, selection    5 (pick associative Section 0x3A)
+33A 00000000 SECTFE notype       Static       | $pdata$??_G_System_error_category@std@@UEAAPEAXI@Z
+33B 00000000 SECTFF notype       Static       | .rdata
+    Section length   60, #relocs    2, #linenums    0, checksum 83F1C6C2, selection    5 (pick associative Section 0x65)
+33D 00000000 SECTFF notype       Static       | ?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ$rtcName$0 (?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ$rtcName$0)
+33E 00000010 SECTFF notype       Static       | ?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ$rtcVarDesc (?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ$rtcVarDesc)
+33F 00000050 SECTFF notype       Static       | ?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ$rtcFrameData (?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ$rtcFrameData)
+340 00000000 SECT100 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8814CCE6, selection    5 (pick associative Section 0x65)
+342 00000000 SECT100 notype       Static      | $unwind$?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ
+343 00000000 SECT101 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D0EBA0BB, selection    5 (pick associative Section 0x65)
+345 00000000 SECT101 notype       Static      | $pdata$?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ
+346 00000000 SECT102 notype       Static      | .rdata
+    Section length   A0, #relocs    3, #linenums    0, checksum B084974B, selection    5 (pick associative Section 0x73)
+348 00000000 SECT102 notype       Static      | ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcName$0 (?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcName$0)
+349 00000008 SECT102 notype       Static      | ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcName$1 (?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcName$1)
+34A 00000010 SECT102 notype       Static      | ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcVarDesc (?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcVarDesc)
+34B 00000090 SECT102 notype       Static      | ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcFrameData (?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ$rtcFrameData)
+34C 00000000 SECT103 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F8E515C3, selection    5 (pick associative Section 0x73)
+34E 00000000 SECT103 notype       Static      | $unwind$?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ
+34F 00000000 SECT104 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  61D761C, selection    5 (pick associative Section 0x73)
+351 00000000 SECT104 notype       Static      | $pdata$?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ
+352 00000000 SECT105 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x20)
+354 00000000 SECT105 notype       Static      | $unwind$??1?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@QEAA@XZ
+355 00000000 SECT106 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9047414F, selection    5 (pick associative Section 0x20)
+357 00000000 SECT106 notype       Static      | $pdata$??1?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@QEAA@XZ
+358 00000000 SECT107 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x24)
+35A 00000000 SECT107 notype       Static      | $unwind$??1?$shared_ptr@X@std@@QEAA@XZ
+35B 00000000 SECT108 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9047414F, selection    5 (pick associative Section 0x24)
+35D 00000000 SECT108 notype       Static      | $pdata$??1?$shared_ptr@X@std@@QEAA@XZ
+35E 00000000 SECT109 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 21F61C46, selection    5 (pick associative Section 0x2A)
+360 00000000 SECT109 notype       Static      | $unwind$??1Invocation@MilesFileChannel26@@QEAA@XZ
+361 00000000 SECT10A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A386559B, selection    5 (pick associative Section 0x2A)
+363 00000000 SECT10A notype       Static      | $pdata$??1Invocation@MilesFileChannel26@@QEAA@XZ
+364 00000000 SECT10B notype       Static      | .rdata
+    Section length   C8, #relocs    5, #linenums    0, checksum B6C72E7B, selection    5 (pick associative Section 0x81)
+366 00000000 SECT10B notype       Static      | ?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcName$0 (?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcName$0)
+367 00000008 SECT10B notype       Static      | ?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcName$1 (?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcName$1)
+368 00000010 SECT10B notype       Static      | ?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcVarDesc (?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcVarDesc)
+369 00000090 SECT10B notype       Static      | ?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcFrameData (?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z$rtcFrameData)
+36A 00000000 SECT10C notype       Static      | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum 75240E9E, selection    5 (pick associative Section 0x81)
+36C 00000000 SECT10C notype       Static      | $unwind$?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z
+36D 00000000 SECT10D notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3C71B418, selection    5 (pick associative Section 0x81)
+36F 00000000 SECT10D notype       Static      | $pdata$?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z
+370 000000A0 SECT10B notype       Static      | $cppxdata$?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z
+371 00000000 SECT10E notype       Static      | .xdata
+    Section length   30, #relocs    6, #linenums    0, checksum DACF9FF6, selection    5 (pick associative Section 0x81)
+373 00000000 SECT10E notype       Static      | $stateUnwindMap$?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z
+374 00000000 SECT10F notype       Static      | .xdata
+    Section length   88, #relocs   11, #linenums    0, checksum 78CB4C9F, selection    5 (pick associative Section 0x81)
+376 00000000 SECT10F notype       Static      | $ip2state$?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z
+377 00000000 SECT110 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x81)
+379 00000000 SECT110 notype       Static      | $unwind$?dtor$0@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+37A 00000000 SECT111 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x81)
+37C 00000000 SECT111 notype       Static      | $pdata$?dtor$0@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+37D 00000000 SECT112 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x81)
+37F 00000000 SECT112 notype       Static      | $unwind$?dtor$1@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+380 00000000 SECT113 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x81)
+382 00000000 SECT113 notype       Static      | $pdata$?dtor$1@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+383 00000000 SECT114 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x81)
+385 00000000 SECT114 notype       Static      | $unwind$?dtor$2@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+386 00000000 SECT115 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x81)
+388 00000000 SECT115 notype       Static      | $pdata$?dtor$2@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+389 00000000 SECT116 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x81)
+38B 00000000 SECT116 notype       Static      | $unwind$?dtor$5@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+38C 00000000 SECT117 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x81)
+38E 00000000 SECT117 notype       Static      | $pdata$?dtor$5@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+38F 00000000 SECT118 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x81)
+391 00000000 SECT118 notype       Static      | $unwind$?dtor$6@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+392 00000000 SECT119 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x81)
+394 00000000 SECT119 notype       Static      | $pdata$?dtor$6@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+395 00000000 SECT11A notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x81)
+397 00000000 SECT11A notype       Static      | $unwind$?dtor$8@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+398 00000000 SECT11B notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x81)
+39A 00000000 SECT11B notype       Static      | $pdata$?dtor$8@?0??enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z@4HA
+39B 00000000 SECT11C notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8814CCE6, selection    5 (pick associative Section 0x28)
+39D 00000000 SECT11C notype       Static      | $unwind$??1FileInvocationJob@MilesFileExecutor30@@QEAA@XZ
+39E 00000000 SECT11D notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C83E900B, selection    5 (pick associative Section 0x28)
+3A0 00000000 SECT11D notype       Static      | $pdata$??1FileInvocationJob@MilesFileExecutor30@@QEAA@XZ
+3A1 00000000 SECT11E notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B0598A06, selection    5 (pick associative Section 0x99)
+3A3 00000000 SECT11E notype       Static      | $unwind$?status@FileInvocationJob@MilesFileExecutor30@@QEBA?AW4Status@12@XZ
+3A4 00000000 SECT11F notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 95548C5D, selection    5 (pick associative Section 0x99)
+3A6 00000000 SECT11F notype       Static      | $pdata$?status@FileInvocationJob@MilesFileExecutor30@@QEBA?AW4Status@12@XZ
+3A7 00000000 SECT120 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B0598A06, selection    5 (pick associative Section 0x9B)
+3A9 00000000 SECT120 notype       Static      | $unwind$?wait@FileInvocationJob@MilesFileExecutor30@@QEBA_NXZ
+3AA 00000000 SECT121 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 4A69E8ED, selection    5 (pick associative Section 0x9B)
+3AC 00000000 SECT121 notype       Static      | $pdata$?wait@FileInvocationJob@MilesFileExecutor30@@QEBA_NXZ
+3AD 00000000 SECT122 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B0598A06, selection    5 (pick associative Section 0x7B)
+3AF 00000000 SECT122 notype       Static      | $unwind$?completedInvocation@FileInvocationJob@MilesFileExecutor30@@QEBAPEBVInvocation@MilesFileChannel26@@XZ
+3B0 00000000 SECT123 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 5526F3C6, selection    5 (pick associative Section 0x7B)
+3B2 00000000 SECT123 notype       Static      | $pdata$?completedInvocation@FileInvocationJob@MilesFileExecutor30@@QEBAPEBVInvocation@MilesFileChannel26@@XZ
+3B3 00000000 SECT124 notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum C9EA943E, selection    5 (pick associative Section 0x14)
+3B5 00000000 SECT124 notype       Static      | $unwind$??0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z
+3B6 00000000 SECT125 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ED99BEDE, selection    5 (pick associative Section 0x14)
+3B8 00000000 SECT125 notype       Static      | $pdata$??0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z
+3B9 00000000 SECT126 notype       Static      | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum  3467001, selection    5 (pick associative Section 0x14)
+3BB 00000000 SECT126 notype       Static      | $cppxdata$??0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z
+3BC 00000000 SECT127 notype       Static      | .xdata
+    Section length   18, #relocs    3, #linenums    0, checksum 90943541, selection    5 (pick associative Section 0x14)
+3BE 00000000 SECT127 notype       Static      | $stateUnwindMap$??0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z
+3BF 00000000 SECT128 notype       Static      | .xdata
+    Section length   30, #relocs    6, #linenums    0, checksum  2AA17CA, selection    5 (pick associative Section 0x14)
+3C1 00000000 SECT128 notype       Static      | $ip2state$??0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z
+3C2 00000000 SECT129 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x14)
+3C4 00000000 SECT129 notype       Static      | $unwind$?dtor$0@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA
+3C5 00000000 SECT12A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x14)
+3C7 00000000 SECT12A notype       Static      | $pdata$?dtor$0@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA
+3C8 00000000 SECT12B notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x14)
+3CA 00000000 SECT12B notype       Static      | $unwind$?dtor$1@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA
+3CB 00000000 SECT12C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x14)
+3CD 00000000 SECT12C notype       Static      | $pdata$?dtor$1@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA
+3CE 00000000 SECT12D notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x14)
+3D0 00000000 SECT12D notype       Static      | $unwind$?dtor$2@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA
+3D1 00000000 SECT12E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x14)
+3D3 00000000 SECT12E notype       Static      | $pdata$?dtor$2@?0???0FileInvocationJob@MilesFileExecutor30@@AEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z@4HA
+3D4 00000000 SECT12F notype       Static      | .rdata
+    Section length   80, #relocs    5, #linenums    0, checksum 8FF4528B, selection    5 (pick associative Section 0x8A)
+3D6 00000000 SECT12F notype       Static      | ?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$rtcName$0 (?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$rtcName$0)
+3D7 00000030 SECT12F notype       Static      | ?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$rtcVarDesc (?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$rtcVarDesc)
+3D8 00000070 SECT12F notype       Static      | ?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$rtcFrameData (?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z$rtcFrameData)
+3D9 00000000 SECT130 notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum D99B59D8, selection    5 (pick associative Section 0x8A)
+3DB 00000000 SECT130 notype       Static      | $unwind$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3DC 00000000 SECT131 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 7AA64737, selection    5 (pick associative Section 0x8A)
+3DE 00000000 SECT131 notype       Static      | $pdata$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3DF 00000008 SECT12F notype       Static      | $cppxdata$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3E0 00000000 SECT132 notype       Static      | .xdata
+    Section length   18, #relocs    1, #linenums    0, checksum 5C3E35DF, selection    5 (pick associative Section 0x8A)
+3E2 00000000 SECT132 notype       Static      | $stateUnwindMap$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3E3 00000000 SECT133 notype       Static      | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum EB9E34D6, selection    5 (pick associative Section 0x8A)
+3E5 00000000 SECT133 notype       Static      | $tryMap$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3E6 00000000 SECT134 notype       Static      | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 6B58D0C4, selection    5 (pick associative Section 0x8A)
+3E8 00000000 SECT134 notype       Static      | $handlerMap$0$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3E9 00000000 SECT135 notype       Static      | .xdata
+    Section length   40, #relocs    8, #linenums    0, checksum 451551E8, selection    5 (pick associative Section 0x8A)
+3EB 00000000 SECT135 notype       Static      | $ip2state$?execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z
+3EC 00000000 SECT136 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x8A)
+3EE 00000000 SECT136 notype       Static      | $unwind$?dtor$0@?0??execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z@4HA
+3EF 00000000 SECT137 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x8A)
+3F1 00000000 SECT137 notype       Static      | $pdata$?dtor$0@?0??execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z@4HA
+3F2 00000000 SECT138 notype       Static      | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum FCC9C048, selection    5 (pick associative Section 0x8A)
+3F4 00000000 SECT138 notype       Static      | $unwind$?catch$0@?0??execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z@4HA
+3F5 00000000 SECT139 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 62737787, selection    5 (pick associative Section 0x8A)
+3F7 00000000 SECT139 notype       Static      | $pdata$?catch$0@?0??execute@FileInvocationJob@MilesFileExecutor30@@CAXPEAX@Z@4HA
+3F8 00000000 SECT13A notype       Static      | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum C43C91B2, selection    5 (pick associative Section 0x17)
+3FA 00000000 SECT13A notype       Static      | $unwind$??0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z
+3FB 00000000 SECT13B notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 191016CA, selection    5 (pick associative Section 0x17)
+3FD 00000000 SECT13B notype       Static      | $pdata$??0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z
+3FE 00000000 SECT13C notype       Static      | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum D41989D3, selection    5 (pick associative Section 0x17)
+400 00000000 SECT13C notype       Static      | $cppxdata$??0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z
+401 00000000 SECT13D notype       Static      | .xdata
+    Section length   18, #relocs    3, #linenums    0, checksum 90943541, selection    5 (pick associative Section 0x17)
+403 00000000 SECT13D notype       Static      | $stateUnwindMap$??0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z
+404 00000000 SECT13E notype       Static      | .xdata
+    Section length   28, #relocs    5, #linenums    0, checksum D917948C, selection    5 (pick associative Section 0x17)
+406 00000000 SECT13E notype       Static      | $ip2state$??0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z
+407 00000000 SECT13F notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x17)
+409 00000000 SECT13F notype       Static      | $unwind$?dtor$0@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA
+40A 00000000 SECT140 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x17)
+40C 00000000 SECT140 notype       Static      | $pdata$?dtor$0@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA
+40D 00000000 SECT141 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x17)
+40F 00000000 SECT141 notype       Static      | $unwind$?dtor$1@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA
+410 00000000 SECT142 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x17)
+412 00000000 SECT142 notype       Static      | $pdata$?dtor$1@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA
+413 00000000 SECT143 notype       Static      | .xdata
+    Section length    C, #relocs    0, #linenums    0, checksum 44E6EFD9, selection    5 (pick associative Section 0x17)
+415 00000000 SECT143 notype       Static      | $unwind$?dtor$4@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA
+416 00000000 SECT144 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x17)
+418 00000000 SECT144 notype       Static      | $pdata$?dtor$4@?0???0State@FileInvocationJob@MilesFileExecutor30@@QEAA@AEBVRequest@MilesFileChannel26@@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@6@@Z@4HA
+419 00000000 SECT145 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B34A0BCB, selection    5 (pick associative Section 0xD)
+41B 00000000 SECT145 notype       Static      | $unwind$??0?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@$$QEAV01@@Z
+41C 00000000 SECT146 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 92CEA7C6, selection    5 (pick associative Section 0xD)
+41E 00000000 SECT146 notype       Static      | $pdata$??0?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@$$QEAV01@@Z
+41F 00000000 SECT147 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FB9DC0EB, selection    5 (pick associative Section 0x6F)
+421 00000000 SECT147 notype       Static      | $unwind$?_Swap@?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAAXAEAV12@@Z
+422 00000000 SECT148 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum F727FBDA, selection    5 (pick associative Section 0x6F)
+424 00000000 SECT148 notype       Static      | $pdata$?_Swap@?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAAXAEAV12@@Z
+425 00000000 SECT149 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B34A0BCB, selection    5 (pick associative Section 0x12)
+427 00000000 SECT149 notype       Static      | $unwind$??0?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@AEBV01@@Z
+428 00000000 SECT14A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9349FA41, selection    5 (pick associative Section 0x12)
+42A 00000000 SECT14A notype       Static      | $pdata$??0?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@AEBV01@@Z
+42B 00000000 SECT14B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x22)
+42D 00000000 SECT14B notype       Static      | $unwind$??1?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@XZ
+42E 00000000 SECT14C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9047414F, selection    5 (pick associative Section 0x22)
+430 00000000 SECT14C notype       Static      | $pdata$??1?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAA@XZ
+431 00000000 SECT14D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C3D0860B, selection    5 (pick associative Section 0x30)
+433 00000000 SECT14D notype       Static      | $unwind$??R?$default_delete@UPendingContext@FileInvocationJob@MilesFileExecutor30@@@std@@QEBAXPEAUPendingContext@FileInvocationJob@MilesFileExecutor30@@@Z
+434 00000000 SECT14E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ABCABA0B, selection    5 (pick associative Section 0x30)
+436 00000000 SECT14E notype       Static      | $pdata$??R?$default_delete@UPendingContext@FileInvocationJob@MilesFileExecutor30@@@std@@QEBAXPEAUPendingContext@FileInvocationJob@MilesFileExecutor30@@@Z
+437 00000000 SECT14F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F88E4126, selection    5 (pick associative Section 0x26)
+439 00000000 SECT14F notype       Static      | $unwind$??1?$unique_ptr@UPendingContext@FileInvocationJob@MilesFileExecutor30@@U?$default_delete@UPendingContext@FileInvocationJob@MilesFileExecutor30@@@std@@@std@@QEAA@XZ
+43A 00000000 SECT150 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum E537C273, selection    5 (pick associative Section 0x26)
+43C 00000000 SECT150 notype       Static      | $pdata$??1?$unique_ptr@UPendingContext@FileInvocationJob@MilesFileExecutor30@@U?$default_delete@UPendingContext@FileInvocationJob@MilesFileExecutor30@@@std@@@std@@QEAA@XZ
+43D 00000000 SECT151 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FB9DC0EB, selection    5 (pick associative Section 0x4)
+43F 00000000 SECT151 notype       Static      | $unwind$??$_Reset@$$CBUBinding@MilesFileChannel26@@@?$_Ptr_base@$$CBUBinding@MilesFileChannel26@@@std@@QEAAXAEBV01@@Z
+440 00000000 SECT152 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C83E900B, selection    5 (pick associative Section 0x4)
+442 00000000 SECT152 notype       Static      | $pdata$??$_Reset@$$CBUBinding@MilesFileChannel26@@@?$_Ptr_base@$$CBUBinding@MilesFileChannel26@@@std@@QEAAXAEBV01@@Z
+443 00000000 SECT153 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FB9DC0EB, selection    5 (pick associative Section 0x8)
+445 00000000 SECT153 notype       Static      | $unwind$??$_Reset@X@?$_Ptr_base@X@std@@QEAAXAEBV01@@Z
+446 00000000 SECT154 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C83E900B, selection    5 (pick associative Section 0x8)
+448 00000000 SECT154 notype       Static      | $pdata$??$_Reset@X@?$_Ptr_base@X@std@@QEAAXAEBV01@@Z
+449 00000000 SECT155 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FB9DC0EB, selection    5 (pick associative Section 0x6)
+44B 00000000 SECT155 notype       Static      | $unwind$??$_Reset@VFileInvocationJob@MilesFileExecutor30@@@?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAAXAEBV01@@Z
+44C 00000000 SECT156 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C83E900B, selection    5 (pick associative Section 0x6)
+44E 00000000 SECT156 notype       Static      | $pdata$??$_Reset@VFileInvocationJob@MilesFileExecutor30@@@?$_Ptr_base@VFileInvocationJob@MilesFileExecutor30@@@std@@QEAAXAEBV01@@Z
+44F 00000000 SECT157 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum D4336F60, selection    5 (pick associative Section 0x40)
+451 00000000 SECT157 notype       Static      | $unwind$??__E?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A@@YAXXZ
+452 00000000 SECT158 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum EFF2CB6A, selection    5 (pick associative Section 0x40)
+454 00000000 SECT158 notype       Static      | $pdata$??__E?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A@@YAXXZ
+455 00000000 SECT159 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x52)
+457 00000000 SECT159 notype       Static      | $unwind$??__F?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A@@YAXXZ
+458 00000000 SECT15A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 345B3F4F, selection    5 (pick associative Section 0x52)
+45A 00000000 SECT15A notype       Static      | $pdata$??__F?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A@@YAXXZ
+45B 00000000 SECT15B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum D4336F60, selection    5 (pick associative Section 0x42)
+45D 00000000 SECT15B notype       Static      | $unwind$??__E?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A@@YAXXZ
+45E 00000000 SECT15C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D16CFD3C, selection    5 (pick associative Section 0x42)
+460 00000000 SECT15C notype       Static      | $pdata$??__E?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A@@YAXXZ
+461 00000000 SECT15D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x54)
+463 00000000 SECT15D notype       Static      | $unwind$??__F?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A@@YAXXZ
+464 00000000 SECT15E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 345B3F4F, selection    5 (pick associative Section 0x54)
+466 00000000 SECT15E notype       Static      | $pdata$??__F?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A@@YAXXZ
+467 00000000 SECT15F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum D4336F60, selection    5 (pick associative Section 0x44)
+469 00000000 SECT15F notype       Static      | $unwind$??__E?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ
+46A 00000000 SECT160 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D16CFD3C, selection    5 (pick associative Section 0x44)
+46C 00000000 SECT160 notype       Static      | $pdata$??__E?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ
+46D 00000000 SECT161 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x56)
+46F 00000000 SECT161 notype       Static      | $unwind$??__F?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ
+470 00000000 SECT162 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 345B3F4F, selection    5 (pick associative Section 0x56)
+472 00000000 SECT162 notype       Static      | $pdata$??__F?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ
+473 00000000 SECT163 notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 6A320386, selection    5 (pick associative Section 0xA)
+475 00000000 SECT163 notype       Static      | $unwind$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+476 00000000 SECT164 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 18D530B0, selection    5 (pick associative Section 0xA)
+478 00000000 SECT164 notype       Static      | $pdata$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+479 00000000 SECT165 notype       Static      | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum 8FB28271, selection    5 (pick associative Section 0xA)
+47B 00000000 SECT165 notype       Static      | $cppxdata$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+47C 00000000 SECT166 notype       Static      | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0xA)
+47E 00000000 SECT166 notype       Static      | $stateUnwindMap$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+47F 00000000 SECT167 notype       Static      | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 570F4CF1, selection    5 (pick associative Section 0xA)
+481 00000000 SECT167 notype       Static      | $tryMap$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+482 00000000 SECT168 notype       Static      | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 6B58D0C4, selection    5 (pick associative Section 0xA)
+484 00000000 SECT168 notype       Static      | $handlerMap$0$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+485 00000000 SECT169 notype       Static      | .xdata
+    Section length   30, #relocs    6, #linenums    0, checksum BEBEB494, selection    5 (pick associative Section 0xA)
+487 00000000 SECT169 notype       Static      | $ip2state$??$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z
+488 00000000 SECT16A notype       Static      | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum FCC9C048, selection    5 (pick associative Section 0xA)
+48A 00000000 SECT16A notype       Static      | $unwind$?catch$0@?0???$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z@4HA
+48B 00000000 SECT16B notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 22DF9673, selection    5 (pick associative Section 0xA)
+48D 00000000 SECT16B notype       Static      | $pdata$?catch$0@?0???$_Resetp@VFileInvocationJob@MilesFileExecutor30@@@?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAAXPEAVFileInvocationJob@MilesFileExecutor30@@@Z@4HA
+48E 00000000 SECT16C notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x46)
+490 00000000 SECT16C notype       Static      | $unwind$??__E?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2V0locale@2@A@@YAXXZ
+491 00000000 SECT16D notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3E9E3656, selection    5 (pick associative Section 0x46)
+493 00000000 SECT16D notype       Static      | $pdata$??__E?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2V0locale@2@A@@YAXXZ
+494 00000000 SECT16E notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x48)
+496 00000000 SECT16E notype       Static      | $unwind$??__E?id@?$num_put@GV?$back_insert_iterator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@2V0locale@2@A@@YAXXZ
+497 00000000 SECT16F notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3E9E3656, selection    5 (pick associative Section 0x48)
+499 00000000 SECT16F notype       Static      | $pdata$??__E?id@?$num_put@GV?$back_insert_iterator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@2V0locale@2@A@@YAXXZ
+49A 00000000 SECT170 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8814CCE6, selection    5 (pick associative Section 0x61)
+49C 00000000 SECT170 notype       Static      | $unwind$?_Destroy@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@EEAAXXZ
+49D 00000000 SECT171 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B31F8ABB, selection    5 (pick associative Section 0x61)
+49F 00000000 SECT171 notype       Static      | $pdata$?_Destroy@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@EEAAXXZ
+4A0 00000000 SECT172 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8814CCE6, selection    5 (pick associative Section 0x5F)
+4A2 00000000 SECT172 notype       Static      | $unwind$?_Delete_this@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@EEAAXXZ
+4A3 00000000 SECT173 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 980BAEDF, selection    5 (pick associative Section 0x5F)
+4A5 00000000 SECT173 notype       Static      | $pdata$?_Delete_this@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@EEAAXXZ
+4A6 00000000 SECT174 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B49A565B, selection    5 (pick associative Section 0x32)
+4A8 00000000 SECT174 notype       Static      | $unwind$??_G?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@UEAAPEAXI@Z
+4A9 00000000 SECT175 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 998CF358, selection    5 (pick associative Section 0x32)
+4AB 00000000 SECT175 notype       Static      | $pdata$??_G?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@UEAAPEAXI@Z
+4AC 00000000 SECT176 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x4A)
+4AE 00000000 SECT176 notype       Static      | $unwind$??__E?id@?$numpunct@D@std@@2V0locale@2@A@@YAXXZ
+4AF 00000000 SECT177 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3E9E3656, selection    5 (pick associative Section 0x4A)
+4B1 00000000 SECT177 notype       Static      | $pdata$??__E?id@?$numpunct@D@std@@2V0locale@2@A@@YAXXZ
+4B2 00000000 SECT178 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6E9162C9, selection    5 (pick associative Section 0x4C)
+4B4 00000000 SECT178 notype       Static      | $unwind$??__E?id@?$numpunct@G@std@@2V0locale@2@A@@YAXXZ
+4B5 00000000 SECT179 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3E9E3656, selection    5 (pick associative Section 0x4C)
+4B7 00000000 SECT179 notype       Static      | $pdata$??__E?id@?$numpunct@G@std@@2V0locale@2@A@@YAXXZ
+4B8 00000000 SECT17A notype       Static      | .bss
+    Section length    2, #relocs    0, #linenums    0, checksum        0
+4BA 00000001 SECT17A notype       Static      | piecewise_construct
+4BB 00000000 SECT17A notype       Static      | allocator_arg
+4BC 00000000 SECT17B notype       Static      | .rdata
+    Section length   18, #relocs    3, #linenums    0, checksum        0, selection    6 (pick largest)
+4BE 00000008 SECT17B notype       External    | ??_7runtime_error@std@@6B@ (const std::runtime_error::`vftable')
+4BF 00000000 SECT17C notype       Static      | .data$r
+    Section length   24, #relocs    1, #linenums    0, checksum 54BC55F2, selection    2 (pick any)
+4C1 00000000 SECT17C notype       External    | ??_R0?AVexception@std@@@8 (class std::exception `RTTI Type Descriptor')
+4C2 00000000 SECT17D notype       Static      | .xdata$x
+    Section length   24, #relocs    2, #linenums    0, checksum BC1A9E34, selection    2 (pick any)
+4C4 00000000 SECT17D notype       External    | _CT??_R0?AVexception@std@@@8??0exception@std@@QEAA@AEBV01@@Z24
+4C5 00000000 UNDEF  notype       External     | ??_7type_info@@6B@ (const type_info::`vftable')
+4C6 00000000 SECT17E notype       Static      | .rdata
+    Section length   28, #relocs    5, #linenums    0, checksum        0, selection    6 (pick largest)
+4C8 00000008 SECT17E notype       External    | ??_7_Ref_count_base@std@@6B@ (const std::_Ref_count_base::`vftable')
+4C9 00000000 SECT17F notype       Static      | .xdata$x
+    Section length   1C, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+4CB 00000000 SECT17F notype       External    | _TI2?AVruntime_error@std@@
+4CC 00000000 SECT180 notype       Static      | .xdata$x
+    Section length   14, #relocs    2, #linenums    0, checksum EC3B9E9F, selection    2 (pick any)
+4CE 00000000 SECT180 notype       External    | _CTA2?AVruntime_error@std@@
+4CF 00000000 SECT181 notype       Static      | .data$r
+    Section length   28, #relocs    1, #linenums    0, checksum D357CA60, selection    2 (pick any)
+4D1 00000000 SECT181 notype       External    | ??_R0?AVruntime_error@std@@@8 (class std::runtime_error `RTTI Type Descriptor')
+4D2 00000000 SECT182 notype       Static      | .xdata$x
+    Section length   24, #relocs    2, #linenums    0, checksum BC1A9E34, selection    2 (pick any)
+4D4 00000000 SECT182 notype       External    | _CT??_R0?AVruntime_error@std@@@8??0runtime_error@std@@QEAA@AEBV01@@Z24
+4D5 00000000 SECT183 notype       Static      | .rdata
+    Section length   38, #relocs    7, #linenums    0, checksum        0, selection    6 (pick largest)
+4D7 00000008 SECT183 notype       External    | ??_7error_category@std@@6B@ (const std::error_category::`vftable')
+4D8 00000000 SECT184 notype       Static      | .rdata
+    Section length   38, #relocs    7, #linenums    0, checksum        0, selection    6 (pick largest)
+4DA 00000008 SECT184 notype       External    | ??_7_Generic_error_category@std@@6B@ (const std::_Generic_error_category::`vftable')
+4DB 00000000 SECT185 notype       Static      | .rdata
+    Section length    8, #relocs    0, #linenums    0, checksum A86CFC2B, selection    2 (pick any)
+4DD 00000000 SECT185 notype       External    | ??_C@_07DCLBNMLN@generic?$AA@ (`string')
+4DE 00000000 SECT186 notype       Static      | .rdata
+    Section length    E, #relocs    0, #linenums    0, checksum 3BD6D632, selection    2 (pick any)
+4E0 00000000 SECT186 notype       External    | ??_C@_0O@BFJCFAAK@unknown?5error?$AA@ (`string')
+4E1 00000000 SECT187 notype       Static      | .rdata
+    Section length   38, #relocs    7, #linenums    0, checksum        0, selection    6 (pick largest)
+4E3 00000008 SECT187 notype       External    | ??_7_Iostream_error_category@std@@6B@ (const std::_Iostream_error_category::`vftable')
+4E4 00000000 SECT188 notype       Static      | .rdata
+    Section length    9, #relocs    0, #linenums    0, checksum A29400EA, selection    2 (pick any)
+4E6 00000000 SECT188 notype       External    | ??_C@_08LLGCOLLL@iostream?$AA@ (`string')
+4E7 00000000 SECT189 notype       Static      | .rdata
+    Section length   16, #relocs    0, #linenums    0, checksum A7E7FC63, selection    2 (pick any)
+4E9 00000000 SECT189 notype       External    | ??_C@_0BG@PADBLCHM@iostream?5stream?5error?$AA@ (`string')
+4EA 00000000 SECT18A notype       Static      | .rdata
+    Section length   38, #relocs    7, #linenums    0, checksum        0, selection    6 (pick largest)
+4EC 00000008 SECT18A notype       External    | ??_7_System_error_category@std@@6B@ (const std::_System_error_category::`vftable')
+4ED 00000000 SECT18B notype       Static      | .rdata
+    Section length    7, #relocs    0, #linenums    0, checksum 35CD274A, selection    2 (pick any)
+4EF 00000000 SECT18B notype       External    | ??_C@_06FHFOAHML@system?$AA@ (`string')
+4F0 00000000 SECT18C notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+4F2 00000000 SECT18C notype       External    | ?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A (public: static class std::_Generic_error_category std::_Error_objects<int>::_Generic_object)
+4F3 00000000 SECT18D notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+4F5 00000000 SECT18D notype       External    | ?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A (public: static class std::_Iostream_error_category std::_Error_objects<int>::_Iostream_object)
+4F6 00000000 SECT18E notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+4F8 00000000 SECT18E notype       External    | ?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A (public: static class std::_System_error_category std::_Error_objects<int>::_System_object)
+4F9 00000000 SECT18F notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+4FB 00000000 SECT18F notype       External    | ?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2V0locale@2@A (public: static class std::locale::id std::num_put<char,class std::back_insert_iterator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > >::id)
+4FC 00000000 SECT190 notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+4FE 00000000 SECT190 notype       External    | ?id@?$num_put@GV?$back_insert_iterator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@2V0locale@2@A (public: static class std::locale::id std::num_put<unsigned short,class std::back_insert_iterator<class std::basic_string<unsigned short,struct std::char_traits<unsigned short>,class std::allocator<unsigned short> > > >::id)
+4FF 00000000 SECT191 notype       Static      | .rdata
+    Section length   41, #relocs    0, #linenums    0, checksum F130BA26, selection    2 (pick any)
+501 00000000 SECT191 notype       External    | ??_C@_0EB@BDACLCKO@file?5completion?5event?5creation?5f@ (`string')
+502 00000000 SECT192 notype       Static      | .rdata
+    Section length   8E, #relocs    0, #linenums    0, checksum 4072BEFC, selection    2 (pick any)
+504 00000000 SECT192 notype       External    | ??_C@_1IO@JLPDPDPD@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ (`string')
+505 00000000 SECT193 notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+507 00000000 SECT193 notype       External    | ?id@?$numpunct@D@std@@2V0locale@2@A (public: static class std::locale::id std::numpunct<char>::id)
+508 00000000 SECT194 notype       Static      | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0, selection    2 (pick any)
+50A 00000000 SECT194 notype       External    | ?id@?$numpunct@G@std@@2V0locale@2@A (public: static class std::locale::id std::numpunct<unsigned short>::id)
+50B 00000000 SECT195 notype       Static      | .rdata
+    Section length   10, #relocs    0, #linenums    0, checksum 869C5FA0, selection    2 (pick any)
+50D 00000000 SECT195 notype       External    | ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@ (`string')
+50E 00000000 SECT196 notype       Static      | .rdata
+    Section length   18, #relocs    0, #linenums    0, checksum 79C52538, selection    2 (pick any)
+510 00000000 SECT196 notype       External    | ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ (`string')
+511 00000000 SECT197 notype       Static      | .rdata
+    Section length   2A, #relocs    0, #linenums    0, checksum 55665FBD, selection    2 (pick any)
+513 00000000 SECT197 notype       External    | ??_C@_1CK@EOPGIILJ@?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?$AA@ (`string')
+514 00000000 SECT198 notype       Static      | .rdata
+    Section length   28, #relocs    5, #linenums    0, checksum        0, selection    6 (pick largest)
+516 00000008 SECT198 notype       External    | ??_7?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@6B@ (const std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`vftable')
+517 00000000 SECT199 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum 3AD97647, selection    2 (pick any)
+519 00000000 SECT199 notype       External    | ??_R1A@?0A@EA@exception@std@@8 (std::exception::`RTTI Base Class Descriptor at (0,-1,0,64)')
+51A 00000000 SECT19A notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum CCAA009E, selection    2 (pick any)
+51C 00000000 SECT19A notype       External    | ??_R3exception@std@@8 (std::exception::`RTTI Class Hierarchy Descriptor')
+51D 00000000 SECT19B notype       Static      | .rdata$r
+    Section length    C, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+51F 00000000 SECT19B notype       External    | ??_R2exception@std@@8 (std::exception::`RTTI Base Class Array')
+520 00000000 SECT19C notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+522 00000000 SECT19C notype       External    | ??_R4runtime_error@std@@6B@ (const std::runtime_error::`RTTI Complete Object Locator')
+523 00000000 SECT19D notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 4225077D, selection    2 (pick any)
+525 00000000 SECT19D notype       External    | ??_R3runtime_error@std@@8 (std::runtime_error::`RTTI Class Hierarchy Descriptor')
+526 00000000 SECT19E notype       Static      | .rdata$r
+    Section length   14, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+528 00000000 SECT19E notype       External    | ??_R2runtime_error@std@@8 (std::runtime_error::`RTTI Base Class Array')
+529 00000000 SECT19F notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum BBFC1360, selection    2 (pick any)
+52B 00000000 SECT19F notype       External    | ??_R1A@?0A@EA@runtime_error@std@@8 (std::runtime_error::`RTTI Base Class Descriptor at (0,-1,0,64)')
+52C 00000000 SECT1A0 notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+52E 00000000 SECT1A0 notype       External    | ??_R4_Ref_count_base@std@@6B@ (const std::_Ref_count_base::`RTTI Complete Object Locator')
+52F 00000000 SECT1A1 notype       Static      | .data$r
+    Section length   2A, #relocs    1, #linenums    0, checksum 92BD5638, selection    2 (pick any)
+531 00000000 SECT1A1 notype       External    | ??_R0?AV_Ref_count_base@std@@@8 (class std::_Ref_count_base `RTTI Type Descriptor')
+532 00000000 SECT1A2 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum CCAA009E, selection    2 (pick any)
+534 00000000 SECT1A2 notype       External    | ??_R3_Ref_count_base@std@@8 (std::_Ref_count_base::`RTTI Class Hierarchy Descriptor')
+535 00000000 SECT1A3 notype       Static      | .rdata$r
+    Section length    C, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+537 00000000 SECT1A3 notype       External    | ??_R2_Ref_count_base@std@@8 (std::_Ref_count_base::`RTTI Base Class Array')
+538 00000000 SECT1A4 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum 3AD97647, selection    2 (pick any)
+53A 00000000 SECT1A4 notype       External    | ??_R1A@?0A@EA@_Ref_count_base@std@@8 (std::_Ref_count_base::`RTTI Base Class Descriptor at (0,-1,0,64)')
+53B 00000000 SECT1A5 notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+53D 00000000 SECT1A5 notype       External    | ??_R4error_category@std@@6B@ (const std::error_category::`RTTI Complete Object Locator')
+53E 00000000 SECT1A6 notype       Static      | .data$r
+    Section length   29, #relocs    1, #linenums    0, checksum 57781CE5, selection    2 (pick any)
+540 00000000 SECT1A6 notype       External    | ??_R0?AVerror_category@std@@@8 (class std::error_category `RTTI Type Descriptor')
+541 00000000 SECT1A7 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum CCAA009E, selection    2 (pick any)
+543 00000000 SECT1A7 notype       External    | ??_R3error_category@std@@8 (std::error_category::`RTTI Class Hierarchy Descriptor')
+544 00000000 SECT1A8 notype       Static      | .rdata$r
+    Section length    C, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+546 00000000 SECT1A8 notype       External    | ??_R2error_category@std@@8 (std::error_category::`RTTI Base Class Array')
+547 00000000 SECT1A9 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum 3AD97647, selection    2 (pick any)
+549 00000000 SECT1A9 notype       External    | ??_R1A@?0A@EA@error_category@std@@8 (std::error_category::`RTTI Base Class Descriptor at (0,-1,0,64)')
+54A 00000000 SECT1AA notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+54C 00000000 SECT1AA notype       External    | ??_R4_Generic_error_category@std@@6B@ (const std::_Generic_error_category::`RTTI Complete Object Locator')
+54D 00000000 SECT1AB notype       Static      | .data$r
+    Section length   32, #relocs    1, #linenums    0, checksum 61E25741, selection    2 (pick any)
+54F 00000000 SECT1AB notype       External    | ??_R0?AV_Generic_error_category@std@@@8 (class std::_Generic_error_category `RTTI Type Descriptor')
+550 00000000 SECT1AC notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 4225077D, selection    2 (pick any)
+552 00000000 SECT1AC notype       External    | ??_R3_Generic_error_category@std@@8 (std::_Generic_error_category::`RTTI Class Hierarchy Descriptor')
+553 00000000 SECT1AD notype       Static      | .rdata$r
+    Section length   14, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+555 00000000 SECT1AD notype       External    | ??_R2_Generic_error_category@std@@8 (std::_Generic_error_category::`RTTI Base Class Array')
+556 00000000 SECT1AE notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum BBFC1360, selection    2 (pick any)
+558 00000000 SECT1AE notype       External    | ??_R1A@?0A@EA@_Generic_error_category@std@@8 (std::_Generic_error_category::`RTTI Base Class Descriptor at (0,-1,0,64)')
+559 00000000 SECT1AF notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+55B 00000000 SECT1AF notype       External    | ??_R4_Iostream_error_category@std@@6B@ (const std::_Iostream_error_category::`RTTI Complete Object Locator')
+55C 00000000 SECT1B0 notype       Static      | .data$r
+    Section length   33, #relocs    1, #linenums    0, checksum 9ABBB05D, selection    2 (pick any)
+55E 00000000 SECT1B0 notype       External    | ??_R0?AV_Iostream_error_category@std@@@8 (class std::_Iostream_error_category `RTTI Type Descriptor')
+55F 00000000 SECT1B1 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 8E8F07E3, selection    2 (pick any)
+561 00000000 SECT1B1 notype       External    | ??_R3_Iostream_error_category@std@@8 (std::_Iostream_error_category::`RTTI Class Hierarchy Descriptor')
+562 00000000 SECT1B2 notype       Static      | .rdata$r
+    Section length   1C, #relocs    3, #linenums    0, checksum        0, selection    2 (pick any)
+564 00000000 SECT1B2 notype       External    | ??_R2_Iostream_error_category@std@@8 (std::_Iostream_error_category::`RTTI Base Class Array')
+565 00000000 SECT1B3 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum E3E2BA48, selection    2 (pick any)
+567 00000000 SECT1B3 notype       External    | ??_R1A@?0A@EA@_Iostream_error_category@std@@8 (std::_Iostream_error_category::`RTTI Base Class Descriptor at (0,-1,0,64)')
+568 00000000 SECT1B4 notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+56A 00000000 SECT1B4 notype       External    | ??_R4_System_error_category@std@@6B@ (const std::_System_error_category::`RTTI Complete Object Locator')
+56B 00000000 SECT1B5 notype       Static      | .data$r
+    Section length   31, #relocs    1, #linenums    0, checksum FF15FF41, selection    2 (pick any)
+56D 00000000 SECT1B5 notype       External    | ??_R0?AV_System_error_category@std@@@8 (class std::_System_error_category `RTTI Type Descriptor')
+56E 00000000 SECT1B6 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 8E8F07E3, selection    2 (pick any)
+570 00000000 SECT1B6 notype       External    | ??_R3_System_error_category@std@@8 (std::_System_error_category::`RTTI Class Hierarchy Descriptor')
+571 00000000 SECT1B7 notype       Static      | .rdata$r
+    Section length   1C, #relocs    3, #linenums    0, checksum        0, selection    2 (pick any)
+573 00000000 SECT1B7 notype       External    | ??_R2_System_error_category@std@@8 (std::_System_error_category::`RTTI Base Class Array')
+574 00000000 SECT1B8 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum E3E2BA48, selection    2 (pick any)
+576 00000000 SECT1B8 notype       External    | ??_R1A@?0A@EA@_System_error_category@std@@8 (std::_System_error_category::`RTTI Base Class Descriptor at (0,-1,0,64)')
+577 00000000 SECT1B9 notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+579 00000000 SECT1B9 notype       External    | ??_R4?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@6B@ (const std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`RTTI Complete Object Locator')
+57A 00000000 SECT1BA notype       Static      | .data$r
+    Section length   50, #relocs    1, #linenums    0, checksum B8D93613, selection    2 (pick any)
+57C 00000000 SECT1BA notype       External    | ??_R0?AV?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@@8 (class std::_Ref_count<class MilesFileExecutor30::FileInvocationJob> `RTTI Type Descriptor')
+57D 00000000 SECT1BB notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 4225077D, selection    2 (pick any)
+57F 00000000 SECT1BB notype       External    | ??_R3?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@8 (std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`RTTI Class Hierarchy Descriptor')
+580 00000000 SECT1BC notype       Static      | .rdata$r
+    Section length   14, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+582 00000000 SECT1BC notype       External    | ??_R2?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@8 (std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`RTTI Base Class Array')
+583 00000000 SECT1BD notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum BBFC1360, selection    2 (pick any)
+585 00000000 SECT1BD notype       External    | ??_R1A@?0A@EA@?$_Ref_count@VFileInvocationJob@MilesFileExecutor30@@@std@@8 (std::_Ref_count<class MilesFileExecutor30::FileInvocationJob>::`RTTI Base Class Descriptor at (0,-1,0,64)')
+586 00000000 SECT1BE notype       Static      | .rtc$IMZ
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+588 00000000 SECT1BE notype       Static      | _RTC_InitBase.rtc$IMZ
+589 00000000 SECT1BF notype       Static      | .rtc$TMZ
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+58B 00000000 SECT1BF notype       Static      | _RTC_Shutdown.rtc$TMZ
+58C 00000000 UNDEF  notype       External     | _fltused
+58D 00000000 SECT1C0 notype       Static      | .CRT$XCU
+    Section length   10, #relocs    2, #linenums    0, checksum        0
+58F 00000000 SECT1C0 notype       Static      | piecewise_construct$initializer$
+590 00000008 SECT1C0 notype       Static      | allocator_arg$initializer$
+591 00000000 SECT1C1 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18C)
+593 00000000 SECT1C1 notype       Static      | ?_Generic_object$initializer$@?$_Error_objects@H@std@@2P6AXXZEA (public: static void (__cdecl* std::_Error_objects<int>::_Generic_object$initializer$)(void))
+594 00000000 SECT1C2 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18D)
+596 00000000 SECT1C2 notype       Static      | ?_Iostream_object$initializer$@?$_Error_objects@H@std@@2P6AXXZEA (public: static void (__cdecl* std::_Error_objects<int>::_Iostream_object$initializer$)(void))
+597 00000000 SECT1C3 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18E)
+599 00000000 SECT1C3 notype       Static      | ?_System_object$initializer$@?$_Error_objects@H@std@@2P6AXXZEA (public: static void (__cdecl* std::_Error_objects<int>::_System_object$initializer$)(void))
+59A 00000000 SECT1C4 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18F)
+59C 00000000 SECT1C4 notype       Static      | ?id$initializer$@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2P6AXXZEA (public: static void (__cdecl* std::num_put<char,class std::back_insert_iterator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > >::id$initializer$)(void))
+59D 00000000 SECT1C5 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x190)
+59F 00000000 SECT1C5 notype       Static      | ?id$initializer$@?$num_put@GV?$back_insert_iterator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@2P6AXXZEA (public: static void (__cdecl* std::num_put<unsigned short,class std::back_insert_iterator<class std::basic_string<unsigned short,struct std::char_traits<unsigned short>,class std::allocator<unsigned short> > > >::id$initializer$)(void))
+5A0 00000000 SECT1C6 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x193)
+5A2 00000000 SECT1C6 notype       Static      | ?id$initializer$@?$numpunct@D@std@@2P6AXXZEA (public: static void (__cdecl* std::numpunct<char>::id$initializer$)(void))
+5A3 00000000 SECT1C7 notype       Static      | .CRT$XCU
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x194)
+5A5 00000000 SECT1C7 notype       Static      | ?id$initializer$@?$numpunct@G@std@@2P6AXXZEA (public: static void (__cdecl* std::numpunct<unsigned short>::id$initializer$)(void))
+5A6 00000000 SECT1C8 notype       Static      | .debug$S
+    Section length   94, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18C)
+5A8 00000000 SECT1C9 notype       Static      | .debug$S
+    Section length   98, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18D)
+5AA 00000000 SECT1CA notype       Static      | .debug$S
+    Section length   90, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18E)
+5AC 00000000 SECT1CB notype       Static      | .debug$S
+    Section length  180, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x190)
+5AE 00000000 SECT1CC notype       Static      | .debug$S
+    Section length  130, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x18F)
+5B0 00000000 SECT1CD notype       Static      | .debug$S
+    Section length   70, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x193)
+5B2 00000000 SECT1CE notype       Static      | .debug$S
+    Section length   84, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x194)
+
+String Table Size = 0x9D1D bytes
+
+  Summary
+
+          48 .CRT$XCU
+          3A .bss
+         185 .data$r
+       11344 .debug$S
+          50 .debug$T
+         34A .drectve
+         45C .pdata
+         6D5 .rdata
+         354 .rdata$r
+           8 .rtc$IMZ
+           8 .rtc$TMZ
+         18C .text$di
+        2A76 .text$mn
+         3A9 .text$x
+          3F .text$yd
+         6D0 .xdata
+          78 .xdata$x

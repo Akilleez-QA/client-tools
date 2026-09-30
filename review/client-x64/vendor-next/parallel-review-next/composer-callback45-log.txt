@@ -1,0 +1,152 @@
+Coverage review is limited to the pasted `HostAssociationMapper`, its `tests.cpp`, and the `SessionFileOwner` / `Coordinator` paths they call. Outer transport (peer auth, full ACK/envelope checks) is out of scope. No runtime or vendor claims below.
+
+## Scope limits (not reviewed here)
+
+- No `Endpoint.send`, no validated ACK bytes on the wire—only `markReplyQueued` / `acknowledgeConsumed` as host-side hooks.
+- Lock / unlock actions are rejected at `publishCommand`; not exercised end-to-end.
+- Threading: single control thread is assumed; no concurrent mutation tests.
+- `Coordinator` / `SessionFileOwner` behavior is cited only where the mapper depends on it for correlation or settlement.
+
+---
+
+## Event-order coverage the tests do exercise (Ordinary)
+
+| Ordering | What is asserted |
+|----------|------------------|
+| Forward return → then reverse ACK | `ReturnedWaiting`, pins until ACK, then `Settled` |
+| Reverse ACK → then forward return | Stays `Executing` until forward; `settle()` no-op until `ReturnedWaiting` |
+| Unsolicited (background lane) during active Ordinary | Command can `Settled` while `callbackPins == 1` (unsolicited does not block `completeAdmission`) |
+| ACK-before-forward join | Matches `settle()` guard on `ReturnedWaiting` |
+| Replay same reverse frame | Rejected via `header.request <= lastReverse` |
+| ACK gating | `queued` + wire identity (not intake ordinal) |
+
+That matches the implementation: `settle()` only runs in `ReturnedWaiting`; `acknowledgeConsumed` calls `settle()` even when the command is still `Executing`.
+
+```cpp
+void HostAssociationMapper::settle() {
+    if (command.state != ReturnedWaiting) return;
+    // ...
+}
+```
+
+```cpp
+bool HostAssociationMapper::acknowledgeConsumed(...) {
+    // ...
+    settle();
+}
+```
+
+`causalPending` only counts `CausalReverseIo` callbacks tied to the active admission—not unsolicited work (`coordinator.cpp`). The background-during-command test encodes that contract; it is not a false pass relative to this coordinator.
+
+---
+
+## Concrete missed event orders (no fixture)
+
+These are plausible single-thread sequences allowed by the mapper API but **not** covered in `tests.cpp`:
+
+1. **Second causal reverse after forward return, before first ACK**  
+   `receiveReverse` allows causal traffic in `Executing` **or** `ReturnedWaiting` (`host_association_mapper.cpp`). Settlement needs all causal callbacks ACK’d (`causalPending`). No test with two causal reverses on one admission, nor ACK/order permutations (ACK₁ → forward → ACK₂, forward → reverse₂ → ACK₁ → ACK₂, etc.).
+
+2. **Causal reverse only after `observeForwardReturn`**  
+   Same branch as (1); never exercised after `ReturnedWaiting`.
+
+3. **Forward return with zero reverses**  
+   `observeForwardReturn` → immediate `settle()` when nothing causal is pending. Ordinary-only “command with no callback” path untested.
+
+4. **Duplicate or stale `observeForwardReturn`**  
+   Second call: `command.state != Executing` → `fail()`. Wrong `wire` while `Executing` → `fail()`. Neither case appears in tests.
+
+5. **`markReplyQueued` twice on the same reverse**  
+   Second call: `record->queued` → `fail()`. Not tested (ACK loop covers failed ACK, not double queue).
+
+6. **`Settled` but not `consumeCommand`, then new causal reverse**  
+   Causal requires `Executing` or `ReturnedWaiting`; in `Settled` causal intake fails and `fail()`. Untested.
+
+7. **New reverse wire id after ACK vs strict monotonicity**  
+   Replay test reuses the **same** frame. After ACK clears the slot, a **new** frame with `request == lastReverse` is still rejected (`header.request <= lastReverse`). That “no wire reuse after retirement” rule is implied by code, not asserted with a fresh encode after ACK.
+
+8. **`publishCommand` identity edges** (Ordinary slice)  
+   Not covered: `wire <= lastWire`, `lane == backgroundLane`, `wire == 0`, second publish while `Settled` (non-`Empty`), or `cleanup == true` (`admitCleanup`).
+
+9. **`lastIntake == UINT64_MAX`**  
+   `receiveReverse` rejects; no test.
+
+10. **`poll()` / `settle()` when `completeAdmission` returns neither `Ok` nor `PendingCallback`**  
+    `settle()` calls `fail()`; no direct test.
+
+---
+
+## Source-grounded implementation concerns (vs planned transport gap)
+
+### A. Reverse row committed before `owner.receive` succeeds (genuine mapper issue on failure paths)
+
+Correlation is stored **before** admission:
+
+```cpp
+record.wire = header.request; record.intake = ++lastIntake; record.queued = false;
+lastReverse = header.request;
+// ...
+const SessionFileOwner::Intake result = owner.receive(trusted, frame);
+if (result != SessionFileOwner::Queued) fail();
+```
+
+`fail()` only calls `coordinator.fail(session)`—it does **not** clear `reverse[]` or roll back `lastReverse` / mapper `lastIntake`.
+
+If `receive` returns anything other than `Queued` (e.g. `Rejected` from `decodeRequest` / registry / file state, or `FailedUnanswered` on capacity or post-`Failed` coordinator paths in `session_file_owner.cpp`), the session is failed but the reverse slot can remain occupied and mapper `lastIntake` can advance ahead of the owner’s `lastIntake` until `fail()` stops further traffic.
+
+Tests mostly reject before slot allocation (mapper `decodeCall`, causal checks, capacity before second `receive`) or always get `Queued` on success paths. They do **not** force “header OK at mapper, `owner.receive` → `Rejected` after slot write,” so they would not catch slot leak or intake skew on a **non-failed** recovery story—though the design appears fail-closed (no recovery API).
+
+**Distinction:** Missing outer wire validation is planned scope; **not** rolling back correlation on `!= Queued` is in this slice’s code.
+
+### B. Capacity failure vs `retainedReverse` after partial failure
+
+Capacity test (`Fixture(1)`, two receives): second call returns `FailedUnanswered` at the **slot** check before writing the second row; first row retained—consistent.
+
+If the first `receive` returned `FailedUnanswered` **after** writing the reverse row (hypothetical if ordering matched A), `fail()` would leave `retainedReverse() == 1` without a matching “happy ACK” path—untested.
+
+### C. Not a code defect: unsolicited vs causal settlement split
+
+Command settlement with an open unsolicited callback (`callbackPins == 1`, `requestPins == 0` after `completeAdmission`) is **consistent** with `causalPending` and the background test. A product rule that “Ordinary command cannot be consumed until all callbacks complete” would be a **policy gap**, not contradicted by current tests (they `consumeCommand` then `begin(200)` then `acknowledge(71)`).
+
+### D. Planned / outer-layer (not mapper bugs in this slice)
+
+- Wrong session on forward return or ACK (only partially covered: causal loop session `78`, ACK mode `2` session `78`).
+- Opcode/envelope/value validation before `observeForwardReturn` / `receiveReverse` (comments assume elsewhere).
+- Lock/unlock completion and lease mutation at `completeAdmission` (Ordinary-only here).
+
+---
+
+## False-pass or over-trust risks in fixtures
+
+1. **ACK rejection loop (`mode == 3`)**  
+   Successful `acknowledgeConsumed` then failed duplicate correctly expects `retainedOperations() == 0`. Modes 0–2 leave one operation—good. None of the modes assert `retainedReverse()` after `fail()`, so a **stuck reverse slot** after a bad ACK would not be caught.
+
+2. **“Uncertain file execution”**  
+   Asserts coordinator `Failed`, pins, and `retainedReverse() == 1` after forward return in `ReturnedWaiting`. It does **not** assert that `settle()` never reaches `Settled` without ACK, or behavior of a second `observeForwardReturn` / `publishCommand` after `fail()` (mapper does not reset `command` on `fail()`).
+
+3. **Causal validation loop**  
+   Asserts `!f.owner.retainedOperations()` on reject—true when reject happens before `owner.receive` stores an operation. Would not detect A if reject happened after mapper stored reverse but owner returned `Rejected` without retaining an operation (mapper still calls `fail()` on `!= Queued`).
+
+4. **Replay after ACK (`after == 1`)**  
+   Replays the **same** bytes; does not check that a **new** monotonic violation or a second command lifecycle still fails correctly.
+
+5. **`dispatchUncertain`**  
+   Script hook in `Script36`; only proves one uncertain path retains pins—not alternate `FailedUnanswered` returns from `receive`.
+
+---
+
+## Ordinary-action correlation summary
+
+| Concern | Verdict |
+|--------|---------|
+| Forward vs ACK ordering for **one** causal reverse | Covered; aligns with code |
+| ACK without `markReplyQueued` / wrong wire ACK | Covered |
+| Unsolicited during command vs admission settlement | Covered; coordinator contract |
+| Multiple causal reverses per admission | **Missed** |
+| Causal traffic in `ReturnedWaiting` | **Missed** |
+| Reverse row rollback on `receive != Queued` | **Code risk**; **untested** |
+| Reverse wire reuse after ACK (new frame, same id) | **Missed** (replay only) |
+| Double forward return / queue / post-`Settled` causal | **Missed** |
+| `admitCleanup` / publish identity edge cases | **Missed** |
+
+No broad clearance: the suite validates a narrow join surface (one causal callback, happy `Queued` intake, scripted I/O). The main source-grounded defect candidate in scope is **correlation storage ahead of successful `owner.receive` without rollback on failure**. The main coverage holes for Ordinary correlation are **multi-causal admissions**, **post-forward-return causal intake**, and **failure/retention assertions** after `fail()` on reverse paths.

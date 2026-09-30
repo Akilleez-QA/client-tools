@@ -1,0 +1,7 @@
+# Native39: owner compiled; symbol oracle failed
+
+The approved runner stopped after the first owner object. Actual v120 compilation exited0 with no warnings/errors and no forbidden include paths; actual COFF machine is0x8664. The five remaining objects were not attempted. Raw overall receipt remains failed; classify as failed_with_test_concern pending independent attribution.
+
+The expected real job dependency exists in raw `native-evidence-v1/curated/results/owner/symbols.log` at line771: an UNDEF external decorated symbol beginning `?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@`, followed by dumpbin's parenthesized demangled description. Runner code selected `line.split()[-1]`, which returns a trailing demangled token, not the decorated symbol immediately after `|`. Consequently its required-prefix check rejected a dependency visibly present in the raw evidence. This is a parsing concern, not permission to rewrite the failed receipt or claim completion of six objects.
+
+The owner object's hash/machine were reread in collection and match the compiler receipt. All19 staged inputs match before/after. Curated ZIP SHA256 `be2bb0f441c6b7c8a3eabaede3187f1d5c3e40d65acebeebb41875e8166dbb30`. Raw commands, logs, includes, symbols and input identities are preserved. System headers remain single-time observations only. Objects/PDB stay private. No repair, retry, continuation, linking or runtime occurred; product49d0 remains clean. Native38's source failure is preserved separately. Compiler/tooling work has stopped.

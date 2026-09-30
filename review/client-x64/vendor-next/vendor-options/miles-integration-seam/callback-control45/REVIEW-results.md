@@ -1,0 +1,11 @@
+# Independent source/result spot-check
+
+Read the frozen mapper, negative fixture, full named scenario bodies and raw portable command/result/log. No rerun or native/runtime execution. Current candidate input hashes match candidate-manifest-v1.json.
+
+The pretest lock-action finding is addressed for this slice: publishCommand rejects every non-Ordinary action before calling either admission method. The fixture rejects AcquireLock and ReleaseLock, verifies Empty/activeAdmission0/leaseDepth0, then successfully publishes the first ordinary command. This tests that rejected attempts did not consume the admission ordinal. It does not establish lock-operation support; that surface remains intentionally refused.
+
+Raw results record strict GCC C++11 ASan/UBSan compile_exit0/run_exit0, all11 expected scenario labels present and unchanged inputs. run.log contains155 assertions, not155 independent behaviors. Actual scenarios cover return-before-ACK, ACK-before-return, distinct wire/local IDs, background callback during a command and after idle, malformed correlation fields, lock refusal, reverse replay before/after ACK, early/stale/duplicate/peer-intake ACK, uncertain execution pins, reverse-table exhaustion and truncated frame refusal. The source assertions support those labels.
+
+Remaining unexercised cases include multiple simultaneous causal callbacks with out-of-order ACKs and callback frontier advancement; receiving an additional causal request while ReturnedWaiting; wrong/duplicate forward-return observation; Draining/cleanup mode; UINT64 limits; and a syntactically valid frame rejected later by owner file-op validation (the malformed fixture truncates before mapper decoding). Those are test gaps, not demonstrated defects. In particular, the first owner-level rejection can advance mapper intake while owner intake remains unchanged; subsequent failed-session observations are not promised to remain admissible.
+
+The ordinary join is supported by the inspected source and existing portable evidence. This is not clearance for Endpoint concurrency, authenticated ACK framing, actual selected callback tables, Windows worker/TLS, original DLL callbacks, teardown or quiescence. All mutation still requires the declared single control-thread owner.

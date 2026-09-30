@@ -1,0 +1,47 @@
+{
+  "command": [
+    "g++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-g",
+    "-O1",
+    "-fno-omit-frame-pointer",
+    "-fsanitize=address,undefined",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/transport-candidate/codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/session-file-admission34/coordinator.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/file-owner36/session_file_owner.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/file-owner36/portable_job.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/callback-control45/host_association_mapper.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/candidate/callback-control45/tests.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-control45/portable-v1/control-tests"
+  ],
+  "manifest_sha256": "80d4e559f9301e9a2c5ab94625feaf690972155f19a9a7127f07771b29b9660b",
+  "scope": "real mapper, owner, coordinator, file adapter and codec; scripted worker/job only; no native ABI/runtime",
+  "compile_exit": 0,
+  "run_exit": 0,
+  "sanitizers": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "expected_scenarios": [
+    "forward-before-ACK join and distinct wire/local IDs",
+    "ACK-before-forward join",
+    "unsolicited callback during unrelated command",
+    "idle callback open-close lifetime",
+    "causal/session/lane/lease validation",
+    "unsupported lock actions rejected before admission",
+    "reverse replay before and after ACK",
+    "early/stale/duplicate/peer-intake ACK rejection",
+    "uncertain file execution retains forward and callback pins",
+    "reverse storage capacity fails before second file admission",
+    "malformed frame rejected"
+  ],
+  "all_scenarios_present": true,
+  "sources_unchanged": true,
+  "passed": true
+}

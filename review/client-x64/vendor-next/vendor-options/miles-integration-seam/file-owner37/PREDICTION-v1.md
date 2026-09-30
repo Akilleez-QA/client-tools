@@ -1,0 +1,5 @@
+# Successor37 prospective portable gate
+
+Only the production alignment expression and portable test layout change from frozen36. The actual possessed v120 type_traits at SHA256 27a2576db02b7173a03e14773d8ccc47867c380af1d9e66472e75ee478ed41cf declares alignment_of as integral_constant<size_t,...> at1183–1187 and aligned_storage uses alignment_of<T>::value at1190. Use std::alignment_of<Binding>::value, retaining the same storage size/type. The VM action only read that header; no native compiler or engine ran.
+
+Replacement allocation functions and the same failure-control state now live in test_allocators.cpp, a separate portable-only TU. No warning, sanitizer, optimization or test assertion is removed. Expected outcome: strict ASan/UBSan build and the same owner/encoding tests pass. Freeze first; one compile and then one execution only if compiled. Preserve first failure without automatic repair/retry. Native compatibility remains uncompiled; the library expression is source-backed, not native execution evidence.

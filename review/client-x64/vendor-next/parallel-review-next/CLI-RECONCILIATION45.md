@@ -1,0 +1,11 @@
+# Composer callback coverage review45
+
+Composer2.5 completed one source-only attempt in111.13seconds, exit0. Prompt SHA25607e83fec80746ad84507b106947afd0c1420298f8a3d5891f9972a2f8fd5564e; raw output SHA256a585a242441779f1275563641ac0c00b4543e7e169107a75467123913f68c646. Inputs and limits are in the identity JSON. Parent inspected the claims against mapper45, its tests, actual owner and Coordinator. This is source review, not independent runtime corroboration.
+
+Accepted coverage gaps: multiple causal callbacks with out-of-order ACKs; new causal intake while a prior one keeps ReturnedWaiting; no-callback completion; malformed/duplicate forward observations; valid envelopes rejected deeper by the owner; queue duplication and post-settlement causal traffic. Meaningful cases are being added in composition46, without rerunning unchanged45.
+
+The proposed rollback defect is not accepted. The row is reserved before owner admission so possible effects cannot outlive their correlation. Any nonQueued outcome fails the session; there is no recovery API or healthy retry promise. Retention after unknown effects is deliberate. Known pre-admission rejection can leave a bounded retained row without an owner operation, and later intake can be terminally unsynchronized; the design does not claim recovery or complete late-observation bookkeeping after every malformed/capacity failure. Tests should make that limit and absence of subsequent execution explicit. An operational failure owner still has to retain/clean up safely; the component does not supply that lifecycle.
+
+Re-encoding identical rejected request bytes adds no separate behavioral discriminator. Existing replay-after-ACK covers the same identity gate. Likewise, merely seeing a retained row after fail is not evidence of a leak in a component whose failure contract deliberately preserves records pending outer teardown. The review usefully identified missing assertions but overstated those two points.
+
+Ordinary-only action scope and external authentication/full ACK validation remain explicit. Exhaustive counter overflow, arbitrary malicious host provenance and actual pipe threading were not established. Grok's earlier empty timeout remains absence of a review; no identical retry or Grok clearance is claimed here.

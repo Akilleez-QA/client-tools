@@ -1,0 +1,67 @@
+--- a/candidate/file-owner36/session_file_owner.cpp
++++ b/candidate/file-owner36/session_file_owner.cpp
+@@ -9,7 +9,7 @@
+     MilesWire::Handle identity;
+     FileState state;
+     bool bound,uncertain,closeAcknowledged;
+-    typename std::aligned_storage<sizeof(Binding),alignof(Binding)>::type storage;
++    typename std::aligned_storage<sizeof(Binding),std::alignment_of<Binding>::value>::type storage;
+     FileRecord():identity(),state(Reserved),bound(false),uncertain(false),closeAcknowledged(false) {}
+     Binding *binding(){return reinterpret_cast<Binding *>(&storage);}
+     ~FileRecord(){if(bound)binding()->~Binding();}
+--- a/candidate/file-owner36/test_allocators.cpp
++++ b/candidate/file-owner36/test_allocators.cpp
+@@ -0,0 +1,18 @@
++#include "test_allocators.h"
++#include <cstdlib>
++#include <new>
++bool denyAllocation=false;
++MilesFileOwner36::SessionFileOwner *failAfterReservationOwner=0;
++bool reservationFailureTriggered=false;
++void *operator new(std::size_t n){if(denyAllocation)throw std::bad_alloc();
++    if(failAfterReservationOwner){
++        MilesFileOwner36::SessionFileOwner::FileState state;
++        MilesWire::Handle h={MilesWire::File,1,1};
++        if(failAfterReservationOwner->fileState(h,state) && state==MilesFileOwner36::SessionFileOwner::Reserved && !failAfterReservationOwner->retainedOperations()){
++            reservationFailureTriggered=true;throw std::bad_alloc();
++        }
++    }
++    void *p=std::malloc(n?n:1);if(!p)throw std::bad_alloc();return p;}
++void operator delete(void *p) noexcept {std::free(p);}
++void *operator new[](std::size_t n){return ::operator new(n);}
++void operator delete[](void *p) noexcept {::operator delete(p);}
+--- a/candidate/file-owner36/test_allocators.h
++++ b/candidate/file-owner36/test_allocators.h
+@@ -0,0 +1,7 @@
++#ifndef TEST_ALLOCATORS37_H
++#define TEST_ALLOCATORS37_H
++#include "session_file_owner.h"
++extern bool denyAllocation;
++extern MilesFileOwner36::SessionFileOwner *failAfterReservationOwner;
++extern bool reservationFailureTriggered;
++#endif
+--- a/candidate/file-owner36/tests.cpp
++++ b/candidate/file-owner36/tests.cpp
+@@ -3,21 +3,7 @@
+ #include <cstdlib>
+ #include <new>
+ #include <cstring>
+-static bool denyAllocation=false;
+-static MilesFileOwner36::SessionFileOwner *failAfterReservationOwner=0;
+-static bool reservationFailureTriggered=false;
+-void *operator new(std::size_t n){if(denyAllocation)throw std::bad_alloc();
+-    if(failAfterReservationOwner){
+-        MilesFileOwner36::SessionFileOwner::FileState state;
+-        MilesWire::Handle h={MilesWire::File,1,1};
+-        if(failAfterReservationOwner->fileState(h,state) && state==MilesFileOwner36::SessionFileOwner::Reserved && !failAfterReservationOwner->retainedOperations()){
+-            reservationFailureTriggered=true;throw std::bad_alloc();
+-        }
+-    }
+-    void *p=std::malloc(n?n:1);if(!p)throw std::bad_alloc();return p;}
+-void operator delete(void *p) noexcept {std::free(p);}
+-void *operator new[](std::size_t n){return ::operator new(n);}
+-void operator delete[](void *p) noexcept {::operator delete(p);}
++#include "test_allocators.h"
+ namespace Script36 {extern unsigned opens,closes,reads,seeks;extern int submitFailure;extern bool throwOpen,throwClose,dispatchUncertain,openFails;void pump();void pumpFirst();}
+ namespace MilesFileOwner36 {
+ // Test-only trusted authority, not production host routing or wire authority.

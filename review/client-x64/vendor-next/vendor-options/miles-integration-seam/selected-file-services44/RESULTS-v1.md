@@ -1,0 +1,13 @@
+# Selected services 44 — initial portable result
+
+The single authorized initial frozen gate passed. Strict clang C++11 (`-Wall -Wextra -Wpedantic -Werror`) compiled the real selected-services adapter, Invocation/file-channel source and codec with ASan/UBSan, nonrecovering sanitizers and leak detection. Build exit 0, run exit 0, 316 checks, empty build log and no sanitizer diagnostics. No retry occurred. Commands, environment options, output and status are retained under `evidence-v1/`.
+
+`freeze-v1.json` records 25 inputs before the first build; `evidence-v1/frozen-inputs-after.json` records zero changed frozen files afterward. The native35 callback declaration header was copied byte-for-byte. `portable-v1/native35_compat.h` includes system stdint first, locally supplies Windows/MSVC/empty calling-convention macros only around that header, and undefines them before other standard headers. These substitutions provide NO ABI evidence.
+
+The tests discriminate two retained tables with interleaved operations; status 7 with handle zero; status 0x80000001 with a local handle above UINT32_MAX; failed open without publication; signed seek inputs and results; full/short/zero read bytes and invalid read extent; exact-once close; open/close/seek/read exceptions without normal reply or retry; and callback/context ownership retained after external references disappear, including uncertain completion. Null callbacks and absent lifetime owner are rejected before calls; an invalid FileServices value is rejected by Invocation.
+
+Scenarios 6/7 (actual Windows FileInvocationJob scheduling/events and owner integration) remain deferred. The owner-construction portion of scenario 8 is likewise source-reviewed, not executed. No fake Windows event implementation or portable replacement job was introduced. Source plumbing for the actual job and owner changed, but neither translation unit was built by this gate.
+
+`compatibility-v120.patch` separately identifies the one-token removal of nondependent `typename` from owner storage, matching `native39-owner/compatibility.patch`. It is included in the complete `source.patch` and freeze, but this portable gate does not compile the owner or provide new v120 evidence.
+
+PLAN.md and PROPOSED-TESTS.md remain frozen as the pre-execution plan. This result supersedes their temporal statements that tests had not yet run; their scope limits remain applicable. Registration is unenabled. The callback reentry guard and terminal protocol are design obligations, not implemented or tested here. No native build, VM, engine, product, SDK or vendor-runtime work occurred. There is no native64 API library or runtime-fidelity claim.

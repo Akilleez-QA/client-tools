@@ -1,0 +1,27 @@
+{
+  "scope": "portable scripted platform only; no engine/vendor/VM",
+  "command": [
+    "g++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-g",
+    "-O1",
+    "-fno-omit-frame-pointer",
+    "-fsanitize=address,undefined",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/transport-candidate/codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/session-file-admission34/coordinator.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/session_file_owner.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/portable_job.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/candidate/file-owner36/tests.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner36/portable-v1/owner-tests"
+  ],
+  "manifest_sha256": "1a8365ba0b1c662d17c5827f5221fe0eeb7c3983d663bcf79161b06e240a2f4e",
+  "compile_exit": 1,
+  "sources_unchanged": true,
+  "passed": false
+}

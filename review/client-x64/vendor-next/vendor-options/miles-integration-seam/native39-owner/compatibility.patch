@@ -1,0 +1,11 @@
+--- a/session_file_owner.cpp
++++ b/session_file_owner.cpp
+@@ -9,7 +9,7 @@
+     MilesWire::Handle identity;
+     FileState state;
+     bool bound,uncertain,closeAcknowledged;
+-    typename std::aligned_storage<sizeof(Binding),std::alignment_of<Binding>::value>::type storage;
++    std::aligned_storage<sizeof(Binding),std::alignment_of<Binding>::value>::type storage;
+     FileRecord():identity(),state(Reserved),bound(false),uncertain(false),closeAcknowledged(false) {}
+     Binding *binding(){return reinterpret_cast<Binding *>(&storage);}
+     ~FileRecord(){if(bound)binding()->~Binding();}

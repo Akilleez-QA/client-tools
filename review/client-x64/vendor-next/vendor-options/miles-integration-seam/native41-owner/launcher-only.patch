@@ -1,0 +1,15 @@
+--- a/run-native.py
++++ b/run-native.py
+@@ -2,10 +2,11 @@
+ """Proposed v120 AMD64 object-only gate; execute only after root identity approval."""
+ from pathlib import Path
+ import hashlib,json,os,re,shutil,struct,subprocess,sys
++sys.path.insert(0, str(Path(__file__).resolve().parent))
+ from symbol_parser import undefined_symbols,has_required,no_miles_imports
+ if os.name!='nt' or sys.argv[1:]!=['--approved-compile-only']:
+  raise SystemExit('Windows and explicit approved compile-only invocation required')
+-ROOT=Path('C:/native40-owner');OUT=ROOT/'results'
++ROOT=Path('C:/native41-owner');OUT=ROOT/'results'
+ VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')
+ UNITS=[('actual-job','file-executor33/FileInvocationJob.cpp'),('file-channel','file-channel26/file_channel.cpp'),('codec','transport-candidate/codec.cpp'),('coordinator','session-file-admission34/coordinator.cpp'),('host-context','host-callback-context41/call_context.cpp')]
+ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

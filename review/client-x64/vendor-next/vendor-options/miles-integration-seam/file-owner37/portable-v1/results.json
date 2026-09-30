@@ -1,0 +1,36 @@
+{
+  "scope": "portable scripted platform only; no engine/vendor/VM",
+  "command": [
+    "g++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-g",
+    "-O1",
+    "-fno-omit-frame-pointer",
+    "-fsanitize=address,undefined",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/transport-candidate/codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/session-file-admission34/coordinator.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/file-owner36/session_file_owner.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/file-owner36/portable_job.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/file-owner36/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/candidate/file-owner36/test_allocators.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/portable-v1/owner-tests"
+  ],
+  "manifest_sha256": "529a71251dc5e4094a54d2e907c668146fd0a7abfbb553aee635517b7067b711",
+  "compile_exit": 0,
+  "test_command": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-owner37/portable-v1/owner-tests"
+  ],
+  "sanitizers": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "run_exit": 0,
+  "sources_unchanged": true,
+  "passed": true
+}
