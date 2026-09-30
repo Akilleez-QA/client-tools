@@ -1,0 +1,33 @@
+{
+  "head": "91dc05e8bebe0881d0540e74d4c53de909feb876",
+  "base": "94a81438c4c442f21105a58047c82d34e04c9cb4",
+  "mode": "audited incremental; all prior source hashes verified, then 20 changed-file hashes verified",
+  "lcd_candidate_included": false,
+  "builds": [
+    {
+      "configuration": "Release",
+      "exit": 1,
+      "seconds": 373.88613057136536,
+      "diagnostic_lines_including_repeated_summary": 2,
+      "warning_count": 1602,
+      "error_count": 1,
+      "final_client_link_reached": true,
+      "root": "LNK1112: explicitly listed x86 STLport STL-debug archive extracted for x64 executable"
+    },
+    {
+      "configuration": "Debug",
+      "exit": 1,
+      "seconds": 237.08187294006348,
+      "diagnostic_lines_including_repeated_summary": 2,
+      "warning_count": 1633,
+      "error_count": 1,
+      "final_client_link_reached": true,
+      "root": "LNK1112: explicitly listed x86 STLport STL-debug archive extracted for x64 executable"
+    }
+  ],
+  "limits": [
+    "First linker stop only; not a complete vendor blocker list.",
+    "Warnings are incremental, not comparable to a clean full build count.",
+    "No executable produced or runtime acceptance."
+  ]
+}

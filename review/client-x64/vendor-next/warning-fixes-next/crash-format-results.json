@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Release-Win32",
+    "compile": 0,
+    "run": 0,
+    "output": "Exception c0000005(-1073741819)=code 00000000=addr\r\nException c0000005(-1073741819)=code 00000001=addr\r\nException c0000005(-1073741819)=code FFFFFFFF=addr\r\nException c0000005(-1073741819)=code 87654321=addr\r\nchecks=36 failures=0 expected=36\r\n"
+  },
+  {
+    "name": "Release-x64",
+    "compile": 0,
+    "run": 0,
+    "output": "Exception c0000005(-1073741819)=code 0000000000000000=addr\r\nException c0000005(-1073741819)=code 0000000000000001=addr\r\nException c0000005(-1073741819)=code FFFFFFFFFFFFFFFF=addr\r\nException c0000005(-1073741819)=code 1234567887654321=addr\r\nchecks=36 failures=0 expected=36\r\n"
+  },
+  {
+    "name": "Debug-Win32",
+    "compile": 0,
+    "run": 0,
+    "output": "Exception c0000005(-1073741819)=code 00000000=addr\r\nException c0000005(-1073741819)=code 00000001=addr\r\nException c0000005(-1073741819)=code FFFFFFFF=addr\r\nException c0000005(-1073741819)=code 87654321=addr\r\nchecks=36 failures=0 expected=36\r\n"
+  },
+  {
+    "name": "Debug-x64",
+    "compile": 0,
+    "run": 0,
+    "output": "Exception c0000005(-1073741819)=code 0000000000000000=addr\r\nException c0000005(-1073741819)=code 0000000000000001=addr\r\nException c0000005(-1073741819)=code FFFFFFFFFFFFFFFF=addr\r\nException c0000005(-1073741819)=code 1234567887654321=addr\r\nchecks=36 failures=0 expected=36\r\n"
+  }
+]

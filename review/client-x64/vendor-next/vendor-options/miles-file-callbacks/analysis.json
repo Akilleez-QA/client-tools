@@ -1,0 +1,359 @@
+{
+  "pcm": {
+    "channels": 1,
+    "rate": 22050,
+    "frames": 4488,
+    "width": 2
+  },
+  "runs": [
+    {
+      "handle": 0,
+      "main": 300,
+      "counts": {
+        "open-enter": 2,
+        "open-exit": 2,
+        "read-enter": 14,
+        "read-exit": 14,
+        "seek-enter": 3,
+        "seek-exit": 3,
+        "no-serve-start": 1,
+        "close-enter": 1,
+        "close-exit": 1,
+        "no-serve-end": 1,
+        "eos-enter": 1,
+        "eos-exit": 1
+      },
+      "file_threads": [
+        300,
+        324
+      ],
+      "foreign_file_threads": [
+        324
+      ],
+      "eos_threads": [
+        320
+      ],
+      "all_foreign_threads": [
+        320,
+        324
+      ],
+      "max_depth": 1,
+      "max_active": 1,
+      "missing_phase": [
+        {
+          "seq": 0,
+          "ms": 148,
+          "tid": 300,
+          "phase": 1,
+          "depth": 1,
+          "active": 1,
+          "op": "open-enter",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 1,
+          "ms": 148,
+          "tid": 300,
+          "phase": 1,
+          "depth": 1,
+          "active": 1,
+          "op": "open-exit",
+          "h": 0,
+          "a": 2,
+          "b": 0,
+          "result": 0
+        }
+      ],
+      "read_bytes": 9020,
+      "no_serve_callbacks": [
+        {
+          "seq": 33,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-enter",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 34,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-exit",
+          "h": 0,
+          "a": 4444,
+          "b": 44,
+          "result": 4444
+        },
+        {
+          "seq": 35,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-enter",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 36,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-exit",
+          "h": 0,
+          "a": 4096,
+          "b": 4488,
+          "result": 4096
+        },
+        {
+          "seq": 37,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-enter",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 38,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-exit",
+          "h": 0,
+          "a": 436,
+          "b": 8584,
+          "result": 436
+        },
+        {
+          "seq": 39,
+          "ms": 149,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "close-enter",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 40,
+          "ms": 157,
+          "tid": 324,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "close-exit",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": 0
+        }
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.062485883012414,
+      "route_observations": 27,
+      "route_sink_indices": [
+        16954
+      ]
+    },
+    {
+      "handle": 1,
+      "main": 340,
+      "counts": {
+        "open-enter": 2,
+        "open-exit": 2,
+        "read-enter": 14,
+        "read-exit": 14,
+        "seek-enter": 3,
+        "seek-exit": 3,
+        "no-serve-start": 1,
+        "close-enter": 1,
+        "close-exit": 1,
+        "no-serve-end": 1,
+        "eos-enter": 1,
+        "eos-exit": 1
+      },
+      "file_threads": [
+        340,
+        364
+      ],
+      "foreign_file_threads": [
+        364
+      ],
+      "eos_threads": [
+        340
+      ],
+      "all_foreign_threads": [
+        364
+      ],
+      "max_depth": 1,
+      "max_active": 1,
+      "missing_phase": [
+        {
+          "seq": 0,
+          "ms": 154,
+          "tid": 340,
+          "phase": 1,
+          "depth": 1,
+          "active": 1,
+          "op": "open-enter",
+          "h": 0,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 1,
+          "ms": 154,
+          "tid": 340,
+          "phase": 1,
+          "depth": 1,
+          "active": 1,
+          "op": "open-exit",
+          "h": 0,
+          "a": 2,
+          "b": 0,
+          "result": 0
+        }
+      ],
+      "read_bytes": 9020,
+      "no_serve_callbacks": [
+        {
+          "seq": 33,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-enter",
+          "h": 1,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 34,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-exit",
+          "h": 1,
+          "a": 4444,
+          "b": 44,
+          "result": 4444
+        },
+        {
+          "seq": 35,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-enter",
+          "h": 1,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 36,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-exit",
+          "h": 1,
+          "a": 4096,
+          "b": 4488,
+          "result": 4096
+        },
+        {
+          "seq": 37,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-enter",
+          "h": 1,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 38,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "read-exit",
+          "h": 1,
+          "a": 436,
+          "b": 8584,
+          "result": 436
+        },
+        {
+          "seq": 39,
+          "ms": 155,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "close-enter",
+          "h": 1,
+          "a": 0,
+          "b": 0,
+          "result": -999
+        },
+        {
+          "seq": 40,
+          "ms": 163,
+          "tid": 364,
+          "phase": 3,
+          "depth": 1,
+          "active": 1,
+          "op": "close-exit",
+          "h": 1,
+          "a": 0,
+          "b": 0,
+          "result": 0
+        }
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.0611796340090223,
+      "route_observations": 26,
+      "route_sink_indices": [
+        16954
+      ]
+    }
+  ]
+}

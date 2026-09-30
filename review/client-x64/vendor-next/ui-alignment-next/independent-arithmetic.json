@@ -1,0 +1,32 @@
+{
+  "4": {
+    "sizes": 4096,
+    "positions_each": 4,
+    "old_misaligned_header_or_user_positions": 0,
+    "candidate_misaligned_positions": 0,
+    "win32_strides_identical": true
+  },
+  "8": {
+    "sizes": 4096,
+    "positions_each": 4,
+    "old_misaligned_header_or_user_positions": 4096,
+    "candidate_misaligned_positions": 0,
+    "win32_strides_identical": null
+  },
+  "release_button_x64": {
+    "size": 496,
+    "old_stride": 508,
+    "old_user_offsets": [
+      8,
+      516,
+      1024
+    ],
+    "candidate_stride": 512,
+    "candidate_user_offsets": [
+      8,
+      520,
+      1032
+    ]
+  },
+  "scope": "Pure bounded integer address arithmetic; no actual allocations or misaligned object/header accesses; no overflow-domain test."
+}

@@ -1,0 +1,52 @@
+main=300 handle=0 file_bytes=9020 names=1:owned-reference.wav,2:missing-reference.wav,3:unexpected
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+missing_stream=00000000 error=Unable to open file.
+valid_stream=00884A80 error=Unable to open file.
+seq=0 ms=148 tid=300 phase=1 depth=1 active=1 op=open-enter h=0 a=0 b=0 result=-999
+seq=1 ms=148 tid=300 phase=1 depth=1 active=1 op=open-exit h=0 a=2 b=0 result=0
+seq=2 ms=148 tid=300 phase=2 depth=1 active=1 op=open-enter h=0 a=0 b=0 result=-999
+seq=3 ms=149 tid=300 phase=2 depth=1 active=1 op=open-exit h=0 a=1 b=0 result=1
+seq=4 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=5 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=0 result=4
+seq=6 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=7 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=4 result=4
+seq=8 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=9 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=8 result=4
+seq=10 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=11 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=12 result=4
+seq=12 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=13 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=16 result=4
+seq=14 ms=149 tid=300 phase=2 depth=1 active=1 op=seek-enter h=0 a=0 b=0 result=-999
+seq=15 ms=149 tid=300 phase=2 depth=1 active=1 op=seek-exit h=0 a=0 b=1 result=20
+seq=16 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=17 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=20 result=4
+seq=18 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=19 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=24 result=4
+seq=20 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=21 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=28 result=4
+seq=22 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=23 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=32 result=4
+seq=24 ms=149 tid=300 phase=2 depth=1 active=1 op=seek-enter h=0 a=0 b=0 result=-999
+seq=25 ms=149 tid=300 phase=2 depth=1 active=1 op=seek-exit h=0 a=36 b=0 result=36
+seq=26 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=27 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=36 result=4
+seq=28 ms=149 tid=300 phase=2 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=29 ms=149 tid=300 phase=2 depth=1 active=1 op=read-exit h=0 a=4 b=40 result=4
+seq=30 ms=149 tid=300 phase=2 depth=1 active=1 op=seek-enter h=0 a=0 b=0 result=-999
+seq=31 ms=149 tid=300 phase=2 depth=1 active=1 op=seek-exit h=0 a=0 b=1 result=44
+seq=32 ms=149 tid=300 phase=3 depth=0 active=0 op=no-serve-start h=0 a=0 b=0 result=0
+seq=33 ms=149 tid=324 phase=3 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=34 ms=149 tid=324 phase=3 depth=1 active=1 op=read-exit h=0 a=4444 b=44 result=4444
+seq=35 ms=149 tid=324 phase=3 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=36 ms=149 tid=324 phase=3 depth=1 active=1 op=read-exit h=0 a=4096 b=4488 result=4096
+seq=37 ms=149 tid=324 phase=3 depth=1 active=1 op=read-enter h=0 a=0 b=0 result=-999
+seq=38 ms=149 tid=324 phase=3 depth=1 active=1 op=read-exit h=0 a=436 b=8584 result=436
+seq=39 ms=149 tid=324 phase=3 depth=1 active=1 op=close-enter h=0 a=0 b=0 result=-999
+seq=40 ms=157 tid=324 phase=3 depth=1 active=1 op=close-exit h=0 a=0 b=0 result=0
+seq=41 ms=342 tid=300 phase=3 depth=0 active=0 op=no-serve-end h=0 a=0 b=0 result=0
+seq=42 ms=423 tid=320 phase=4 depth=1 active=1 op=eos-enter h=0 a=0 b=0 result=-999
+seq=43 ms=423 tid=320 phase=4 depth=1 active=1 op=eos-exit h=0 a=0 b=0 result=1
+summary events=44 overflow=0 errors=0 eos=1 rc=0

@@ -1,0 +1,19 @@
+[
+  "g++",
+  "-m32",
+  "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux",
+  "-std=c++11",
+  "-pthread",
+  "-include",
+  "cstring",
+  "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared",
+  "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/include",
+  "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/unicode/include",
+  "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/unicodeArchive/include/public",
+  "/home/akilleez/Work/swg-source/client-decoder-candidate/tools/test-archive-decoders/fixtures.cpp",
+  "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp",
+  "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux/ArchiveMutex.cpp",
+  "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+  "-o",
+  "/home/akilleez/Work/client-wire-validation/bytestream-next/raw-decoder-review/server-32"
+]

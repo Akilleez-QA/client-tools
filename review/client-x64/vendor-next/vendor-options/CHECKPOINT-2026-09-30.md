@@ -37,3 +37,20 @@ Genuine legacy Logitech x64 APIs and all-four wrapper links are established, wit
 The native build owns compiler/link diagnostics. Separate workers review raw decoder preflight, checked AutoArray/AutoList counts, crash formatting and UI allocation limits. Grok/Composer/Codex CLI findings are independently checked; agreement on shared source is not independent runtime evidence. New candidates do not enter this committed snapshot until reviewed and tested.
 
 Delivery state: committed, pushed, and tested within the scopes above. Outcome state: individual fixtures passed; full x64 client incomplete. Highest justified claim: these bounded width/ownership/build repairs have reproducible targeted evidence. Required runtime observation: full link/start, representative ground/space, mixed-width sessions, media and hardware fidelity. Agent controls further builds and available probes; missing native graphics/audio/hardware/services remain explicit test boundaries. Persistent native goal remains active.
+
+## Later fork push and final-link milestone
+
+Code was pushed and the remote verified at `085f77cc73503176931f504a1a2a142640d67240` around 04:27 Eastern. New independent commits:
+
+- `d89b9f49e`: Decoder payload checks and aligned Unicode byte copy. The 34 focused checks pass on both portable ABIs and all four native configurations. The parent also ran 34/34 on the server counterpart on both Linux ABIs. Complete headers remain consumed on rejection; outer rollback is not promised.
+- `4d3009851`: AutoArray/AutoList checked counts and 12 ordinary-container legacy-byte checks. The combined parent suite passes 71/71 Win32 and 78/78 Win64; stock Win32 passes 68/68.
+- `b1277c963`: Full-pointer exception-address formatting, with 36 extracted-statement checks per native configuration.
+- `085f77cc7`: Genuine external x64 Logitech SDK selection and exact archive check. Eight native evaluations establish unchanged Win32 inputs/directories; x64 only prepends the verified SDK directory. Hardware and full-client acceptance remain open.
+
+[CI on085f77cc7](https://github.com/Akilleez-QA/client-tools/actions/runs/36689808371) passed the expanded wire suite, 85 ByteStream checks, 34 decoder checks and output-ownership tests within their matrix scopes.
+
+Both actual x64 incremental builds of **91dc05e8b**, before these newer commits, now reach the SwgClient final linker with no compiler errors. Release stops with 1 error/1,602 warnings; Debug with 1 error/1,633 warnings: `LNK1112` at legacy x86 `stlport_vc71_stldebug_static.lib(locale_impl.obj)`. This is the first encountered link blocker, not a complete vendor inventory. Warning totals from incremental builds are not comparable to clean builds. Selecting genuine source-built x64 STLport is a separate candidate. Its default-library directives, CRT and STL modes are under review.
+
+The original Miles file-callback experiment addresses a missing contract: success return 1 with handle 0 is accepted by the actual 7.2a DLL, just like handle 1. Both produce 14 reads/9,020 bytes, 3 seeks, 1 close and 1 EOS. Failed open for the missing name has no following file callbacks. The parent checked the raw traces and DLL hash. Callback-thread observations apply only to this small probe; they establish no TreeFile, TLS, helper RPC or fidelity result. [Results](miles-file-callbacks/RESULTS.md).
+
+UI pool alignment is a newly confirmed x64 source/layout defect for ordinary object sizes. Native UIButton, UIPage and UIText require eight-byte alignment; the current four-byte stride can misalign second allocations. Independent critic arithmetic corroborates the layout inference. Old misaligned objects were not executed. A minimal candidate preserving Win32 behavior is being tested. This is separate from theoretical huge cache-key aliasing and generic 16-byte allocation contracts.

@@ -1,0 +1,3981 @@
+{
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "hashes": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/probe.cpp": "d6a38bad01aa110e920cefe896698f84dcf34bd34728f1a63ac754dac7b5b085",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/Mss.h": "966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/probe.exe": "605e6374800d5ce80b5330337df6f2be5416a383f2a4f49fae76eb5972c06645",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/build.cmd": "a883670c233f1737f101dbb074dd9a0f8b8668f4302128441cdb8816c40f614c",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/run.py": "01cead1f28f34116d38f372a00ee2c2a196ef12a5eb44c9fe45d1f71d21e2ca5",
+    "/home/akilleez/Work/swg-source-vm/client/SWGSource Client v3.0/Mss32.dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/private-prefix-fcb-a/drive_c/fcb-private/Mss32.dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/private-prefix-fcb-a/drive_c/fcb-private/sample.wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+  },
+  "wine": "wine-11.17",
+  "module": "536870916",
+  "sink_name": "swg_fcb_04c7f5ed1826",
+  "sink": {
+    "index": 16954,
+    "state": "SUSPENDED",
+    "name": "swg_fcb_04c7f5ed1826",
+    "description": "swg_fcb_04c7f5ed1826 Audio/Sink sink",
+    "driver": "PipeWire",
+    "sample_specification": "s16le 2ch 22050Hz",
+    "channel_map": "front-left,front-right",
+    "owner_module": 536870916,
+    "mute": false,
+    "volume": {
+      "front-left": {
+        "value": 65536,
+        "value_percent": "100%",
+        "db": "0.00 dB"
+      },
+      "front-right": {
+        "value": 65536,
+        "value_percent": "100%",
+        "db": "0.00 dB"
+      }
+    },
+    "balance": 0.0,
+    "base_volume": {
+      "value": 65536,
+      "value_percent": "100%",
+      "db": "0.00 dB"
+    },
+    "monitor_source": "swg_fcb_04c7f5ed1826.monitor",
+    "latency": {
+      "actual": 0.0,
+      "configured": 0.0
+    },
+    "flags": [
+      "HARDWARE",
+      "DECIBEL_VOLUME",
+      "LATENCY"
+    ],
+    "properties": {
+      "node.name": "swg_fcb_04c7f5ed1826",
+      "audio.format": "S16LE",
+      "audio.rate": "22050",
+      "audio.channels": "2",
+      "audio.position": "[ FL, FR ]",
+      "media.class": "Audio/Sink",
+      "device.description": "swg_fcb_04c7f5ed1826 Audio/Sink sink",
+      "factory.name": "support.null-audio-sink",
+      "monitor.channel-volumes": "true",
+      "monitor.passthrough": "true",
+      "pulse.module.id": "536870916",
+      "factory.id": "19",
+      "clock.quantum-limit": "8192",
+      "client.id": "77",
+      "node.driver": "true",
+      "port.group": "stream.0",
+      "node.loop.name": "data-loop.0",
+      "library.name": "audioconvert/libspa-audioconvert",
+      "object.id": "86",
+      "object.serial": "16954"
+    },
+    "ports": [],
+    "active_port": null,
+    "formats": [
+      "pcm"
+    ]
+  },
+  "runs": [
+    {
+      "handle": "0",
+      "routing": [
+        {
+          "seconds": 0.005879820993868634,
+          "inputs": []
+        },
+        {
+          "seconds": 0.037015909008914605,
+          "inputs": []
+        },
+        {
+          "seconds": 0.06726183500722982,
+          "inputs": []
+        },
+        {
+          "seconds": 0.09839565999573097,
+          "inputs": []
+        },
+        {
+          "seconds": 0.1298570389917586,
+          "inputs": []
+        },
+        {
+          "seconds": 0.16049183200811967,
+          "inputs": []
+        },
+        {
+          "seconds": 0.192276738001965,
+          "inputs": [
+            {
+              "index": 16978,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16972",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16978",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.2224536660069134,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.253391559002921,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.2838090010045562,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.31452994400751777,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.3463833860005252,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.3776532520132605,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.4091051330033224,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.44090306299040094,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.47309746500104666,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.5043735509971157,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.5380573619913775,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.5689506019989494,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.6003995779901743,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.6314194019942079,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.66274924800382,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.6942841229902115,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.7253141250112094,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.7553648010070901,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.7866380230116192,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.818391500011785,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.8495424760039896,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.8808355549990665,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.9115150810102932,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.9428683500154875,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.9735392500006128,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 1.005835249001393,
+          "inputs": [
+            {
+              "index": 16992,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "16986",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "180957",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "76",
+                "object.id": "66",
+                "object.serial": "16992",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 1.0373701140051708,
+          "inputs": []
+        }
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.062485883012414
+    },
+    {
+      "handle": "1",
+      "routing": [
+        {
+          "seconds": 0.006334721023449674,
+          "inputs": []
+        },
+        {
+          "seconds": 0.03725660502095707,
+          "inputs": []
+        },
+        {
+          "seconds": 0.0695388890162576,
+          "inputs": []
+        },
+        {
+          "seconds": 0.10236771201016381,
+          "inputs": []
+        },
+        {
+          "seconds": 0.13481012202100828,
+          "inputs": []
+        },
+        {
+          "seconds": 0.16797270000097342,
+          "inputs": []
+        },
+        {
+          "seconds": 0.2002135890070349,
+          "inputs": [
+            {
+              "index": 17042,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17036",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17042",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.231678695010487,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.26210270999581553,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.29321250002249144,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.3258164580038283,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.357155572011834,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.3876170559960883,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.4195516190084163,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.4548421950021293,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.4869442170020193,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.5201015259954147,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.5513847160036676,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.5828995140036568,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.6147857680043671,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.6465190090239048,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.677844237012323,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.7086395170190372,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.7411634680174757,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.7721440800232813,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.8041387539997231,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.8381038630031981,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.8731109460059088,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.9044350619951729,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.93832915101666,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 0.9724219269992318,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 1.0037582660152111,
+          "inputs": [
+            {
+              "index": 17056,
+              "driver": "PipeWire",
+              "owner_module": null,
+              "client": "17050",
+              "sink": 16954,
+              "sample_specification": "float32le 2ch 48000Hz",
+              "channel_map": "front-left,front-right",
+              "format": "pcm, format.sample_format = \"\\\"float32le\\\"\"  format.rate = \"48000\"  format.channels = \"2\"  format.channel_map = \"\\\"front-left,front-right\\\"\"",
+              "corked": false,
+              "mute": false,
+              "volume": {
+                "front-left": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                },
+                "front-right": {
+                  "value": 65536,
+                  "value_percent": "100%",
+                  "db": "0.00 dB"
+                }
+              },
+              "balance": 0.0,
+              "buffer_latency_usec": 0.0,
+              "sink_latency_usec": 0.0,
+              "resample_method": "PipeWire",
+              "properties": {
+                "client.api": "pipewire-pulse",
+                "pulse.server.type": "unix",
+                "application.name": "ALSA plug-in [wine-preloader]",
+                "application.process.id": "181269",
+                "application.process.user": "akilleez",
+                "application.process.host": "Main-rig",
+                "application.process.binary": "wine-preloader",
+                "application.language": "C.UTF-8",
+                "window.x11.display": ":0",
+                "application.process.machine_id": "3445940d909f418989ce1c9e28b45bfb",
+                "application.process.session_id": "1",
+                "media.name": "ALSA Playback",
+                "pulse.corked": "false",
+                "node.rate": "1/48000",
+                "node.latency": "480/48000",
+                "target.object": "swg_fcb_04c7f5ed1826",
+                "stream.is-live": "true",
+                "node.name": "ALSA plug-in [wine-preloader]",
+                "node.want-driver": "true",
+                "node.autoconnect": "true",
+                "media.class": "Stream/Output/Audio",
+                "port.group": "stream.0",
+                "adapt.follower.spa-node": "",
+                "object.register": "false",
+                "factory.id": "7",
+                "clock.quantum-limit": "8192",
+                "node.loop.name": "data-loop.0",
+                "library.name": "audioconvert/libspa-audioconvert",
+                "client.id": "66",
+                "object.id": "76",
+                "object.serial": "17056",
+                "node.driver-id": "86",
+                "pulse.attr.maxlength": "4194304",
+                "pulse.attr.tlength": "15360",
+                "pulse.attr.prebuf": "3840",
+                "pulse.attr.minreq": "3840",
+                "module-stream-restore.id": "sink-input-by-application-name:ALSA plug-in [wine-preloader]"
+              }
+            }
+          ]
+        },
+        {
+          "seconds": 1.0360627720074262,
+          "inputs": []
+        }
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.0611796340090223
+    }
+  ],
+  "private_wineserver_stop": 0,
+  "unload": "",
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "sink_removed": true
+}

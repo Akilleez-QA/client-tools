@@ -1,0 +1,86 @@
+[
+  {
+    "name": "client-32",
+    "build": 0,
+    "command": [
+      "g++",
+      "-m32",
+      "-std=c++11",
+      "-pthread",
+      "-I/home/akilleez/Work/swg-source/client-warning-candidate/src/external/ours/library/archive/src/shared",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/include",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/count-probe.cpp",
+      "/home/akilleez/Work/swg-source/client-warning-candidate/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "/home/akilleez/Work/swg-source/client-warning-candidate/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux/ArchiveMutex.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/client-32"
+    ],
+    "run": 0,
+    "output": "SKIP helper out-of-range not representable in size_t\nchecks=29 failures=0\n"
+  },
+  {
+    "name": "client-64",
+    "build": 0,
+    "command": [
+      "g++",
+      "-m64",
+      "-std=c++11",
+      "-pthread",
+      "-I/home/akilleez/Work/swg-source/client-warning-candidate/src/external/ours/library/archive/src/shared",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/include",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/count-probe.cpp",
+      "/home/akilleez/Work/swg-source/client-warning-candidate/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "/home/akilleez/Work/swg-source/client-warning-candidate/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux/ArchiveMutex.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/client-64"
+    ],
+    "run": 0,
+    "output": "checks=30 failures=0\n"
+  },
+  {
+    "name": "server-32",
+    "build": 0,
+    "command": [
+      "g++",
+      "-m32",
+      "-std=c++11",
+      "-pthread",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/include",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/count-probe.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux/ArchiveMutex.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/server-32"
+    ],
+    "run": 0,
+    "output": "SKIP helper out-of-range not representable in size_t\nchecks=29 failures=0\n"
+  },
+  {
+    "name": "server-64",
+    "build": 0,
+    "command": [
+      "g++",
+      "-m64",
+      "-std=c++11",
+      "-pthread",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/include",
+      "-I/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/count-probe.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+      "/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/linux/ArchiveMutex.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/warning-fixes-next/server-64"
+    ],
+    "run": 0,
+    "output": "checks=30 failures=0\n"
+  }
+]

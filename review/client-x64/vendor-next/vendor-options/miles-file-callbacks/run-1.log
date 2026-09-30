@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/run.py", line 32, in <module>
+    assert sink['properties'].get('device.class')=='abstract',sink
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'index': 16942, 'state': 'SUSPENDED', 'name': 'swg_fcb_0d924b17a4b5', 'description': 'swg_fcb_0d924b17a4b5 Audio/Sink sink', 'driver': 'PipeWire', 'sample_specification': 's16le 2ch 22050Hz', 'channel_map': 'front-left,front-right', 'owner_module': 536870916, 'mute': False, 'volume': {'front-left': {'value': 65536, 'value_percent': '100%', 'db': '0.00 dB'}, 'front-right': {'value': 65536, 'value_percent': '100%', 'db': '0.00 dB'}}, 'balance': 0.0, 'base_volume': {'value': 65536, 'value_percent': '100%', 'db': '0.00 dB'}, 'monitor_source': 'swg_fcb_0d924b17a4b5.monitor', 'latency': {'actual': 0.0, 'configured': 0.0}, 'flags': ['HARDWARE', 'DECIBEL_VOLUME', 'LATENCY'], 'properties': {'node.name': 'swg_fcb_0d924b17a4b5', 'audio.format': 'S16LE', 'audio.rate': '22050', 'audio.channels': '2', 'audio.position': '[ FL, FR ]', 'media.class': 'Audio/Sink', 'device.description': 'swg_fcb_0d924b17a4b5 Audio/Sink sink', 'factory.name': 'support.null-audio-sink', 'monitor.channel-volumes': 'true', 'monitor.passthrough': 'true', 'pulse.module.id': '536870916', 'factory.id': '19', 'clock.quantum-limit': '8192', 'client.id': '77', 'node.driver': 'true', 'port.group': 'stream.0', 'node.loop.name': 'data-loop.0', 'library.name': 'audioconvert/libspa-audioconvert', 'object.id': '86', 'object.serial': '16942'}, 'ports': [], 'active_port': None, 'formats': ['pcm']}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/run.py", line 56, in <module>
+    result['private_wineserver_stop']=call('wineserver','-k',env=env)
+                                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/run.py", line 9, in call
+    commands.append(list(args));return subprocess.check_output(args,env=env,text=True,timeout=15).strip()
+                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '('wineserver', '-k')' returned non-zero exit status 1.

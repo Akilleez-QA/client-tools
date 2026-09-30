@@ -1,0 +1,16 @@
+/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp: In member function ‘void Archive::ByteStream::put(const void*, unsigned int)’:
+/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp:248:22: warning: ‘template<class> class std::auto_ptr’ is deprecated: use 'std::unique_ptr' instead [-Wdeprecated-declarations]
+  248 |                 std::auto_ptr<Data> replacement(Data::getNewData());
+      |                      ^~~~~~~~
+In file included from /usr/include/c++/16/memory:80,
+                 from /home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp:7:
+/usr/include/c++/16/bits/unique_ptr.h:58:28: note: declared here
+   58 |   template<typename> class auto_ptr;
+      |                            ^~~~~~~~
+/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp: In member function ‘void Archive::ByteStream::reAllocate(unsigned int)’:
+/home/akilleez/Work/swg-source/server-client-compat/external/ours/library/archive/src/shared/ByteStream.cpp:276:22: warning: ‘template<class> class std::auto_ptr’ is deprecated: use 'std::unique_ptr' instead [-Wdeprecated-declarations]
+  276 |                 std::auto_ptr<Data> replacement(Data::getNewData());
+      |                      ^~~~~~~~
+/usr/include/c++/16/bits/unique_ptr.h:58:28: note: declared here
+   58 |   template<typename> class auto_ptr;
+      |                            ^~~~~~~~
