@@ -1,0 +1,15 @@
+[
+  "/usr/bin/g++",
+  "-std=c++11",
+  "-Wall",
+  "-Wextra",
+  "-Werror",
+  "-DCLIENT_MILES_TEST_DOUBLE",
+  "-MMD",
+  "-MF",
+  "startup_calls.d",
+  "-c",
+  "sample/startup_calls.cpp",
+  "-o",
+  "startup_calls.o"
+]

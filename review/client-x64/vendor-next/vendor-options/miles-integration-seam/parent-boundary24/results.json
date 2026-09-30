@@ -1,0 +1,28 @@
+{
+  "source_files_checked": 33,
+  "archives": {
+    "source-v1.tar": {
+      "sha256": "9a020d7a4af3419726ffbcbcf3193cca8890c51b0ea1980ebc7c4a22c7d78761",
+      "members": 34
+    },
+    "packet-v1.tar": {
+      "sha256": "5383f21f3a069fe36469309e6be86e1abd517fadf15e57c56fb2ed9daa8201ec",
+      "members": 48
+    }
+  },
+  "native_receipt_sha256": "53c6167ca4604bf6f24d2351fd645de6a37057d6f1faaa5b9810c6af0d81e5dc",
+  "portable_receipt_sha256": "7664e75311a74f3c4c21155db9b428e0ec9a941f09a61bca20d7aa0051740f0f",
+  "native_objects_reported": 5,
+  "real_imports_reported": [
+    "AIL_get_preference",
+    "AIL_last_error",
+    "AIL_open_digital_driver",
+    "AIL_set_preference",
+    "AIL_set_redist_directory",
+    "AIL_shutdown",
+    "AIL_speaker_configuration",
+    "AIL_startup"
+  ],
+  "passed": true,
+  "scope": "Artifact attribution and recorded-result checks only; no native rerun."
+}

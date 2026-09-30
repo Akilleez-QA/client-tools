@@ -1,0 +1,26 @@
+{
+  "scope": "Parent source/receipt/import/archive check, not independent native execution",
+  "source_files": 15,
+  "native_receipt_sha256": "5c6ac990057779494edd7b97e188ba6c3bd229046cd59af14d4760cd7dde0d3e",
+  "exact_imports": [
+    "room_type",
+    "serve",
+    "set_3D_rolloff_factor",
+    "set_file_callbacks",
+    "set_listener_3D_orientation",
+    "set_listener_3D_position",
+    "set_listener_3D_velocity_vector",
+    "set_room_type"
+  ],
+  "archives": {
+    "source-v1.tar": {
+      "sha256": "7090ee3e90f6af53e4e49125d195cd90a271d8e7961c3190a56b94952dcdd9ce",
+      "members": 16
+    },
+    "packet-v1.tar": {
+      "sha256": "e854a8d23820039289aadd97a15d6a3c249c5f48adcafde55c23d79aba930647",
+      "members": 40
+    }
+  },
+  "passed": true
+}

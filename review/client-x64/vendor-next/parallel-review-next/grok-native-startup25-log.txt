@@ -1,0 +1,20 @@
+**None found** within this source-only Win64/v120 scope. The public callback typedefs and the native forwarders match the supplied Miles declarations for integer width, calling convention, argument order, and the stated opaque-driver cast.
+
+Manifest `997c2b72117c3b2f64654bb0fd0de7caee4617ab8bd5fd4097c150af8098b597`. This translation unit is locked to `_WIN64` and `_MSC_VER == 1800` (`native_startup25.cpp` lines 5–7). On that target the supplied map is `UINTa`/`SINTa` = 64-bit unsigned/signed, `U32` = `unsigned int`, `S32` = `signed int`, `F32` = `float`, `MSS_FILE` = `char`, empty `FAR`, and `AILCALL`/`AILCALLBACK` = `__stdcall`. MSVC also defines `_WIN32` for x64, so `CLIENT_MILES25_CALLBACK` is `__stdcall` (`ClientMilesStartup.h` lines 5–8).
+
+Callback typedefs (`ClientMilesStartup.h` lines 14–17) match `Mss.h` lines 5222–5237:
+
+| Public | SDK | Win64 type |
+|---|---|---|
+| `FileOpenCallback` | `AIL_file_open_callback` | `uint32_t (__stdcall *)(char const *, uintptr_t *)` |
+| `FileCloseCallback` | `AIL_file_close_callback` | `void (__stdcall *)(uintptr_t)` |
+| `FileSeekCallback` | `AIL_file_seek_callback` | `int32_t (__stdcall *)(uintptr_t, int32_t, uint32_t)` |
+| `FileReadCallback` | `AIL_file_read_callback` | `uint32_t (__stdcall *)(uintptr_t, void *, uint32_t)` |
+
+`uintptr_t` is the 64-bit file identity, not a 32-bit `U32`. Seek stays `(handle, S32 offset, U32 type)`. Read stays `(handle, void *, U32 bytes)`. Open stays `(const char *, handle out)`. The `is_same` checks at `native_startup25.cpp` lines 9–21 are consistent with that map; they are not a substitute signature.
+
+`set_file_callbacks` (`native_startup25.cpp` lines 43–45) passes open, close, seek, read in the same order as `Mss.h` lines 5239–5242. `serve` (line 61) matches `AIL_serve(void)` at line 3046. On this x64 target `__stdcall` is the same machine convention as the facade’s default, so the type checks at lines 22–25 do not show a convention split.
+
+Driver forwarders cast `ClientMiles::HDIGDRIVER` back with `reinterpret_cast<::HDIGDRIVER>` and do not narrow it (`native_startup25.cpp` lines 47–66). Order matches the supplied prototypes: position and velocity are X, Y, Z (lines 5941–5955); orientation is face X/Y/Z then up X/Y/Z (lines 5957–5963; header names `face*` at lines 23–24, definition names `x,y,z` at lines 53–56, same positions); rolloff is one `F32` (lines 5847–5848); `room_type` returns `S32` and `set_room_type` takes `S32` (lines 5840–5843). The SDK-side asserts at lines 28–40 match those declarations. The facade’s own `HDIGDRIVER` is the stated `DigitalDriver *` round-trip, not `::HDIGDRIVER`.
+
+Unverified, and not a signature defect in these excerpts: whether Miles actually calls these callbacks, what seek `Type` values mean, and the SDK `HDIGDRIVER` typedef, which is not in the supplied `Mss.h` fragment. The cast is the conversion the facade contract describes. No pipe-identity use is claimed.

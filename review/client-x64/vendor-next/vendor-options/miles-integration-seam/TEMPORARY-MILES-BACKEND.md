@@ -68,9 +68,11 @@ the inventory; only the reachable game surface needs support.
   still unresolved for the full bridge.
 - **Video/audio binding.** Original Bink's use of a real Miles driver must bind
   inside the selected media implementation. A wire token is not an HDIGDRIVER.
-  The exposed getter/Bink surface needs explicit integration review; current
-  end-to-end call reachability has not been established merely by finding the
-  declarations.
+  Product startup actually calls `VideoList::install(Audio::getMilesDigitalDriver())`
+  in `src/game/.../ClientMain.cpp:314`; VideoList forwards it into Bink setup.
+  The earlier review's search missed `src/game`. This is source reachability,
+  not a new runtime observation. The private media binding is therefore an
+  integration requirement, not an optional escape hatch.
 - **Failure.** Preserve actual vendor results, including negative and null
   results. Backend/transport failure is separate and must never masquerade as
   successful playback, EOF or completed callbacks.

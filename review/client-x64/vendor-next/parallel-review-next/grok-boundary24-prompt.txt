@@ -1,0 +1,1251 @@
+Independent static review of frozen backend-boundary24. User wants ordinary Miles-shaped functions consistent with an in-place x64 SDK upgrade, selected at build time. This is a startup-only source candidate, not a complete audio API or generic virtual AudioBackend. Public facade should not make game policy understand wire handles, frames, opcodes, request IDs, Hello/SessionClose, pipes or child processes. Private composition may know these details. No callback, sample/playback, full Bink media binding or full Audio integration is claimed. Native implementation is compile-only, with no x64 vendor link/runtime evidence. Pipe intentionally supports only the observed startup tuple and preference subset; distinguish documented limits from defects. Findings are advisory and will be independently checked.
+Read only supplied source/excerpts. Do not use tools, execute code, inspect filesystem/private SDK, browse or modify files. No credentials/full vendor header supplied. Do not infer runtime from compilation. Report concrete findings with file/line, counterexample and impact, separating limitations from bugs. Avoid speculation when implementation is omitted. No peer review/opinions are included.
+Frozen source-manifest SHA256: 099986e64f6872ba1c3721bf006e9adf483819218d1dbee5722f5053aa6de97b. Lines are numbered.
+
+Focus: pointer-sized signed preferences versus actual WIN64 declarations; pipe narrowing/sign extension; local opaque driver identity/lifetime; owned text/null/empty and retained inputs; native/pipe semantics differences; failure/lifecycle gaps. Respect the documented validity window and distinguish forbidden stale-pointer use from valid operations. Recommend missing tests only for concrete possible defects.
+
+FILE backend-boundary24/ClientMiles.h
+```
+   1: #ifndef CLIENT_MILES_STARTUP_FACADE_H
+   2: #define CLIENT_MILES_STARTUP_FACADE_H
+   3: 
+   4: #include <cstdint>
+   5: #include <stdexcept>
+   6: #include <string>
+   7: 
+   8: // Partial, source-level Miles facade. Select one implementation before startup
+   9: // and retain it through complete teardown. This is not a vendor ABI declaration.
+  10: namespace ClientMiles {
+  11: struct DigitalDriver;
+  12: typedef DigitalDriver *HDIGDRIVER;
+  13: 
+  14: struct OwnedText {
+  15:     bool isNull;
+  16:     std::string value;
+  17:     OwnedText() : isNull(true) {
+  18:     }
+  19: };
+  20: 
+  21: enum class FailureReason {
+  22:     Unsupported,
+  23:     InvalidArgument,
+  24:     InvalidDriver,
+  25:     WrongState,
+  26:     InputLimit,
+  27:     ResultLimit,
+  28:     QueryFailed,
+  29:     BackendFailed
+  30: };
+  31: 
+  32: class Failure : public std::runtime_error {
+  33:   public:
+  34:     Failure(FailureReason reason, const char *message)
+  35:         : std::runtime_error(message), reason_(reason) {
+  36:     }
+  37:     FailureReason reason() const {
+  38:         return reason_;
+  39:     }
+  40: 
+  41:   private:
+  42:     FailureReason reason_;
+  43: };
+  44: 
+  45: // Calls remain separate; configuration and fallback decisions belong to Audio.
+  46: // A zero vendor startup result and a null vendor driver result remain values.
+  47: // Backend failures throw Failure instead of fabricating either result.
+  48: int32_t startup();
+  49: void shutdown();
+  50: intptr_t get_preference(uint32_t number);
+  51: intptr_t set_preference(uint32_t number, intptr_t value);
+  52: OwnedText last_errorOwned();
+  53: OwnedText set_redist_directoryOwned(const char *directory);
+  54: 
+  55: // Explicit adaptation of Audio's bounded 256-byte resource version query.
+  56: OwnedText MSS_versionOwned();
+  57: 
+  58: HDIGDRIVER open_digital_driver(uint32_t frequency, int32_t bits, int32_t channels, uint32_t flags);
+  59: 
+  60: // Only the channel-spec output consumed by Audio. This is deliberately named
+  61: // differently: no speaker-position pointer or other outputs are promised.
+  62: int32_t speaker_configuration_spec(HDIGDRIVER driver);
+  63: 
+  64: // The current pipe implementation supports get1/get42, set42=16/64 and a single
+  65: // 22050/16/stereo/zero-flags driver. Unsupported requests fail before encoding.
+  66: // Preference width follows the native pointer width; the pipe checks narrowing.
+  67: // Driver identities are opaque, local to the selected implementation and valid
+  68: // only through that startup lifetime. There is no callback/playback contract here.
+  69: } // namespace ClientMiles
+  70: #endif
+```
+
+FILE backend-boundary24/pipe/Channel.h
+```
+   1: #ifndef CLIENT_MILES_PIPE_CHANNEL_H
+   2: #define CLIENT_MILES_PIPE_CHANNEL_H
+   3: 
+   4: #include "../../startup-bridge23/reply.h"
+   5: 
+   6: namespace ClientMilesPipe {
+   7: // Private adapter seam. Production calls use the existing framed client;
+   8: // scripted implementations live only in tests. No game-facing header includes it.
+   9: class Channel {
+  10:   public:
+  11:     virtual ~Channel() {
+  12:     }
+  13:     virtual StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+  14:                                            MilesTransport::Bytes text) = 0;
+  15:     // Called only after a successful protocol close; concrete channel drains and
+  16:     // verifies child exit here. Destruction must not manufacture successful close.
+  17:     virtual void finish() = 0;
+  18: };
+  19: } // namespace ClientMilesPipe
+  20: #endif
+```
+
+FILE backend-boundary24/pipe/Session.h
+```
+   1: #ifndef CLIENT_MILES_PIPE_SESSION_H
+   2: #define CLIENT_MILES_PIPE_SESSION_H
+   3: 
+   4: #include "../ClientMiles.h"
+   5: #include "Channel.h"
+   6: #include <memory>
+   7: 
+   8: namespace ClientMilesPipe {
+   9: // Composition-root-only owner; not included by game policy. Bootstrap/Hello
+  10: // occurs in the concrete channel before selecting this sole session. Explicit
+  11: // close follows ClientMiles::shutdown and hides SessionClose from game callers.
+  12: class Session {
+  13:   public:
+  14:     explicit Session(std::unique_ptr<Channel> channel);
+  15:     ~Session();
+  16:     void close();
+  17: 
+  18:     // Private implementation operations, not an application backend interface.
+  19:     StartupBridge::OwnedReply request(uint32_t opcode, const MilesWire::Call &fields,
+  20:                                       MilesTransport::Bytes text = MilesTransport::Bytes());
+  21:     void requireRunning() const;
+  22:     void requireAvailable() const;
+  23:     bool started;
+  24:     bool stopped;
+  25:     std::unique_ptr<ClientMiles::DigitalDriver> driver;
+  26:     static Session &selected();
+  27: 
+  28:   private:
+  29:     std::unique_ptr<Channel> channel_;
+  30:     bool closed_;
+  31:     bool faulted_;
+  32:     Session(const Session &);
+  33:     Session &operator=(const Session &);
+  34: };
+  35: } // namespace ClientMilesPipe
+  36: #endif
+```
+
+FILE backend-boundary24/pipe/ClientMilesPipe.cpp
+```
+   1: #include "Session.h"
+   2: #include <cstring>
+   3: #include <limits>
+   4: 
+   5: namespace ClientMiles {
+   6: struct DigitalDriver {
+   7:     MilesWire::Handle wire;
+   8:     const ClientMilesPipe::Session *owner;
+   9: };
+  10: } // namespace ClientMiles
+  11: 
+  12: namespace {
+  13: ClientMilesPipe::Session *selectedSession = 0;
+  14: 
+  15: void fail(ClientMiles::FailureReason reason, const char *message) {
+  16:     throw ClientMiles::Failure(reason, message);
+  17: }
+  18: 
+  19: void checkStatus(uint32_t status) {
+  20:     using ClientMiles::FailureReason;
+  21:     switch (status) {
+  22:     case StartupBridge::Success:
+  23:         return;
+  24:     case StartupBridge::Unsupported:
+  25:         fail(FailureReason::Unsupported, "unsupported Miles operation");
+  26:         break;
+  27:     case StartupBridge::InvalidResource:
+  28:         fail(FailureReason::InvalidDriver, "invalid Miles driver");
+  29:         break;
+  30:     case StartupBridge::InvalidFields:
+  31:         fail(FailureReason::InvalidArgument, "invalid Miles arguments");
+  32:         break;
+  33:     case StartupBridge::LifecycleRefused:
+  34:         fail(FailureReason::WrongState, "Miles lifecycle refused operation");
+  35:         break;
+  36:     case StartupBridge::TextTooLong:
+  37:         fail(FailureReason::ResultLimit, "Miles result exceeds text limit");
+  38:         break;
+  39:     case StartupBridge::InputBudgetExceeded:
+  40:         fail(FailureReason::InputLimit, "Miles retained input limit");
+  41:         break;
+  42:     case StartupBridge::VersionQueryFailed:
+  43:         fail(FailureReason::QueryFailed, "Miles version query failed");
+  44:         break;
+  45:     default:
+  46:         fail(FailureReason::BackendFailed, "unknown backend result");
+  47:     }
+  48: }
+  49: 
+  50: ClientMiles::OwnedText ownedText(const StartupBridge::OwnedReply &reply) {
+  51:     ClientMiles::OwnedText out;
+  52:     out.isNull = reply.result.null_mask == MilesStartup::TextNull;
+  53:     if (!out.isNull) {
+  54:         if (reply.text.empty() || reply.text.back() ||
+  55:             std::memchr(&reply.text[0], 0, reply.text.size() - 1))
+  56:             fail(ClientMiles::FailureReason::BackendFailed, "invalid owned backend text");
+  57:         out.value.assign(reinterpret_cast<const char *>(&reply.text[0]), reply.text.size() - 1);
+  58:     } else if (!reply.text.empty()) {
+  59:         fail(ClientMiles::FailureReason::BackendFailed, "null backend text contains bytes");
+  60:     }
+  61:     return out;
+  62: }
+  63: 
+  64: intptr_t preferenceResult(const StartupBridge::OwnedReply &reply) {
+  65:     return static_cast<intptr_t>(MilesStartup::signedValue(reply.result.return_bits));
+  66: }
+  67: } // namespace
+  68: 
+  69: namespace ClientMilesPipe {
+  70: Session::Session(std::unique_ptr<Channel> channel)
+  71:     : started(false), stopped(false), channel_(std::move(channel)), closed_(false),
+  72:       faulted_(false) {
+  73:     if (selectedSession || !channel_)
+  74:         fail(ClientMiles::FailureReason::WrongState, "one Miles session must be selected");
+  75:     selectedSession = this;
+  76: }
+  77: 
+  78: Session::~Session() {
+  79:     // No implicit vendor calls, retry or success claim on abandonment. The
+  80:     // concrete channel owns process termination if normal close was incomplete.
+  81:     if (selectedSession == this)
+  82:         selectedSession = 0;
+  83: }
+  84: 
+  85: Session &Session::selected() {
+  86:     if (!selectedSession)
+  87:         fail(ClientMiles::FailureReason::WrongState, "Miles implementation not selected");
+  88:     return *selectedSession;
+  89: }
+  90: 
+  91: void Session::requireAvailable() const {
+  92:     if (faulted_)
+  93:         fail(ClientMiles::FailureReason::BackendFailed, "Miles session has an uncertain outcome");
+  94:     if (stopped || closed_)
+  95:         fail(ClientMiles::FailureReason::WrongState, "Miles session already stopped");
+  96: }
+  97: 
+  98: void Session::requireRunning() const {
+  99:     requireAvailable();
+ 100:     if (!started)
+ 101:         fail(ClientMiles::FailureReason::WrongState, "Miles is not started");
+ 102: }
+ 103: 
+ 104: StartupBridge::OwnedReply Session::request(uint32_t opcode, const MilesWire::Call &fields,
+ 105:                                            MilesTransport::Bytes text) {
+ 106:     if (faulted_ || closed_)
+ 107:         fail(ClientMiles::FailureReason::BackendFailed,
+ 108:              "Miles session cannot issue another request");
+ 109:     StartupBridge::OwnedReply reply;
+ 110:     try {
+ 111:         reply = channel_->call(opcode, fields, text);
+ 112:     } catch (...) {
+ 113:         faulted_ = true;
+ 114:         fail(ClientMiles::FailureReason::BackendFailed, "Miles channel failed");
+ 115:     }
+ 116:     if (!StartupBridge::knownStatus(reply.result.transport_status)) {
+ 117:         faulted_ = true;
+ 118:         fail(ClientMiles::FailureReason::BackendFailed, "unknown Miles channel status");
+ 119:     }
+ 120:     // Known, validated operation refusals are distinguishable from an uncertain
+ 121:     // transport outcome. They do not manufacture a successful SDK return value.
+ 122:     checkStatus(reply.result.transport_status);
+ 123:     return reply;
+ 124: }
+ 125: 
+ 126: void Session::close() {
+ 127:     if (faulted_)
+ 128:         fail(ClientMiles::FailureReason::BackendFailed, "cannot retry an uncertain Miles close");
+ 129:     if (!stopped || started || closed_)
+ 130:         fail(ClientMiles::FailureReason::WrongState, "Miles shutdown must precede close");
+ 131:     request(MilesWire::SessionClose, MilesWire::Call());
+ 132:     try {
+ 133:         channel_->finish();
+ 134:     } catch (...) {
+ 135:         faulted_ = true;
+ 136:         fail(ClientMiles::FailureReason::BackendFailed, "Miles channel teardown failed");
+ 137:     }
+ 138:     closed_ = true;
+ 139: }
+ 140: } // namespace ClientMilesPipe
+ 141: 
+ 142: namespace ClientMiles {
+ 143: int32_t startup() {
+ 144:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 145:     session.requireAvailable();
+ 146:     if (session.started)
+ 147:         fail(FailureReason::WrongState, "Miles startup already completed");
+ 148:     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_startup, MilesWire::Call());
+ 149:     const int32_t value = static_cast<int32_t>(MilesStartup::signedValue(reply.result.return_bits));
+ 150:     session.started = value != 0;
+ 151:     return value;
+ 152: }
+ 153: 
+ 154: void shutdown() {
+ 155:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 156:     session.requireRunning();
+ 157:     session.request(MilesWire::AIL_shutdown, MilesWire::Call());
+ 158:     session.started = false;
+ 159:     session.stopped = true;
+ 160: }
+ 161: 
+ 162: intptr_t get_preference(uint32_t number) {
+ 163:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 164:     session.requireRunning();
+ 165:     if (number != 1 && number != 42)
+ 166:         fail(FailureReason::InvalidArgument, "unsupported preference identifier");
+ 167:     MilesWire::Call fields = {};
+ 168:     fields.value[0] = number;
+ 169:     return preferenceResult(session.request(MilesWire::AIL_get_preference, fields));
+ 170: }
+ 171: 
+ 172: intptr_t set_preference(uint32_t number, intptr_t value) {
+ 173:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 174:     session.requireRunning();
+ 175:     if (value < (std::numeric_limits<int32_t>::min)() ||
+ 176:         value > (std::numeric_limits<int32_t>::max)() || number != 42 ||
+ 177:         (value != 16 && value != 64))
+ 178:         fail(FailureReason::InvalidArgument, "unsupported preference value");
+ 179:     MilesWire::Call fields = {};
+ 180:     fields.value[0] = number;
+ 181:     fields.value[1] = static_cast<uint32_t>(value);
+ 182:     return preferenceResult(session.request(MilesWire::AIL_set_preference, fields));
+ 183: }
+ 184: 
+ 185: OwnedText last_errorOwned() {
+ 186:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 187:     session.requireRunning();
+ 188:     return ownedText(session.request(MilesWire::AIL_last_error, MilesWire::Call()));
+ 189: }
+ 190: 
+ 191: OwnedText set_redist_directoryOwned(const char *directory) {
+ 192:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 193:     session.requireAvailable();
+ 194:     if (!directory)
+ 195:         fail(FailureReason::InvalidArgument, "null redistribution directory");
+ 196:     const size_t size = std::strlen(directory) + 1;
+ 197:     if (size > MilesStartup::RequestTextLimit)
+ 198:         fail(FailureReason::InputLimit, "redistribution directory exceeds limit");
+ 199:     return ownedText(session.request(MilesWire::AIL_set_redist_directory, MilesWire::Call(),
+ 200:                                      MilesTransport::Bytes(directory, size)));
+ 201: }
+ 202: 
+ 203: OwnedText MSS_versionOwned() {
+ 204:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 205:     session.requireAvailable();
+ 206:     return ownedText(session.request(MilesWire::SessionVersion, MilesWire::Call()));
+ 207: }
+ 208: 
+ 209: HDIGDRIVER open_digital_driver(uint32_t frequency, int32_t bits, int32_t channels, uint32_t flags) {
+ 210:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 211:     session.requireRunning();
+ 212:     if (session.driver || frequency != 22050 || bits != 16 || channels != 2 || flags)
+ 213:         fail(FailureReason::InvalidArgument, "unsupported digital driver request");
+ 214:     MilesWire::Call fields = {};
+ 215:     fields.value[0] = frequency;
+ 216:     fields.value[1] = static_cast<uint32_t>(bits);
+ 217:     fields.value[2] = static_cast<uint32_t>(channels);
+ 218:     fields.value[3] = flags;
+ 219:     // Obtain caller-visible storage before the side-effecting vendor request.
+ 220:     std::unique_ptr<DigitalDriver> driver(new DigitalDriver);
+ 221:     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_open_digital_driver, fields);
+ 222:     if (StartupBridge::nullHandle(reply.result.resource))
+ 223:         return 0;
+ 224:     driver->wire = reply.result.resource;
+ 225:     driver->owner = &session;
+ 226:     session.driver = std::move(driver);
+ 227:     return session.driver.get();
+ 228: }
+ 229: 
+ 230: int32_t speaker_configuration_spec(HDIGDRIVER driver) {
+ 231:     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+ 232:     session.requireRunning();
+ 233:     // Compare identity before dereferencing an opaque caller-provided pointer.
+ 234:     if (!driver || driver != session.driver.get() || driver->owner != &session)
+ 235:         fail(FailureReason::InvalidDriver, "driver does not belong to selected Miles session");
+ 236:     MilesWire::Call fields = {};
+ 237:     fields.target = driver->wire;
+ 238:     fields.output_mask = 8;
+ 239:     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_speaker_configuration, fields);
+ 240:     return static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[3]));
+ 241: }
+ 242: } // namespace ClientMiles
+```
+
+FILE backend-boundary24/native/native_miles64.cpp
+```
+   1: #include "../ClientMiles.h"
+   2: #include <Mss.h>
+   3: #include <cstring>
+   4: #include <list>
+   5: #include <type_traits>
+   6: #include <windows.h>
+   7: 
+   8: #if !defined(_WIN64) || _MSC_VER != 1800
+   9: #error This source check requires native v120 x64 with the possessed private header.
+  10: #endif
+  11: 
+  12: // These assertions inspect the actual private header; no SDK declarations are
+  13: // duplicated in the public facade and no import-library replacement is supplied.
+  14: static_assert(sizeof(SINTa) == 8 && sizeof(intptr_t) == sizeof(SINTa),
+  15:               "facade preference width matches this WIN64 header");
+  16: static_assert(std::is_same<intptr_t, SINTa>::value, "exact signed native preference type");
+  17: static_assert(sizeof(U32) == sizeof(uint32_t) && sizeof(S32) == sizeof(int32_t),
+  18:               "fixed scalar widths match this SDK");
+  19: static_assert(std::is_same<U32, uint32_t>::value && std::is_same<S32, int32_t>::value,
+  20:               "fixed scalar types exactly match this SDK");
+  21: static_assert(std::is_same<decltype(&ClientMiles::startup), decltype(&::AIL_startup)>::value,
+  22:               "facade startup signature matches SDK");
+  23: static_assert(std::is_same<decltype(&ClientMiles::shutdown), decltype(&::AIL_shutdown)>::value,
+  24:               "facade shutdown signature matches SDK");
+  25: static_assert(
+  26:     std::is_same<decltype(&ClientMiles::get_preference), decltype(&::AIL_get_preference)>::value,
+  27:     "facade get preference signature matches SDK");
+  28: static_assert(
+  29:     std::is_same<decltype(&ClientMiles::set_preference), decltype(&::AIL_set_preference)>::value,
+  30:     "facade set preference signature matches SDK");
+  31: static_assert(DIG_MIXER_CHANNELS == 1 && DIG_DS_MIX_FRAGMENT_CNT == 42,
+  32:               "observed preference identifiers");
+  33: static_assert(MSS_MC_STEREO == 2, "observed speaker specification");
+  34: static_assert(std::is_same<decltype(&::AIL_get_preference), SINTa(AILCALL *)(U32)>::value,
+  35:               "actual get preference declaration");
+  36: static_assert(std::is_same<decltype(&::AIL_set_preference), SINTa(AILCALL *)(U32, SINTa)>::value,
+  37:               "actual set preference declaration");
+  38: 
+  39: namespace {
+  40: std::list<std::string> retainedDirectories;
+  41: 
+  42: ClientMiles::OwnedText copyText(const char *text) {
+  43:     ClientMiles::OwnedText out;
+  44:     out.isNull = text == 0;
+  45:     if (text)
+  46:         out.value = text;
+  47:     return out;
+  48: }
+  49: } // namespace
+  50: 
+  51: // Compile-only candidate. Every operation delegates to the actual SDK symbol;
+  52: // none of this code has been linked with or executed against an x64 Miles DLL.
+  53: namespace ClientMiles {
+  54: int32_t startup() {
+  55:     return ::AIL_startup();
+  56: }
+  57: 
+  58: void shutdown() {
+  59:     ::AIL_shutdown();
+  60:     retainedDirectories.clear();
+  61: }
+  62: 
+  63: intptr_t get_preference(uint32_t number) {
+  64:     return ::AIL_get_preference(number);
+  65: }
+  66: 
+  67: intptr_t set_preference(uint32_t number, intptr_t value) {
+  68:     return ::AIL_set_preference(number, value);
+  69: }
+  70: 
+  71: OwnedText last_errorOwned() {
+  72:     return copyText(::AIL_last_error());
+  73: }
+  74: 
+  75: OwnedText set_redist_directoryOwned(const char *directory) {
+  76:     if (!directory)
+  77:         throw Failure(FailureReason::InvalidArgument, "null redistribution directory");
+  78:     retainedDirectories.push_back(directory);
+  79:     return copyText(::AIL_set_redist_directory(retainedDirectories.back().c_str()));
+  80: }
+  81: 
+  82: OwnedText MSS_versionOwned() {
+  83:     char text[256];
+  84:     std::memset(text, 0xa5, sizeof text);
+  85:     AIL_MSS_version(text, sizeof text);
+  86:     if (!std::memchr(text, 0, sizeof text) || !text[0])
+  87:         throw Failure(FailureReason::QueryFailed, "native Miles version resource unavailable");
+  88:     return copyText(text);
+  89: }
+  90: 
+  91: HDIGDRIVER open_digital_driver(uint32_t frequency, int32_t bits, int32_t channels, uint32_t flags) {
+  92:     return reinterpret_cast<HDIGDRIVER>(
+  93:         ::AIL_open_digital_driver(frequency, bits, channels, flags));
+  94: }
+  95: 
+  96: int32_t speaker_configuration_spec(HDIGDRIVER driver) {
+  97:     MSS_MC_SPEC spec = MSS_MC_INVALID;
+  98:     ::AIL_speaker_configuration(reinterpret_cast<::HDIGDRIVER>(driver), 0, 0, 0, &spec);
+  99:     return static_cast<int32_t>(spec);
+ 100: }
+ 101: } // namespace ClientMiles
+```
+
+FILE backend-boundary24/sample/startup_calls.h
+```
+   1: #ifndef CLIENT_MILES_STARTUP_SAMPLE_H
+   2: #define CLIENT_MILES_STARTUP_SAMPLE_H
+   3: #include "../ClientMiles.h"
+   4: 
+   5: struct StartupObservations {
+   6:     ClientMiles::OwnedText version, dot, directory, firstError, secondError;
+   7:     int32_t startupResult;
+   8:     intptr_t mixerChannels, initialFragments, previous16, read16, previous64, read64;
+   9:     intptr_t finalFragments;
+  10:     bool driverOpened;
+  11:     int32_t speakerSpec;
+  12:     StartupObservations()
+  13:         : startupResult(0), mixerChannels(0), initialFragments(0), previous16(0), read16(0),
+  14:           previous64(0), read64(0), finalFragments(0), driverOpened(false), speakerSpec(0) {
+  15:     }
+  16: };
+  17: 
+  18: // Game-facing source sample: independent of backend selection and transport.
+  19: // It preserves startup23's valid call order; raw negative probes stay in fixtures.
+  20: StartupObservations startupCalls();
+  21: #endif
+```
+
+FILE backend-boundary24/sample/startup_calls.cpp
+```
+   1: #include "startup_calls.h"
+   2: 
+   3: StartupObservations startupCalls() {
+   4:     StartupObservations out;
+   5:     out.version = ClientMiles::MSS_versionOwned();
+   6:     out.dot = ClientMiles::set_redist_directoryOwned(".");
+   7:     out.directory = ClientMiles::set_redist_directoryOwned("miles");
+   8:     out.startupResult = ClientMiles::startup();
+   9:     if (!out.startupResult)
+  10:         return out;
+  11:     out.mixerChannels = ClientMiles::get_preference(1);
+  12:     out.initialFragments = ClientMiles::get_preference(42);
+  13:     out.firstError = ClientMiles::last_errorOwned();
+  14:     out.secondError = ClientMiles::last_errorOwned();
+  15:     out.previous16 = ClientMiles::set_preference(42, 16);
+  16:     out.read16 = ClientMiles::get_preference(42);
+  17:     out.previous64 = ClientMiles::set_preference(42, 64);
+  18:     out.read64 = ClientMiles::get_preference(42);
+  19:     out.finalFragments = ClientMiles::get_preference(42);
+  20:     ClientMiles::HDIGDRIVER driver = ClientMiles::open_digital_driver(22050, 16, 2, 0);
+  21:     out.driverOpened = driver != 0;
+  22:     if (driver)
+  23:         out.speakerSpec = ClientMiles::speaker_configuration_spec(driver);
+  24:     ClientMiles::shutdown();
+  25:     return out;
+  26: }
+```
+
+FILE backend-boundary24/tests/adapter_test.cpp
+```
+   1: #include "../pipe/Session.h"
+   2: #include "../sample/startup_calls.h"
+   3: #include <cstring>
+   4: #include <iostream>
+   5: #include <limits>
+   6: #include <utility>
+   7: #include <vector>
+   8: 
+   9: namespace {
+  10: unsigned checks = 0;
+  11: void require(bool value, const char *message) {
+  12:     ++checks;
+  13:     if (!value)
+  14:         throw std::runtime_error(message);
+  15: }
+  16: 
+  17: template <class Function>
+  18: void fails(Function function, ClientMiles::FailureReason expected, const char *message) {
+  19:     try {
+  20:         function();
+  21:     } catch (const ClientMiles::Failure &failure) {
+  22:         require(failure.reason() == expected, message);
+  23:         return;
+  24:     }
+  25:     require(false, message);
+  26: }
+  27: 
+  28: struct Step {
+  29:     uint32_t opcode;
+  30:     MilesWire::Call call;
+  31:     std::string input;
+  32:     MilesWire::Result result;
+  33:     std::vector<unsigned char> text;
+  34:     bool corrupt, throwTransport, bypassDecoder;
+  35:     explicit Step(uint32_t op)
+  36:         : opcode(op), call(), result(), corrupt(false), throwTransport(false),
+  37:           bypassDecoder(false) {
+  38:     }
+  39:     Step &scalar(uint32_t value) {
+  40:         result.return_bits = value;
+  41:         return *this;
+  42:     }
+  43:     Step &string(const char *value) {
+  44:         text.assign(value, value + std::strlen(value) + 1);
+  45:         return *this;
+  46:     }
+  47: };
+  48: 
+  49: class ScriptedChannel : public ClientMilesPipe::Channel {
+  50:   public:
+  51:     std::vector<Step> steps;
+  52:     size_t next;
+  53:     bool finished, failFinish;
+  54:     ScriptedChannel() : next(0), finished(false), failFinish(false) {
+  55:     }
+  56:     Step &add(uint32_t opcode) {
+  57:         steps.push_back(Step(opcode));
+  58:         return steps.back();
+  59:     }
+  60:     StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+  61:                                    MilesTransport::Bytes input) override {
+  62:         require(next < steps.size(), "unexpected adapter call");
+  63:         const Step &step = steps[next++];
+  64:         require(opcode == step.opcode, "exact operation order");
+  65:         require(!std::memcmp(&fields, &step.call, sizeof fields), "exact typed argument mapping");
+  66:         const std::string actual =
+  67:             input.size ? std::string(reinterpret_cast<const char *>(input.data), input.size)
+  68:                        : std::string();
+  69:         require(actual == step.input, "exact input extent");
+  70:         if (step.throwTransport)
+  71:             throw std::runtime_error("test-only transport failure");
+  72:         StartupBridge::OwnedReply out;
+  73:         if (step.bypassDecoder) {
+  74:             out.result = step.result;
+  75:             return out;
+  76:         }
+  77:         MilesWire::Header expected = {};
+  78:         expected.magic = MilesWire::Magic;
+  79:         expected.version = MilesWire::Version;
+  80:         expected.kind = MilesWire::Request;
+  81:         expected.opcode = opcode;
+  82:         expected.request = next;
+  83:         expected.lane = 1;
+  84:         MilesWire::Header reply = expected;
+  85:         reply.kind = MilesWire::Reply;
+  86:         std::vector<unsigned char> encoded;
+  87:         require(MilesTransport::encodeResult(
+  88:                     reply, step.result, MilesTransport::Bytes(),
+  89:                     MilesTransport::Bytes(step.text.empty() ? 0 : &step.text[0], step.text.size()),
+  90:                     encoded),
+  91:                 "test reply codec encode");
+  92:         if (step.corrupt)
+  93:             encoded[16] ^= 1; // Wrong request identity, not vendor data.
+  94:         if (!StartupBridge::decodeReply(MilesTransport::Bytes(&encoded[0], encoded.size()),
+  95:                                         expected, out))
+  96:             throw std::runtime_error("test-only decoded reply refusal");
+  97:         std::fill(encoded.begin(), encoded.end(), 0xcd);
+  98:         return out;
+  99:     }
+ 100:     void finish() override {
+ 101:         if (failFinish)
+ 102:             throw std::runtime_error("test-only finish failure");
+ 103:         require(next == steps.size(), "all scripted operations consumed");
+ 104:         finished = true;
+ 105:     }
+ 106: };
+ 107: 
+ 108: void preference(ScriptedChannel &channel, uint32_t opcode, uint32_t value, uint32_t result) {
+ 109:     Step &step = channel.add(opcode).scalar(result);
+ 110:     step.call.value[0] = 42;
+ 111:     if (opcode == MilesWire::AIL_set_preference)
+ 112:         step.call.value[1] = value;
+ 113: }
+ 114: 
+ 115: void validSample() {
+ 116:     std::unique_ptr<ScriptedChannel> owned(new ScriptedChannel);
+ 117:     ScriptedChannel &channel = *owned;
+ 118:     channel.add(MilesWire::SessionVersion).string("TEST-ONLY version");
+ 119:     Step &dot = channel.add(MilesWire::AIL_set_redist_directory).string("");
+ 120:     dot.input.assign(".", 2);
+ 121:     Step &directory = channel.add(MilesWire::AIL_set_redist_directory).string("test directory");
+ 122:     directory.input.assign("miles", 6);
+ 123:     channel.add(MilesWire::AIL_startup).scalar(1);
+ 124:     Step &mixer = channel.add(MilesWire::AIL_get_preference).scalar(64);
+ 125:     mixer.call.value[0] = 1;
+ 126:     preference(channel, MilesWire::AIL_get_preference, 0, 0xffffffffu);
+ 127:     channel.add(MilesWire::AIL_last_error).result.null_mask = MilesStartup::TextNull;
+ 128:     channel.add(MilesWire::AIL_last_error).string("");
+ 129:     preference(channel, MilesWire::AIL_set_preference, 16, 0x80000000u);
+ 130:     preference(channel, MilesWire::AIL_get_preference, 0, 16);
+ 131:     preference(channel, MilesWire::AIL_set_preference, 64, 16);
+ 132:     preference(channel, MilesWire::AIL_get_preference, 0, 64);
+ 133:     preference(channel, MilesWire::AIL_get_preference, 0, 64);
+ 134:     Step &open = channel.add(MilesWire::AIL_open_digital_driver);
+ 135:     open.call.value[0] = 22050;
+ 136:     open.call.value[1] = 16;
+ 137:     open.call.value[2] = 2;
+ 138:     MilesWire::Handle driver = {MilesWire::Driver, 7, 3};
+ 139:     open.result.resource = driver;
+ 140:     Step &speaker = channel.add(MilesWire::AIL_speaker_configuration);
+ 141:     speaker.call.target = driver;
+ 142:     speaker.call.output_mask = 8;
+ 143:     speaker.result.value[3] = 2;
+ 144:     channel.add(MilesWire::AIL_shutdown);
+ 145:     channel.add(MilesWire::SessionClose);
+ 146:     ClientMilesPipe::Session session(std::move(owned));
+ 147:     const StartupObservations out = startupCalls();
+ 148:     require(out.startupResult == 1 && out.driverOpened && out.speakerSpec == 2,
+ 149:             "typed lifecycle results");
+ 150:     require(out.initialFragments == -1 && out.previous16 == (std::numeric_limits<int32_t>::min)(),
+ 151:             "signed32 results extend to intptr_t");
+ 152:     require(out.read16 == 16 && out.previous64 == 16 && out.read64 == 64 &&
+ 153:                 out.finalFragments == 64,
+ 154:             "separate preference effects/readbacks");
+ 155:     require(!out.version.isNull && out.version.value == "TEST-ONLY version" &&
+ 156:                 out.directory.value == "test directory",
+ 157:             "owned text survives all subsequent replies");
+ 158:     require(!out.dot.isNull && out.dot.value.empty() && out.firstError.isNull &&
+ 159:                 !out.secondError.isNull && out.secondError.value.empty(),
+ 160:             "null versus nonnull empty preserved");
+ 161:     session.close();
+ 162:     require(channel.finished, "explicit protocol teardown remains private");
+ 163: }
+ 164: 
+ 165: void refusalsAndRealValueShapes() {
+ 166:     std::unique_ptr<ScriptedChannel> owned(new ScriptedChannel);
+ 167:     ScriptedChannel &channel = *owned;
+ 168:     channel.add(MilesWire::AIL_startup).scalar(1);
+ 169:     preference(channel, MilesWire::AIL_get_preference, 0, 0);
+ 170:     Step &knownError = channel.add(MilesWire::AIL_get_preference);
+ 171:     knownError.call.value[0] = 42;
+ 172:     knownError.result.transport_status = StartupBridge::InvalidFields;
+ 173:     preference(channel, MilesWire::AIL_get_preference, 0, 0);
+ 174:     Step &open = channel.add(MilesWire::AIL_open_digital_driver);
+ 175:     open.call.value[0] = 22050;
+ 176:     open.call.value[1] = 16;
+ 177:     open.call.value[2] = 2;
+ 178:     channel.add(MilesWire::AIL_shutdown);
+ 179:     channel.add(MilesWire::SessionClose);
+ 180:     ClientMilesPipe::Session session(std::move(owned));
+ 181:     fails([] { ClientMiles::get_preference(42); }, ClientMiles::FailureReason::WrongState,
+ 182:           "prestartup refusal");
+ 183:     require(ClientMiles::startup() == 1, "startup result separate from failure");
+ 184:     const size_t before = channel.next;
+ 185:     fails([] { ClientMiles::startup(); }, ClientMiles::FailureReason::WrongState,
+ 186:           "duplicate startup refused");
+ 187:     fails([] { ClientMiles::set_preference(42, (std::numeric_limits<intptr_t>::max)()); },
+ 188:           ClientMiles::FailureReason::InvalidArgument, "wide preference rejected before narrowing");
+ 189:     fails([] { ClientMiles::set_preference(42, -1); }, ClientMiles::FailureReason::InvalidArgument,
+ 190:           "unsupported negative rejected before channel");
+ 191:     fails([] { ClientMiles::get_preference(99); }, ClientMiles::FailureReason::InvalidArgument,
+ 192:           "unsupported ID rejected");
+ 193:     fails([] { ClientMiles::set_redist_directoryOwned(0); },
+ 194:           ClientMiles::FailureReason::InvalidArgument, "null input rejected");
+ 195:     fails(
+ 196:         [] {
+ 197:             ClientMiles::speaker_configuration_spec(
+ 198:                 reinterpret_cast<ClientMiles::HDIGDRIVER>(uintptr_t(1)));
+ 199:         },
+ 200:         ClientMiles::FailureReason::InvalidDriver,
+ 201:         "opaque foreign handle rejected without dereference");
+ 202:     require(channel.next == before, "local refusals do not issue requests");
+ 203:     require(ClientMiles::get_preference(42) == 0, "valid zero preference preserved");
+ 204:     fails([] { ClientMiles::get_preference(42); }, ClientMiles::FailureReason::InvalidArgument,
+ 205:           "known operation error distinguished");
+ 206:     require(ClientMiles::get_preference(42) == 0, "known refusal remains recoverable");
+ 207:     require(!ClientMiles::open_digital_driver(22050, 16, 2, 0), "valid vendor null preserved");
+ 208:     ClientMiles::shutdown();
+ 209:     session.close();
+ 210: }
+ 211: 
+ 212: void terminalFailures() {
+ 213:     for (unsigned mode = 0; mode != 3; ++mode) {
+ 214:         std::unique_ptr<ScriptedChannel> owned(new ScriptedChannel);
+ 215:         ScriptedChannel &channel = *owned;
+ 216:         channel.add(MilesWire::AIL_startup).scalar(1);
+ 217:         Step &failure = channel.add(MilesWire::AIL_get_preference);
+ 218:         failure.call.value[0] = 42;
+ 219:         failure.throwTransport = mode == 0;
+ 220:         failure.corrupt = mode == 1;
+ 221:         failure.bypassDecoder = mode == 2;
+ 222:         if (mode == 2)
+ 223:             failure.result.transport_status = 4;
+ 224:         ClientMilesPipe::Session session(std::move(owned));
+ 225:         ClientMiles::startup();
+ 226:         fails([] { ClientMiles::get_preference(42); }, ClientMiles::FailureReason::BackendFailed,
+ 227:               "terminal uncertain outcome");
+ 228:         const size_t after = channel.next;
+ 229:         fails([] { ClientMiles::get_preference(42); }, ClientMiles::FailureReason::BackendFailed,
+ 230:               "no ordinary retry after fault");
+ 231:         fails([] { ClientMiles::shutdown(); }, ClientMiles::FailureReason::BackendFailed,
+ 232:               "no shutdown replay after fault");
+ 233:         fails([&session] { session.close(); }, ClientMiles::FailureReason::BackendFailed,
+ 234:               "no close retry after fault");
+ 235:         require(channel.next == after, "fault latch blocks all further channel calls");
+ 236:     }
+ 237:     std::unique_ptr<ScriptedChannel> owned(new ScriptedChannel);
+ 238:     ScriptedChannel &channel = *owned;
+ 239:     channel.add(MilesWire::AIL_startup).scalar(1);
+ 240:     channel.add(MilesWire::AIL_shutdown);
+ 241:     channel.add(MilesWire::SessionClose);
+ 242:     channel.failFinish = true;
+ 243:     ClientMilesPipe::Session session(std::move(owned));
+ 244:     ClientMiles::startup();
+ 245:     ClientMiles::shutdown();
+ 246:     fails([&session] { session.close(); }, ClientMiles::FailureReason::BackendFailed,
+ 247:           "finish failure is terminal");
+ 248:     const size_t after = channel.next;
+ 249:     fails([&session] { session.close(); }, ClientMiles::FailureReason::BackendFailed,
+ 250:           "finish failure cannot replay close");
+ 251:     require(channel.next == after, "close was issued exactly once");
+ 252: }
+ 253: } // namespace
+ 254: 
+ 255: int main() {
+ 256:     try {
+ 257:         validSample();
+ 258:         refusalsAndRealValueShapes();
+ 259:         terminalFailures();
+ 260:         std::cout << "PASS " << checks << " explicit portable checks; scripted test-only replies\n";
+ 261:         return 0;
+ 262:     } catch (const std::exception &error) {
+ 263:         std::cerr << "FAIL " << error.what() << '\n';
+ 264:         return 1;
+ 265:     }
+ 266: }
+```
+
+FILE backend-boundary24/tests/link_double.cpp
+```
+   1: #ifndef CLIENT_MILES_TEST_DOUBLE
+   2: #error This implementation is only for the deletion build check, never a vendor replacement.
+   3: #endif
+   4: #include "../ClientMiles.h"
+   5: 
+   6: namespace ClientMiles {
+   7: struct DigitalDriver {};
+   8: int32_t startup() {
+   9:     return 0;
+  10: }
+  11: void shutdown() {
+  12: }
+  13: intptr_t get_preference(uint32_t) {
+  14:     return 0;
+  15: }
+  16: intptr_t set_preference(uint32_t, intptr_t) {
+  17:     return 0;
+  18: }
+  19: OwnedText last_errorOwned() {
+  20:     return OwnedText();
+  21: }
+  22: OwnedText set_redist_directoryOwned(const char *) {
+  23:     return OwnedText();
+  24: }
+  25: OwnedText MSS_versionOwned() {
+  26:     return OwnedText();
+  27: }
+  28: HDIGDRIVER open_digital_driver(uint32_t, int32_t, int32_t, uint32_t) {
+  29:     return 0;
+  30: }
+  31: int32_t speaker_configuration_spec(HDIGDRIVER) {
+  32:     return 0;
+  33: }
+  34: } // namespace ClientMiles
+```
+
+FILE backend-boundary24/tests/link_main.cpp
+```
+   1: #include "../sample/startup_calls.h"
+   2: int main() {
+   3:     return startupCalls().startupResult;
+   4: }
+```
+
+FILE backend-boundary24/check-portable.py
+```
+   1: """Source/adapter checks only. Never invokes a vendor, Wine, or native executable."""
+   2: from pathlib import Path
+   3: import hashlib
+   4: import json
+   5: import shutil
+   6: import subprocess
+   7: 
+   8: base = Path(__file__).resolve().parent
+   9: root = base.parent
+  10: out = base / 'private-portable-v1'
+  11: out.mkdir(exist_ok=False)
+  12: 
+  13: 
+  14: def digest(path):
+  15:     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+  16: 
+  17: 
+  18: def run(args, name, cwd=out):
+  19:     process = subprocess.run(args, cwd=cwd, text=True, capture_output=True, timeout=60)
+  20:     (out / (name + '.log')).write_text(process.stdout + process.stderr)
+  21:     (out / (name + '-command.json')).write_text(json.dumps(args, indent=2) + '\n')
+  22:     return process
+  23: 
+  24: 
+  25: def require(value, message):
+  26:     if not value:
+  27:         raise RuntimeError(message)
+  28: 
+  29: 
+  30: compiler = Path(shutil.which('g++')).resolve()
+  31: inputs = [p for p in base.rglob('*') if p.is_file() and p.suffix in ('.h', '.cpp', '.py')
+  32:           and not any(part.startswith('private-') for part in p.relative_to(base).parts)]
+  33: inputs += [root / name for name in [
+  34:     'startup-bridge23/reply.h', 'startup-metadata-v4/metadata.h',
+  35:     'startup-metadata-v4/metadata_wire.cpp', 'host-candidate/host_dispatch.h',
+  36:     'session-version22/session_version.h', 'session-version22/session_version.cpp',
+  37:     'transport-candidate/codec.h', 'transport-candidate/codec.cpp',
+  38:     'transport-candidate/resource_registry.h', 'protocol-candidate/miles_wire.h']]
+  39: before = {str(p): digest(p) for p in sorted(inputs)}
+  40: result = {'compiler': str(compiler), 'compiler_sha256': digest(compiler),
+  41:           'inputs_before': before, 'vendor_execution': False, 'native_execution': False}
+  42: try:
+  43:     sources = [base / 'tests/adapter_test.cpp', base / 'pipe/ClientMilesPipe.cpp',
+  44:                base / 'sample/startup_calls.cpp', root / 'transport-candidate/codec.cpp',
+  45:                root / 'session-version22/session_version.cpp',
+  46:                root / 'startup-metadata-v4/metadata_wire.cpp']
+  47:     args = [str(compiler), '-std=c++11', '-Wall', '-Wextra', '-Werror',
+  48:             '-fsanitize=address,undefined', '-g']
+  49:     args += [str(p) for p in sources] + ['-o', str(out / 'adapter-test')]
+  50:     build = run(args, 'adapter-build')
+  51:     result['adapter_build_exit'] = build.returncode
+  52:     require(build.returncode == 0, 'portable adapter compilation failed')
+  53:     test = run([str(out / 'adapter-test')], 'adapter-run')
+  54:     result['adapter_run_exit'] = test.returncode
+  55:     result['adapter_stdout'] = test.stdout
+  56:     require(test.returncode == 0, 'portable adapter checks failed')
+  57: 
+  58:     # A physical copy with no pipe/protocol/native source and no repository -I.
+  59:     isolated = out / 'deleted-pipe-tree'
+  60:     allowed = ['ClientMiles.h', 'sample/startup_calls.h', 'sample/startup_calls.cpp',
+  61:                'tests/link_double.cpp', 'tests/link_main.cpp']
+  62:     for relative in allowed:
+  63:         destination = isolated / relative
+  64:         destination.parent.mkdir(parents=True, exist_ok=True)
+  65:         shutil.copy2(base / relative, destination)
+  66:     require(sorted(str(p.relative_to(isolated)) for p in isolated.rglob('*') if p.is_file())
+  67:             == sorted(allowed), 'isolation tree contains extra source')
+  68:     result['isolated_inputs'] = {name: digest(isolated / name) for name in allowed}
+  69:     objects = []
+  70:     dependencies = []
+  71:     for name in ['sample/startup_calls.cpp', 'tests/link_main.cpp', 'tests/link_double.cpp']:
+  72:         stem = Path(name).stem
+  73:         command = [str(compiler), '-std=c++11', '-Wall', '-Wextra', '-Werror',
+  74:                    '-DCLIENT_MILES_TEST_DOUBLE', '-MMD', '-MF', stem + '.d',
+  75:                    '-c', name, '-o', stem + '.o']
+  76:         build = run(command, 'isolation-' + stem, isolated)
+  77:         require(build.returncode == 0, 'isolated game-facing source compile failed')
+  78:         objects.append(stem + '.o')
+  79:         raw = (isolated / (stem + '.d')).read_text().replace('\\\n', ' ')
+  80:         deps = raw.split(':', 1)[1].split()
+  81:         for dependency in deps:
+  82:             resolved = (isolated / dependency).resolve()
+  83:             require(resolved.is_relative_to(isolated), 'dependency escaped isolated tree')
+  84:             require(str(resolved.relative_to(isolated)) in allowed, 'unlisted source dependency')
+  85:         dependencies.extend(deps)
+  86:     linked = run([str(compiler)] + objects + ['-o', 'link-only-test'], 'isolation-link', isolated)
+  87:     require(linked.returncode == 0, 'isolated test-only link failed')
+  88:     negative = run([str(compiler)] + objects[:2] + ['-o', 'must-not-link'], 'isolation-no-implementation', isolated)
+  89:     require(negative.returncode != 0 and 'ClientMiles::' in negative.stderr,
+  90:             'missing implementation unexpectedly linked or failed for another reason')
+  91:     result.update(isolation_link_exit=linked.returncode,
+  92:                   missing_implementation_link_exit=negative.returncode,
+  93:                   isolated_dependencies=sorted(set(dependencies)),
+  94:                   isolated_executable_run=False)
+  95: except Exception as error:
+  96:     result['failure'] = {'type': type(error).__name__, 'message': str(error)}
+  97: finally:
+  98:     result['inputs_after'] = {str(p): digest(p) for p in sorted(inputs)}
+  99:     result['inputs_unchanged'] = result['inputs_before'] == result['inputs_after']
+ 100:     (out / 'results.json').write_text(json.dumps(result, indent=2) + '\n')
+ 101:     print(json.dumps({key: value for key, value in result.items()
+ 102:                       if key not in ('inputs_before', 'inputs_after', 'isolated_inputs')}, indent=2))
+ 103: raise SystemExit(bool(result.get('failure')) or not result['inputs_unchanged'])
+```
+
+FILE startup-bridge23/reply.h
+```
+   1: #ifndef STARTUP_BRIDGE23_REPLY_H
+   2: #define STARTUP_BRIDGE23_REPLY_H
+   3: #include "../session-version22/session_version.h"
+   4: #include "../startup-metadata-v4/metadata.h"
+   5: #include <cstring>
+   6: #include <stdexcept>
+   7: namespace StartupBridge {
+   8: enum Status {
+   9:     Success = 0,
+  10:     Unsupported = 1,
+  11:     InvalidResource = 2,
+  12:     InvalidFields = 3,
+  13:     LifecycleRefused = 0x1001,
+  14:     TextTooLong = 0x1002,
+  15:     InputBudgetExceeded = 0x1003,
+  16:     VersionQueryFailed = 0x1004
+  17: };
+  18: inline Status mapMetadata(MilesStartup::Status s) {
+  19:     switch (s) {
+  20:     case MilesStartup::Complete:
+  21:         return Success;
+  22:     case MilesStartup::Unsupported:
+  23:         return Unsupported;
+  24:     case MilesStartup::InvalidResource:
+  25:         return InvalidResource;
+  26:     case MilesStartup::InvalidFields:
+  27:         return InvalidFields;
+  28:     case MilesStartup::TextTooLong:
+  29:         return TextTooLong;
+  30:     case MilesStartup::InputBudgetExceeded:
+  31:         return InputBudgetExceeded;
+  32:     }
+  33:     throw std::runtime_error("unmapped metadata status");
+  34: }
+  35: inline bool knownStatus(uint32_t s) {
+  36:     return s <= InvalidFields || (s >= LifecycleRefused && s <= VersionQueryFailed);
+  37: }
+  38: inline bool metadata(uint32_t op) {
+  39:     return op == MilesWire::AIL_set_redist_directory || op == MilesWire::AIL_get_preference ||
+  40:            op == MilesWire::AIL_set_preference || op == MilesWire::AIL_last_error ||
+  41:            op == MilesWire::AIL_speaker_configuration;
+  42: }
+  43: // Scalar result fields plus owned text. Span offsets are cleared after decode;
+  44: // callers never need a hidden retained frame or a borrowed text pointer.
+  45: struct OwnedReply {
+  46:     MilesWire::Result result;
+  47:     std::vector<unsigned char> text;
+  48:     OwnedReply() {
+  49:         std::memset(&result, 0, sizeof result);
+  50:     }
+  51: };
+  52: inline bool nullHandle(const MilesWire::Handle &h) {
+  53:     return !h.kind && !h.slot && !h.generation;
+  54: }
+  55: inline bool decodeReply(MilesTransport::Bytes frame, const MilesWire::Header &expected,
+  56:                         OwnedReply &out) {
+  57:     MilesWire::Header h = {};
+  58:     OwnedReply candidate;
+  59:     if (!MilesTransport::decodeResult(frame, h, candidate.result))
+  60:         return false;
+  61:     MilesWire::Result &r = candidate.result;
+  62:     if (h.kind != MilesWire::Reply || h.opcode != expected.opcode ||
+  63:         h.request != expected.request || h.lane != expected.lane ||
+  64:         h.causal_request != expected.causal_request || h.lock_lease != expected.lock_lease ||
+  65:         !knownStatus(r.transport_status) || r.bytes.length || r.callback)
+  66:         return false;
+  67:     const bool ok = r.transport_status == Success;
+  68:     const bool textOp = ok && (h.opcode == MilesWire::AIL_set_redist_directory ||
+  69:                                h.opcode == MilesWire::AIL_last_error);
+  70:     const bool versionOp = ok && h.opcode == MilesWire::SessionVersion;
+  71:     const bool valueOp = ok && h.opcode == MilesWire::AIL_speaker_configuration;
+  72:     const bool returnOp =
+  73:         ok && (h.opcode == MilesWire::AIL_startup || h.opcode == MilesWire::AIL_get_preference ||
+  74:                h.opcode == MilesWire::AIL_set_preference);
+  75:     const bool resourceOp = ok && h.opcode == MilesWire::AIL_open_digital_driver;
+  76:     if ((!returnOp && r.return_bits) || (!resourceOp && !nullHandle(r.resource)))
+  77:         return false;
+  78:     if (resourceOp && !nullHandle(r.resource) && r.resource.kind != MilesWire::Driver)
+  79:         return false;
+  80:     for (unsigned i = 0; i < 8; ++i)
+  81:         if (!(valueOp && i == 3) && r.value[i])
+  82:             return false;
+  83:     if (versionOp) {
+  84:         char text[MilesSessionVersion::Capacity];
+  85:         if (!MilesSessionVersion::copyReply(frame, expected, text))
+  86:             return false;
+  87:         candidate.text.assign(reinterpret_cast<unsigned char *>(text),
+  88:                               reinterpret_cast<unsigned char *>(text) + r.text.length);
+  89:     } else if (textOp) {
+  90:         if (r.null_mask & ~MilesStartup::TextNull)
+  91:             return false;
+  92:         if (r.null_mask == MilesStartup::TextNull) {
+  93:             if (r.text.length)
+  94:                 return false;
+  95:         } else {
+  96:             if (!r.text.length || r.text.length > MilesStartup::ReplyTextLimit)
+  97:                 return false;
+  98:             const unsigned char *text = frame.data + r.text.offset;
+  99:             if (text[r.text.length - 1] || std::memchr(text, 0, r.text.length - 1))
+ 100:                 return false;
+ 101:             candidate.text.assign(text, text + r.text.length);
+ 102:         }
+ 103:     } else if (r.text.length || r.null_mask)
+ 104:         return false;
+ 105:     r.text = MilesWire::Span();
+ 106:     r.bytes = MilesWire::Span();
+ 107:     out.text.swap(candidate.text);
+ 108:     out.result = r;
+ 109:     return true;
+ 110: }
+ 111: } // namespace StartupBridge
+ 112: #endif
+```
+
+FILE startup-metadata-v4/metadata.h
+```
+   1: #ifndef EXPERIMENTAL_MILES_STARTUP_METADATA_H
+   2: #define EXPERIMENTAL_MILES_STARTUP_METADATA_H
+   3: #include "../host-candidate/host_dispatch.h"
+   4: #include "../transport-candidate/codec.h"
+   5: #include <vector>
+   6: #include <list>
+   7: namespace MilesStartup {
+   8: enum { TextNull = 1, RequestTextLimit = MilesWire::MaxFrameBytes - 48 - 88, ReplyTextLimit = MilesWire::MaxFrameBytes - 48 - 80 };
+   9: enum Status { Complete=0, Unsupported=1, InvalidResource=2, InvalidFields=3, TextTooLong=4, InputBudgetExceeded=5 };
+  10: // Must outlive vendor shutdown. No early retirement is provided.
+  11: class SessionInputs {
+  12:     std::list<std::vector<unsigned char> > paths;
+  13:     size_t used;
+  14:     SessionInputs(const SessionInputs&);
+  15:     SessionInputs& operator=(const SessionInputs&);
+  16: public:
+  17:     SessionInputs():used(0){}
+  18:     // Precondition: Bytes refers to a valid readable allocation; this is not a pointer probe.
+  19:     const char* retain(MilesTransport::Bytes);
+  20:     size_t retainedBytes() const { return used; }
+  21: };
+  22: struct Reply {
+  23:     MilesWire::Result result;
+  24:     std::vector<unsigned char> text;
+  25:     Reply();
+  26: };
+  27: bool preferenceValue(int64_t clientValue, uint32_t& wireBits);
+  28: int64_t signedValue(uint32_t wireBits);
+  29: Status validate(uint32_t opcode, const MilesWire::Call&, MilesTransport::Bytes frame);
+  30: // The pointer must be null or a valid vendor C string. This is not a memory probe.
+  31: // On failure, destination is unchanged. Null and nonnull empty are distinct.
+  32: bool copyText(const char* vendorText, Reply& destination);
+  33: // Caller owns session/lane admission. This component supplies neither startup nor a shim.
+  34: Status dispatch(uint32_t opcode, const MilesWire::Call&, MilesTransport::Bytes frame,
+  35:                 Reply&, MilesHost::Resolver&, SessionInputs&);
+  36: }
+  37: #endif
+```
+
+FILE actual clientAudio/src/win32/Audio.cpp excerpts
+```
+1282: 
+1283: 	// Set the miles directory
+1284: 
+1285: 	std::string redistDirectory(AIL_set_redist_directory("miles"));
+1286: 
+1287: 	// Initialize the Miles Sound System
+1288: 
+1289: 	AIL_startup();
+1290: 
+1291: 	// Set the file system callbacks
+1292: 
+1293: 	AIL_set_file_callbacks(fileOpenCallBack, fileCloseCallBack, fileSeekCallBack, fileReadCallBack);
+1294: 
+1295: 	// Initialize the audio driver
+1296: 
+1297: 	SINTa const maxDigitalMixerChannels = AIL_get_preference(DIG_MIXER_CHANNELS);
+1298: 	FATAL(maxDigitalMixerChannels < (std::numeric_limits<int>::min)() || maxDigitalMixerChannels > (std::numeric_limits<int>::max)(), ("Miles mixer channel count exceeds int range"));
+1299: 	s_maxDigitalMixerChannels = static_cast<int>(maxDigitalMixerChannels);
+1300: 
+1301: 	s_digitalDevice2d = AIL_open_digital_driver(getFrequency(), getBits(), getProviderSpec(getCurrent3dProvider()), 0);
+1302: 
+1303: 	if (!s_digitalDevice2d)
+1304: 	{
+1305: 		// If the sound driver set via the options fails, attempt to just use a default driver
+1306: 		WARNING(true, ("Audio:  Digital Audio - Attempting to use a generic stereo seting, user option failed. Miles Error (%s)", AIL_last_error()));
+1307: 		s_digitalDevice2d = AIL_open_digital_driver(getFrequency(), getBits(), MSS_MC_STEREO, 0);
+1308: 		s_soundProvider = "2 Speakers";
+1309: 
+1310: 		if (!s_digitalDevice2d)
+1311: 		{
+1312: 			// default driver also failed, shutting down the audio system
+1313: 			WARNING(true, ("Audio: Digital Audio - Shutting down the audio system. Miles Error (%s)", AIL_last_error()));
+1314: 
+1315: 			remove();
+1316: 			setEnabled(false);
+1317: 			return false;
+1318: 		}
+1319: 	}
+1320: 
+1321: 	s_listener.m_object = s_digitalDevice2d;
+1322: 	s_listener.alter();
+1323: 
+1324: 	AIL_set_3D_rolloff_factor(s_digitalDevice2d, s_rollOffFactor);
+1325: 
+1326: 	AIL_speaker_configuration(s_digitalDevice2d, NULL, NULL, NULL, &s_speakers);
+1327: 
+1425: 		// Close the 3d driver
+1426: 
+1427: 
+1428: 		// Close the 2d driver
+1429: 
+1430: 		if (s_digitalDevice2d)
+1431: 		{
+1432: 			s_digitalDevice2d = 0;
+1433: 		}
+1434: 
+1435: 		// Now shutdown Miles completely
+1436: 
+1437: 		AIL_shutdown();
+1438: 	}
+2465: //-----------------------------------------------------------------------------
+2466: std::string Audio::getMilesVersion()
+2467: {
+2468: 	char version[256];
+2469: 	AIL_MSS_version(version, sizeof(version));
+2470: 
+2471: 	return version;
+2472: }
+5115: //-----------------------------------------------------------------------------
+5116: void Audio::setLargePreMixBuffer()
+5117: {
+5118: 	AIL_set_preference(DIG_DS_MIX_FRAGMENT_CNT, 64);
+5119: 	AIL_serve();
+5120: }
+5121: 
+5122: //-----------------------------------------------------------------------------
+5123: void Audio::setNormalPreMixBuffer()
+5124: {
+5125: 	AIL_set_preference(DIG_DS_MIX_FRAGMENT_CNT, s_bufferFragmentsMin);
+5126: 	AIL_serve();
+5127: }
+```
+
+Minimal possessed SDK declarations/types, not full header/vendor implementation. _WIN64 selects IS_WIN64; SINTa is signed __int64. Constants DIG_MIXER_CHANNELS=1, DIG_DS_MIX_FRAGMENT_CNT=42, MSS_MC_STEREO=2. Windows AIL_MSS_version macro loads MSSDLLNAME, writes empty text if loading fails, otherwise calls LoadString(resource 1, supplied buffer/length) and FreeLibrary; this is a resource query, not a function declaration. No successful x64 DLL execution asserted.
+
+FILE possessed Mss.h minimal declarations
+```
+1253: #ifdef _WIN64
+1254: 
+1255: #ifndef UINTa
+1256: #define UINTa unsigned __int64
+1257: #endif
+1258: 
+1259: #ifndef SINTa
+1260: #define SINTa signed __int64
+1261: #endif
+4147: DXDEC  S32     AILCALL  AIL_startup                   (void);
+4148: 
+4149: DXDEC  SINTa   AILCALL  AIL_get_preference            (U32         number);
+4153: DXDEC  void    AILCALL  AIL_shutdown                  (void);
+4154: 
+4155: DXDEC  SINTa   AILCALL  AIL_set_preference            (U32         number,
+4156:                                                        SINTa       value);
+4157: 
+4158: DXDEC char FAR *AILCALL  AIL_last_error                (void);
+4159: 
+4264: DXDEC HDIGDRIVER AILCALL AIL_open_digital_driver( U32 frequency,
+4265:                                                   S32 bits,
+4266:                                                   S32 channel,
+4267:                                                   U32 flags );
+4410: DXDEC char FAR*     AILCALL AIL_set_redist_directory(char const FAR*dir);
+4427: DXDEC MSSVECTOR3D FAR * 
+4428:                     AILCALL AIL_speaker_configuration
+4429:                                                       (HDIGDRIVER       dig,
+4430:                                                        S32         FAR *n_physical_channels,
+4431:                                                        S32         FAR *n_logical_channels,
+4432:                                                        F32         FAR *falloff_power,
+4433:                                                        MSS_MC_SPEC FAR *channel_spec);
+```

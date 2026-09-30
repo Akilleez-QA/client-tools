@@ -1,0 +1,64 @@
+{
+  "compiler": "/usr/bin/g++",
+  "compiler_sha256": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+  "linked": false,
+  "executed": false,
+  "vendor_loaded": false,
+  "before": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/ClientMilesStartup.h": "88db969dc6db56e34f564034ffa781da67da046a7a7e0a7485c428c3641ac038",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/sample/install_order.h": "60d05820bf0dc7bf8dbcba444feca7251bdeaf466bf2dd5f3666029900135ff2",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/sample/install_order.cpp": "4aaf4de347a436d0acc30507404a13b6873e7d74b800d4616331aa56679e936f",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/tests/portable_contract.cpp": "a5bf8716258cfbe3cf706df9ddf0214d28d7e832128038ab0ab7b735c502de0e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/check-portable.py": "c73ba601e7325a9aac99d0d8ee1d8a3a2ae8309ae44ac1d43d03fed875bd6f7e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0"
+  },
+  "checks": [
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-pedantic",
+        "-MMD",
+        "-MF",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/evidence-portable-v1/install_order.d",
+        "-c",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/sample/install_order.cpp",
+        "-o",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/evidence-portable-v1/install_order.o"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-pedantic",
+        "-MMD",
+        "-MF",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/evidence-portable-v1/portable_contract.d",
+        "-c",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/tests/portable_contract.cpp",
+        "-o",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/evidence-portable-v1/portable_contract.o"
+      ],
+      "exit": 0
+    }
+  ],
+  "after": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/ClientMilesStartup.h": "88db969dc6db56e34f564034ffa781da67da046a7a7e0a7485c428c3641ac038",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/sample/install_order.h": "60d05820bf0dc7bf8dbcba444feca7251bdeaf466bf2dd5f3666029900135ff2",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/sample/install_order.cpp": "4aaf4de347a436d0acc30507404a13b6873e7d74b800d4616331aa56679e936f",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/tests/portable_contract.cpp": "a5bf8716258cfbe3cf706df9ddf0214d28d7e832128038ab0ab7b735c502de0e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-startup25/check-portable.py": "c73ba601e7325a9aac99d0d8ee1d8a3a2ae8309ae44ac1d43d03fed875bd6f7e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0"
+  },
+  "passed": true
+}

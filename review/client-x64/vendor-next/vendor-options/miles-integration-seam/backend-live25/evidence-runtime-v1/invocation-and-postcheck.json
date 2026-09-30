@@ -1,0 +1,46 @@
+{
+  "command": [
+    "python",
+    "-O",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-live25/run-facade25.py",
+    "--receipt-sha256",
+    "26a06500ce4c6df80786dfd7bc2861ec989aa566afc298ed04ef6b700c102849"
+  ],
+  "exit_code_observed": 0,
+  "attempt_count": 1,
+  "current_manifest_members_unchanged": 41,
+  "zero_supplement_inputs_unchanged": 16,
+  "source_archive_sha256": "e62d6ce7f94aa60c6845b000e1743f4d349e2419b5998214fddebd8f2e0a9243",
+  "source_manifest_sha256": "03d9f012227013bbd5a07c59b346f4d2a1a268b88b337ca9eb2489a37c8c4f81",
+  "retained_runtime_files": {
+    "Release-host-before-cleanup.log": {
+      "sha256": "87df6957f8a0b8559faceb46f8a15e8276d9c01ea5406d0432450d6ba577b721",
+      "bytes": 2336
+    },
+    "Release-host.log": {
+      "sha256": "87df6957f8a0b8559faceb46f8a15e8276d9c01ea5406d0432450d6ba577b721",
+      "bytes": 2336
+    },
+    "Release.log": {
+      "sha256": "119b210de43499d5ec2f321fde404c65bbc98315a07005eefd2f466e699e8b07",
+      "bytes": 4300
+    },
+    "results.json": {
+      "sha256": "9f42056eaa0adf4ea2ea7d0c99da4d9ca039534ff1a58d0b0ef86e9518fe24fc",
+      "bytes": 15890
+    },
+    "wine-config.log": {
+      "sha256": "ba1406b8f650bcb65b6535b442d81a23161a59927559394f6dccdec9b88260cc",
+      "bytes": 507
+    },
+    "wineserver-k.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "wineserver-w.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "limits": "Post-run source binding is separate from the receipt and named runtime helper checks; no universal provenance claim."
+}

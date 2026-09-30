@@ -1,0 +1,15 @@
+[
+  "/usr/bin/g++",
+  "-std=c++11",
+  "-Wall",
+  "-Wextra",
+  "-Werror",
+  "-DCLIENT_MILES_TEST_DOUBLE",
+  "-MMD",
+  "-MF",
+  "link_main.d",
+  "-c",
+  "tests/link_main.cpp",
+  "-o",
+  "link_main.o"
+]

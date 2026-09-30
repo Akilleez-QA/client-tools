@@ -1,0 +1,153 @@
+Review ONLY this narrow native-startup25 source question: do public file callback typedefs and the native forwarding definitions match the supplied actual Win64 Miles declarations, including integer widths, calling conventions, argument ordering and opaque driver conversions? Identify concrete errors in these files, or state none found within this source-only scope. This is a Win64/v120 compile-only candidate; no vendor runtime, pipe callbacks, gameplay or audio fidelity claim. Build selection uses the direct native implementation throughout one lifetime. The shared facade defines struct DigitalDriver; typedef DigitalDriver *HDIGDRIVER; its direct open returns the SDK HDIGDRIVER converted by reinterpret_cast to that opaque type; forwarding converts it back. No foreign pipe identities are promised usable with native functions.
+Do not browse, use tools, read files, execute anything or edit. Supplied excerpts only. No full SDK body, credentials, peer opinions or runtime evidence included. Return at most 700 words with specific file/line and supported counterexample for any finding; distinguish unverified callback behavior from a signature bug.
+Source manifest SHA256: 997c2b72117c3b2f64654bb0fd0de7caee4617ab8bd5fd4097c150af8098b597.
+Actual SDK has _WIN64: UINTa=unsigned __int64, SINTa=signed __int64; U32=unsigned int, S32=signed int, F32=float. Windows normal build (without FORNONWIN) uses AILCALL=__stdcall, AILCALLBACK=__stdcall and empty FAR. Win64 is a superset of IS_WIN32 in this header. MSS_FILE is char on Windows (not ON_MAC_USE_FSS).
+
+FILE native-startup25/ClientMilesStartup.h
+```
+1: #ifndef CLIENT_MILES_NATIVE_STARTUP25_H
+2: #define CLIENT_MILES_NATIVE_STARTUP25_H
+3: #include "../backend-boundary24/ClientMiles.h"
+4: 
+5: #if defined(_WIN32)
+6: #define CLIENT_MILES25_CALLBACK __stdcall
+7: #else
+8: #define CLIENT_MILES25_CALLBACK
+9: #endif
+10: 
+11: namespace ClientMiles {
+12: // Same callback shapes as the existing reviewed SDK signature checks. These
+13: // are process-local callbacks; see CALLBACK-ADAPTATION.md before integration.
+14: typedef uint32_t (CLIENT_MILES25_CALLBACK *FileOpenCallback)(char const *, uintptr_t *);
+15: typedef void (CLIENT_MILES25_CALLBACK *FileCloseCallback)(uintptr_t);
+16: typedef int32_t (CLIENT_MILES25_CALLBACK *FileSeekCallback)(uintptr_t, int32_t, uint32_t);
+17: typedef uint32_t (CLIENT_MILES25_CALLBACK *FileReadCallback)(uintptr_t, void *, uint32_t);
+18: 
+19: void set_file_callbacks(FileOpenCallback open, FileCloseCallback close,
+20:                         FileSeekCallback seek, FileReadCallback read);
+21: void set_listener_3D_position(HDIGDRIVER driver, float x, float y, float z);
+22: void set_listener_3D_velocity_vector(HDIGDRIVER driver, float x, float y, float z);
+23: void set_listener_3D_orientation(HDIGDRIVER driver, float faceX, float faceY, float faceZ,
+24:                                  float upX, float upY, float upZ);
+25: void set_3D_rolloff_factor(HDIGDRIVER driver, float factor);
+26: void serve();
+27: int32_t room_type(HDIGDRIVER driver);
+28: void set_room_type(HDIGDRIVER driver, int32_t room);
+29: } // namespace ClientMiles
+30: #endif
+```
+
+FILE native-startup25/native/native_startup25.cpp
+```
+1: #include "../ClientMilesStartup.h"
+2: #include <Mss.h>
+3: #include <type_traits>
+4: 
+5: #if !defined(_WIN64) || _MSC_VER != 1800
+6: #error Requires the actual v120 x64 target and possessed private Miles 7.2a header.
+7: #endif
+8: 
+9: static_assert(std::is_same<uintptr_t, UINTa>::value, "native file identity width/type");
+10: static_assert(std::is_same<intptr_t, SINTa>::value, "native signed address type");
+11: static_assert(std::is_same<uint32_t, U32>::value, "native count type");
+12: static_assert(std::is_same<int32_t, S32>::value, "native offset/result type");
+13: static_assert(std::is_same<float, F32>::value, "native spatial scalar type");
+14: static_assert(std::is_same<ClientMiles::FileOpenCallback, AIL_file_open_callback>::value,
+15:               "existing reviewed file-open signature");
+16: static_assert(std::is_same<ClientMiles::FileCloseCallback, AIL_file_close_callback>::value,
+17:               "existing reviewed file-close signature");
+18: static_assert(std::is_same<ClientMiles::FileSeekCallback, AIL_file_seek_callback>::value,
+19:               "existing reviewed file-seek signature");
+20: static_assert(std::is_same<ClientMiles::FileReadCallback, AIL_file_read_callback>::value,
+21:               "existing reviewed file-read signature");
+22: static_assert(std::is_same<decltype(&ClientMiles::set_file_callbacks),
+23:                           decltype(&::AIL_set_file_callbacks)>::value, "registration signature");
+24: static_assert(std::is_same<decltype(&ClientMiles::serve), decltype(&::AIL_serve)>::value,
+25:               "serve signature");
+26: // Driver arguments intentionally use the local opaque facade identity. Check
+27: // SDK-facing signatures separately instead of claiming whole-facade ABI equality.
+28: static_assert(std::is_same<decltype(&::AIL_set_listener_3D_position),
+29:                           void (AILCALL *)(::HDIGDRIVER, F32, F32, F32)>::value, "position");
+30: static_assert(std::is_same<decltype(&::AIL_set_listener_3D_velocity_vector),
+31:                           void (AILCALL *)(::HDIGDRIVER, F32, F32, F32)>::value, "velocity");
+32: static_assert(std::is_same<decltype(&::AIL_set_listener_3D_orientation),
+33:                           void (AILCALL *)(::HDIGDRIVER, F32, F32, F32, F32, F32, F32)>::value,
+34:               "orientation");
+35: static_assert(std::is_same<decltype(&::AIL_set_3D_rolloff_factor),
+36:                           void (AILCALL *)(::HDIGDRIVER, F32)>::value, "rolloff");
+37: static_assert(std::is_same<decltype(&::AIL_room_type), S32 (AILCALL *)(::HDIGDRIVER)>::value,
+38:               "room query");
+39: static_assert(std::is_same<decltype(&::AIL_set_room_type),
+40:                           void (AILCALL *)(::HDIGDRIVER, S32)>::value, "room setter");
+41: 
+42: namespace ClientMiles {
+43: void set_file_callbacks(FileOpenCallback open, FileCloseCallback close,
+44:                         FileSeekCallback seek, FileReadCallback read) {
+45:     ::AIL_set_file_callbacks(open, close, seek, read);
+46: }
+47: void set_listener_3D_position(HDIGDRIVER driver, float x, float y, float z) {
+48:     ::AIL_set_listener_3D_position(reinterpret_cast<::HDIGDRIVER>(driver), x, y, z);
+49: }
+50: void set_listener_3D_velocity_vector(HDIGDRIVER driver, float x, float y, float z) {
+51:     ::AIL_set_listener_3D_velocity_vector(reinterpret_cast<::HDIGDRIVER>(driver), x, y, z);
+52: }
+53: void set_listener_3D_orientation(HDIGDRIVER driver, float x, float y, float z,
+54:                                  float upX, float upY, float upZ) {
+55:     ::AIL_set_listener_3D_orientation(reinterpret_cast<::HDIGDRIVER>(driver),
+56:                                       x, y, z, upX, upY, upZ);
+57: }
+58: void set_3D_rolloff_factor(HDIGDRIVER driver, float factor) {
+59:     ::AIL_set_3D_rolloff_factor(reinterpret_cast<::HDIGDRIVER>(driver), factor);
+60: }
+61: void serve() { ::AIL_serve(); }
+62: int32_t room_type(HDIGDRIVER driver) {
+63:     return ::AIL_room_type(reinterpret_cast<::HDIGDRIVER>(driver));
+64: }
+65: void set_room_type(HDIGDRIVER driver, int32_t room) {
+66:     ::AIL_set_room_type(reinterpret_cast<::HDIGDRIVER>(driver), room);
+67: }
+68: } // namespace ClientMiles
+```
+
+FILE actual Mss.h minimal declarations ONLY
+```
+3046: DXDEC  void    AILCALL AIL_serve(void);
+5222: typedef U32  (AILCALLBACK FAR*AIL_file_open_callback)  (MSS_FILE const FAR* Filename,
+5223:                                                         UINTa FAR* FileHandle);
+5224: 
+5225: typedef void (AILCALLBACK FAR*AIL_file_close_callback) (UINTa FileHandle);
+5231: typedef S32  (AILCALLBACK FAR*AIL_file_seek_callback)  (UINTa FileHandle,
+5232:                                                         S32 Offset,
+5233:                                                         U32 Type);
+5234: 
+5235: typedef U32  (AILCALLBACK FAR*AIL_file_read_callback)  (UINTa FileHandle,
+5236:                                                         void FAR* Buffer,
+5237:                                                         U32 Bytes);
+5238: 
+5239: DXDEC  void  AILCALL AIL_set_file_callbacks  (AIL_file_open_callback opencb,
+5240:                                               AIL_file_close_callback closecb,
+5241:                                               AIL_file_seek_callback seekcb,
+5242:                                               AIL_file_read_callback readcb);
+5840: DXDEC  S32      AILCALL AIL_room_type                (HDIGDRIVER dig);
+5841: 
+5842: DXDEC  void     AILCALL AIL_set_room_type            (HDIGDRIVER dig,
+5843:                                                       S32        room_type);
+5847: DXDEC  void     AILCALL AIL_set_3D_rolloff_factor    (HDIGDRIVER dig,
+5848:                                                       F32       factor);
+5941: DXDEC void       AILCALL AIL_set_listener_3D_position         (HDIGDRIVER dig,
+5942:                                                                F32     X,
+5943:                                                                F32     Y,
+5944:                                                                F32     Z);
+5952: DXDEC void       AILCALL AIL_set_listener_3D_velocity_vector  (HDIGDRIVER dig,
+5953:                                                                F32     dX_per_ms,
+5954:                                                                F32     dY_per_ms,
+5955:                                                                F32     dZ_per_ms);
+5956: 
+5957: DXDEC void       AILCALL AIL_set_listener_3D_orientation      (HDIGDRIVER dig,
+5958:                                                                F32     X_face,
+5959:                                                                F32     Y_face,
+5960:                                                                F32     Z_face,
+5961:                                                                F32     X_up,
+5962:                                                                F32     Y_up,
+5963:                                                                F32     Z_up);
+```

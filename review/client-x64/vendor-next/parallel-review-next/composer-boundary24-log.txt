@@ -1,0 +1,172 @@
+# Static review: backend-boundary24 (startup facade)
+
+Scope: supplied excerpts only; manifest SHA `099986e64f6872ba1c3721bf006e9adf483819218d1dbee5722f5053aa6de97b`. No runtime/vendor execution inferred.
+
+---
+
+## 1. Public boundary vs wire/process (game-facing)
+
+**Satisfied (within excerpts)**  
+- `ClientMiles.h` exposes only Miles-shaped startup helpers, `OwnedText`, `Failure`/`FailureReason`, and opaque `HDIGDRIVER`. No opcodes, handles, frames, Hello/SessionClose, pipes, or child-process types (`ClientMiles.h` 8–69).  
+- `sample/startup_calls.cpp` includes only `startup_calls.h` → `ClientMiles.h` (lines 1–25).  
+- Deletion/isolation tree allows only `ClientMiles.h`, sample headers/sources, `link_double.cpp`, `link_main.cpp` (`check-portable.py` 59–67); dependency scan requires deps stay in that set (79–84).
+
+**Advisory — composition root not on the public facade**  
+- Pipe implementations call `ClientMilesPipe::Session::selected()` from every `ClientMiles::*` entry (`ClientMilesPipe.cpp` 143–145, 154–156, etc.). Selection is via `Session` construction (`Session.h` 14–15, `ClientMilesPipe.cpp` 70–75), which lives under `pipe/`, not in `ClientMiles.h`.  
+- **Counterexample:** Game TU includes only `ClientMiles.h` and links `ClientMilesPipe.cpp` without ever constructing `Session`.  
+- **Impact:** Every call throws `Failure(WrongState, "Miles implementation not selected")` (`ClientMilesPipe.cpp` 85–88). Not a wire leak; it is an undocumented-at-API-level wiring requirement (header comment 8–9 vs no public selector).
+
+**Advisory — opaque driver is still implementation-coupled when pipe-linked**  
+- `DigitalDriver` stores `MilesWire::Handle` and `Session*` (`ClientMilesPipe.cpp` 6–9). Public header only forward-declares `DigitalDriver` (`ClientMiles.h` 11–12). Game code cannot see wire fields without violating layering; identity checks in `speaker_configuration_spec` bind handles to the active session (`ClientMilesPipe.cpp` 230–235). Expected for pipe backend; not an escape into game policy if include discipline holds.
+
+---
+
+## 2. Documented pipe limits (not treated as defects)
+
+| Area | Evidence | vs native (`native_miles64.cpp`) |
+|------|----------|-----------------------------------|
+| Preferences | `get_preference`: IDs 1 and 42 only; `set_preference`: 42 only, values 16 or 64 (`ClientMiles.h` 64–65; `ClientMilesPipe.cpp` 165–178) | Pass-through any ID/value (63–68) |
+| Digital driver | Single open; `22050/16/2/0` only (`ClientMilesPipe.cpp` 212–213) | Any tuple (91–93) |
+| Speaker | Only spec via `output_mask = 8`, `value[3]` (`ClientMilesPipe.cpp` 237–240) | Full SDK call with four optional outs (96–99) |
+| Session lifetime | One session global (`ClientMilesPipe.cpp` 13, 73–75) | N/A |
+
+---
+
+## 3. API / call-site omissions vs `Audio.cpp` (integration impact)
+
+These are **gaps relative to current Audio init**, not missing playback/callback scope for this candidate.
+
+| Audio behavior (excerpt) | Facade / sample | Impact if Audio is swapped in literally |
+|--------------------------|-----------------|----------------------------------------|
+| `AIL_set_redist_directory("miles")` once, then `AIL_startup()` (1285–1289) | Sample: `MSS_versionOwned()`, then `"."`, then `"miles"`, then `startup()` (`startup_calls.cpp` 5–8) | Order and extra redist/version calls differ from production init. May be intentional (startup23 order, line 19) but **not** Audio-shaped. |
+| `AIL_set_file_callbacks(...)` (1293) | Not in facade | Audio still needs direct SDK or a future facade entry. |
+| `AIL_open_digital_driver(freq, bits, getProviderSpec(...), 0)` with **fallback** `(..., MSS_MC_STEREO, 0)` (1301–1308) | Sample: fixed tuple only; no second open (`startup_calls.cpp` 20–21); pipe rejects other tuples | **Pipe path cannot express Audio fallback policy** without game-side retries on `InvalidArgument` or facade extension. Native pipe-unrestricted open could support fallback if Audio calls facade twice. |
+| `AIL_speaker_configuration(..., &s_speakers)` (1326) | `speaker_configuration_spec` only | Physical/logical/falloff outputs unavailable by design (`ClientMiles.h` 60–62). |
+| `getMilesVersion()` / `AIL_MSS_version` (2466–2470) | `MSS_versionOwned()` in sample **before** startup | Audio queries version on demand, not necessarily pre-redist/pre-startup. Facade allows pre-startup (`ClientMilesPipe.cpp` 203–206 `requireAvailable`). |
+| `AIL_set_preference(DIG_DS_MIX_FRAGMENT_CNT, 64)` + **`AIL_serve()`** (5118–5119) | Sample sets 16/64 preferences; **no `AIL_serve` in facade** | Preference side effects that depend on serve are unrepresented; native delegate also does not call serve (`native_miles64.cpp` 67–68). |
+
+**Limitation (explicit):** Header states configuration/fallback belong to Audio (`ClientMiles.h` 45–46). Omissions above are consistent with that unless the goal is drop-in replacement of the Audio init block without policy changes.
+
+---
+
+## 4. Sample vs tests vs live fixture consistency
+
+**Aligned (happy path)**  
+- `adapter_test.cpp` `validSample()` script order matches `startupCalls()` through `AIL_shutdown`, then test adds `SessionClose` + `session.close()` (115–162 vs `startup_calls.cpp` 5–24).  
+- Preference choreography (42 → 16/64 readbacks) and driver/speaker opcodes match (`adapter_test.cpp` 129–143; `startup_calls.cpp` 15–23).
+
+**Advisory — sample does not model composition teardown on early exit**  
+- **Counterexample:** `startupResult == 0` → early return (`startup_calls.cpp` 9–10); no `shutdown()`, no `session.close()`.  
+- **Impact:** Pipe session may remain `!stopped` until root destroys `Session`; `close()` still requires prior `shutdown()` (`Session.h` 129–130). Tests always call `session.close()` after full success (`adapter_test.cpp` 161). Game/fixture must mirror that for failure paths; sample silent.
+
+**Advisory — `refusalsAndRealValueShapes` is not a second full lifecycle oracle**  
+- Script begins at `AIL_startup` only (`adapter_test.cpp` 168–179), unlike sample. Intentional for refusal probes; not a consistency bug.
+
+**Live fixture expectations vs sample strings**  
+- `live_controller.cpp` expects version `"7.2a"`, directory `"miles/"`, specific `last_error` text (83–88). Sample uses `"miles"` without slash (`startup_calls.cpp` 7). **Not a sample/adapter mismatch**—oracle is host-returned text; sample args still send `"miles"` (adapter_test directory step 121–122).
+
+---
+
+## 5. Native compile-only candidate vs “Miles-shaped at build time”
+
+**Limitation**  
+- `native_miles64.cpp` is gated to `_WIN64` + `_MSC_VER == 1800` (8–10); not built by `check-portable.py` (g++ adapter test only, 43–56).  
+- `static_assert` signature parity covers only `startup`, `shutdown`, `get_preference`, `set_preference` (21–30), not `open_digital_driver`, `last_error`, redist, `MSS_version`, or `speaker_configuration_spec`.  
+- **Impact:** “Ordinary Miles-shaped” is **partially** evidenced at compile time; other entry points rely on manual implementation match (e.g. `speaker_configuration_spec` vs five-argument SDK, 96–99).
+
+**Behavioral split (documented)**  
+- Native `open_digital_driver` / `get_preference` / `set_preference` have **no** pipe subset guards (`native_miles64.cpp` 63–68, 91–93). Same `ClientMiles.h` API, different rejection rules per linked TU—by design if build selects pipe vs native.
+
+**Advisory — `MSS_versionOwned` semantics**  
+- Native: fill 256-byte buffer, throw `QueryFailed` if no NUL/content (82–88).  
+- Pipe: `SessionVersion` opcode (`ClientMilesPipe.cpp` 203–206).  
+- Windows macro `AIL_MSS_version` loads DLL resource (`user` minimal header note)—native path is not a plain function delegate like `AIL_startup`. Compile-only file includes `<Mss.h>` and calls `AIL_MSS_version` (85)—consistency with macro expansion not shown in excerpts.
+
+**Advisory — redist lifetime**  
+- Native retains path strings until `shutdown()` (`native_miles64.cpp` 40, 58–60, 75–79).  
+- Pipe sends bytes per call (`ClientMilesPipe.cpp` 191–200); no client-side retention list in excerpt. Owned text is copied from replies (`ownedText`, 50–61). Adequate if host owns vendor pointers; differs from native retention model.
+
+---
+
+## 6. Deletion / isolation build (`check-portable.py`)
+
+**What it demonstrates**  
+- Game-facing sources compile/link with `CLIENT_MILES_TEST_DOUBLE` stub (`link_double.cpp`) and **no** pipe/protocol/native tree (58–67).  
+- Link without implementation fails with unresolved `ClientMiles::` (88–90).  
+- MMD deps confined to allowed list (79–84).
+
+**Limitation (not a defect in stated goal)**  
+- Does not prove mutual exclusion of `ClientMilesPipe.cpp` and `native_miles64.cpp` in one link unit.  
+- Does not run `link-only-test` (`isolated_executable_run`: false, 94).  
+- Does not prevent a game TU from `#include`ing `pipe/Session.h`—only that **listed** game sample does not.
+
+---
+
+## 7. Concrete defect candidates (bugs vs limits)
+
+### 7.1 `shutdown()` unavailable after `startup()` returned 0 (pipe)
+
+- **Where:** `startup()` sets `session.started = (value != 0)` (`ClientMilesPipe.cpp` 149–151); `shutdown()` calls `requireRunning()` → needs `started` (`154–157`, 98–101).  
+- **Counterexample:** Vendor/pipe returns `0` from `AIL_startup`; caller wishes to call `shutdown()` to match SDK pairing.  
+- **Impact:** `WrongState` throw. Sample avoids by early return (`startup_calls.cpp` 9–10). SDK `AIL_shutdown` after failed startup not represented in excerpts; may or may not be valid for Miles—**facade forbids the call**.
+
+Classify as **facade lifecycle bug** if policy requires symmetric teardown after zero startup; otherwise **documented strict state machine**.
+
+### 7.2 Faulted session: no recovery path
+
+- **Where:** Transport/unknown status sets `faulted_` (`ClientMilesPipe.cpp` 112–118, 106–108); subsequent ops throw `BackendFailed`; `shutdown()` and `close()` also blocked (`126–128`, 231–232 in tests).  
+- **Impact:** Composition root must destroy `Session`/channel without `close()` succeeding (`Session.cpp` 78–80 comment). Limitation if intentional; operational hazard if game expects retry.
+
+Tests encode this as intended (`terminalFailures`, 212–251).
+
+### 7.3 `set_preference` error message conflates distinct rejections
+
+- **Where:** One message for wrong ID, wrong value, and intptr_t overflow (`ClientMilesPipe.cpp` 175–178).  
+- **Impact:** Diagnostics only; behavior correct (`InvalidArgument`).
+
+Minor; not a functional bug.
+
+---
+
+## 8. Private layer / production pipe (out of game policy, in scope for leakage)
+
+- `LiveChannel.h` / `LiveChannel.cpp`: Hello, named pipes, child process, `MilesWire::Hello` (`LiveChannel.cpp` 30–60, 96). Not included in deletion tree; comment says composition root only (`LiveChannel.h` 6–8).  
+- **Advisory:** Unconditional `printf` tracing on every reply (`LiveChannel.cpp` 101–111)—operational noise, not an API escape.
+
+- `fixture/live_controller.cpp` uses `MilesWire` for negative controls (`NegativeControls`, 14–67)—fixture-only, labeled (12–13).
+
+---
+
+## 9. Decoder / status mapping (supporting pipe facade)
+
+- Known bridge statuses map to `FailureReason` (`ClientMilesPipe.cpp` 19–47).  
+- `StartupBridge::knownStatus` rejects unknown transport codes before mapping (`116–118`).  
+- `decodeReply` rejects callback/bytes payloads for startup ops (`reply.h` 65–66, 76–82)—consistent with “no callback contract” (`ClientMiles.h` 68).
+
+No game-facing exposure.
+
+---
+
+## 10. Summary table
+
+| Finding | Limitation or bug | Severity (for stated scope) |
+|--------|-------------------|---------------------------|
+| Pipe subset (prefs, driver tuple, one driver) | Documented limit | Expected |
+| No file callbacks / serve / full speaker / driver fallback in facade | Scope + Audio policy | Integration planning |
+| Sample order ≠ Audio init (version, `.`, double redist) | Consistency with Audio excerpt | Migration review |
+| `Session` required for pipe link; not in public header | API/wiring doc | Composition root |
+| Deletion build isolates headers/deps | Works as claimed | — |
+| Native signature asserts partial | Compile-only evidence gap | Build-time assurance |
+| `shutdown()` after startup result 0 on pipe | Likely bug or strict FSM | Depends on Miles teardown rules |
+| Failed startup sample skips `session.close()` | Sample omission | Root must still tear down |
+| Native vs pipe behavioral divergence on same API | Build-time selection | Expected if documented |
+
+---
+
+## 11. Not claimed (correctly absent from review demands)
+
+Callback lane, playback, Bink, full Audio class integration, x64 DLL link/run proof, and generic virtual `AudioBackend` are outside the supplied candidate; excerpts do not contradict that scoping.
+
+---
+
+**Note:** Review used only pasted sources; no filesystem or tool verification of the manifest hash or unstated files. Findings are advisory for independent confirmation.

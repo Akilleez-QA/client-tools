@@ -1,0 +1,40 @@
+loaded_dll=C:\facade25-private\mss32.dll
+request=1 opcode=4096 admission=0 transport=0 vendor=0 text_bytes=0
+request=2 opcode=4101 admission=1 transport=0 vendor=0 text_bytes=5
+request=3 opcode=34 admission=2 transport=0 vendor=0 text_bytes=1
+request=4 opcode=34 admission=3 transport=0 vendor=0 text_bytes=7
+rejected_before_adapter request=5 retained=8
+request=5 opcode=34 admission=4 transport=3 vendor=0 text_bytes=0
+vendor startup=1
+request=6 opcode=56 admission=5 transport=0 vendor=1 text_bytes=0
+signed preference request=7 result=64
+request=7 opcode=10 admission=6 transport=0 vendor=64 text_bytes=0
+signed preference request=8 result=8
+request=8 opcode=10 admission=7 transport=0 vendor=8 text_bytes=0
+request=9 opcode=12 admission=8 transport=0 vendor=0 text_bytes=23
+request=10 opcode=12 admission=9 transport=0 vendor=0 text_bytes=25
+signed preference request=11 result=8
+request=11 opcode=33 admission=10 transport=0 vendor=8 text_bytes=0
+signed preference request=12 result=16
+request=12 opcode=10 admission=11 transport=0 vendor=16 text_bytes=0
+signed preference request=13 result=16
+request=13 opcode=33 admission=12 transport=0 vendor=16 text_bytes=0
+signed preference request=14 result=64
+request=14 opcode=10 admission=13 transport=0 vendor=64 text_bytes=0
+rejected_before_adapter request=15 retained=8
+request=15 opcode=33 admission=14 transport=3 vendor=0 text_bytes=0
+signed preference request=16 result=64
+request=16 opcode=10 admission=15 transport=0 vendor=64 text_bytes=0
+request=17 opcode=14 admission=16 transport=0 vendor=0 text_bytes=0
+rejected_before_adapter request=18 retained=8
+request=18 opcode=53 admission=17 transport=3 vendor=0 text_bytes=0
+rejected_before_adapter request=19 retained=8
+request=19 opcode=53 admission=17 transport=2 vendor=0 text_bytes=0
+request=20 opcode=53 admission=18 transport=0 vendor=0 text_bytes=0
+fixture preference restored before shutdown
+vendor shutdown complete; retained directory bytes=8
+request=21 opcode=52 admission=19 transport=0 vendor=0 text_bytes=0
+rejected_before_adapter request=22 retained=8
+request=22 opcode=10 admission=19 transport=4097 vendor=0 text_bytes=0
+request=23 opcode=4109 admission=20 transport=0 vendor=0 text_bytes=0
+PASS host ordered shutdown; retained directory bytes=8; no callback registrations

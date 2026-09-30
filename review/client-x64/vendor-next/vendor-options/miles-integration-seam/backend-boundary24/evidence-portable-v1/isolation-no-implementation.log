@@ -1,0 +1,18 @@
+/usr/bin/ld: startup_calls.o: in function `startupCalls()':
+startup_calls.cpp:(.text+0x30): undefined reference to `ClientMiles::MSS_versionOwned()'
+/usr/bin/ld: startup_calls.cpp:(.text+0x65): undefined reference to `ClientMiles::set_redist_directoryOwned(char const*)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x9e): undefined reference to `ClientMiles::set_redist_directoryOwned(char const*)'
+/usr/bin/ld: startup_calls.cpp:(.text+0xc6): undefined reference to `ClientMiles::startup()'
+/usr/bin/ld: startup_calls.cpp:(.text+0xec): undefined reference to `ClientMiles::get_preference(unsigned int)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x101): undefined reference to `ClientMiles::get_preference(unsigned int)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x118): undefined reference to `ClientMiles::last_errorOwned()'
+/usr/bin/ld: startup_calls.cpp:(.text+0x147): undefined reference to `ClientMiles::last_errorOwned()'
+/usr/bin/ld: startup_calls.cpp:(.text+0x17c): undefined reference to `ClientMiles::set_preference(unsigned int, long)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x191): undefined reference to `ClientMiles::get_preference(unsigned int)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x1ab): undefined reference to `ClientMiles::set_preference(unsigned int, long)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x1c0): undefined reference to `ClientMiles::get_preference(unsigned int)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x1d5): undefined reference to `ClientMiles::get_preference(unsigned int)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x1f9): undefined reference to `ClientMiles::open_digital_driver(unsigned int, int, int, unsigned int)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x222): undefined reference to `ClientMiles::speaker_configuration_spec(ClientMiles::DigitalDriver*)'
+/usr/bin/ld: startup_calls.cpp:(.text+0x231): undefined reference to `ClientMiles::shutdown()'
+collect2: error: ld returned 1 exit status
