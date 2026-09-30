@@ -1,0 +1,50 @@
+{
+  "original": {
+    "channels": 2,
+    "rate": 44100,
+    "width": 2,
+    "frames": 107136
+  },
+  "ffmpeg": {
+    "channels": 2,
+    "rate": 44100,
+    "width": 2,
+    "frames": 107136
+  },
+  "miniaudio_log": "channels=2 rate=44100 frames=107136 final=-17\n",
+  "comparison": {
+    "ffmpeg": {
+      "frames": 107136,
+      "best_offset_candidate_minus_original": 0,
+      "overlap_frames": 107136,
+      "unequal_samples": 23736,
+      "total_samples": 214272,
+      "max_abs_error": 502,
+      "rms_error": 8.980960421336114,
+      "trim_original_front": 0,
+      "trim_candidate_front": 0,
+      "original_tail": 0,
+      "candidate_tail": 0
+    },
+    "miniaudio": {
+      "frames": 107136,
+      "best_offset_candidate_minus_original": 0,
+      "overlap_frames": 107136,
+      "unequal_samples": 23778,
+      "total_samples": 214272,
+      "max_abs_error": 502,
+      "rms_error": 8.980971853651544,
+      "trim_original_front": 0,
+      "trim_candidate_front": 0,
+      "original_tail": 0,
+      "candidate_tail": 0
+    }
+  },
+  "files": {
+    "sample.mp3": "8d006387e821037a40aacbf51fa374efb20d41597158fe7e844dbef7fd104a79",
+    "decoded-original.wav": "44ae67cc466456dd53f128339fff013e1337db90a316fe99a228a41bc9fae749",
+    "decoded-ffmpeg.wav": "462d8de08c45808a70da8f313a2202ab0fa9bbc8fde95d8d70e135112a532bf1",
+    "decoded-miniaudio.s16": "720309d84ef8982b9623ccefd81a1b58332bb34e2efacb9c8e4ea6a9e9009837",
+    "miniaudio-decode.c": "a7ade92eb5f46d0f63a921734906db17945533949b6e4af66c33c979a7664e29"
+  }
+}

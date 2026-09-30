@@ -1,0 +1,282 @@
+[
+  {
+    "configuration": "Debug-Win32",
+    "file": "CuiIoWin.cpp.symbols.txt",
+    "references": [
+      "A5A 00000000 UNDEF  notype ()    External     | ?run@SingleUse@VideoCapture@@YAXXZ (void __cdecl VideoCapture::SingleUse::run(void))"
+    ]
+  },
+  {
+    "configuration": "Debug-Win32",
+    "file": "SwgCuiG15Lcd.cpp.symbols.txt",
+    "references": [
+      "1CC 00000000 UNDEF  notype ()    External     | ??0CEzLcd@@QAE@XZ (public: __thiscall CEzLcd::CEzLcd(void))",
+      "1CD 00000000 UNDEF  notype ()    External     | ??1CEzLcd@@QAE@XZ (public: __thiscall CEzLcd::~CEzLcd(void))",
+      "1CE 00000000 UNDEF  notype ()    External     | ?InitYourself@CEzLcd@@QAEJPBDHHPAUlgLcdConfigureContext@@HH@Z (public: long __thiscall CEzLcd::InitYourself(char const *,int,int,struct lgLcdConfigureContext *,int,int))",
+      "1CF 00000000 UNDEF  notype ()    External     | ?AddText@CEzLcd@@QAEPAXW4LGObjectType@@W4LGTextSize@@HHH@Z (public: void * __thiscall CEzLcd::AddText(enum LGObjectType,enum LGTextSize,int,int,int))",
+      "1D0 00000000 UNDEF  notype ()    External     | ?SetText@CEzLcd@@QAEJPAXPBD@Z (public: long __thiscall CEzLcd::SetText(void *,char const *))",
+      "1D1 00000000 UNDEF  notype ()    External     | ?SetOrigin@CEzLcd@@QAEJPAXHH@Z (public: long __thiscall CEzLcd::SetOrigin(void *,int,int))",
+      "1D2 00000000 UNDEF  notype ()    External     | ?SetVisible@CEzLcd@@QAEJPAXH@Z (public: long __thiscall CEzLcd::SetVisible(void *,int))",
+      "1D3 00000000 UNDEF  notype ()    External     | ?SetAsForeground@CEzLcd@@QAEJH@Z (public: long __thiscall CEzLcd::SetAsForeground(int))",
+      "1D4 00000000 UNDEF  notype ()    External     | ?ButtonTriggered@CEzLcd@@QAEHH@Z (public: int __thiscall CEzLcd::ButtonTriggered(int))",
+      "1D5 00000000 UNDEF  notype ()    External     | ?Update@CEzLcd@@QAEXXZ (public: void __thiscall CEzLcd::Update(void))"
+    ]
+  },
+  {
+    "configuration": "Debug-Win32",
+    "file": "SwgCuiTcgManager.cpp.symbols.txt",
+    "references": [
+      "14A 00000000 UNDEF  notype ()    External     | ?init@libEverQuestTCG@@YA_NPBDW4HostProcessType@1@W4RealmType@1@@Z (bool __cdecl libEverQuestTCG::init(char const *,enum libEverQuestTCG::HostProcessType,enum libEverQuestTCG::RealmType))",
+      "14B 00000000 UNDEF  notype ()    External     | ?setDesktopWindow@libEverQuestTCG@@YAXPAUHWND__@@@Z (void __cdecl libEverQuestTCG::setDesktopWindow(struct HWND__ *))",
+      "14C 00000000 UNDEF  notype ()    External     | ?setUserName@libEverQuestTCG@@YAXPBD@Z (void __cdecl libEverQuestTCG::setUserName(char const *))",
+      "14D 00000000 UNDEF  notype ()    External     | ?setSessionID@libEverQuestTCG@@YAXPBD@Z (void __cdecl libEverQuestTCG::setSessionID(char const *))",
+      "14E 00000000 UNDEF  notype ()    External     | ?setNavigateCallback@libEverQuestTCG@@YAXP6GXPBD@Z@Z (void __cdecl libEverQuestTCG::setNavigateCallback(void (__stdcall*)(char const *)))",
+      "14F 00000000 UNDEF  notype ()    External     | ?setNavigateWithPostDataCallback@libEverQuestTCG@@YAXP6GXPBD0@Z@Z (void __cdecl libEverQuestTCG::setNavigateWithPostDataCallback(void (__stdcall*)(char const *,char const *)))",
+      "150 00000000 UNDEF  notype ()    External     | ?setPlaySoundCallback@libEverQuestTCG@@YAXP6GXPADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlaySoundCallback(void (__stdcall*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "151 00000000 UNDEF  notype ()    External     | ?setPlayMusicCallback@libEverQuestTCG@@YAXP6GXPADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlayMusicCallback(void (__stdcall*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "152 00000000 UNDEF  notype ()    External     | ?setSetSoundVolumeCallback@libEverQuestTCG@@YAXP6GXM@Z@Z (void __cdecl libEverQuestTCG::setSetSoundVolumeCallback(void (__stdcall*)(float)))",
+      "153 00000000 UNDEF  notype ()    External     | ?setSetMusicVolumeCallback@libEverQuestTCG@@YAXP6GXM@Z@Z (void __cdecl libEverQuestTCG::setSetMusicVolumeCallback(void (__stdcall*)(float)))",
+      "154 00000000 UNDEF  notype ()    External     | ?setStopAllSoundsCallback@libEverQuestTCG@@YAXP6GXXZ@Z (void __cdecl libEverQuestTCG::setStopAllSoundsCallback(void (__stdcall*)(void)))",
+      "155 00000000 UNDEF  notype ()    External     | ?setSetWindowStateCallback@libEverQuestTCG@@YAXP6GXH@Z@Z (void __cdecl libEverQuestTCG::setSetWindowStateCallback(void (__stdcall*)(int)))",
+      "156 00000000 UNDEF  notype ()    External     | ?launch@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::launch(void))",
+      "157 00000000 UNDEF  notype ()    External     | ?isLaunched@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::isLaunched(void))",
+      "158 00000000 UNDEF  notype ()    External     | ?update@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::update(void))",
+      "159 00000000 UNDEF  notype ()    External     | ?release@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::release(void))"
+    ]
+  },
+  {
+    "configuration": "Debug-Win32",
+    "file": "SwgCuiWebBrowserManager.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Debug-Win32",
+    "file": "SwgCuiWebBrowserWidget.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Debug-Win32",
+    "file": "SwgVideoCapture.cpp.symbols.txt",
+    "references": [
+      "134 00000000 UNDEF  notype ()    External     | ?SourceConfigAud2SourceFmtAud@VideoCapture@@YA?AW4SourceFmtAud@1@HH@Z (enum VideoCapture::SourceFmtAud __cdecl VideoCapture::SourceConfigAud2SourceFmtAud(int,int))",
+      "135 00000000 UNDEF  notype ()    External     | ?SamplesPerSec2SampleRateAud@VideoCapture@@YA?AW4SampleRateAud@1@H@Z (enum VideoCapture::SampleRateAud __cdecl VideoCapture::SamplesPerSec2SampleRateAud(int))",
+      "161 00000000 UNDEF  notype ()    External     | ?GetEncoderRes@EncoderRes@VideoCapture@@SAABV12@W4EncRes@2@@Z (public: static class VideoCapture::EncoderRes const & __cdecl VideoCapture::EncoderRes::GetEncoderRes(enum VideoCapture::EncRes))",
+      "165 00000000 UNDEF  notype ()    External     | ?FindBestEncRes@VideoCapture@@YAABVEncoderRes@1@HHW4EncRes@1@@Z (class VideoCapture::EncoderRes const & __cdecl VideoCapture::FindBestEncRes(int,int,enum VideoCapture::EncRes))",
+      "166 00000000 UNDEF  notype ()    External     | ??0EncoderProps@VideoCapture@@QAE@XZ (public: __thiscall VideoCapture::EncoderProps::EncoderProps(void))",
+      "167 00000000 UNDEF  notype ()    External     | ??1EncoderProps@VideoCapture@@QAE@XZ (public: __thiscall VideoCapture::EncoderProps::~EncoderProps(void))",
+      "177 00000000 UNDEF  notype ()    External     | ??0EncoderLimits@VideoCapture@@QAE@XZ (public: __thiscall VideoCapture::EncoderLimits::EncoderLimits(void))",
+      "178 00000000 UNDEF  notype ()    External     | ??1EncoderLimits@VideoCapture@@QAE@XZ (public: __thiscall VideoCapture::EncoderLimits::~EncoderLimits(void))",
+      "17C 00000000 UNDEF  notype ()    External     | ?GetAudioBuffer@VideoCaptureManager@VideoCapture@@QAE_NAAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __thiscall VideoCapture::VideoCaptureManager::GetAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "17D 00000000 UNDEF  notype ()    External     | ?PutAudioBuffer@VideoCaptureManager@VideoCapture@@QAE_NAAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __thiscall VideoCapture::VideoCaptureManager::PutAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "17E 00000000 UNDEF  notype ()    External     | ??0VideoCaptureManager_SingleUse@VideoCapture@@QAE@XZ (public: __thiscall VideoCapture::VideoCaptureManager_SingleUse::VideoCaptureManager_SingleUse(void))",
+      "17F 00000000 UNDEF  notype ()    External     | ??1VideoCaptureManager_SingleUse@VideoCapture@@QAE@XZ (public: __thiscall VideoCapture::VideoCaptureManager_SingleUse::~VideoCaptureManager_SingleUse(void))",
+      "180 00000000 UNDEF  notype ()    External     | ?Start@VideoCaptureManager_SingleUse@VideoCapture@@QAE_NABVEncoderProps@2@ABVEncoderLimits@2@PBD@Z (public: bool __thiscall VideoCapture::VideoCaptureManager_SingleUse::Start(class VideoCapture::EncoderProps const &,class VideoCapture::EncoderLimits const &,char const *))",
+      "181 00000000 UNDEF  notype ()    External     | ?Stop@VideoCaptureManager_SingleUse@VideoCapture@@QAEXXZ (public: void __thiscall VideoCapture::VideoCaptureManager_SingleUse::Stop(void))",
+      "182 00000000 UNDEF  notype ()    External     | ?GetVideoBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QAE_NAAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __thiscall VideoCapture::VideoCaptureManager_SingleUse::GetVideoBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "183 00000000 UNDEF  notype ()    External     | ?PutVideoBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QAE_NAAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __thiscall VideoCapture::VideoCaptureManager_SingleUse::PutVideoBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "184 00000000 UNDEF  notype ()    External     | ?GetAudioBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QAE_NAAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __thiscall VideoCapture::VideoCaptureManager_SingleUse::GetAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "185 00000000 UNDEF  notype ()    External     | ?PutAudioBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QAE_NAAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __thiscall VideoCapture::VideoCaptureManager_SingleUse::PutAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "186 00000000 UNDEF  notype ()    External     | ?GiveTime@VideoCaptureManager_SingleUse@VideoCapture@@QAE?AW4State@12@XZ (public: enum VideoCapture::VideoCaptureManager_SingleUse::State __thiscall VideoCapture::VideoCaptureManager_SingleUse::GiveTime(void))",
+      "18E 00000000 UNDEF  notype ()    WeakExternal | ??_ESoeUtilMemoryAdapter@VideoCapture@@UAEPAXI@Z (public: virtual void * __thiscall VideoCapture::SoeUtilMemoryAdapter::`vector deleting destructor'(unsigned int))",
+      "1A3 00000000 UNDEF  notype ()    WeakExternal | ??_ESwgAudioCaptureCallbackHandler@VideoCapture@@UAEPAXI@Z (public: virtual void * __thiscall VideoCapture::SwgAudioCaptureCallbackHandler::`vector deleting destructor'(unsigned int))"
+    ]
+  },
+  {
+    "configuration": "Debug-x64",
+    "file": "CuiIoWin.cpp.symbols.txt",
+    "references": [
+      "A5A 00000000 UNDEF  notype ()    External     | ?run@SingleUse@VideoCapture@@YAXXZ (void __cdecl VideoCapture::SingleUse::run(void))"
+    ]
+  },
+  {
+    "configuration": "Debug-x64",
+    "file": "SwgCuiG15Lcd.cpp.symbols.txt",
+    "references": [
+      "1CC 00000000 UNDEF  notype ()    External     | ??0CEzLcd@@QEAA@XZ (public: __cdecl CEzLcd::CEzLcd(void))",
+      "1CD 00000000 UNDEF  notype ()    External     | ??1CEzLcd@@QEAA@XZ (public: __cdecl CEzLcd::~CEzLcd(void))",
+      "1CE 00000000 UNDEF  notype ()    External     | ?InitYourself@CEzLcd@@QEAAJPEBDHHPEAUlgLcdConfigureContext@@HH@Z (public: long __cdecl CEzLcd::InitYourself(char const *,int,int,struct lgLcdConfigureContext *,int,int))",
+      "1CF 00000000 UNDEF  notype ()    External     | ?AddText@CEzLcd@@QEAAPEAXW4LGObjectType@@W4LGTextSize@@HHH@Z (public: void * __cdecl CEzLcd::AddText(enum LGObjectType,enum LGTextSize,int,int,int))",
+      "1D0 00000000 UNDEF  notype ()    External     | ?SetText@CEzLcd@@QEAAJPEAXPEBD@Z (public: long __cdecl CEzLcd::SetText(void *,char const *))",
+      "1D1 00000000 UNDEF  notype ()    External     | ?SetOrigin@CEzLcd@@QEAAJPEAXHH@Z (public: long __cdecl CEzLcd::SetOrigin(void *,int,int))",
+      "1D2 00000000 UNDEF  notype ()    External     | ?SetVisible@CEzLcd@@QEAAJPEAXH@Z (public: long __cdecl CEzLcd::SetVisible(void *,int))",
+      "1D3 00000000 UNDEF  notype ()    External     | ?SetAsForeground@CEzLcd@@QEAAJH@Z (public: long __cdecl CEzLcd::SetAsForeground(int))",
+      "1D4 00000000 UNDEF  notype ()    External     | ?ButtonTriggered@CEzLcd@@QEAAHH@Z (public: int __cdecl CEzLcd::ButtonTriggered(int))",
+      "1D5 00000000 UNDEF  notype ()    External     | ?Update@CEzLcd@@QEAAXXZ (public: void __cdecl CEzLcd::Update(void))"
+    ]
+  },
+  {
+    "configuration": "Debug-x64",
+    "file": "SwgCuiTcgManager.cpp.symbols.txt",
+    "references": [
+      "14A 00000000 UNDEF  notype ()    External     | ?init@libEverQuestTCG@@YA_NPEBDW4HostProcessType@1@W4RealmType@1@@Z (bool __cdecl libEverQuestTCG::init(char const *,enum libEverQuestTCG::HostProcessType,enum libEverQuestTCG::RealmType))",
+      "14B 00000000 UNDEF  notype ()    External     | ?setDesktopWindow@libEverQuestTCG@@YAXPEAUHWND__@@@Z (void __cdecl libEverQuestTCG::setDesktopWindow(struct HWND__ *))",
+      "14C 00000000 UNDEF  notype ()    External     | ?setUserName@libEverQuestTCG@@YAXPEBD@Z (void __cdecl libEverQuestTCG::setUserName(char const *))",
+      "14D 00000000 UNDEF  notype ()    External     | ?setSessionID@libEverQuestTCG@@YAXPEBD@Z (void __cdecl libEverQuestTCG::setSessionID(char const *))",
+      "14E 00000000 UNDEF  notype ()    External     | ?setNavigateCallback@libEverQuestTCG@@YAXP6AXPEBD@Z@Z (void __cdecl libEverQuestTCG::setNavigateCallback(void (__cdecl*)(char const *)))",
+      "14F 00000000 UNDEF  notype ()    External     | ?setNavigateWithPostDataCallback@libEverQuestTCG@@YAXP6AXPEBD0@Z@Z (void __cdecl libEverQuestTCG::setNavigateWithPostDataCallback(void (__cdecl*)(char const *,char const *)))",
+      "150 00000000 UNDEF  notype ()    External     | ?setPlaySoundCallback@libEverQuestTCG@@YAXP6AXPEADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlaySoundCallback(void (__cdecl*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "151 00000000 UNDEF  notype ()    External     | ?setPlayMusicCallback@libEverQuestTCG@@YAXP6AXPEADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlayMusicCallback(void (__cdecl*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "152 00000000 UNDEF  notype ()    External     | ?setSetSoundVolumeCallback@libEverQuestTCG@@YAXP6AXM@Z@Z (void __cdecl libEverQuestTCG::setSetSoundVolumeCallback(void (__cdecl*)(float)))",
+      "153 00000000 UNDEF  notype ()    External     | ?setSetMusicVolumeCallback@libEverQuestTCG@@YAXP6AXM@Z@Z (void __cdecl libEverQuestTCG::setSetMusicVolumeCallback(void (__cdecl*)(float)))",
+      "154 00000000 UNDEF  notype ()    External     | ?setStopAllSoundsCallback@libEverQuestTCG@@YAXP6AXXZ@Z (void __cdecl libEverQuestTCG::setStopAllSoundsCallback(void (__cdecl*)(void)))",
+      "155 00000000 UNDEF  notype ()    External     | ?setSetWindowStateCallback@libEverQuestTCG@@YAXP6AXH@Z@Z (void __cdecl libEverQuestTCG::setSetWindowStateCallback(void (__cdecl*)(int)))",
+      "156 00000000 UNDEF  notype ()    External     | ?launch@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::launch(void))",
+      "157 00000000 UNDEF  notype ()    External     | ?isLaunched@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::isLaunched(void))",
+      "158 00000000 UNDEF  notype ()    External     | ?update@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::update(void))",
+      "159 00000000 UNDEF  notype ()    External     | ?release@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::release(void))"
+    ]
+  },
+  {
+    "configuration": "Debug-x64",
+    "file": "SwgCuiWebBrowserManager.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Debug-x64",
+    "file": "SwgCuiWebBrowserWidget.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Debug-x64",
+    "file": "SwgVideoCapture.cpp.symbols.txt",
+    "references": [
+      "134 00000000 UNDEF  notype ()    External     | ?SourceConfigAud2SourceFmtAud@VideoCapture@@YA?AW4SourceFmtAud@1@HH@Z (enum VideoCapture::SourceFmtAud __cdecl VideoCapture::SourceConfigAud2SourceFmtAud(int,int))",
+      "135 00000000 UNDEF  notype ()    External     | ?SamplesPerSec2SampleRateAud@VideoCapture@@YA?AW4SampleRateAud@1@H@Z (enum VideoCapture::SampleRateAud __cdecl VideoCapture::SamplesPerSec2SampleRateAud(int))",
+      "161 00000000 UNDEF  notype ()    External     | ?GetEncoderRes@EncoderRes@VideoCapture@@SAAEBV12@W4EncRes@2@@Z (public: static class VideoCapture::EncoderRes const & __cdecl VideoCapture::EncoderRes::GetEncoderRes(enum VideoCapture::EncRes))",
+      "165 00000000 UNDEF  notype ()    External     | ?FindBestEncRes@VideoCapture@@YAAEBVEncoderRes@1@HHW4EncRes@1@@Z (class VideoCapture::EncoderRes const & __cdecl VideoCapture::FindBestEncRes(int,int,enum VideoCapture::EncRes))",
+      "166 00000000 UNDEF  notype ()    External     | ??0EncoderProps@VideoCapture@@QEAA@XZ (public: __cdecl VideoCapture::EncoderProps::EncoderProps(void))",
+      "167 00000000 UNDEF  notype ()    External     | ??1EncoderProps@VideoCapture@@QEAA@XZ (public: __cdecl VideoCapture::EncoderProps::~EncoderProps(void))",
+      "177 00000000 UNDEF  notype ()    External     | ??0EncoderLimits@VideoCapture@@QEAA@XZ (public: __cdecl VideoCapture::EncoderLimits::EncoderLimits(void))",
+      "178 00000000 UNDEF  notype ()    External     | ??1EncoderLimits@VideoCapture@@QEAA@XZ (public: __cdecl VideoCapture::EncoderLimits::~EncoderLimits(void))",
+      "17C 00000000 UNDEF  notype ()    External     | ?GetAudioBuffer@VideoCaptureManager@VideoCapture@@QEAA_NAEAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __cdecl VideoCapture::VideoCaptureManager::GetAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "17D 00000000 UNDEF  notype ()    External     | ?PutAudioBuffer@VideoCaptureManager@VideoCapture@@QEAA_NAEAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __cdecl VideoCapture::VideoCaptureManager::PutAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "17E 00000000 UNDEF  notype ()    External     | ??0VideoCaptureManager_SingleUse@VideoCapture@@QEAA@XZ (public: __cdecl VideoCapture::VideoCaptureManager_SingleUse::VideoCaptureManager_SingleUse(void))",
+      "17F 00000000 UNDEF  notype ()    External     | ??1VideoCaptureManager_SingleUse@VideoCapture@@QEAA@XZ (public: __cdecl VideoCapture::VideoCaptureManager_SingleUse::~VideoCaptureManager_SingleUse(void))",
+      "180 00000000 UNDEF  notype ()    External     | ?Start@VideoCaptureManager_SingleUse@VideoCapture@@QEAA_NAEBVEncoderProps@2@AEBVEncoderLimits@2@PEBD@Z (public: bool __cdecl VideoCapture::VideoCaptureManager_SingleUse::Start(class VideoCapture::EncoderProps const &,class VideoCapture::EncoderLimits const &,char const *))",
+      "181 00000000 UNDEF  notype ()    External     | ?Stop@VideoCaptureManager_SingleUse@VideoCapture@@QEAAXXZ (public: void __cdecl VideoCapture::VideoCaptureManager_SingleUse::Stop(void))",
+      "182 00000000 UNDEF  notype ()    External     | ?GetVideoBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QEAA_NAEAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __cdecl VideoCapture::VideoCaptureManager_SingleUse::GetVideoBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "183 00000000 UNDEF  notype ()    External     | ?PutVideoBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QEAA_NAEAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __cdecl VideoCapture::VideoCaptureManager_SingleUse::PutVideoBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "184 00000000 UNDEF  notype ()    External     | ?GetAudioBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QEAA_NAEAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __cdecl VideoCapture::VideoCaptureManager_SingleUse::GetAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "185 00000000 UNDEF  notype ()    External     | ?PutAudioBuffer@VideoCaptureManager_SingleUse@VideoCapture@@QEAA_NAEAV?$SmartPtrT@VIBuffer@CaptureCommon@@V?$ReleaseFunc@VIBuffer@CaptureCommon@@@Smart@@@Smart@@@Z (public: bool __cdecl VideoCapture::VideoCaptureManager_SingleUse::PutAudioBuffer(class Smart::SmartPtrT<class CaptureCommon::IBuffer,class Smart::ReleaseFunc<class CaptureCommon::IBuffer> > &))",
+      "186 00000000 UNDEF  notype ()    External     | ?GiveTime@VideoCaptureManager_SingleUse@VideoCapture@@QEAA?AW4State@12@XZ (public: enum VideoCapture::VideoCaptureManager_SingleUse::State __cdecl VideoCapture::VideoCaptureManager_SingleUse::GiveTime(void))",
+      "18E 00000000 UNDEF  notype ()    WeakExternal | ??_ESoeUtilMemoryAdapter@VideoCapture@@UEAAPEAXI@Z (public: virtual void * __cdecl VideoCapture::SoeUtilMemoryAdapter::`vector deleting destructor'(unsigned int))",
+      "1A3 00000000 UNDEF  notype ()    WeakExternal | ??_ESwgAudioCaptureCallbackHandler@VideoCapture@@UEAAPEAXI@Z (public: virtual void * __cdecl VideoCapture::SwgAudioCaptureCallbackHandler::`vector deleting destructor'(unsigned int))"
+    ]
+  },
+  {
+    "configuration": "Release-Win32",
+    "file": "CuiIoWin.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-Win32",
+    "file": "SwgCuiG15Lcd.cpp.symbols.txt",
+    "references": [
+      "1C4 00000000 UNDEF  notype ()    External     | ??0CEzLcd@@QAE@XZ (public: __thiscall CEzLcd::CEzLcd(void))",
+      "1C5 00000000 UNDEF  notype ()    External     | ??1CEzLcd@@QAE@XZ (public: __thiscall CEzLcd::~CEzLcd(void))",
+      "1C6 00000000 UNDEF  notype ()    External     | ?InitYourself@CEzLcd@@QAEJPBDHHPAUlgLcdConfigureContext@@HH@Z (public: long __thiscall CEzLcd::InitYourself(char const *,int,int,struct lgLcdConfigureContext *,int,int))",
+      "1C7 00000000 UNDEF  notype ()    External     | ?AddText@CEzLcd@@QAEPAXW4LGObjectType@@W4LGTextSize@@HHH@Z (public: void * __thiscall CEzLcd::AddText(enum LGObjectType,enum LGTextSize,int,int,int))",
+      "1C8 00000000 UNDEF  notype ()    External     | ?SetText@CEzLcd@@QAEJPAXPBD@Z (public: long __thiscall CEzLcd::SetText(void *,char const *))",
+      "1C9 00000000 UNDEF  notype ()    External     | ?SetOrigin@CEzLcd@@QAEJPAXHH@Z (public: long __thiscall CEzLcd::SetOrigin(void *,int,int))",
+      "1CA 00000000 UNDEF  notype ()    External     | ?SetVisible@CEzLcd@@QAEJPAXH@Z (public: long __thiscall CEzLcd::SetVisible(void *,int))",
+      "1CB 00000000 UNDEF  notype ()    External     | ?SetAsForeground@CEzLcd@@QAEJH@Z (public: long __thiscall CEzLcd::SetAsForeground(int))",
+      "1CC 00000000 UNDEF  notype ()    External     | ?ButtonTriggered@CEzLcd@@QAEHH@Z (public: int __thiscall CEzLcd::ButtonTriggered(int))",
+      "1CD 00000000 UNDEF  notype ()    External     | ?Update@CEzLcd@@QAEXXZ (public: void __thiscall CEzLcd::Update(void))"
+    ]
+  },
+  {
+    "configuration": "Release-Win32",
+    "file": "SwgCuiTcgManager.cpp.symbols.txt",
+    "references": [
+      "13C 00000000 UNDEF  notype ()    External     | ?init@libEverQuestTCG@@YA_NPBDW4HostProcessType@1@W4RealmType@1@@Z (bool __cdecl libEverQuestTCG::init(char const *,enum libEverQuestTCG::HostProcessType,enum libEverQuestTCG::RealmType))",
+      "13D 00000000 UNDEF  notype ()    External     | ?setDesktopWindow@libEverQuestTCG@@YAXPAUHWND__@@@Z (void __cdecl libEverQuestTCG::setDesktopWindow(struct HWND__ *))",
+      "13E 00000000 UNDEF  notype ()    External     | ?setUserName@libEverQuestTCG@@YAXPBD@Z (void __cdecl libEverQuestTCG::setUserName(char const *))",
+      "13F 00000000 UNDEF  notype ()    External     | ?setSessionID@libEverQuestTCG@@YAXPBD@Z (void __cdecl libEverQuestTCG::setSessionID(char const *))",
+      "140 00000000 UNDEF  notype ()    External     | ?setNavigateCallback@libEverQuestTCG@@YAXP6GXPBD@Z@Z (void __cdecl libEverQuestTCG::setNavigateCallback(void (__stdcall*)(char const *)))",
+      "141 00000000 UNDEF  notype ()    External     | ?setNavigateWithPostDataCallback@libEverQuestTCG@@YAXP6GXPBD0@Z@Z (void __cdecl libEverQuestTCG::setNavigateWithPostDataCallback(void (__stdcall*)(char const *,char const *)))",
+      "142 00000000 UNDEF  notype ()    External     | ?setPlaySoundCallback@libEverQuestTCG@@YAXP6GXPADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlaySoundCallback(void (__stdcall*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "143 00000000 UNDEF  notype ()    External     | ?setPlayMusicCallback@libEverQuestTCG@@YAXP6GXPADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlayMusicCallback(void (__stdcall*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "144 00000000 UNDEF  notype ()    External     | ?setSetSoundVolumeCallback@libEverQuestTCG@@YAXP6GXM@Z@Z (void __cdecl libEverQuestTCG::setSetSoundVolumeCallback(void (__stdcall*)(float)))",
+      "145 00000000 UNDEF  notype ()    External     | ?setSetMusicVolumeCallback@libEverQuestTCG@@YAXP6GXM@Z@Z (void __cdecl libEverQuestTCG::setSetMusicVolumeCallback(void (__stdcall*)(float)))",
+      "146 00000000 UNDEF  notype ()    External     | ?setStopAllSoundsCallback@libEverQuestTCG@@YAXP6GXXZ@Z (void __cdecl libEverQuestTCG::setStopAllSoundsCallback(void (__stdcall*)(void)))",
+      "147 00000000 UNDEF  notype ()    External     | ?setSetWindowStateCallback@libEverQuestTCG@@YAXP6GXH@Z@Z (void __cdecl libEverQuestTCG::setSetWindowStateCallback(void (__stdcall*)(int)))",
+      "148 00000000 UNDEF  notype ()    External     | ?launch@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::launch(void))",
+      "149 00000000 UNDEF  notype ()    External     | ?isLaunched@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::isLaunched(void))",
+      "14A 00000000 UNDEF  notype ()    External     | ?update@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::update(void))",
+      "14B 00000000 UNDEF  notype ()    External     | ?release@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::release(void))"
+    ]
+  },
+  {
+    "configuration": "Release-Win32",
+    "file": "SwgCuiWebBrowserManager.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-Win32",
+    "file": "SwgCuiWebBrowserWidget.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-Win32",
+    "file": "SwgVideoCapture.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-x64",
+    "file": "CuiIoWin.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-x64",
+    "file": "SwgCuiG15Lcd.cpp.symbols.txt",
+    "references": [
+      "1C4 00000000 UNDEF  notype ()    External     | ??0CEzLcd@@QEAA@XZ (public: __cdecl CEzLcd::CEzLcd(void))",
+      "1C5 00000000 UNDEF  notype ()    External     | ??1CEzLcd@@QEAA@XZ (public: __cdecl CEzLcd::~CEzLcd(void))",
+      "1C6 00000000 UNDEF  notype ()    External     | ?InitYourself@CEzLcd@@QEAAJPEBDHHPEAUlgLcdConfigureContext@@HH@Z (public: long __cdecl CEzLcd::InitYourself(char const *,int,int,struct lgLcdConfigureContext *,int,int))",
+      "1C7 00000000 UNDEF  notype ()    External     | ?AddText@CEzLcd@@QEAAPEAXW4LGObjectType@@W4LGTextSize@@HHH@Z (public: void * __cdecl CEzLcd::AddText(enum LGObjectType,enum LGTextSize,int,int,int))",
+      "1C8 00000000 UNDEF  notype ()    External     | ?SetText@CEzLcd@@QEAAJPEAXPEBD@Z (public: long __cdecl CEzLcd::SetText(void *,char const *))",
+      "1C9 00000000 UNDEF  notype ()    External     | ?SetOrigin@CEzLcd@@QEAAJPEAXHH@Z (public: long __cdecl CEzLcd::SetOrigin(void *,int,int))",
+      "1CA 00000000 UNDEF  notype ()    External     | ?SetVisible@CEzLcd@@QEAAJPEAXH@Z (public: long __cdecl CEzLcd::SetVisible(void *,int))",
+      "1CB 00000000 UNDEF  notype ()    External     | ?SetAsForeground@CEzLcd@@QEAAJH@Z (public: long __cdecl CEzLcd::SetAsForeground(int))",
+      "1CC 00000000 UNDEF  notype ()    External     | ?ButtonTriggered@CEzLcd@@QEAAHH@Z (public: int __cdecl CEzLcd::ButtonTriggered(int))",
+      "1CD 00000000 UNDEF  notype ()    External     | ?Update@CEzLcd@@QEAAXXZ (public: void __cdecl CEzLcd::Update(void))"
+    ]
+  },
+  {
+    "configuration": "Release-x64",
+    "file": "SwgCuiTcgManager.cpp.symbols.txt",
+    "references": [
+      "13C 00000000 UNDEF  notype ()    External     | ?init@libEverQuestTCG@@YA_NPEBDW4HostProcessType@1@W4RealmType@1@@Z (bool __cdecl libEverQuestTCG::init(char const *,enum libEverQuestTCG::HostProcessType,enum libEverQuestTCG::RealmType))",
+      "13D 00000000 UNDEF  notype ()    External     | ?setDesktopWindow@libEverQuestTCG@@YAXPEAUHWND__@@@Z (void __cdecl libEverQuestTCG::setDesktopWindow(struct HWND__ *))",
+      "13E 00000000 UNDEF  notype ()    External     | ?setUserName@libEverQuestTCG@@YAXPEBD@Z (void __cdecl libEverQuestTCG::setUserName(char const *))",
+      "13F 00000000 UNDEF  notype ()    External     | ?setSessionID@libEverQuestTCG@@YAXPEBD@Z (void __cdecl libEverQuestTCG::setSessionID(char const *))",
+      "140 00000000 UNDEF  notype ()    External     | ?setNavigateCallback@libEverQuestTCG@@YAXP6AXPEBD@Z@Z (void __cdecl libEverQuestTCG::setNavigateCallback(void (__cdecl*)(char const *)))",
+      "141 00000000 UNDEF  notype ()    External     | ?setNavigateWithPostDataCallback@libEverQuestTCG@@YAXP6AXPEBD0@Z@Z (void __cdecl libEverQuestTCG::setNavigateWithPostDataCallback(void (__cdecl*)(char const *,char const *)))",
+      "142 00000000 UNDEF  notype ()    External     | ?setPlaySoundCallback@libEverQuestTCG@@YAXP6AXPEADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlaySoundCallback(void (__cdecl*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "143 00000000 UNDEF  notype ()    External     | ?setPlayMusicCallback@libEverQuestTCG@@YAXP6AXPEADIW4AudioFormatType@1@@Z@Z (void __cdecl libEverQuestTCG::setPlayMusicCallback(void (__cdecl*)(char *,unsigned int,enum libEverQuestTCG::AudioFormatType)))",
+      "144 00000000 UNDEF  notype ()    External     | ?setSetSoundVolumeCallback@libEverQuestTCG@@YAXP6AXM@Z@Z (void __cdecl libEverQuestTCG::setSetSoundVolumeCallback(void (__cdecl*)(float)))",
+      "145 00000000 UNDEF  notype ()    External     | ?setSetMusicVolumeCallback@libEverQuestTCG@@YAXP6AXM@Z@Z (void __cdecl libEverQuestTCG::setSetMusicVolumeCallback(void (__cdecl*)(float)))",
+      "146 00000000 UNDEF  notype ()    External     | ?setStopAllSoundsCallback@libEverQuestTCG@@YAXP6AXXZ@Z (void __cdecl libEverQuestTCG::setStopAllSoundsCallback(void (__cdecl*)(void)))",
+      "147 00000000 UNDEF  notype ()    External     | ?setSetWindowStateCallback@libEverQuestTCG@@YAXP6AXH@Z@Z (void __cdecl libEverQuestTCG::setSetWindowStateCallback(void (__cdecl*)(int)))",
+      "148 00000000 UNDEF  notype ()    External     | ?launch@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::launch(void))",
+      "149 00000000 UNDEF  notype ()    External     | ?isLaunched@libEverQuestTCG@@YA_NXZ (bool __cdecl libEverQuestTCG::isLaunched(void))",
+      "14A 00000000 UNDEF  notype ()    External     | ?update@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::update(void))",
+      "14B 00000000 UNDEF  notype ()    External     | ?release@libEverQuestTCG@@YAXXZ (void __cdecl libEverQuestTCG::release(void))"
+    ]
+  },
+  {
+    "configuration": "Release-x64",
+    "file": "SwgCuiWebBrowserManager.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-x64",
+    "file": "SwgCuiWebBrowserWidget.cpp.symbols.txt",
+    "references": []
+  },
+  {
+    "configuration": "Release-x64",
+    "file": "SwgVideoCapture.cpp.symbols.txt",
+    "references": []
+  }
+]

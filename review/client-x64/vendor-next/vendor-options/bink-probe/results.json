@@ -1,0 +1,89 @@
+{
+  "status": "partial_feasibility_asset_blocked",
+  "production_changes": false,
+  "experience_equivalence_proven": false,
+  "runtime": {
+    "file": "binkw32.dll",
+    "version": "1.9c",
+    "machine": "i386",
+    "sha256": "e67e0319f9929c024a6d0757de50c65257f686f6711cb0efb7ad53afc3405dd4",
+    "load_succeeded": true,
+    "missing_imports": []
+  },
+  "assets": {
+    "tres_scanned": 209,
+    "supported_tres": 72,
+    "unsupported_zero_entry_v6": 137,
+    "metadata_read_bytes": 5373439,
+    "movie_candidates": [],
+    "movie_sha256": null,
+    "container_metadata": null
+  },
+  "build": {
+    "toolset": "v120",
+    "x86_probe": true,
+    "x64_driver": true
+  },
+  "seam": {
+    "verified": true,
+    "runs": [
+      {
+        "run": 0,
+        "header": {
+          "pointer_bytes": "8",
+          "length": "116",
+          "child_exit": "0",
+          "fnv1a64": "478950ba1e591338"
+        },
+        "payload_sha256": "fa2b4ae80efc784bbe343f9c0104c707ba5755b7d2ffaae4330a52cd6073d32a",
+        "events": [
+          {
+            "event": "runtime_loaded_exports_resolved",
+            "pointer_bytes": 4,
+            "header": "1.9c"
+          },
+          {
+            "event": "no_asset_decode_not_run"
+          }
+        ]
+      },
+      {
+        "run": 1,
+        "header": {
+          "pointer_bytes": "8",
+          "length": "116",
+          "child_exit": "0",
+          "fnv1a64": "478950ba1e591338"
+        },
+        "payload_sha256": "fa2b4ae80efc784bbe343f9c0104c707ba5755b7d2ffaae4330a52cd6073d32a",
+        "events": [
+          {
+            "event": "runtime_loaded_exports_resolved",
+            "pointer_bytes": 4,
+            "header": "1.9c"
+          },
+          {
+            "event": "no_asset_decode_not_run"
+          }
+        ]
+      }
+    ],
+    "scope": "launch and framed metadata only"
+  },
+  "decode": {
+    "executed": false,
+    "pixel_hashes": [],
+    "audio_hashes": [],
+    "reason": "No original movie found"
+  },
+  "ffmpeg": {
+    "installed": true,
+    "decoders": [
+      "binkvideo",
+      "binkaudio_dct",
+      "binkaudio_rdft"
+    ],
+    "comparison_executed": false
+  },
+  "limits": "oracle.md"
+}

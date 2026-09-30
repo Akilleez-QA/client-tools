@@ -1,0 +1,51 @@
+# Client x64: vendor decisions and native checkpoint
+
+2026-09-30. **The client is not finished.** The persistent goal is a polished x64 SWG Source client with the existing game experience preserved. Development and evidence stay on Akilleez-QA's forks. The user designated upstream `x64` as the eventual destination, but requires completion and explicit approval before any PR. No upstream changes or new PRs were made.
+
+Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): browser and TCG are documented deprecated features, and normal voice controls are disabled. They must not become speculative restoration projects merely because old wrappers/binaries remain. Then read the [per-vendor options and decision gates](vendor-options/DECISIONS.md).
+
+## Committed on the working fork
+
+| Commit | Change | Bounded evidence |
+| --- | --- | --- |
+| [cf82805a9](https://github.com/Akilleez-QA/client-tools/commit/cf82805a9d13e6082ae96977093d670ea116a82f) | Full-width x64 allocation statistics through consumers | Native statistics 11/11 per configuration; 32/32 caller TU compiles. Viewer/Maya remain source-reviewed only. |
+| [5fe9314e0](https://github.com/Akilleez-QA/client-tools/commit/5fe9314e00e36701494c7bc689515661985ecbec) | Real source-built JPEG/STLport and correct native renderer SDK inputs | Six actual x64 renderer project links; cache, mutation and failure checks. No vendor substitutes. |
+| [8e6b08fbd](https://github.com/Akilleez-QA/client-tools/commit/8e6b08fbd47775ca48083b102a7d14bc717be4dc) | Allocated blocks and split remainders fit their free-list representation | 1,622/1,622 native checks in each Debug/Release Win32/x64 configuration. Untracked product layout. |
+| [d0fea5bc7](https://github.com/Akilleez-QA/client-tools/commit/d0fea5bc7) | Miles file-callback handles use the SDK's pointer-width type end to end | Actual TU compiles on four configurations; real TreeFile callback slices pass 18/18 Release and 20/20 Debug per ABI. Debug x64 requires the preceding allocator fix. |
+| [5755f8f3b](https://github.com/Akilleez-QA/client-tools/commit/5755f8f3beee3ddf16d0767c0cf78f1b700327a6) | Reuse checked string length through the payload write | Existing wire matrix 50/57 client and 19/20 server; mirrored server fork commit [28f43f68](https://github.com/Akilleez-QA/src/commit/28f43f686d4ac81338a4b097d2f1726ae20e8f38). |
+| [25f7fff28](https://github.com/Akilleez-QA/client-tools/commit/25f7fff28d24c91b932ba95df5a740081b5248e5) | Check Miles preference narrowing and retain diagnostic count width | Actual clientAudio project rebuilds with zero warnings/errors in all four configurations. Arithmetic boundary oracle is separate from vendor/runtime FATAL behavior. |
+| [94a81438c](https://github.com/Akilleez-QA/client-tools/commit/94a81438c4c442f21105a58047c82d34e04c9cb4) | Remove unused Mozilla build inputs for Debug/Release client | Win32 whole-executable comparison below; no feature restoration or new feature removal. |
+
+These commits are on `integration/client-x64-next`. TrackIR provider selection and external LCD SDK integration remain separate candidates. The next full x64 build uses a newly frozen snapshot; the matrix below retains its original scope.
+
+## Native full-build checkpoint
+
+The frozen source snapshot contains the statistics, Audio callback and renderer candidates, but **excludes** the later minimum-block and TrackIR changes. See [snapshot record](allocator-next/integration-current/checkpoint.md) and [matrix JSON](allocator-next/integration-current/matrix-summary.json).
+
+| Configuration | Result |
+| --- | --- |
+| Win32 Release | 0 errors, 170 warnings |
+| Win32 Debug | 0 errors, 219 warnings; existing ForceFileOutput setting retained, no unresolved-symbol/LNK4088 records observed |
+| x64 Release | 24 compiler errors, all from the legacy Mozilla SDK architecture/header root |
+| x64 Debug | 27 errors, including Mozilla and warnings treated as errors in crypto/clientAudio |
+
+Neither x64 attempt reached a complete client link. Counts are compiler diagnostics, not root-cause counts.
+
+The separate browser omission proof then succeeded on Win32 Release and Debug. Removing only SwgClient's Mozilla scheduling edge and explicit browser inputs produces whole executables identical after normalization of timestamps and PDB age; PDB GUID/path and code remain compared. Other tool dependencies are retained. [Comparison JSON](allocator-next/integration-current/mozilla-link-proof-v2/comparison.json).
+
+## Vendor experiments
+
+- [Miles](vendor-options/miles-options.md): original 7.2a and its actual plugin decode a real game MP3. FFmpeg/miniaudio produce different PCM despite matching frame count/alignment. Native playback lacks a VM output endpoint; Wine null-output completion is not real-time audio fidelity evidence.
+- [Bink](vendor-options/bink-probe/report.md): original 1.9c decodes a public non-SWG sample; an x64 process receives four nonblack frames through a verified pipe. All four differ from the fixed FFmpeg oracle. This sample has no audio. Game presentation/synchronization remain open.
+- [Vivox](vendor-options/vivox-options.md): original 52-entry API resolves and local object/XML lifetime checks pass on Win32. Voice is normally disabled; a saved-preference corner remains source-reachable. No voice service or remote account operation was run.
+- [Logitech](vendor-options/logitech-native-route.md): an official signed legacy package provides genuine low-level x64 APIs. All 16 unchanged wrapper translation units compile in four configurations; real wrapper executables link against the original SDK and actual SWG core/allocator libraries in all four. API layout comparisons also pass. Actual hardware/manager behavior is not established.
+- [TrackIR](vendor-options/trackir.md): official native provider naming and old/current SDK layout agree with a small candidate; actual TU compilation passes. Hardware and profile acceptance remain open.
+- [Other vendors and conditional reachability](vendor-options/secondary-vendors.md); [reviewer findings and corrections](vendor-options/review-reconciliation.md).
+
+## Reproduction and limits
+
+The packet contains diagnostic source, commands, source hashes, raw counts and text logs. [native-text.zip](native-text.zip) retains native compiler/link/runtime output with its directory layout. Audio historical failures and current successes are retained in its diagnostic ZIPs. They are not all portable one-command tests: scripts refer to the documented v120/SDK checkout and real native core libraries, and proprietary runtime/media inputs must be supplied from the local reference installation. The published wire CI remains independently reproducible.
+
+No game assets, decoded media, proprietary DLLs/libraries, SDK header packages or built client executables are published here. The manifest hashes the published files; it is an integrity record, not an attestation of complete correctness. Actual SDK/package hashes and official retrieval sources are recorded without bundling those artifacts.
+
+Read individual result files for their original candidate-time wording and scope. The commit table above records which candidates have since been committed. Full x64 linking, native graphics execution, representative gameplay, hardware features and mixed-width connection acceptance remain work in progress.

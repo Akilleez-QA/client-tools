@@ -1,0 +1,40 @@
+[
+  {
+    "configuration": "Release-Win32",
+    "counts": {
+      "Warning": 170,
+      "Error": 0
+    },
+    "error_projects": []
+  },
+  {
+    "configuration": "Release-x64",
+    "counts": {
+      "Warning": 4861,
+      "Error": 24
+    },
+    "error_projects": [
+      "Q:\\repo\\src\\external\\3rd\\library\\libMozilla\\build\\win32\\libMozilla.vcxproj"
+    ]
+  },
+  {
+    "configuration": "Debug-Win32",
+    "counts": {
+      "Warning": 219,
+      "Error": 0
+    },
+    "error_projects": []
+  },
+  {
+    "configuration": "Debug-x64",
+    "counts": {
+      "Warning": 4731,
+      "Error": 27
+    },
+    "error_projects": [
+      "Q:\\repo\\src\\engine\\client\\library\\clientAudio\\build\\win32\\clientAudio.vcxproj",
+      "Q:\\repo\\src\\external\\3rd\\library\\libMozilla\\build\\win32\\libMozilla.vcxproj",
+      "Q:\\repo\\src\\external\\ours\\library\\crypto\\build\\win32\\crypto.vcxproj"
+    ]
+  }
+]

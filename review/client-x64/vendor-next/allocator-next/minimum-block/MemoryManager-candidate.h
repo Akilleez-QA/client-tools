@@ -1,0 +1,100 @@
+#include "C:/client-next-build/src/engine/shared/library/sharedFoundationTypes/include/public/sharedFoundationTypes/FoundationTypes.h"
+#include "C:/client-next-build/src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstPlatform.h"
+// ======================================================================
+//
+// MemoryManager.h
+// Portions copyright 1998 Bootprint Entertainment
+// Portions copyright 2002 Sony Online Entertainment
+// All Rights Reserved
+//
+// ======================================================================
+
+#ifndef INCLUDED_MemoryManager_H
+#define INCLUDED_MemoryManager_H
+
+// ======================================================================
+
+#include "C:/client-next-build/src/engine/shared/library/sharedDebug/include/public/sharedDebug/DebugHelp.h"
+
+// ======================================================================
+
+#include <new>
+#include <stdint.h>
+#include "C:/client-next-build/src/engine/shared/library/sharedMemoryManager/include/public/sharedMemoryManager/OsNewDel.h"
+
+// ======================================================================
+// Memory manager class.
+//
+// This class API is multi-thread safe.
+//
+// This class provides extensive debugging features for applications, including
+// overwrite guard bands, initialize pattern fills, free pattern fills, and 
+// memory tracking.
+
+class MemoryManager
+{
+public:
+
+#if defined(_WIN32) && !defined(_WIN64)
+	typedef uint32 OwnerAddress; // Preserve the legacy Win32 exported signature.
+#else
+	typedef uintptr_t OwnerAddress;
+#endif
+
+	// Byte statistics retain the Win32 ABI and cover the x64 address space.
+#if defined(_WIN64)
+	typedef uint64_t ByteCount;
+#else
+	typedef unsigned long ByteCount;
+#endif
+
+	MemoryManager();
+	~MemoryManager();
+
+	static void            setLimit(int megabytes, bool hardLimit, bool preallocate);
+	static int             getLimit();
+	static bool            isHardLimit();
+
+	static void            registerDebugFlags();
+	static void            debugReport();
+	static void            debugReportMap();
+	static bool            reportToFile(const char * fileName, bool leak);
+
+	static int             getCurrentNumberOfAllocations();
+	static ByteCount       getCurrentNumberOfBytesAllocated(const int processId = 0);
+	static ByteCount       getCurrentNumberOfBytesAllocatedNoLeakTest();
+	static int             getMaximumNumberOfAllocations();
+	static ByteCount       getMaximumNumberOfBytesAllocated();
+	static int             getSystemMemoryAllocatedMegabytes();
+
+#ifndef _WIN32
+	static int             getProcessVmSizeKBytes(const int processId = 0);
+#endif
+
+	static DLLEXPORT void *allocate(size_t size, OwnerAddress owner, bool array, bool leakTest);
+	static DLLEXPORT void  free(void *pointer, bool array);
+	static DLLEXPORT void  own(void *pointer);
+	static void *          reallocate(void *userPointer, size_t newSize);
+
+	static void            verify(bool guardPatterns, bool freePatterns);
+	static void            setReportAllocations(bool reportAllocations);
+	static void            report();
+
+private:
+
+	// disabled
+	MemoryManager(MemoryManager const &);
+	MemoryManager &operator =(MemoryManager const &);
+};
+
+// ======================================================================
+
+#ifdef _DEBUG
+	#define MEM_OWN(a) MemoryManager::own(a)
+#else
+	#define MEM_OWN(a) UNREF(a)
+#endif
+
+// ======================================================================
+
+#endif

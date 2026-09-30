@@ -1,0 +1,282 @@
+{
+  "files": {
+    "asset.json": {
+      "bytes": 24420,
+      "sha256": "e74091505caf6b66d552845b379e5fac0bf4c64b47f7e7c90c8fd435326bfc2c"
+    },
+    "build.cmd": {
+      "bytes": 371,
+      "sha256": "0096a2fe5a56aa8976cd72a0e72ca3327f4e4afb0628b05feb130834f1dcdce2"
+    },
+    "commands.sh": {
+      "bytes": 1349,
+      "sha256": "78507766020d493f6443cb0607648e5882a2c9b568d4535576ee50bf19bf376c"
+    },
+    "driver.cpp": {
+      "bytes": 1696,
+      "sha256": "58b31966bf973416aec4052242ce7d4919bba7e7f11f182f871eac7f049afc1a"
+    },
+    "extract.py": {
+      "bytes": 2483,
+      "sha256": "6140daa3972b166b516ecdf7c6c96401534cd56fb0c01c820a3f57544ee5185d"
+    },
+    "logs/build-binary-transport.log": {
+      "bytes": 23,
+      "sha256": "874bf1914e4cef6d12cc0449e6055850e55608f6106a8e3b361f797eba1a95c2"
+    },
+    "logs/build-final.log": {
+      "bytes": 23,
+      "sha256": "874bf1914e4cef6d12cc0449e6055850e55608f6106a8e3b361f797eba1a95c2"
+    },
+    "logs/build.log": {
+      "bytes": 23,
+      "sha256": "874bf1914e4cef6d12cc0449e6055850e55608f6106a8e3b361f797eba1a95c2"
+    },
+    "logs/extract.log": {
+      "bytes": 33,
+      "sha256": "c3d2ea3ce123be8a41225fd65571d5f28561403a596b5db455c4c0e04221364e"
+    },
+    "logs/ffmpeg-decoders.txt": {
+      "bytes": 30860,
+      "sha256": "a4358a4aef83dec963900b85d80618fdffacaffdf6a512f430b1b42ed1058162"
+    },
+    "logs/ffmpeg-version.txt": {
+      "bytes": 1689,
+      "sha256": "f4ea735783bd5c629b75708fc46664fd118fe54c6d96e5cea320c99d989923d0"
+    },
+    "logs/runtime-pe.txt": {
+      "bytes": 94781,
+      "sha256": "1a0d70a809702eb601744b8a8993b0807614dc7d20090dcc8fb89acf02a66738"
+    },
+    "logs/runtime.log": {
+      "bytes": 1304,
+      "sha256": "6636adc95ab2a76f78bc5130492d4fd2e265b76ea1b6f5f2f62d0f549a0f4ed4"
+    },
+    "logs/seam-final.log": {
+      "bytes": 603,
+      "sha256": "71a5e6883da0a7ae75e0f6d43bdd0617fd4a7193797e52977a6179fdc7f456bd"
+    },
+    "logs/seam-verification-final.log": {
+      "bytes": 1318,
+      "sha256": "5cea0e720f1174a835929c64c600c9f59a74b4614f7794111bcd440f7478e5c4"
+    },
+    "logs/seam-verification.log": {
+      "bytes": 445,
+      "sha256": "d0822a0c90b3e92fdb1a038c0eb7faa4c2e0baebcd5c2c0ae432b01346b1849f"
+    },
+    "oracle.md": {
+      "bytes": 1626,
+      "sha256": "26367917f1c10ac71f4794846446c0270057c92cffc79a82a73ac474c54d4988"
+    },
+    "parent-guidance.md": {
+      "bytes": 911,
+      "sha256": "d528d1b3978b72cfb6ebfc6d50becc0a1378a9e72f3efc1d6ac3f31d8e1c19b4"
+    },
+    "private/bink.h": {
+      "bytes": 32419,
+      "sha256": "b77611e1230dce66288b41b8f72b4616ca581306fb57cbd7c74cc910c17b60d5"
+    },
+    "private/binkw32.dll": {
+      "bytes": 171008,
+      "sha256": "e67e0319f9929c024a6d0757de50c65257f686f6711cb0efb7ad53afc3405dd4"
+    },
+    "private/public-sample/decode-0.raw": {
+      "bytes": 4917147,
+      "sha256": "5d1bc44a7c15ffc57f325c9d3c93cbffed592446414a12539ba41110baaf8f65"
+    },
+    "private/public-sample/decode-1.raw": {
+      "bytes": 4917147,
+      "sha256": "5d1bc44a7c15ffc57f325c9d3c93cbffed592446414a12539ba41110baaf8f65"
+    },
+    "private/public-sample/delta-old-minus-ffmpeg-01.s16le.zlib": {
+      "bytes": 31808,
+      "sha256": "db0a96a2ac591b34351e2ecf1dff4d627a0eaf06fb5847b2c0f833eda895bdb8"
+    },
+    "private/public-sample/delta-old-minus-ffmpeg-08.s16le.zlib": {
+      "bytes": 34678,
+      "sha256": "19f5911cad4cff0bfe48afa7ace1ea7d0c5a07ac0aa70831a551d8aac1b42cac"
+    },
+    "private/public-sample/delta-old-minus-ffmpeg-16.s16le.zlib": {
+      "bytes": 34678,
+      "sha256": "19f5911cad4cff0bfe48afa7ace1ea7d0c5a07ac0aa70831a551d8aac1b42cac"
+    },
+    "private/public-sample/delta-old-minus-ffmpeg-32.s16le.zlib": {
+      "bytes": 34678,
+      "sha256": "19f5911cad4cff0bfe48afa7ace1ea7d0c5a07ac0aa70831a551d8aac1b42cac"
+    },
+    "private/public-sample/ffmpeg-bounded.bgra": {
+      "bytes": 4915200,
+      "sha256": "75e4bd07d37affc2579d33f7cd6168b11681393639c21675a7cd0938dd40d7d9"
+    },
+    "private/public-sample/ffmpeg.bgra": {
+      "bytes": 4915200,
+      "sha256": "75e4bd07d37affc2579d33f7cd6168b11681393639c21675a7cd0938dd40d7d9"
+    },
+    "private/public-sample/frame-01.bgra": {
+      "bytes": 1228800,
+      "sha256": "dded429131122f773724e1c0f491a41ba914efe522b0f2632b72d404edd95bc1"
+    },
+    "private/public-sample/frame-08.bgra": {
+      "bytes": 1228800,
+      "sha256": "4684041a0e8e49957bd9fcf1fc2d60ca88c701f41fa54a692e72a7a3db87cf77"
+    },
+    "private/public-sample/frame-16.bgra": {
+      "bytes": 1228800,
+      "sha256": "4684041a0e8e49957bd9fcf1fc2d60ca88c701f41fa54a692e72a7a3db87cf77"
+    },
+    "private/public-sample/frame-32.bgra": {
+      "bytes": 1228800,
+      "sha256": "4684041a0e8e49957bd9fcf1fc2d60ca88c701f41fa54a692e72a7a3db87cf77"
+    },
+    "private/public-sample/logo_legal.bik": {
+      "bytes": 395724,
+      "sha256": "10c375fd8c6e2fa11db83daaabdabc94a6f9b9b77dcce52720d71b8aa2da7145"
+    },
+    "private/radbase.h": {
+      "bytes": 18631,
+      "sha256": "0997e3a5cbe8755f5c0ee4d25f7fbc9d3589c600093588df56511615d6ed02c2"
+    },
+    "probe.cpp": {
+      "bytes": 2900,
+      "sha256": "509e6ba7a36d86435705bd70f37b8b441fb79be6876032fcb75e1ab677888563"
+    },
+    "public-sample/asset.json": {
+      "bytes": 383,
+      "sha256": "928f036c21bff9287cb1ebbe104644dcc358f815e7f140f23d8d020906b67f9e"
+    },
+    "public-sample/build-public.cmd": {
+      "bytes": 493,
+      "sha256": "6e58a52b15d3c19e31e4c9e7167fb24e3c9526d989c06e4577611744ffe4b581"
+    },
+    "public-sample/compare.py": {
+      "bytes": 2919,
+      "sha256": "be54c14d782751f7ceaab9932887ecb85fdda108138de131f33f94fa2d3e089b"
+    },
+    "public-sample/comparison.json": {
+      "bytes": 9175,
+      "sha256": "0b966c79e167e178f1e2b4bf96413a279a013b7ec2f1cc0eb2fd1864b0de11a5"
+    },
+    "public-sample/download.sh": {
+      "bytes": 579,
+      "sha256": "4aed52f98e01d1be21d93de6dd114c3cc15e1fbc4df02074342e5b1fc8fdbe18"
+    },
+    "public-sample/driver-public.cpp": {
+      "bytes": 1779,
+      "sha256": "6a9f90ca1babecda464877d3f493edec45a4fe7f42276a62c13445f1b0a2ce63"
+    },
+    "public-sample/ffprobe.json": {
+      "bytes": 1856,
+      "sha256": "eb4a27dcedc64c6fd8f8af318c715d9b802f35a3397a91d7f772109d3aa125e3"
+    },
+    "public-sample/final-receipt.ps1": {
+      "bytes": 736,
+      "sha256": "7609960cc4fba5cfdfb8c7a7841c78407e221811dac6c6efaf2138bb916102c2"
+    },
+    "public-sample/final-receipt.sh": {
+      "bytes": 307,
+      "sha256": "3ab599e1c97fabfc50c80077515f8ecc0a9a3cc0f55247b1097479ca3aaf6037"
+    },
+    "public-sample/finalize.py": {
+      "bytes": 12953,
+      "sha256": "2208f2b7b94c743d6f460ec82f18593492bbdb2251caa11e844614a8b8b7946a"
+    },
+    "public-sample/historical-report.md": {
+      "bytes": 4285,
+      "sha256": "8512339400a037cff407034a4544a81873266102d6d9d9251603782a63e642c2"
+    },
+    "public-sample/historical-source-check.json": {
+      "bytes": 4958,
+      "sha256": "de345df65e823b331bedc9230bd5820c63612aee004eb50dce9f8dd7dc20cb57"
+    },
+    "public-sample/logs/build.log": {
+      "bytes": 37,
+      "sha256": "f5b4363c285885a1a92e7f93de0d399985586fab6cc3008509387144f03b0f34"
+    },
+    "public-sample/logs/comparison.log": {
+      "bytes": 1582,
+      "sha256": "124965d5b0d16c049e09886eeb683619e1fe0e318d66ea55a038e61bdfbaffb1"
+    },
+    "public-sample/logs/download-headers.txt": {
+      "bytes": 361,
+      "sha256": "e72f37d6fcc5d4de5f0266eb314a97928efca5d75860c2aab9dab30688bbd9ef"
+    },
+    "public-sample/logs/download.log": {
+      "bytes": 650,
+      "sha256": "5b9af5f6c3652abaa4ab6fd68a71cec05e1d18465597e60fce920c5392481c77"
+    },
+    "public-sample/logs/ffmpeg-bounded.log": {
+      "bytes": 2561,
+      "sha256": "82cc8bbce1b396cf582c26fa562e71ab587ebf09b4fbb9b2b3978e95420cb011"
+    },
+    "public-sample/logs/ffmpeg-decode.log": {
+      "bytes": 2553,
+      "sha256": "7e8415842d9f3928cf49d3bb64ace51ba408cfd073298dd83a58a9f29d8b1664"
+    },
+    "public-sample/logs/ffmpeg-version.txt": {
+      "bytes": 1689,
+      "sha256": "f4ea735783bd5c629b75708fc46664fd118fe54c6d96e5cea320c99d989923d0"
+    },
+    "public-sample/logs/final-vm-receipt.json": {
+      "bytes": 1273,
+      "sha256": "d1ba128f183d028ce0a623da2edfd2215d0d730753b4e84af47e6063c2d61965"
+    },
+    "public-sample/logs/verify-vm.log": {
+      "bytes": 11971,
+      "sha256": "9edb5fbf8665bc23ddc0b394e63c3b347cd38839e73480b24dfd3ed90592514c"
+    },
+    "public-sample/prepare.py": {
+      "bytes": 2488,
+      "sha256": "4d0a2f7c01a7764ddc8c6a275f7b001f72695cd1dd4fb9d0288f151df352d4b8"
+    },
+    "public-sample/probe-public.cpp": {
+      "bytes": 2569,
+      "sha256": "81fcd5bc5dd1665f3d2a86b8ab9b418e8659196c32d888366959447a8eca11e9"
+    },
+    "public-sample/results.json": {
+      "bytes": 2038,
+      "sha256": "e6055c4b2dead9ed393277301d5493289dd893951b3d3bf6b15db92bbdfbe287"
+    },
+    "public-sample/run-ffmpeg-bounded.sh": {
+      "bytes": 692,
+      "sha256": "0e06fe4d63a692541bfeb32d0220588708297a4836ca8688935140c7cb1e4514"
+    },
+    "public-sample/run-ffmpeg.sh": {
+      "bytes": 592,
+      "sha256": "cdc8de5c54b5b0db6d886f4097f5847ae27b521d2620535f1b4dc6e82f1bffd2"
+    },
+    "public-sample/run-vm.sh": {
+      "bytes": 1260,
+      "sha256": "941eefa9898dfa0b262d5c8100247fea02787230ca0d27bc41bf30bf8ee4e446"
+    },
+    "public-sample/verification.json": {
+      "bytes": 11969,
+      "sha256": "9da6565a434af3bae498c66a730545ce1562a4d4f2d50942fa05d1df604a8917"
+    },
+    "public-sample/verify-public.py": {
+      "bytes": 2638,
+      "sha256": "0660a06bb02fcadfa0fa6cc260a053d9f55e2bca44db6d441a25a93775bb7a38"
+    },
+    "report.md": {
+      "bytes": 10069,
+      "sha256": "11cb81edb1057fd22ff0652236fce1bbca6c4d611b9508faf66ad8cbb1fac3c7"
+    },
+    "results.json": {
+      "bytes": 2157,
+      "sha256": "6f55c89f37b183cc8b14088aaa48fabe403f95b96940199a52dc6033d460d472"
+    },
+    "seam-verification.json": {
+      "bytes": 945,
+      "sha256": "191127b9cccea90a7ab9a15a08d00c68519e92a543f2ca936d6a8b74a46be56f"
+    },
+    "source-hashes.json": {
+      "bytes": 3068,
+      "sha256": "86a6d98a1e87ea8c7fcf244af780efbf249ad07b7b6add5a1a43e8ba498bc0e2"
+    },
+    "verify_vm.py": {
+      "bytes": 1254,
+      "sha256": "d1ca7d26e69558ffc9f4db6f70eb916b249fc8a4ba63c38badbae5c8271d96af"
+    }
+  },
+  "local_probe_bytes_excluding_manifest": 25605215,
+  "vm_probe_bytes": 16022820
+}

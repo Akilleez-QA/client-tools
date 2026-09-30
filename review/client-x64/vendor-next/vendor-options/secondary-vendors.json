@@ -1,0 +1,124 @@
+{
+  "date": "2026-09-30",
+  "scope": "Named families plus explicit SwgClient list; not exhaustive transitive DLL certificate",
+  "source_root": "/home/akilleez/Work/swg-source/client-build-next",
+  "rows": [
+    {
+      "family": "mozilla",
+      "reachability": "conditional browser wrappers; preprocessor state unresolved",
+      "available_material": "Mozilla1.8.0.9 / NSPR4.6.1 headers; core engine absent",
+      "preservation_paths": "historical matching rebuild or original32 host; modern engine changes behavior",
+      "next_discriminator": "native preprocessing + original-page oracle",
+      "source_anchor": "src/external/3rd/library/libMozilla/src/win32/libMozilla.cpp:430"
+    },
+    {
+      "family": "tcg",
+      "reachability": "wrapper startup registered; HUD launch commented",
+      "available_material": "one wrapper; SWGTCG implementation absent",
+      "preservation_paths": "Keep baseline disabled; resolve genuine retained build dependencies without restoring feature",
+      "next_discriminator": "original launch/account/asset viability first",
+      "source_anchor": "src/game/client/library/swgClientUserInterface/src/shared/core/SwgCuiTcgManager.cpp:49",
+      "baseline_status": "Removed/disabled baseline feature; retained code/build refs do not establish runtime requirement"
+    },
+    {
+      "family": "capture",
+      "reachability": "Debug draw static reference; Release body excluded; start/config #if0",
+      "available_material": "videocapture headers/15libs, no implementation C/C++; PICTools binary",
+      "preservation_paths": "matching source/SDK or original32 capture host; no silent encoder replacement",
+      "next_discriminator": "per-config symbols + original fixed-input recording",
+      "source_anchor": "src/engine/client/library/clientGraphics/src/shared/SwgVideoCapture.cpp:17"
+    },
+    {
+      "family": "logitech_lcd",
+      "reachability": "startup attempts connection unless disabled; false default",
+      "available_material": "UI source16cpp; lowlevel lgLcd i386",
+      "preservation_paths": "native matching provider or original32 device host",
+      "next_discriminator": "LCD Manager + real display/buttons/hotplug baseline",
+      "source_anchor": "src/game/client/application/SwgClient/src/win32/ClientMain.cpp:361"
+    },
+    {
+      "family": "deja",
+      "reachability": "explicit links; inspected first-party calls commented",
+      "available_material": "SDK archives; bundled C++ tutorials not core implementation",
+      "preservation_paths": "prove non-use before any change",
+      "next_discriminator": "link extraction + preprocessed symbols",
+      "source_anchor": "src/engine/client/library/clientUserInterface/src/shared/core/CuiConsoleHelper.cpp:29"
+    },
+    {
+      "family": "ati_compress",
+      "reachability": "explicit link; live client consumer not found scoped scan",
+      "available_material": "ATI_Compress header/provider; separate AtiDXTC source",
+      "preservation_paths": "source/provider audit; modern output not necessarily identical",
+      "next_discriminator": "real caller and compressed-block oracle",
+      "source_anchor": "src/external/3rd/library/ati_compress/ATI_Compress.h"
+    },
+    {
+      "family": "cg_tooling",
+      "reachability": "Cg found in Maya SDK; client use not established",
+      "available_material": "legacy tool SDKs; TCG Qt plugins separate",
+      "preservation_paths": "tool/runtime closures must be separated",
+      "next_discriminator": "per-project member extraction",
+      "source_anchor": "src/external/3rd/library/maya8/lib/cg.lib"
+    },
+    {
+      "family": "libsndfile",
+      "reachability": "link entry under Vivox; no direct engine/game call found",
+      "available_material": "bundled import lib; official source exists",
+      "preservation_paths": "matching native ABI conditional on actual vendor dependency",
+      "next_discriminator": "Vivox imports and version",
+      "source_anchor": "src/external/3rd/library/vivox/lib/libsndfile-1.lib"
+    },
+    {
+      "family": "soe_platform",
+      "reachability": "explicit links; inspected client references absent except enum comment",
+      "available_material": "175C/C++/24libs, not established complete perlibrary",
+      "preservation_paths": "native source audit only if required; service remains separate",
+      "next_discriminator": "client undefined symbols/extracted members",
+      "source_anchor": "src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatEnum.h:49"
+    },
+    {
+      "family": "bink",
+      "reachability": "real dynamic load; parent detailed lane",
+      "available_material": "wrapper plus original32 runtime",
+      "preservation_paths": "cohost original Miles/Bink hypothesis",
+      "next_discriminator": "original runtime/module/clock trace",
+      "source_anchor": "src/engine/client/library/clientGraphics/src/Bink/BinkDLL.cpp:149"
+    },
+    {
+      "family": "vivox",
+      "reachability": "real dynamic load + external service; parent detailed lane",
+      "available_material": "wrapper plus original32 runtime",
+      "preservation_paths": "original helper conditional on working service",
+      "next_discriminator": "two-account service baseline",
+      "source_anchor": "src/external/3rd/library/vivoxSharedWrapper/Vivox.inl:1153"
+    },
+    {
+      "family": "source_built_core",
+      "reachability": "real source dependencies; not automatically proprietary blockers",
+      "available_material": "DPVS/STLport/JPEG/zlib/crypto/PCRE/libxml2/etc",
+      "preservation_paths": "native source work and existing independent evidence",
+      "next_discriminator": "per-config build and runtime acceptance",
+      "source_anchor": "tools/build-client-deps/README.md"
+    },
+    {
+      "family": "stale_system_archive_candidates",
+      "reachability": "explicit names incl MFCdebug Release/Xbox/duplicates",
+      "available_material": "artifact names do not establish extraction",
+      "preservation_paths": "no deletion without isolated relink proof",
+      "next_discriminator": "native clean link comparison",
+      "source_anchor": "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj"
+    },
+    {
+      "family": "TrackIR",
+      "reachability": "startup dynamic provider detector; optional cockpit camera head tracking; real TU compiles4/4",
+      "available_material": "repo2003 header; official current x64 SDK source; no local provider found in scoped inventory",
+      "preservation_paths": "official NPClient64 provider filename selection first; preserve profile6001 and camera math",
+      "next_discriminator": "official provider profile/signature/ABI validation then same-hardware behavior",
+      "source_anchor": "src/engine/client/library/clientGame/src/shared/core/ClientHeadTracking.cpp:63"
+    }
+  ],
+  "native_followup": "native-reachability.md",
+  "logitech_followup": "logitech-native-route.md",
+  "trackir_followup": "trackir.md",
+  "baseline": "SWG-Source README Deprecated Components; browser/TCG removed or disabled before94945103; no resurrection"
+}

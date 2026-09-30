@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Release-Win32",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "172dcd8958b78af24ef4b08f1f0a2409e89ae81665fb2ef6717b9a24d161467f",
+    "diagnostic_sha256": "bf3ec06ab2efa0b867388661798946e5c7e64982b5cc72252e0338499cf5b8a1",
+    "run": 0,
+    "output": "layout pointer=4 block=12 free=28 allocated=12 rounded_free=32\r\nchecks=1622 failures=0 expected=1622\r\n",
+    "okay": true
+  },
+  {
+    "name": "Release-x64",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "172dcd8958b78af24ef4b08f1f0a2409e89ae81665fb2ef6717b9a24d161467f",
+    "diagnostic_sha256": "bf3ec06ab2efa0b867388661798946e5c7e64982b5cc72252e0338499cf5b8a1",
+    "run": 0,
+    "output": "layout pointer=8 block=24 free=56 allocated=24 rounded_free=64\r\nchecks=1622 failures=0 expected=1622\r\n",
+    "okay": true
+  },
+  {
+    "name": "Debug-Win32",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "172dcd8958b78af24ef4b08f1f0a2409e89ae81665fb2ef6717b9a24d161467f",
+    "diagnostic_sha256": "bf3ec06ab2efa0b867388661798946e5c7e64982b5cc72252e0338499cf5b8a1",
+    "run": 0,
+    "output": "MM::remove 2032/4196240=bytes 2/18=allocs\nlayout pointer=4 block=12 free=28 allocated=12 rounded_free=32\r\nchecks=1622 failures=0 expected=1622\r\n",
+    "okay": true
+  },
+  {
+    "name": "Debug-x64",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "172dcd8958b78af24ef4b08f1f0a2409e89ae81665fb2ef6717b9a24d161467f",
+    "diagnostic_sha256": "bf3ec06ab2efa0b867388661798946e5c7e64982b5cc72252e0338499cf5b8a1",
+    "run": 0,
+    "output": "MM::remove 2848/4197072=bytes 3/19=allocs\nlayout pointer=8 block=24 free=56 allocated=24 rounded_free=64\r\nchecks=1622 failures=0 expected=1622\r\n",
+    "okay": true
+  }
+]

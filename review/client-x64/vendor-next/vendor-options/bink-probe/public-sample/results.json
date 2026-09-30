@@ -1,0 +1,67 @@
+{
+  "status": "public_non_swg_decode_and_pixel_transport_verified_oracle_mismatch",
+  "asset": {
+    "url": "https://samples.ffmpeg.org/game-formats/bink/logo_legal.bik",
+    "bytes": 395724,
+    "sha256": "10c375fd8c6e2fa11db83daaabdabc94a6f9b9b77dcce52720d71b8aa2da7145",
+    "container": "Bink",
+    "version": "BIKi",
+    "frames": 150,
+    "width": 640,
+    "height": 480,
+    "rate": 30,
+    "rate_div": 1,
+    "flags": 0,
+    "tracks": 0,
+    "scope": "Public non-SWG codec/IPC feasibility only"
+  },
+  "runtime": {
+    "file": "../binkw32.dll",
+    "bytes": 171008,
+    "sha256": "e67e0319f9929c024a6d0757de50c65257f686f6711cb0efb7ad53afc3405dd4",
+    "machine": "0x14c"
+  },
+  "build": [
+    {
+      "file": "probe-public32.exe",
+      "bytes": 99840,
+      "sha256": "d3f3d0ce7e0258818fe447adcfe2e4ab028b39aacee34ba1821beac7152fa66e",
+      "machine": "0x14c"
+    },
+    {
+      "file": "driver-public64.exe",
+      "bytes": 117760,
+      "sha256": "f631df60cda0b110572111b51bfaf36acb1cfb41cdb83147d14a1c9d16d75a1f",
+      "machine": "0x8664"
+    }
+  ],
+  "transport": {
+    "runs": 2,
+    "payload_bytes": 4917065,
+    "fnv1a64": "d98d4def671705d1",
+    "sha256": "d32e4156186403d35530f8abf9eb72b8c4cd908e66153f9646564a51f025b147",
+    "verified_on_vm_and_linux": true
+  },
+  "decoded_frames_per_original_process": 32,
+  "retained_frame_numbers": [
+    1,
+    8,
+    16,
+    32
+  ],
+  "all_selected_nonblack": true,
+  "ffmpeg_exact_matches": 0,
+  "ffmpeg_selected_frames": 4,
+  "ffmpeg_bounded_followup_identical": true,
+  "audio": {
+    "tracks": 0,
+    "extraction_exercised": false,
+    "playback": false
+  },
+  "swg_asset_acceptance": false,
+  "game_fidelity_proven": false,
+  "production_edits": false,
+  "commits": false,
+  "limits_deviation": "Initial verbatim FFmpeg command limits 32 output frames after selecting 4, so does not enforce 32 input decodes; may decode all 150 sample frames. Follow-up limits 4 selected outputs with identical bytes. Original DLL always bounded to 32.",
+  "vm_directory_bytes": 16022820
+}

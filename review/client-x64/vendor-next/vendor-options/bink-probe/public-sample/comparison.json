@@ -1,0 +1,310 @@
+{
+  "oracle_sha256": "26367917f1c10ac71f4794846446c0270057c92cffc79a82a73ac474c54d4988",
+  "transport_revalidated_on_linux": true,
+  "frames": [
+    {
+      "frame": 1,
+      "old_sha256": "dded429131122f773724e1c0f491a41ba914efe522b0f2632b72d404edd95bc1",
+      "ffmpeg_sha256": "18e4afb5e1b21e3c668e0064489b388e9593d6162b6aac81b7326c250f567148",
+      "exact_equal": false,
+      "rgb_differing_pixels": 305500,
+      "alpha_differing_pixels": 307200,
+      "old_nonblack_pixels": 306971,
+      "old_pixels_above_16": 27387,
+      "ffmpeg_nonblack_pixels": 30412,
+      "ffmpeg_pixels_above_16": 27331,
+      "channels": {
+        "B": {
+          "old_min": 0,
+          "old_max": 227,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 228,
+          "differing_bytes": 12910,
+          "max_abs_error": 2,
+          "mean_abs_error": 0.045029296875,
+          "signed_difference_histogram": {
+            "-2": 923,
+            "-1": 11904,
+            "0": 294290,
+            "1": 83
+          }
+        },
+        "G": {
+          "old_min": 0,
+          "old_max": 255,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 255,
+          "differing_bytes": 304613,
+          "max_abs_error": 5,
+          "mean_abs_error": 1.121220703125,
+          "signed_difference_histogram": {
+            "0": 2587,
+            "1": 282478,
+            "2": 7934,
+            "3": 10889,
+            "4": 3134,
+            "5": 178
+          }
+        },
+        "R": {
+          "old_min": 0,
+          "old_max": 255,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 255,
+          "differing_bytes": 19781,
+          "max_abs_error": 3,
+          "mean_abs_error": 0.09123046875,
+          "signed_difference_histogram": {
+            "-1": 1024,
+            "0": 287419,
+            "1": 12077,
+            "2": 5115,
+            "3": 1565
+          }
+        },
+        "A": {
+          "old_min": 0,
+          "old_max": 0,
+          "ffmpeg_min": 255,
+          "ffmpeg_max": 255,
+          "differing_bytes": 307200,
+          "max_abs_error": 255,
+          "mean_abs_error": 255.0,
+          "signed_difference_histogram": {
+            "-255": 307200
+          }
+        }
+      },
+      "complete_difference_file": "private/public-sample/delta-old-minus-ffmpeg-01.s16le.zlib",
+      "difference_sha256": "db0a96a2ac591b34351e2ecf1dff4d627a0eaf06fb5847b2c0f833eda895bdb8"
+    },
+    {
+      "frame": 8,
+      "old_sha256": "4684041a0e8e49957bd9fcf1fc2d60ca88c701f41fa54a692e72a7a3db87cf77",
+      "ffmpeg_sha256": "9964b8a4f6f09708fbf09b370bc1c65fd478f03f223a4fd5438103b8beaa768f",
+      "exact_equal": false,
+      "rgb_differing_pixels": 306768,
+      "alpha_differing_pixels": 307200,
+      "old_nonblack_pixels": 307200,
+      "old_pixels_above_16": 27314,
+      "ffmpeg_nonblack_pixels": 32820,
+      "ffmpeg_pixels_above_16": 27276,
+      "channels": {
+        "B": {
+          "old_min": 0,
+          "old_max": 199,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 199,
+          "differing_bytes": 12059,
+          "max_abs_error": 2,
+          "mean_abs_error": 0.04286458333333333,
+          "signed_difference_histogram": {
+            "-2": 1109,
+            "-1": 10486,
+            "0": 295141,
+            "1": 464
+          }
+        },
+        "G": {
+          "old_min": 0,
+          "old_max": 254,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 251,
+          "differing_bytes": 306478,
+          "max_abs_error": 5,
+          "mean_abs_error": 1.1390006510416666,
+          "signed_difference_histogram": {
+            "0": 722,
+            "1": 281044,
+            "2": 10909,
+            "3": 11181,
+            "4": 3224,
+            "5": 120
+          }
+        },
+        "R": {
+          "old_min": 0,
+          "old_max": 255,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 255,
+          "differing_bytes": 21701,
+          "max_abs_error": 3,
+          "mean_abs_error": 0.09695638020833333,
+          "signed_difference_histogram": {
+            "-1": 370,
+            "0": 285499,
+            "1": 14845,
+            "2": 4888,
+            "3": 1598
+          }
+        },
+        "A": {
+          "old_min": 0,
+          "old_max": 0,
+          "ffmpeg_min": 255,
+          "ffmpeg_max": 255,
+          "differing_bytes": 307200,
+          "max_abs_error": 255,
+          "mean_abs_error": 255.0,
+          "signed_difference_histogram": {
+            "-255": 307200
+          }
+        }
+      },
+      "complete_difference_file": "private/public-sample/delta-old-minus-ffmpeg-08.s16le.zlib",
+      "difference_sha256": "19f5911cad4cff0bfe48afa7ace1ea7d0c5a07ac0aa70831a551d8aac1b42cac"
+    },
+    {
+      "frame": 16,
+      "old_sha256": "4684041a0e8e49957bd9fcf1fc2d60ca88c701f41fa54a692e72a7a3db87cf77",
+      "ffmpeg_sha256": "9964b8a4f6f09708fbf09b370bc1c65fd478f03f223a4fd5438103b8beaa768f",
+      "exact_equal": false,
+      "rgb_differing_pixels": 306768,
+      "alpha_differing_pixels": 307200,
+      "old_nonblack_pixels": 307200,
+      "old_pixels_above_16": 27314,
+      "ffmpeg_nonblack_pixels": 32820,
+      "ffmpeg_pixels_above_16": 27276,
+      "channels": {
+        "B": {
+          "old_min": 0,
+          "old_max": 199,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 199,
+          "differing_bytes": 12059,
+          "max_abs_error": 2,
+          "mean_abs_error": 0.04286458333333333,
+          "signed_difference_histogram": {
+            "-2": 1109,
+            "-1": 10486,
+            "0": 295141,
+            "1": 464
+          }
+        },
+        "G": {
+          "old_min": 0,
+          "old_max": 254,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 251,
+          "differing_bytes": 306478,
+          "max_abs_error": 5,
+          "mean_abs_error": 1.1390006510416666,
+          "signed_difference_histogram": {
+            "0": 722,
+            "1": 281044,
+            "2": 10909,
+            "3": 11181,
+            "4": 3224,
+            "5": 120
+          }
+        },
+        "R": {
+          "old_min": 0,
+          "old_max": 255,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 255,
+          "differing_bytes": 21701,
+          "max_abs_error": 3,
+          "mean_abs_error": 0.09695638020833333,
+          "signed_difference_histogram": {
+            "-1": 370,
+            "0": 285499,
+            "1": 14845,
+            "2": 4888,
+            "3": 1598
+          }
+        },
+        "A": {
+          "old_min": 0,
+          "old_max": 0,
+          "ffmpeg_min": 255,
+          "ffmpeg_max": 255,
+          "differing_bytes": 307200,
+          "max_abs_error": 255,
+          "mean_abs_error": 255.0,
+          "signed_difference_histogram": {
+            "-255": 307200
+          }
+        }
+      },
+      "complete_difference_file": "private/public-sample/delta-old-minus-ffmpeg-16.s16le.zlib",
+      "difference_sha256": "19f5911cad4cff0bfe48afa7ace1ea7d0c5a07ac0aa70831a551d8aac1b42cac"
+    },
+    {
+      "frame": 32,
+      "old_sha256": "4684041a0e8e49957bd9fcf1fc2d60ca88c701f41fa54a692e72a7a3db87cf77",
+      "ffmpeg_sha256": "9964b8a4f6f09708fbf09b370bc1c65fd478f03f223a4fd5438103b8beaa768f",
+      "exact_equal": false,
+      "rgb_differing_pixels": 306768,
+      "alpha_differing_pixels": 307200,
+      "old_nonblack_pixels": 307200,
+      "old_pixels_above_16": 27314,
+      "ffmpeg_nonblack_pixels": 32820,
+      "ffmpeg_pixels_above_16": 27276,
+      "channels": {
+        "B": {
+          "old_min": 0,
+          "old_max": 199,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 199,
+          "differing_bytes": 12059,
+          "max_abs_error": 2,
+          "mean_abs_error": 0.04286458333333333,
+          "signed_difference_histogram": {
+            "-2": 1109,
+            "-1": 10486,
+            "0": 295141,
+            "1": 464
+          }
+        },
+        "G": {
+          "old_min": 0,
+          "old_max": 254,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 251,
+          "differing_bytes": 306478,
+          "max_abs_error": 5,
+          "mean_abs_error": 1.1390006510416666,
+          "signed_difference_histogram": {
+            "0": 722,
+            "1": 281044,
+            "2": 10909,
+            "3": 11181,
+            "4": 3224,
+            "5": 120
+          }
+        },
+        "R": {
+          "old_min": 0,
+          "old_max": 255,
+          "ffmpeg_min": 0,
+          "ffmpeg_max": 255,
+          "differing_bytes": 21701,
+          "max_abs_error": 3,
+          "mean_abs_error": 0.09695638020833333,
+          "signed_difference_histogram": {
+            "-1": 370,
+            "0": 285499,
+            "1": 14845,
+            "2": 4888,
+            "3": 1598
+          }
+        },
+        "A": {
+          "old_min": 0,
+          "old_max": 0,
+          "ffmpeg_min": 255,
+          "ffmpeg_max": 255,
+          "differing_bytes": 307200,
+          "max_abs_error": 255,
+          "mean_abs_error": 255.0,
+          "signed_difference_histogram": {
+            "-255": 307200
+          }
+        }
+      },
+      "complete_difference_file": "private/public-sample/delta-old-minus-ffmpeg-32.s16le.zlib",
+      "difference_sha256": "19f5911cad4cff0bfe48afa7ace1ea7d0c5a07ac0aa70831a551d8aac1b42cac"
+    }
+  ]
+}
