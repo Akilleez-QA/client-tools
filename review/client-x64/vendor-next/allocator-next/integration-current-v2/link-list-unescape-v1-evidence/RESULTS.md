@@ -1,5 +1,7 @@
 # Preserve individual native linker dependency tokens
 
+**Correction after publication:** the initial custom Release Link target omitted `WinMain.obj`. Its 61 unresolved symbols are 60 Miles imports plus `externalCommandHandler`; the latter is a diagnostic-input omission, not a production defect. The 63/76 negative-control totals share that omitted object. Tokenization and unchanged-input metadata results remain valid. A corrected isolated target using all three actual SwgClient objects is being rerun; full product results remain pending. Original logs and the initial account below are retained for provenance.
+
 The actual a21af1630 x64 Release and Debug build reached Link but failed LNK1181 opening `.obj`. Each filter property function returned an escaped semicolon list. Plain metadata logging flattened that distinction; earlier manual diagnostic response files bypassed it. Those earlier checks did not prove production task tokenization.
 
 Candidate wraps each existing String.Replace expression in MSBuild::Unescape, in client-runtime-deps.props and parser-deps.props. No input names, removals, order or provider changes. Official documentation explicitly says property-function return strings escape special characters and recommends Unescape when project-literal interpretation is intended: https://learn.microsoft.com/en-us/visualstudio/msbuild/property-functions
