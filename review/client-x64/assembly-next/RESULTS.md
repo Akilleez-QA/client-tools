@@ -45,7 +45,7 @@ Primary contextual references: [Microsoft byte swaps](https://learn.microsoft.co
 
 ## Integration follow-up (2026-09-30)
 
-Published only to the Akilleez-QA forks: client `b00ebf3df`, server `2a3b1463`. The client includes merge commits for `ci/client-wire` and `ci/client-dpvs`, plus the integration push trigger. [First integration wire CI run](https://github.com/Akilleez-QA/client-tools/actions/runs/36674511571) was in progress when this note was written. The DPVS branch provides a native v120 runner, not an operating GitHub job; merging it does not supply hosted v120 coverage. The DLL comparator's eight synthetic tests passed locally.
+Published only to the Akilleez-QA forks: client `b00ebf3df`, server `2a3b1463`. The client includes merge commits for `ci/client-wire` and `ci/client-dpvs`, plus the integration push trigger. [First integration wire CI run](https://github.com/Akilleez-QA/client-tools/actions/runs/36674511571) passed: 50/50 Win32 and 57/57 Win64 checks on exact head `b00ebf3dfe8198c02a2ff4ed6513469ad10c47e6`. The DPVS branch provides a native v120 runner, not an operating GitHub job; merging it does not supply hosted v120 coverage. The DLL comparator's eight synthetic tests passed locally.
 
 Integration retains the existing C2 numerical candidate. This is a selection for integration testing, not proof of full-client equivalence: sampled PC64 comparison permits one negative dot difference of one ULP and 15 signed-zero min/max differences. Native Direct3D validation remains outstanding. The pending FPU port retains the Win32 precision-setter behavior; any future correction of that behavior requires reassessing C2. C1 remains a historical review alternative, not the current integration tree.
 
