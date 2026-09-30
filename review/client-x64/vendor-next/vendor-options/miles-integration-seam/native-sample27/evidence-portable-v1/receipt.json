@@ -1,0 +1,45 @@
+{
+  "scope": "Compile declarations and usage excerpt only; no SDK, link or executable.",
+  "linked": false,
+  "executed": false,
+  "before": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/ClientMilesSample.h": "04f33063e540c3edc1a51e8f1c20cbe70b833128e31813dae0f522b4b3f94732",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/sample_time.h": "b80f0fddcf154795cae028fa4d05e73cde01c0fc03712512e9f71cdfae9a5e10",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/sample_time.cpp": "ce38cfe37ddfc892ead0eaa57aa29d67a99625c74b5a8f8354623b9f5edc7c55",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/portable_contract.cpp": "e328f8669b4b34771b7d50aac4bbe51ead56d7b7db53a468a4c4ab75558074bb",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/native_sample27.cpp": "d75624aedc9dc80cf79169bb45c8c019206d1f5bb0a8787a78950bef0d3a8304",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/build-native.py": "658dcc6ecd8b576208a4acc5070b9b7ec4b84e68ad6134265420ea570bdd9bb5",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/check-portable.py": "97f6bde0a3abf2afb4d7db582c427e5c3c1836554f580b92bbc73b64c5e94795",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/usr/bin/nm": "b16707aadd1c1953f51fa32d462b2d463a54031f7a743d63e8333c6bf3985abd"
+  },
+  "checks": [
+    {
+      "source": "sample_time.cpp",
+      "exit": 0
+    },
+    {
+      "source": "portable_contract.cpp",
+      "exit": 0
+    }
+  ],
+  "sample_references_all_five": true,
+  "objects": {
+    "portable_contract.o": "38f3deacae7732c9ce30494d4b4e432f7a9a9950c0f6bba07fb4fb1c6fa80531",
+    "sample_time.o": "b4617c140b42138075693b62e5e10a467a06f12689ef398888c5e7dcde677181"
+  },
+  "after": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/ClientMilesSample.h": "04f33063e540c3edc1a51e8f1c20cbe70b833128e31813dae0f522b4b3f94732",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/sample_time.h": "b80f0fddcf154795cae028fa4d05e73cde01c0fc03712512e9f71cdfae9a5e10",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/sample_time.cpp": "ce38cfe37ddfc892ead0eaa57aa29d67a99625c74b5a8f8354623b9f5edc7c55",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/portable_contract.cpp": "e328f8669b4b34771b7d50aac4bbe51ead56d7b7db53a468a4c4ab75558074bb",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/native_sample27.cpp": "d75624aedc9dc80cf79169bb45c8c019206d1f5bb0a8787a78950bef0d3a8304",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/build-native.py": "658dcc6ecd8b576208a4acc5070b9b7ec4b84e68ad6134265420ea570bdd9bb5",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/check-portable.py": "97f6bde0a3abf2afb4d7db582c427e5c3c1836554f580b92bbc73b64c5e94795",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/usr/bin/nm": "b16707aadd1c1953f51fa32d462b2d463a54031f7a743d63e8333c6bf3985abd"
+  },
+  "passed": true
+}

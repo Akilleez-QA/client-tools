@@ -1,0 +1,116 @@
+POODO_CONTINUATION_V3_0
+schema: POODO_CONTINUATION/3.0
+capsule_id: PC-nativesample27-1
+revision: 1
+parent_capsule: null
+generated_at: '2026-09-30T14:27:24.086428+00:00'
+objective: Prepare five native-Miles-shaped sample operations and object-only gate under incomplete parent
+  faithful-x64 goal.
+acceptance:
+- id: AC-nativesample27-1
+  criterion: Minimal typed header/direct SDK forwarding/example prepared; portable object checks pass;
+    stop before VM pending root review.
+authority:
+  allowed: New native-sample27 files, portable object checks and prepared v120 script.
+  prohibited: VM staging/execution until parent gate, vendor/engine/runtime/link, pipe implementation,
+    product/frozen edits, SDK publication or push.
+constraints: Five sample operations only; opaque allocated identity, exact extent and signed output types;
+  no playback claim.
+user_directives: Match native Miles64 shape first; avoid original helper release-on-bind-failure leak
+  in sample.
+current_head: D-nativesample27-1
+claims:
+- id: O-nativesample27-1
+  state: observed
+  status: active
+  text: Two portable objects compile first attempt, all five facade references unresolved, no link/execution
+    and unchanged recorded inputs.
+  source_type: artifact
+  locator: evidence-portable-v1/receipt.json; sample-symbols.log
+  observed_at: '2026-09-30T14:27:24.086428+00:00'
+  freshness: Named snapshot only
+  evidence_family: EF-nativesample27-portable
+  rehydration_status: checked
+  supports:
+  - AC-nativesample27-1
+  limits: Actual SDK assertions and native object/import gate remain unrun; no lifetime or playback outcome.
+evidence_bundles:
+- id: E-nativesample27-1
+  request: Portable header/type/example object compilation and unresolved reference inspection.
+  material_inputs:
+  - A-nativesample27-source
+  result_or_locator: evidence-portable-v1/
+  completeness: complete
+  artifacts:
+  - A-nativesample27-portable
+  supports_claims:
+  - O-nativesample27-1
+orientations:
+- id: OR-nativesample27-1
+  text: Five direct native operations are prepared; native gate requires parent review.
+  depends_on:
+  - O-nativesample27-1
+  confidence:
+    artifact_identity: high
+    test_path: high
+    causal_model: medium
+    outcome: low
+  strongest_rival: H-nativesample27-1
+alternatives:
+- id: H-nativesample27-1
+  status: live
+  text: Native forwarding differs in actual SDK types or fails the intended v120 build.
+  discriminator: Prepared actual-header /Zs and /c, AMD64 COFF and exactly five unresolved imports.
+decisions:
+- id: D-nativesample27-1
+  text: Freeze source and hand off for root/CLI review; no VM work.
+  depends_on:
+  - O-nativesample27-1
+  reversible: true
+  reverse_if: Review or later authorized compile finds a shape/ownership defect.
+predictions:
+- id: P-nativesample27-native
+  kind: prospective
+  created_at: '2026-09-30T14:21:16.388145+00:00'
+  created_before_observation: true
+  observable: Three native v120 AMD64 objects with all actual SDK assertions and exactly five unresolved
+    imports.
+  acceptance: Pinned header/sources/tools unchanged; no link or PE.
+  failure_means: Preserve first failure, make reviewed new revision rather than edit frozen snapshot.
+  oracle: A-nativesample27-source
+  oracle_version: PLAN and prepared build-native.py
+  artifact: A-nativesample27-source
+  environment: Future C:/native-sample27, actual v120 amd64 and private pinned7.2a header.
+  status: pending
+  status_history:
+  - pending
+  outcome_evidence: []
+outcomes: []
+contradictions: []
+artifacts:
+- id: A-nativesample27-source
+  locator: source-v1.tar
+  identity_method: sha256
+  identity: 34dd35b74995f1166d6b4ba68391feaa53e8e367812e0ea7b1a7aab23351eb82
+  mutable: false
+  captured_at: '2026-09-30T14:27:24.086428+00:00'
+  role: input
+- id: A-nativesample27-portable
+  locator: evidence-portable-v1/receipt.json
+  identity_method: sha256
+  identity: da9beebfb82ed64790635f56c2cf734c42679274e29e9965140305c32d7d06b1
+  mutable: false
+  captured_at: '2026-09-30T14:27:24.086428+00:00'
+  role: evidence
+rehydration:
+  status: complete
+  losses: []
+delivery_state: checked
+outcome_state: unobserved
+highest_justified_claim: Portable declaration/example boundary compiles; direct native sample delegates
+  and gate are authored, not natively validated.
+required_runtime_observation: None authorized; native object-only gate pending parent approval. Vendor/engine
+  sample runtime outside scope.
+who_controls_next_test: Parent /root
+next_step: Parent reviews frozen source and chooses whether to authorize the native object-only gate.
+END_POODO_CONTINUATION_V3_0

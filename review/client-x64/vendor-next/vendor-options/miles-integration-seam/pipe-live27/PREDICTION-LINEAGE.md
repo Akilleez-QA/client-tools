@@ -1,0 +1,7 @@
+# Prediction lineage before source freeze
+
+The parent-authored initial draft predicted 20 requests with only GENERIC (0). Source review found that setting the factory default could pass despite a dropped setter. Before any build or runtime, the parent approved fixed ROOM (2) then GENERIC (0), expanding to 22 requests. The original room is observed after open and must differ from 2. No values are selected after observing results. Unsupported room behavior, initial room 2, or any failed readback is a failed probe, not permission to tune the oracle or retry. This room experiment deliberately goes beyond Audio fresh-install behavior, where the room setter is guarded off until installed. No prior runtime result exists for either draft.
+
+The actual 7.2a header names ROOM as a standard environment but does not establish support in the chosen provider. Audio explicitly checks room support. Null-sink/provider inability to return a nonzero room would be evidence about this probe/environment, not automatically a transport/runtime defect.
+
+The first local source-packaging attempt stopped before creating a snapshot/manifest because native26's object-only input set omitted endpoint.cpp. Source inspection identified the complete six link/host-loop additions from frozen23, now explicit in prepare-source.py. This was packaging validation, not a native build or runtime failure; no VM was contacted.

@@ -1,0 +1,132 @@
+New narrow static review: native-sample27 five facade signatures and direct native forwarding only. Compare allocation, set_named_sample_file, sample_ms_position, end_sample, release_sample_handle to supplied actual Win64 Miles declarations. Check bind byte-count width, signed block/result, suffix/image const pointers, nullable millisecond output pointers and ordering, and opaque native handle round-trip. Target is v120 x64; native compile is separately owned and no runtime/link claim follows. Driver/sample values come from the same selected direct-native implementation; do not assume pipe identities are usable here. Shared public driver declaration is struct DigitalDriver; typedef DigitalDriver *HDIGDRIVER; direct driver open forwards AIL_open_digital_driver and reinterpret_casts its returned native driver pointer to the facade pointer.
+Use only supplied code/declarations: no tools, browsing, filesystem, edits or execution. No other review conclusions supplied. Return at most 600 words: concrete source defect with file/line/counterexample, or none found within this narrow source scope. Do not write a broad file/lifetime essay or treat this as review of sample policy, callbacks, transport or audio fidelity.
+Source manifest SHA256 ec62d406a40293fc10bc9420707a78d5379b771d9d9289d9298f57a6bc7afdee. Actual possessed Mss.h SHA966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e uses U32 unsigned int, S32 signed int, C8 char; Windows FAR empty and AILCALL __stdcall. Excerpts below are only relevant declarations, no SDK implementation/body.
+
+FILE native-sample27/ClientMilesSample.h
+```
+1: #ifndef CLIENT_MILES_SAMPLE27_H
+2: #define CLIENT_MILES_SAMPLE27_H
+3: 
+4: #include "../backend-boundary24/ClientMiles.h"
+5: 
+6: namespace ClientMiles
+7: {
+8: // Allocated sample identity, local to the selected backend and owning driver.
+9: // Copies alias one allocation; release exactly once. No borrowed stream samples.
+10: struct OwnedSample;
+11: typedef OwnedSample *HSAMPLE;
+12: 
+13: HSAMPLE allocate_sample_handle(HDIGDRIVER driver);
+14: int32_t set_named_sample_file(HSAMPLE sample, const char *suffix,
+15:                              const void *fileImage, uint32_t fileBytes, int32_t block);
+16: void sample_ms_position(HSAMPLE sample, int32_t *totalMilliseconds,
+17:                         int32_t *currentMilliseconds);
+18: void end_sample(HSAMPLE sample);
+19: void release_sample_handle(HSAMPLE sample);
+20: 
+21: // Allocation null and named-file scalar returns stay actual SDK values. Output
+22: // pointers preserve nullability and millisecond units. No image ownership moves:
+23: // the caller retains suffix/image storage through the documented vendor lifetime;
+24: // this candidate's usage excerpt conservatively keeps both stable through release.
+25: // This subset does not expose start/playback or a borrowed-sample conversion.
+26: }
+27: 
+28: #endif
+```
+
+FILE native-sample27/native_sample27.cpp
+```
+1: #include "ClientMilesSample.h"
+2: #include <Mss.h>
+3: #include <type_traits>
+4: 
+5: #if !defined(_WIN64) || _MSC_VER != 1800
+6: #error Requires actual v120 x64 and the pinned private Miles 7.2a header.
+7: #endif
+8: 
+9: static_assert(std::is_same<uint32_t, U32>::value, "exact native image byte count");
+10: static_assert(std::is_same<int32_t, S32>::value, "exact native block/result/millisecond type");
+11: static_assert(std::is_same<char, C8>::value, "exact native suffix element type");
+12: 
+13: // Opaque facade handles intentionally differ. Bind every remaining argument and
+14: // result to the actual SDK types, and check the corresponding native declaration.
+15: static_assert(std::is_same<decltype(&ClientMiles::allocate_sample_handle),
+16:     ClientMiles::HSAMPLE (*)(ClientMiles::HDIGDRIVER)>::value, "facade allocation shape");
+17: static_assert(std::is_same<decltype(&::AIL_allocate_sample_handle),
+18:     ::HSAMPLE (AILCALL *)(::HDIGDRIVER)>::value, "actual allocation signature");
+19: 
+20: static_assert(std::is_same<decltype(&ClientMiles::set_named_sample_file),
+21:     S32 (*)(ClientMiles::HSAMPLE, C8 const *, void const *, U32, S32)>::value,
+22:     "facade named-file shape with native scalar/pointer types");
+23: static_assert(std::is_same<decltype(&::AIL_set_named_sample_file),
+24:     S32 (AILCALL *)(::HSAMPLE, C8 const *, void const *, U32, S32)>::value,
+25:     "actual named-file signature");
+26: 
+27: static_assert(std::is_same<decltype(&ClientMiles::sample_ms_position),
+28:     void (*)(ClientMiles::HSAMPLE, S32 *, S32 *)>::value, "facade native output pointer types");
+29: static_assert(std::is_same<decltype(&::AIL_sample_ms_position),
+30:     void (AILCALL *)(::HSAMPLE, S32 *, S32 *)>::value, "actual position signature");
+31: 
+32: static_assert(std::is_same<decltype(&ClientMiles::end_sample),
+33:     void (*)(ClientMiles::HSAMPLE)>::value, "facade end shape");
+34: static_assert(std::is_same<decltype(&::AIL_end_sample),
+35:     void (AILCALL *)(::HSAMPLE)>::value, "actual end signature");
+36: static_assert(std::is_same<decltype(&ClientMiles::release_sample_handle),
+37:     void (*)(ClientMiles::HSAMPLE)>::value, "facade release shape");
+38: static_assert(std::is_same<decltype(&::AIL_release_sample_handle),
+39:     void (AILCALL *)(::HSAMPLE)>::value, "actual release signature");
+40: 
+41: namespace ClientMiles
+42: {
+43: HSAMPLE allocate_sample_handle(HDIGDRIVER driver)
+44: {
+45:     return reinterpret_cast<HSAMPLE>(
+46:         ::AIL_allocate_sample_handle(reinterpret_cast<::HDIGDRIVER>(driver)));
+47: }
+48: 
+49: int32_t set_named_sample_file(HSAMPLE sample, const char *suffix,
+50:                              const void *fileImage, uint32_t fileBytes, int32_t block)
+51: {
+52:     return ::AIL_set_named_sample_file(reinterpret_cast<::HSAMPLE>(sample),
+53:                                        suffix, fileImage, fileBytes, block);
+54: }
+55: 
+56: void sample_ms_position(HSAMPLE sample, int32_t *totalMilliseconds,
+57:                         int32_t *currentMilliseconds)
+58: {
+59:     ::AIL_sample_ms_position(reinterpret_cast<::HSAMPLE>(sample),
+60:                              totalMilliseconds, currentMilliseconds);
+61: }
+62: 
+63: void end_sample(HSAMPLE sample)
+64: {
+65:     ::AIL_end_sample(reinterpret_cast<::HSAMPLE>(sample));
+66: }
+67: 
+68: void release_sample_handle(HSAMPLE sample)
+69: {
+70:     ::AIL_release_sample_handle(reinterpret_cast<::HSAMPLE>(sample));
+71: }
+72: }
+```
+
+FILE actual Mss.h minimal declarations
+```
+1121: #ifndef C8
+1122: #define C8 char
+1123: #endif
+2357: typedef MSS_STRUCT _DIG_DRIVER FAR * HDIGDRIVER;    // Handle to digital driver
+2361: typedef MSS_STRUCT _SAMPLE FAR * HSAMPLE;           // Handle to sample
+4418: DXDEC  HSAMPLE      AILCALL AIL_allocate_sample_handle
+4419:                                                       (HDIGDRIVER dig);
+4479: DXDEC  void         AILCALL AIL_release_sample_handle (HSAMPLE S);
+4492: DXDEC  S32          AILCALL AIL_set_named_sample_file (HSAMPLE   S,
+4493:                                                        C8 const   FAR *file_type_suffix,
+4494:                                                        void const FAR *file_image,
+4495:                                                        U32       file_size,
+4496:                                                        S32       block);
+4528: DXDEC  void         AILCALL AIL_end_sample            (HSAMPLE S);
+4752: DXDEC  void     AILCALL AIL_sample_ms_position     (HSAMPLE    S, //)
+4753:                                                     S32 FAR *  total_milliseconds,
+4754:                                                     S32 FAR *  current_milliseconds);
+```
