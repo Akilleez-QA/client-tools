@@ -1,0 +1,28 @@
+PASS initial acquisition
+PASS recursive acquisition
+PASS ownership worker created
+PASS first competing attempt completed
+PASS other thread excluded while nested
+PASS second competing attempt completed
+PASS one unlock does not release nested owner
+PASS worker ready for retry acquisition
+PASS final unlock permits retry acquisition
+PASS ownership worker joined
+PASS worker exit code
+PASS lock reusable after transfer
+PASS stress event created
+PASS stress worker created
+PASS stress worker created
+PASS stress worker created
+PASS stress worker created
+PASS stress worker joined
+PASS worker exit code
+PASS stress worker joined
+PASS worker exit code
+PASS stress worker joined
+PASS worker exit code
+PASS stress worker joined
+PASS worker exit code
+PASS protected payload stays coherent
+PASS exact protected update total
+SUMMARY 27/27

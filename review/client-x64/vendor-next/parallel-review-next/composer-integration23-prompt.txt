@@ -1,0 +1,448 @@
+Review the actual existing no-playback bridge and new metadata helper. Propose the smallest real vertical integration patch that removes duplicated bootstrap handling and connects genuine metadata through framed command/reply, without introducing a second coordinator. Identify exact integration call sites, state/ordering constraints, and minimal success and failure controls. Verify claims against supplied code; do not guess counts.
+Read only. Supplied source is authoritative; no filesystem search required. Do not execute code, inspect private SDKs, or modify files. Report exact source locations, concrete counterexamples and narrow recommendations. No full-fidelity inference from passing component tests.
+
+FILE live-bridge-candidate/bridge.cpp
+```cpp
+#include "common.h"
+#include "admission.h"
+#include <memory>
+#ifndef _WIN64
+#include <Mss.h>
+#include <xmmintrin.h>
+#include "../host-candidate/host_dispatch.h"
+#include "../host-candidate/registry_resolver.h"
+#include "../host-candidate/retained_buffers.h"
+#include "../buffer-upload-candidate/buffer_upload.h"
+#endif
+using namespace MilesWire;
+static uint32_t floatBits(float v){uint32_t b;memcpy(&b,&v,4);return b;}
+inline uint64_t incarnation(const std::string& n){uint64_t x=0;for(unsigned i=0;i<16;++i)x=(x<<4)|static_cast<uint64_t>(n[i]<='9'?n[i]-'0':n[i]-'a'+10);return x?x:1;}
+inline bool zeroHandle(const Handle& h){return !h.kind&&!h.slot&&!h.generation;}
+inline bool same(const Handle& a,const Handle& b){return a.kind==b.kind&&a.slot==b.slot&&a.generation==b.generation;}
+inline std::vector<unsigned char> readFile(const char* name){FILE* f=0;require(!fopen_s(&f,name,"rb")&&f,"file open");fseek(f,0,SEEK_END);long n=ftell(f);rewind(f);require(n==9020,"known PCM size");std::vector<unsigned char>b(static_cast<size_t>(n));require(fread(&b[0],1,b.size(),f)==b.size(),"file read");fclose(f);return b;}
+#ifndef _WIN64
+static bool knownPcm(const std::vector<unsigned char>& b){
+ HCRYPTPROV p=0;HCRYPTHASH h=0;require(CryptAcquireContextA(&p,0,0,PROV_RSA_AES,CRYPT_VERIFYCONTEXT)!=0,"sha provider");
+ require(CryptCreateHash(p,CALG_SHA_256,0,0,&h)!=0,"sha hash");require(CryptHashData(h,&b[0],static_cast<DWORD>(b.size()),0)!=0,"sha data");
+ unsigned char d[32];DWORD n=32;require(CryptGetHashParam(h,HP_HASHVAL,d,&n,0)!=0,"sha result");CryptDestroyHash(h);CryptReleaseContext(p,0);
+ const char* expected="ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9";const char hex[]="0123456789abcdef";
+ for(unsigned i=0;i<32;++i)if(hex[d[i]>>4]!=expected[2*i]||hex[d[i]&15]!=expected[2*i+1])return false;return true;
+}
+struct Backend {
+ MilesTransport::ResourceRegistry registry;MilesHost::RegistryResolver resolver;MilesHost::RetainedBuffers retained;
+ std::unique_ptr<MilesHost::BufferUpload> upload;Handle driverId,sampleId,bufferId,controlId;
+ HDIGDRIVER driver;HSAMPLE sample,control;bool started,bound,attempted,shutdown;
+ Backend():resolver(registry),retained(32768,1),driver(0),sample(0),control(0),started(false),bound(false),attempted(false),shutdown(false){driverId=sampleId=bufferId=controlId=Handle();}
+ // Emergency cleanup is deliberately not counted as a successful ordered shutdown.
+ ~Backend(){if(started){if(sample)::AIL_release_sample_handle(sample);if(control)::AIL_release_sample_handle(control);::AIL_shutdown();puts("FAIL emergency vendor cleanup");}}
+ Result execute(uint32_t op,const Call& c,const std::vector<unsigned char>& frame){
+ Result r={};r.transport_status=3;
+ if(c.callback||c.reserved)return r;
+ unsigned values=0;bool target=false,resource=false,text=false,payload=false;
+ switch(op){case MilesWire::AIL_open_digital_driver:values=4;break;case BufferBegin:values=1;break;case BufferChunk:values=1;target=true;payload=true;break;case BufferSeal:case BufferRelease:case MilesWire::AIL_allocate_sample_handle:case MilesWire::AIL_release_sample_handle:case MilesWire::AIL_end_sample:target=true;break;case MilesWire::AIL_set_named_sample_file:target=resource=text=true;values=2;break;case MilesWire::AIL_set_sample_volume_levels:target=true;values=2;break;case MilesWire::AIL_set_sample_playback_rate:target=true;values=1;break;case MilesWire::AIL_sample_volume_levels:case MilesWire::AIL_sample_playback_rate:case MilesWire::AIL_sample_ms_position:target=true;break;case MilesWire::AIL_startup:case MilesWire::AIL_shutdown:case SessionClose:break;default:r.transport_status=1;return r;}
+ for(unsigned i=values;i<8;++i)if(c.value[i])return r;
+ if((!target&&!zeroHandle(c.target))||(!resource&&!zeroHandle(c.resource))||(!text&&c.text.length)||(!payload&&c.bytes.length))return r;
+ const bool outputs=op==MilesWire::AIL_sample_volume_levels||op==MilesWire::AIL_sample_ms_position;
+ if(c.output_mask&~(outputs?3u:0u))return r;
+ r.transport_status=4;
+ if(op==MilesWire::AIL_startup){if(started||shutdown)return r;S32 v=::AIL_startup();r.return_bits=static_cast<uint32_t>(v);r.transport_status=0;started=v!=0;printf("vendor startup=%ld\n",v);return r;}
+ if(op==SessionClose){if(!shutdown||started||sample||control||upload)return r;r.transport_status=0;return r;}
+ if(!started||shutdown)return r;
+ if(op==MilesWire::AIL_open_digital_driver){if(driver||c.value[0]!=22050||c.value[1]!=16||c.value[2]!=2||c.value[3])return r;driver=::AIL_open_digital_driver(c.value[0],16,MSS_MC_STEREO,0);if(driver)require(registry.insert(Driver,driver,driverId),"register driver");r.resource=driverId;r.transport_status=0;printf("vendor driver_nonnull=%u\n",driver?1:0);return r;}
+ if(op==MilesWire::AIL_allocate_sample_handle){if(!driver||sample)return r;void* p=0;if(!registry.resolve(c.target,Driver,p)){r.transport_status=2;return r;}sample=::AIL_allocate_sample_handle(driver);if(sample)require(registry.insert(OwnedSample,sample,sampleId),"register sample");r.resource=sampleId;r.transport_status=0;return r;}
+ if(op==BufferBegin){if(upload||c.value[0]!=9020||c.value[0]*3u+5u>32768u)return r;upload.reset(new MilesHost::BufferUpload(c.value[0],9020));require(registry.insert(Buffer,upload.get(),bufferId),"register upload");r.resource=bufferId;r.transport_status=0;return r;}
+ if(op==BufferChunk||op==BufferSeal||op==BufferRelease){void* p=0;if(!registry.resolve(c.target,Buffer,p)){r.transport_status=2;return r;}
+  if(op==BufferChunk){if(!upload->append(c.value[0],&frame[c.bytes.offset],c.bytes.length)){r.transport_status=3;return r;}}
+  if(op==BufferSeal&&!upload->seal()){r.transport_status=3;return r;}
+  if(op==BufferRelease){if(sample||control)return r;require(registry.retire(bufferId),"retire buffer");upload.reset();}r.transport_status=0;return r;}
+ if(op==MilesWire::AIL_shutdown){if(sample||control||upload)return r;::AIL_shutdown();started=false;shutdown=true;if(driver){require(registry.retire(driverId),"retire driver");driver=0;}retained.deactivate();puts("vendor shutdown complete; retained image still alive");r.transport_status=0;return r;}
+ void* p=0;if(!registry.resolve(c.target,OwnedSample,p)||!same(c.target,sampleId)){r.transport_status=2;return r;}
+ if(op==MilesWire::AIL_set_named_sample_file){void* buffer=0;if(!registry.resolve(c.resource,Buffer,buffer)){r.transport_status=2;return r;}
+  if(attempted||c.value[0]!=9020||c.value[1]||c.text.length!=5||memcmp(&frame[c.text.offset],".wav",5))return r;
+  std::vector<unsigned char> sealed;if(!upload->copySealed(sealed)||!knownPcm(sealed))return r;attempted=true;
+  MilesHost::RetainedBuffers::Token token=0;require(retained.stage(MilesHost::RetainedBuffers::Binary,&sealed[0],sealed.size(),0,sealed.size(),token),"retain image");MilesHost::RetainedBuffers::View view;require(retained.view(token,view),"view retained image");
+  control=::AIL_allocate_sample_handle(driver);require(control!=0&&registry.insert(OwnedSample,control,controlId),"direct control allocate");
+  S32 expected=::AIL_set_named_sample_file(control,".wav",view.data,view.size,0);require(expected!=0,"direct control bind");
+  S32 actual=::AIL_set_named_sample_file(sample,".wav",view.data,view.size,0);r.return_bits=static_cast<uint32_t>(actual);r.transport_status=0;bound=actual!=0;if(bound)require(retained.commit(token),"publish binding");printf("vendor bind direct=%ld framed=%ld\n",expected,actual);return r;
+ }
+ if(op==MilesWire::AIL_release_sample_handle){if(sample){::AIL_release_sample_handle(sample);sample=0;require(registry.retire(sampleId),"retire sample");}if(control){::AIL_end_sample(control);::AIL_release_sample_handle(control);control=0;require(registry.retire(controlId),"retire control");}bound=false;r.transport_status=0;puts("vendor sample release complete; bytes retained");return r;}
+ if(!bound)return r;
+ if(op==MilesWire::AIL_set_sample_volume_levels){float l=0,rr=0;memcpy(&l,&c.value[0],4);memcpy(&rr,&c.value[1],4);::AIL_set_sample_volume_levels(control,l,rr);}
+ if(op==MilesWire::AIL_set_sample_playback_rate)::AIL_set_sample_playback_rate(control,static_cast<S32>(c.value[0]));
+ MilesHost::DispatchStatus status=MilesHost::dispatch(op,c,r,resolver);if(status!=MilesHost::Complete)return r;
+ if(op==MilesWire::AIL_sample_volume_levels){float l=0,rr=0;::AIL_sample_volume_levels(control,(c.output_mask&1)?&l:0,(c.output_mask&2)?&rr:0);if(r.value[0]!=floatBits(l)||r.value[1]!=floatBits(rr))r.transport_status=5;printf("vendor volume direct=%08x,%08x framed=%08x,%08x\n",floatBits(l),floatBits(rr),r.value[0],r.value[1]);}
+ if(op==MilesWire::AIL_sample_ms_position){S32 total=0,current=0;::AIL_sample_ms_position(control,(c.output_mask&1)?&total:0,(c.output_mask&2)?&current:0);if(r.value[0]!=static_cast<uint32_t>(total)||r.value[1]!=static_cast<uint32_t>(current))r.transport_status=5;printf("vendor duration direct=%ld,%ld framed=%u,%u\n",total,current,r.value[0],r.value[1]);}
+ if(op==MilesWire::AIL_sample_playback_rate){S32 rate=::AIL_sample_playback_rate(control);if(r.return_bits!=static_cast<uint32_t>(rate))r.transport_status=5;printf("vendor rate direct=%ld framed=%u\n",rate,r.return_bits);}
+ return r;
+ }
+};
+#endif
+#ifndef _WIN64
+static int host(int argc,char** argv){
+ require(argc==6,"host arguments");FILE* log=0;require(!freopen_s(&log,"host.log","w",stdout),"host log");setvbuf(stdout,0,_IONBF,0);
+ char loaded[MAX_PATH]={};require(GetModuleFileNameA(GetModuleHandleA("mss32.dll"),loaded,MAX_PATH)!=0,"loaded original DLL");printf("loaded_dll=%s\n",loaded);
+ unsigned short cw=0;__asm fnstcw cw
+ printf("entry cw=%04x mxcsr=%08x\n",cw,_mm_getcsr());
+ HANDLE a=CreateFileA(argv[2],GENERIC_READ|GENERIC_WRITE,0,0,OPEN_EXISTING,FILE_FLAG_OVERLAPPED,0);require(a!=INVALID_HANDLE_VALUE,"host command pipe");
+ HANDLE b=CreateFileA(argv[3],GENERIC_READ|GENERIC_WRITE,0,0,OPEN_EXISTING,FILE_FLAG_OVERLAPPED,0);require(b!=INVALID_HANDLE_VALUE,"host callback pipe");
+ ULONG parent=0;BOOL identified=GetNamedPipeServerProcessId(a,&parent);if(identified)require(parent==strtoul(argv[5],0,10),"server PID binding");else printf("LIMIT server PID query unavailable error=%lu\n",GetLastError());
+ Endpoint cmd(a,17),cb(b,19);Backend backend;std::string nonceText=argv[4];MilesCoordinator::Coordinator coordinator(incarnation(nonceText));uint64_t last=0,admission=0;bool hello=false,done=false;
+ while(!done){std::vector<unsigned char> frame=receive(cmd,&cb),unexpected;require(!cb.takeFrame(unexpected),"no callbacks enabled");Header h={};Call c={};require(MilesTransport::decodeCall(bytes(frame),h,c),"decode request");require(h.kind==Request&&h.request==last+1&&h.lane==1&&!h.lock_lease&&!h.causal_request,"request correlation/lane");last=h.request;Result result={};
+ if(!hello){require(h.opcode==Hello&&c.bytes.length==32&&!c.text.length&&zeroHandle(c.target)&&zeroHandle(c.resource)&&!c.output_mask&&!c.callback&&!c.reserved,"hello shape");for(unsigned i=0;i<8;++i)require(!c.value[i],"hello values");require(!memcmp(&frame[c.bytes.offset],nonceText.data(),32),"full nonce handshake");hello=true;}
+ else {
+  bool live=true;std::vector<Handle> resources;if(!zeroHandle(c.target)){void* local=0;live=backend.registry.resolve(c.target,static_cast<ResourceKind>(c.target.kind),local);resources.push_back(c.target);}if(!zeroHandle(c.resource)){void* local=0;live=live&&backend.registry.resolve(c.resource,static_cast<ResourceKind>(c.resource.kind),local);resources.push_back(c.resource);}
+  if(!live)result.transport_status=2;
+  else {
+   MilesCoordinator::Error admitted=LiveBridge::admitNext(coordinator,incarnation(nonceText),admission,h.opcode,resources);
+   if(admitted!=MilesCoordinator::Ok)result.transport_status=4;
+   else { result=backend.execute(h.opcode,c,frame);require(LiveBridge::complete(coordinator,incarnation(nonceText),admission,h.opcode,result.transport_status)==MilesCoordinator::Ok,"observed operation return"); }}
+ }
+ Header reply=h;reply.kind=Reply;std::vector<unsigned char> encoded;require(MilesTransport::encodeResult(reply,result,MilesTransport::Bytes(),MilesTransport::Bytes(),encoded),"encode result");require(cmd.send(bytes(encoded)),"send reply");sent(cmd);
+ printf("request=%I64u opcode=%u transport=%u vendor=%u\n",h.request,h.opcode,result.transport_status,result.return_bits);done=h.opcode==SessionClose&&result.transport_status==0;
+ }
+ drainSession(cmd,cb,true);puts("PASS host ordered shutdown; no callback registrations");return 0;
+}
+#else
+struct Client {
+private:
+ Client& operator=(const Client&);
+public:
+ Endpoint& cmd;Endpoint& cb;uint64_t next;unsigned checks;
+ Client(Endpoint& a,Endpoint& b):cmd(a),cb(b),next(0),checks(0){}
+ Result call(uint32_t op,const Call& c=Call(),MilesTransport::Bytes payload=MilesTransport::Bytes(),MilesTransport::Bytes text=MilesTransport::Bytes(),uint32_t expected=0){
+ Header h={};h.magic=Magic;h.version=Version;h.kind=Request;h.opcode=op;h.request=++next;h.lane=1;std::vector<unsigned char> frame;require(MilesTransport::encodeCall(h,c,payload,text,frame),"encode call");require(cmd.send(bytes(frame)),"send call");frame=receive(cmd,&cb,op==SessionClose);std::vector<unsigned char> unexpected;require(!cb.takeFrame(unexpected),"no callback traffic");Header response={};Result r={};require(MilesTransport::decodeResult(bytes(frame),response,r),"decode reply");require(response.kind==Reply&&response.request==next&&response.opcode==op&&response.lane==1&&!response.causal_request&&!response.lock_lease,"reply correlation");require(r.transport_status==expected,"transport result");++checks;return r;
+ }
+};
+static int controller(int argc,char** argv){
+ require(argc==3,"controller arguments");std::vector<unsigned char> image=readFile(argv[2]);std::string random=nonce(),base="\\\\.\\pipe\\swg-live-"+random,commandName=base+"-cmd",callbackName=base+"-cb";
+ PSECURITY_DESCRIPTOR sd=userDescriptor();SECURITY_ATTRIBUTES sa={sizeof sa,sd,FALSE};ServerPipe a(commandName,sa),b(callbackName,sa);LocalFree(sd);
+ char pid[32];sprintf_s(pid,"%lu",GetCurrentProcessId());std::string args="\""+std::string(argv[1])+"\" --host "+commandName+" "+callbackName+" "+random+" "+pid;std::vector<char> line(args.begin(),args.end());line.push_back(0);
+ ChildProcess child;child.create(argv[1],&line[0]);child.assignAndResume(child.job);
+ try{
+ a.connected();b.connected();ULONG actual=0;require(GetNamedPipeClientProcessId(a.pipe,&actual)&&actual==child.info.dwProcessId,"child command PID binding");require(GetNamedPipeClientProcessId(b.pipe,&actual)&&actual==child.info.dwProcessId,"child callback PID binding");Endpoint cmd(a.take(),23),cb(b.take(),29);Client client(cmd,cb);client.call(Hello,Call(),MilesTransport::Bytes(random.data(),random.size()));Result r=client.call(MilesWire::AIL_startup);require(r.return_bits!=0,"real startup prerequisite");
+ Call c={};c.value[0]=22050;c.value[1]=16;c.value[2]=2;r=client.call(MilesWire::AIL_open_digital_driver,c);Handle driver=r.resource;require(driver.kind==Driver&&driver.slot,"real driver prerequisite");c=Call();c.target=driver;r=client.call(MilesWire::AIL_allocate_sample_handle,c);Handle sample=r.resource;require(sample.kind==OwnedSample&&sample.slot,"real sample prerequisite");
+ c=Call();c.value[0]=9020;r=client.call(BufferBegin,c);Handle upload=r.resource;c=Call();c.target=upload;client.call(BufferChunk,c,bytes(image));client.call(BufferSeal,c);
+ c=Call();c.target=sample;c.resource=upload;c.value[0]=9020;r=client.call(MilesWire::AIL_set_named_sample_file,c,MilesTransport::Bytes(),MilesTransport::Bytes(".wav",5));require(r.return_bits!=0,"genuine bind success");
+ c=Call();c.target=sample;c.output_mask=3;r=client.call(MilesWire::AIL_sample_ms_position,c);require(r.value[0]>0&&r.value[1]==0,"image-derived duration before playback");printf("initial duration=%u current=%u\n",r.value[0],r.value[1]);c.output_mask=0;r=client.call(MilesWire::AIL_sample_playback_rate,c);require(r.return_bits==22050,"original rate");
+ c.value[0]=floatBits(.25f);c.value[1]=floatBits(.75f);client.call(MilesWire::AIL_set_sample_volume_levels,c);c.value[0]=c.value[1]=0;c.output_mask=3;r=client.call(MilesWire::AIL_sample_volume_levels,c);require(r.value[0]==floatBits(.25f)&&r.value[1]==floatBits(.75f),"real framed volume");
+ c.output_mask=0;c.value[0]=11025;client.call(MilesWire::AIL_set_sample_playback_rate,c);c.value[0]=0;r=client.call(MilesWire::AIL_sample_playback_rate,c);require(r.return_bits==11025,"real framed rate");c.output_mask=3;client.call(MilesWire::AIL_sample_ms_position,c);c.output_mask=0;
+ client.call(MilesWire::AIL_end_sample,c);client.call(MilesWire::AIL_release_sample_handle,c);client.call(MilesWire::AIL_sample_playback_rate,c,MilesTransport::Bytes(),MilesTransport::Bytes(),2);
+ c=Call();c.target=upload;client.call(BufferRelease,c);client.call(MilesWire::AIL_shutdown);client.call(SessionClose);
+ require(client.checks==21,"exact request count");drainSession(cmd,cb,true);require(WaitForSingleObject(child.info.hProcess,10000)==WAIT_OBJECT_0,"host exit wait");DWORD exitCode=99;require(GetExitCodeProcess(child.info.hProcess,&exitCode)&&exitCode==0,"host clean exit");child.close();printf("PASS 21 framed requests; real64to32 no-playback slice\n");return 0;
+ }catch(...){throw;}
+}
+#endif
+int main(int argc,char** argv){setvbuf(stdout,0,_IONBF,0);try{
+#ifdef _WIN64
+return controller(argc,argv);
+#else
+return host(argc,argv);
+#endif
+}catch(const std::exception& e){printf("FAIL exception=%s\n",e.what());return 1;}}
+
+```
+
+FILE live-bridge-candidate/common.h
+```cpp
+#ifndef LIVE_BRIDGE_COMMON_H
+#define LIVE_BRIDGE_COMMON_H
+#include "../pipe-transport-candidate/endpoint.h"
+#include <sddl.h>
+#include <wincrypt.h>
+#include <cstdio>
+#include <string>
+#include <stdexcept>
+#include <cstring>
+#pragma comment(lib,"advapi32.lib")
+using MilesPipe::Endpoint;
+inline void require(bool v,const char* what){if(!v){printf("FAIL %s error=%lu\n",what,GetLastError());throw std::runtime_error(what);}}
+inline MilesTransport::Bytes bytes(const std::vector<unsigned char>& v){return MilesTransport::Bytes(v.empty()?0:&v[0],v.size());}
+inline void pauseForIo(Endpoint &a,Endpoint *b) {
+ HANDLE events[4];DWORD n=0;
+ if(a.readPending())events[n++]=a.readEvent();if(a.writePending())events[n++]=a.writeEvent();
+ if(b) { if(b->readPending())events[n++]=b->readEvent();if(b->writePending())events[n++]=b->writeEvent(); }
+ if(n)require(WaitForMultipleObjects(n,events,FALSE,2)!=WAIT_FAILED,"wait io");
+ else SwitchToThread();
+}
+inline void healthy(Endpoint& endpoint, bool orderedPeerClose = false) {
+ require(endpoint.state() == Endpoint::Open ||
+     (orderedPeerClose && endpoint.failure() == Endpoint::PeerClosed), "session channel fault");
+}
+inline std::vector<unsigned char> receive(Endpoint &a,Endpoint *b=0, bool finalReply=false) {
+ ULONGLONG begin=GetTickCount64();std::vector<unsigned char> out;
+ while(GetTickCount64()-begin<10000) {
+  a.pump();if(b)b->pump();
+  // Inspect the idle channel before accepting a ready command frame.
+  if(b)healthy(*b,finalReply);
+  healthy(a);
+  if(a.takeFrame(out)) { require(a.bodyCapacity()==0,"receive transfers storage");return out; }
+  pauseForIo(a,b);
+ }
+ throw std::runtime_error("receive watchdog");
+}
+inline void drainSession(Endpoint& a, Endpoint& b, bool orderedClose) {
+ // drain closes storage; its success alone does not certify channel health.
+ a.pump();b.pump();healthy(a,orderedClose);healthy(b,orderedClose);
+ require(a.drain(3000) && b.drain(3000), "session drain");
+ require(a.failure()==Endpoint::None || (orderedClose && a.failure()==Endpoint::PeerClosed), "command fault retained");
+ require(b.failure()==Endpoint::None || (orderedClose && b.failure()==Endpoint::PeerClosed), "callback fault retained");
+}
+inline void sent(Endpoint &a) {
+ ULONGLONG begin=GetTickCount64();
+ while(a.sendBusy() && GetTickCount64()-begin<10000) { a.pump();require(a.state()==Endpoint::Open,"send channel fault");pauseForIo(a,0); }
+ require(!a.sendBusy(),"send watchdog");
+}
+struct ChildProcess {
+ PROCESS_INFORMATION info;
+ HANDLE job;
+ ChildProcess():job(0) { std::memset(&info,0,sizeof info); }
+ void close() {
+  if(info.hProcess) {
+   DWORD code=0;
+   if(!GetExitCodeProcess(info.hProcess,&code) || code==STILL_ACTIVE) {
+    if(!TerminateProcess(info.hProcess,90))std::terminate();
+    if(WaitForSingleObject(info.hProcess,INFINITE)!=WAIT_OBJECT_0)std::terminate();
+   }
+  }
+  if(info.hThread)CloseHandle(info.hThread);
+  if(info.hProcess)CloseHandle(info.hProcess);
+  if(job)CloseHandle(job);
+  std::memset(&info,0,sizeof info);job=0;
+ }
+ ~ChildProcess(){close();}
+ void create(const char* executable, char* command) {
+  require(!info.hProcess && !job,"fresh child owner");
+  job=CreateJobObjectA(0,0);require(job!=0,"job");
+  JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits={};limits.BasicLimitInformation.LimitFlags=JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+  require(SetInformationJobObject(job,JobObjectExtendedLimitInformation,&limits,sizeof limits)!=0,"job limit");
+  STARTUPINFOA si={};si.cb=sizeof si;
+  require(CreateProcessA(executable,command,0,0,FALSE,CREATE_SUSPENDED,0,0,&si,&info)!=0,"launch child");
+ }
+ void assignAndResume(HANDLE destinationJob) {
+  require(AssignProcessToJobObject(destinationJob,info.hProcess)!=0,"assign child");
+  require(ResumeThread(info.hThread)!=static_cast<DWORD>(-1),"resume child");
+  CloseHandle(info.hThread);info.hThread=0;
+ }
+private:
+ ChildProcess(const ChildProcess&);
+ ChildProcess& operator=(const ChildProcess&);
+};
+struct ServerPipe {
+ HANDLE pipe,event;OVERLAPPED ov;bool pending;
+ ServerPipe(const std::string &name,SECURITY_ATTRIBUTES &sa):pipe(INVALID_HANDLE_VALUE),event(0),pending(false) {
+  std::memset(&ov,0,sizeof ov);
+  pipe=CreateNamedPipeA(name.c_str(),PIPE_ACCESS_DUPLEX|FILE_FLAG_OVERLAPPED|FILE_FLAG_FIRST_PIPE_INSTANCE,
+    PIPE_TYPE_BYTE|PIPE_READMODE_BYTE|PIPE_WAIT|PIPE_REJECT_REMOTE_CLIENTS,1,4096,4096,0,&sa);
+  require(pipe!=INVALID_HANDLE_VALUE,"CreateNamedPipe");event=CreateEventA(0,TRUE,FALSE,0);if(!event) { CloseHandle(pipe);pipe=INVALID_HANDLE_VALUE;throw std::runtime_error("connect event"); }ov.hEvent=event;
+  if(!ConnectNamedPipe(pipe,&ov)) { DWORD e=GetLastError();require(e==ERROR_IO_PENDING || e==ERROR_PIPE_CONNECTED,"ConnectNamedPipe");pending=e==ERROR_IO_PENDING; }
+ }
+ void connected() { if(pending) { require(WaitForSingleObject(event,10000)==WAIT_OBJECT_0,"connect timeout");DWORD n=0;require(GetOverlappedResult(pipe,&ov,&n,FALSE)!=0,"connect result");pending=false; } }
+ HANDLE take() { HANDLE h=pipe;pipe=INVALID_HANDLE_VALUE;return h; }
+ ~ServerPipe() { if(pending) { CancelIoEx(pipe,&ov);DWORD n;GetOverlappedResult(pipe,&ov,&n,TRUE); }if(pipe!=INVALID_HANDLE_VALUE)CloseHandle(pipe);if(event)CloseHandle(event); }
+};
+inline std::string nonce() {
+ HCRYPTPROV provider=0;require(CryptAcquireContextA(&provider,0,0,PROV_RSA_FULL,CRYPT_VERIFYCONTEXT)!=0,"random provider");
+ unsigned char random[16];BOOL ok=CryptGenRandom(provider,sizeof random,random);CryptReleaseContext(provider,0);require(ok!=0,"random bytes");
+ char text[33];const char hex[]="0123456789abcdef";for(unsigned i=0;i<16;++i) { text[i*2]=hex[random[i]>>4];text[i*2+1]=hex[random[i]&15]; }text[32]=0;return text;
+}
+inline PSECURITY_DESCRIPTOR userDescriptor() {
+ HANDLE token=0;require(OpenProcessToken(GetCurrentProcess(),TOKEN_QUERY,&token)!=0,"token");DWORD needed=0;
+ GetTokenInformation(token,TokenUser,0,0,&needed);std::vector<unsigned char> storage(needed);
+ require(GetTokenInformation(token,TokenUser,&storage[0],needed,&needed)!=0,"token user");CloseHandle(token);
+ LPSTR sid=0;require(ConvertSidToStringSidA(reinterpret_cast<TOKEN_USER *>(&storage[0])->User.Sid,&sid)!=0,"sid text");
+ std::string sddl="D:P(A;;GA;;;";sddl+=sid;sddl+=")";LocalFree(sid);PSECURITY_DESCRIPTOR descriptor=0;
+ require(ConvertStringSecurityDescriptorToSecurityDescriptorA(sddl.c_str(),SDDL_REVISION_1,&descriptor,0)!=0,"private acl");return descriptor;
+}
+
+#endif
+
+```
+
+FILE live-bridge-candidate/admission.h
+```cpp
+#ifndef LIVE_BRIDGE_ADMISSION_H
+#define LIVE_BRIDGE_ADMISSION_H
+#include "../coordinator-candidate/coordinator.h"
+namespace LiveBridge {
+inline MilesCoordinator::Error admit(MilesCoordinator::Coordinator& owner,
+    uint64_t session, uint64_t ordinal, uint32_t opcode,
+    const std::vector<MilesWire::Handle>& resources) {
+    if (owner.state() == MilesCoordinator::Draining) {
+        if (opcode != MilesWire::SessionClose) return MilesCoordinator::WrongState;
+        return owner.admitCleanup(session, ordinal, 1, 0, MilesCoordinator::Ordinary, resources);
+    }
+    return owner.admitGame(session, ordinal, 1, 0, MilesCoordinator::Ordinary, resources);
+}
+inline MilesCoordinator::Error admitNext(MilesCoordinator::Coordinator& owner,
+    uint64_t session, uint64_t& lastAdmitted, uint32_t opcode,
+    const std::vector<MilesWire::Handle>& resources) {
+    if (lastAdmitted == UINT64_MAX) return MilesCoordinator::Capacity;
+    MilesCoordinator::Error result = admit(owner, session, lastAdmitted + 1, opcode, resources);
+    if (result == MilesCoordinator::Ok) ++lastAdmitted;
+    return result;
+}
+inline MilesCoordinator::Error complete(MilesCoordinator::Coordinator& owner,
+    uint64_t session, uint64_t ordinal, uint32_t opcode, uint32_t transportStatus) {
+    MilesCoordinator::Error result = owner.completeAdmission(session, ordinal);
+    if (result != MilesCoordinator::Ok) return result;
+    // Backend validates fields and prerequisites and returns only after real shutdown.
+    if (opcode == MilesWire::AIL_shutdown && transportStatus == 0)
+        return owner.beginDrain(session);
+    return MilesCoordinator::Ok;
+}
+}
+#endif
+
+```
+
+FILE startup-metadata-v4/metadata.h
+```cpp
+#ifndef EXPERIMENTAL_MILES_STARTUP_METADATA_H
+#define EXPERIMENTAL_MILES_STARTUP_METADATA_H
+#include "../host-candidate/host_dispatch.h"
+#include "../transport-candidate/codec.h"
+#include <vector>
+#include <list>
+namespace MilesStartup {
+enum { TextNull = 1, RequestTextLimit = MilesWire::MaxFrameBytes - 48 - 88, ReplyTextLimit = MilesWire::MaxFrameBytes - 48 - 80 };
+enum Status { Complete=0, Unsupported=1, InvalidResource=2, InvalidFields=3, TextTooLong=4, InputBudgetExceeded=5 };
+// Must outlive vendor shutdown. No early retirement is provided.
+class SessionInputs {
+    std::list<std::vector<unsigned char> > paths;
+    size_t used;
+    SessionInputs(const SessionInputs&);
+    SessionInputs& operator=(const SessionInputs&);
+public:
+    SessionInputs():used(0){}
+    // Precondition: Bytes refers to a valid readable allocation; this is not a pointer probe.
+    const char* retain(MilesTransport::Bytes);
+    size_t retainedBytes() const { return used; }
+};
+struct Reply {
+    MilesWire::Result result;
+    std::vector<unsigned char> text;
+    Reply();
+};
+bool preferenceValue(int64_t clientValue, uint32_t& wireBits);
+int64_t signedValue(uint32_t wireBits);
+Status validate(uint32_t opcode, const MilesWire::Call&, MilesTransport::Bytes frame);
+// The pointer must be null or a valid vendor C string. This is not a memory probe.
+// On failure, destination is unchanged. Null and nonnull empty are distinct.
+bool copyText(const char* vendorText, Reply& destination);
+// Caller owns session/lane admission. This component supplies neither startup nor a shim.
+Status dispatch(uint32_t opcode, const MilesWire::Call&, MilesTransport::Bytes frame,
+                Reply&, MilesHost::Resolver&, SessionInputs&);
+}
+#endif
+
+```
+
+FILE startup-metadata-v4/metadata_host.cpp
+```cpp
+#include "metadata.h"
+#include <Mss.h>
+#include <cstring>
+#if !defined(_M_IX86) || _MSC_VER != 1800
+#error Original SDK dispatch requires native v120 x86.
+#endif
+static_assert(DIG_MIXER_CHANNELS==1 && DIG_DS_MIX_FRAGMENT_CNT==42,"reviewed preference IDs");
+static_assert(sizeof(SINTa)==4 && SINTa(-1)<0,"original SDK preference result is signed 32-bit");
+namespace MilesStartup {
+namespace {
+uint32_t bits(SINTa value){uint32_t out;std::memcpy(&out,&value,4);return out;}
+}
+Status dispatch(uint32_t op,const MilesWire::Call& c,MilesTransport::Bytes frame,Reply& out,MilesHost::Resolver& resolver,SessionInputs& inputs) {
+    Reply candidate;
+    Status status=validate(op,c,frame);
+    if(status==Complete) {
+        switch(op) {
+        case MilesWire::AIL_get_preference:
+            candidate.result.return_bits=bits(::AIL_get_preference(c.value[0]));break;
+        case MilesWire::AIL_set_preference:
+            candidate.result.return_bits=bits(::AIL_set_preference(c.value[0],static_cast<SINTa>(signedValue(c.value[1]))));break;
+        case MilesWire::AIL_last_error:
+            if(!copyText(::AIL_last_error(),candidate))status=TextTooLong;break;
+        case MilesWire::AIL_set_redist_directory: {
+            const char* retained=inputs.retain(MilesTransport::Bytes(frame.data+c.text.offset,c.text.length));
+            if(!retained){status=InputBudgetExceeded;break;}
+            if(!copyText(::AIL_set_redist_directory(retained),candidate))status=TextTooLong;break;
+        }
+        case MilesWire::AIL_speaker_configuration: {
+            uintptr_t native=0;
+            if(!resolver.resolve(c.target,1u<<MilesWire::Driver,native)||!native){status=InvalidResource;break;}
+            MSS_MC_SPEC spec=MSS_MC_51_DISCRETE; // Distinct valid sentinel; fixture verifies a real write.
+            ::AIL_speaker_configuration(reinterpret_cast<HDIGDRIVER>(native),0,0,0,&spec);
+            candidate.result.value[3]=bits(static_cast<SINTa>(spec));break;
+        }
+        default:status=Unsupported;break;
+        }
+    }
+    candidate.result.transport_status=status;
+    out.text.swap(candidate.text);out.result=candidate.result;
+    return status;
+}
+}
+
+```
+
+FILE startup-metadata-v4/metadata_wire.cpp
+```cpp
+#include "metadata.h"
+#include <cstring>
+#include <limits>
+namespace MilesStartup {
+const char* SessionInputs::retain(MilesTransport::Bytes input) {
+    if(!input.data || !input.size || input.size>RequestTextLimit || input.size>MilesWire::MaxFrameBytes-used)return 0;
+    std::vector<unsigned char> candidate(input.data,input.data+input.size);
+    paths.push_back(std::vector<unsigned char>());
+    paths.back().swap(candidate); // Stable list entry; no reliance on implicit moves.
+    used+=input.size;
+    return reinterpret_cast<const char*>(&paths.back()[0]);
+}
+Reply::Reply(){std::memset(&result,0,sizeof result);}
+bool preferenceValue(int64_t value,uint32_t& bits) {
+    if(value < (std::numeric_limits<int32_t>::min)() || value > (std::numeric_limits<int32_t>::max)())return false;
+    int32_t narrowed=static_cast<int32_t>(value);std::memcpy(&bits,&narrowed,4);return true;
+}
+int64_t signedValue(uint32_t bits){int32_t value;std::memcpy(&value,&bits,4);return value;}
+namespace {
+bool nullHandle(const MilesWire::Handle& h){return !h.kind&&!h.slot&&!h.generation;}
+}
+Status validate(uint32_t op,const MilesWire::Call& c,MilesTransport::Bytes frame) {
+    unsigned values=0;bool driver=false,text=false;
+    switch(op) {
+    case MilesWire::AIL_get_preference: values=1;break;
+    case MilesWire::AIL_set_preference: values=2;break;
+    case MilesWire::AIL_last_error:break;
+    case MilesWire::AIL_set_redist_directory:text=true;break;
+    case MilesWire::AIL_speaker_configuration:driver=true;break;
+    default:return Unsupported;
+    }
+    if(c.reserved||c.callback||c.bytes.offset||c.bytes.length||!nullHandle(c.resource))return InvalidFields;
+    for(unsigned i=values;i<8;++i)if(c.value[i])return InvalidFields;
+    if(driver) { if(c.output_mask!=8)return InvalidFields; }
+    else if(!nullHandle(c.target)||c.output_mask)return InvalidFields;
+    if(!text && (c.text.offset||c.text.length))return InvalidFields;
+    if(text) {
+        if(!frame.data||!c.text.length||c.text.length>RequestTextLimit||c.text.offset>frame.size||c.text.length>frame.size-c.text.offset)return InvalidFields;
+        const unsigned char* p=frame.data+c.text.offset;
+        if(p[c.text.length-1] || std::memchr(p,0,c.text.length-1))return InvalidFields;
+    }
+    if(op==MilesWire::AIL_get_preference && c.value[0]!=1 && c.value[0]!=42)return InvalidFields;
+    if(op==MilesWire::AIL_set_preference && (c.value[0]!=42 || (c.value[1]!=16 && c.value[1]!=64)))return InvalidFields;
+    return Complete;
+}
+bool copyText(const char* source,Reply& destination) {
+    std::vector<unsigned char> candidate;
+    uint32_t nullMask=TextNull;
+    if(source) {
+        size_t n=0;while(n<ReplyTextLimit && source[n])++n;
+        if(n==ReplyTextLimit)return false;
+        candidate.assign(reinterpret_cast<const unsigned char*>(source),reinterpret_cast<const unsigned char*>(source)+n+1);
+        nullMask=0;
+    }
+    destination.text.swap(candidate);destination.result.null_mask=nullMask;return true;
+}
+}
+
+```

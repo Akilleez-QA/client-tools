@@ -1,0 +1,99 @@
+schema: POODO_CONTINUATION/3.0
+capsule_id: PC-pipe-drain23-handoff
+revision: 1
+parent_capsule: null
+generated_at: 2026-09-30T12:59:48.964240+00:00
+objective: Preserve cancellation completion evidence in an isolated synthetic pipe candidate without conflating cleanup with session health.
+acceptance:
+  - id: AC-pipe-drain23-bounded
+    criterion: Late input and real errors retained, incomplete output rejected by session checks, normal exchange and cancellation unchanged, first fault retained, timeout storage preserved.
+authority:
+  allowed: Candidate writes under pipe-drain23 and native synthetic named pipes in C:/pipe-drain23; read source and official documentation.
+  prohibited: Product source changes, vendor/audio/allocator fault/real-engine execution, commits, pushes, invented callback frontier.
+constraints: One VS2013 v120 amd64 Debug configuration; preserve original and parallel worker source trees; no descendant capacity allocated.
+user_directives: Parent assignment explicitly invokes POODO and requests a bounded cancellation-evidence candidate with deterministic native controls.
+current_head: D-pipe-drain23-handoff
+claims:
+  - id: O-pipe-drain23-results
+    state: observed
+    status: active
+    text: Candidate passed 16 named native synthetic cases; unchanged old source failed nine discriminator cases and passed seven controls.
+    source_type: tool
+    locator: RESULTS.md and evidence/results.json and supplement-evidence/supplement-results.json
+    observed_at: 2026-09-30
+    freshness: immutable
+    evidence_family: EF-pipe-drain23-native
+    rehydration_status: verified
+    supports: [AC-pipe-drain23-bounded]
+    limits: Same self-authored fixture family; local named pipes; no intended-use integration or callback quiescence claim.
+evidence_bundles:
+  - id: E-pipe-drain23-first
+    request: Build old and candidate with v120 amd64 Debug and run 13 prospective cases.
+    material_inputs: [A-pipe-drain23-patch]
+    result_or_locator: input.zip, evidence.zip, pre-run-identities.json, evidence/run-input-manifest.json, evidence/output-manifest.json
+    completeness: complete
+    artifacts: [A-pipe-drain23-patch]
+    supports_claims: [O-pipe-drain23-results]
+  - id: E-pipe-drain23-supplement
+    request: After parent harness review, add RAII cancellation reset and run three prospectively planned common.h controls in same configuration.
+    material_inputs: [A-pipe-drain23-patch]
+    result_or_locator: SUPPLEMENT-PLAN.md, final-source.zip, supplement-evidence.zip, supplement-pre-run-identities.json
+    completeness: complete
+    artifacts: [A-pipe-drain23-patch]
+    supports_claims: [O-pipe-drain23-results]
+orientations:
+  - id: OR-pipe-drain23-separation
+    text: Storage-safety cleanup remains a boolean; first failure plus unreadBytes and sendBusy supply orthogonal health evidence.
+    depends_on: [O-pipe-drain23-results]
+    confidence: {artifact_identity: high, test_path: high, causal_model: high, outcome: high}
+    strongest_rival: H-pipe-drain23-limits
+alternatives:
+  - id: H-pipe-drain23-limits
+    status: live
+    text: A real integration could require different shutdown traffic semantics or observe unsubmitted future traffic.
+    discriminator: Separately authorized intended-use protocol integration; not established by this component fixture.
+decisions:
+  - id: D-pipe-drain23-handoff
+    text: Handoff exact three-file patch and bounded evidence; do not integrate or run vendor paths.
+    depends_on: [O-pipe-drain23-results]
+    reversible: true
+    reverse_if: A required intended-use behavior contradicts these scoped session assumptions.
+predictions:
+  - id: P-pipe-drain23-native
+    kind: prospective
+    created_at: 2026-09-30T12:47:00Z
+    created_before_observation: true
+    observable: Candidate accepts ordinary cleanup and exact exchange, retains and rejects tested leftover/error evidence, preserves timeout ownership.
+    acceptance: PLAN.md and SUPPLEMENT-PLAN.md; queued-write is expressly a preservation regression guard.
+    failure_means: The specific named component criterion is unfulfilled; stop and retain logs.
+    oracle: AC-pipe-drain23-bounded
+    oracle_details: Parent-scoped acceptance and official Win32 completion contract, implemented in shared differential fixture.
+    oracle_version: v1 with prospectively added supplement cases
+    artifact: A-pipe-drain23-patch
+    environment: Windows 10 19045, VS2013 v120 amd64 Debug /MTd /Od /W4 /WX
+    status: passed
+    status_history: [pending, passed]
+    outcome_evidence: [E-pipe-drain23-first, E-pipe-drain23-supplement]
+outcomes:
+  - id: OUT-pipe-drain23-bounded
+    prediction: P-pipe-drain23-native
+    state: passed
+    evidence: [E-pipe-drain23-first, E-pipe-drain23-supplement]
+contradictions: []
+artifacts:
+  - id: A-pipe-drain23-patch
+    locator: source.patch
+    identity_method: sha256
+    identity: d7a72f047259feb5f058490ae96486614ac69016f8d8d4c4c95f86a6e1b91dea
+    mutable: false
+    captured_at: 2026-09-30
+    role: output
+rehydration:
+  status: complete
+  losses: []
+delivery_state: built
+outcome_state: passed
+highest_justified_claim: Cancellation evidence and cleanup/health separation satisfy 16 named synthetic native component cases on the exact candidate.
+required_runtime_observation: None for bounded criteria; intended-use integration remains unobserved and outside this assignment.
+who_controls_next_test: parent/user for separately authorized integration scope
+next_step: Parent reviews RESULTS.md and source.patch; no product integration or additional configuration authorized by this handoff.

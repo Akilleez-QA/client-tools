@@ -1,0 +1,219 @@
+# Vertical integration review: live bridge + startup metadata
+
+## What exists today
+
+### Single coordinator (host only)
+
+The 32-bit host owns one `MilesCoordinator::Coordinator`, admission ordinals, and completion/drain hooks. There is no second coordinator in the supplied sources.
+
+```text
+host(): coordinator(incarnation(nonceText)); last; admission; hello
+  → admitNext → backend.execute → complete → encodeResult(empty text) → send
+```
+
+Relevant flow in `bridge.cpp` (host `while (!done)` branch after Hello):
+
+- Pre-resolve `c.target` / `c.resource` → `transport_status = 2` if missing  
+- `LiveBridge::admitNext(coordinator, incarnation(nonceText), admission, h.opcode, resources)` → `4` if not admitted  
+- `result = backend.execute(h.opcode, c, frame)`  
+- `LiveBridge::complete(coordinator, incarnation(nonceText), admission, h.opcode, result.transport_status)`  
+- `MilesTransport::encodeResult(reply, result, MilesTransport::Bytes(), MilesTransport::Bytes(), encoded)` — **reply text always empty**
+
+`admission.h` wires drain only on successful `AIL_shutdown` (`complete` → `beginDrain` when `opcode == AIL_shutdown && transport_status == 0`). Metadata opcodes do not touch drain logic.
+
+### No-playback `Backend::execute`
+
+- Owns **session lifecycle**: `AIL_startup`, `AIL_shutdown`, `SessionClose`, `started` / `shutdown`, driver/sample/buffer/upload/control, bind path, post-bind sample ops via `MilesHost::dispatch` on **control** sample.  
+- **Does not** implement `AIL_get_preference`, `AIL_set_preference`, `AIL_last_error`, `AIL_set_redist_directory`, or `AIL_speaker_configuration`. Those hit the `execute` `default` branch → `transport_status = 1` (before the generic `!started` gate matters for unknown opcodes).  
+- **Bootstrap vendor call** is only here:
+
+```cpp
+if (op == MilesWire::AIL_startup) { ... ::AIL_startup(); started = v != 0; ... }
+```
+
+`MilesStartup` explicitly does not own startup (`metadata.h`: *"Caller owns session/lane admission. This component supplies neither startup nor a shim."*).
+
+### Metadata helper
+
+- **`validate`** (`metadata_wire.cpp`): field shapes, preference IDs (1/42), set values (16/64), redist text (no interior NUL, trailing NUL), speaker_config `output_mask == 8` + driver target.  
+- **`dispatch`** (`metadata_host.cpp`): real `AIL_*` calls; sets `candidate.result.transport_status = status` (Status enum 0–5).  
+- **`SessionInputs`**: retains redist path bytes; must outlive vendor shutdown (`metadata.h`).  
+- **`Reply`**: `Result` + optional reply `text` + `null_mask` via `copyText`.
+
+Status values align with bridge usage for several cases: `InvalidResource = 2`, `InvalidFields = 3`, `Unsupported = 1`; success `Complete = 0`. Admission rejection remains host-assigned `4`.
+
+### Controller slice (verified count)
+
+`Client::call` increments `checks` once per call (including `Hello`). The controller ends with:
+
+```cpp
+require(client.checks == 21, "exact request count");
+```
+
+The 21 calls are: Hello, `AIL_startup`, driver open, sample allocate, `BufferBegin`, `BufferChunk`, `BufferSeal`, `AIL_set_named_sample_file`, two `AIL_sample_ms_position`, three rate/volume ops, `AIL_end_sample`, `AIL_release_sample_handle`, `AIL_sample_playback_rate` with `expected == 2`, `BufferRelease`, `AIL_shutdown`, `SessionClose` — **no metadata opcodes**. Passing this test does not prove metadata on the wire.
+
+---
+
+## Duplication to remove (and what not to merge)
+
+| Concern | Keep | Do not duplicate |
+|--------|------|------------------|
+| `AIL_startup` / `AIL_shutdown` / playback | `Backend::execute` | Do not add to `MilesStartup::dispatch` |
+| Preference / redist / last_error / speaker_config | `MilesStartup::validate` + `dispatch` | Do not extend `Backend::execute` switch with parallel field rules |
+| Admission / ordinals / drain | Existing `admitNext` / `complete` | No second `Coordinator` |
+| Hello + nonce | Host `hello` flag | Metadata does not replace Hello |
+
+“Duplicated bootstrap handling” in a minimal patch means: **stop expecting playback backend to validate or execute metadata opcodes**; route them to `MilesStartup` while leaving **one** `AIL_startup` in `Backend`.
+
+---
+
+## Smallest real vertical integration patch
+
+### 1. Session-owned metadata state (one place)
+
+**Site:** `Backend` struct in `bridge.cpp` (with `registry`, `resolver`, `retained`).
+
+Add:
+
+```cpp
+MilesStartup::SessionInputs metadataInputs;
+```
+
+`resolver` is already `MilesHost::RegistryResolver` implementing `MilesHost::Resolver&` required by `MilesStartup::dispatch` (`metadata_host.cpp` uses it for `AIL_speaker_configuration`).
+
+Lifetime: `metadataInputs` must survive until after `Backend`’s `AIL_shutdown` path (same as `retained`); destructor order is fine if shutdown runs before destroy.
+
+Include: `#include "../startup-metadata-v4/metadata.h"` (path as in your tree).
+
+### 2. Opcode router in the host loop (not inside `execute`)
+
+**Site:** `bridge.cpp` `host()`, in the `else` branch after `admitted == MilesCoordinator::Ok`, **replace** unconditional `backend.execute` with:
+
+```cpp
+MilesStartup::Reply metaReply;
+MilesTransport::Bytes replyText;
+if (isMetadataOpcode(h.opcode)) {
+    MilesStartup::dispatch(h.opcode, c, bytes(frame), metaReply, backend.resolver, backend.metadataInputs);
+    result = metaReply.result;
+    if (!metaReply.text.empty())
+        replyText = MilesTransport::Bytes(&metaReply.text[0], metaReply.text.size());
+} else {
+    result = backend.execute(h.opcode, c, frame);
+}
+```
+
+`isMetadataOpcode`: fixed set matching `metadata_wire.cpp` `validate` switch — the five `AIL_*` cases only; `default: return false`.
+
+**Why not `Backend::execute`:** `execute` has:
+
+```cpp
+if (!started || shutdown) return r;
+```
+
+for all non-startup/shutdown/session ops. Vendor allows **redist + preferences before `AIL_startup`** (`metadata_host.cpp` calls them without a started guard). Routing only through `execute` would block pre-startup metadata unless you special-case inside `execute` — that duplicates routing. Host-level branch avoids both the `!started` gate and a second validation block in `execute`.
+
+### 3. Framed reply with genuine metadata text
+
+**Site:** same host loop, encode/send (currently empty text payload).
+
+Change to:
+
+```cpp
+require(MilesTransport::encodeResult(reply, result, MilesTransport::Bytes(), replyText, encoded), "encode result");
+```
+
+Preserves `null_mask` and reply text from `copyText` (e.g. `AIL_last_error`, redist return path).
+
+Playback replies stay unchanged when `replyText` is empty.
+
+### 4. Leave admission / complete unchanged
+
+**Sites:** `admission.h` `admitNext`, `complete` — no edits required.
+
+Metadata requests still:
+
+1. Build `resources` from target/resource handles (speaker_config needs live driver → `2` if missing).  
+2. `admitNext` → `4` on coordinator rejection.  
+3. `dispatch` or `execute`.  
+4. `complete(..., admission, h.opcode, result.transport_status)` — drain only on successful `AIL_shutdown`.
+
+Do **not** call `complete` if `admitNext` failed (current behavior).
+
+### 5. Optional vertical test (smallest proof, not required for “patch shape”)
+
+Insert **after Hello, before `AIL_startup`** in `controller()` (64-bit `bridge.cpp`):
+
+- e.g. `AIL_set_redist_directory` with framed non-NUL-terminated path bytes, then `AIL_get_preference` for id `1`.
+
+That exercises pre-startup metadata + text retention without playback changes. Any new `client.call` increases `checks`; you must update `require(client.checks == 21)` to the new exact count (e.g. 23 if you add two calls) — **do not guess** without counting each `call`.
+
+Post-startup vertical slice: after driver open, one `AIL_speaker_configuration` with `output_mask == 8` and `c.target = driver` (+ one more `call`).
+
+---
+
+## State and ordering constraints (from code)
+
+| Phase | Metadata | Playback backend |
+|-------|----------|------------------|
+| Hello only | Not on wire yet | `hello == false` until first frame |
+| After Hello, before `AIL_startup` | `set_redist_directory`, `get/set_preference`, `last_error` OK via `MilesStartup` | `execute` returns early for playback ops (`!started`) |
+| After `AIL_startup` | Same + `speaker_configuration` if driver handle resolves | Buffer/bind/sample ops |
+| `AIL_shutdown` success | Should not require new retained paths; inputs must still outlive shutdown | Clears `started`, sets `shutdown`, retires driver |
+| `SessionClose` | Only when coordinator draining path (`admit` + backend `SessionClose` checks) | `!started && shutdown && no sample/control/upload` |
+
+**Speaker configuration:** `metadata_host.cpp` requires resolved driver (`InvalidResource` otherwise). Host pre-resolve must run **before** admission so dead handles get `2` without calling vendor.
+
+**Redist:** `SessionInputs::retain` → `InputBudgetExceeded` (5) if over budget; pointer passed to `AIL_set_redist_directory`.
+
+**Preferences:** `validate` restricts wire values (`get`: id 1 or 42; `set`: id 42, value 16 or 64) — real vendor calls, not stubs.
+
+---
+
+## Minimal success and failure controls
+
+| Condition | Who sets | `transport_status` | Reply on wire? | `complete()`? |
+|-----------|----------|--------------------|----------------|---------------|
+| Bad target/resource (host resolve) | Host | `2` | Yes (empty text) | Only if admitted |
+| Coordinator reject | Host | `4` | Yes | No |
+| Metadata `validate` / vendor path | `MilesStartup::dispatch` | `1–5` per enum | Yes (+ text when `copyText` ok) | Yes if admitted |
+| Playback `execute` | Backend | `0–5` as today | Yes (empty text) | Yes if admitted |
+| `decodeCall` / correlation / Hello | `require` → exception | N/A | No | N/A |
+
+**Do not** treat `MilesStartup::dispatch` return `Status` as a second admission layer: admission already happened; failed metadata still must `complete` admission for that ordinal.
+
+**Do not** call `backend.execute` for metadata opcodes — avoids `default` → `1` and avoids `!started` false negatives for pre-startup bootstrap.
+
+---
+
+## Concrete counterexamples
+
+1. **Metadata inside `Backend::execute` after the global `!started` check**  
+   `AIL_set_redist_directory` before `AIL_startup` → `execute` returns default failure (`transport_status` 3 from initial template or early exit), not vendor redist behavior.
+
+2. **Metadata in `execute` switch without pre-startup branch**  
+   Same as (1) for preferences before startup.
+
+3. **Second coordinator**  
+   Not present; integrating metadata in the host loop reuses `admission` / `complete` — satisfies “no second coordinator.”
+
+4. **Encoding without `metaReply.text`**  
+   `AIL_last_error` / redist returns lose reply sidecar; framed path is not “genuine metadata” on the wire.
+
+5. **Inferring metadata works from `checks == 21`**  
+   Counterexample: current controller never calls metadata; all 21 requests are playback/session ops only.
+
+6. **Emergency `~Backend()` vs ordered shutdown**  
+   Unchanged by metadata; `SessionInputs` still must not be cleared before `AIL_shutdown` if redist was set (comment in `metadata.h`).
+
+---
+
+## Narrow recommendations
+
+1. **Single integration surface:** host `admitted == Ok` branch — metadata `dispatch` + conditional `encodeResult` text; playback unchanged `execute`.  
+2. **One new member:** `Backend::metadataInputs`.  
+3. **Do not** add metadata cases to `Backend::execute` switch (minimal diff, avoids validation duplication and startup ordering bugs).  
+4. **Keep** `AIL_startup` only in `Backend::execute`; coordinator drain hook only on successful `AIL_shutdown`.  
+5. **Verify vertically** by extending `controller()` with a counted number of metadata `call`s and updating the exact `checks` literal; separately keep host log lines `request=… opcode=… transport=…` for metadata opcodes.  
+6. **Link** `metadata_host.cpp` + `metadata_wire.cpp` into the host (32-bit) build only if you mirror existing `#ifndef _WIN64` / SDK guard in `metadata_host.cpp` (`_M_IX86` / `_MSC_VER == 1800`).
+
+This is the smallest path that removes duplicated bootstrap/metadata validation from the playback backend, passes real preference/redist/error/speaker data through framed command/reply, and keeps a single coordinator and admission story aligned with `admission.h` and the existing host loop.

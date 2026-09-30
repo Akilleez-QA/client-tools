@@ -1,0 +1,103 @@
+The shutdown drop is in `Endpoint::collect`. `drain` marks the endpoint `Stopping` before it collects, and `collect` then ignores every result except `ERROR_IO_INCOMPLETE`. A `CancelIoEx` abort, a transfer that already completed, and a real peer fault all become `Closed` with `Failure::None`.
+
+## Lifecycle
+
+`drain` always cancels first:
+
+```102:116:pipe-transport-candidate/endpoint.cpp
+bool Endpoint::drain(DWORD timeout) {
+ cancel();ULONGLONG start=GetTickCount64();
+ while(pending()) {
+  pump();if(!pending())break;
+  // ... wait on read/write events ...
+ }
+ if(pipe!=INVALID_HANDLE_VALUE) { CloseHandle(pipe);pipe=INVALID_HANDLE_VALUE; }
+ current=Closed;return true;
+}
+```
+
+`cancel` moves `Open` to `Stopping`, then `cancelPending` calls `CancelIoEx` on each pending `OVERLAPPED`. The comment at lines 27–29 is right that `ERROR_NOT_FOUND` means the I/O already finished and must be collected. The collector then throws that result away:
+
+```66:76:pipe-transport-candidate/endpoint.cpp
+bool Endpoint::collect(Operation &op,bool read) {
+ DWORD count=0;
+ if(!GetOverlappedResult(pipe,&op.ov,&count,FALSE)) {
+  DWORD e=GetLastError();if(e==ERROR_IO_INCOMPLETE)return false;
+  op.pending=false;
+  if(current==Open)fault(...);
+  return true;
+ }
+ op.pending=false;
+ if(current==Open) { if(read)readCompleted(count);else writeCompleted(count); }
+ return true;
+}
+```
+
+`fault` has the same `Open` gate, so a later call from `readCompleted` or `writeCompleted` cannot record anything once `cancel` has run:
+
+```31:35:pipe-transport-candidate/endpoint.cpp
+void Endpoint::fault(Failure why,DWORD error) {
+ if(current==Open) { reason=why;lastError=error;current=Faulted; }
+ cancelPending();
+}
+void Endpoint::cancel() { if(current==Open)current=Stopping;cancelPending(); }
+```
+
+After the wait, `drain` closes the pipe and returns true whenever the pending bits are clear. It does not look at `ready`, `failure()`, `readCompletions()`, or `writeCompletions()`. The destructor repeats this path and treats a false `drain` as fatal (`endpoint.cpp` line 25).
+
+`stepRead` and `stepWrite` will not start another transfer unless `current==Open` (lines 80 and 92). `takeFrame` also requires `Open` (line 43). Bytes applied after `Stopping` cannot be finished or retrieved.
+
+## Three results, one outcome
+
+| OS result after `CancelIoEx` | Meaning | What this code does while `Stopping` |
+|---|---|---|
+| `GetOverlappedResult` fails with `ERROR_OPERATION_ABORTED` | `CancelIoEx` won. `count` is not a transfer. | Clears `pending`. Leaves `Failure::None`. This is the only case that should look like a clean cancel. |
+| `GetOverlappedResult` succeeds | The I/O finished first (`CancelIoEx` returns `ERROR_NOT_FOUND`). A read already copied `count` bytes out of the pipe; a write was already accepted. | Does not call `readCompleted` or `writeCompleted`. The bytes are gone from the pipe and absent from `takeFrame`. |
+| Any other failure, or success with `count==0` | Peer close or another OS fault. The source maps `ERROR_BROKEN_PIPE` and `ERROR_PIPE_NOT_CONNECTED` to `PeerClosed` (line 71). `readCompleted` / `writeCompleted` map a 0-byte success to `PeerClosed` with `ERROR_BROKEN_PIPE` (lines 49 and 63). | Does not call `fault`. `windowsError()` stays 0. |
+
+Removing the `current==Open` checks and sending every error into the existing ternary would record a deliberate abort as `WindowsIo`, because `ERROR_OPERATION_ABORTED` is neither pipe error in that ternary. The abort has to be its own branch.
+
+`drainSession` cannot see this. It allows both `None` and `PeerClosed` after `drain` returns true (`common.h` lines 40–42). The host and controller both call `drainSession(..., true)` (`bridge.cpp` lines 98 and 126). Those PASS lines do not separate the three outcomes.
+
+## What not to add
+
+This bridge has no callback stream to quiesce. `Backend::execute` rejects `c.callback` (`bridge.cpp` line 35). The host rejects a callback frame (`bridge.cpp` line 85). The controller rejects callback traffic (`bridge.cpp` line 108). The callback pipe is only an idle `Endpoint` whose pending read should complete as `ERROR_OPERATION_ABORTED`. Leave Miles out of the fix.
+
+## Smallest correction
+
+Keep the first fault, and classify inside `collect`:
+
+1. `ERROR_IO_INCOMPLETE`: still pending.
+2. `ERROR_OPERATION_ABORTED`: clear `pending` and return. Do not call `fault`, `readCompleted`, or `writeCompleted`, and do not use `count`.
+3. Any other `GetOverlappedResult` failure: clear `pending` and `fault` with the existing peer-versus-`WindowsIo` split.
+4. Success: clear `pending` and call `readCompleted` or `writeCompleted` for `Open`, `Stopping`, and `Faulted`. A 0-byte success remains the handlers' `PeerClosed` path.
+
+`fault` must store `reason`, `lastError`, and `Faulted` when `current` is `Open` or `Stopping`. If it is already `Faulted`, keep the first reason, then still `cancelPending` the sibling. The sibling's later `ERROR_OPERATION_ABORTED` hits branch 2 and does not replace that reason. A sibling that already succeeded hits branch 4 and still updates its buffer.
+
+`takeFrame` must accept `Open`, `Stopping`, and `Faulted` when `ready` is set. `Closed` stays refused.
+
+`stepRead`, while `Stopping`, may issue the next read only when `headerUsed` or `readUsed` is already nonzero and `ready` is still false. `stepWrite`, while `Stopping`, may continue only when `writeUsed` is already nonzero. An aborted operation with no committed prefix stays aborted; do not resubmit it.
+
+`drain`, once `pending()` is false:
+
+- `ready`: return false and leave the handle open. The caller `takeFrame`s, then `drain`s again.
+- `Stopping` with `headerUsed`, `readUsed`, or `writeUsed` still nonzero: return false and leave the handle open so the continuation above can finish the committed prefix. The bridge segments are 17, 19, 23, and 29, all below the 48-byte header, so a one-segment success is the normal case.
+- Otherwise close, set `Closed`, and return true. `failure()` is already sticky. A pure abort stays `None`. A peer fault stays `PeerClosed`.
+
+Do not make the destructor ignore a false `drain`. Destroying an endpoint that still holds a completed frame should keep hitting `std::terminate` at line 25.
+
+## Counterexample
+
+Use one in-process overlapped byte pipe and `Endpoint` only. Do not call `drainSession`, `pump`, or Miles. `segment >= 48` makes one completion a whole frame. The payload is 48 bytes with `payload[12..15] = {48,0,0,0}`; `length` at `endpoint.cpp` line 8 accepts that, and line 57 sets `ready`.
+
+Arm each case the same way: `pump` once, require `readPending()`, `state()==Open`, `failure()==None`, and `readCompletions()==0`. If that first `ReadFile` completes inline, the case does not exercise cancel. Manual-reset events are created at lines 17–18, so `WaitForSingleObject(readEvent())` is a completion barrier. Wait before `drain`, and do not `pump` in between. That is the `ERROR_NOT_FOUND` path in the comment at line 27, not a sleep race.
+
+**Abort.** Leave the peer open and write nothing. `drain(3000)` must return true, with `Closed`, `Failure::None`, `windowsError()==0`, `readCompletions()==0`, and `takeFrame` false. Mapping every non-open completion to a fault fails this case.
+
+**Completed data.** `WriteFile` the 48-byte payload on the raw peer and require 48 bytes accepted. Wait until `readEvent` is signaled and require `readPending()` still true. Then `drain(3000)`. The current function returns true, `Closed`, `None`, `readCompletions()==0`, and `takeFrame` false, after the pipe has already given up those bytes. The corrected function returns false, stays `Stopping`, keeps `Failure::None` and `windowsError()==0`, reports `readCompletions()==1`, and `takeFrame` returns those same 48 bytes (`bodyCapacity()==0` afterward). A second `drain` returns true and reaches `Closed` with `Failure::None`. Treating that success as `PeerClosed`, or closing on the first `drain`, fails the case.
+
+**Peer fault.** Write nothing. `CloseHandle` the peer. Wait until `readEvent` is signaled while `readPending()` is still true. `drain(3000)` must return true and reach `Closed` with `Failure::PeerClosed`. `windowsError()` must be `ERROR_BROKEN_PIPE` or `ERROR_PIPE_NOT_CONNECTED`. If Windows surfaces a 0-byte success, `readCompletions()==1` and `windowsError()==ERROR_BROKEN_PIPE`, from lines 49 and 63. `windowsError()` must not be `ERROR_OPERATION_ABORTED`, and `failure()` must not stay `None`. Today this case is observationally identical to Abort.
+
+**Same gate, short read.** Repeat the completed-data steps with `segment==16`. The corrected `drain` must not return a clean `Closed` / `None` / zero-completion result; continuation should assemble the frame so `takeFrame` yields all 48 bytes, `readCompletions()==3`, and `failure()` stays `None`. The current `drain` closes on the first call with `readCompletions()==0`.
+
+**Write side of line 75.** Fill the pipe until `writePending()` is true, let a raw peer read until `writeEvent` is signaled, and `drain` the writer with no intervening `pump`. The corrected endpoint reports the write through `writeCompletions()` and clears `sendBusy()` when the whole buffer completed, with `Failure::None`. The abort control is a pending write and no peer read: `writeCompletions()` stays unchanged and `Failure::None`, and the peer must not observe that payload.

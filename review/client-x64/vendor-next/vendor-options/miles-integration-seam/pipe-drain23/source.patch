@@ -1,0 +1,94 @@
+--- a/pipe-transport-candidate/endpoint.h
++++ b/pipe-transport-candidate/endpoint.h
+@@ -18,7 +18,9 @@
+  bool takeFrame(std::vector<unsigned char> &out);
+  void pump();
+  void cancel();
+- bool drain(DWORD timeoutMs); // Timeout leaves storage and handles alive.
++ bool drain(DWORD timeoutMs); // Cleanup only; timeout leaves storage and handles alive.
++ // Untaken bytes and sendBusy remain evidence after drain, separate from failure().
++ size_t unreadBytes() const { return unread; }
+  State state() const { return current; }
+  Failure failure() const { return reason; }
+  DWORD windowsError() const { return lastError; }
+@@ -38,7 +40,7 @@
+  State current;
+  Failure reason;
+  DWORD lastError;
+- size_t segment,headerUsed,readUsed,writeUsed;
++ size_t segment,headerUsed,readUsed,writeUsed,unread;
+  unsigned char header[48];
+  std::vector<unsigned char> readBuffer,writeBuffer;
+  bool ready;
+--- a/pipe-transport-candidate/endpoint.cpp
++++ b/pipe-transport-candidate/endpoint.cpp
+@@ -9,7 +9,7 @@
+ }
+ Endpoint::Operation::Operation():pending(false) { std::memset(&ov,0,sizeof ov); }
+ Endpoint::Endpoint(HANDLE owned,size_t limit):pipe(owned),current(Open),reason(None),lastError(0),
+- segment(limit),headerUsed(0),readUsed(0),writeUsed(0),ready(false),reads(0),writes(0) {
++ segment(limit),headerUsed(0),readUsed(0),writeUsed(0),unread(0),ready(false),reads(0),writes(0) {
+  if(pipe==INVALID_HANDLE_VALUE || !pipe || !segment || segment>MilesWire::MaxFrameBytes) {
+   if(pipe && pipe!=INVALID_HANDLE_VALUE)CloseHandle(pipe);
+   throw std::invalid_argument("invalid endpoint construction");
+@@ -29,7 +29,8 @@
+  if(writeOp.pending)CancelIoEx(pipe,&writeOp.ov);
+ }
+ void Endpoint::fault(Failure why,DWORD error) {
+- if(current==Open) { reason=why;lastError=error;current=Faulted; }
++ if(reason==None) { reason=why;lastError=error; }
++ if(current==Open)current=Faulted;
+  cancelPending();
+ }
+ void Endpoint::cancel() { if(current==Open)current=Stopping;cancelPending(); }
+@@ -42,11 +43,13 @@
+ bool Endpoint::takeFrame(std::vector<unsigned char> &out) {
+  if(!ready || current!=Open)return false;
+  std::vector<unsigned char> completed;completed.swap(readBuffer);out.swap(completed);
+- headerUsed=readUsed=0;ready=false;return true;
++ headerUsed=readUsed=unread=0;ready=false;return true;
+ }
+ void Endpoint::readCompleted(DWORD count) {
+- ++reads;
++ ++reads;unread+=count;
+  if(!count) { fault(PeerClosed,ERROR_BROKEN_PIPE);return; }
++ // After local stop, retain bytes without parsing, allocating, or issuing more I/O.
++ if(current!=Open)return;
+  if(headerUsed<48) {
+   headerUsed+=count;
+   if(headerUsed==48) {
+@@ -68,11 +71,13 @@
+  if(!GetOverlappedResult(pipe,&op.ov,&count,FALSE)) {
+   DWORD e=GetLastError();if(e==ERROR_IO_INCOMPLETE)return false;
+   op.pending=false;
+-  if(current==Open)fault(e==ERROR_BROKEN_PIPE || e==ERROR_PIPE_NOT_CONNECTED?PeerClosed:WindowsIo,e);
++  // Only an abort after our own stop/fault is ordinary cancellation cleanup.
++  if(e!=ERROR_OPERATION_ABORTED || current==Open)
++   fault(e==ERROR_BROKEN_PIPE || e==ERROR_PIPE_NOT_CONNECTED?PeerClosed:WindowsIo,e);
+   return true;
+  }
+  op.pending=false;
+- if(current==Open) { if(read)readCompleted(count);else writeCompleted(count); }
++ if(read)readCompleted(count);else writeCompleted(count);
+  return true;
+ }
+ bool Endpoint::stepRead() {
+--- a/live-bridge-candidate/common.h
++++ b/live-bridge-candidate/common.h
+@@ -36,10 +36,14 @@
+ }
+ inline void drainSession(Endpoint& a, Endpoint& b, bool orderedClose) {
+  // drain closes storage; its success alone does not certify channel health.
+- a.pump();b.pump();healthy(a,orderedClose);healthy(b,orderedClose);
+- require(a.drain(3000) && b.drain(3000), "session drain");
++ a.pump();b.pump();
++ const bool commandDrained=a.drain(3000);
++ const bool callbackDrained=b.drain(3000);
++ require(commandDrained && callbackDrained, "session drain");
+  require(a.failure()==Endpoint::None || (orderedClose && a.failure()==Endpoint::PeerClosed), "command fault retained");
+  require(b.failure()==Endpoint::None || (orderedClose && b.failure()==Endpoint::PeerClosed), "callback fault retained");
++ require(a.unreadBytes()==0 && !a.sendBusy(), "command traffic retained");
++ require(b.unreadBytes()==0 && !b.sendBusy(), "callback traffic retained");
+ }
+ inline void sent(Endpoint &a) {
+  ULONGLONG begin=GetTickCount64();

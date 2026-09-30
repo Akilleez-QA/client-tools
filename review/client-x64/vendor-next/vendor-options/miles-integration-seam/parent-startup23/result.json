@@ -1,0 +1,22 @@
+{
+  "revision": 2,
+  "reason": "worker readability formatting before native freeze",
+  "exit": 0,
+  "source_inputs_unchanged": true,
+  "stdout": "24/24 pure reply-boundary checks\n",
+  "stderr": "",
+  "build_args": [
+    "g++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fsanitize=address,undefined",
+    "-g",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-startup23/probe.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-version22/session_version.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-startup23/probe"
+  ]
+}

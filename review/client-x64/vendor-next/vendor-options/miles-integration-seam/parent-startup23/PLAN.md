@@ -1,0 +1,3 @@
+# Parent reply-boundary check
+
+Before execution: independently exercise the new OwnedReply decoder using real codec frames and pure C++ only. Required: copied text survives frame replacement; valid null differs from empty; wrong pending context, unknown status, embedded/missing terminator, unexpected outputs/resource and nonempty error reply reject without changing destination. Build Linux C++11 ASan/UBSan, record candidate/header/codec/source hashes before and after. A pure decoder mutation admitting unknown status must fail the corresponding control. No vendor/engine execution, product or worker-owned edits.

@@ -1,0 +1,14 @@
+C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl.exe
+Microsoft (R) C/C++ Optimizing Compiler Version 18.00.40629 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl /EHsc /W4 /Y- /DWIN32 /volatile:ms /Gy /MTd /Od /I"C:\http-candidate23\source\src" /I"C:\http-candidate23\results-v2\Debug-x64-candidate" "C:\http-candidate23\results-v2\Debug-x64-candidate\probe.cpp" /Fo"C:\http-candidate23\results-v2\Debug-x64-candidate\probe.obj" /Fe"C:\http-candidate23\results-v2\Debug-x64-candidate\probe.exe" /link /MAP:"C:\http-candidate23\results-v2\Debug-x64-candidate\probe.map" kernel32.lib
+
+probe.cpp
+Microsoft (R) Incremental Linker Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:C:\http-candidate23\results-v2\Debug-x64-candidate\probe.exe 
+/MAP:C:\http-candidate23\results-v2\Debug-x64-candidate\probe.map 
+kernel32.lib 
+C:\http-candidate23\results-v2\Debug-x64-candidate\probe.obj 

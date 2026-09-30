@@ -1,0 +1,194 @@
+[
+  {
+    "variant": "old",
+    "stage": "build",
+    "exit": 0
+  },
+  {
+    "variant": "old",
+    "case": "idle",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "exchange",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "late-read",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "late-peer-error",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "buffered-input",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "partial-input",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "queued-write",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "partial-write",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "backpressure",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "completed-write",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "first-fault",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "external-abort",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "timeout",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "stage": "build",
+    "exit": 0
+  },
+  {
+    "variant": "candidate",
+    "case": "idle",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "exchange",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "late-read",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "late-peer-error",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "buffered-input",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "partial-input",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "queued-write",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "partial-write",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "backpressure",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "completed-write",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "first-fault",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "external-abort",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "timeout",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  }
+]

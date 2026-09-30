@@ -8,7 +8,17 @@ Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): bro
 
 Product branch `integration/client-x64-next` is at **49d0eeed4**. Actual source-audited incremental MSBuild results: Win32 Release/Debug link with zero errors; x64 Release/Debug reach the final linker and stop on **60/61 original Miles imports**. No x64 client has launched. [Current build evidence](allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md).
 
-Read the [bridge architecture proposal](vendor-options/miles-integration-seam/ARCHITECTURE.md): one MediaSession authority, original game audio policy in x64, original Miles and Bink together in x86, explicit callbacks/reverse I/O and resource lifetime. It is under review, not a production backend selection. [Independent Astra architecture opening](blind-astra-miles14/ARCHITECTURE-CRITIC.md) and [original blind review](blind-astra-miles14/ASTRA-BLIND-REVIEW.md) are preserved separately from subsequent nonblind work.
+The user has designated the bridge a **temporary compatibility implementation**.
+The [native-Miles upgrade-shaped boundary](vendor-options/miles-integration-seam/TEMPORARY-MILES-BACKEND.md)
+keeps pipe/process/protocol code private so a future native implementation can
+replace it. The existing 7.2a header already supplies Win64 declarations; the
+matching x64 runtime and libraries remain unavailable. The
+[bridge architecture](vendor-options/miles-integration-seam/ARCHITECTURE.md) retains
+original game audio policy in x64, original Miles/Bink together in x86 and
+explicit callbacks/reverse I/O/lifetime obligations. It is not adopted product
+code. [Independent Astra architecture opening](blind-astra-miles14/ARCHITECTURE-CRITIC.md)
+and [original blind review](blind-astra-miles14/ASTRA-BLIND-REVIEW.md) remain separate
+from subsequent work.
 
 [Candidate component evidence](vendor-options/miles-integration-seam/REVIEW-RECONCILIATION-15.md) includes codec/resource handling, retained bytes, scalar dispatch preflight, and WAV metadata. The original Miles DLL supplied one real WAV metadata result that roundtrips through native x64. These components are not a complete client backend. The [real Audio/Sound2d baseline still fails teardown](vendor-options/miles-engine-fixture/RESULTS.md), and actual callback coordination, Bink integration and representative fidelity remain open.
 
@@ -16,6 +26,8 @@ Native [startup preference observations](vendor-options/miles-runtime-preference
 
 Latest bounded follow-ups:
 
+- [Startup composition23](vendor-options/miles-integration-seam/startup-bridge23/RESULTS.md): one native-built Release pair passes 23 genuine-DLL requests under a private Wine prefix/null sink, with owned metadata and a held-module version resource. No samples/playback. [Parent boundary controls](vendor-options/miles-integration-seam/parent-startup23/RESULTS.md) pass 24 pure sanitizer checks and reject an ambiguous-status mutation.
+- [Pipe cancellation candidate23](vendor-options/miles-integration-seam/pipe-drain23/RESULTS.md): 16 named native Debug cases; old code fails nine discriminators. Separately tested from startup23. [Fresh blind review](vendor-options/miles-integration-seam/REVIEW-startup-drain24.md) found runner exit-status handling could falsely succeed. [Separate repaired runners](vendor-options/miles-integration-seam/runner-verdict24/RESULTS.md) now reject incomplete/failed matrices in 28 actual-script tests and 21 verdict controls; six original-script controls reproduce the false-success bug. This is pure runner testing, not a rerun or rewriting of the native evidence.
 - [File-callback seam and native compile evidence](vendor-options/miles-integration-seam/reverse-file-seam20/COMPILE-PLAN.md): original callbacks remain unchanged; baseline and proposed full `Audio.cpp` each compile on Win32/x64 Debug/Release. [Maintainer follow-up](vendor-options/miles-integration-seam/reverse-file-seam20/REVIEW-maintainer21-followup.md) rates the dormant source seam 9/10. It is not a reverse-I/O implementation.
 - [Startup metadata revision4](vendor-options/miles-integration-seam/startup-metadata-v4/RESULTS.md): five caller-shaped genuine SDK operations, owned directory inputs and returned text, separate request/reply limits, cleanup controls and two-path discrimination. The [final blind review](vendor-options/miles-integration-seam/startup-metadata-v4/REVIEW-senior21-final.md) closes its three findings within their stated scope. Earlier [blind review](vendor-options/miles-integration-seam/startup-metadata-candidate/REVIEW-senior21.md) and [revision3 follow-up](vendor-options/miles-integration-seam/startup-metadata-v3/REVIEW-senior21-followup.md) preserve findings and imperfect earlier tests.
 - [Version-resource correction](vendor-options/miles-integration-seam/session-version22/RESULTS.md): reads the supplied held module directly, eliminating the basename lookup identified by the [earlier blind review](vendor-options/miles-integration-seam/session-version21/REVIEW-senior22.md). Native resource controls and file-backed x64 consumption pass; poisoned compile-time text does not replace the actual7.2a resource. The [fresh blind review](vendor-options/miles-integration-seam/session-version22/REVIEW-senior23.md) accepts the bounded correction and records two nonblocking test-attribution gaps. This is not live transport or game acceptance.
@@ -27,7 +39,10 @@ These experiments are not wired into the product. The actual x64 client still ha
 
 The [maintainer design review](vendor-options/miles-integration-seam/MAINTAINER-DESIGN23.md) identifies overlapping lifecycle owners, incompatible status meanings, repeated validation and unimplemented callback scheduling. These are integration work, not a claim that the tested components make a production backend.
 
-The [next bounded integration](vendor-options/miles-integration-seam/NEXT23.md) connects those components through the existing two-process path while retaining the no-adoption boundary.
+The original [bounded integration plan](vendor-options/miles-integration-seam/NEXT23.md)
+now has the startup23 result above. The next source boundary follows the user's
+native x64 Miles direction; callback/TreeFile/Bink composition and full fidelity
+remain unresolved.
 
 The remaining sections retain earlier commit/build history under their named snapshots. Use the [latest checkpoint](vendor-options/CHECKPOINT-2026-09-30.md) and current build above for present status.
 

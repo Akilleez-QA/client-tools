@@ -1,0 +1,132 @@
+--- a/run-native.py
++++ b/run-native.py
+@@ -1,6 +1,7 @@
+ from pathlib import Path
+ import subprocess, json, hashlib, platform, sys
+-r=Path('C:/pipe-drain23')
++from verdict import acceptance_errors
++r=Path('C:/runner-verdict24')
+ cases=['idle','exchange','late-read','late-peer-error','buffered-input','partial-input','queued-write','partial-write','backpressure','completed-write','first-fault','external-abort','timeout']
+ old_failure={'late-read','late-peer-error','buffered-input','partial-input','partial-write','backpressure','completed-write'}
+ results=[]
+@@ -12,7 +13,11 @@
+  cmd=out/'build.cmd'
+  flags='/nologo /EHsc /W4 /WX /D_WIN32_WINNT=0x0601 /MTd /Od '+('/DDRAIN23_CANDIDATE ' if variant=='candidate' else '')
+  cmd.write_text('@echo off\ncall "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat" amd64 >nul\nif errorlevel 1 exit /b 1\ncl '+flags+' /I"'+str(r/variant)+'" "'+str(r/'endpoint-under-test.cpp')+'" "'+str(r/'drain-fixture.cpp')+'" "'+str(r/variant/'transport-candidate/codec.cpp')+'" /Fe"'+str(out/'fixture.exe')+'"\n')
+- p=subprocess.run(['cmd','/d','/c',str(cmd)],cwd=out,capture_output=True,timeout=60)
++ try:
++  p=subprocess.run(['cmd','/d','/c',str(cmd)],cwd=out,capture_output=True,timeout=60)
++ except subprocess.TimeoutExpired as e:
++  (out/'build.log').write_bytes((e.stdout or b'')+(e.stderr or b''))
++  results.append(dict(variant=variant,stage='build',timeout=True));break
+  (out/'build.log').write_bytes(p.stdout+p.stderr)
+  results.append(dict(variant=variant,stage='build',exit=p.returncode))
+  if p.returncode:
+@@ -32,3 +37,8 @@
+ artifacts={str(p.relative_to(r)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(r.rglob('*')) if p.is_file() and p.suffix in {'.exe','.log','.cmd'}}
+ (r/'output-manifest.json').write_text(json.dumps(artifacts,indent=2))
+ print(json.dumps(results,indent=2))
++problems=acceptance_errors(results,cases,old_failure)
++verdict=dict(passed=not problems,errors=problems)
++(r/'verdict.json').write_text(json.dumps(verdict,indent=2))
++print(json.dumps(verdict,indent=2))
++raise SystemExit(1 if problems else 0)
+--- a/run-supplement.py
++++ b/run-supplement.py
+@@ -1,6 +1,7 @@
+ from pathlib import Path
+ import subprocess, json, hashlib, platform, sys
+-r=Path('C:/pipe-drain23')
++from verdict import acceptance_errors
++r=Path('C:/runner-verdict24')
+ cases=['exchange-session','ordered-close-input','session-timeout']
+ old_failure={'ordered-close-input','session-timeout'}
+ results=[]
+@@ -12,7 +13,11 @@
+  cmd=out/'build.cmd'
+  flags='/nologo /EHsc /W4 /WX /D_WIN32_WINNT=0x0601 /MTd /Od '+('/DDRAIN23_CANDIDATE ' if variant=='candidate' else '')
+  cmd.write_text('@echo off\ncall "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat" amd64 >nul\nif errorlevel 1 exit /b 1\ncl '+flags+' /I"'+str(r/variant)+'" "'+str(r/'endpoint-under-test.cpp')+'" "'+str(r/'drain-fixture.cpp')+'" "'+str(r/variant/'transport-candidate/codec.cpp')+'" /Fe"'+str(out/'fixture.exe')+'"\n')
+- p=subprocess.run(['cmd','/d','/c',str(cmd)],cwd=out,capture_output=True,timeout=60)
++ try:
++  p=subprocess.run(['cmd','/d','/c',str(cmd)],cwd=out,capture_output=True,timeout=60)
++ except subprocess.TimeoutExpired as e:
++  (out/'build.log').write_bytes((e.stdout or b'')+(e.stderr or b''))
++  results.append(dict(variant=variant,stage='build',timeout=True));break
+  (out/'build.log').write_bytes(p.stdout+p.stderr)
+  results.append(dict(variant=variant,stage='build',exit=p.returncode))
+  if p.returncode:
+@@ -32,3 +37,8 @@
+ artifacts={str(p.relative_to(r)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(r.rglob('*')) if p.is_file() and p.suffix in {'.exe','.log','.cmd'}}
+ (r/'supplement-output-manifest.json').write_text(json.dumps(artifacts,indent=2))
+ print(json.dumps(results,indent=2))
++problems=acceptance_errors(results,cases,old_failure)
++verdict=dict(passed=not problems,errors=problems)
++(r/'supplement-verdict.json').write_text(json.dumps(verdict,indent=2))
++print(json.dumps(verdict,indent=2))
++raise SystemExit(1 if problems else 0)
+--- /dev/null
++++ b/verdict.py
+@@ -0,0 +1,63 @@
++"""Acceptance for the declared two-variant matrix, derived from raw exit records."""
++from collections import Counter
++
++
++def acceptance_errors(records, cases, old_failure):
++    """Return diagnostics; an empty list is the only passing verdict.
++
++    Each variant needs exactly one successful build and one result per case.
++    Negative-control expectations come from the declared case set, never from
++    a record's `expected` or `matches` fields. Present metadata must agree.
++    """
++    if (not cases or any(not isinstance(case, str) or not case for case in cases)
++            or len(set(cases)) != len(cases)):
++        return ['case declaration must contain distinct nonempty names']
++    if not set(old_failure).issubset(cases):
++        return ['old failure declaration contains an undeclared case']
++    if not isinstance(records, list):
++        return ['results must be a list']
++
++    expected = {}
++    for variant in ('old', 'candidate'):
++        expected[(variant, 'build', None)] = 0
++        for case in cases:
++            expected[(variant, 'case', case)] = int(variant == 'old' and case in old_failure)
++    seen = Counter()
++    errors = []
++    for index, record in enumerate(records):
++        label = 'record {}'.format(index)
++        if not isinstance(record, dict):
++            errors.append(label + ': not an object')
++            continue
++        variant = record.get('variant')
++        if variant not in ('old', 'candidate'):
++            errors.append(label + ': unknown variant')
++            continue
++        if record.get('stage') == 'build' and 'case' not in record:
++            key = (variant, 'build', None)
++        elif 'stage' not in record and isinstance(record.get('case'), str):
++            key = (variant, 'case', record['case'])
++        else:
++            errors.append(label + ': unknown or ambiguous result shape')
++            continue
++        if key not in expected:
++            errors.append(label + ': undeclared case')
++            continue
++        seen[key] += 1
++        label = '{} {}'.format(variant, key[2] if key[1] == 'case' else 'build')
++        wanted = expected[key]
++        if 'timeout' in record and record['timeout'] is not False:
++            errors.append(label + ': timeout or invalid timeout flag')
++        actual = record.get('exit')
++        matches = type(actual) is int and actual == wanted
++        if not matches:
++            errors.append('{}: expected exit {}, got {!r}'.format(label, wanted, actual))
++        if 'expected' in record and (type(record['expected']) is not int or record['expected'] != wanted):
++            errors.append(label + ': reported expected exit contradicts declaration')
++        if 'matches' in record and (type(record['matches']) is not bool or record['matches'] != matches):
++            errors.append(label + ': reported matches contradicts raw exit/declaration')
++    for key in expected:
++        if seen[key] != 1:
++            label = '{} {}'.format(key[0], key[2] if key[1] == 'case' else 'build')
++            errors.append('{}: expected one record, got {}'.format(label, seen[key]))
++    return errors

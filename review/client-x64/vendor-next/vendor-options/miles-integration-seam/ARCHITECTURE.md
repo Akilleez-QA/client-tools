@@ -1,7 +1,13 @@
 # Original media bridge: architecture proposal
 
 2026-09-30. Product reference: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`.
-Status: design for the next experimental integration, **not an adopted production backend**. Component implementations below are candidates. No full x64 client runs yet. The real Win32 Audio/Sound2d baseline still fails teardown.
+Status: **temporary compatibility backend**, not an adopted production backend.
+The user's replacement direction is recorded in
+[Temporary Miles compatibility backend](TEMPORARY-MILES-BACKEND.md): a thin
+native-Miles-shaped source interface, with pipes and process machinery private
+and removable when a validated native upgrade or replacement is available.
+Component implementations below are candidates. No full x64 client runs yet.
+The real Win32 Audio/Sound2d baseline still fails teardown.
 
 ## The boundary
 

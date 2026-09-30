@@ -1,0 +1,9 @@
+PASS initial acquisition
+PASS recursive acquisition
+PASS ownership worker created
+PASS first competing attempt completed
+PASS other thread excluded while nested
+PASS second competing attempt completed
+PASS one unlock does not release nested owner
+PASS worker ready for retry acquisition
+FAIL final unlock permits retry acquisition error=0

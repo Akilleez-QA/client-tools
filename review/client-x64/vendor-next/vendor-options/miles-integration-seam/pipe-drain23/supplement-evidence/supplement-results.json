@@ -1,0 +1,54 @@
+[
+  {
+    "variant": "old",
+    "stage": "build",
+    "exit": 0
+  },
+  {
+    "variant": "old",
+    "case": "exchange-session",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "ordered-close-input",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "old",
+    "case": "session-timeout",
+    "exit": 1,
+    "expected": 1,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "stage": "build",
+    "exit": 0
+  },
+  {
+    "variant": "candidate",
+    "case": "exchange-session",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "ordered-close-input",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  },
+  {
+    "variant": "candidate",
+    "case": "session-timeout",
+    "exit": 0,
+    "expected": 0,
+    "matches": true
+  }
+]
