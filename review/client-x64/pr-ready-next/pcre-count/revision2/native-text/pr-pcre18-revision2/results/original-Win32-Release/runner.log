@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "provider_executed": true,
+  "scope": "lexical production binding and separately compiled safe API-contract probe",
+  "caller": {
+    "path": "C:\\pr-pcre18-revision2\\src\\game\\client\\library\\swgClientUserInterface\\src\\shared\\parser\\SwgCuiCommandParserScene.cpp",
+    "sha256": "4b728d8ada8b5b1eac413d817f5bc0c1037dedb246b6d9454089299925675b83"
+  },
+  "safe_reversion_rejected_before_provider": true,
+  "capacity_elements": 33,
+  "inputs": {
+    "C:\\pcre-native-v3\\x86-Release\\pcre-4.1\\pcre.h": "996b3d2b7b52d4c8609f1e1f08c75af49dd643584c3453889df3516fc980b1be",
+    "C:\\xml-pcre-next\\legacy-libpcre.a": "c377de21f0b9cebd3f1678810028d9c9908289400e5b3e1fb9f70d28f5663778",
+    "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c": "80e31ad6fd1207a923306de378d760b692fe4986af5fc045fe224d021621990f",
+    "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\run.py": "78e7ec1e78c2319b3a920008cc8de638f6e3af55ab430e4be59d248991080eab",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.EXE": "2f7fea06e2d024a28dd271620ab469e0641e9758a99d5e20e1adad87cb440039"
+  },
+  "command": [
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.EXE",
+    "/nologo",
+    "/TC",
+    "/W4",
+    "/WX",
+    "/showIncludes",
+    "/DPCRE_STATIC",
+    "/MT",
+    "/IC:\\pcre-native-v3\\x86-Release\\pcre-4.1",
+    "/IC:\\pr-pcre18-revision2\\results\\original-Win32-Release",
+    "C:\\pr-pcre18-revision2\\tools\\test-pcre-capture-count\\probe.c",
+    "/FoC:\\pr-pcre18-revision2\\results\\original-Win32-Release\\probe.obj",
+    "/FeC:\\pr-pcre18-revision2\\results\\original-Win32-Release\\probe.exe",
+    "/link",
+    "C:\\xml-pcre-next\\legacy-libpcre.a"
+  ],
+  "build_exit": 0,
+  "included_headers": {
+    "C:\\pcre-native-v3\\x86-Release\\pcre-4.1\\pcre.h": "996b3d2b7b52d4c8609f1e1f08c75af49dd643584c3453889df3516fc980b1be",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\stdlib.h": "d3e9ecb6cae8ad2ad6ae836a4c30b5cbca010ae3d9821d657bf8522ca14ad831",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\crtdefs.h": "c4574ac59aa8869bb7512f3cd874b6abd81a7b3c4ebf739a478ae73f9b3b0da8",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\sal.h": "3148e4b8932d194db54b4f9c0c1721777f5608ecab3627167ea6b7185df501e4",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\ConcurrencySal.h": "7249d1a82c4af5c4811de76e24e80214ff833762ea6c735916910e316c0f4650",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\vadefs.h": "49bf0b3bf572bc995f7e64928c1e02becef4fa7e307ac150cac81ee12a9a6183",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\limits.h": "e327d3929ed82ab54258bdaf4a9d3175388280310420cd200a7b8a27a6bce0e5",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\stdio.h": "36701d03cedce070b3d5915774ea26b4ad38ebf2b8351b9cc6d86f48a024ae14",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\swprintf.inl": "3996e7273714dde82d133879350fa470926ddd511381d02ae79b2dc9be5db025",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\string.h": "9860cdc64abc759a46d9b59b178c8853a83999a2869e4e99b377de8885fc96a2",
+    "C:\\pr-pcre18-revision2\\results\\original-Win32-Release\\capacity.h": "a00f167c07927ea0214ea073d37626254fd4846cd530048d96e30e379af042d2"
+  },
+  "executable_sha256": "5abce675c41ff9c4cd397698e44634effb79089956748021310e6c83b965b8ea",
+  "run_exit": 0,
+  "checks": 25
+}

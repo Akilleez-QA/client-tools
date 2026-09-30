@@ -1,0 +1,112 @@
+PASS headers-x86-Debug-s1-u0-w0
+PASS reverted-headers-x86-Debug-s1-u0-w0
+PASS headers-x86-Debug-s1-u0-w1
+PASS reverted-headers-x86-Debug-s1-u0-w1
+PASS headers-x86-Debug-s0-u1-w0
+PASS reverted-headers-x86-Debug-s0-u1-w0
+PASS headers-x86-Debug-s0-u1-w1
+PASS reverted-headers-x86-Debug-s0-u1-w1
+PASS headers-x86-Debug-s0-u2-w0
+PASS reverted-headers-x86-Debug-s0-u2-w0
+PASS headers-x86-Debug-s0-u2-w1
+PASS reverted-headers-x86-Debug-s0-u2-w1
+PASS headers-x86-Debug-s1-u1-w0
+PASS reverted-headers-x86-Debug-s1-u1-w0
+PASS headers-x86-Debug-s1-u1-w1
+PASS reverted-headers-x86-Debug-s1-u1-w1
+PASS headers-x86-Debug-s1-u2-w0
+PASS reverted-headers-x86-Debug-s1-u2-w0
+PASS headers-x86-Debug-s1-u2-w1
+PASS reverted-headers-x86-Debug-s1-u2-w1
+PASS headers-x86-Release-s1-u0-w0
+PASS reverted-headers-x86-Release-s1-u0-w0
+PASS headers-x86-Release-s1-u0-w1
+PASS reverted-headers-x86-Release-s1-u0-w1
+PASS headers-x86-Release-s0-u1-w0
+PASS reverted-headers-x86-Release-s0-u1-w0
+PASS headers-x86-Release-s0-u1-w1
+PASS reverted-headers-x86-Release-s0-u1-w1
+PASS headers-x86-Release-s0-u2-w0
+PASS reverted-headers-x86-Release-s0-u2-w0
+PASS headers-x86-Release-s0-u2-w1
+PASS reverted-headers-x86-Release-s0-u2-w1
+PASS headers-x86-Release-s1-u1-w0
+PASS reverted-headers-x86-Release-s1-u1-w0
+PASS headers-x86-Release-s1-u1-w1
+PASS reverted-headers-x86-Release-s1-u1-w1
+PASS headers-x86-Release-s1-u2-w0
+PASS reverted-headers-x86-Release-s1-u2-w0
+PASS headers-x86-Release-s1-u2-w1
+PASS reverted-headers-x86-Release-s1-u2-w1
+PASS headers-amd64-Debug-s1-u0-w0
+PASS reverted-headers-amd64-Debug-s1-u0-w0
+PASS headers-amd64-Debug-s1-u0-w1
+PASS reverted-headers-amd64-Debug-s1-u0-w1
+PASS headers-amd64-Debug-s0-u1-w0
+PASS reverted-headers-amd64-Debug-s0-u1-w0
+PASS headers-amd64-Debug-s0-u1-w1
+PASS reverted-headers-amd64-Debug-s0-u1-w1
+PASS headers-amd64-Debug-s0-u2-w0
+PASS reverted-headers-amd64-Debug-s0-u2-w0
+PASS headers-amd64-Debug-s0-u2-w1
+PASS reverted-headers-amd64-Debug-s0-u2-w1
+PASS headers-amd64-Debug-s1-u1-w0
+PASS reverted-headers-amd64-Debug-s1-u1-w0
+PASS headers-amd64-Debug-s1-u1-w1
+PASS reverted-headers-amd64-Debug-s1-u1-w1
+PASS headers-amd64-Debug-s1-u2-w0
+PASS reverted-headers-amd64-Debug-s1-u2-w0
+PASS headers-amd64-Debug-s1-u2-w1
+PASS reverted-headers-amd64-Debug-s1-u2-w1
+PASS headers-amd64-Release-s1-u0-w0
+PASS reverted-headers-amd64-Release-s1-u0-w0
+PASS headers-amd64-Release-s1-u0-w1
+PASS reverted-headers-amd64-Release-s1-u0-w1
+PASS headers-amd64-Release-s0-u1-w0
+PASS reverted-headers-amd64-Release-s0-u1-w0
+PASS headers-amd64-Release-s0-u1-w1
+PASS reverted-headers-amd64-Release-s0-u1-w1
+PASS headers-amd64-Release-s0-u2-w0
+PASS reverted-headers-amd64-Release-s0-u2-w0
+PASS headers-amd64-Release-s0-u2-w1
+PASS reverted-headers-amd64-Release-s0-u2-w1
+PASS headers-amd64-Release-s1-u1-w0
+PASS reverted-headers-amd64-Release-s1-u1-w0
+PASS headers-amd64-Release-s1-u1-w1
+PASS reverted-headers-amd64-Release-s1-u1-w1
+PASS headers-amd64-Release-s1-u2-w0
+PASS reverted-headers-amd64-Release-s1-u2-w0
+PASS headers-amd64-Release-s1-u2-w1
+PASS reverted-headers-amd64-Release-s1-u2-w1
+PASS production-x86-Debug-Sock
+PASS production-x86-Debug-TcpClient
+PASS reverted-key-x86-Debug-TcpClient
+PASS production-x86-Debug-TcpServer
+PASS reverted-key-x86-Debug-TcpServer
+PASS production-x86-Release-Sock
+PASS production-x86-Release-TcpClient
+PASS reverted-key-x86-Release-TcpClient
+PASS production-x86-Release-TcpServer
+PASS reverted-key-x86-Release-TcpServer
+PASS production-amd64-Debug-Sock
+PASS production-amd64-Debug-TcpClient
+PASS reverted-key-amd64-Debug-TcpClient
+PASS production-amd64-Debug-TcpServer
+PASS reverted-key-amd64-Debug-TcpServer
+PASS production-amd64-Release-Sock
+PASS production-amd64-Release-TcpClient
+PASS reverted-key-amd64-Release-TcpClient
+PASS production-amd64-Release-TcpServer
+PASS reverted-key-amd64-Release-TcpServer
+{
+  "expected_compile_cases": 100,
+  "observed_compile_cases": 100,
+  "passed_cases": 100,
+  "runtime_checks": 1260,
+  "failed_cases": [],
+  "passed": true,
+  "toolchains_v120": true,
+  "source_inputs_unchanged": true
+}
+#< CLIXML
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</I64><PR N="Record"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>

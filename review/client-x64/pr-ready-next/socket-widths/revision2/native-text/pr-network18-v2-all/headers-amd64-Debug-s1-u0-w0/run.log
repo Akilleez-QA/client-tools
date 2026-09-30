@@ -1,0 +1,22 @@
+PASS WSAStartup
+PASS UDP receiver socket
+PASS UDP sender socket
+PASS UDP bounded receive timeout
+PASS UDP bind loopback ephemeral
+PASS UDP getsockname
+PASS UDP sendto
+PASS UDP recvfrom bytes
+PASS UDP source loopback
+PASS UDP close sender
+PASS UDP close receiver
+PASS WSACleanup
+PASS IOCP create
+PASS IOCP post
+PASS IOCP get
+PASS IOCP exact bytes/key/overlapped
+PASS IOCP post
+PASS IOCP get
+PASS IOCP exact bytes/key/overlapped
+PASS IOCP close
+PASS expected prior check count
+SUMMARY PASS checks=21 pointer_bytes=8 udp_header=0 winsock_first=0
