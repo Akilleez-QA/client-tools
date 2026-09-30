@@ -1,0 +1,95 @@
+--- a/coordinator.h
++++ b/coordinator.h
+@@ -36,6 +36,9 @@
+                        const std::vector<MilesWire::Handle> &resources);
+     Error completeAdmission(Id session,Id admissionOrdinal); // Observed return, NOT semantic vendor success; return value is carried elsewhere.
+     Error registerCallback(Id session,Id registration,const MilesWire::Handle &resource);
++    // Trusted owner API: one session file table, before any driver/file exists.
++    // Scope is internal; it is never selected by a wire flag or fake handle.
++    Error registerSessionFiles(Id session,Id registration);
+     Error admitCallback(Id session,Id registration,CallbackKind kind,Id causalAdmission,
+                         CallbackId &out);
+     Error acknowledge(Id session,const CallbackId &callback);
+@@ -50,14 +53,17 @@
+     uint32_t leaseDepth() const { return depth; }
+ private:
+     struct Callback { CallbackKind kind; Id cause; bool acknowledged; };
++    enum RegistrationScope { ResourceScoped, SessionFiles };
+     struct Registration {
+-        MilesWire::Handle resource;
++        MilesWire::Handle resource; // Unused, zero storage for SessionFiles.
++        RegistrationScope scope;
+         Id issued,frontier,closeFrontier;
+         bool closing;
+         std::map<Id,Callback> callbacks;
+-        Registration():issued(0),frontier(0),closeFrontier(0),closing(false) {}
++        Registration():resource(),scope(ResourceScoped),issued(0),frontier(0),closeFrontier(0),closing(false) {}
+     };
+     Id incarnation,lastAdmission,lastRegistration,lastLease;
++    Id sessionFilesRegistration;
+     Limits bounds;
+     State current;
+     Id admissionOrdinal,admissionLane,admissionLease,ownerLane,leaseId;
+--- a/coordinator.cpp
++++ b/coordinator.cpp
+@@ -10,7 +10,7 @@
+ }
+ }
+ Coordinator::Coordinator(Id id,const Limits &limits)
+-    :incarnation(id),lastAdmission(0),lastRegistration(0),lastLease(0),bounds(limits),
++    :incarnation(id),lastAdmission(0),lastRegistration(0),lastLease(0),sessionFilesRegistration(0),bounds(limits),
+      current(Active),admissionOrdinal(0),admissionLane(0),admissionLease(0),ownerLane(0),leaseId(0),
+      depth(0),admissionAction(Ordinary),callbackCount(0) {
+     if(!id || !bounds.maximumId || !bounds.registrations || !bounds.callbacks || !bounds.requestResources)
+@@ -41,7 +41,7 @@
+         if(!valid(resources[i]))return InvalidIdentity;
+         for(size_t j=0;j<i;++j)if(same(resources[i],resources[j]))return InvalidIdentity;
+         if(!cleanup)for(std::map<Id,Registration>::const_iterator reg=registrations.begin();reg!=registrations.end();++reg)
+-            if(reg->second.closing && same(reg->second.resource,resources[i]))return ClosingResource;
++            if(reg->second.scope==ResourceScoped && reg->second.closing && same(reg->second.resource,resources[i]))return ClosingResource;
+     }
+     std::vector<MilesWire::Handle> copied(resources); // Allocation before publication.
+     pins.swap(copied);admissionOrdinal=r;admissionLane=lane;admissionLease=lease;admissionAction=a;lastAdmission=r;
+@@ -77,9 +77,20 @@
+     if(lastRegistration==bounds.maximumId || registrations.size()>=bounds.registrations)return Capacity;
+     if(id!=lastRegistration+1 || id>bounds.maximumId)return InvalidIdentity;
+     for(std::map<Id,Registration>::const_iterator r=registrations.begin();r!=registrations.end();++r)
+-        if(r->second.closing && same(r->second.resource,resource))return ClosingResource;
++        if(r->second.scope==ResourceScoped && r->second.closing && same(r->second.resource,resource))return ClosingResource;
+     Registration reg;reg.resource=resource;
+     registrations.insert(std::make_pair(id,reg));lastRegistration=id;return Ok;
++}
++Error Coordinator::registerSessionFiles(Id s,Id id) {
++    if(s!=incarnation)return StaleSession;
++    if(current!=Active)return WrongState;
++    if(!id)return InvalidIdentity;
++    if(lastRegistration==bounds.maximumId || registrations.size()>=bounds.registrations)return Capacity;
++    if(id!=lastRegistration+1 || id>bounds.maximumId)return InvalidIdentity;
++    if(sessionFilesRegistration)return Busy;
++    Registration reg;reg.scope=SessionFiles;
++    registrations.insert(std::make_pair(id,reg));
++    lastRegistration=id;sessionFilesRegistration=id;return Ok;
+ }
+ Error Coordinator::admitCallback(Id s,Id id,CallbackKind kind,Id cause,CallbackId &out) {
+     out.registration=out.sequence=0;
+@@ -116,6 +127,8 @@
+     if(s!=incarnation)return StaleSession;
+     std::map<Id,Registration>::iterator r=registrations.find(id);
+     if(r==registrations.end())return Unknown;
++    // Session close requires ordinary admission drained; Failed still records close.
++    if(r->second.scope==SessionFiles && current==Active)return WrongState;
+     r->second.closing=true;r->second.closeFrontier=r->second.issued;return Ok;
+ }
+ Error Coordinator::readiness(Id s,Id id,Readiness &out) const {
+@@ -123,7 +136,10 @@
+     std::map<Id,Registration>::const_iterator r=registrations.find(id);
+     if(r==registrations.end())return Unknown;
+     Readiness value={0,0,r->second.closeFrontier,r->second.frontier,r->second.closing,true};
+-    for(size_t i=0;i<pins.size();++i)if(same(pins[i],r->second.resource))++value.requestPins;
++    if(r->second.scope==SessionFiles)
++        value.requestPins=admissionOrdinal ? 1u : 0u;
++    else
++        for(size_t i=0;i<pins.size();++i)if(same(pins[i],r->second.resource))++value.requestPins;
+     for(std::map<Id,Callback>::const_iterator c=r->second.callbacks.begin();c!=r->second.callbacks.end();++c)
+         if(!c->second.acknowledged)++value.callbackPins;
+     out=value;return Ok;

@@ -1,0 +1,3 @@
+# Prospective stream reply discrimination
+
+Test only, frozen37 source. New four malformed reply scenarios: wrong resource kind for open and borrowed alias; nonzero scalar return or reserved value for void start. Use real encodeResult/decodeReply and existing Session failure path; no vendor/host/engine. Predict each fails before output publication, marks session uncertain and prevents subsequent transport calls. One strict C++11 ASan/UBSan compile/run, stop first failure with no rerun. Retain all bytes/source hashes; no performance/fidelity claim. Does not rerun 256cycles or already-covered valid scenarios.

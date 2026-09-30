@@ -1,0 +1,35 @@
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -1,4 +1,5 @@
+ #include "Session.h"
++#include "../../protocol-candidate/pair_outputs.h"
+ #include "../../native-playback28/ClientMilesPlayback.h"
+ #include <list>
+ #include "../../native-startup25/ClientMilesStartup.h"
+@@ -362,10 +363,11 @@
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = {};
+     fields.target = ownedSample(session, sample).wire;
+-    fields.output_mask = (total ? 1u : 0u) | (current ? 2u : 0u);
++    fields.output_mask = MilesWire::pairMask(total, current);
+     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_sample_ms_position, fields);
+     // Decoder knows the opcode; only this layer knows which outputs were requested.
+-    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]))
++    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]) ||
++        ((fields.output_mask & 4u) && reply.result.value[0] != reply.result.value[1]))
+         session.rejectResult();
+     const int32_t a = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[0]));
+     const int32_t b = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[1]));
+@@ -403,9 +405,10 @@
+ static void sampleFloatPair(uint32_t opcode, HSAMPLE sample, float *first, float *second) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = sampleCall(session, sample);
+-    fields.output_mask = (first ? 1u : 0u) | (second ? 2u : 0u);
++    fields.output_mask = MilesWire::pairMask(first, second);
+     const StartupBridge::OwnedReply reply = session.request(opcode, fields);
+-    if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]))
++    if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]) ||
++        ((fields.output_mask & 4u) && reply.result.value[0] != reply.result.value[1]))
+         session.rejectResult();
+     float a, b;
+     std::memcpy(&a, &reply.result.value[0], sizeof a);

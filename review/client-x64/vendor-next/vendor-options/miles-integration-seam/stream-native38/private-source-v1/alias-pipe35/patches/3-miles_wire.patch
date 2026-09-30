@@ -1,0 +1,11 @@
+--- a/protocol-candidate/miles_wire.h
++++ b/protocol-candidate/miles_wire.h
+@@ -6,7 +6,7 @@
+ namespace MilesWire {
+ // Encode/decode fields explicitly little-endian; these structs are schema/layout
+ // checks, NOT permission to send native padding or dereference received bytes.
+-enum { Magic=0x31534d57, Version=1, MaxFrameBytes=1048576 };
++enum { Magic=0x31534d57, Version=2, MaxFrameBytes=1048576 };
+ enum Kind { Request=1, Reply=2, Event=3, ReverseRequest=4, ReverseReply=5 };
+ enum ResourceKind { Null=0, Driver=1, OwnedSample=2, Stream=3, BorrowedSample=4, Buffer=5, File=6 };
+ struct Handle { uint32_t kind, slot, generation; }; // all zero is vendor null

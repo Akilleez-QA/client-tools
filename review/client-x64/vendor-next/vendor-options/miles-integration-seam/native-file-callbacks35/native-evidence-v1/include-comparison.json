@@ -1,0 +1,300 @@
+{
+  "status": "failed_with_test_concern; raw receipt unchanged",
+  "prior_evidence": "file-executor33/native-evidence-v1/curated/results/Debug-x64-engine-worker/actual-includes.json",
+  "normalization": "slashes/lowercase and gate-root replacement only",
+  "overlap_count": 172,
+  "overlap_hash_mismatches": [],
+  "added_paths": [
+    {
+      "path": "C:\\native-file-callbacks35\\results\\engine_header_probe\\require-v120.h",
+      "sha256": "cb90becac707ccde21d862e64b2afc47eca80d0eab0a8b44863eddc00497e7ab"
+    },
+    {
+      "path": "C:\\native-file-callbacks35\\seam\\native-file-callbacks35\\ClientMilesFileCallbacks.h",
+      "sha256": "f4a47366de0bcabe2ca0752de8cc8545c23b419d926f999dfbb1028c17b7d58e"
+    },
+    {
+      "path": "C:\\native-file-callbacks35\\seam\\file-executor29\\ClientAudioFileCallbacks.h",
+      "sha256": "e287ba5de9aa040576794de058aaf061640c4614e8e5517c350850707256b5aa"
+    }
+  ],
+  "prior_only_paths": [
+    {
+      "path": "C:\\file-executor33\\results\\Debug-x64-engine-worker\\require-v120.h",
+      "sha256": "2203755367b329ffd7a8dbd9ec6adbfa4d6c653859c86aa8ff6b9e96e7c9add2"
+    },
+    {
+      "path": "C:\\file-executor33\\seam\\file-executor33\\EngineFileWorker.h",
+      "sha256": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedSynchronization\\include\\public\\sharedSynchronization\\Gate.h",
+      "sha256": "c05eceed4342d2ccdff3237d9f407b47bd04971b7d4b0cbb8047aa5036973b63"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedSynchronization\\include\\public\\sharedSynchronization\\InterlockedInteger.h",
+      "sha256": "dd69370c12efb210b378a95248c06a92b0373ecea2f40c5ce0fc5c1af1a6c925"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedSynchronization\\include\\public\\sharedSynchronization\\Mutex.h",
+      "sha256": "d3a0f068ee0d1f6dce04b3d90e6ae9d374a5609b1f55d9c98670430fe930d07b"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedSynchronization\\src\\win32\\Gate.h",
+      "sha256": "fb13d5ee17e767f242bfb40a4e8c0205d1c1f26c9ad16584b54c73a1be06edbc"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedSynchronization\\src\\win32\\InterlockedInteger.h",
+      "sha256": "7928759e81f95b023e461cc1b4ca3d6766f7384b796791fc97ac32b0ad5a2497"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedSynchronization\\src\\win32\\Mutex.h",
+      "sha256": "c22306173fe7c54b2b1782f0edc185c92ff967fa21b9bfc8ffd6f417ee815048"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedThread\\include\\public\\sharedThread\\Thread.h",
+      "sha256": "5ca3fd31492fd73a1b51579afa583f0aa831ea0bfae0b1903f981038aff2744d"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\engine\\shared\\library\\sharedThread\\src\\win32\\Thread.h",
+      "sha256": "d1ad48d466b8b62ccf0a9a278d1906b9592304820af592a5d46c69cc5c8a01e0"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cctype",
+      "sha256": "f3ed0f46957a69294bc022b4d36070b495b0e9cb94f66b6530619fbfbe523439"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\climits",
+      "sha256": "c8d9733952dbf91d2bbbb67697c7dbe2227e10e361fc9045814158519ac218a6"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cstdio",
+      "sha256": "be13789da5f891c81b723ffe201a2aeeaedb1bf7bd44190c991475f5098c92e8"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cstdlib",
+      "sha256": "0185f277af520d975bbffc37bee0d741e269af7c2a90816776259820ed94d8fa"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cstring",
+      "sha256": "4152f75af2829dec2c32e62da7aacbea2b4bea8bdfc252597810b7996c73a43d"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cwchar",
+      "sha256": "86210bba7457c6baa74ea592ec9c4693ede2cd136415688694f7ada2b391fe09"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\iosfwd",
+      "sha256": "e294d510739a033a801afdbe771e9e9f2e797ffb470d2320150a456178cb162c"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\memory",
+      "sha256": "127f125df959add3911c40e66b906a0c0a6ec0a057e7ffc70d64ac539ddbd715"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stdio.h",
+      "sha256": "45ad2d01f74b7c336e64bbda881bfe073f6c339af9a76585690655c713a3ade3"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_algobase.c",
+      "sha256": "b23e8258a33985b1427e57226b17737cc3c8b72129c6e237ffb848d28a64604b"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_algobase.h",
+      "sha256": "d7c27c097c4848e7b766121f396b5fbddf92e5212a79ca1b77e65c0879137839"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_alloc.h",
+      "sha256": "982c542a3feef63c8e3b82455c11bcafda36c9fd63184b2b0675a4d98b5783fd"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_auto_ptr.h",
+      "sha256": "910f83b28570ff55ea51a918b8dcbf574a28654545b051aefb9cf54a2ab6fd43"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_construct.h",
+      "sha256": "c58c7b11f363ef6bf94d52b4a404a20c0f3bc2640f39c7733f3186c871db7679"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_ctraits_fns.h",
+      "sha256": "94fb460e1b8cc0d8cb14165a223e194da751c68881c843edea69d5c6fb95d5f5"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_function.h",
+      "sha256": "04bc20640953e11f064dbf6cda25dfc09db73b3425f5ad44fff82ca7e4da13db"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_function_base.h",
+      "sha256": "459a911033725fb0f7b2737c6ae00fb82f9810d4cb301d54fc120e46b5424003"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_hash_fun.h",
+      "sha256": "dc12901e5e86c59b81b54a92261e2d547a021bed7d0912d5ba5ddf03d5676536"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_iosfwd.h",
+      "sha256": "492b6bba59b37e7e559dcea8dedf64c623e68c92bb1c03fd66cff5f45c469f5a"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_iterator.h",
+      "sha256": "5c32732d8177aa76a4b3310912391062a7f6f81c91f5c8b4bc4e5c5c04626b2f"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_iterator_base.h",
+      "sha256": "d61032f9f00ca07b29617bda5bc541311f412a29f4b6f188cc74be8c5e972ede"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_pair.h",
+      "sha256": "4f9809a8e71134ff159b0da69d502d67b3f55f698589f468bad060b4f19f3a8e"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_range_errors.h",
+      "sha256": "4649f4db46ca2bbec5261d04aaf8f90f86de11daad23e3b9058662604dfdc1ce"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_raw_storage_iter.h",
+      "sha256": "774e858e2bcf5d288d5a9c2e318b29a532447ae4daf72a751513f6cde28848b6"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string.c",
+      "sha256": "73b59059789ca4312303811d15f34bda429b23c3f97ba9284fd446c07a1b5c24"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string.h",
+      "sha256": "058d5f9fb3574c571d0b86bcc3d0ed9cd866d6e8c79688e744cec66925508b3f"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string_fwd.c",
+      "sha256": "3c16662ff440bc43c18d49aaa004ef7e1b5882d2fb274debc573dded1bbda214"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string_fwd.h",
+      "sha256": "4ffe5e061e12ccd9ee7456ccf213dc4c244ce4074cb81b6d57f0d78949a7ca32"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string_hash.h",
+      "sha256": "2e6b77c9e3cca0d1dd9146a936457aaa874b4dac39241c2daa0f415851c62d97"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string_io.c",
+      "sha256": "eab2338e46744256d6ecd50dfff31d62ce03b741b1792f6d54912c7b5edca54c"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_string_io.h",
+      "sha256": "bc91272e64757d230d72719d672873442548b645db03b65c98a70a79afbd068e"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_tempbuf.c",
+      "sha256": "d443a603c2511ce6ce47e007e41697cb315c9c086b9256aebe2ae11b247ba2d7"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_tempbuf.h",
+      "sha256": "a769930ad68f274c949e22172dd2d6dcccc297a161dca97d2324e3c6e9ff1cb2"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_threads.c",
+      "sha256": "bf4ee55d1a690992b697e980cb136c97d1b0417c25c2a72da2472139ac4b192c"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_threads.h",
+      "sha256": "e9aa1dc431ef0599116a274f892fc0341fed5ef27c1bfe0b77854b88cd6c3c01"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\_uninitialized.h",
+      "sha256": "3de9425ee18154569d6a004b364017aa5593913b4122d93e9e9a169fe4e41b3c"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\char_traits.h",
+      "sha256": "b33b53f7434adf444f34c890067956c6675945c6a39c431c6352c6c96b6d3aa8"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\stl\\type_traits.h",
+      "sha256": "033aba0d783060cd9c3b7d3dded980ef6a397501846786a0f0d109880de2f40e"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\string",
+      "sha256": "be51a69db5829066c9d6216dcd0cb5da1de9dfea3291199b3b278553a637dd1e"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\using\\cstring",
+      "sha256": "bedaa9a2b060b05f202dad660e584b43171735e2e492d606599b8fd72b746a65"
+    },
+    {
+      "path": "C:\\file-executor33\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\wchar.h",
+      "sha256": "06e1b83f8d890965b8f47cff0673747088eed0936dd6511202927f0f30c7c3f7"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cctype",
+      "sha256": "2282a78a7fa247eaea73bb704af0de3c1c0349fcf3f42fcf5bd08295742fce0e"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\climits",
+      "sha256": "ab1ad3ff04bb8d3845118b9508db1a30c8e6dbf1e643b44b9cb03ef9b8f1f9df"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cstdio",
+      "sha256": "6abf4b16749ba4ed2cf52f46b870616c7636024aeb499ac33dd06d9525e3f939"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cstdlib",
+      "sha256": "5f50fc4e59008c4967a5dd1eb3d7886f7ee40f331f63ae40fb7837d8d16ec8e0"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cstring",
+      "sha256": "815beeae53eec717f8b8a79c47af34541e163ac4ce7ba8ee3ab744e11a7460e3"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cwchar",
+      "sha256": "9484dc3e1bf93210e2a786cee65814e1eec9bc2f1fa497a55226fe8e29d561fe"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\stdio.h",
+      "sha256": "36701d03cedce070b3d5915774ea26b4ad38ebf2b8351b9cc6d86f48a024ae14"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\swprintf.inl",
+      "sha256": "3996e7273714dde82d133879350fa470926ddd511381d02ae79b2dc9be5db025"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\wchar.h",
+      "sha256": "69a0f0d0ad7080ecc58d321b2195a1cf770eaf031bd810ba634af2c0d773d1e9"
+    }
+  ],
+  "rejected_headers": [
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cstddef",
+      "sha256": "e035ed4d41125c007a876c4ea3d43172c80e22966148d1c93f645de66ebafc2d",
+      "same_path_and_hash_in33": true
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\new",
+      "sha256": "e3bbc5c685625f44b1816547b8afc5e0720b24336348e7ad74adf58137c6890a",
+      "same_path_and_hash_in33": true
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\exception",
+      "sha256": "8e5bd96edbcf05d59d09332af22cad690e7df46a3a5ca83df40f0adb4aa3c484",
+      "same_path_and_hash_in33": true
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\xstddef",
+      "sha256": "97622ed1a4eb25a7780d28c468379d85f29d58c1d97d0c611c3dc1244cc451cb",
+      "same_path_and_hash_in33": true
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\initializer_list",
+      "sha256": "e4cee6a075befd0a43e35318cf1a16edc55d61c7c462cb759a126e3f6273ddf3",
+      "same_path_and_hash_in33": true
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\xtr1common",
+      "sha256": "7baa2d78056d1a563c2cc1625ae0e1ea1ac70e4aede7cd71fdeb6ade4bc6afeb",
+      "same_path_and_hash_in33": true
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\cfloat",
+      "sha256": "1ac3c99999d287b7ad76c7dba3eccf4258dcf63e9f7b61b55941ebad39a25b0d",
+      "same_path_and_hash_in33": true
+    }
+  ]
+}

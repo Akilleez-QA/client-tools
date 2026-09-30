@@ -1,0 +1,18 @@
+{
+  "sha256": {
+    "coordinator.h": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0",
+    "coordinator.cpp": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534",
+    "resource_regression_test.cpp": "23c8593e4ea7a2b6cf121869c31b81e4cff5c65e2ac95219922b3f08ca3138f8",
+    "session_files_test.cpp": "70a413d361e661dfb99e6f2691f5bab9ba1f5128355760a67168cae6edde0bbe",
+    "run-portable.py": "443c9bf2df2e1e4043ef7921a29bbcddbb05f54ebb9f2b85fe63d50b37f50ce6",
+    "session-files.patch": "dc31f6a79f1de007e5cad25e238397ffd38fccdd8023cbcefed495970f647c78",
+    "README.md": "7a670bbcfcf51760549d3db8c5014c47a441eb4af67b1265a3d5047ce0f8eb3d"
+  },
+  "inherited_inputs": {
+    "coordinator-candidate/coordinator.h": "fb7e2d84697976787f702c1a0af5771d724e8dc17e6899e631858eb7fc709512",
+    "coordinator-candidate/coordinator.cpp": "d434149188ee15bfc51c9a3286c9c5a49ef5d4762e8a7bb95d485cc852ec16b6",
+    "coordinator-candidate/coordinator_test.cpp": "23c8593e4ea7a2b6cf121869c31b81e4cff5c65e2ac95219922b3f08ca3138f8",
+    "protocol-candidate/miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9"
+  },
+  "validation": "portable only; 87 existing and 92 new checks passed; no native or engine runtime"
+}

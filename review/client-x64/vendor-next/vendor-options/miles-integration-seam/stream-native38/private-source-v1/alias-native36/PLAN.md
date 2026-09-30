@@ -1,0 +1,9 @@
+# Prospective three-object native gate
+
+No gate authorization and no VM contact. Compose exact alias-pipe35 source archive5f4821e6f3d7fd011c3926c0ff638ddefa7c66a88073374b014f8bc4bde43629 / manifest71e13b03df1ddd336ff243ed168717ca78df042a87b483b1dc40cc0df98fbd87, plus this driver, symbol oracle and compile-only host anchor. No edits to prior packets.
+
+Fresh C:/alias-native36; separate parent approval required for one invocation of build-native.py --approved-compile-only. Actual v120 /W4 /WX /EHsc /MT /O2. Compile AMD64 ClientMilesPipe.cpp, x86 host_composition.cpp, x86 host_dispatch.cpp only. The anchor forces compilation of actual Backend.execute; dispatcher directly calls original possessed Mss.h. No need to repeat eleven native-only objects unchanged by this private protocol correction. No new caller TU: definitions bind to included public declarations; the portable test calls all nineteen controls and three pair APIs.
+
+Require pinned SDK966e1e81… evidence for each x86 TU, raw /showIncludes discovery and compile logs, exact source/header/tool before==after, reject unmanifested local headers, COFF8664/014c, raw dumpbin symbols. Pipe must define20 expected functions and import no AIL exports. Dispatcher exact import set is precommitted from native26's raw symbol receipt (underlying calls unchanged); host anchor records all imports, requires allocate/release/shutdown and unresolved real dispatcher reference. No claim that the anchor's entire SDK import set is predicted. This is compiler coverage, not SDK getter behavior or runtime topology proof.
+
+Stop first failure; preserve receipt/logs, no automatic source fix or rerun. No linker, library substitute, DLL, PE, SDK publication or produced-code execution. Objects remain private. Only source/text receipts can be shared. Before any future invocation, record exact parent authorization and archive identities and check exclusive compiler availability.

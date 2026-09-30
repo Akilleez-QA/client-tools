@@ -1,0 +1,9 @@
+PASS scenario: simultaneous streams remain distinct
+PASS scenario: cross-parent alias reuse rejected
+PASS scenario: duplicate live stream identity rejected before publication
+PASS scenario: null alias wrong parent rejected
+PASS scenario: null alias malformed parent rejected
+PASS scenario: known open failure preserves return target
+PASS scenario: uncertain open failure preserves return target
+PASS inherited stream scenarios, including one 256-cycle sequence
+PASS 8531 stream scripted checks; no host/file/runtime evidence

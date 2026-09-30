@@ -1,0 +1,181 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\alias-native36\native-v1\02\unit.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000191 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   2F, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   78, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length   19, #relocs    0, #linenums    0, checksum 507D9C47, selection    2 (pick any)
+008 00000000 SECT4  notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x3)
+00A 00000000 SECT5  notype       Static       | .text$mn
+    Section length   19, #relocs    0, #linenums    0, checksum 507D9C47, selection    2 (pick any)
+00C 00000000 SECT6  notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x5)
+00E 00000000 SECT7  notype       Static       | .text$mn
+    Section length    5, #relocs    0, #linenums    0, checksum 8B05F6DB, selection    1 (pick no duplicates)
+010 00000000 SECT8  notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x7)
+012 00000000 SECT9  notype       Static       | .text$mn
+    Section length   28, #relocs    2, #linenums    0, checksum 8382C92D, selection    1 (pick no duplicates)
+014 00000000 SECTA  notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x9)
+016 00000000 SECTB  notype       Static       | .text$mn
+    Section length 1413, #relocs   5C, #linenums    0, checksum 787F2786, selection    1 (pick no duplicates)
+018 00000000 SECTC  notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0xB)
+01A 00000000 SECTD  notype       Static       | .text$mn
+    Section length    D, #relocs    0, #linenums    0, checksum 45FC05FE, selection    1 (pick no duplicates)
+01C 00000000 SECTE  notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0xD)
+01E 00000000 SECTF  notype       Static       | .text$mn
+    Section length    D, #relocs    0, #linenums    0, checksum 49BEBF57, selection    2 (pick any)
+020 00000000 SECT10 notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0xF)
+022 00000000 SECT11 notype       Static       | .text$mn
+    Section length    D, #relocs    0, #linenums    0, checksum 49BEBF57, selection    2 (pick any)
+024 00000000 SECT12 notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x11)
+026 00000000 SECT13 notype       Static       | .text$mn
+    Section length    5, #relocs    0, #linenums    0, checksum 8B05F6DB, selection    1 (pick no duplicates)
+028 00000000 SECT14 notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x13)
+02A 00000000 SECT15 notype       Static       | .text$mn
+    Section length    5, #relocs    0, #linenums    0, checksum 8B05F6DB, selection    1 (pick no duplicates)
+02C 00000000 SECT16 notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x15)
+02E 00000000 SECT17 notype       Static       | .text$mn
+    Section length   15, #relocs    0, #linenums    0, checksum C5AC999E, selection    2 (pick any)
+030 00000000 SECT18 notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x17)
+032 00000000 SECT19 notype       Static       | .text$mn
+    Section length   15, #relocs    0, #linenums    0, checksum C5AC999E, selection    2 (pick any)
+034 00000000 SECT1A notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x19)
+036 00000000 SECT1B notype       Static       | .text$mn
+    Section length   63, #relocs    4, #linenums    0, checksum B4A54FB3, selection    1 (pick no duplicates)
+038 00000000 SECT1C notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x1B)
+03A 00000000 SECT1D notype       Static       | .text$mn
+    Section length   1C, #relocs    0, #linenums    0, checksum BC5DF4AB, selection    2 (pick any)
+03C 00000000 SECT1E notype       Static       | .debug$F
+    Section length   10, #relocs    1, #linenums    0, checksum        0, selection    5 (pick associative Section 0x1D)
+03E 00000000 SECT1B notype ()    External     | ?supports@MilesHost@@YA_NI@Z (bool __cdecl MilesHost::supports(unsigned int))
+03F 00000000 SECT9  notype ()    External     | ?dispatch@MilesHost@@YA?AW4DispatchStatus@1@IABUCall@MilesWire@@AAUResult@4@AAUResolver@1@@Z (enum MilesHost::DispatchStatus __cdecl MilesHost::dispatch(unsigned int,struct MilesWire::Call const &,struct MilesWire::Result &,struct MilesHost::Resolver &))
+040 00000000 SECT1D notype ()    External     | ?validPairMask@MilesWire@@YA_NI@Z (bool __cdecl MilesWire::validPairMask(unsigned int))
+041 00000000 UNDEF  notype       External     | __imp__AIL_get_timer_highest_delay@0
+042 00000000 UNDEF  notype       External     | __imp__AIL_serve@0
+043 00000000 UNDEF  notype       External     | __imp__AIL_file_error@0
+044 00000000 UNDEF  notype       External     | __imp__AIL_digital_CPU_percent@4
+045 00000000 UNDEF  notype       External     | __imp__AIL_digital_latency@4
+046 00000000 UNDEF  notype       External     | __imp__AIL_start_sample@4
+047 00000000 UNDEF  notype       External     | __imp__AIL_stop_sample@4
+048 00000000 UNDEF  notype       External     | __imp__AIL_end_sample@4
+049 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_playback_rate@8
+04A 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_volume_levels@12
+04B 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_reverb_levels@12
+04C 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_loop_count@8
+04D 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_loop_block@12
+04E 00000000 UNDEF  notype       External     | __imp__AIL_sample_status@4
+04F 00000000 UNDEF  notype       External     | __imp__AIL_sample_playback_rate@4
+050 00000000 UNDEF  notype       External     | __imp__AIL_sample_volume_levels@12
+051 00000000 UNDEF  notype       External     | __imp__AIL_sample_reverb_levels@12
+052 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_position@8
+053 00000000 UNDEF  notype       External     | __imp__AIL_sample_position@4
+054 00000000 UNDEF  notype       External     | __imp__AIL_active_sample_count@4
+055 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_ms_position@8
+056 00000000 UNDEF  notype       External     | __imp__AIL_sample_ms_position@12
+057 00000000 UNDEF  notype       External     | __imp__AIL_start_stream@4
+058 00000000 UNDEF  notype       External     | __imp__AIL_set_stream_loop_count@8
+059 00000000 UNDEF  notype       External     | __imp__AIL_set_stream_loop_block@12
+05A 00000000 UNDEF  notype       External     | __imp__AIL_stream_status@4
+05B 00000000 UNDEF  notype       External     | __imp__AIL_set_stream_ms_position@8
+05C 00000000 UNDEF  notype       External     | __imp__AIL_stream_ms_position@12
+05D 00000000 UNDEF  notype       External     | __imp__AIL_room_type@4
+05E 00000000 UNDEF  notype       External     | __imp__AIL_set_room_type@8
+05F 00000000 UNDEF  notype       External     | __imp__AIL_set_3D_rolloff_factor@8
+060 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_obstruction@8
+061 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_occlusion@8
+062 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_3D_distances@16
+063 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_3D_position@16
+064 00000000 UNDEF  notype       External     | __imp__AIL_set_sample_3D_velocity_vector@16
+065 00000000 UNDEF  notype       External     | __imp__AIL_set_listener_3D_position@16
+066 00000000 UNDEF  notype       External     | __imp__AIL_set_listener_3D_velocity_vector@16
+067 00000000 UNDEF  notype       External     | __imp__AIL_set_listener_3D_orientation@28
+068 00000000 SECT15 notype ()    External     | ?s@?A0xbe39b7d7@MilesHost@@YAHI@Z (int __cdecl MilesHost::`anonymous namespace'::s(unsigned int))
+069 00000000 SECTD  notype ()    External     | ?f@?A0xbe39b7d7@MilesHost@@YAMI@Z (float __cdecl MilesHost::`anonymous namespace'::f(unsigned int))
+06A 00000000 SECT7  notype ()    External     | ?bits@?A0xbe39b7d7@MilesHost@@YAIH@Z (unsigned int __cdecl MilesHost::`anonymous namespace'::bits(int))
+06B 00000000 SECT13 notype ()    External     | ?floatBits@?A0xbe39b7d7@MilesHost@@YAIM@Z (unsigned int __cdecl MilesHost::`anonymous namespace'::floatBits(float))
+06C 00000000 SECTB  notype ()    Static       | ?dispatchImpl@MilesHost@@YA?AW4DispatchStatus@1@IABUCall@MilesWire@@AAUResult@4@AAUResolver@1@@Z (enum MilesHost::DispatchStatus __cdecl MilesHost::dispatchImpl(unsigned int,struct MilesWire::Call const &,struct MilesWire::Result &,struct MilesHost::Resolver &))
+06D 00000000 SECT3  notype ()    External     | ??0?$PairOutputs@H@MilesWire@@QAE@I@Z (public: __thiscall MilesWire::PairOutputs<int>::PairOutputs<int>(unsigned int))
+06E 00000000 SECTF  notype ()    External     | ?first@?$PairOutputs@H@MilesWire@@QAEPAHXZ (public: int * __thiscall MilesWire::PairOutputs<int>::first(void))
+06F 00000000 SECT17 notype ()    External     | ?second@?$PairOutputs@H@MilesWire@@QAEPAHXZ (public: int * __thiscall MilesWire::PairOutputs<int>::second(void))
+070 00000000 SECT5  notype ()    External     | ??0?$PairOutputs@M@MilesWire@@QAE@I@Z (public: __thiscall MilesWire::PairOutputs<float>::PairOutputs<float>(unsigned int))
+071 00000000 SECT11 notype ()    External     | ?first@?$PairOutputs@M@MilesWire@@QAEPAMXZ (public: float * __thiscall MilesWire::PairOutputs<float>::first(void))
+072 00000000 SECT19 notype ()    External     | ?second@?$PairOutputs@M@MilesWire@@QAEPAMXZ (public: float * __thiscall MilesWire::PairOutputs<float>::second(void))
+073 00000000 UNDEF  notype ()    External     | _memset
+074 00000028 SECT1B notype       Static       | $LN7
+075 00000020 SECT1B notype       Static       | $LN9
+076 0000001A SECT1B notype       Label        | $LN2
+077 0000001D SECT1B notype       Label        | $LN1
+078 000013D8 SECTB  notype       Static       | $LN690
+079 00001338 SECTB  notype       Static       | $LN701
+07A 00000093 SECTB  notype       Label        | $LN321
+07B 000000FD SECTB  notype       Label        | $LN313
+07C 00000154 SECTB  notype       Label        | $LN305
+07D 000001BA SECTB  notype       Label        | $LN297
+07E 0000021A SECTB  notype       Label        | $LN289
+07F 00000281 SECTB  notype       Label        | $LN281
+080 000002E7 SECTB  notype       Label        | $LN273
+081 00000351 SECTB  notype       Label        | $LN265
+082 000003B7 SECTB  notype       Label        | $LN257
+083 00000421 SECTB  notype       Label        | $LN249
+084 00000487 SECTB  notype       Label        | $LN241
+085 000004F1 SECTB  notype       Label        | $LN233
+086 00000557 SECTB  notype       Label        | $LN225
+087 000005F0 SECTB  notype       Label        | $LN215
+088 000006B0 SECTB  notype       Label        | $LN205
+089 00000745 SECTB  notype       Label        | $LN195
+08A 0000081F SECTB  notype       Label        | $LN185
+08B 00000894 SECTB  notype       Label        | $LN177
+08C 000008FD SECTB  notype       Label        | $LN169
+08D 0000099A SECTB  notype       Label        | $LN161
+08E 00000A37 SECTB  notype       Label        | $LN153
+08F 00000B0E SECTB  notype       Label        | $LN145
+090 00000BAB SECTB  notype       Label        | $LN137
+091 00000C48 SECTB  notype       Label        | $LN129
+092 00000CD5 SECTB  notype       Label        | $LN121
+093 00000D4D SECTB  notype       Label        | $LN113
+094 00000DC2 SECTB  notype       Label        | $LN105
+095 00000E52 SECTB  notype       Label        | $LN97
+096 00000EE2 SECTB  notype       Label        | $LN89
+097 00000F4D SECTB  notype       Label        | $LN81
+098 00000FB2 SECTB  notype       Label        | $LN73
+099 0000101D SECTB  notype       Label        | $LN65
+09A 00001082 SECTB  notype       Label        | $LN57
+09B 000010F0 SECTB  notype       Label        | $LN49
+09C 00001160 SECTB  notype       Label        | $LN41
+09D 000011CD SECTB  notype       Label        | $LN33
+09E 00001232 SECTB  notype       Label        | $LN25
+09F 00001285 SECTB  notype       Label        | $LN17
+0A0 000012DE SECTB  notype       Label        | $LN9
+0A1 00001322 SECTB  notype       Label        | $LN1
+0A2 00000000 UNDEF  notype       External     | __fltused
+
+String Table Size = 0x7A5 bytes
+
+  Summary
+
+          E0 .debug$F
+          78 .debug$S
+          2F .drectve
+        154C .text$mn

@@ -1,0 +1,12 @@
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -505,7 +505,8 @@
+     }
+ }
+ 
+-// Owned-only playback slice. The host independently enforces OwnedSample kind.
++// Client control slice: five operations accept a live parent-owned borrowed proxy.
++// Current host Backend still admits only OwnedSample; stream integration is pending.
+ static MilesWire::Call sampleCall(ClientMilesPipe::Session &session, HSAMPLE sample, bool borrowed=false) {
+     MilesWire::Call fields = {};
+     fields.target = controlSample(session, sample, borrowed).wire;

@@ -1,0 +1,32 @@
+--- a/startup-bridge23/reply.h
++++ b/startup-bridge23/reply.h
+@@ -70,20 +70,21 @@
+     const bool versionOp = ok && h.opcode == MilesWire::SessionVersion;
+     const bool valueOp = ok && h.opcode == MilesWire::AIL_speaker_configuration;
+     const bool sampleTime = ok && (h.opcode == MilesWire::AIL_sample_ms_position ||
+-        h.opcode == MilesWire::AIL_sample_volume_levels || h.opcode == MilesWire::AIL_sample_reverb_levels);
++        h.opcode == MilesWire::AIL_stream_ms_position || h.opcode == MilesWire::AIL_sample_volume_levels || h.opcode == MilesWire::AIL_sample_reverb_levels);
+     const bool returnOp =
+         ok && (h.opcode == MilesWire::AIL_startup || h.opcode == MilesWire::AIL_get_preference ||
+                h.opcode == MilesWire::AIL_set_preference || h.opcode == MilesWire::AIL_room_type ||
+                h.opcode == MilesWire::AIL_sample_status || h.opcode == MilesWire::AIL_sample_position ||
+-               h.opcode == MilesWire::AIL_sample_playback_rate);
++               h.opcode == MilesWire::AIL_sample_playback_rate || h.opcode == MilesWire::AIL_stream_status);
+     const bool sampleAllocation = ok && h.opcode == MilesWire::AIL_allocate_sample_handle;
+-    const bool resourceOp = ok && (h.opcode == MilesWire::AIL_open_digital_driver || sampleAllocation);
+-    if ((!returnOp && r.return_bits) || (!resourceOp && !nullHandle(r.resource)))
+-        return false;
+-    if (resourceOp && !nullHandle(r.resource) && r.resource.kind != static_cast<uint32_t>(sampleAllocation ? MilesWire::OwnedSample : MilesWire::Driver))
+-        return false;
++    const bool aliasOp=ok && h.opcode==MilesWire::AIL_stream_sample_handle;
++    const bool streamOpen=ok && h.opcode==MilesWire::AIL_open_stream;
++    const bool resourceOp = ok && (h.opcode == MilesWire::AIL_open_digital_driver || sampleAllocation || streamOpen || aliasOp);
++    const uint32_t expectedKind=static_cast<uint32_t>(aliasOp ? MilesWire::BorrowedSample : streamOpen ? MilesWire::Stream : sampleAllocation ? MilesWire::OwnedSample : MilesWire::Driver);
++    if ((!returnOp && r.return_bits) || (!resourceOp && !nullHandle(r.resource)))return false;
++    if (resourceOp && !nullHandle(r.resource) && r.resource.kind!=expectedKind)return false;
+     for (unsigned i = 0; i < 8; ++i)
+-        if (!(valueOp && i == 3) && !(sampleTime && i < 2) && r.value[i])
++        if (!(valueOp && i == 3) && !(sampleTime && i < 2) && !(aliasOp && i < 3) && r.value[i])
+             return false;
+     if (versionOp) {
+         char text[MilesSessionVersion::Capacity];

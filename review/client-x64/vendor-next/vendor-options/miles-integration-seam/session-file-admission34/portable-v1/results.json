@@ -1,0 +1,44 @@
+[
+  {
+    "name": "resource-regression",
+    "build_command": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/coordinator.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/resource_regression_test.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/portable-v1/resource-regression"
+    ],
+    "build_exit": 0,
+    "run_command": [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/portable-v1/resource-regression"
+    ],
+    "run_exit": 0,
+    "executable_sha256": "4f9f34a5fafe0f7c6f23fd0ca4db1768825ef9289cb1ea1580522198f0d611f8"
+  },
+  {
+    "name": "session-files",
+    "build_command": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/coordinator.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/session_files_test.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/portable-v1/session-files"
+    ],
+    "build_exit": 0,
+    "run_command": [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/session-file-admission34/portable-v1/session-files"
+    ],
+    "run_exit": 0,
+    "executable_sha256": "138c282a656b697282a2c06bb96528e89655025103d49924ce740ea5d1b6208e"
+  }
+]

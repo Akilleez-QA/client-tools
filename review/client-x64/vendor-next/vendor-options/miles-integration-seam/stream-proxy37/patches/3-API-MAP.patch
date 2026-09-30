@@ -1,0 +1,8 @@
+--- a/protocol-candidate/API-MAP.md
++++ b/protocol-candidate/API-MAP.md
+@@ -73,3 +73,5 @@
+ ## Private protocol version2 pair topology
+ 
+ For opcodes20,23,25,58 only, output_mask value4 means both output pointers are identical. It is legal only with lowbits3: valid masks0,1,2,3,7. Mask7 passes the same host-local pointer to both actual SDK arguments and duplicates its final raw bits into result v0/v1. Clients require identical result words before copyout. Other opcode masks retain their existing meanings. Version1 peers fail the existing exact header-version check; no fallback. This does not change struct sizes or public Miles declarations.
++
++For the client-only stream-proxy37 composition, successful opcode59 replies (including null alias) echo validated parent Stream kind/slot/generation in value0/1/2. Client requires exact requested-parent match before publishing or reusing its cached alias. Host open/close/alias implementation and file integration are not provided by this composition.

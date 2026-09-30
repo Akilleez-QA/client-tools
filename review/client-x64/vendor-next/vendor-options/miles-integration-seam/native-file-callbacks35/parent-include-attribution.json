@@ -1,0 +1,82 @@
+{
+  "raw_gate": "failed; immutable receipt preserved",
+  "classification": "boundary oracle invalid for distinguishing new facade contamination: all 7 rejected headers enter through FirstSharedFoundation/STLport before new facade and have identical hashes in frozen33 engine worker",
+  "compiler_observations": "Both objects actual compiler exit0, no diagnostics; native forwarder soleAIL_set_file_callbacks import. No link or runtime.",
+  "rejected_headers": [
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\cstddef",
+      "hash_identical_in_prior33": true
+    },
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\new",
+      "hash_identical_in_prior33": true
+    },
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\exception",
+      "hash_identical_in_prior33": true
+    },
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\xstddef",
+      "hash_identical_in_prior33": true
+    },
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\initializer_list",
+      "hash_identical_in_prior33": true
+    },
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\xtr1common",
+      "hash_identical_in_prior33": true
+    },
+    {
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\cfloat",
+      "hash_identical_in_prior33": true
+    }
+  ],
+  "include_chains": [
+    {
+      "line": 198,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\cstddef",
+      "parent": "c:\\native-file-callbacks35\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cstddef",
+      "from_FirstSharedFoundation": true
+    },
+    {
+      "line": 206,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\new",
+      "parent": "c:\\native-file-callbacks35\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\new",
+      "from_FirstSharedFoundation": true
+    },
+    {
+      "line": 208,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\exception",
+      "parent": "c:\\native-file-callbacks35\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\exception",
+      "from_FirstSharedFoundation": true
+    },
+    {
+      "line": 209,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\xstddef",
+      "parent": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\exception",
+      "from_FirstSharedFoundation": true
+    },
+    {
+      "line": 215,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\initializer_list",
+      "parent": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\xstddef",
+      "from_FirstSharedFoundation": true
+    },
+    {
+      "line": 216,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\xtr1common",
+      "parent": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\xstddef",
+      "from_FirstSharedFoundation": true
+    },
+    {
+      "line": 234,
+      "header": "c:\\program files (x86)\\microsoft visual studio 12.0\\vc\\include\\cfloat",
+      "parent": "c:\\native-file-callbacks35\\snapshot\\src\\external\\3rd\\library\\stlport453\\stlport\\cfloat",
+      "from_FirstSharedFoundation": true
+    }
+  ],
+  "independent_compile": false,
+  "independent_coff_read": false,
+  "compile_log_sha256": "ece57d033b6d13e9c3d2a65cb1b70d5a60744e3c4b62a20705e8b422170f72be"
+}

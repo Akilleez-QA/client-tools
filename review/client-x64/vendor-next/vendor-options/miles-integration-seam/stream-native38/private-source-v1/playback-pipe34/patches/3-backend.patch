@@ -1,0 +1,33 @@
+--- a/startup-bridge23/backend.h
++++ b/startup-bridge23/backend.h
+@@ -46,6 +46,30 @@
+         out.result.transport_status = InvalidFields;
+         // Narrow native25 non-callback slice; reuse reviewed SDK dispatcher.
+         switch (h.opcode) {
++        case MilesWire::AIL_start_sample:
++        case MilesWire::AIL_stop_sample:
++        case MilesWire::AIL_sample_status:
++        case MilesWire::AIL_set_sample_loop_count:
++        case MilesWire::AIL_set_sample_loop_block:
++        case MilesWire::AIL_set_sample_ms_position:
++        case MilesWire::AIL_set_sample_position:
++        case MilesWire::AIL_sample_position:
++        case MilesWire::AIL_set_sample_playback_rate:
++        case MilesWire::AIL_sample_playback_rate:
++        case MilesWire::AIL_set_sample_volume_levels:
++        case MilesWire::AIL_sample_volume_levels:
++        case MilesWire::AIL_set_sample_reverb_levels:
++        case MilesWire::AIL_sample_reverb_levels:
++        case MilesWire::AIL_set_sample_3D_position:
++        case MilesWire::AIL_set_sample_3D_velocity_vector:
++        case MilesWire::AIL_set_sample_3D_distances:
++        case MilesWire::AIL_set_sample_occlusion:
++        case MilesWire::AIL_set_sample_obstruction:
++            if (c.target.kind != MilesWire::OwnedSample) {
++                out.result.transport_status = InvalidResource;
++                return out;
++            }
++            // fall through to the shared lifecycle and real SDK dispatcher
+         case MilesWire::AIL_sample_ms_position:
+         case MilesWire::AIL_end_sample:
+         case MilesWire::AIL_set_listener_3D_position:

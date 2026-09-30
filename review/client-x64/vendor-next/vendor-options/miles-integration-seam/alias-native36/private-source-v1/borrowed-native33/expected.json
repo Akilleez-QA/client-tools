@@ -1,0 +1,104 @@
+[
+  {
+    "source": "native-sample27/native_sample27.cpp",
+    "imports": [
+      "__imp_AIL_allocate_sample_handle",
+      "__imp_AIL_set_named_sample_file",
+      "__imp_AIL_sample_ms_position",
+      "__imp_AIL_end_sample",
+      "__imp_AIL_release_sample_handle"
+    ],
+    "sdk": true,
+    "common_sample": true
+  },
+  {
+    "source": "native-playback28/native_playback28.cpp",
+    "imports": [
+      "__imp_AIL_start_sample",
+      "__imp_AIL_stop_sample",
+      "__imp_AIL_sample_status",
+      "__imp_AIL_set_sample_loop_count",
+      "__imp_AIL_set_sample_loop_block",
+      "__imp_AIL_set_sample_ms_position",
+      "__imp_AIL_set_sample_position",
+      "__imp_AIL_sample_position",
+      "__imp_AIL_set_sample_playback_rate",
+      "__imp_AIL_sample_playback_rate",
+      "__imp_AIL_set_sample_volume_levels",
+      "__imp_AIL_sample_volume_levels",
+      "__imp_AIL_set_sample_reverb_levels",
+      "__imp_AIL_sample_reverb_levels",
+      "__imp_AIL_set_sample_3D_position",
+      "__imp_AIL_set_sample_3D_velocity_vector",
+      "__imp_AIL_set_sample_3D_distances",
+      "__imp_AIL_set_sample_occlusion",
+      "__imp_AIL_set_sample_obstruction"
+    ],
+    "sdk": true,
+    "common_sample": true
+  },
+  {
+    "source": "native-stream28/native_stream28.cpp",
+    "imports": [
+      "__imp_AIL_open_stream",
+      "__imp_AIL_close_stream",
+      "__imp_AIL_start_stream",
+      "__imp_AIL_set_stream_loop_count",
+      "__imp_AIL_set_stream_loop_block",
+      "__imp_AIL_stream_status",
+      "__imp_AIL_set_stream_ms_position",
+      "__imp_AIL_stream_ms_position",
+      "__imp_AIL_stream_sample_handle"
+    ],
+    "sdk": true,
+    "common_sample": true
+  },
+  {
+    "source": "native-borrowed32/call_shapes.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": true
+  },
+  {
+    "source": "backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": true
+  },
+  {
+    "source": "native-sample27/sample_time.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": false
+  },
+  {
+    "source": "native-playback28/compile_exercise.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": false
+  },
+  {
+    "source": "native-stream28/stream_calls.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": false
+  },
+  {
+    "source": "native-sample27/portable_contract.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": false
+  },
+  {
+    "source": "native-playback28/portable_contract.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": false
+  },
+  {
+    "source": "native-stream28/portable_contract.cpp",
+    "imports": [],
+    "sdk": false,
+    "common_sample": false
+  }
+]

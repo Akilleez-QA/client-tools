@@ -1,0 +1,134 @@
+Review this narrow private RPC pair-output helper and patches. Validmask0,1,2,3,7; flag4 requiresboth outputs and means identical pointers. Nativegetter overwrites every requested output on validhandle paths and reads no seed. Find concrete C++ or validation defects, not hypothetical SDK behavior. ProtocolVersion2 rejects1. Return atmost600words. Earlier high-effort service requests timedout; this is a new code slice and medium-effort attempt, not clearance by retry.
+Use only supplied authored source; do not run tools, change files, consult other reviews, or infer vendor behavior. Return concrete source-grounded concerns and scope limits; no broad clearance.
+
+FILE alias-pipe35/overlay/protocol-candidate/pair_outputs.h
+// Private protocol v2 pair-output topology, not SDK nullability policy.
+#ifndef MILES_PAIR_OUTPUTS_H
+#define MILES_PAIR_OUTPUTS_H
+#include <stdint.h>
+namespace MilesWire {
+inline bool validPairMask(uint32_t mask) {
+    return !(mask & ~7u) && (!(mask & 4u) || (mask & 3u) == 3u);
+}
+template<class T> inline uint32_t pairMask(T *first, T *second) {
+    return (first ? 1u : 0u) | (second ? 2u : 0u) |
+           ((first && first == second) ? 4u : 0u);
+}
+template<class T> struct PairOutputs {
+    T firstValue, secondValue;
+    explicit PairOutputs(uint32_t mask) : firstValue(), secondValue(), mask_(mask) {}
+    T *first() { return (mask_ & 1u) ? &firstValue : 0; }
+    T *second() { return (mask_ & 2u) ? ((mask_ & 4u) ? &firstValue : &secondValue) : 0; }
+private:
+    uint32_t mask_;
+};
+}
+#endif
+
+FILE alias-pipe35/patches/1-ClientMilesPipe.patch
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -1,4 +1,5 @@
+ #include "Session.h"
++#include "../../protocol-candidate/pair_outputs.h"
+ #include "../../native-playback28/ClientMilesPlayback.h"
+ #include <list>
+ #include "../../native-startup25/ClientMilesStartup.h"
+@@ -362,10 +363,11 @@
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = {};
+     fields.target = ownedSample(session, sample).wire;
+-    fields.output_mask = (total ? 1u : 0u) | (current ? 2u : 0u);
++    fields.output_mask = MilesWire::pairMask(total, current);
+     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_sample_ms_position, fields);
+     // Decoder knows the opcode; only this layer knows which outputs were requested.
+-    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]))
++    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]) ||
++        ((fields.output_mask & 4u) && reply.result.value[0] != reply.result.value[1]))
+         session.rejectResult();
+     const int32_t a = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[0]));
+     const int32_t b = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[1]));
+@@ -403,9 +405,10 @@
+ static void sampleFloatPair(uint32_t opcode, HSAMPLE sample, float *first, float *second) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = sampleCall(session, sample);
+-    fields.output_mask = (first ? 1u : 0u) | (second ? 2u : 0u);
++    fields.output_mask = MilesWire::pairMask(first, second);
+     const StartupBridge::OwnedReply reply = session.request(opcode, fields);
+-    if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]))
++    if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]) ||
++        ((fields.output_mask & 4u) && reply.result.value[0] != reply.result.value[1]))
+         session.rejectResult();
+     float a, b;
+     std::memcpy(&a, &reply.result.value[0], sizeof a);
+
+FILE alias-pipe35/patches/2-host_dispatch.patch
+--- a/host-candidate/host_dispatch.cpp
++++ b/host-candidate/host_dispatch.cpp
+@@ -1,4 +1,5 @@
+ #include "host_dispatch.h"
++#include "../protocol-candidate/pair_outputs.h"
+ #include "Mss.h"
+ #include <string.h>
+ #if !defined(_M_IX86) || _MSC_VER != 1800
+@@ -142,31 +143,31 @@
+  return Complete; }
+ case MilesWire::AIL_sample_ms_position: {
+  for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+- if(call.output_mask & ~3u)return InvalidFields;
+- uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+- HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+- S32 a=0,b=0; ::AIL_sample_ms_position(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=bits(a); if(call.output_mask&2)out.value[1]=bits(b);
++ if(!MilesWire::validPairMask(call.output_mask))return InvalidFields;
++ uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
++ HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
++ MilesWire::PairOutputs<S32> pair(call.output_mask); ::AIL_sample_ms_position(sample,pair.first(),pair.second()); if(pair.first())out.value[0]=bits(*pair.first()); if(pair.second())out.value[1]=bits(*pair.second());
+  return Complete; }
+ case MilesWire::AIL_stream_ms_position: {
+  for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+- if(call.output_mask & ~3u)return InvalidFields;
+- uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+- HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+- S32 a=0,b=0; ::AIL_stream_ms_position(stream,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=bits(a); if(call.output_mask&2)out.value[1]=bits(b);
++ if(!MilesWire::validPairMask(call.output_mask))return InvalidFields;
++ uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
++ HSTREAM stream=reinterpret_cast<HSTREAM>(address);
++ MilesWire::PairOutputs<S32> pair(call.output_mask); ::AIL_stream_ms_position(stream,pair.first(),pair.second()); if(pair.first())out.value[0]=bits(*pair.first()); if(pair.second())out.value[1]=bits(*pair.second());
+  return Complete; }
+ case MilesWire::AIL_sample_volume_levels: {
+  for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+- if(call.output_mask & ~3u)return InvalidFields;
+- uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+- HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+- F32 a=0,b=0; ::AIL_sample_volume_levels(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=floatBits(a); if(call.output_mask&2)out.value[1]=floatBits(b);
++ if(!MilesWire::validPairMask(call.output_mask))return InvalidFields;
++ uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
++ HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
++ MilesWire::PairOutputs<F32> pair(call.output_mask); ::AIL_sample_volume_levels(sample,pair.first(),pair.second()); if(pair.first())out.value[0]=floatBits(*pair.first()); if(pair.second())out.value[1]=floatBits(*pair.second());
+  return Complete; }
+ case MilesWire::AIL_sample_reverb_levels: {
+  for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+- if(call.output_mask & ~3u)return InvalidFields;
+- uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+- HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+- F32 a=0,b=0; ::AIL_sample_reverb_levels(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=floatBits(a); if(call.output_mask&2)out.value[1]=floatBits(b);
++ if(!MilesWire::validPairMask(call.output_mask))return InvalidFields;
++ uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
++ HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
++ MilesWire::PairOutputs<F32> pair(call.output_mask); ::AIL_sample_reverb_levels(sample,pair.first(),pair.second()); if(pair.first())out.value[0]=floatBits(*pair.first()); if(pair.second())out.value[1]=floatBits(*pair.second());
+  return Complete; }
+ case MilesWire::AIL_set_3D_rolloff_factor: {
+  for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+
+FILE alias-pipe35/patches/3-miles_wire.patch
+--- a/protocol-candidate/miles_wire.h
++++ b/protocol-candidate/miles_wire.h
+@@ -6,7 +6,7 @@
+ namespace MilesWire {
+ // Encode/decode fields explicitly little-endian; these structs are schema/layout
+ // checks, NOT permission to send native padding or dereference received bytes.
+-enum { Magic=0x31534d57, Version=1, MaxFrameBytes=1048576 };
++enum { Magic=0x31534d57, Version=2, MaxFrameBytes=1048576 };
+ enum Kind { Request=1, Reply=2, Event=3, ReverseRequest=4, ReverseReply=5 };
+ enum ResourceKind { Null=0, Driver=1, OwnedSample=2, Stream=3, BorrowedSample=4, Buffer=5, File=6 };
+ struct Handle { uint32_t kind, slot, generation; }; // all zero is vendor null

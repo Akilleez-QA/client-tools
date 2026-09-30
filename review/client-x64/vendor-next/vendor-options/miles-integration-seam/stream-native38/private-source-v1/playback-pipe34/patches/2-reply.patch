@@ -1,0 +1,18 @@
+--- a/startup-bridge23/reply.h
++++ b/startup-bridge23/reply.h
+@@ -69,10 +69,13 @@
+                                h.opcode == MilesWire::AIL_last_error);
+     const bool versionOp = ok && h.opcode == MilesWire::SessionVersion;
+     const bool valueOp = ok && h.opcode == MilesWire::AIL_speaker_configuration;
+-    const bool sampleTime = ok && h.opcode == MilesWire::AIL_sample_ms_position;
++    const bool sampleTime = ok && (h.opcode == MilesWire::AIL_sample_ms_position ||
++        h.opcode == MilesWire::AIL_sample_volume_levels || h.opcode == MilesWire::AIL_sample_reverb_levels);
+     const bool returnOp =
+         ok && (h.opcode == MilesWire::AIL_startup || h.opcode == MilesWire::AIL_get_preference ||
+-               h.opcode == MilesWire::AIL_set_preference || h.opcode == MilesWire::AIL_room_type);
++               h.opcode == MilesWire::AIL_set_preference || h.opcode == MilesWire::AIL_room_type ||
++               h.opcode == MilesWire::AIL_sample_status || h.opcode == MilesWire::AIL_sample_position ||
++               h.opcode == MilesWire::AIL_sample_playback_rate);
+     const bool sampleAllocation = ok && h.opcode == MilesWire::AIL_allocate_sample_handle;
+     const bool resourceOp = ok && (h.opcode == MilesWire::AIL_open_digital_driver || sampleAllocation);
+     if ((!returnOp && r.return_bits) || (!resourceOp && !nullHandle(r.resource)))

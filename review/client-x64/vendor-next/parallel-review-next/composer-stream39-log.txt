@@ -1,0 +1,113 @@
+## Scope limits (authored source only)
+
+- **Host / file pipeline**: `open_stream` always issues `AIL_open_stream`; no client-side gate for “file pipeline connected” appears in these excerpts.
+- **Native fidelity**: `stream_test.cpp` ends with explicit disclaimer that checks are scripted, not host/file/runtime evidence (`main`, ~line 105).
+- **Vendor `HSAMPLE` stability**: Client exposes a stable address `&parent.borrowed` for the life of the `OwnedStream` list node (`stream_sample_handle` return, `ClientMilesPipe.patch` ~401–417); equivalence to vendor pointer rules is not stated in source.
+
+---
+
+## Distinctions that *are* wired (single feature each)
+
+| Area | Behavior | Anchors |
+|------|----------|---------|
+| Stream registry | `OwnedStream` + `streams` list; cleared on shutdown | patch ~20–24, ~205–208 |
+| Open identity | Reject duplicate **live stream** `wire` vs another stream | patch ~386–388 |
+| Alias reply | Echo triple must match parent stream `wire`; resource kind `BorrowedSample` enforced in `decodeReply` | patch ~404–406; `reply.patch` ~79–84 |
+| Null alias | Null resource allowed only if `!parent.borrowed.live`; live + mismatched re-alias rejected | patch ~407–412 |
+| Cross-stream alias | Reject if another live stream already holds same **borrowed** identity | patch ~413–415 |
+| Borrowed routing | `controlSample` + `sampleCall(..., borrowed)` for playback/volume/reverb rate paths | patch ~348–357, ~509–518, ~572–598 |
+| Signed returns | `stream_status`, `sample_playback_rate`, `stream_ms_position` outputs via `signedValue` | patch ~427–438, ~579–581 |
+| Output aliasing | `stream_ms_position`: reject if mask bit 4 and `value[0]!=value[1]` | patch ~434–436 |
+| Reply shape | `AIL_stream_status` → `returnOp`; `AIL_stream_ms_position` → `sampleTime`; alias echo slots 0–2 exempt | `reply.patch` ~72–84 |
+
+---
+
+## Missing or partial distinctions (behavior-affecting)
+
+### 1. Alias identity vs **owned** samples (not only other streams)
+
+`stream_sample_handle` dedupes borrowed handles only against **other streams’** `borrowed.wire`, not `session.samples->proxies`.
+
+```413:415:stream-proxy37/patches/1-ClientMilesPipe.patch
+    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
+         i!=session.samples->streams.end(); ++i)
+        if (i->get()!=stream && (*i)->borrowed.live && sameIdentity((*i)->borrowed.wire,reply.result.resource))session.rejectResult();
+```
+
+**Gap**: Host could reuse the same wire identity as an **allocated** sample; client would still publish `&parent.borrowed`. **Not covered** in `stream_test.cpp` (collision tests are stream–stream only: `simultaneous`, `duplicateOpen`).
+
+### 2. `controlSample` fallthrough when pointer looks borrowed but state does not
+
+If `sample == &parent.borrowed` but kind ≠ `BorrowedSample` or `borrowed`/`parent` not live, loop does not return and **`ownedSample(session, sample)`** runs on the same address.
+
+```348:357:stream-proxy37/patches/1-ClientMilesPipe.patch
+static Sample &controlSample(..., bool borrowed) {
+    ...
+    if (borrowed) {
+        for (...) {
+            ...
+            if (sample==&parent.borrowed && parent.live && parent.borrowed.live &&
+                parent.borrowed.wire.kind==MilesWire::BorrowedSample) return parent.borrowed;
+        }
+    }
+    return ownedSample(session,sample);
+}
+```
+
+**Gap**: Stale or corrupted borrowed pointer could be treated as an owned proxy lookup. **No test** passes a stream-borrowed address into APIs with `borrowed=true` after invalidating kind/live without erasing the node.
+
+### 3. Re-alias to **null** while `parent.borrowed.live`
+
+Order: echo check, then null resource → if `parent.borrowed.live` → `rejectResult()` (patch ~404–409).
+
+**Gap**: Scenario “second `stream_sample_handle` returns null resource while alias already live” is **not** in tests. `broken()` mode 4 sets `nullResult` on a **failing** re-call but only after a successful first alias (~66–68); `nullParent` exercises null on **first** fetch (~91–96).
+
+### 4. Malformed replies at **`decodeReply`** vs client `rejectResult`
+
+Tests drive mostly **valid** encodings that pass `decodeReply` (`Script::call` ~28–40). Client-side rejections (echo/parent/collision) are covered (`nullParent`, `broken` modes 1–2, `simultaneous(true)`).
+
+**Gaps (reply rules exist; stream tests do not exercise)**:
+
+- `AIL_open_stream` with non-`Stream` resource kind (`reply.patch` ~80–82) — script always emits `Handle{Stream,...}` (~36).
+- `AIL_stream_sample_handle` with non-`BorrowedSample` resource — script always emits `BorrowedSample` (~37).
+- Stream **control** opcodes with nonzero `return_bits` or stray `value[i]` — would fail `reply.patch` ~81–84; no stream_test case forces that on e.g. `AIL_start_stream`.
+- Invalid frame failing `decodeReply` before client logic — not stream-specific in excerpt.
+
+### 5. Signed output / aliasing coverage asymmetry
+
+- **Covered**: `stream_status` −1, `stream_ms_position` masks 0–3 and aliased `&t,&t` with matching pair values (~57–58, `broken` mode 3 ~67), `sample_playback_rate` INT_MIN (~52).
+- **Gap**: `sample_volume_levels` / `sample_reverb_levels` **getters** use `sampleFloatPair` with borrowed only when `opcode==AIL_sample_volume_levels` (patch ~515–518). **Reverb getter** borrowed path not shown in patch hunk; no test asserts reverb **read** through borrowed handle.
+- **Gap**: `set_*` stream/sample negatives are `static_cast<uint32_t>` on the wire (~422–424, ~575–577); tests assert encoding, not host interpretation.
+
+### 6. Multiple parents — what tests actually distinguish
+
+| Scenario | Test | What is **not** distinguished |
+|----------|------|-------------------------------|
+| Two streams, distinct aliases | `simultaneous(false)` ~72–83 | Third stream; alias after first stream closed without clearing host slot semantics |
+| Borrowed wire collision | `simultaneous(true)` ~76–78 | Collision with **owned** proxy (§1) |
+| Duplicate **stream** wire | `duplicateOpen` ~84–89 | Duplicate borrowed wire across streams when first never called `stream_sample_handle` |
+| Generation churn | `happy` 256× open/close ~62–63 | Borrowed generation vs stream generation mismatch beyond `broken` mode 2 |
+
+### 7. Pointer / lifetime (client-local, not vendor)
+
+- `HSAMPLE` is `&parent.borrowed`; stable until `close_stream` erases the `OwnedStream` (~393–398) or `streams.clear()` on shutdown (~205–208).
+- Tests: `release_sample_handle` / `start_sample` on borrowed → `InvalidArgument` (~49–50); no test for use-after-`close_stream` on the same `HSAMPLE` pointer.
+- `close_stream` on transport failure leaves stream **live** in the list (`happy` ~59–60, `broken` mode 0 ~66) — consistent; borrowed pointer still valid until successful close.
+
+### 8. `open_stream` rollback
+
+On exception, pop registry entry only if `!session.uncertain()` (patch ~382–383). **Covered**: `openFailure(true/false)` ~98–104. **Not combined** with duplicate-identity `rejectResult` on success path.
+
+---
+
+## Test harness blind spots (one line each)
+
+- **`Script`** does not vary `AIL_open_stream` resource kind or alias resource kind away from `Stream` / `BorrowedSample` (~35–37).
+- **`CHECK` on call** requires zero `resource` on non-open requests (~32) — good for encoding, does not validate host malformed **reply** paths for stream ops.
+- **Inherited scenarios** (`main` ~105): content of those tests is **not** in the supplied paste — no findings from them.
+
+---
+
+## Summary
+
+The authored client distinguishes **stream vs borrowed vs owned** routing, **echo-parent binding**, **cross-stream borrowed collision**, **duplicate stream open identity**, **signed stream status/position**, and **aliased `stream_ms_position` outputs**. The largest **source-visible** hole is **borrowed-wire collision checking only among streams**, not owned proxies. The largest **validation hole** is **reply malformation** for stream resource kinds and stray fields — enforced in `reply.patch` but **not** exercised by `stream_test.cpp`. **Re-alias to null while live** and **`controlSample` fallthrough** are specified in client code but **not** scripted. No clearance for host pipeline, native Miles semantics, or full API surface beyond the patched playback/stream slice.

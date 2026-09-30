@@ -1,0 +1,195 @@
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -2,6 +2,7 @@
+ #include "../../protocol-candidate/pair_outputs.h"
+ #include "../../native-playback28/ClientMilesPlayback.h"
+ #include <list>
++#include "../../native-stream28/ClientMilesStream.h"
+ #include "../../native-startup25/ClientMilesStartup.h"
+ #include <cstring>
+ #include <limits>
+@@ -16,12 +17,20 @@
+     bool live;
+     Sample() : wire(), live(false) {}
+ };
++struct OwnedStream {
++    MilesWire::Handle wire;
++    Sample borrowed;
++    bool live;
++    OwnedStream() : wire(), live(false) {}
++};
+ } // namespace ClientMiles
+ 
+ namespace ClientMilesPipe {
+ struct SampleState {
+     typedef std::list<std::unique_ptr<ClientMiles::Sample> > Proxies;
+     Proxies proxies;
++    typedef std::list<std::unique_ptr<ClientMiles::OwnedStream> > Streams;
++    Streams streams;
+ };
+ }
+ 
+@@ -196,6 +205,7 @@
+     session.requireRunning();
+     session.request(MilesWire::AIL_shutdown, MilesWire::Call());
+     session.samples->proxies.clear(); // confirmed vendor shutdown, local handles expire
++    session.samples->streams.clear();
+     session.started = false;
+     session.stopped = true;
+ }
+@@ -335,6 +345,105 @@
+     throw std::logic_error("unreachable");
+ }
+ 
++static Sample &controlSample(ClientMilesPipe::Session &session, HSAMPLE sample, bool borrowed) {
++    session.requireRunning();
++    if (borrowed) {
++        for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
++             i!=session.samples->streams.end(); ++i) {
++            OwnedStream &parent=**i;
++            if (sample==&parent.borrowed && parent.live && parent.borrowed.live &&
++                parent.borrowed.wire.kind==MilesWire::BorrowedSample) return parent.borrowed;
++        }
++    }
++    return ownedSample(session,sample);
++}
++static OwnedStream &liveStream(ClientMilesPipe::Session &session,HSTREAM stream) {
++    session.requireRunning();
++    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
++         i!=session.samples->streams.end(); ++i)
++        if (stream==i->get() && (*i)->live) return **i;
++    fail(FailureReason::InvalidArgument,"stream is not live in selected Session");
++    throw std::logic_error("unreachable");
++}
++static bool sameIdentity(const MilesWire::Handle &a,const MilesWire::Handle &b) {
++    return a.kind==b.kind && a.slot==b.slot && a.generation==b.generation;
++}
++HSTREAM open_stream(HDIGDRIVER driver,const char *filename,int32_t streamMem) {
++    ClientMilesPipe::Session &session=ClientMilesPipe::Session::selected();
++    MilesWire::Call fields=driverCall(session,driver);
++    if (!filename) fail(FailureReason::InvalidArgument,"null stream filename");
++    const size_t size=std::strlen(filename)+1;
++    if (size>MilesWire::MaxFrameBytes-136u) fail(FailureReason::InputLimit,"stream filename exceeds frame capacity");
++    fields.value[0]=static_cast<uint32_t>(streamMem);
++    std::unique_ptr<OwnedStream> local(new OwnedStream);
++    OwnedStream *stream=local.get();
++    session.samples->streams.push_back(std::move(local));
++    StartupBridge::OwnedReply reply;
++    try { reply=session.request(MilesWire::AIL_open_stream,fields,MilesTransport::Bytes(filename,size)); }
++    catch (...) { if (!session.uncertain())session.samples->streams.pop_back();throw; }
++    if (StartupBridge::nullHandle(reply.result.resource)) {session.samples->streams.pop_back();return 0;}
++    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
++         i!=session.samples->streams.end(); ++i)
++        if (i->get()!=stream && (*i)->live && sameIdentity((*i)->wire,reply.result.resource))session.rejectResult();
++    stream->wire=reply.result.resource;stream->live=true;return stream;
++}
++static MilesWire::Call streamCall(ClientMilesPipe::Session &session,HSTREAM stream) {
++    MilesWire::Call fields={};fields.target=liveStream(session,stream).wire;return fields;
++}
++void close_stream(HSTREAM stream) {
++    ClientMilesPipe::Session &session=ClientMilesPipe::Session::selected();
++    session.request(MilesWire::AIL_close_stream,streamCall(session,stream));
++    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
++         i!=session.samples->streams.end(); ++i)
++        if (i->get()==stream) {session.samples->streams.erase(i);break;}
++}
++HSAMPLE stream_sample_handle(HSTREAM stream) {
++    ClientMilesPipe::Session &session=ClientMilesPipe::Session::selected();
++    OwnedStream &parent=liveStream(session,stream);
++    const StartupBridge::OwnedReply reply=session.request(MilesWire::AIL_stream_sample_handle,streamCall(session,stream));
++    const MilesWire::Handle echo={reply.result.value[0],reply.result.value[1],reply.result.value[2]};
++    if (!sameIdentity(echo,parent.wire))session.rejectResult();
++    if (StartupBridge::nullHandle(reply.result.resource)) {
++        if (parent.borrowed.live)session.rejectResult();
++        return 0;
++    }
++    if (parent.borrowed.live && !sameIdentity(parent.borrowed.wire,reply.result.resource))session.rejectResult();
++    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
++         i!=session.samples->streams.end(); ++i)
++        if (i->get()!=stream && (*i)->borrowed.live && sameIdentity((*i)->borrowed.wire,reply.result.resource))session.rejectResult();
++    parent.borrowed.wire=reply.result.resource;parent.borrowed.live=true;return &parent.borrowed;
++}
++void start_stream(HSTREAM stream) {
++    ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();s.request(MilesWire::AIL_start_stream,streamCall(s,stream));
++}
++void set_stream_loop_count(HSTREAM stream,int32_t count) {
++    ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();MilesWire::Call c=streamCall(s,stream);
++    c.value[0]=static_cast<uint32_t>(count);s.request(MilesWire::AIL_set_stream_loop_count,c);
++}
++void set_stream_loop_block(HSTREAM stream,int32_t first,int32_t last) {
++    ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();MilesWire::Call c=streamCall(s,stream);
++    c.value[0]=static_cast<uint32_t>(first);c.value[1]=static_cast<uint32_t>(last);s.request(MilesWire::AIL_set_stream_loop_block,c);
++}
++int32_t stream_status(HSTREAM stream) {
++    ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();
++    return static_cast<int32_t>(MilesStartup::signedValue(s.request(MilesWire::AIL_stream_status,streamCall(s,stream)).result.return_bits));
++}
++void set_stream_ms_position(HSTREAM stream,int32_t value) {
++    ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();MilesWire::Call c=streamCall(s,stream);
++    c.value[0]=static_cast<uint32_t>(value);s.request(MilesWire::AIL_set_stream_ms_position,c);
++}
++void stream_ms_position(HSTREAM stream,int32_t *total,int32_t *current) {
++    ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();MilesWire::Call c=streamCall(s,stream);
++    c.output_mask=MilesWire::pairMask(total,current);
++    const StartupBridge::OwnedReply reply=s.request(MilesWire::AIL_stream_ms_position,c);
++    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]) ||
++        ((c.output_mask&4u) && reply.result.value[0]!=reply.result.value[1]))s.rejectResult();
++    const int32_t a=static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[0]));
++    const int32_t b=static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[1]));
++    if(total)*total=a;
++    if(current)*current=b;
++}
++
+ HSAMPLE allocate_sample_handle(HDIGDRIVER driver) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = driverCall(session, driver);
+@@ -397,14 +506,14 @@
+ }
+ 
+ // Owned-only playback slice. The host independently enforces OwnedSample kind.
+-static MilesWire::Call sampleCall(ClientMilesPipe::Session &session, HSAMPLE sample) {
+-    MilesWire::Call fields = {};
+-    fields.target = ownedSample(session, sample).wire;
++static MilesWire::Call sampleCall(ClientMilesPipe::Session &session, HSAMPLE sample, bool borrowed=false) {
++    MilesWire::Call fields = {};
++    fields.target = controlSample(session, sample, borrowed).wire;
+     return fields;
+ }
+ static void sampleFloatPair(uint32_t opcode, HSAMPLE sample, float *first, float *second) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    MilesWire::Call fields = sampleCall(session, sample);
++    MilesWire::Call fields = sampleCall(session, sample, opcode==MilesWire::AIL_sample_volume_levels);
+     fields.output_mask = MilesWire::pairMask(first, second);
+     const StartupBridge::OwnedReply reply = session.request(opcode, fields);
+     if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]) ||
+@@ -463,18 +572,18 @@
+ }
+ void set_sample_playback_rate(HSAMPLE sample, int32_t rate) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    MilesWire::Call fields = sampleCall(session, sample);
++    MilesWire::Call fields = sampleCall(session, sample, true);
+     fields.value[0] = static_cast<uint32_t>(rate);
+     session.request(MilesWire::AIL_set_sample_playback_rate, fields);
+ }
+ int32_t sample_playback_rate(HSAMPLE sample) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    MilesWire::Call fields = sampleCall(session, sample);
++    MilesWire::Call fields = sampleCall(session, sample, true);
+     return static_cast<int32_t>(MilesStartup::signedValue(session.request(MilesWire::AIL_sample_playback_rate, fields).result.return_bits));
+ }
+ void set_sample_volume_levels(HSAMPLE sample, float left, float right) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    MilesWire::Call fields = sampleCall(session, sample);
++    MilesWire::Call fields = sampleCall(session, sample, true);
+     fields.value[0] = floatBits(left);
+     fields.value[1] = floatBits(right);
+     session.request(MilesWire::AIL_set_sample_volume_levels, fields);
+@@ -484,7 +593,7 @@
+ }
+ void set_sample_reverb_levels(HSAMPLE sample, float dry, float wet) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    MilesWire::Call fields = sampleCall(session, sample);
++    MilesWire::Call fields = sampleCall(session, sample, true);
+     fields.value[0] = floatBits(dry);
+     fields.value[1] = floatBits(wet);
+     session.request(MilesWire::AIL_set_sample_reverb_levels, fields);

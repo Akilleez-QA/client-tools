@@ -1,0 +1,25 @@
+{
+  "scope": "Scripted real framing only; no native SDK, vendor or engine execution.",
+  "compiler_sha256": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+  "source_manifest": "a35b77881a33da17c6594bbcd25d400769651723c96cf20f6328f9c62af18d48",
+  "checks": [
+    {
+      "name": "stream-compile",
+      "exit": 0
+    },
+    {
+      "name": "stream-scripted",
+      "exit": 0
+    },
+    {
+      "name": "owned-compile",
+      "exit": 0
+    },
+    {
+      "name": "owned-scripted",
+      "exit": 0
+    }
+  ],
+  "stable": true,
+  "passed": true
+}

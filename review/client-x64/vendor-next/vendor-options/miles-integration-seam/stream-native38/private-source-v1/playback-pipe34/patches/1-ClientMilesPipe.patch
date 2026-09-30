@@ -1,0 +1,157 @@
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -1,5 +1,5 @@
+ #include "Session.h"
+-#include "../../native-sample27/ClientMilesSample.h"
++#include "../../native-playback28/ClientMilesPlayback.h"
+ #include <list>
+ #include "../../native-startup25/ClientMilesStartup.h"
+ #include <cstring>
+@@ -328,7 +328,7 @@
+     for (ClientMilesPipe::SampleState::Proxies::iterator i=session.samples->proxies.begin();
+          i!=session.samples->proxies.end(); ++i) {
+         Sample *candidate = i->get();
+-        if (sample == candidate && candidate->live) return *candidate;
++        if (sample == candidate && candidate->live && candidate->wire.kind == MilesWire::OwnedSample) return *candidate;
+     }
+     fail(FailureReason::InvalidArgument, "sample is not live in this selected Session");
+     throw std::logic_error("unreachable");
+@@ -394,6 +394,138 @@
+     }
+ }
+ 
++// Owned-only playback slice. The host independently enforces OwnedSample kind.
++static MilesWire::Call sampleCall(ClientMilesPipe::Session &session, HSAMPLE sample) {
++    MilesWire::Call fields = {};
++    fields.target = ownedSample(session, sample).wire;
++    return fields;
++}
++static void sampleFloatPair(uint32_t opcode, HSAMPLE sample, float *first, float *second) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.output_mask = (first ? 1u : 0u) | (second ? 2u : 0u);
++    const StartupBridge::OwnedReply reply = session.request(opcode, fields);
++    if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]))
++        session.rejectResult();
++    float a, b;
++    std::memcpy(&a, &reply.result.value[0], sizeof a);
++    std::memcpy(&b, &reply.result.value[1], sizeof b);
++    if (first) *first = a;
++    if (second) *second = b;
++}
++void start_sample(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    session.request(MilesWire::AIL_start_sample, fields);
++}
++void stop_sample(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    session.request(MilesWire::AIL_stop_sample, fields);
++}
++uint32_t sample_status(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    return session.request(MilesWire::AIL_sample_status, fields).result.return_bits;
++}
++void set_sample_loop_count(HSAMPLE sample, int32_t count) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = static_cast<uint32_t>(count);
++    session.request(MilesWire::AIL_set_sample_loop_count, fields);
++}
++void set_sample_loop_block(HSAMPLE sample, int32_t startByte, int32_t endByte) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = static_cast<uint32_t>(startByte);
++    fields.value[1] = static_cast<uint32_t>(endByte);
++    session.request(MilesWire::AIL_set_sample_loop_block, fields);
++}
++void set_sample_ms_position(HSAMPLE sample, int32_t milliseconds) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = static_cast<uint32_t>(milliseconds);
++    session.request(MilesWire::AIL_set_sample_ms_position, fields);
++}
++void set_sample_position(HSAMPLE sample, uint32_t byteOffset) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = static_cast<uint32_t>(byteOffset);
++    session.request(MilesWire::AIL_set_sample_position, fields);
++}
++uint32_t sample_position(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    return session.request(MilesWire::AIL_sample_position, fields).result.return_bits;
++}
++void set_sample_playback_rate(HSAMPLE sample, int32_t rate) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = static_cast<uint32_t>(rate);
++    session.request(MilesWire::AIL_set_sample_playback_rate, fields);
++}
++int32_t sample_playback_rate(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    return static_cast<int32_t>(MilesStartup::signedValue(session.request(MilesWire::AIL_sample_playback_rate, fields).result.return_bits));
++}
++void set_sample_volume_levels(HSAMPLE sample, float left, float right) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(left);
++    fields.value[1] = floatBits(right);
++    session.request(MilesWire::AIL_set_sample_volume_levels, fields);
++}
++void sample_volume_levels(HSAMPLE sample, float * left, float * right) {
++    sampleFloatPair(MilesWire::AIL_sample_volume_levels, sample, left, right);
++}
++void set_sample_reverb_levels(HSAMPLE sample, float dry, float wet) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(dry);
++    fields.value[1] = floatBits(wet);
++    session.request(MilesWire::AIL_set_sample_reverb_levels, fields);
++}
++void sample_reverb_levels(HSAMPLE sample, float * dry, float * wet) {
++    sampleFloatPair(MilesWire::AIL_sample_reverb_levels, sample, dry, wet);
++}
++void set_sample_3D_position(HSAMPLE sample, float x, float y, float z) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(x);
++    fields.value[1] = floatBits(y);
++    fields.value[2] = floatBits(z);
++    session.request(MilesWire::AIL_set_sample_3D_position, fields);
++}
++void set_sample_3D_velocity_vector(HSAMPLE sample, float xPerMs, float yPerMs, float zPerMs) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(xPerMs);
++    fields.value[1] = floatBits(yPerMs);
++    fields.value[2] = floatBits(zPerMs);
++    session.request(MilesWire::AIL_set_sample_3D_velocity_vector, fields);
++}
++void set_sample_3D_distances(HSAMPLE sample, float maximum, float minimum, int32_t autoWetAttenuation) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(maximum);
++    fields.value[1] = floatBits(minimum);
++    fields.value[2] = static_cast<uint32_t>(autoWetAttenuation);
++    session.request(MilesWire::AIL_set_sample_3D_distances, fields);
++}
++void set_sample_occlusion(HSAMPLE sample, float value) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(value);
++    session.request(MilesWire::AIL_set_sample_occlusion, fields);
++}
++void set_sample_obstruction(HSAMPLE sample, float value) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = sampleCall(session, sample);
++    fields.value[0] = floatBits(value);
++    session.request(MilesWire::AIL_set_sample_obstruction, fields);
++}
++
+ // set_named_sample_file is deliberately not defined: native rebind and failed-bind
+ // input-lifetime rules plus actual sealed-upload/host ownership must be resolved.
+ } // namespace ClientMiles

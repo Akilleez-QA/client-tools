@@ -1,0 +1,74 @@
+[
+  {
+    "source": "backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "architecture": "amd64",
+    "machine": 34404,
+    "sdk": false,
+    "imports": [],
+    "required_imports": [],
+    "definitions": [
+      "open_stream",
+      "close_stream",
+      "start_stream",
+      "set_stream_loop_count",
+      "set_stream_loop_block",
+      "stream_status",
+      "set_stream_ms_position",
+      "stream_ms_position",
+      "stream_sample_handle",
+      "set_sample_volume_levels",
+      "set_sample_reverb_levels",
+      "set_sample_playback_rate",
+      "sample_volume_levels",
+      "sample_playback_rate"
+    ],
+    "references": []
+  },
+  {
+    "source": "native-stream28/native_stream28.cpp",
+    "architecture": "amd64",
+    "machine": 34404,
+    "sdk": true,
+    "imports": [
+      "__imp_AIL_open_stream",
+      "__imp_AIL_close_stream",
+      "__imp_AIL_start_stream",
+      "__imp_AIL_set_stream_loop_count",
+      "__imp_AIL_set_stream_loop_block",
+      "__imp_AIL_stream_status",
+      "__imp_AIL_set_stream_ms_position",
+      "__imp_AIL_stream_ms_position",
+      "__imp_AIL_stream_sample_handle"
+    ],
+    "required_imports": [],
+    "definitions": [
+      "open_stream",
+      "close_stream",
+      "start_stream",
+      "set_stream_loop_count",
+      "set_stream_loop_block",
+      "stream_status",
+      "set_stream_ms_position",
+      "stream_ms_position",
+      "stream_sample_handle"
+    ],
+    "references": []
+  },
+  {
+    "source": "native-borrowed32/call_shapes.cpp",
+    "architecture": "amd64",
+    "machine": 34404,
+    "sdk": false,
+    "imports": [],
+    "required_imports": [],
+    "definitions": [],
+    "references": [
+      "?stream_sample_handle@ClientMiles@@",
+      "?set_sample_volume_levels@ClientMiles@@",
+      "?set_sample_reverb_levels@ClientMiles@@",
+      "?set_sample_playback_rate@ClientMiles@@",
+      "?sample_volume_levels@ClientMiles@@",
+      "?sample_playback_rate@ClientMiles@@"
+    ]
+  }
+]
