@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Release-Win32",
+    "diagnostic_region_limit_MiB": 1,
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "17f34aa3c371d494828abc90ac45e7c61012b8f2c6a289aac00c3224a2d5fa63",
+    "run": 0,
+    "output": "unknown location : FATAL 71ca3a2e: negative memory limit -1 MiB\nunknown location : FATAL 7a42fd56: negative system allocation -1 MiB\nchecks=12 failures=0 expected=12\r\n",
+    "okay": true
+  },
+  {
+    "name": "Release-x64",
+    "diagnostic_region_limit_MiB": 1,
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "17f34aa3c371d494828abc90ac45e7c61012b8f2c6a289aac00c3224a2d5fa63",
+    "run": 0,
+    "output": "unknown(0x1A1FF51B2E8) : FATAL 71ca3a2e: negative memory limit -1 MiB\nunknown location : FATAL 7a42fd56: negative system allocation -1 MiB\nchecks=12 failures=0 expected=12\r\n",
+    "okay": true
+  },
+  {
+    "name": "Debug-Win32",
+    "diagnostic_region_limit_MiB": 1,
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "17f34aa3c371d494828abc90ac45e7c61012b8f2c6a289aac00c3224a2d5fa63",
+    "run": 0,
+    "output": "unknown(0xCCCCCCCCCCCCCCCC) : FATAL 71ca3a2e: negative memory limit -1 MiB\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL 7a42fd56: negative system allocation -1 MiB\nchecks=12 failures=0 expected=12\r\nMM::remove 2032/2304=bytes 2/3=allocs\n",
+    "okay": true
+  },
+  {
+    "name": "Debug-x64",
+    "diagnostic_region_limit_MiB": 1,
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "17f34aa3c371d494828abc90ac45e7c61012b8f2c6a289aac00c3224a2d5fa63",
+    "run": 0,
+    "output": "unknown(0xCCCCCCCCCCCCCCCC) : FATAL 71ca3a2e: negative memory limit -1 MiB\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL 7a42fd56: negative system allocation -1 MiB\nchecks=12 failures=0 expected=12\r\nMM::remove 2848/3136=bytes 3/4=allocs\n",
+    "okay": true
+  }
+]

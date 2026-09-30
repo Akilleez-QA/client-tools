@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Release-Win32",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "daffb060b1642278045d2561930b65baec97b99bce5945e71c1d23158bf30ec2",
+    "run": 0,
+    "output": "unknown(0x0000006C) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\nREJECTION 0 unknown(0x0000006C) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\r\n\r\nunknown(0x123C23B00000000) : FATAL 683e1dda: allocation size 4294967295 exceeds memory manager range\nREJECTION 1 unknown(0x123C23B00000000) : FATAL 683e1dda: allocation size 4294967295 exceeds memory manager range\r\n\r\nunknown(0x123C24200000000) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\nREJECTION 2 unknown(0x123C24200000000) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\r\n\r\nunknown location : FATAL e7f24eb1: system allocation size exceeds signed-int range\nREJECTION 3 unknown location : FATAL e7f24eb1: system allocation size exceeds signed-int range\r\n\r\nchecks=21 failures=0 expected=21\r\n",
+    "okay": true
+  },
+  {
+    "name": "Release-x64",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "daffb060b1642278045d2561930b65baec97b99bce5945e71c1d23158bf30ec2",
+    "run": 0,
+    "output": "unknown(0x300000001) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\nREJECTION 0 unknown(0x300000001) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\r\n\r\nunknown(0x27CC57D4F0) : FATAL 0c1d8774: allocation size 18446744073709551615 exceeds memory manager range\nREJECTION 1 unknown(0x27CC57D4F0) : FATAL 0c1d8774: allocation size 18446744073709551615 exceeds memory manager range\r\n\r\nunknown(0x27CC57D4F0) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\nREJECTION 2 unknown(0x27CC57D4F0) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\r\n\r\nunknown location : FATAL e7f24eb1: system allocation size exceeds signed-int range\nREJECTION 3 unknown location : FATAL e7f24eb1: system allocation size exceeds signed-int range\r\n\r\nchecks=21 failures=0 expected=21\r\n",
+    "okay": true
+  },
+  {
+    "name": "Debug-Win32",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "daffb060b1642278045d2561930b65baec97b99bce5945e71c1d23158bf30ec2",
+    "run": 0,
+    "output": "unknown(0xCCCCCCCCCCCCCCCC) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\nREJECTION 0 unknown(0xCCCCCCCCCCCCCCCC) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\r\n\r\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL 683e1dda: allocation size 4294967295 exceeds memory manager range\nREJECTION 1 unknown(0xCCCCCCCCCCCCCCCC) : FATAL 683e1dda: allocation size 4294967295 exceeds memory manager range\r\n\r\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\nREJECTION 2 unknown(0xCCCCCCCCCCCCCCCC) : FATAL 683e1dda: allocation size 2143289281 exceeds memory manager range\r\n\r\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL e7f24eb1: system allocation size exceeds signed-int range\nREJECTION 3 unknown(0xCCCCCCCCCCCCCCCC) : FATAL e7f24eb1: system allocation size exceeds signed-int range\r\n\r\nchecks=21 failures=0 expected=21\r\nMM::remove 2032/2240=bytes 2/4=allocs\n",
+    "okay": true
+  },
+  {
+    "name": "Debug-x64",
+    "debughelp_sha256": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "build": 0,
+    "source_sha256": "32cfbe59ae532922991093aeccabb019003283ccdf51b0945590b11d9e3b5d27",
+    "diagnostic_sha256": "daffb060b1642278045d2561930b65baec97b99bce5945e71c1d23158bf30ec2",
+    "run": 0,
+    "output": "unknown(0xCCCCCCCCCCCCCCCC) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\nREJECTION 0 unknown(0xCCCCCCCCCCCCCCCC) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\r\n\r\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL 0c1d8774: allocation size 18446744073709551615 exceeds memory manager range\nREJECTION 1 unknown(0xCCCCCCCCCCCCCCCC) : FATAL 0c1d8774: allocation size 18446744073709551615 exceeds memory manager range\r\n\r\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\nREJECTION 2 unknown(0xCCCCCCCCCCCCCCCC) : FATAL 0c1d8774: allocation size 2143289217 exceeds memory manager range\r\n\r\nunknown(0xCCCCCCCCCCCCCCCC) : FATAL e7f24eb1: system allocation size exceeds signed-int range\nREJECTION 3 unknown(0xCCCCCCCCCCCCCCCC) : FATAL e7f24eb1: system allocation size exceeds signed-int range\r\n\r\nchecks=21 failures=0 expected=21\r\nMM::remove 2848/3104=bytes 3/5=allocs\n",
+    "okay": true
+  }
+]
