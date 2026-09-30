@@ -1,0 +1,31 @@
+# Source assessment84: file delegate and version buffer contract
+
+Read-only review; no candidate changes, tests authored/run, compiler, VM, Git or runtime. The public70 header remains unchanged.
+
+## File-callback80
+
+No new blocker found in the actual six-line addition to ClientMilesPipe.cpp. It uses the existing guarded<void>, so reporter and reentry checks precede Core access and private exceptions reach the same fatal boundary. All four supplied typed pointers are forwarded unchanged; no canonical replacement or second callback table is introduced. Core's existing one-time/non-null/running/private-lifetime restrictions remain. This is a legitimate limited delegate, not proof of native replacement/null-reset semantics or actual Audio TLS/shutdown readiness. File79's documented integration limitations still apply.
+
+## Concrete version mismatch
+
+Native70 plain_startup.cpp:92–99 accepts a writable nonnull buffer and any positive int32 capacity, then delegates without clearing it or inspecting output. native/native_startup_calls.cpp:43–45 invokes the actual private SDK macro. The possessed Windows macro at product Mss.h:4286 onward loads MSSDLLNAME for this call; a low module result writes only destination[0]=0, otherwise it invokes the resource-string API with resource1 and the caller's capacity, ignores the return, and releases the acquired module. No nonempty-string postcondition exists.
+
+Session-version22 is a different contract. session_version.h fixes256; makeQuery carries no capacity. queryCurrentDll at session_version_host.cpp:7–15 uses an existing nonnull HMODULE, fills a private256-byte array, and rejects a nonpositive count, oversized count or absent terminator. It neither performs the macro's per-call module selection/load nor preserves a genuine low-load empty result. makeReply itself can encode an empty string, so the nonempty restriction is in the host query, not the generic reply encoder. copyReply transports only the prefix through NUL. Selected77 Backend:164–179 additionally rejects shutdown and translates query failure to VersionQueryFailed. Core's version helper returns OwnedText rather than implementing public MSS_version(destination,capacity). These cannot be relabeled native semantics merely by adding the public wrapper.
+
+Actual Audio.cpp:2466–2471 uses an uninitialized local char[256] and immediately constructs a string. That observed happy-path use does not justify reading/sending its untouched stack tail, nor does it define behavior for other capacities or a failed resource lookup. Keep caller bytes beyond actual native writes unchanged.
+
+## Smallest credible paired change
+
+Use one dedicated version request/reply adaptation in the existing request path, not a new generic service or public packet type. Public signature stays void MSS_version(char*,int32_t). Pass capacity as an exact positive scalar; validate remaining fields and correlation before effect. The helper must follow the selected private native module/resource operation rather than substituting Backend::module. Keep SDK names/macros confined to the private helper. Low module result is an ordinary one-byte zero write, never a bridge error. Genuine transport/framing/allocation faults still use the existing private failure policy and must not fabricate an empty version.
+
+Represent the response as an exact bounded write extent and bytes, rather than an OwnedText/nonempty status. Validate the complete reply and join the existing operation before applying writes to the caller. An empty native result, a truncated result at a small capacity, and a no-write outcome must remain distinct. Do not zero-fill the caller or copy an entire helper scratch buffer: either changes untouched bytes. Do not serialize the caller's initial capacity bytes as a shortcut; actual Audio supplies uninitialized tail storage.
+
+There is one contract prerequisite before authoring that helper: establish the actual resource API's write extent on count0, missing/empty resource, capacity1, and truncation. The SDK macro discards the count; merely invoking it on initialized scratch and scanning for a terminator cannot distinguish native writes from initialization. A private implementation may use the underlying API's count to encode the documented write extent without changing the macro's observable behavior, but must not interpret that count as a new public failure. Exact equivalence requires evidence for those cases, not inferred sentinel behavior or repeated native calls. This is a focused Windows resource-buffer contract lookup/review, not a new adapter architecture.
+
+## Exact limits still unresolved
+
+Any positive capacity includes values above the wire frame bound. A single bounded request/reply cannot promise arbitrary-size output solely because the public declaration accepts int32. Sending min(capacity,256) to the native operation changes its semantics; rejecting all non256 calls is the old mismatch. Determine the actual maximum output extent of this selected resource/API and whether it always fits the existing frame while passing the original capacity unchanged to the native operation. If that bound is established, only actual written bytes need travel and all positive capacities can remain accepted. Otherwise larger outputs need an explicit private transfer mechanism or remain an acknowledged unsupported condition; no hidden public restriction is approved here.
+
+Similarly the selected shutdown refusal and private session prerequisite differ from native70's version call, which does not require successful startup. Preserve pre-startup availability within the paired session; decide post-shutdown/session-lifetime support explicitly instead of claiming a strict native replacement while refusing it. A successful native70 object compile proves none of these paired semantics.
+
+Recommendation: retain old22 as a fixed-buffer historical query; author its successor only after the narrow resource write/bound contract is established. The concrete patch is public guarded delegate + capacity/write-extent protocol + private macro-equivalent host operation + exact reply validation/application. Do not add a nonempty requirement, a fabricated query-error result, caller-buffer initialization or copied SDK macro text to public declarations or packets.

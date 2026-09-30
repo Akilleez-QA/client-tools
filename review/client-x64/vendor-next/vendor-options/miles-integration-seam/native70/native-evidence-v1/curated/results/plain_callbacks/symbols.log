@@ -1,0 +1,128 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native70\results\plain_callbacks\plain_callbacks.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   C1, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   88, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length   37, #relocs    2, #linenums    0, checksum E33E58D1, selection    1 (pick no duplicates)
+008 00000000 SECT4  notype       Static       | .text$x
+    Section length   44, #relocs    3, #linenums    0, checksum 714C4387, selection    5 (pick associative Section 0x3)
+00A 00000000 SECT5  notype       Static       | .text$mn
+    Section length   37, #relocs    2, #linenums    0, checksum E33E58D1, selection    1 (pick no duplicates)
+00C 00000000 SECT6  notype       Static       | .text$x
+    Section length   44, #relocs    3, #linenums    0, checksum 714C4387, selection    5 (pick associative Section 0x5)
+00E 00000000 SECT3  notype ()    External     | ?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z (void (__cdecl*__cdecl ClientMiles::register_EOS_callback(struct _SAMPLE *,void (__cdecl*)(struct _SAMPLE *)))(struct _SAMPLE *))
+00F 00000000 SECT5  notype ()    External     | ?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z (void (__cdecl*__cdecl ClientMiles::register_stream_callback(struct _STREAM *,void (__cdecl*)(struct _STREAM *)))(struct _STREAM *))
+010 00000000 UNDEF  notype ()    External     | ?requireFatalReporter@ClientMilesPrivate52@@YAXXZ (void __cdecl ClientMilesPrivate52::requireFatalReporter(void))
+011 00000000 UNDEF  notype ()    External     | ?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z (void __cdecl ClientMilesPrivate52::fail(enum ClientMilesPrivate52::Fault,char const *))
+012 00000000 UNDEF  notype ()    External     | ?register_EOS_callback@ClientMilesNativeCallbacks70@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z (void (__cdecl*__cdecl ClientMilesNativeCallbacks70::register_EOS_callback(struct _SAMPLE *,void (__cdecl*)(struct _SAMPLE *)))(struct _SAMPLE *))
+013 00000000 UNDEF  notype ()    External     | ?register_stream_callback@ClientMilesNativeCallbacks70@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z (void (__cdecl*__cdecl ClientMilesNativeCallbacks70::register_stream_callback(struct _STREAM *,void (__cdecl*)(struct _STREAM *)))(struct _STREAM *))
+014 00000000 SECT4  notype ()    Static       | ?catch$0@?0??register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z@4HA (int `void (__cdecl*__cdecl ClientMiles::register_EOS_callback(struct _SAMPLE *,void (__cdecl*)(struct _SAMPLE *)))(struct _SAMPLE *)'::`1'::catch$0)
+015 00000000 SECT6  notype ()    Static       | ?catch$0@?0??register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z@4HA (int `void (__cdecl*__cdecl ClientMiles::register_stream_callback(struct _STREAM *,void (__cdecl*)(struct _STREAM *)))(struct _STREAM *)'::`1'::catch$0)
+016 00000025 SECT4  notype ()    Static       | ?catch$1@?0??register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z@4HA (int `void (__cdecl*__cdecl ClientMiles::register_EOS_callback(struct _SAMPLE *,void (__cdecl*)(struct _SAMPLE *)))(struct _SAMPLE *)'::`1'::catch$1)
+017 00000025 SECT6  notype ()    Static       | ?catch$1@?0??register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z@4HA (int `void (__cdecl*__cdecl ClientMiles::register_stream_callback(struct _STREAM *,void (__cdecl*)(struct _STREAM *)))(struct _STREAM *)'::`1'::catch$1)
+018 00000000 UNDEF  notype ()    External     | __CxxFrameHandler3
+019 00000037 SECT3  notype       Label        | $LN11
+01A 0000000D SECT4  notype ()    Static       | __catch$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z$0
+01B 00000032 SECT4  notype ()    Static       | __catch$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z$1
+01C 00000000 SECT3  notype       Label        | $LN12
+01D 00000037 SECT5  notype       Label        | $LN11
+01E 0000000D SECT6  notype ()    Static       | __catch$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z$0
+01F 00000032 SECT6  notype ()    Static       | __catch$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z$1
+020 00000000 SECT5  notype       Label        | $LN12
+021 00000000 SECT7  notype       Static       | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum 95D5DD4F, selection    5 (pick associative Section 0x3)
+023 00000000 SECT7  notype       Static       | $unwind$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+024 00000000 SECT8  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 8F085A64, selection    5 (pick associative Section 0x3)
+026 00000000 SECT8  notype       Static       | $pdata$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+027 00000000 SECT9  notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum  849A3B3, selection    5 (pick associative Section 0x3)
+029 00000000 SECT9  notype       Static       | $cppxdata$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+02A 00000000 SECTA  notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0x3)
+02C 00000000 SECTA  notype       Static       | $stateUnwindMap$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+02D 00000000 SECTB  notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum D9804B12, selection    5 (pick associative Section 0x3)
+02F 00000000 SECTB  notype       Static       | $tryMap$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+030 00000000 SECTC  notype       Static       | .xdata
+    Section length   28, #relocs    3, #linenums    0, checksum 5F46379F, selection    5 (pick associative Section 0x3)
+032 00000000 SECTC  notype       Static       | $handlerMap$0$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+033 00000000 SECTD  notype       Static       | .xdata
+    Section length   28, #relocs    5, #linenums    0, checksum 2F3194B6, selection    5 (pick associative Section 0x3)
+035 00000000 SECTD  notype       Static       | $ip2state$?register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z
+036 00000000 SECTE  notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x3)
+038 00000000 SECTE  notype       Static       | $unwind$?catch$0@?0??register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z@4HA
+039 00000000 SECTF  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B1966C32, selection    5 (pick associative Section 0x3)
+03B 00000000 SECTF  notype       Static       | $pdata$?catch$0@?0??register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z@4HA
+03C 00000000 SECT10 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x3)
+03E 00000000 SECT10 notype       Static       | $unwind$?catch$1@?0??register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z@4HA
+03F 00000000 SECT11 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A59B2387, selection    5 (pick associative Section 0x3)
+041 00000000 SECT11 notype       Static       | $pdata$?catch$1@?0??register_EOS_callback@ClientMiles@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z@4HA
+042 00000000 SECT12 notype       Static       | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum 95D5DD4F, selection    5 (pick associative Section 0x5)
+044 00000000 SECT12 notype       Static       | $unwind$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+045 00000000 SECT13 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 8F085A64, selection    5 (pick associative Section 0x5)
+047 00000000 SECT13 notype       Static       | $pdata$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+048 00000000 SECT14 notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum  849A3B3, selection    5 (pick associative Section 0x5)
+04A 00000000 SECT14 notype       Static       | $cppxdata$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+04B 00000000 SECT15 notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0x5)
+04D 00000000 SECT15 notype       Static       | $stateUnwindMap$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+04E 00000000 SECT16 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum D9804B12, selection    5 (pick associative Section 0x5)
+050 00000000 SECT16 notype       Static       | $tryMap$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+051 00000000 SECT17 notype       Static       | .xdata
+    Section length   28, #relocs    3, #linenums    0, checksum 5F46379F, selection    5 (pick associative Section 0x5)
+053 00000000 SECT17 notype       Static       | $handlerMap$0$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+054 00000000 SECT18 notype       Static       | .xdata
+    Section length   28, #relocs    5, #linenums    0, checksum 2F3194B6, selection    5 (pick associative Section 0x5)
+056 00000000 SECT18 notype       Static       | $ip2state$?register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z
+057 00000000 SECT19 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x5)
+059 00000000 SECT19 notype       Static       | $unwind$?catch$0@?0??register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z@4HA
+05A 00000000 SECT1A notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B1966C32, selection    5 (pick associative Section 0x5)
+05C 00000000 SECT1A notype       Static       | $pdata$?catch$0@?0??register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z@4HA
+05D 00000000 SECT1B notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x5)
+05F 00000000 SECT1B notype       Static       | $unwind$?catch$1@?0??register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z@4HA
+060 00000000 SECT1C notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A59B2387, selection    5 (pick associative Section 0x5)
+062 00000000 SECT1C notype       Static       | $pdata$?catch$1@?0??register_stream_callback@ClientMiles@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z@4HA
+063 00000000 SECT1D notype       Static       | .data$r
+    Section length   24, #relocs    1, #linenums    0, checksum 54BC55F2, selection    2 (pick any)
+065 00000000 SECT1D notype       External     | ??_R0?AVexception@std@@@8 (class std::exception `RTTI Type Descriptor')
+066 00000000 SECT1E notype       Static       | .rdata
+    Section length   37, #relocs    0, #linenums    0, checksum 6672A2FC, selection    2 (pick any)
+068 00000000 SECT1E notype       External     | ??_C@_0DH@IILGJPEC@non?9standard?5exception?5in?5native@ (`string')
+069 00000000 UNDEF  notype       External     | ??_7type_info@@6B@ (const type_info::`vftable')
+
+String Table Size = 0xBF2 bytes
+
+  Summary
+
+          24 .data$r
+          88 .debug$S
+          C1 .drectve
+          48 .pdata
+          87 .rdata
+          6E .text$mn
+          88 .text$x
+         150 .xdata

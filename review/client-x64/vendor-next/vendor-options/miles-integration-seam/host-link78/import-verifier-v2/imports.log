@@ -1,0 +1,186 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\host-link78\link-evidence-v1\paired-host74.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Section contains the following imports:
+
+    USER32.dll
+                46F188 Import Address Table
+                484740 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  22F LoadStringA
+
+    KERNEL32.dll
+                46F000 Import Address Table
+                4845B8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  20A GetCurrentProcessId
+                   C2 CreateFileW
+                   BA CreateFileA
+                  250 GetLastError
+                  5AB WaitForSingleObject
+                  55C SwitchToThread
+                  2F3 GetTickCount64
+                  19E FreeLibrary
+                  262 GetModuleFileNameA
+                  265 GetModuleHandleExA
+                  5A9 WaitForMultipleObjects
+                  272 GetNamedPipeServerProcessId
+                  347 InitializeCriticalSection
+                  125 EnterCriticalSection
+                  3A2 LeaveCriticalSection
+                  4F0 SetEvent
+                  4A2 ResetEvent
+                   B3 CreateEventA
+                  552 Sleep
+                  209 GetCurrentProcess
+                  561 TerminateProcess
+                   E8 CreateThread
+                  441 RaiseFailFastException
+                  450 ReadFile
+                  5E1 WriteFile
+                   7F CloseHandle
+                  287 GetOverlappedResult
+                   6B CancelIoEx
+                  121 EncodePointer
+                   FE DecodePointer
+                  367 IsDebuggerPresent
+                  36D IsProcessorFeaturePresent
+                  263 GetModuleFileNameW
+                  266 GetModuleHandleExW
+                  440 RaiseException
+                  4AD RtlUnwind
+                  1C8 GetCommandLineA
+                  2C0 GetStdHandle
+                  105 DeleteCriticalSection
+                  158 FatalAppExitA
+                  33B HeapValidate
+                  2D0 GetSystemInfo
+                  151 ExitProcess
+                  29D GetProcAddress
+                   1B AreFileApisANSI
+                  3D1 MultiByteToWideChar
+                  5CD WideCharToMultiByte
+                  582 UnhandledExceptionFilter
+                  543 SetUnhandledExceptionFilter
+                  50B SetLastError
+                  348 InitializeCriticalSectionAndSpinCount
+                   B6 CreateEventW
+                  573 TlsAlloc
+                  575 TlsGetValue
+                  576 TlsSetValue
+                  574 TlsFree
+                  2BE GetStartupInfoW
+                  2F2 GetTickCount
+                  267 GetModuleHandleW
+                   E1 CreateSemaphoreW
+                  372 IsValidCodePage
+                  1A4 GetACP
+                  286 GetOEMCP
+                  1B3 GetCPInfo
+                  20D GetCurrentThread
+                  20E GetCurrentThreadId
+                  4C3 SetConsoleCtrlHandler
+                  3FA OutputDebugStringW
+                  5AC WaitForSingleObjectEx
+                  3A7 LoadLibraryExW
+                  23E GetFileType
+                  3F9 OutputDebugStringA
+                  5E0 WriteConsoleW
+                  2A2 GetProcessHeap
+                  42D QueryPerformanceCounter
+                  522 SetStdHandle
+                  2D6 GetSystemTimeAsFileTime
+                  227 GetEnvironmentStringsW
+                  19D FreeEnvironmentStringsW
+                  213 GetDateFormatW
+                  2F7 GetTimeFormatW
+                   93 CompareStringW
+                  396 LCMapStringW
+                  254 GetLocaleInfoW
+                  374 IsValidLocale
+                  2FC GetUserDefaultLCID
+                  147 EnumSystemLocalesW
+                  333 HeapFree
+                  336 HeapReAlloc
+                  338 HeapSize
+                  335 HeapQueryInformation
+                  32F HeapAlloc
+                  2C5 GetStringTypeW
+                  192 FlushFileBuffers
+                  1DC GetConsoleCP
+                  1EE GetConsoleMode
+                  4FD SetFilePointerEx
+
+    mss32.dll
+                46F190 Import Address Table
+                484748 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  13C _AIL_startup@0
+                  133 _AIL_shutdown@0
+                   81 _AIL_open_digital_driver@16
+                   2C _AIL_allocate_sample_handle@4
+                   C0 _AIL_release_sample_handle@4
+                   FC _AIL_set_file_callbacks@16
+                   65 _AIL_get_timer_highest_delay@0
+                   EF _AIL_serve@0
+                   57 _AIL_file_error@0
+                   43 _AIL_digital_CPU_percent@4
+                   48 _AIL_digital_latency@4
+                  138 _AIL_start_sample@4
+                  13E _AIL_stop_sample@4
+                   4D _AIL_end_sample@4
+                  11C _AIL_set_sample_playback_rate@8
+                  121 _AIL_set_sample_volume_levels@12
+                  11F _AIL_set_sample_reverb_levels@12
+                  117 _AIL_set_sample_loop_count@8
+                  116 _AIL_set_sample_loop_block@12
+                   E1 _AIL_sample_status@4
+                   DC _AIL_sample_playback_rate@4
+                   E3 _AIL_sample_volume_levels@12
+                   DF _AIL_sample_reverb_levels@12
+                  11D _AIL_set_sample_position@8
+                   DD _AIL_sample_position@4
+                   2A _AIL_active_sample_count@4
+                  119 _AIL_set_sample_ms_position@8
+                   D8 _AIL_sample_ms_position@12
+                  13A _AIL_start_stream@4
+                  12B _AIL_set_stream_loop_count@8
+                  12A _AIL_set_stream_loop_block@12
+                  146 _AIL_stream_status@4
+                  12C _AIL_set_stream_ms_position@8
+                  143 _AIL_stream_ms_position@12
+                   C6 _AIL_room_type@4
+                  106 _AIL_set_room_type@8
+                   F3 _AIL_set_3D_rolloff_factor@8
+                  11A _AIL_set_sample_obstruction@8
+                  11B _AIL_set_sample_occlusion@8
+                  108 _AIL_set_sample_3D_distances@16
+                  10A _AIL_set_sample_3D_position@16
+                  10C _AIL_set_sample_3D_velocity_vector@16
+                   FF _AIL_set_listener_3D_position@16
+                  101 _AIL_set_listener_3D_velocity_vector@16
+                   FE _AIL_set_listener_3D_orientation@28
+                   64 _AIL_get_preference@4
+                  104 _AIL_set_preference@8
+                   69 _AIL_last_error@0
+                  105 _AIL_set_redist_directory@4
+                  135 _AIL_speaker_configuration@20
+
+  Summary
+
+        4000 .data
+       17000 .rdata
+        5000 .reloc
+       6E000 .text
+        1000 .tls

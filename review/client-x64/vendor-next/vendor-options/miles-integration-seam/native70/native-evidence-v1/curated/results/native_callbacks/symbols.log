@@ -1,0 +1,31 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native70\results\native_callbacks\native_callbacks.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   C1, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   8C, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+008 00000000 SECT4  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+00A 00000000 SECT3  notype ()    External     | ?register_EOS_callback@ClientMilesNativeCallbacks70@@YAP6AXPEAU_SAMPLE@@@Z0P6AX0@Z@Z (void (__cdecl*__cdecl ClientMilesNativeCallbacks70::register_EOS_callback(struct _SAMPLE *,void (__cdecl*)(struct _SAMPLE *)))(struct _SAMPLE *))
+00B 00000000 SECT4  notype ()    External     | ?register_stream_callback@ClientMilesNativeCallbacks70@@YAP6AXPEAU_STREAM@@@Z0P6AX0@Z@Z (void (__cdecl*__cdecl ClientMilesNativeCallbacks70::register_stream_callback(struct _STREAM *,void (__cdecl*)(struct _STREAM *)))(struct _STREAM *))
+00C 00000000 UNDEF  notype       External     | __imp_AIL_register_EOS_callback
+00D 00000000 UNDEF  notype       External     | __imp_AIL_register_stream_callback
+
+String Table Size = 0xF4 bytes
+
+  Summary
+
+          8C .debug$S
+          C1 .drectve
+           E .text$mn

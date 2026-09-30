@@ -1,0 +1,266 @@
+{
+  "scope": "actual native Windows API probe, own ASCII resources, same run only",
+  "cases": [
+    {
+      "case": 1,
+      "kind": "nonempty",
+      "capacity": 1,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 2,
+      "kind": "nonempty",
+      "capacity": 2,
+      "changed_offsets": [
+        0,
+        1
+      ],
+      "after_region": "4100",
+      "count_and_guard": "COUNT=1 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 3,
+      "kind": "nonempty",
+      "capacity": 4,
+      "changed_offsets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "after_region": "41424300",
+      "count_and_guard": "COUNT=3 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 4,
+      "kind": "nonempty",
+      "capacity": 6,
+      "changed_offsets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "after_region": "414243444500",
+      "count_and_guard": "COUNT=5 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 5,
+      "kind": "nonempty",
+      "capacity": 7,
+      "changed_offsets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "after_region": "41424344454600",
+      "count_and_guard": "COUNT=6 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 6,
+      "kind": "nonempty",
+      "capacity": 11,
+      "changed_offsets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "after_region": "41424344454600a5a5a5a5",
+      "count_and_guard": "COUNT=6 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 7,
+      "kind": "explicit_empty",
+      "capacity": 1,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 8,
+      "kind": "explicit_empty",
+      "capacity": 2,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 9,
+      "kind": "explicit_empty",
+      "capacity": 4,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 10,
+      "kind": "explicit_empty",
+      "capacity": 6,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 11,
+      "kind": "explicit_empty",
+      "capacity": 7,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 12,
+      "kind": "explicit_empty",
+      "capacity": 11,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 13,
+      "kind": "missing_same_bundle",
+      "capacity": 1,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 14,
+      "kind": "missing_same_bundle",
+      "capacity": 2,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 15,
+      "kind": "missing_same_bundle",
+      "capacity": 4,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 16,
+      "kind": "missing_same_bundle",
+      "capacity": 6,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 17,
+      "kind": "missing_same_bundle",
+      "capacity": 7,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 18,
+      "kind": "missing_same_bundle",
+      "capacity": 11,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=305419896 GUARDS=1"
+    },
+    {
+      "case": 19,
+      "kind": "missing_bundle",
+      "capacity": 1,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00",
+      "count_and_guard": "COUNT=0 LAST_ERROR=1814 GUARDS=1"
+    },
+    {
+      "case": 20,
+      "kind": "missing_bundle",
+      "capacity": 2,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=1814 GUARDS=1"
+    },
+    {
+      "case": 21,
+      "kind": "missing_bundle",
+      "capacity": 4,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=1814 GUARDS=1"
+    },
+    {
+      "case": 22,
+      "kind": "missing_bundle",
+      "capacity": 6,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=1814 GUARDS=1"
+    },
+    {
+      "case": 23,
+      "kind": "missing_bundle",
+      "capacity": 7,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=1814 GUARDS=1"
+    },
+    {
+      "case": 24,
+      "kind": "missing_bundle",
+      "capacity": 11,
+      "changed_offsets": [
+        0
+      ],
+      "after_region": "00a5a5a5a5a5a5a5a5a5a5",
+      "count_and_guard": "COUNT=0 LAST_ERROR=1814 GUARDS=1"
+    }
+  ]
+}

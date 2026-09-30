@@ -1,0 +1,15 @@
+--- pipe-composition77/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ file-callback80/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -40,6 +40,12 @@
+ }
+ int32_t speaker_configuration_spec(HDIGDRIVER driver) {
+     return guarded<int32_t>([=]() -> int32_t { return Core::speaker_configuration_spec(driver); });
++}
++// Current pipe composition supports one nonnull table after startup with a
++// private-root lifetime pin. Core rejects null/replacement; no callback substitution.
++void set_file_callbacks(FileOpenCallback open, FileCloseCallback close,
++                        FileSeekCallback seek, FileReadCallback read) {
++    guarded<void>([=]() -> void { Core::set_file_callbacks(open, close, seek, read); });
+ }
+ void set_listener_3D_position(HDIGDRIVER driver, float x, float y, float z) {
+     guarded<void>([=]() -> void { Core::set_listener_3D_position(driver, x, y, z); });

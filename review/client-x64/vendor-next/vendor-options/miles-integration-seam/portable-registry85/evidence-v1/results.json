@@ -1,0 +1,38 @@
+{
+  "scope": "actual83 ResourceRegistry and protocol header; no substitutions, SDK or vendor calls",
+  "start": 1790794551.8240538,
+  "commands": [
+    [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-fno-omit-frame-pointer",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-registry85/tests.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-registry85/evidence-v1/portable-registry85"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-registry85/evidence-v1/portable-registry85"
+    ]
+  ],
+  "compile_exit": 0,
+  "run_exit": 0,
+  "markers": {
+    "PASS reservation-parent-and-publication": 1,
+    "PASS borrowed-identity-and-close": 1,
+    "PASS driver-retirement-cascade": 1,
+    "PASS stale-token-cancel-generation": 1,
+    "PASS capacity-before-publication": 1,
+    "PASS generation-exhaustion": 1
+  },
+  "changed": [],
+  "end": 1790794552.3965242,
+  "passed": true
+}

@@ -1,0 +1,182 @@
+# Blind source review: stream lifetime patch + registry tests
+
+Scope: only the supplied `resource_registry.h`, `backend.h`, and `tests.cpp`. No runtime/vendor/EOS proof. Separates **concrete defects or test gaps in this slice** from **documented missing EOS / quiescence**.
+
+---
+
+## What the patch is trying to do
+
+- **Registry:** `Stream` uses `reserve` → `publish` (like `OwnedSample`), not `insert`. Parent must be a live `Driver`. `resolve` for `Stream`/`OwnedSample` re-checks the parent driver. On `Driver` or `Stream` `retire`, `retireBorrowed` drops `BorrowedSample` rows whose `parent` matches that stream handle (kind/slot/generation).
+- **Backend:** Three opcodes: `AIL_open_stream` (member `streamReservation` + `streamOpenPending`), `AIL_stream_sample_handle`, `AIL_close_stream` (`beginClose` → native close → `retire`).
+- **Tests:** Portable registry-only exercises; no backend/stream-open integration.
+
+---
+
+## Ownership and generation (registry)
+
+**Looks internally consistent for the single-threaded model:**
+
+- Unpublished rows are `state == 4`; `cancel` / failed `publish` / driver cascade `retireEntry` on a pending child prevent publishing into a retired generation (`staleReservation`, `cascade`).
+- `cancel` on a slot that was already cascade-retired is a no-op (`generation`/`state` no longer match) — matches the header comment that late `cancel` cannot hit a replacement generation.
+- `insert(Stream, …)` is rejected; stream identity is tied to driver parent via `reserve`/`publish`.
+- Slot reuse bumps `generation` on `retireEntry`, not on `cancel` — `aliasesAndClose` checks replacement stream/alias generations.
+
+**Parent invalidation chain (source behavior, not vendor proof):**
+
+- `beginClose(driver)` makes `resolve(driver, …)` fail (`state != 1`), so `resolve` on an `OwnedSample`/`Stream` child fails even before `retire(driver)` — exercised in `reservationRules`.
+- `beginClose(stream)` leaves the stream at `state == 2`; `resolve(stream, …)` fails (`state != 1`), so `insertBorrowed` and `resolve(alias, …)` fail while the stream is only “closing” — `aliasesAndClose`.
+
+---
+
+## Close ordering
+
+**Stream close path in backend (intended order):**
+
+1. `resolve(c.target, Stream, local)` while stream is `state == 1`
+2. `beginClose` → `state == 2` (blocks further `resolve` on that handle)
+3. `AIL_close_stream(local)`
+4. `retire` → `retireBorrowed(h)` then `retireEntry` on the stream
+
+That matches the sample release pattern (`resolve` → native effect → `retire`) and is stronger than retiring aliases only on the old standalone `Stream` branch in the patch (driver cascade now also calls `retireBorrowed` per stream child).
+
+**Registry-only gap:** Nothing in `tests.cpp` asserts `beginClose` → `retire` ordering for `Stream` separately from “resolve absent after `beginClose`”. Ordering is implied by `aliasesAndClose`, not named as a contract test.
+
+---
+
+## Concrete backend concerns (authored source)
+
+### 1. `require` failure after successful native open — wedged backend + leaked native stream
+
+On open success path:
+
+```cpp
+streamOpenPending = true;
+pendingStream = ::AIL_open_stream(...);
+if (pendingStream) {
+    require(registry.publish(streamReservation, pendingStream, out.result.resource), ...);
+    pendingStream = 0;
+}
+streamOpenPending = false;
+```
+
+If `publish` returns false, `require` aborts **before** `streamOpenPending = false` and **before** `pendingStream = 0`. Then:
+
+- Every later `execute` hits `require(!streamOpenPending, …)` and cannot run.
+- `streamReservation` may still own a `state == 4` or partially updated row (depending on where `publish` failed).
+- The native `HSTREAM` is not closed in this slice (unlike `PendingSample`, which RAII-releases on scope exit).
+
+This is a **programming-error path**, but it is a real **ownership/lifetime hole** in the backend struct design (member transaction + `require`), not covered by registry tests.
+
+### 2. Member `streamReservation` vs per-call `Reservation` for samples
+
+Sample allocate uses a **stack** `Reservation` (destructor always runs at end of the block). Stream open uses a **persistent** member. Correctness relies on:
+
+- `publish`/`cancel` clearing `token.owner` on every non-aborting path, and  
+- `streamOpenPending` serializing all `execute` traffic.
+
+There is **no** `token.owner` precondition before `reserve(..., streamReservation)` beyond `require` on capacity. If the struct were ever left with `streamReservation.owner != 0`, `reserve` would return false (`if (token.owner)`) and the next open would `require`-fail. That is consistent with (1): one wedge mode is sticky.
+
+### 3. `AIL_stream_sample_handle` always returns `Success`
+
+```cpp
+if (sample)
+    require(registry.insertBorrowed(...));
+// ...
+out.result.transport_status = Success;
+```
+
+If `AIL_stream_sample_handle` returns null, the call still succeeds at the transport layer; `out.result.resource` is not shown being cleared. Whether that matches wire semantics is **not** defined in the supplied files; it is a **contract ambiguity**, not proven wrong.
+
+### 4. Stale switch comment (documentation defect in source)
+
+The fall-through comment still says open/close/alias publication **remain absent**, while the block below implements them. Misleading for reviewers; not a runtime bug by itself.
+
+### 5. Driver shutdown vs stream native lifetime (scope boundary, not registry bug)
+
+`AIL_shutdown` then `registry.retire(driverId)` cascades registry rows for streams (and calls `retireBorrowed`), but this slice does **not** call `AIL_close_stream` per stream before shutdown. Header comment: *“Vendor quiescence and session binding are required from the caller.”* That is **missing caller/session policy**, not an error in `retireBorrowed` logic. Do not treat registry cascade as proof native streams were closed.
+
+---
+
+## Registry concerns (narrow)
+
+### 1. `retireBorrowed` only retires `state == 1` aliases
+
+By design `BorrowedSample` never enters `state == 2`. No defect unless a future change adds closable borrowed rows.
+
+### 2. Driver cascade retires `state == 4` stream reservations without touching client tokens
+
+Same as owned-sample pending rows: `publish` must fail; `cancel` in destructor is safe. Covered by `cascade` / `staleReservation` for stream+owned pending, not by a test named for stream-only pending on driver retire (but the cascade loop includes `Stream` + `state == 4`).
+
+### 3. No `beginClose` on cascade
+
+Driver `retire` calls `retireEntry` on children in `1|2|4` without `beginClose`. That **skips** the closing state for children. For registry-only tracking after vendor teardown (shutdown path), that may be intentional; it is **not** the same lifecycle as the explicit stream close opcode path. Worth noting as **two retirement semantics** in one type, not as a failed test.
+
+---
+
+## Test coverage: what is actually proven vs false confidence
+
+**Proven well (registry):**
+
+| Area | Tests |
+|------|--------|
+| Stream parent must be `Driver`; not `File` | `reservationRules` |
+| Unpublished slot not `resolve`/`beginClose`/`retire`; null `publish`; slot identity after `publish` | `reservationRules` (relies on **layout assumption** `unpublished = {Stream, driver.slot+1, 1}` — valid for that deterministic insert order, not a general API guarantee) |
+| Closing driver blocks new `Stream` reserve; invalidates published stream via parent resolve | `reservationRules` |
+| Borrowed stable identity; retarget refused; alias not `beginClose`/`retire`; close stream then retire; slot/gen reuse | `aliasesAndClose` |
+| Driver retire cascades owned+stream+aliases; pending publish refused; other driver survives | `cascade` |
+| Stale token `publish` / destructor `cancel` vs replacement reservation | `tokenGeneration` |
+| Capacity: one unpublished stream per tiny registry; borrow needs free slot | `capacity` |
+| Generation exhaustion `state == 3`; driver retire + no new driver reserve | `exhaustion` |
+
+**Not tested (backend / integration) — tests do not false-pass these, they simply **do not exist**:**
+
+- `streamOpenPending` / cross-call serialization
+- `pendingStream` + member `streamReservation` on failed `publish`
+- Open field validation (`frame`, `streamMem`, null-terminated name)
+- Native open null → `cancel` vs non-null → `publish`
+- Close opcode path at all
+- Shutdown with live stream rows
+
+So: **registry tests are not false-passing stream backend behavior**; they **must not** be read as validation of the pipe backend patch.
+
+**Minor test brittleness (not a logic false-pass):** `unpublished={Stream, driver.slot+1, 1}` encodes allocation order (file → driver → reserved stream). Reordering inserts could break the test without breaking the registry.
+
+**`capacity` test:** `insertBorrowed` fails when the registry is full (two slots: driver + reserved stream). That correctly tests “no slot for alias,” not “borrow forbidden while reserved.”
+
+---
+
+## Invalidated reservation / replacement generation
+
+Source-supported claims:
+
+- After `retire(driver)`, pending `Stream`/`OwnedSample` reservations on that parent cannot `publish` (`cascade`, `staleReservation`).
+- After `retire(stream)` with slot reuse, old stream and old alias handles fail `resolve`; new stream can reuse slot with higher generation (`aliasesAndClose`).
+- `cancel(old)` after parent retire is harmless for a new reservation on a new driver generation (`tokenGeneration`).
+
+**Not shown in tests:** explicit `cancel(streamReservation)` after failed open (backend path); registry `cancel` on unpublished stream when open returns null is backend-only.
+
+---
+
+## Missing future EOS support (not current defects)
+
+Called out in backend source:
+
+- *“No EOS registration exists in this slice.”*
+- *“File callback owners remain active throughout native open/getter/close and the existing return join.”*
+
+So: no end-of-stream callback wiring, no quiescence proof for async stream completion, no extension of the dispatcher switch for EOS-related opcodes. Those are **scope limits**, not contradictions inside `retireBorrowed` / reserve-publish.
+
+---
+
+## Scope limits (no broad clearance)
+
+| Item | Verdict from supplied source only |
+|------|-----------------------------------|
+| Registry stream/borrow/cascade/generation | Exercised by tests; logic appears coherent for stated single-thread rules |
+| Backend stream open/close/getter | **Not** covered by `tests.cpp` |
+| Post-`require` wedge on failed `publish` after `AIL_open_stream` | **Concrete backend defect risk** |
+| Native stream lifetime on shutdown without per-stream close | **Caller/vendor policy**; registry does not fix |
+| EOS / async completion | **Explicitly out of slice** |
+| Wire semantics for null `AIL_stream_sample_handle` | **Undefined in supplied files** |
+
+I am not asserting equivalence to prior candidates, vendor behavior, or that this patch is safe to merge without backend tests and a policy for shutdown/open failure paths.

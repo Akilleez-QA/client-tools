@@ -1,0 +1,7 @@
+# Independent saved-evidence audit
+
+Read the same experiment's raw evidence without rerunning any compiler or executable. All 28 raw compile logs agree with exit-zero/no-diagnostics receipts and the 14/14 architecture split. Reparsed UNDEF symbols using the first token after `|`; all per-unit lists match results.json and the frozen expected AIL sets. The public wrapper has exactly the 53 expected Core delegates. The host anchor's three new SDK imports are __imp__AIL_open_stream@12, __imp__AIL_close_stream@4, and __imp__AIL_stream_sample_handle@4.
+
+Checked each unit's local include identities and recorded object hashes/machines against after.json's object recheck. Compared all 71 authored input identities with current local bytes and saved before/after/inputs-after records. Full reused35 9,536-entry map and tool identities agree across saved before/after records. Archive hash matches the reported 4aea8491…bed2 identity. No missing closure or import discrepancy found within these observations.
+
+This is attribution/review of one experiment, not independent experimental corroboration. Object bytes remain private; the review uses curated object identity and dumpbin records. System headers have single-time observations only. No link, engine execution, SDK effects, or successful normal teardown can be inferred. The seven unchanged excluded units and actual external worker implementation were not compiled by this gate.

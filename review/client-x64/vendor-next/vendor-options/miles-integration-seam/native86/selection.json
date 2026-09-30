@@ -1,0 +1,197 @@
+{
+  "changed_source_or_headers": [
+    "backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "backend-boundary24/pipe/PipeCore.cpp",
+    "backend-boundary24/pipe/PipeCore.h",
+    "backend-boundary24/pipe/Session.h",
+    "startup-bridge23/backend.h",
+    "transport-candidate/resource_registry.h"
+  ],
+  "selected": [
+    {
+      "unit": "x86-paired-bootstrap59-host",
+      "reasons": [
+        "startup-bridge23/backend.h",
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-host-runtime50-host_file_runtime",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-host-runtime50-host_sdk_callbacks",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-host-runtime50-host_install",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-host-file-consumption49-file_tokens",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-host-file-consumption49-reply_transaction",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-startup-metadata-v4-metadata_host",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-session-version22-session_version_host",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-transport-candidate-codec",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-callback-protocol48-file_protocol",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-pipe-transport-candidate-endpoint",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-startup-metadata-v4-metadata_wire",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-session-version22-session_version",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "x86-file-channel26-file_channel",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-ClientMilesPipe",
+      "reasons": [
+        "backend-boundary24/pipe/ClientMilesPipe.cpp",
+        "backend-boundary24/pipe/PipeCore.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-PipeCore",
+      "reasons": [
+        "backend-boundary24/pipe/PipeCore.cpp",
+        "backend-boundary24/pipe/PipeCore.h",
+        "backend-boundary24/pipe/Session.h",
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-LiveChannel",
+      "reasons": [
+        "backend-boundary24/pipe/PipeCore.h",
+        "backend-boundary24/pipe/Session.h",
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-client-runtime53-client_file_runtime",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-callback-control45-host_association_mapper",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-file-owner36-session_file_owner",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-selected-file-services44-selected_services",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-file-executor33-FileInvocationJob",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-transport-candidate-codec",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-callback-protocol48-file_protocol",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-transport-candidate-endpoint",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-startup-metadata-v4-metadata_wire",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-session-version22-session_version",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    },
+    {
+      "unit": "amd64-file-channel26-file_channel",
+      "reasons": [
+        "transport-candidate/resource_registry.h"
+      ]
+    }
+  ],
+  "omitted_unchanged_units": [
+    "x86-host-callback-context41-call_context",
+    "x86-host-candidate-host_dispatch",
+    "x86-session-file-admission34-coordinator",
+    "x86-callback-reentry47-invocation_guard",
+    "amd64-plain-boundary52-failure_boundary",
+    "amd64-session-file-admission34-coordinator",
+    "amd64-callback-reentry47-invocation_guard"
+  ],
+  "basis": "native77 actual frozen quoted_headers closures"
+}

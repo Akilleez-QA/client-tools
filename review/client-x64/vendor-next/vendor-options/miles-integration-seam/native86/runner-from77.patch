@@ -1,0 +1,40 @@
+--- native77/run-native77.py
++++ native86/run-native86.py
+@@ -4,9 +4,9 @@
+ import hashlib,json,os,re,shutil,struct,subprocess,sys
+ sys.path.insert(0,str(Path(__file__).resolve().parent/'inputs'))
+ from symbol_parser import undefined_symbols
+-if os.name!='nt' or sys.argv[1:]!=['--approved-35-objects']:
+- raise SystemExit('Windows and separately approved 35-object invocation required')
+-ROOT=Path('C:/native77');INPUT=ROOT/'inputs';OUT=ROOT/'results'
++if os.name!='nt' or sys.argv[1:]!=['--approved-28-objects']:
++ raise SystemExit('Windows and separately approved 28-object invocation required')
++ROOT=Path('C:/native86');INPUT=ROOT/'inputs';OUT=ROOT/'results'
+ REUSED=Path('C:/native-file-callbacks35');SNAPSHOT=REUSED/'snapshot'
+ SDK=SNAPSHOT/'src/external/3rd/library/miles/include/Mss.h'
+ VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')
+@@ -27,13 +27,13 @@
+ toolsets=json.loads((INPUT/'toolchain.json').read_text())
+ alltools={k:v for values in toolsets.values() for k,v in values.items()};verify(Path('.'),alltools)
+ units=json.loads((INPUT/'units.json').read_text())
+-if len(units)!=35 or sum(u['arch']=='x86' for u in units)!=18:raise RuntimeError('Wrong matrix')
++if len(units)!=28 or sum(u['arch']=='x86' for u in units)!=14:raise RuntimeError('Wrong matrix')
+ OUT.mkdir(exist_ok=False)
+-receipt={'expected_new_objects':35,'linked':False,'executed':False,'builds':[],
++receipt={'expected_new_objects':28,'linked':False,'executed':False,'builds':[],
+  'input_manifest':sha(ROOT/'input-manifest.json'),'reused35_manifest':sha(INPUT/'reused35-manifest.json'),
+  'reused35_count':len(reused),'tools_before':alltools,
+  'header_hash_timing':'system headers observed once per reached compilation; no before/after system header attestation',
+- 'scope':'actual selected client17/host18 production objects; external engine worker implementation remains unlinked'}
++ 'scope':'changed-closure client14/host14 production objects; external engine worker implementation remains unlinked'}
+ def save():(OUT/'results.json').write_text(json.dumps(receipt,indent=2)+'\n')
+ required={
+  'backend-boundary24/pipe/LiveChannel.cpp':['?validateReply@Session@ClientMilesPipe@@','?publish@Runtime@MilesClientRuntime53@@','?returned@Runtime@MilesClientRuntime53@@'],
+@@ -115,6 +115,6 @@
+   try:actual=verify(root,expected);receipt[label+'_unchanged']=True
+   except Exception as e:actual={'error':str(e)};receipt[label+'_unchanged']=False
+   (OUT/(label+'.json')).write_text(json.dumps(actual,indent=2)+'\n')
+- receipt['passed']=not receipt.get('failure') and all(receipt[k+'_unchanged'] for k in ['inputs_after','reused35_after','tools_after']) and len(receipt['builds'])==35 and all(x['status']=='compiled' for x in receipt['builds'])
++ receipt['passed']=not receipt.get('failure') and all(receipt[k+'_unchanged'] for k in ['inputs_after','reused35_after','tools_after']) and len(receipt['builds'])==28 and all(x['status']=='compiled' for x in receipt['builds'])
+  save()
+ sys.exit(0 if receipt['passed'] else 1)

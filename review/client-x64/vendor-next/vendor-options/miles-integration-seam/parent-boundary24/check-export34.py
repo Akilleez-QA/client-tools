@@ -2,7 +2,7 @@ from pathlib import Path
 import hashlib,json,subprocess,tarfile,zipfile,io
 r=Path('/home/akilleez/Work/swg-source/client-pr-evidence');b=r/'review/client-x64/vendor-next'
 m=json.loads((b/'manifest.json').read_text());tracked=set(subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD'],cwd=r,text=True).splitlines());checked=0
-allowed={'.md','.json','.py','.cpp','.c','.h','.hpp','.patch','.diff','.txt','.log','.cmd','.sh','.ps1','.sha256','.yaml','.yml','.csv','.sln','.vcxproj','.props','.conf','.stdout','.stderr'}
+allowed={'.md','.json','.py','.cpp','.c','.h','.hpp','.patch','.diff','.txt','.log','.cmd','.sh','.ps1','.sha256','.yaml','.yml','.csv','.sln','.vcxproj','.props','.conf','.stdout','.stderr','.rc'}
 def audit(name,data,depth=0):
  global checked
  q=Path(name)

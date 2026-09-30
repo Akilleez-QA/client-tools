@@ -1,0 +1,27 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native-file-setter67\results\amd64\native-file-setter\native-file-setter.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   C1, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   A0, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+008 00000000 SECT3  notype ()    External     | ?set_file_callbacks@ClientMilesNativeFile67@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z (void __cdecl ClientMilesNativeFile67::set_file_callbacks(unsigned int (__cdecl*)(char const *,unsigned __int64 *),void (__cdecl*)(unsigned __int64),int (__cdecl*)(unsigned __int64,int,unsigned int),unsigned int (__cdecl*)(unsigned __int64,void *,unsigned int)))
+009 00000000 UNDEF  notype       External     | __imp_AIL_set_file_callbacks
+
+String Table Size = 0x80 bytes
+
+  Summary
+
+          A0 .debug$S
+          C1 .drectve
+           7 .text$mn

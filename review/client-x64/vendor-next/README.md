@@ -6,7 +6,7 @@ Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): bro
 
 ## Current status and bridge design
 
-Latest interface checkpoint: [native-shaped Miles API and pipe status](vendor-options/miles-integration-seam/CURRENT-MILES-STATUS.md). All 62 native API functions have source implementations and pass the 12-object v120 x64 boundary gate. The assembled temporary backend defines 50 functions and passes 35 object compilations, but remains incomplete and unadopted. No x64 Miles library or full client link is claimed. The detailed entries below preserve earlier experiments at their original scope.
+Latest interface checkpoint: [native-shaped Miles API and pipe status](vendor-options/miles-integration-seam/CURRENT-MILES-STATUS.md). All 62 native API functions have source implementations and pass the 12-object v120 x64 boundary gate. The assembled temporary backend defines 53 functions; all 28 affected object compilations pass (14 x86 and 14 AMD64), with seven unchanged units retaining their earlier evidence. It remains incomplete and unadopted. No x64 Miles library or full client link is claimed. The detailed entries below preserve earlier experiments at their original scope.
 
 Product branch `integration/client-x64-next` is at **49d0eeed4**. Actual source-audited incremental MSBuild results: Win32 Release/Debug link with zero errors; x64 Release/Debug reach the final linker and stop on **60/61 original Miles imports**. No x64 client has launched. [Current build evidence](allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md).
 

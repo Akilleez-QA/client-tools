@@ -1,0 +1,66 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native74-closure\results\amd64-callback-reentry47-invocation_guard\amd64-callback-reentry47-invocation_guard.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   30, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   C4, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .tls$
+    Section length    8, #relocs    0, #linenums    0, checksum        0
+008 00000000 SECT3  notype       External     | ?active@?A0xf0b7999a@MilesCallbackGuard47@@3PEAVScope@2@EA (class MilesCallbackGuard47::Scope * MilesCallbackGuard47::`anonymous namespace'::active)
+009 00000000 SECT4  notype       Static       | .text$mn
+    Section length  20F, #relocs    E, #linenums    0, checksum 978D9BB7
+00B 00000000 SECT4  notype ()    External     | ??0Scope@MilesCallbackGuard47@@QEAA@XZ (public: __cdecl MilesCallbackGuard47::Scope::Scope(void))
+00C 000000D0 SECT4  notype ()    External     | ??1Scope@MilesCallbackGuard47@@QEAA@XZ (public: __cdecl MilesCallbackGuard47::Scope::~Scope(void))
+00D 00000110 SECT4  notype ()    External     | ?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ (public: bool __cdecl MilesCallbackGuard47::Scope::admitted(void)const )
+00E 00000150 SECT4  notype ()    External     | ?violated@Scope@MilesCallbackGuard47@@QEBA_NXZ (public: bool __cdecl MilesCallbackGuard47::Scope::violated(void)const )
+00F 00000170 SECT4  notype ()    External     | ?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ (void __cdecl MilesCallbackGuard47::requireForwardAllowed(void))
+010 00000000 UNDEF  notype ()    External     | _CxxThrowException
+011 00000000 SECT4  notype       Label        | $LN8
+012 00000110 SECT4  notype       Label        | $LN5
+013 00000170 SECT4  notype       Label        | $LN7
+014 00000000 SECT5  notype       Static       | .xdata
+    Section length   18, #relocs    0, #linenums    0, checksum 6BD57C18
+016 00000000 SECT5  notype       Static       | $unwind$??0Scope@MilesCallbackGuard47@@QEAA@XZ
+017 00000000 SECT6  notype       Static       | .pdata
+    Section length   24, #relocs    9, #linenums    0, checksum 26B70843
+019 00000000 SECT6  notype       Static       | $pdata$??0Scope@MilesCallbackGuard47@@QEAA@XZ
+01A 00000008 SECT5  notype       Static       | $unwind$?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ
+01B 0000000C SECT6  notype       Static       | $pdata$?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ
+01C 00000010 SECT5  notype       Static       | $unwind$?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ
+01D 00000018 SECT6  notype       Static       | $pdata$?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ
+01E 00000000 SECT7  notype       Static       | .xdata$x
+    Section length   1C, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+020 00000000 SECT7  notype       External     | _TI1?AUReentryDenied@MilesCallbackGuard47@@
+021 00000000 SECT8  notype       Static       | .xdata$x
+    Section length    C, #relocs    1, #linenums    0, checksum CCAA009E, selection    2 (pick any)
+023 00000000 SECT8  notype       External     | _CTA1?AUReentryDenied@MilesCallbackGuard47@@
+024 00000000 SECT9  notype       Static       | .data$r
+    Section length   39, #relocs    1, #linenums    0, checksum 6DFE0680, selection    2 (pick any)
+026 00000000 SECT9  notype       External     | ??_R0?AUReentryDenied@MilesCallbackGuard47@@@8 (struct MilesCallbackGuard47::ReentryDenied `RTTI Type Descriptor')
+027 00000000 SECTA  notype       Static       | .xdata$x
+    Section length   24, #relocs    1, #linenums    0, checksum DFEEB434, selection    2 (pick any)
+029 00000000 SECTA  notype       External     | _CT??_R0?AUReentryDenied@MilesCallbackGuard47@@@81
+02A 00000000 UNDEF  notype       External     | ??_7type_info@@6B@ (const type_info::`vftable')
+02B 00000000 UNDEF  notype       External     | _tls_index
+
+String Table Size = 0x349 bytes
+
+  Summary
+
+          39 .data$r
+          C4 .debug$S
+          30 .drectve
+          24 .pdata
+         20F .text$mn
+           8 .tls$
+          18 .xdata
+          4C .xdata$x

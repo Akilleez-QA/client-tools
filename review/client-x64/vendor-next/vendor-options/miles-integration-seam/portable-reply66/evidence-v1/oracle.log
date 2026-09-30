@@ -1,0 +1,12 @@
+{
+  "scope": "text order oracle, not execution or CFG proof",
+  "checks": {
+    "dedicated_install_decode_before_owner": true,
+    "generic_decode_before_owner": true,
+    "owner_before_returned": true,
+    "one_returned_site": true,
+    "failure_requests_fail": true,
+    "hello_excluded": true,
+    "actual_session_supplies_self": true
+  }
+}

@@ -1,7 +1,7 @@
 {
   "README.md": {
-    "bytes": 21842,
-    "sha256": "9a6df8bd1c874be0ef37d93301238158e0b209e01a9266a8eb41eb5efa4eda06"
+    "bytes": 21932,
+    "sha256": "1a0a6cc3f40e900684b46eca707757171a64c0b383b7dbaf3a498d1cf759b9f2"
   },
   "allocator-next/integration-current/audio-narrowing-plan.md": {
     "bytes": 2036,
@@ -2991,6 +2991,10 @@
     "bytes": 1907,
     "sha256": "d00cf1b84fbd468e752c975456cb63977299a0bbb64ad11554c736e4a39f7c12"
   },
+  "parallel-review-next/CLI-RECONCILIATION83.md": {
+    "bytes": 2053,
+    "sha256": "3cbd8b9b704834200e3bb87d4bee698d8b7db127eca68fbb747ab3f114b91235"
+  },
   "parallel-review-next/codex-miles-fpu14-exit.txt": {
     "bytes": 1,
     "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
@@ -3278,6 +3282,22 @@
   "parallel-review-next/composer-stream39-prompt.txt": {
     "bytes": 25588,
     "sha256": "e8af4b58a5890127607e00373bade035224167eae0f0bc49bed4b3c1c9178735"
+  },
+  "parallel-review-next/composer-stream83-exit.txt": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "parallel-review-next/composer-stream83-identity.json": {
+    "bytes": 1168,
+    "sha256": "b9df101560dc74c6fc0c23f781b55c7406bc418270dcb0a85e16b3f5baf03e82"
+  },
+  "parallel-review-next/composer-stream83-log.txt": {
+    "bytes": 10980,
+    "sha256": "4a3ce8e4616b889cd8461623b32b03c2504df00746136dba804816500eb6bec8"
+  },
+  "parallel-review-next/composer-stream83-prompt.txt": {
+    "bytes": 43650,
+    "sha256": "1ab09111051abcecd6ec7afd1f1c3f6f9d020e57873d5cfe87b241eb2662afdf"
   },
   "parallel-review-next/composer-surface17-exit.txt": {
     "bytes": 1,
@@ -5056,8 +5076,8 @@
     "sha256": "8fc42f321acffe614dce1b49e9a5238624acb1c2e669c1404df536f0e6f6f97d"
   },
   "vendor-options/miles-integration-seam/CURRENT-MILES-STATUS.md": {
-    "bytes": 5389,
-    "sha256": "433ae98b8312e322b183ffe29764368a13dbdfcebb92903ab6a405d092c0775f"
+    "bytes": 6612,
+    "sha256": "67def8a2f36728bd454aac16262a551e0eccbd550315a064730f630977d12286"
   },
   "vendor-options/miles-integration-seam/FILE-EXECUTOR-BLIND28.md": {
     "bytes": 10687,
@@ -8867,9 +8887,33 @@
     "bytes": 1091,
     "sha256": "15d1b05525427cc131fc024793da6c36a884bfd904317701dbe07479fde7e1b4"
   },
+  "vendor-options/miles-integration-seam/eos88/ASSESSMENT.md": {
+    "bytes": 10714,
+    "sha256": "06e6f9e9f712fe629dc77f4401012550f303b955fd3668354fc4770891f66f93"
+  },
   "vendor-options/miles-integration-seam/file-callback79/ASSESSMENT.md": {
     "bytes": 9842,
     "sha256": "bdfb31be60134a49225f443815291f95c37939509092ff6b2bc423aca20c4fac"
+  },
+  "vendor-options/miles-integration-seam/file-callback80/PLAN.md": {
+    "bytes": 3768,
+    "sha256": "333386e375c135292688ce5ae52b6c796a483c7d8a02c80e80e0a7535c5c67d3"
+  },
+  "vendor-options/miles-integration-seam/file-callback80/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": {
+    "bytes": 8650,
+    "sha256": "8c3976a67b37dee3b28184dd503bd127efc7b0d504a5dbc6c4aad1e248ff9136"
+  },
+  "vendor-options/miles-integration-seam/file-callback80/delegate80.patch": {
+    "bytes": 905,
+    "sha256": "d8999c481fbcab2cf589013a62fbb174c10a985814e3e50ce2ddbb1cb4024f35"
+  },
+  "vendor-options/miles-integration-seam/file-callback80/provenance.json": {
+    "bytes": 702,
+    "sha256": "1abc52afb2c54722985886a2677a09c3dbd1a28c61c02f9ff709b428490c5224"
+  },
+  "vendor-options/miles-integration-seam/file-callback80/source-manifest.json": {
+    "bytes": 150,
+    "sha256": "ebffd9ed5501bed3c7bf0abc1a5cf8ac63b9a50426290f841d482580a672bb6e"
   },
   "vendor-options/miles-integration-seam/file-channel-zero26/.gitignore": {
     "bytes": 23,
@@ -11334,6 +11378,14 @@
   "vendor-options/miles-integration-seam/host-runtime58/source-manifest.json": {
     "bytes": 2313,
     "sha256": "611316935986572ae4b9dc57624f53f177fd3ded97df082d7fb37dfc0de566d8"
+  },
+  "vendor-options/miles-integration-seam/image-upload91/PLAN.md": {
+    "bytes": 12279,
+    "sha256": "130f9594f0b5b025ef784494f5b335b8b79266d8b9d1be9e6872f0153f090e4d"
+  },
+  "vendor-options/miles-integration-seam/image89/ASSESSMENT.md": {
+    "bytes": 10123,
+    "sha256": "efbd7a533207ce36a4851392aaf3b0c3eab4560c5fa27f7cfbbc4a113bfbf27f"
   },
   "vendor-options/miles-integration-seam/input-owner39/INPUT-OWNER-LIFETIME-AUDIT39.md": {
     "bytes": 7146,
@@ -19371,6 +19423,1082 @@
     "bytes": 627,
     "sha256": "57dfdbe9c83c9563b465d2ddc20e7167810866645acddaa7b57284de1b9102d7"
   },
+  "vendor-options/miles-integration-seam/native86/IDENTITIES.json": {
+    "bytes": 472,
+    "sha256": "ffefec5321c04a866c28451edc0f1cd42c07619ad6cb84dc11dfa45870585367"
+  },
+  "vendor-options/miles-integration-seam/native86/NATIVE-RESULTS-v1.md": {
+    "bytes": 1738,
+    "sha256": "6da4dabd7b9ba046f53de7f7326d413b883f5b69e5486eaed4d066ae130ef487"
+  },
+  "vendor-options/miles-integration-seam/native86/PLAN.md": {
+    "bytes": 4189,
+    "sha256": "0fafe20f5395217f6d8f4f75460a3de89aeb4e62452532b4b2560f2deb01a49b"
+  },
+  "vendor-options/miles-integration-seam/native86/REVIEW-independent-pretest.md": {
+    "bytes": 4309,
+    "sha256": "bc1081aa0ce1010cb1889a7ee8f254d16d8f69a87dd7f789e066022776d4cc1e"
+  },
+  "vendor-options/miles-integration-seam/native86/REVIEW-independent-results.md": {
+    "bytes": 1437,
+    "sha256": "eaedd45884ba2a7a0beeebb8bcba851a78a74cef792a3fb79c0df3bd0260967b"
+  },
+  "vendor-options/miles-integration-seam/native86/REVIEW-parent-pretest.md": {
+    "bytes": 1998,
+    "sha256": "d3ff4a9241104bbfcf3b43b0ced8e7dd8467f497c32c1818dc6b390664d6747d"
+  },
+  "vendor-options/miles-integration-seam/native86/input-manifest.json": {
+    "bytes": 8925,
+    "sha256": "4c92251e90452ef7bbb65722b74224d19f0cd4ebe8b18bdd2566e67caa1a883e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/ClientMiles.h": {
+    "bytes": 8609,
+    "sha256": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/Channel.h": {
+    "bytes": 859,
+    "sha256": "a56ddd8a73363f9a0aa2bcd31f79d691314ac5048247eff1a5351bc03a696526"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": {
+    "bytes": 8933,
+    "sha256": "7915eab190de35e75ced4bb597c439c793e27d9f67b691b914726adc1648a196"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/LiveChannel.cpp": {
+    "bytes": 6741,
+    "sha256": "7ad33739e74362d789313f35522c07301974f61d5374d51967955d732af32918"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/LiveChannel.h": {
+    "bytes": 625,
+    "sha256": "b3dd77b8ccae3953f6e4025f2680047b72aee0288e4622abe3d881ced17951fc"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/PipeCore.cpp": {
+    "bytes": 37522,
+    "sha256": "e61e61b8ba4012238561c0ef4f78534e54e564a29b8af015b1fb7500fb8ee322"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/PipeCore.h": {
+    "bytes": 7502,
+    "sha256": "ecab3236e10860f01fbd2d3204537229c90933faff2e082bea1e981ce88b20da"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/backend-boundary24/pipe/Session.h": {
+    "bytes": 2467,
+    "sha256": "6d8432ec6b78c745d02ed0867f2413635e3d10441d5eb7453c2029baf0cf19ac"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/callback-control45/host_association_mapper.cpp": {
+    "bytes": 8076,
+    "sha256": "391191b3dee435f5eb1917710bf9d309efbb0d3de270c47901b2d6b1b182d29a"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/callback-control45/host_association_mapper.h": {
+    "bytes": 3897,
+    "sha256": "fc7e3971fbe719644180a9082f5a0dbf70963cbccc6fdd3ae6e09f0505ba140f"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/callback-protocol48/file_protocol.cpp": {
+    "bytes": 5890,
+    "sha256": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/callback-protocol48/file_protocol.h": {
+    "bytes": 2750,
+    "sha256": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/callback-reentry47/invocation_guard.cpp": {
+    "bytes": 881,
+    "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/callback-reentry47/invocation_guard.h": {
+    "bytes": 619,
+    "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/client-runtime53/client_file_runtime.cpp": {
+    "bytes": 10843,
+    "sha256": "2d955c883dbe86578b19632a8182da1c3b9b5c04cbdbd2d1e5b43c05d0547e6a"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/client-runtime53/client_file_runtime.h": {
+    "bytes": 2284,
+    "sha256": "b2a872f2e40a99c93afa630778e97a601f5032d1aa80cd4eacc28666196016c6"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-channel26/file_channel.cpp": {
+    "bytes": 11515,
+    "sha256": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-channel26/file_channel.h": {
+    "bytes": 4296,
+    "sha256": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-executor33/EngineFileWorker.h": {
+    "bytes": 1505,
+    "sha256": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-executor33/FileInvocationJob.cpp": {
+    "bytes": 3456,
+    "sha256": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-executor33/FileInvocationJob.h": {
+    "bytes": 1687,
+    "sha256": "dc21ebece9ea39841cf2c63da2b2c0f81fff8e45456f99adea2b12ace0aa5471"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-owner36/session_file_owner.cpp": {
+    "bytes": 8135,
+    "sha256": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/file-owner36/session_file_owner.h": {
+    "bytes": 2938,
+    "sha256": "314695ccac3ea1bb141b5a3bbc800de2e979bb6604cf21782f7dc26eda120356"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-callback-context41/call_context.cpp": {
+    "bytes": 1000,
+    "sha256": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-callback-context41/call_context.h": {
+    "bytes": 962,
+    "sha256": "6c1439efb94d2a1e2bd3d4977e04a23cfa96e357e81f3a81ef7d5985242b3244"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-candidate/host_dispatch.cpp": {
+    "bytes": 19779,
+    "sha256": "7210fa3b580b9f3df84c30e94eb95c2ed644f5726bbad30b6946296e237a9667"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-candidate/host_dispatch.h": {
+    "bytes": 838,
+    "sha256": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-candidate/registry_resolver.h": {
+    "bytes": 933,
+    "sha256": "825f78d913ae822545ac12c5621ef2d17ab422270de960339ab0590ecd8b8c2a"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-file-consumption49/file_tokens.cpp": {
+    "bytes": 2851,
+    "sha256": "113f97c2ef67a1d638c27c3a820fdd0d5a53759788355504e26ccb1b7ff2f1da"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-file-consumption49/file_tokens.h": {
+    "bytes": 1829,
+    "sha256": "f0201fd36d5d28be662f2e6aab863b1844f6727fb567d893510e32a00027dd8a"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-file-consumption49/reply_transaction.cpp": {
+    "bytes": 4265,
+    "sha256": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-file-consumption49/reply_transaction.h": {
+    "bytes": 1847,
+    "sha256": "727ee26d55c9815721ebf304ffbc8a43fb9fe8a4608363eb4964c7f79c64c757"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-runtime50/host_file_runtime.cpp": {
+    "bytes": 6646,
+    "sha256": "eaf7952baa23307dc001866f03b0186eb6caa1d66cb45943196757e4d52c17f4"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-runtime50/host_file_runtime.h": {
+    "bytes": 2180,
+    "sha256": "e880e92bc4b7d021c1796a690bf4c230bfd3efb7dcb0a26b223f9c269408cfd9"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-runtime50/host_install.cpp": {
+    "bytes": 1521,
+    "sha256": "2e8270f2f1f82cc322163d2a3cf098d21ffbe63657cf1bd97e07e5373a9916fc"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/host-runtime50/host_sdk_callbacks.cpp": {
+    "bytes": 2487,
+    "sha256": "32b2ac052e7f2126a3ed4048e2cee4b7f35dd3c0ba321462eee51b45af124118"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/live-bridge-candidate/common.h": {
+    "bytes": 6375,
+    "sha256": "2f314da264262c3a8077c890258f25436153f456ea98da08d074f152b894d601"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/native-file-callbacks35/ClientMilesFileCallbacks.h": {
+    "bytes": 304,
+    "sha256": "ac6d98359848a50477892628c26c6685905c4c04b9028f10d59cf5d468b61465"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/paired-bootstrap59/host.cpp": {
+    "bytes": 6435,
+    "sha256": "aef8784202ef05e8f28828037352059cd719ea10253fd53340a6ebb89920e68e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/pipe-transport-candidate/endpoint.cpp": {
+    "bytes": 5429,
+    "sha256": "c8ceb314bc9de684e14887c4687b2d48c50ccd5377294e4ce453d313778209b8"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/pipe-transport-candidate/endpoint.h": {
+    "bytes": 1998,
+    "sha256": "51dfef9fbb4439d937cb5be44ab8bbffc69429a0b7b76c84f708d4a0d8fc04c5"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/plain-boundary52/failure_boundary.cpp": {
+    "bytes": 970,
+    "sha256": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/plain-boundary52/failure_boundary.h": {
+    "bytes": 688,
+    "sha256": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/protocol-candidate/miles_wire.h": {
+    "bytes": 4560,
+    "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/protocol-candidate/pair_outputs.h": {
+    "bytes": 800,
+    "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/reverse-file-seam20/ClientAudioFileCallbacks.h": {
+    "bytes": 1827,
+    "sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/selected-file-services44/selected_services.cpp": {
+    "bytes": 2272,
+    "sha256": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/selected-file-services44/selected_services.h": {
+    "bytes": 787,
+    "sha256": "939e35bd5e612e2255146d40731258fbfb9455e383a90a615184461e86d63045"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/session-file-admission34/coordinator.cpp": {
+    "bytes": 8290,
+    "sha256": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/session-file-admission34/coordinator.h": {
+    "bytes": 4093,
+    "sha256": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/session-version22/session_version.cpp": {
+    "bytes": 2678,
+    "sha256": "eb92d358dfc983ebbfb09f44cff70ca30feaf8a8b5c3cffd85b4ffd47b0d084a"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/session-version22/session_version.h": {
+    "bytes": 969,
+    "sha256": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/session-version22/session_version_host.cpp": {
+    "bytes": 660,
+    "sha256": "a0c4ab967526beb0c05b908a391fd771acf52efcdb6256c3de040c497c3fb8b7"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/session-version22/session_version_host.h": {
+    "bytes": 625,
+    "sha256": "b4c7babfa10ad81a29e8e493e086c7144823436a6dcb580d0323cd54bb633e6f"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/startup-bridge23/backend.h": {
+    "bytes": 15870,
+    "sha256": "1614dd558ad523d458c19b744ef4fc1ca4b3ff526fb88ec9abc6d11a93e5391e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/startup-bridge23/reply.h": {
+    "bytes": 5879,
+    "sha256": "a5a687ea5dab7e7b000bc28feeb36d73c38fc3a87eb9cb98afcff2f5d8217a3e"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/startup-metadata-v4/metadata.h": {
+    "bytes": 1725,
+    "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/startup-metadata-v4/metadata_host.cpp": {
+    "bytes": 2163,
+    "sha256": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/startup-metadata-v4/metadata_wire.cpp": {
+    "bytes": 2986,
+    "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/transport-candidate/codec.cpp": {
+    "bytes": 8736,
+    "sha256": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/transport-candidate/codec.h": {
+    "bytes": 1400,
+    "sha256": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/candidate/transport-candidate/resource_registry.h": {
+    "bytes": 9388,
+    "sha256": "c98f53fffcb5c4a03e670efe25dc95be573b7e017ab14c4b0c27a3f3a97b2a3d"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/composition77-manifest.json": {
+    "bytes": 12545,
+    "sha256": "1370b5c65a26ef342f22b30b9014d091d4f647423d3191431cfafbbe9a76ea6c"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/public-delegates.json": {
+    "bytes": 1276,
+    "sha256": "c5aab1211e2fd81b0a8a5179ceebe215f1ea86ab0395493047e9e5cb0ca169f2"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/require-amd64.h": {
+    "bytes": 151,
+    "sha256": "8a35019e03a713e0ff178da7916a0e890a2f4ecd4225fc02dbc10c83f4963ea0"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/require-x86.h": {
+    "bytes": 150,
+    "sha256": "4ba4823166780a01d01df5eb1074ff28fb4ab428002d86bffd84cb971221ac13"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/reused35-manifest.json": {
+    "bytes": 1588350,
+    "sha256": "13a7272cdf84d617ea82f70481da686ea4abefc8e198e77e9f3d501f6fc9538a"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/symbol_parser.py": {
+    "bytes": 526,
+    "sha256": "6b3e25e41826ee110ae031e9ac44354811c27b9d1569ebf7a57b599b29b5980b"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/toolchain.json": {
+    "bytes": 939,
+    "sha256": "ee2dea4f36c2aa531c7985c9f245ff5d309adcc6cb59426a076ab10bfdd171c0"
+  },
+  "vendor-options/miles-integration-seam/native86/inputs/units.json": {
+    "bytes": 16825,
+    "sha256": "ba0b5d80c00eedc6ea1e43fa4e1ff76b143e957094468cb0679402f06e8e2c13"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/01-create.log": {
+    "bytes": 727,
+    "sha256": "2c212916a049d114f9aa06805954dc04b8e2c5d7c5c5af6a16445301f6abbf92"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/02-upload-collect-evidence.py.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/02-upload-private-inputs.tar.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/02-upload-stage-inputs.py.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/03-stage.log": {
+    "bytes": 321,
+    "sha256": "eaa648d4b023128a5153392231c971f2411af6618ffa6a4130aee3534913f03d"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/04-native-matrix.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/05-collect.log": {
+    "bytes": 199,
+    "sha256": "38d937a0ec0db0e9675a3be05f425c89ae4ef3d4913cc1beb61aa91b571dbf9e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/06-download.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/commands.json": {
+    "bytes": 3158,
+    "sha256": "c0ae6dab643da81eb6256fd3227aa9616e9a6d0e879cae2a888ad5291c77dd53"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/after.json": {
+    "bytes": 16147,
+    "sha256": "5b97a5cc8e7b474f20c8c38a49d4e511a8efe555c0e16514d263bbc8fe9a9774"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/before.json": {
+    "bytes": 9191,
+    "sha256": "850682b56c88d4933d4d798b9616beb272ee9d025f8b8f035327186e498f345e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/input-manifest.json": {
+    "bytes": 8925,
+    "sha256": "4c92251e90452ef7bbb65722b74224d19f0cd4ebe8b18bdd2566e67caa1a883e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-control45-host_association_mapper/actual-includes.json": {
+    "bytes": 14057,
+    "sha256": "a677bba247b435a614e853b2a3b2b3ee5b8115dd893611fbc5c6fd4c42aa5d53"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-control45-host_association_mapper/command.json": {
+    "bytes": 517,
+    "sha256": "29e47b260c35ac638759a1a9190942f6741c984d1313562f22f6982c8fa59ef2"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-control45-host_association_mapper/compile.log": {
+    "bytes": 12099,
+    "sha256": "a65aa207d6ffff3dc7cdbe00dd65e6d05e85f6f82f6c657dcd9caf4e18cdbbdd"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-control45-host_association_mapper/include-ancestry.json": {
+    "bytes": 94414,
+    "sha256": "4b6917210300e7bca048f65cc6f3ef1d9df63927258c1de813aafc486b8edb32"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-control45-host_association_mapper/symbols-command.json": {
+    "bytes": 241,
+    "sha256": "d5d51f2a0005316fdd72a5eb5cb90545a95ff3edf25ff402f98d7e46b9ca0680"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-control45-host_association_mapper/symbols.log": {
+    "bytes": 252740,
+    "sha256": "f14dae4adc260b0cee7ebe5504464753003f339d32e2888a6c899522ca1da342"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-protocol48-file_protocol/actual-includes.json": {
+    "bytes": 12926,
+    "sha256": "d6b621c1f587554bb870dd5d9ade0b3d66dea056de84dd6fe88863d47f9ef573"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-protocol48-file_protocol/command.json": {
+    "bytes": 490,
+    "sha256": "0c45232b25b352c9fe9b2c25d0db03f444b80ae022eeb610bc2c5b6797452c7a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-protocol48-file_protocol/compile.log": {
+    "bytes": 11176,
+    "sha256": "92935d5515810382c42ca72b133d7c3568cd8a0e2e16dd0b178d0b3288cabd86"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-protocol48-file_protocol/include-ancestry.json": {
+    "bytes": 83045,
+    "sha256": "35a53213dd3fe9437552fd589a3cb1fecfd8005cbc81e55096fbf1b86a031981"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-protocol48-file_protocol/symbols-command.json": {
+    "bytes": 223,
+    "sha256": "b49f5f9fb3974622a5ab944e6e98e54a294e97474230448beeb620915b5f61e8"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-callback-protocol48-file_protocol/symbols.log": {
+    "bytes": 138806,
+    "sha256": "6c00905ba0d679f908718198eaad7825d9f17b23ecb5ce6502ef36b8cac903f3"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-client-runtime53-client_file_runtime/actual-includes.json": {
+    "bytes": 34734,
+    "sha256": "df39b021ad55eb318785cb160f2add9ef400d3107fb644c7af41f48a9cf6f14a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-client-runtime53-client_file_runtime/command.json": {
+    "bytes": 499,
+    "sha256": "22ed1690f430703c02042e7af7d9553cf4b488c58d259e177b838f90a8ef26eb"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-client-runtime53-client_file_runtime/compile.log": {
+    "bytes": 32425,
+    "sha256": "725494f86335b8bcb777d7aaaec5986e261b793aa724ab1c9dc6eba5b5a66fbf"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-client-runtime53-client_file_runtime/include-ancestry.json": {
+    "bytes": 179638,
+    "sha256": "aa9b13ac239a2ec0548d477071c4e7962699ad38e99484fbb2adf7ec71f1c8b9"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-client-runtime53-client_file_runtime/symbols-command.json": {
+    "bytes": 229,
+    "sha256": "cc1fe11dfe7613b888c4762645cc653a4792fd2e6d9e0c8e179d4839693576e0"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-client-runtime53-client_file_runtime/symbols.log": {
+    "bytes": 457232,
+    "sha256": "8a037c4c450ae5a7dfcf9ea7f9024405d61348eed1f4a89e77c5253260182803"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-channel26-file_channel/actual-includes.json": {
+    "bytes": 12928,
+    "sha256": "941a388ea703875040a68062f00159d108aff119998cb02e0546f59fec18ba85"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-channel26-file_channel/command.json": {
+    "bytes": 472,
+    "sha256": "4fe4e7f5bf3800a42aaf94c560f211224885fdee524ef911c1a2042e79f52405"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-channel26-file_channel/compile.log": {
+    "bytes": 11066,
+    "sha256": "04fa95e879e960b04d94f04737a6186cbe7f2e09bb388e7f68c10b0c041561fd"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-channel26-file_channel/include-ancestry.json": {
+    "bytes": 75079,
+    "sha256": "422fa75260c165fe5e5befd0a229b32113e5ac07d0707ff785970152d59ba33e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-channel26-file_channel/symbols-command.json": {
+    "bytes": 211,
+    "sha256": "ccfc7fd41360d82e404600c88c50a5098d4ec169ab3ac0f4f372679291fd2613"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-channel26-file_channel/symbols.log": {
+    "bytes": 339401,
+    "sha256": "8bf5fdbce884ee4b5467422e4bffe8298adebc8b6fb8480c2bdd4ba7d23f5dbf"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-executor33-FileInvocationJob/actual-includes.json": {
+    "bytes": 31106,
+    "sha256": "65fad7911d21d79b9605b4684e7913175b9dc627b31287cf906081e6b7308e9a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-executor33-FileInvocationJob/command.json": {
+    "bytes": 490,
+    "sha256": "5a2c2ab99f81ec5f7370a0b1c0d46f5d3e0625defc466d68808981b5cf857201"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-executor33-FileInvocationJob/compile.log": {
+    "bytes": 29284,
+    "sha256": "c5edd64bc5b22f71e27e8a5a33fcb3e20644e94a45e2c0770491ba02508fe90e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-executor33-FileInvocationJob/include-ancestry.json": {
+    "bytes": 145194,
+    "sha256": "6d0371e92b993064e4b8eb269aa10abe92676f81e487996361f3c13e12eb3067"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-executor33-FileInvocationJob/symbols-command.json": {
+    "bytes": 223,
+    "sha256": "7c3992bf9dd3f9e44251572231d79d64de6112681add3d177f6fc28a4dacc3e7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-executor33-FileInvocationJob/symbols.log": {
+    "bytes": 267158,
+    "sha256": "5ba5a58ff96b553a8d87a1ca469ea7fa737dd62f3c7ea59bde3104ef4f30491d"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-owner36-session_file_owner/actual-includes.json": {
+    "bytes": 13770,
+    "sha256": "9b37edef2e40ec98f1479df4ff6a1caab15422523296a692b2f080ac4b94e937"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-owner36-session_file_owner/command.json": {
+    "bytes": 484,
+    "sha256": "2f88056d10fb669ae5693993b9c9e927f6fd5ba4393e0555604bb1d34af12737"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-owner36-session_file_owner/compile.log": {
+    "bytes": 11751,
+    "sha256": "5943262194285f06f2dd9cf0ecd5b8de1102fb6af5ce5caa6e674c18f0ecf60c"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-owner36-session_file_owner/include-ancestry.json": {
+    "bytes": 84540,
+    "sha256": "6e7c1e7cf11140f8d8db86f86b2b7c1b7e3ce2ca848e2d9bec7b7637788d8176"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-owner36-session_file_owner/symbols-command.json": {
+    "bytes": 219,
+    "sha256": "7fb4e62c1365e1b3ed5bf5ce8221a9b64d9e016d3a0894d22f10201bfbb57073"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-file-owner36-session_file_owner/symbols.log": {
+    "bytes": 674101,
+    "sha256": "ab7299326126646038833bccbd227344343808f3f6a4874fcd4a24aa9f6ab9d5"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-ClientMilesPipe/actual-includes.json": {
+    "bytes": 12361,
+    "sha256": "a4e37f6ac944053caa323b748b59441ad3e1f9ef330a6c8f8682cc6054aa8ab4"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-ClientMilesPipe/command.json": {
+    "bytes": 471,
+    "sha256": "c2901c5f186b84c8c59db47e6f6655de700c14c01667f24d9e681286aece3c90"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-ClientMilesPipe/compile.log": {
+    "bytes": 10562,
+    "sha256": "e2b347f40053f74799ffbb7cf19512be9f99e809db17a09a4b9564fb1715f18f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-ClientMilesPipe/include-ancestry.json": {
+    "bytes": 65311,
+    "sha256": "d02bc444dedd49ced8ce4a6cea1d6b0f2793645b5b4503018bec586ceb2c1af8"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-ClientMilesPipe/symbols-command.json": {
+    "bytes": 197,
+    "sha256": "3e5d5e3b13c0eb46ca2876a87606de4bb2c988a13fab6cd5e45a3222497a36d7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-ClientMilesPipe/symbols.log": {
+    "bytes": 516330,
+    "sha256": "ccd1b452d95a051a37a28a7724cd238c4c72b169269c5cf9eb5d19e843aa74ad"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-LiveChannel/actual-includes.json": {
+    "bytes": 34318,
+    "sha256": "57b2209f76439e05c93156e2745eab584c080a331854c34ce0318b6ef335edb8"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-LiveChannel/command.json": {
+    "bytes": 459,
+    "sha256": "dbbd41d7fbec9f6a181e0e82a98aeab9522161b02e03938edf2af97d12b99df7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-LiveChannel/compile.log": {
+    "bytes": 32736,
+    "sha256": "a08b3afec2ae2709d909751604e3bf68f3e7935efcb28db7efadb628e5bd7665"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-LiveChannel/include-ancestry.json": {
+    "bytes": 229817,
+    "sha256": "afc9c227a38fb6af6861e7817affebafc8f0e69d4d44e93169afabd6cc721e6f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-LiveChannel/symbols-command.json": {
+    "bytes": 189,
+    "sha256": "599cb553f34e49889b720901de4ef602cd5d5d9b50e2477c955ae1e5ad52c84a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-LiveChannel/symbols.log": {
+    "bytes": 627869,
+    "sha256": "9243d184624ffb4613b35760071f77696f5fd76fbc1941ec83e1ec90a5777a21"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-PipeCore/actual-includes.json": {
+    "bytes": 34185,
+    "sha256": "53d6aded2ad013460cd95ad17a6b2c551137e00dccb1da67ccdc41fd4b8a25bf"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-PipeCore/command.json": {
+    "bytes": 450,
+    "sha256": "9f407aa6e5bfe9ebba3f4c4d08eb33d1bc8c04d9d98c30783ddf7659fe1686c3"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-PipeCore/compile.log": {
+    "bytes": 32159,
+    "sha256": "954429e5cbd29c23b15fdb3ce5e97895b2725726253504f4bde3f54b770a5aab"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-PipeCore/include-ancestry.json": {
+    "bytes": 191035,
+    "sha256": "1f3c526e5d6ee0e3dc1d71f53d1c6f5543535c6a7949f203af5066699f775c36"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-PipeCore/symbols-command.json": {
+    "bytes": 183,
+    "sha256": "c41d34fff8c5af3f2711451e2f9304debe460f1e1a194ac5cc3b30a193163cbc"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-PipeCore/symbols.log": {
+    "bytes": 1148947,
+    "sha256": "0be190e2df8009e14073c9921dcb578c806a52ca7849b2708a44ced55df28571"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-transport-candidate-endpoint/actual-includes.json": {
+    "bytes": 27926,
+    "sha256": "83569218b263dea95e3af9497b65ecad0c20980c251e8e7cff9e26bbb74220cf"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-transport-candidate-endpoint/command.json": {
+    "bytes": 490,
+    "sha256": "4861985d9ab335a7357f6a898ccb44c6198038751fb36ea0e28bf93b2cec5c2f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-transport-candidate-endpoint/compile.log": {
+    "bytes": 26818,
+    "sha256": "797600e123d6fe1b50b802ce7c44b21665243b1218f2065177dd76c530fcef49"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-transport-candidate-endpoint/include-ancestry.json": {
+    "bytes": 127916,
+    "sha256": "6c17b8bb63cc7fa23e80789b45b7443a725e51955404d72dd55683f15e3491e6"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-transport-candidate-endpoint/symbols-command.json": {
+    "bytes": 223,
+    "sha256": "e46393293cc651c57444cc88f7b69d1d7bedd5efa2a71934396bf13f8f495c3b"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-pipe-transport-candidate-endpoint/symbols.log": {
+    "bytes": 165377,
+    "sha256": "411f5c31cec76ed7a8d26d502bff0b84c114039b79436f1d3984ebe8fafb2346"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-selected-file-services44-selected_services/actual-includes.json": {
+    "bytes": 13225,
+    "sha256": "5f9e32c5b8e6ef34ed7d808be6f7c136dada6ea95367bfabcfe2cc6983e7797a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-selected-file-services44-selected_services/command.json": {
+    "bytes": 517,
+    "sha256": "3f6db47a6f7fcc29736d34a64cc57abbc3aeb37a05840fac92f0de6be711aa63"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-selected-file-services44-selected_services/compile.log": {
+    "bytes": 11440,
+    "sha256": "d006f1b4c56fa29512a69d23db656eb755a513c986f9d8f5de8c963a28e29144"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-selected-file-services44-selected_services/include-ancestry.json": {
+    "bytes": 84583,
+    "sha256": "433e9e01b702cf1c2bb65c77cb2ee0df2c3aaabb1164d8656016f2ed8b730f8f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-selected-file-services44-selected_services/symbols-command.json": {
+    "bytes": 241,
+    "sha256": "3a67b223956432f75dea25f83517d9ab1a48dc10b7be80c4f86409912d613234"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-selected-file-services44-selected_services/symbols.log": {
+    "bytes": 199160,
+    "sha256": "8741b323290f7c465da4b85d2d0bd140e14cb9dd97992eda0e7b9c03b8088208"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-session-version22-session_version/actual-includes.json": {
+    "bytes": 9592,
+    "sha256": "dd5c2d489a2e9232dc33bb6120ed02dc673ac282da64764656b7d7b7d0f5b236"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-session-version22-session_version/command.json": {
+    "bytes": 490,
+    "sha256": "bd059e4d3fc395edf455dd109e36519ee2bf73810b6cc3a922db516182fe936a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-session-version22-session_version/compile.log": {
+    "bytes": 8404,
+    "sha256": "39bad82668565d76f68af3d0f7ef3c8bb620319f32501b9423300e40535fd055"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-session-version22-session_version/include-ancestry.json": {
+    "bytes": 57356,
+    "sha256": "5cd45dde381054d63c183e1916d2a499665a5454c6bb559c6fb83ae3d4b20342"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-session-version22-session_version/symbols-command.json": {
+    "bytes": 223,
+    "sha256": "1ebd862d1b56e2914c4fe22e32c240ecdc6197ef2acc770b80e7044462d0af7f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-session-version22-session_version/symbols.log": {
+    "bytes": 10553,
+    "sha256": "7afe87ad4b2a29261201b76fdc1d49e89f9551188770bf2edf7615567068ec67"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-startup-metadata-v4-metadata_wire/actual-includes.json": {
+    "bytes": 9863,
+    "sha256": "ba1a5b462535939d959afac9b89086a68deb056284a3333f7db19582dc1f96f5"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-startup-metadata-v4-metadata_wire/command.json": {
+    "bytes": 490,
+    "sha256": "b37220e0f9f31340108d093282cbd588b97756306d011d1bd13b7cfb680fa03f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-startup-metadata-v4-metadata_wire/compile.log": {
+    "bytes": 8585,
+    "sha256": "63e426dc204e22fe4d40986395e47553f18f95c2348334dc1f66f7a76bed247d"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-startup-metadata-v4-metadata_wire/include-ancestry.json": {
+    "bytes": 56751,
+    "sha256": "261267a4e98a9788a74c421e8d2cfdd417a537cbb55e4dff6a00d290eb3b052d"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-startup-metadata-v4-metadata_wire/symbols-command.json": {
+    "bytes": 223,
+    "sha256": "e7b2357d6d87d099a911bbe62306e6b8ce9ebb2447675a7758c9b749020444de"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-startup-metadata-v4-metadata_wire/symbols.log": {
+    "bytes": 218673,
+    "sha256": "2af0eea7eb62e147ea5a73a761cc953ef35c2af962f4f3e7d3ad28b1148a1c03"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-transport-candidate-codec/actual-includes.json": {
+    "bytes": 9453,
+    "sha256": "dd418f1b9d8c06367435a2d68f910abbf2adb8964c691702270f464eb5838607"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-transport-candidate-codec/command.json": {
+    "bytes": 466,
+    "sha256": "b09bc278cfb986d42fcc7135d83b8beeca54e397d9c666be60622b8028aebcdb"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-transport-candidate-codec/compile.log": {
+    "bytes": 8205,
+    "sha256": "53f530573ec8b9ff217e0959d1aaeb51e7fe6580a8f339c3441e3a7f4110ff75"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-transport-candidate-codec/include-ancestry.json": {
+    "bytes": 51210,
+    "sha256": "599af5e9e0a2fea3b92fbd28717092251455a685b4a553783c510e36b472fb6d"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-transport-candidate-codec/symbols-command.json": {
+    "bytes": 207,
+    "sha256": "e83f76d9bd045f9ebaadef25cd63c6b2c6465f443acb92cd09ea868f3575be09"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/amd64-transport-candidate-codec/symbols.log": {
+    "bytes": 210894,
+    "sha256": "6129d6f820faea70baf363812c9026eb9815074ee4cb70241bcb4b2d33cadc7b"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/compiler-slot.log": {
+    "bytes": 64,
+    "sha256": "943b315e065238b7073b033f534ef954b6b6461fb3f03a3f5b8555b11bc4c0a2"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/inputs_after.json": {
+    "bytes": 8838,
+    "sha256": "3362a9afd1782ce9962fef851e3562ef5d822f49d5cd627b75be4e11c96e80f1"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/results.json": {
+    "bytes": 82545,
+    "sha256": "e714f690d98967506e62957eae02bbcba68f87d417bc9bd431dc7487591444e1"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/reused35_after.json": {
+    "bytes": 1578736,
+    "sha256": "fcd870bd541b4600c13dc81f3beaf448f44ed0ecf4e3202b8470520f0a9e36ad"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/tools_after.json": {
+    "bytes": 756,
+    "sha256": "5071d317e220c1183cbb2ec64229fec3b3778d5369e9a988a8368a0223e81c7b"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-callback-protocol48-file_protocol/actual-includes.json": {
+    "bytes": 13071,
+    "sha256": "8fb961ea84aa4b8bae8a34ee4a017910878e23f54b6482275fd0f3609cc8bd76"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-callback-protocol48-file_protocol/command.json": {
+    "bytes": 477,
+    "sha256": "99f45f7264eb17ee215fa0e1cba5fae238eae19453b23323d5a8a63fc27d693b"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-callback-protocol48-file_protocol/compile.log": {
+    "bytes": 11383,
+    "sha256": "d5e1ab55f8834936aa2226b240b280cfe1ed323d009b92d130f962fef887d1b3"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-callback-protocol48-file_protocol/include-ancestry.json": {
+    "bytes": 84649,
+    "sha256": "5604b6f95772279c6f0c905015b9ccb6b14492f4bf60f00bf6bcb07c826ea6b3"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-callback-protocol48-file_protocol/symbols-command.json": {
+    "bytes": 212,
+    "sha256": "92889b7d8f3327c7fda113ba1c1094ccc3e868f80e208c1fb815c941eb23479b"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-callback-protocol48-file_protocol/symbols.log": {
+    "bytes": 73162,
+    "sha256": "c3ce55db478ff270a2690ab3e353c30636e4c77370dd278b4f3ffe530163ed1c"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-file-channel26-file_channel/actual-includes.json": {
+    "bytes": 13073,
+    "sha256": "f36acc86292e52442ba50ab8017c4f34c8481486bf2b908db32d2f19c80e27a5"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-file-channel26-file_channel/command.json": {
+    "bytes": 459,
+    "sha256": "73ef78b46e0897c335b297793c3fe2416530e394992e556e32d3ca7de1802efd"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-file-channel26-file_channel/compile.log": {
+    "bytes": 11271,
+    "sha256": "c386b2b1284f4fe5855120603cb4d144febd2547506d9e5d0a94165f1e8a8efc"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-file-channel26-file_channel/include-ancestry.json": {
+    "bytes": 76532,
+    "sha256": "6b298e40684f71f1d338f18adb8b73d8c7577656d3866ade42146ceddf8f6690"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-file-channel26-file_channel/symbols-command.json": {
+    "bytes": 200,
+    "sha256": "c02f5530d1507b71fd36a545d46d5d17505857db3fef13d8e935e220afe558c8"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-file-channel26-file_channel/symbols.log": {
+    "bytes": 168047,
+    "sha256": "6345c264dffa7d0a50524aca197ae9c08c40ab10530b93e479b37aa9af4c4e50"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-file_tokens/actual-includes.json": {
+    "bytes": 9898,
+    "sha256": "ceaee05e490fa863d80e779edfcae34bc550b8ef118365061e6b65365c511b71"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-file_tokens/command.json": {
+    "bytes": 483,
+    "sha256": "ad5fdf27a4f5d89117a77075a8716689e104d3324b1335e5e4e9d49a5b9676d6"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-file_tokens/compile.log": {
+    "bytes": 8642,
+    "sha256": "b9101fab67c5fd1675df426e233a67cf08de083c8ad44436559695de2be09a41"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-file_tokens/include-ancestry.json": {
+    "bytes": 53861,
+    "sha256": "5b7c21effc325cf6812ac4eca9e710099a129fd55ff9ac31c41750fedbef3c31"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-file_tokens/symbols-command.json": {
+    "bytes": 216,
+    "sha256": "d98f19a6c24555af72199996bf622c5c35415e3d963207646498c821b0cb5603"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-file_tokens/symbols.log": {
+    "bytes": 87627,
+    "sha256": "dc7866c880bc60b5c58a4c4d5b801188d7b253649374f9ed10f1386441c5dcd7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-reply_transaction/actual-includes.json": {
+    "bytes": 13359,
+    "sha256": "d9237bb8a19af3198d87ebf056765f674450dd5042b99b51dd353367422d5802"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-reply_transaction/command.json": {
+    "bytes": 501,
+    "sha256": "6cb9413980a924c8c4c3431c1e9e65a77099a218945bdec23755f279da69fe30"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-reply_transaction/compile.log": {
+    "bytes": 11583,
+    "sha256": "7720bbb174400e5caff20a600ea95b1d00ccbd723a5cfea06d89361c966311ec"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-reply_transaction/include-ancestry.json": {
+    "bytes": 83714,
+    "sha256": "8b13105027d8bf68b323f1f340ea53499c5058920eebac315782520dd3ad490a"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-reply_transaction/symbols-command.json": {
+    "bytes": 228,
+    "sha256": "bccad6913b7d1c0df55d4ea23d11e090e338190c35616521a1f1bf0233496cc6"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-file-consumption49-reply_transaction/symbols.log": {
+    "bytes": 102325,
+    "sha256": "c677401e7635a0ed3bc7a61137da4d6cdd3b7c09685689dd4068f3a1bafe39ff"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_file_runtime/actual-includes.json": {
+    "bytes": 31820,
+    "sha256": "0b5d6da22c4c2bcefb95c457883bfab2cb71c28657b0b54e7f0a61a465addeae"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_file_runtime/command.json": {
+    "bytes": 474,
+    "sha256": "4b38d8a58b17970acb1bed50645c97852d04e6aa296fc1c197fc11f564e5c381"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_file_runtime/compile.log": {
+    "bytes": 30480,
+    "sha256": "ade1e8a2301ab4ee5d69602cf88466edbe100415fe8efe1bae23fbeb0bb40bf9"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_file_runtime/include-ancestry.json": {
+    "bytes": 174269,
+    "sha256": "130e2f6903de52a8f96db6ad893cbcfee8e8ea3a42dbc0e914571644cb1f295f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_file_runtime/symbols-command.json": {
+    "bytes": 210,
+    "sha256": "a83c27902819f3ef4e3738af8c481104f568705e3cff55e163a28df75b2403c1"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_file_runtime/symbols.log": {
+    "bytes": 98308,
+    "sha256": "c7e80bd5040d995147e8648c5a385b87feebf0179f0567a9fd3c92093842beaa"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_install/actual-includes.json": {
+    "bytes": 31820,
+    "sha256": "0b5d6da22c4c2bcefb95c457883bfab2cb71c28657b0b54e7f0a61a465addeae"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_install/command.json": {
+    "bytes": 459,
+    "sha256": "3bf0745ac95f971fcf0caee88c8cdfa92b8c8e513ad0489f56628e0c5b2ab90b"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_install/compile.log": {
+    "bytes": 30475,
+    "sha256": "bb600de93f4fcada4a98ee91bf2934c1cf25abfc73ec23f89f4cf135618b23be"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_install/include-ancestry.json": {
+    "bytes": 174269,
+    "sha256": "130e2f6903de52a8f96db6ad893cbcfee8e8ea3a42dbc0e914571644cb1f295f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_install/symbols-command.json": {
+    "bytes": 200,
+    "sha256": "5ca3849c9369ce934789196d6da911e729cab30d10ad0bf46d41c12f0fb38113"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_install/symbols.log": {
+    "bytes": 70436,
+    "sha256": "96c401ec3970c79025e6ab43ecb51f9e39f428cafe3427c49fcdac33cfaa9de3"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_sdk_callbacks/actual-includes.json": {
+    "bytes": 24373,
+    "sha256": "eccf50338295a200e13393c47560775883a3a75d8720d3fa3de8b57246aeafe4"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_sdk_callbacks/command.json": {
+    "bytes": 568,
+    "sha256": "b72ccb75bf6e601a79ee121e97e23974f44433b06c782fd4bdac80aa001a1091"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_sdk_callbacks/compile.log": {
+    "bytes": 21340,
+    "sha256": "d544cfb47b75034a80b8b580f371ecc5a573667de1596943ff14bbf0329229ed"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_sdk_callbacks/include-ancestry.json": {
+    "bytes": 127564,
+    "sha256": "3c23c0947a03e66705731038bc5c6dd495519d021eef82e8b0fa68800e2ccea6"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_sdk_callbacks/symbols-command.json": {
+    "bytes": 212,
+    "sha256": "b95aff6975ea26b77459fa9ca15a050ad177fb844bce39430abbfbd58fc51efc"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-host-runtime50-host_sdk_callbacks/symbols.log": {
+    "bytes": 71697,
+    "sha256": "bacfc01314483b58414de90312e1ae41096f4fc142636b9e32d712b0ccac5152"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-paired-bootstrap59-host/actual-includes.json": {
+    "bytes": 33903,
+    "sha256": "e95a020dfcc08297c5c375268ee952c00b0c4b6ed4e56b6015c0933c35ef175f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-paired-bootstrap59-host/command.json": {
+    "bytes": 538,
+    "sha256": "19923cd8cecbaa7096d595ab8dbd3c251b44012d07c7aea0e75880c5cdaa87b7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-paired-bootstrap59-host/compile.log": {
+    "bytes": 31905,
+    "sha256": "158b3e1cf58f231f59ea09fcbd7265147f102a06ba3ff15db092eba9cd627e93"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-paired-bootstrap59-host/include-ancestry.json": {
+    "bytes": 172325,
+    "sha256": "77af96ae4367e701e83e2cec1ffa1860f2206a2bc78decec44ba89729b1f1742"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-paired-bootstrap59-host/symbols-command.json": {
+    "bytes": 192,
+    "sha256": "b19adac6aa29f486234fcaa3f5a82edecea27ad5ab85a19f5521e4be1e4ba5a7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-paired-bootstrap59-host/symbols.log": {
+    "bytes": 487690,
+    "sha256": "6f22650c3613b5b4363917bf5cd4c360b820291a929395dee5c4b15698398658"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-pipe-transport-candidate-endpoint/actual-includes.json": {
+    "bytes": 28071,
+    "sha256": "e9ff8051cd6de2a41e0e2da46ccc502f9840f444f0133372d44e59dc242c03c2"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-pipe-transport-candidate-endpoint/command.json": {
+    "bytes": 477,
+    "sha256": "362b4611224ddcd48eccfb432e6d998cf97b459d09ab2b63e268516883d932ab"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-pipe-transport-candidate-endpoint/compile.log": {
+    "bytes": 27204,
+    "sha256": "31798d35c684c3f8f09cbd5111e658f60f088c8b985358e1ae3f7bce26957d69"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-pipe-transport-candidate-endpoint/include-ancestry.json": {
+    "bytes": 129936,
+    "sha256": "c7ebbc0f2eedcc6624ce30ceef7aa42f24b07e19aa6cd9419059d00985ba7293"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-pipe-transport-candidate-endpoint/symbols-command.json": {
+    "bytes": 212,
+    "sha256": "545ae260896aec42073d65b0802ac4860efb61a40a17009a47775fd43b7691e9"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-pipe-transport-candidate-endpoint/symbols.log": {
+    "bytes": 82629,
+    "sha256": "e27c3793a7cde29d9cc269e057ed103832b7ad51611940a5b909daffc2e35a2e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version/actual-includes.json": {
+    "bytes": 9737,
+    "sha256": "9c7d94775c672cfb48395782fbed3b8cacdaa702ad48f9caeca1600fb452d6f0"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version/command.json": {
+    "bytes": 477,
+    "sha256": "7b68d3683dedfd8839119328e80a670fd814818a92e15c3619436687e77fbe9f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version/compile.log": {
+    "bytes": 8609,
+    "sha256": "36bd9f1e43471355a1521980cfa8a0cb9f398dd86a8281d8ab15a20db12078ea"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version/include-ancestry.json": {
+    "bytes": 58821,
+    "sha256": "643f0d25879719296eaa70ef82bdcb2accc7cfbadf91e423523d08979d5fe950"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version/symbols-command.json": {
+    "bytes": 212,
+    "sha256": "51e3b6faf692741fca3a0df4c728df596f67362a1f1db89097ba18f7632e453d"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version/symbols.log": {
+    "bytes": 6209,
+    "sha256": "5ae47f858111eb6b993b73cff868b0c9871ff32f6f708883e34450846900255f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version_host/actual-includes.json": {
+    "bytes": 28068,
+    "sha256": "ec0163c571a02c03c3ea3ed1df785a252e26ae19a34df9f083d7131d505a3b07"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version_host/command.json": {
+    "bytes": 492,
+    "sha256": "3039dcf8336d800a9e8beab432f6d31a69180b34c1fa49143be3606227b4922f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version_host/compile.log": {
+    "bytes": 27397,
+    "sha256": "2c765580cf471084f3b59e2cbe994102691fb21462ec434fab9793f091c527fe"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version_host/include-ancestry.json": {
+    "bytes": 145609,
+    "sha256": "8661e722429f3a5e6b93ec4b3366d42493208ffb23437013b905d56951da89b6"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version_host/symbols-command.json": {
+    "bytes": 222,
+    "sha256": "c700b010c9f555fc6e137c683c7136a9ad512c724216fa4a1e26eafd9dbed232"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-session-version22-session_version_host/symbols.log": {
+    "bytes": 3744,
+    "sha256": "b3a94e92ee4975ffa30b2bbb7ec32673c3835e1d33fd88e5d591e702a273de95"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_host/actual-includes.json": {
+    "bytes": 10163,
+    "sha256": "5c44a556c4d28427b86f5fcad9ca55ed5fe239651bf1e4b977e17d8000d8cc2f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_host/command.json": {
+    "bytes": 568,
+    "sha256": "981315f6fdcc1afd9499772ce65e7260dd2450f9ee4094bb67781441efd716e7"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_host/compile.log": {
+    "bytes": 8894,
+    "sha256": "fd3c8c2f06e6bacc46876ed990ca26d1f19dc37b4864ef8f0e70a33735fe2528"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_host/include-ancestry.json": {
+    "bytes": 58352,
+    "sha256": "d25f40010040e10f5ef6f4ec1e514c621ea778dd296de14d327678af31ff176f"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_host/symbols-command.json": {
+    "bytes": 212,
+    "sha256": "a95e1c2447640b6d92733ca6ce2feee83be795e51f51554d930b4fc0ae5d908e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_host/symbols.log": {
+    "bytes": 23063,
+    "sha256": "301c6109952253e789666a90b3de3babf921765b04093336fe77be397e4911b1"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_wire/actual-includes.json": {
+    "bytes": 10008,
+    "sha256": "dba1f7888aa8ab374cb541b9674a4ce1647382c55cbe8477cc2efda941448ba3"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_wire/command.json": {
+    "bytes": 477,
+    "sha256": "b685f0599a5eefd6948ef68b8333e3fd2d5f65c335fada7d385c7f5976691164"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_wire/compile.log": {
+    "bytes": 8790,
+    "sha256": "befbbb05fd3db4c00406d7178a17deccf7c27f440c586330d48d2776a3e5dac5"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_wire/include-ancestry.json": {
+    "bytes": 58206,
+    "sha256": "fcb1d52b24638e0b35758523b7943bd632b246633810ea4e3cb9955b383f5004"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_wire/symbols-command.json": {
+    "bytes": 212,
+    "sha256": "1734979cb1b5ae8ef0995d152dd42de9453a13a5cfce65c4986e87789a049889"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-startup-metadata-v4-metadata_wire/symbols.log": {
+    "bytes": 107973,
+    "sha256": "b284c0796ff85813721df02fa5b1db8064196924e987265df42e3335e3e73ffc"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-transport-candidate-codec/actual-includes.json": {
+    "bytes": 9598,
+    "sha256": "9188cdefa50cb9a9bc55cbed005d05771a8d81e57c165aac80e1e35403e37219"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-transport-candidate-codec/command.json": {
+    "bytes": 453,
+    "sha256": "7414463dffe976c0771ba7925784169c4dc05d64d22ad7ef022360e61d1f08d6"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-transport-candidate-codec/compile.log": {
+    "bytes": 8408,
+    "sha256": "4b5890f424d5e3bdf6cd216a14c69aa5049a6788607c569d59ec208d03c6450e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-transport-candidate-codec/include-ancestry.json": {
+    "bytes": 52525,
+    "sha256": "53c835edb39eb56384f7d94b615ec3a9050c94ed23b890e0aec755f9092c4a75"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-transport-candidate-codec/symbols-command.json": {
+    "bytes": 196,
+    "sha256": "fe103b6467d9a41095b3f9d58b5bc881f07fe0ef979366a09cb6db9a31203eba"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/curated/results/x86-transport-candidate-codec/symbols.log": {
+    "bytes": 96521,
+    "sha256": "b8feb439bb96bd7c11b30fe09fcc2363ea5215742314dc1e3c28a63000a6e69e"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/local-after.json": {
+    "bytes": 398,
+    "sha256": "fb927731b1984ff26b266c1d094a2bc6f131b86c22491aa2a03370965113f096"
+  },
+  "vendor-options/miles-integration-seam/native86/native-evidence-v1/local-before.json": {
+    "bytes": 333,
+    "sha256": "86e6a0db5cedcfef570c3fa9e069ee280d4f6bcafa96403994f83daa98ed8ba6"
+  },
+  "vendor-options/miles-integration-seam/native86/provenance.json": {
+    "bytes": 510,
+    "sha256": "68a9db8f93960d64ecdc96d11de49cf3cbc2e66baf1ff902be873f0ad3fc796d"
+  },
+  "vendor-options/miles-integration-seam/native86/run-approved-native-v1.py": {
+    "bytes": 6768,
+    "sha256": "7bd084c05ae3dd46a111d5e0f7da14c1d0c286bb2aa5185b1ce00c5fd49013bb"
+  },
+  "vendor-options/miles-integration-seam/native86/run-native86.py": {
+    "bytes": 9370,
+    "sha256": "f30dbcbd7eea61c1f33e86c34ddc53f6b4dcff434dade44d7e57c2e41ad8cf4d"
+  },
+  "vendor-options/miles-integration-seam/native86/runner-from77.patch": {
+    "bytes": 3036,
+    "sha256": "51c24becb2d9a7a5da8554f269c6a4af20c5328cf7e188b4da89a2899b26bb51"
+  },
+  "vendor-options/miles-integration-seam/native86/selection.json": {
+    "bytes": 5089,
+    "sha256": "39c3d9b729753ce5ed063e9a04fb9ef6ece6740c8a4f66143b04428e3bb5bbb9"
+  },
   "vendor-options/miles-integration-seam/output-static33/OUTPUT-STORES-REVIEW33.md": {
     "bytes": 5529,
     "sha256": "ef3f52ba1bbd48f006af097884dc4bd7aaa9285fd292bf3c8363e459beafe163"
@@ -19992,8 +21120,8 @@
     "sha256": "4aae505d360c7234492752008031d94c71a79df8869cf34be89b70eec3ab84e3"
   },
   "vendor-options/miles-integration-seam/parent-boundary24/check-export34.py": {
-    "bytes": 1754,
-    "sha256": "06761c6319682194f40fb6437235ef1a23a9fc693c4df3dc6aab0930bc59c8df"
+    "bytes": 1760,
+    "sha256": "18ab272a6fa3a05ab8ed0b51542d6441ccea05af74d1c4ecef65826f3ae4b43d"
   },
   "vendor-options/miles-integration-seam/parent-boundary24/check-file-executor29.py": {
     "bytes": 2600,
@@ -21270,6 +22398,318 @@
   "vendor-options/miles-integration-seam/pipe-composition77/source-manifest-v1.json": {
     "bytes": 12545,
     "sha256": "1370b5c65a26ef342f22b30b9014d091d4f647423d3191431cfafbbe9a76ea6c"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/COMPOSITION.md": {
+    "bytes": 1548,
+    "sha256": "6d28d8e8cd76dce2bc2a710e99cbf97b7f2be535ef10c3c4a250882a19bcba7d"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/ClientMiles.h": {
+    "bytes": 8609,
+    "sha256": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/Channel.h": {
+    "bytes": 859,
+    "sha256": "a56ddd8a73363f9a0aa2bcd31f79d691314ac5048247eff1a5351bc03a696526"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": {
+    "bytes": 8933,
+    "sha256": "7915eab190de35e75ced4bb597c439c793e27d9f67b691b914726adc1648a196"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/LiveChannel.cpp": {
+    "bytes": 6741,
+    "sha256": "7ad33739e74362d789313f35522c07301974f61d5374d51967955d732af32918"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/LiveChannel.h": {
+    "bytes": 625,
+    "sha256": "b3dd77b8ccae3953f6e4025f2680047b72aee0288e4622abe3d881ced17951fc"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/PipeCore.cpp": {
+    "bytes": 37522,
+    "sha256": "e61e61b8ba4012238561c0ef4f78534e54e564a29b8af015b1fb7500fb8ee322"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/PipeCore.h": {
+    "bytes": 7502,
+    "sha256": "ecab3236e10860f01fbd2d3204537229c90933faff2e082bea1e981ce88b20da"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/Session.h": {
+    "bytes": 2467,
+    "sha256": "6d8432ec6b78c745d02ed0867f2413635e3d10441d5eb7453c2029baf0cf19ac"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-control45/host_association_mapper.cpp": {
+    "bytes": 8076,
+    "sha256": "391191b3dee435f5eb1917710bf9d309efbb0d3de270c47901b2d6b1b182d29a"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-control45/host_association_mapper.h": {
+    "bytes": 3897,
+    "sha256": "fc7e3971fbe719644180a9082f5a0dbf70963cbccc6fdd3ae6e09f0505ba140f"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-protocol48/file_protocol.cpp": {
+    "bytes": 5890,
+    "sha256": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-protocol48/file_protocol.h": {
+    "bytes": 2750,
+    "sha256": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-reentry47/invocation_guard.cpp": {
+    "bytes": 881,
+    "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-reentry47/invocation_guard.h": {
+    "bytes": 619,
+    "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/client-runtime53/client_file_runtime.cpp": {
+    "bytes": 10843,
+    "sha256": "2d955c883dbe86578b19632a8182da1c3b9b5c04cbdbd2d1e5b43c05d0547e6a"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/client-runtime53/client_file_runtime.h": {
+    "bytes": 2284,
+    "sha256": "b2a872f2e40a99c93afa630778e97a601f5032d1aa80cd4eacc28666196016c6"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-channel26/file_channel.cpp": {
+    "bytes": 11515,
+    "sha256": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-channel26/file_channel.h": {
+    "bytes": 4296,
+    "sha256": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-executor33/EngineFileWorker.h": {
+    "bytes": 1505,
+    "sha256": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-executor33/FileInvocationJob.cpp": {
+    "bytes": 3456,
+    "sha256": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-executor33/FileInvocationJob.h": {
+    "bytes": 1687,
+    "sha256": "dc21ebece9ea39841cf2c63da2b2c0f81fff8e45456f99adea2b12ace0aa5471"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-owner36/session_file_owner.cpp": {
+    "bytes": 8135,
+    "sha256": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/file-owner36/session_file_owner.h": {
+    "bytes": 2938,
+    "sha256": "314695ccac3ea1bb141b5a3bbc800de2e979bb6604cf21782f7dc26eda120356"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-callback-context41/call_context.cpp": {
+    "bytes": 1000,
+    "sha256": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-callback-context41/call_context.h": {
+    "bytes": 962,
+    "sha256": "6c1439efb94d2a1e2bd3d4977e04a23cfa96e357e81f3a81ef7d5985242b3244"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-candidate/host_dispatch.cpp": {
+    "bytes": 19779,
+    "sha256": "7210fa3b580b9f3df84c30e94eb95c2ed644f5726bbad30b6946296e237a9667"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-candidate/host_dispatch.h": {
+    "bytes": 838,
+    "sha256": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-candidate/registry_resolver.h": {
+    "bytes": 933,
+    "sha256": "825f78d913ae822545ac12c5621ef2d17ab422270de960339ab0590ecd8b8c2a"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/file_tokens.cpp": {
+    "bytes": 2851,
+    "sha256": "113f97c2ef67a1d638c27c3a820fdd0d5a53759788355504e26ccb1b7ff2f1da"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/file_tokens.h": {
+    "bytes": 1829,
+    "sha256": "f0201fd36d5d28be662f2e6aab863b1844f6727fb567d893510e32a00027dd8a"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/reply_transaction.cpp": {
+    "bytes": 4265,
+    "sha256": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/reply_transaction.h": {
+    "bytes": 1847,
+    "sha256": "727ee26d55c9815721ebf304ffbc8a43fb9fe8a4608363eb4964c7f79c64c757"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_file_runtime.cpp": {
+    "bytes": 6646,
+    "sha256": "eaf7952baa23307dc001866f03b0186eb6caa1d66cb45943196757e4d52c17f4"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_file_runtime.h": {
+    "bytes": 2180,
+    "sha256": "e880e92bc4b7d021c1796a690bf4c230bfd3efb7dcb0a26b223f9c269408cfd9"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_install.cpp": {
+    "bytes": 1521,
+    "sha256": "2e8270f2f1f82cc322163d2a3cf098d21ffbe63657cf1bd97e07e5373a9916fc"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_sdk_callbacks.cpp": {
+    "bytes": 2487,
+    "sha256": "32b2ac052e7f2126a3ed4048e2cee4b7f35dd3c0ba321462eee51b45af124118"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/live-bridge-candidate/admission.h": {
+    "bytes": 1644,
+    "sha256": "f495c57622d0f1d9b9a2a92fdb43a223bd9d06168a2d1c5725e843eaac89e5b0"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/live-bridge-candidate/common.h": {
+    "bytes": 6375,
+    "sha256": "2f314da264262c3a8077c890258f25436153f456ea98da08d074f152b894d601"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-file-callbacks35/ClientMilesFileCallbacks.h": {
+    "bytes": 304,
+    "sha256": "ac6d98359848a50477892628c26c6685905c4c04b9028f10d59cf5d468b61465"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-playback28/ClientMilesPlayback.h": {
+    "bytes": 2073,
+    "sha256": "e97181694f6e25fcc49f019607fdad15ee0e9a78be6b4f18d6aec5517001b833"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-playback28/native_playback28.cpp": {
+    "bytes": 9168,
+    "sha256": "ac40f32bafdbdac91b7abd816d716165c136fcb47533dad78f4a25cd31659523"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/ClientMilesSample.h": {
+    "bytes": 1386,
+    "sha256": "f26f9aa77247b32fe21025046efef511a3422836b3f45a6c7cee3905b339cfb3"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/native_sample27.cpp": {
+    "bytes": 3170,
+    "sha256": "d75624aedc9dc80cf79169bb45c8c019206d1f5bb0a8787a78950bef0d3a8304"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/sample_time.cpp": {
+    "bytes": 1224,
+    "sha256": "ce38cfe37ddfc892ead0eaa57aa29d67a99625c74b5a8f8354623b9f5edc7c55"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/sample_time.h": {
+    "bytes": 788,
+    "sha256": "b80f0fddcf154795cae028fa4d05e73cde01c0fc03712512e9f71cdfae9a5e10"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-startup25/ClientMilesStartup.h": {
+    "bytes": 1473,
+    "sha256": "fdee8b2afc7e906bcba0878bd2a03fca914d898b30d96eeaccf1876528047321"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/ClientMilesStream.h": {
+    "bytes": 1331,
+    "sha256": "412f331293a81e6aaf3e8b0e6c600b7f24443535cdab4ad46b04d02e0c274844"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/native_stream28.cpp": {
+    "bytes": 4679,
+    "sha256": "a64b588edcbd6715c4a7f14efebdb1acbf8c7a678ac6701d24dd9f097850e1de"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/stream_calls.cpp": {
+    "bytes": 1166,
+    "sha256": "8151cceb88114869ddba0b84dea98d1c60df43d19d231b1dc9fb8d3ad7afd661"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/stream_calls.h": {
+    "bytes": 787,
+    "sha256": "f9321a58eb8e731d3da401dc982d99c4498dd4eb855ff19a46917a819e94ce57"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/paired-bootstrap59/host.cpp": {
+    "bytes": 6435,
+    "sha256": "aef8784202ef05e8f28828037352059cd719ea10253fd53340a6ebb89920e68e"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/pipe-transport-candidate/endpoint.cpp": {
+    "bytes": 5429,
+    "sha256": "c8ceb314bc9de684e14887c4687b2d48c50ccd5377294e4ce453d313778209b8"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/pipe-transport-candidate/endpoint.h": {
+    "bytes": 1998,
+    "sha256": "51dfef9fbb4439d937cb5be44ab8bbffc69429a0b7b76c84f708d4a0d8fc04c5"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/plain-boundary52/failure_boundary.cpp": {
+    "bytes": 970,
+    "sha256": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/plain-boundary52/failure_boundary.h": {
+    "bytes": 688,
+    "sha256": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/protocol-candidate/miles_wire.h": {
+    "bytes": 4560,
+    "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/protocol-candidate/pair_outputs.h": {
+    "bytes": 800,
+    "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/reverse-file-seam20/ClientAudioFileCallbacks.h": {
+    "bytes": 1827,
+    "sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/selected-file-services44/selected_services.cpp": {
+    "bytes": 2272,
+    "sha256": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/selected-file-services44/selected_services.h": {
+    "bytes": 787,
+    "sha256": "939e35bd5e612e2255146d40731258fbfb9455e383a90a615184461e86d63045"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/session-file-admission34/coordinator.cpp": {
+    "bytes": 8290,
+    "sha256": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/session-file-admission34/coordinator.h": {
+    "bytes": 4093,
+    "sha256": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version.cpp": {
+    "bytes": 2678,
+    "sha256": "eb92d358dfc983ebbfb09f44cff70ca30feaf8a8b5c3cffd85b4ffd47b0d084a"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version.h": {
+    "bytes": 969,
+    "sha256": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version_host.cpp": {
+    "bytes": 660,
+    "sha256": "a0c4ab967526beb0c05b908a391fd771acf52efcdb6256c3de040c497c3fb8b7"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version_host.h": {
+    "bytes": 625,
+    "sha256": "b4c7babfa10ad81a29e8e493e086c7144823436a6dcb580d0323cd54bb633e6f"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-bridge23/backend.h": {
+    "bytes": 15870,
+    "sha256": "1614dd558ad523d458c19b744ef4fc1ca4b3ff526fb88ec9abc6d11a93e5391e"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-bridge23/reply.h": {
+    "bytes": 5879,
+    "sha256": "a5a687ea5dab7e7b000bc28feeb36d73c38fc3a87eb9cb98afcff2f5d8217a3e"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-metadata-v4/metadata.h": {
+    "bytes": 1725,
+    "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-metadata-v4/metadata_host.cpp": {
+    "bytes": 2163,
+    "sha256": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-metadata-v4/metadata_wire.cpp": {
+    "bytes": 2986,
+    "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/transport-candidate/codec.cpp": {
+    "bytes": 8736,
+    "sha256": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/transport-candidate/codec.h": {
+    "bytes": 1400,
+    "sha256": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/candidate/transport-candidate/resource_registry.h": {
+    "bytes": 9388,
+    "sha256": "c98f53fffcb5c4a03e670efe25dc95be573b7e017ab14c4b0c27a3f3a97b2a3d"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/from77.patch": {
+    "bytes": 14168,
+    "sha256": "ec63bfe4d28b688eb8cd1b3e67c1dd4a57c34859ad3e44caf886758c81f7a2c7"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/provenance.json": {
+    "bytes": 25909,
+    "sha256": "2a0464acb65470d0ef220b3d5045d6e4839149f802e349db6dddf55dc4cccb29"
+  },
+  "vendor-options/miles-integration-seam/pipe-composition86/source-manifest.json": {
+    "bytes": 9040,
+    "sha256": "5fc0e0d00ff6ddc6bacaf403df68b7e77a16acbe80e21e3fa5147e6b60a8f63c"
   },
   "vendor-options/miles-integration-seam/pipe-drain23/PLAN.md": {
     "bytes": 8066,
@@ -24207,6 +25647,58 @@
     "bytes": 8679,
     "sha256": "f058c6abcf10d3b5365acb427b7f33d8debe31f4ca2d6c648472916e38960a8f"
   },
+  "vendor-options/miles-integration-seam/portable-registry85/PLAN.md": {
+    "bytes": 3809,
+    "sha256": "ab361223545ec99f731cb5d08cc553f958c91635fe26e5fd118fb1bfbe9e15fd"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/RESULTS-v1.md": {
+    "bytes": 384,
+    "sha256": "d058fd339fd7f1b68a7a68a990018f36b1441cc6c0ab3b55b80a2937171f8247"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/REVIEW-parent-pretest.md": {
+    "bytes": 1240,
+    "sha256": "a4329cb0f58693625a06570484aaec3b577ca728d2653dc55ceb2d76f6664b14"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/evidence-v1/build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/evidence-v1/results.json": {
+    "bytes": 1219,
+    "sha256": "93789b959bf40e81cc7686dbd2f57cc59c3a860d12c95222bab71586c951c327"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/evidence-v1/run.log": {
+    "bytes": 228,
+    "sha256": "3627727bbd888270bea6331a9414196e0fd942795c11d6b4a9a584b51d3d0876"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/expected-markers.json": {
+    "bytes": 232,
+    "sha256": "5bf87e5a0fa10eaf96b5e4eca8a7e95e948c595e4a3326f9e27c0fb9c10ad882"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/freeze.json": {
+    "bytes": 700,
+    "sha256": "1a13294ce18fc3f0ab56019ea02e97a726fc293589d37b19964addac8d791e1f"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/provenance.json": {
+    "bytes": 361,
+    "sha256": "eb746f924d476aec7bcdda28b4e4c56cfc0a1b319b44d0d63b4a98d27edfd97e"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/run-portable.py": {
+    "bytes": 2114,
+    "sha256": "e03c2acee0b3188d3aaa0fde2e86266829eef8738541cd4389790865d8070d77"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/tests.cpp": {
+    "bytes": 8082,
+    "sha256": "cbabc46a3978dad90604b4d9477c157b6405c56c8c05cc14eb094cbd5759f402"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/tree/protocol-candidate/miles_wire.h": {
+    "bytes": 4560,
+    "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3"
+  },
+  "vendor-options/miles-integration-seam/portable-registry85/tree/transport-candidate/resource_registry.h": {
+    "bytes": 9388,
+    "sha256": "c98f53fffcb5c4a03e670efe25dc95be573b7e017ab14c4b0c27a3f3a97b2a3d"
+  },
   "vendor-options/miles-integration-seam/portable-reply66/LiveChannel64-source-only.cpp": {
     "bytes": 6741,
     "sha256": "7ad33739e74362d789313f35522c07301974f61d5374d51967955d732af32918"
@@ -24386,6 +25878,142 @@
   "vendor-options/miles-integration-seam/portable-reply66/unrun-test-draft-v1/tests.cpp": {
     "bytes": 9277,
     "sha256": "3a8949fc8757d40582dc7d9d54158e44d717b0dd24ffda9c8f32f099c64f0bfb"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/PLAN.md": {
+    "bytes": 3022,
+    "sha256": "a8737147d2991ae64ddf8ce118537343dd3963b429e2a4979fd1f37d7a016b16"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/RESULTS-v1.md": {
+    "bytes": 439,
+    "sha256": "b84844a0b2abb0eb7020b81da45dd2e324ed9eb3d7a34ea4e04e2f4de48ccf2d"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/REVIEW-independent-pretest.md": {
+    "bytes": 5071,
+    "sha256": "2efe7b337539ee9c7c5de866466e554fe2bcdbd2b83b59089a5b47db4b042578"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/compat.h": {
+    "bytes": 287,
+    "sha256": "b727402fadf4e28db703b6991bb1adc33d2a6607f2135f392becae2b93ee1b4b"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/evidence-v1/build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/evidence-v1/results.json": {
+    "bytes": 1951,
+    "sha256": "4fdf391e77d3cba852446c2a8120712d562c465f78c4bfe77025fc1f609d5a0d"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/evidence-v1/run.log": {
+    "bytes": 217,
+    "sha256": "d39e317bb7eadd02d2559597bbbe518a504f0ba8c63a8aa46259d892bdff1b39"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/expected-markers.json": {
+    "bytes": 225,
+    "sha256": "f8d66e1cec3c5a351a0f5b219cce0414dd7ddf7f1781310da54d64cbfa6d05ec"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/freeze.json": {
+    "bytes": 3066,
+    "sha256": "dca4e3929cc072cc17ad575bbbae38065ff4e4d911973d4158f6627f2b1fd3ef"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/origins.json": {
+    "bytes": 6617,
+    "sha256": "681c4a57908057c394f795c9d69444d88f7248fe542590213c8858d801d15346"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/prepare.py": {
+    "bytes": 1210,
+    "sha256": "426d66640b17ab4d501d86cc2169757e6b3d4f1766ca05ba37b7ef23f80ac912"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/run-portable.py": {
+    "bytes": 2379,
+    "sha256": "f799b9be3f7c2c073bce1d94f95f794e91dee24f6c8941237d6932551346783a"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tests.cpp": {
+    "bytes": 6708,
+    "sha256": "dbeb786eda321d5c50f0c40ac2854111beff0033719c6c7bae4d796c3718cfbd"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/backend-boundary24/ClientMiles.h": {
+    "bytes": 8609,
+    "sha256": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/backend-boundary24/pipe/Channel.h": {
+    "bytes": 859,
+    "sha256": "a56ddd8a73363f9a0aa2bcd31f79d691314ac5048247eff1a5351bc03a696526"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/backend-boundary24/pipe/PipeCore.cpp": {
+    "bytes": 37522,
+    "sha256": "e61e61b8ba4012238561c0ef4f78534e54e564a29b8af015b1fb7500fb8ee322"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/backend-boundary24/pipe/PipeCore.h": {
+    "bytes": 7502,
+    "sha256": "ecab3236e10860f01fbd2d3204537229c90933faff2e082bea1e981ce88b20da"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/backend-boundary24/pipe/Session.h": {
+    "bytes": 2467,
+    "sha256": "6d8432ec6b78c745d02ed0867f2413635e3d10441d5eb7453c2029baf0cf19ac"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/callback-reentry47/invocation_guard.cpp": {
+    "bytes": 881,
+    "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/callback-reentry47/invocation_guard.h": {
+    "bytes": 619,
+    "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/client-runtime53/client_file_runtime.h": {
+    "bytes": 653,
+    "sha256": "a9e05e32bf86d9fb63dad50aba2724e21c70d6b5686907334eed25950c1b82bb"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/host-candidate/host_dispatch.h": {
+    "bytes": 838,
+    "sha256": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/native-file-callbacks35/ClientMilesFileCallbacks.h": {
+    "bytes": 304,
+    "sha256": "ac6d98359848a50477892628c26c6685905c4c04b9028f10d59cf5d468b61465"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/protocol-candidate/miles_wire.h": {
+    "bytes": 4560,
+    "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/protocol-candidate/pair_outputs.h": {
+    "bytes": 800,
+    "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/session-version22/session_version.cpp": {
+    "bytes": 2678,
+    "sha256": "eb92d358dfc983ebbfb09f44cff70ca30feaf8a8b5c3cffd85b4ffd47b0d084a"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/session-version22/session_version.h": {
+    "bytes": 969,
+    "sha256": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/startup-bridge23/reply.h": {
+    "bytes": 5879,
+    "sha256": "a5a687ea5dab7e7b000bc28feeb36d73c38fc3a87eb9cb98afcff2f5d8217a3e"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/startup-metadata-v4/metadata.h": {
+    "bytes": 1725,
+    "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/startup-metadata-v4/metadata_wire.cpp": {
+    "bytes": 2986,
+    "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/transport-candidate/codec.cpp": {
+    "bytes": 8736,
+    "sha256": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/transport-candidate/codec.h": {
+    "bytes": 1400,
+    "sha256": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/tree/transport-candidate/resource_registry.h": {
+    "bytes": 8679,
+    "sha256": "f058c6abcf10d3b5365acb427b7f33d8debe31f4ca2d6c648472916e38960a8f"
+  },
+  "vendor-options/miles-integration-seam/portable-text87/unrun-tests-v1.cpp": {
+    "bytes": 5659,
+    "sha256": "9201b008414d122fc962a1a7fe59946fa6d3ab37b909f8cf149de8aa30d1fa3a"
   },
   "vendor-options/miles-integration-seam/protocol-candidate/API-MAP.md": {
     "bytes": 6866,
@@ -27843,6 +29471,54 @@
     "bytes": 4362,
     "sha256": "6831cb06b9df68bccbc78d638107ae82279ed1026ed9e4303c6fb58c7d7f1d24"
   },
+  "vendor-options/miles-integration-seam/stream-lifetime82/REVIEW-PLAN.md": {
+    "bytes": 8974,
+    "sha256": "f3d34f4442c87f4d0a0cf8a73a0b295110f1122f7898914921321a8c35444d80"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/PLAN.md": {
+    "bytes": 7020,
+    "sha256": "0f301ccdec0d82239d9ffb94f1204284105011538746a268c017165f27b26faa"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/REVIEW-composer-reconciliation.md": {
+    "bytes": 3345,
+    "sha256": "1f6c1087388d4827a229970050090c6e7232f9d7f5891ca93f9ff547f96e1e82"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/REVIEW-independent.md": {
+    "bytes": 4191,
+    "sha256": "a4c56a3cdd655836d956459e9b536606ea04c68bcecfd74fb1844c1c8def2986"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/candidate/protocol-candidate/miles_wire.h": {
+    "bytes": 4560,
+    "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/candidate/startup-bridge23/backend.h": {
+    "bytes": 15870,
+    "sha256": "1614dd558ad523d458c19b744ef4fc1ca4b3ff526fb88ec9abc6d11a93e5391e"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/candidate/transport-candidate/resource_registry.h": {
+    "bytes": 9388,
+    "sha256": "c98f53fffcb5c4a03e670efe25dc95be573b7e017ab14c4b0c27a3f3a97b2a3d"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/lifetime83.patch": {
+    "bytes": 9546,
+    "sha256": "4e6657653533f41117f639d2ecb629c5319438a281feb8309baa57c99f32bedf"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/provenance.json": {
+    "bytes": 968,
+    "sha256": "aed02fdde4c995b00d9b88301cbab56ff43ab355cfa5af602d6f9989e2e57880"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/source-manifest.json": {
+    "bytes": 375,
+    "sha256": "abc2b6036d5652ea303cf9001eae37b08969690b3f752446ea632572b3803d06"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/test-manifest.json": {
+    "bytes": 121,
+    "sha256": "06ff7ae723ef765f0446dbb4b543ef2eb760121464ccacbe5db38da404a14a3d"
+  },
+  "vendor-options/miles-integration-seam/stream-lifetime83/tests/registry_tests.cpp": {
+    "bytes": 4128,
+    "sha256": "618c2ba39846bdd0a858fcde205a3390145ed6c71c87ff208679a9dd1f5ca947"
+  },
   "vendor-options/miles-integration-seam/stream-native38/COMPILE-AUTHORIZATION-v1.json": {
     "bytes": 406,
     "sha256": "afaa1fb5a7a78b7e1be13e4c8016a6249a498e126849c5d7b19a9ad54a5e169f"
@@ -28539,6 +30215,42 @@
     "bytes": 11708,
     "sha256": "c306039754fcbb5eb33c2e9c18428167c9f741101dfdb8c03151c955d8f4a228"
   },
+  "vendor-options/miles-integration-seam/text-controls81/ACCEPTANCE.md": {
+    "bytes": 3220,
+    "sha256": "800232807d003235207a88472d68f54eda0944bc32bdf1bfeba69d1237f8a916"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/PLAN.md": {
+    "bytes": 4787,
+    "sha256": "ac847642e560272e6918be03294184f988101a53c2dbe1bd1e2ca96578588230"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": {
+    "bytes": 8535,
+    "sha256": "9c5930a14482824e7d1798318ef3fffdce1a8383d0c19f33944290616e989cdd"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/candidate/backend-boundary24/pipe/PipeCore.cpp": {
+    "bytes": 37522,
+    "sha256": "e61e61b8ba4012238561c0ef4f78534e54e564a29b8af015b1fb7500fb8ee322"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/candidate/backend-boundary24/pipe/PipeCore.h": {
+    "bytes": 7502,
+    "sha256": "ecab3236e10860f01fbd2d3204537229c90933faff2e082bea1e981ce88b20da"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/candidate/backend-boundary24/pipe/Session.h": {
+    "bytes": 2467,
+    "sha256": "6d8432ec6b78c745d02ed0867f2413635e3d10441d5eb7453c2029baf0cf19ac"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/from77.patch": {
+    "bytes": 3854,
+    "sha256": "f93adad33c5d284392f37b14d9fa96077f4f7bce564a02cc5af5ea427d398f1f"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/provenance.json": {
+    "bytes": 1180,
+    "sha256": "a0e70f1bc6099eb4bbbcd468646ffeeb8fea985bce08d475443c45e821863b36"
+  },
+  "vendor-options/miles-integration-seam/text-controls81/source-manifest.json": {
+    "bytes": 862,
+    "sha256": "45f137fa31c12cb0100ff77a30752b7e130eb4edcfbf349f3554118c3f12c4e9"
+  },
   "vendor-options/miles-integration-seam/transport-baseline-412-v3/PLAN.md": {
     "bytes": 2738,
     "sha256": "37a7d842faa20cf8ca2b57f70f59ce0f005c938fa31d1dad257ed454d55663ec"
@@ -28938,6 +30650,118 @@
   "vendor-options/miles-integration-seam/transport-candidate/tests.cpp": {
     "bytes": 9384,
     "sha256": "a913db4f70acba9d2c611486a0431cab9c76749e7508f8c32ce5983989ad8eff"
+  },
+  "vendor-options/miles-integration-seam/version84/ASSESSMENT.md": {
+    "bytes": 6309,
+    "sha256": "ad64cd190f37483db621956cbf68e8e54ca3ee724f827e411a99ccfe36c33caf"
+  },
+  "vendor-options/miles-integration-seam/version84/IMPLEMENTATION-NEXT.md": {
+    "bytes": 3928,
+    "sha256": "6d85bcbccef2231985736f926e36b4b13a0c9c2a09434c83b0d2e7553b304535"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/PLAN.md": {
+    "bytes": 4733,
+    "sha256": "e9cf5d7fd17fe3c3886f3be3714fc5366ca663a8fa16fdab8ca7d4489dd7d251"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/RESULTS-v1.md": {
+    "bytes": 1737,
+    "sha256": "520c89bef0b0295b8e3e875fff5746a25122f2a1ca52a7f375b35d0976dd07eb"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/REVIEW-parent-pretest.md": {
+    "bytes": 1143,
+    "sha256": "41ea5122e471e555979299690b27f4b2f2f914416f15c9eddc39c4d9dbde33c2"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/collect-text.py": {
+    "bytes": 653,
+    "sha256": "f0055a8e2ff9e96cb0f59317373e89a280c8610308232167e2e7e918abea5ef1"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/after.json": {
+    "bytes": 2219,
+    "sha256": "29dc9df882c3b876a8cbb1b502a3114175b713cce818cb09f68080013ce67df9"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/before.json": {
+    "bytes": 2219,
+    "sha256": "29dc9df882c3b876a8cbb1b502a3114175b713cce818cb09f68080013ce67df9"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/compile-command.json": {
+    "bytes": 270,
+    "sha256": "66789bfc111dc032a105e8897b4b9b480d1b6cd8c71b69e904e16cced4c5956b"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/compile.log": {
+    "bytes": 10747,
+    "sha256": "47a97657abb749c129e18706515b89ffef750887b388b427967fce6be7b3b1e6"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/link-command.json": {
+    "bytes": 770,
+    "sha256": "afb67334286a39af98b7195a5d141526832d1057cfe49fdbccf4e3ca1d7fd499"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/link.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/observation-command.json": {
+    "bytes": 56,
+    "sha256": "1eb841c18a3d6d7ecf59b74f034e7e62755c9bba571a2b0deef2a7d1bf8ef107"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/observation.log": {
+    "bytes": 5757,
+    "sha256": "44173b6f8b08522c7798389875d09130318dbfeaf10ddfef38912125b6c74318"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/resource-command.json": {
+    "bytes": 184,
+    "sha256": "c8baa9a510b46607afe24ceb64006bc2ffa9a66c5d194cc6363bf1c9017b4033"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/resource.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/evidence-v1/results.json": {
+    "bytes": 306,
+    "sha256": "7226d99bebc4303560002d9da2c7942176b5bbfa344d77b30ca37f55fcba9c45"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/manifest.json": {
+    "bytes": 764,
+    "sha256": "29b41af65b98b74a816839f14ecd3eab4c3fcc45c5cbf6890f1d89a9c1540314"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/local-evidence-v1/curated/tool-identities.json": {
+    "bytes": 2068,
+    "sha256": "daad117e758e452355d661a24d6e01643c15606475f3c7449fa7318d6132ca8b"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/manifest.json": {
+    "bytes": 764,
+    "sha256": "29b41af65b98b74a816839f14ecd3eab4c3fcc45c5cbf6890f1d89a9c1540314"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/observed-buffer-results.json": {
+    "bytes": 5844,
+    "sha256": "8670c0e5d328871673fb6cc60ac33190640d5a7fae896078e372adc26e491b80"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/probe.cpp": {
+    "bytes": 2041,
+    "sha256": "a4b0b0ed25db4c64462617a359fd4a95e11f69099e0ba3bf79fa7671ec0d154a"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/probe.rc": {
+    "bytes": 60,
+    "sha256": "a5fb114bdd266f989ef78df8ca09172dae6918830165445079c4ada54b5901d1"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/run-approved-local.py": {
+    "bytes": 3305,
+    "sha256": "ea5f766bf786a3e94b761970b9af9b2efbf0dbd2e9a60052afe8a6eb4d0c5064"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/run-probe.py": {
+    "bytes": 2672,
+    "sha256": "26df7132c22bccde32771c416e3afd9274895871bbd8da5afd785f93981e822b"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/tool-identities.json": {
+    "bytes": 2068,
+    "sha256": "daad117e758e452355d661a24d6e01643c15606475f3c7449fa7318d6132ca8b"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/unrun-author-v1/PLAN.md": {
+    "bytes": 3232,
+    "sha256": "9adf80d88bfad2e50cdfaf23e12113fc0a4a6791e75e9ef37acc50f0616114dc"
+  },
+  "vendor-options/miles-integration-seam/version84/resource-probe-v1/unrun-author-v1/manifest.json": {
+    "bytes": 382,
+    "sha256": "0c30ba58db682defb80db0f41513a6b3f8a27e5b39d8ce8de272067bb4f8f13d"
   },
   "vendor-options/miles-options.md": {
     "bytes": 14161,

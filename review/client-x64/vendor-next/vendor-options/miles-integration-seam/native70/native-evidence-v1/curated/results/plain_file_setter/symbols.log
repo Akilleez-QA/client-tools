@@ -1,0 +1,83 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native70\results\plain_file_setter\plain_file_setter.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   C1, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   8C, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length   57, #relocs    2, #linenums    0, checksum B36B2AFC, selection    1 (pick no duplicates)
+008 00000000 SECT4  notype       Static       | .text$x
+    Section length   44, #relocs    3, #linenums    0, checksum 714C4387, selection    5 (pick associative Section 0x3)
+00A 00000000 SECT3  notype ()    External     | ?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z (void __cdecl ClientMiles::set_file_callbacks(unsigned int (__cdecl*)(char const *,unsigned __int64 *),void (__cdecl*)(unsigned __int64),int (__cdecl*)(unsigned __int64,int,unsigned int),unsigned int (__cdecl*)(unsigned __int64,void *,unsigned int)))
+00B 00000000 UNDEF  notype ()    External     | ?requireFatalReporter@ClientMilesPrivate52@@YAXXZ (void __cdecl ClientMilesPrivate52::requireFatalReporter(void))
+00C 00000000 UNDEF  notype ()    External     | ?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z (void __cdecl ClientMilesPrivate52::fail(enum ClientMilesPrivate52::Fault,char const *))
+00D 00000000 UNDEF  notype ()    External     | ?set_file_callbacks@ClientMilesNativeFile67@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z (void __cdecl ClientMilesNativeFile67::set_file_callbacks(unsigned int (__cdecl*)(char const *,unsigned __int64 *),void (__cdecl*)(unsigned __int64),int (__cdecl*)(unsigned __int64,int,unsigned int),unsigned int (__cdecl*)(unsigned __int64,void *,unsigned int)))
+00E 00000000 SECT4  notype ()    Static       | ?catch$0@?0??set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z@4HA (int `void __cdecl ClientMiles::set_file_callbacks(unsigned int (__cdecl*)(char const *,unsigned __int64 *),void (__cdecl*)(unsigned __int64),int (__cdecl*)(unsigned __int64,int,unsigned int),unsigned int (__cdecl*)(unsigned __int64,void *,unsigned int))'::`1'::catch$0)
+00F 00000025 SECT4  notype ()    Static       | ?catch$1@?0??set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z@4HA (int `void __cdecl ClientMiles::set_file_callbacks(unsigned int (__cdecl*)(char const *,unsigned __int64 *),void (__cdecl*)(unsigned __int64),int (__cdecl*)(unsigned __int64,int,unsigned int),unsigned int (__cdecl*)(unsigned __int64,void *,unsigned int))'::`1'::catch$1)
+010 00000000 UNDEF  notype ()    External     | __CxxFrameHandler3
+011 00000057 SECT3  notype       Label        | $LN11
+012 0000000D SECT4  notype ()    Static       | __catch$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z$0
+013 00000032 SECT4  notype ()    Static       | __catch$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z$1
+014 00000000 SECT3  notype       Label        | $LN12
+015 00000000 SECT5  notype       Static       | .xdata
+    Section length   1C, #relocs    2, #linenums    0, checksum 3AAFF409, selection    5 (pick associative Section 0x3)
+017 00000000 SECT5  notype       Static       | $unwind$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+018 00000000 SECT6  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 5FE3FADF, selection    5 (pick associative Section 0x3)
+01A 00000000 SECT6  notype       Static       | $pdata$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+01B 00000000 SECT7  notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum C287D53F, selection    5 (pick associative Section 0x3)
+01D 00000000 SECT7  notype       Static       | $cppxdata$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+01E 00000000 SECT8  notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0x3)
+020 00000000 SECT8  notype       Static       | $stateUnwindMap$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+021 00000000 SECT9  notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum D9804B12, selection    5 (pick associative Section 0x3)
+023 00000000 SECT9  notype       Static       | $tryMap$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+024 00000000 SECTA  notype       Static       | .xdata
+    Section length   28, #relocs    3, #linenums    0, checksum 5F46379F, selection    5 (pick associative Section 0x3)
+026 00000000 SECTA  notype       Static       | $handlerMap$0$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+027 00000000 SECTB  notype       Static       | .xdata
+    Section length   38, #relocs    7, #linenums    0, checksum 863399F1, selection    5 (pick associative Section 0x3)
+029 00000000 SECTB  notype       Static       | $ip2state$?set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z
+02A 00000000 SECTC  notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x3)
+02C 00000000 SECTC  notype       Static       | $unwind$?catch$0@?0??set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z@4HA
+02D 00000000 SECTD  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B1966C32, selection    5 (pick associative Section 0x3)
+02F 00000000 SECTD  notype       Static       | $pdata$?catch$0@?0??set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z@4HA
+030 00000000 SECTE  notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x3)
+032 00000000 SECTE  notype       Static       | $unwind$?catch$1@?0??set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z@4HA
+033 00000000 SECTF  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A59B2387, selection    5 (pick associative Section 0x3)
+035 00000000 SECTF  notype       Static       | $pdata$?catch$1@?0??set_file_callbacks@ClientMiles@@YAXP6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@Z@Z@4HA
+036 00000000 SECT10 notype       Static       | .data$r
+    Section length   24, #relocs    1, #linenums    0, checksum 54BC55F2, selection    2 (pick any)
+038 00000000 SECT10 notype       External     | ??_R0?AVexception@std@@@8 (class std::exception `RTTI Type Descriptor')
+039 00000000 SECT11 notype       Static       | .rdata
+    Section length   2D, #relocs    0, #linenums    0, checksum DE778BEA, selection    2 (pick any)
+03B 00000000 SECT11 notype       External     | ??_C@_0CN@OHAIODLB@non?9standard?5exception?5in?5native@ (`string')
+03C 00000000 UNDEF  notype       External     | ??_7type_info@@6B@ (const type_info::`vftable')
+
+String Table Size = 0x749 bytes
+
+  Summary
+
+          24 .data$r
+          8C .debug$S
+          C1 .drectve
+          24 .pdata
+          55 .rdata
+          57 .text$mn
+          44 .text$x
+          C0 .xdata

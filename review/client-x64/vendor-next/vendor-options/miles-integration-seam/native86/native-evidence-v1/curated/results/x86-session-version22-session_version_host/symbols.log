@@ -1,0 +1,55 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native86\results\x86-session-version22-session_version_host\x86-session-version22-session_version_host.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000191 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   F0, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   C0, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length   D8, #relocs    7, #linenums    0, checksum DAD70BC2
+008 00000000 SECT4  notype       Static       | .text$di
+    Section length    D, #relocs    0, #linenums    0, checksum A512431E, selection    2 (pick any)
+00A 00000000 SECT5  notype       Static       | .text$di
+    Section length    D, #relocs    0, #linenums    0, checksum A512431E, selection    2 (pick any)
+00C 00000000 SECT6  notype       Static       | .text$mn
+    Section length   27, #relocs    1, #linenums    0, checksum D2B43191, selection    2 (pick any)
+00E 00000000 UNDEF  notype ()    External     | _memset
+00F 00000000 UNDEF  notype ()    External     | __hypot
+010 00000000 SECT6  notype ()    External     | _hypot
+011 00000000 SECT5  notype ()    Static       | ??__Epiecewise_construct@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'piecewise_construct''(void))
+012 00000000 SECT4  notype ()    Static       | ??__Eallocator_arg@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'allocator_arg''(void))
+013 00000000 UNDEF  notype ()    External     | ?validateQuery@MilesSessionVersion@@YA_NUBytes@MilesTransport@@AAUHeader@MilesWire@@@Z (bool __cdecl MilesSessionVersion::validateQuery(struct MilesTransport::Bytes,struct MilesWire::Header &))
+014 00000000 UNDEF  notype ()    External     | ?makeReply@MilesSessionVersion@@YA_NABUHeader@MilesWire@@AAY0BAA@$$CBDAAV?$vector@EV?$allocator@E@std@@@std@@@Z (bool __cdecl MilesSessionVersion::makeReply(struct MilesWire::Header const &,char const (&)[256],class std::vector<unsigned char,class std::allocator<unsigned char> > &))
+015 00000000 UNDEF  notype       External     | __imp__LoadStringA@16
+016 00000000 SECT3  notype ()    External     | ?queryCurrentDll@MilesSessionVersion@@YA_NUBytes@MilesTransport@@PAUHINSTANCE__@@AAV?$vector@EV?$allocator@E@std@@@std@@@Z (bool __cdecl MilesSessionVersion::queryCurrentDll(struct MilesTransport::Bytes,struct HINSTANCE__ *,class std::vector<unsigned char,class std::allocator<unsigned char> > &))
+017 00000000 UNDEF  notype ()    External     | @__security_check_cookie@4
+018 00000000 UNDEF  notype ()    External     | _memset
+019 00000000 SECT7  notype       Static       | .bss
+    Section length    2, #relocs    0, #linenums    0, checksum        0
+01B 00000001 SECT7  notype       Static       | _piecewise_construct
+01C 00000000 SECT7  notype       Static       | _allocator_arg
+01D 00000000 UNDEF  notype       External     | ___security_cookie
+01E 00000000 UNDEF  notype       External     | __fltused
+01F 00000000 SECT8  notype       Static       | .CRT$XCU
+    Section length    8, #relocs    2, #linenums    0, checksum        0
+021 00000000 SECT8  notype       Static       | _piecewise_construct$initializer$
+022 00000004 SECT8  notype       Static       | _allocator_arg$initializer$
+
+String Table Size = 0x238 bytes
+
+  Summary
+
+           8 .CRT$XCU
+           2 .bss
+          C0 .debug$S
+          F0 .drectve
+          1A .text$di
+          FF .text$mn

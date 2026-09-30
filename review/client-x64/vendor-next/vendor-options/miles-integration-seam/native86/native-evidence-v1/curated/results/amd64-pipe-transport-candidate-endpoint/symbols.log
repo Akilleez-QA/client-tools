@@ -1,0 +1,1555 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native86\results\amd64-pipe-transport-candidate-endpoint\amd64-pipe-transport-candidate-endpoint.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   F0, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   B8, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .rdata
+    Section length  100, #relocs    B, #linenums    0, checksum 9A0D5A89
+008 00000000 SECT3  notype       Static       | $SG94678
+009 00000020 SECT3  notype       Static       | $SG94689
+00A 00000000 SECT4  notype       Static       | .text$mn
+    Section length  E9D, #relocs   53, #linenums    0, checksum 1DEB5C8C
+00C 00000000 SECT5  notype       Static       | .text$x
+    Section length   E2, #relocs    9, #linenums    0, checksum  1140D4A
+00E 00000000 SECT6  notype       Static       | .text$mn
+    Section length   53, #relocs    3, #linenums    0, checksum 1DCA727A, selection    2 (pick any)
+010 00000000 SECT7  notype       Static       | .text$x
+    Section length   18, #relocs    1, #linenums    0, checksum 4623BED5, selection    5 (pick associative Section 0x6)
+012 00000000 SECT8  notype       Static       | .text$mn
+    Section length    D, #relocs    0, #linenums    0, checksum 884019D4, selection    2 (pick any)
+014 00000000 SECT9  notype       Static       | .text$mn
+    Section length   46, #relocs    3, #linenums    0, checksum 525B5488, selection    2 (pick any)
+016 00000000 SECTA  notype       Static       | .text$mn
+    Section length   3E, #relocs    0, #linenums    0, checksum 64E288C4, selection    2 (pick any)
+018 00000000 SECTB  notype       Static       | .text$mn
+    Section length   4F, #relocs    2, #linenums    0, checksum  F0B06F1, selection    2 (pick any)
+01A 00000000 SECTC  notype       Static       | .text$mn
+    Section length   5C, #relocs    2, #linenums    0, checksum EBA84DDE, selection    2 (pick any)
+01C 00000000 SECTD  notype       Static       | .text$mn
+    Section length   48, #relocs    2, #linenums    0, checksum 3C1FD6A7, selection    2 (pick any)
+01E 00000000 SECTE  notype       Static       | .text$mn
+    Section length   7B, #relocs    3, #linenums    0, checksum 95566343, selection    2 (pick any)
+020 00000000 SECTF  notype       Static       | .text$x
+    Section length   2E, #relocs    3, #linenums    0, checksum EE4FDB5D, selection    5 (pick associative Section 0xE)
+022 00000000 SECT10 notype       Static       | .text$mn
+    Section length   6B, #relocs    3, #linenums    0, checksum 15894AF4, selection    2 (pick any)
+024 00000000 SECT11 notype       Static       | .text$mn
+    Section length   A4, #relocs    8, #linenums    0, checksum 6D109B72, selection    2 (pick any)
+026 00000000 SECT12 notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum FBE955A0, selection    2 (pick any)
+028 00000000 SECT13 notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum FBE955A0, selection    2 (pick any)
+02A 00000000 SECT14 notype       Static       | .text$mn
+    Section length   73, #relocs    4, #linenums    0, checksum 7EA4C12E, selection    2 (pick any)
+02C 00000000 SECT15 notype       Static       | .text$mn
+    Section length   73, #relocs    4, #linenums    0, checksum 7EA4C12E, selection    2 (pick any)
+02E 00000000 SECT16 notype       Static       | .text$mn
+    Section length   4C, #relocs    2, #linenums    0, checksum  5ADB99C, selection    2 (pick any)
+030 00000000 SECT17 notype       Static       | .text$mn
+    Section length   4C, #relocs    2, #linenums    0, checksum  5ADB99C, selection    2 (pick any)
+032 00000000 SECT18 notype       Static       | .text$mn
+    Section length   45, #relocs    2, #linenums    0, checksum 56644862, selection    2 (pick any)
+034 00000000 SECT19 notype       Static       | .text$mn
+    Section length   15, #relocs    0, #linenums    0, checksum 6DD90E1A, selection    2 (pick any)
+036 00000000 SECT1A notype       Static       | .text$mn
+    Section length   77, #relocs    4, #linenums    0, checksum ABFC9DFF, selection    2 (pick any)
+038 00000000 SECT1B notype       Static       | .text$mn
+    Section length   23, #relocs    0, #linenums    0, checksum 837B2F6D, selection    2 (pick any)
+03A 00000000 SECT1C notype       Static       | .text$mn
+    Section length   23, #relocs    0, #linenums    0, checksum 837B2F6D, selection    2 (pick any)
+03C 00000000 SECT1D notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+03E 00000000 SECT1E notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+040 00000000 SECT1F notype       Static       | .text$mn
+    Section length   17, #relocs    0, #linenums    0, checksum  F6C30BD, selection    2 (pick any)
+042 00000000 SECT20 notype       Static       | .text$mn
+    Section length   17, #relocs    0, #linenums    0, checksum  F6C30BD, selection    2 (pick any)
+044 00000000 SECT21 notype       Static       | .text$mn
+    Section length   1D, #relocs    0, #linenums    0, checksum C7F75F6F, selection    2 (pick any)
+046 00000000 SECT22 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+048 00000000 SECT23 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+04A 00000000 SECT24 notype       Static       | .text$mn
+    Section length   45, #relocs    2, #linenums    0, checksum 98D51049, selection    2 (pick any)
+04C 00000000 SECT25 notype       Static       | .text$mn
+    Section length   45, #relocs    2, #linenums    0, checksum 98D51049, selection    2 (pick any)
+04E 00000000 SECT26 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+050 00000000 SECT27 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+052 00000000 SECT28 notype       Static       | .text$mn
+    Section length   7E, #relocs    5, #linenums    0, checksum 18F5DAB1, selection    2 (pick any)
+054 00000000 SECT29 notype       Static       | .text$mn
+    Section length   52, #relocs    2, #linenums    0, checksum 494D6CEE, selection    2 (pick any)
+056 00000000 SECT2A notype       Static       | .text$mn
+    Section length   2F, #relocs    1, #linenums    0, checksum D9B019F0, selection    2 (pick any)
+058 00000000 SECT2B notype       Static       | .text$mn
+    Section length   7E, #relocs    5, #linenums    0, checksum 262A36FD, selection    2 (pick any)
+05A 00000000 SECT2C notype       Static       | .text$mn
+    Section length   61, #relocs    3, #linenums    0, checksum 43AFE498, selection    2 (pick any)
+05C 00000000 SECT2D notype       Static       | .text$mn
+    Section length   72, #relocs    5, #linenums    0, checksum A787AFF0, selection    2 (pick any)
+05E 00000000 SECT2E notype       Static       | .text$mn
+    Section length   55, #relocs    3, #linenums    0, checksum EBB001DA, selection    2 (pick any)
+060 00000000 SECT2F notype       Static       | .text$mn
+    Section length   72, #relocs    5, #linenums    0, checksum A787AFF0, selection    2 (pick any)
+062 00000000 SECT30 notype       Static       | .text$mn
+    Section length    8, #relocs    0, #linenums    0, checksum 812302C8, selection    2 (pick any)
+064 00000000 SECT31 notype       Static       | .text$mn
+    Section length   34, #relocs    2, #linenums    0, checksum 9ECFE8E9, selection    2 (pick any)
+066 00000000 SECT32 notype       Static       | .text$mn
+    Section length   79, #relocs    2, #linenums    0, checksum E3EEEC4C, selection    2 (pick any)
+068 00000000 SECT33 notype       Static       | .text$x
+    Section length   1C, #relocs    1, #linenums    0, checksum 3B48060D, selection    5 (pick associative Section 0x32)
+06A 00000000 SECT34 notype       Static       | .text$mn
+    Section length   34, #relocs    2, #linenums    0, checksum 9ECFE8E9, selection    2 (pick any)
+06C 00000000 SECT35 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+06E 00000000 SECT36 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum 38087020, selection    2 (pick any)
+070 00000000 SECT37 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+072 00000000 SECT38 notype       Static       | .text$mn
+    Section length   48, #relocs    2, #linenums    0, checksum D8786715, selection    2 (pick any)
+074 00000000 SECT39 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+076 00000000 SECT3A notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+078 00000000 SECT3B notype       Static       | .text$mn
+    Section length   5B, #relocs    2, #linenums    0, checksum EDD7F523, selection    2 (pick any)
+07A 00000000 SECT3C notype       Static       | .text$mn
+    Section length   4F, #relocs    3, #linenums    0, checksum 33A81345, selection    2 (pick any)
+07C 00000000 SECT3D notype       Static       | .text$mn
+    Section length   4F, #relocs    3, #linenums    0, checksum 33A81345, selection    2 (pick any)
+07E 00000000 SECT3E notype       Static       | .text$mn
+    Section length   37, #relocs    2, #linenums    0, checksum E4A35C9B, selection    2 (pick any)
+080 00000000 SECT3F notype       Static       | .text$x
+    Section length   18, #relocs    1, #linenums    0, checksum 4623BED5, selection    5 (pick associative Section 0x3E)
+082 00000000 SECT40 notype       Static       | .text$mn
+    Section length   44, #relocs    1, #linenums    0, checksum 427B1920, selection    2 (pick any)
+084 00000000 SECT41 notype       Static       | .text$mn
+    Section length   1D, #relocs    1, #linenums    0, checksum A11E7418, selection    2 (pick any)
+086 00000000 SECT42 notype       Static       | .text$mn
+    Section length   1D, #relocs    1, #linenums    0, checksum A11E7418, selection    2 (pick any)
+088 00000000 SECT43 notype       Static       | .text$mn
+    Section length   10, #relocs    0, #linenums    0, checksum E0B53F17, selection    2 (pick any)
+08A 00000000 SECT44 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+08C 00000000 SECT45 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum C455396F, selection    2 (pick any)
+08E 00000000 SECT46 notype       Static       | .text$mn
+    Section length   2A, #relocs    2, #linenums    0, checksum E2FAD6C7, selection    2 (pick any)
+090 00000000 SECT47 notype       Static       | .text$mn
+    Section length   17, #relocs    0, #linenums    0, checksum 14D30355, selection    2 (pick any)
+092 00000000 SECT48 notype       Static       | .text$mn
+    Section length   24, #relocs    0, #linenums    0, checksum 3907F832, selection    2 (pick any)
+094 00000000 SECT49 notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum 7BB6AE8C, selection    2 (pick any)
+096 00000000 SECT4A notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum 7BB6AE8C, selection    2 (pick any)
+098 00000000 SECT4B notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum 7BB6AE8C, selection    2 (pick any)
+09A 00000000 SECT4C notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum  7F1913B, selection    2 (pick any)
+09C 00000000 SECT4D notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum 7BB6AE8C, selection    2 (pick any)
+09E 00000000 SECT4E notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum  7F1913B, selection    2 (pick any)
+0A0 00000000 SECT4F notype       Static       | .text$mn
+    Section length   22, #relocs    2, #linenums    0, checksum 72D15621, selection    2 (pick any)
+0A2 00000000 SECT50 notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+0A4 00000000 SECT51 notype       Static       | .text$mn
+    Section length   22, #relocs    2, #linenums    0, checksum 72D15621, selection    2 (pick any)
+0A6 00000000 SECT52 notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+0A8 00000000 SECT53 notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+0AA 00000000 SECT54 notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+0AC 00000000 SECT55 notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+0AE 00000000 SECT56 notype       Static       | .text$mn
+    Section length   10, #relocs    0, #linenums    0, checksum 62AEA74E, selection    2 (pick any)
+0B0 00000000 SECT57 notype       Static       | .text$mn
+    Section length    B, #relocs    0, #linenums    0, checksum 38087020, selection    2 (pick any)
+0B2 00000000 SECT58 notype       Static       | .text$mn
+    Section length   C4, #relocs    D, #linenums    0, checksum AA9AC72F, selection    2 (pick any)
+0B4 00000000 SECT59 notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum A2D70AB0, selection    2 (pick any)
+0B6 00000000 SECT5A notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum A2D70AB0, selection    2 (pick any)
+0B8 00000000 SECT5B notype       Static       | .text$mn
+    Section length   36, #relocs    2, #linenums    0, checksum A2D70AB0, selection    2 (pick any)
+0BA 00000000 SECT5C notype       Static       | .text$di
+    Section length   1C, #relocs    0, #linenums    0, checksum A6B9D72B, selection    2 (pick any)
+0BC 00000000 SECT5D notype       Static       | .text$di
+    Section length   1C, #relocs    0, #linenums    0, checksum A6B9D72B, selection    2 (pick any)
+0BE 00000000 SECT5E notype       Static       | .text$mn
+    Section length   5E, #relocs    4, #linenums    0, checksum 96241ADD, selection    2 (pick any)
+0C0 00000000 SECT5F notype       Static       | .text$mn
+    Section length   B5, #relocs    4, #linenums    0, checksum 308FD00E, selection    2 (pick any)
+0C2 00000000 SECT60 notype       Static       | .text$mn
+    Section length   12, #relocs    0, #linenums    0, checksum 52D1F800, selection    2 (pick any)
+0C4 00000000 SECT61 notype       Static       | .text$mn
+    Section length   3B, #relocs    2, #linenums    0, checksum 9E6DBEE7, selection    2 (pick any)
+0C6 00000000 SECT62 notype       Static       | .text$mn
+    Section length   3E, #relocs    1, #linenums    0, checksum 3780C24D, selection    2 (pick any)
+0C8 00000000 SECT63 notype       Static       | .text$mn
+    Section length   58, #relocs    4, #linenums    0, checksum 5DDCAC40, selection    2 (pick any)
+0CA 00000000 SECT64 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 2056DFF8, selection    2 (pick any)
+0CC 00000000 SECT65 notype       Static       | .text$mn
+    Section length   37, #relocs    0, #linenums    0, checksum  C95C2AF, selection    2 (pick any)
+0CE 00000000 SECT66 notype       Static       | .text$mn
+    Section length    F, #relocs    0, #linenums    0, checksum 71FB81E6, selection    2 (pick any)
+0D0 00000000 SECT67 notype       Static       | .text$mn
+    Section length   A1, #relocs    2, #linenums    0, checksum F409AE0B, selection    2 (pick any)
+0D2 00000000 SECT68 notype       Static       | .text$mn
+    Section length   85, #relocs    2, #linenums    0, checksum 699017D3, selection    2 (pick any)
+0D4 00000000 SECT69 notype       Static       | .text$mn
+    Section length   BE, #relocs    6, #linenums    0, checksum 594CF254, selection    2 (pick any)
+0D6 00000000 SECT6A notype       Static       | .text$x
+    Section length   18, #relocs    1, #linenums    0, checksum 96B3996B, selection    5 (pick associative Section 0x69)
+0D8 00000000 SECT6B notype       Static       | .text$mn
+    Section length   67, #relocs    2, #linenums    0, checksum 9777DD6C, selection    2 (pick any)
+0DA 00000000 SECT6C notype       Static       | .text$mn
+    Section length  124, #relocs    8, #linenums    0, checksum FFF55422, selection    2 (pick any)
+0DC 00000000 SECT6D notype       Static       | .text$x
+    Section length   42, #relocs    4, #linenums    0, checksum  9F4E61D, selection    5 (pick associative Section 0x6C)
+0DE 00000000 SECT6E notype       Static       | .text$mn
+    Section length   82, #relocs    7, #linenums    0, checksum 7EF7D596, selection    2 (pick any)
+0E0 00000000 SECT6F notype       Static       | .text$mn
+    Section length   8C, #relocs    2, #linenums    0, checksum  9B2EC18, selection    2 (pick any)
+0E2 00000000 SECT70 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+0E4 00000000 SECT71 notype       Static       | .text$mn
+    Section length   AD, #relocs    4, #linenums    0, checksum D3C3DB05, selection    2 (pick any)
+0E6 00000000 SECT72 notype       Static       | .text$mn
+    Section length   1B, #relocs    0, #linenums    0, checksum 4238C832, selection    2 (pick any)
+0E8 00000000 SECT73 notype       Static       | .text$mn
+    Section length   1A, #relocs    2, #linenums    0, checksum B55F15B3, selection    2 (pick any)
+0EA 00000000 SECT74 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+0EC 00000000 SECT75 notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum 34937416, selection    2 (pick any)
+0EE 00000000 SECT76 notype       Static       | .text$mn
+    Section length   1F, #relocs    1, #linenums    0, checksum 3DF551A0, selection    2 (pick any)
+0F0 00000000 SECT77 notype       Static       | .text$mn
+    Section length   1F, #relocs    1, #linenums    0, checksum 3DF551A0, selection    2 (pick any)
+0F2 00000000 SECT78 notype       Static       | .text$mn
+    Section length   1B, #relocs    0, #linenums    0, checksum 5520285B, selection    2 (pick any)
+0F4 00000000 SECT79 notype       Static       | .text$mn
+    Section length   46, #relocs    2, #linenums    0, checksum D811D2C0, selection    2 (pick any)
+0F6 00000000 SECT7A notype       Static       | .text$mn
+    Section length   2C, #relocs    1, #linenums    0, checksum B39E14AB, selection    2 (pick any)
+0F8 00000000 SECT7B notype       Static       | .text$mn
+    Section length   2C, #relocs    1, #linenums    0, checksum B39E14AB, selection    2 (pick any)
+0FA 00000000 SECT7C notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum B1EB2B2D, selection    2 (pick any)
+0FC 00000000 SECT7D notype       Static       | .text$mn
+    Section length   22, #relocs    1, #linenums    0, checksum B1EB2B2D, selection    2 (pick any)
+0FE 00000000 SECT7E notype       Static       | .text$mn
+    Section length   36, #relocs    0, #linenums    0, checksum 8E3CE2B8, selection    2 (pick any)
+100 00000000 SECT7F notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+102 00000000 SECT80 notype       Static       | .text$mn
+    Section length    D, #relocs    0, #linenums    0, checksum E246602C, selection    2 (pick any)
+104 00000000 SECT81 notype       Static       | .text$mn
+    Section length   18, #relocs    1, #linenums    0, checksum CC4F429E, selection    2 (pick any)
+106 00000000 SECT82 notype       Static       | .text$mn
+    Section length   25, #relocs    2, #linenums    0, checksum 2BE4DB33, selection    2 (pick any)
+108 00000000 SECT83 notype       Static       | .text$mn
+    Section length   3C, #relocs    0, #linenums    0, checksum A353467F, selection    2 (pick any)
+10A 00000000 SECT84 notype       Static       | .text$mn
+    Section length   EA, #relocs    A, #linenums    0, checksum A0612330, selection    2 (pick any)
+10C 00000000 SECT85 notype       Static       | .text$x
+    Section length   2E, #relocs    3, #linenums    0, checksum EE4FDB5D, selection    5 (pick associative Section 0x84)
+10E 00000000 SECT86 notype       Static       | .text$mn
+    Section length   1B, #relocs    0, #linenums    0, checksum 6550639A, selection    2 (pick any)
+110 00000000 SECT87 notype       Static       | .text$mn
+    Section length  13B, #relocs    E, #linenums    0, checksum F4570FDC, selection    2 (pick any)
+112 00000000 SECT88 notype       Static       | .text$mn
+    Section length   26, #relocs    1, #linenums    0, checksum 8C528FD3, selection    2 (pick any)
+114 00000000 UNDEF  notype ()    External     | ??2@YAPEAX_K@Z (void * __cdecl operator new(unsigned __int64))
+115 00000000 UNDEF  notype ()    External     | ??3@YAXPEAX@Z (void __cdecl operator delete(void *))
+116 00000000 UNDEF  notype ()    External     | _invalid_parameter
+117 00000000 UNDEF  notype ()    External     | memcpy
+118 00000000 UNDEF  notype ()    External     | memset
+119 00000000 UNDEF  notype ()    External     | memmove
+11A 00000000 UNDEF  notype       External     | __imp_ReadFile
+11B 00000000 UNDEF  notype       External     | __imp_WriteFile
+11C 00000000 UNDEF  notype       External     | __imp_CloseHandle
+11D 00000000 UNDEF  notype       External     | __imp_GetLastError
+11E 00000000 UNDEF  notype       External     | __imp_GetOverlappedResult
+11F 00000000 UNDEF  notype       External     | __imp_CancelIoEx
+120 00000000 UNDEF  notype       External     | __imp_ResetEvent
+121 00000000 UNDEF  notype       External     | __imp_CreateEventA
+122 00000000 UNDEF  notype       External     | __imp_GetTickCount64
+123 00000000 UNDEF  notype       External     | __imp_WaitForMultipleObjects
+124 00000000 UNDEF  notype ()    External     | ??0_Lockit@std@@QEAA@H@Z (public: __cdecl std::_Lockit::_Lockit(int))
+125 00000000 UNDEF  notype ()    External     | ??1_Lockit@std@@QEAA@XZ (public: __cdecl std::_Lockit::~_Lockit(void))
+126 00000000 UNDEF  notype ()    External     | _hypot
+127 00000000 SECT88 notype ()    External     | hypot
+128 00000000 UNDEF  notype ()    External     | ?terminate@@YAXXZ (void __cdecl terminate(void))
+129 00000000 UNDEF  notype ()    External     | ??0exception@std@@QEAA@AEBQEBD@Z (public: __cdecl std::exception::exception(char const * const &))
+12A 00000000 UNDEF  notype ()    External     | ??0exception@std@@QEAA@AEBV01@@Z (public: __cdecl std::exception::exception(class std::exception const &))
+12B 00000000 UNDEF  notype ()    External     | ??1exception@std@@UEAA@XZ (public: virtual __cdecl std::exception::~exception(void))
+12C 00000000 UNDEF  notype ()    External     | ?what@exception@std@@UEBAPEBDXZ (public: virtual char const * __cdecl std::exception::what(void)const )
+12D 00000000 SECT56 notype ()    External     | ??2@YAPEAX_KPEAX@Z (void * __cdecl operator new(unsigned __int64,void *))
+12E 00000000 SECT57 notype ()    External     | ??3@YAXPEAX0@Z (void __cdecl operator delete(void *,void *))
+12F 00000000 UNDEF  notype ()    External     | _CrtDbgReportW
+130 00000000 SECT5D notype ()    Static       | ??__Epiecewise_construct@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'piecewise_construct''(void))
+131 00000000 UNDEF  notype ()    External     | ?_Debug_message@std@@YAXPEB_W0I@Z (void __cdecl std::_Debug_message(wchar_t const *,wchar_t const *,unsigned int))
+132 00000000 SECT48 notype ()    External     | ??0_Container_proxy@std@@QEAA@XZ (public: __cdecl std::_Container_proxy::_Container_proxy(void))
+133 00000000 SECT47 notype ()    External     | ??0_Container_base12@std@@QEAA@XZ (public: __cdecl std::_Container_base12::_Container_base12(void))
+134 00000000 SECT52 notype ()    External     | ??1_Container_base12@std@@QEAA@XZ (public: __cdecl std::_Container_base12::~_Container_base12(void))
+135 00000000 SECT65 notype ()    External     | ?_Getpfirst@_Container_base12@std@@QEBAPEAPEAU_Iterator_base12@2@XZ (public: struct std::_Iterator_base12 * * __cdecl std::_Container_base12::_Getpfirst(void)const )
+136 00000000 SECT68 notype ()    External     | ?_Orphan_all@_Container_base12@std@@QEAAXXZ (public: void __cdecl std::_Container_base12::_Orphan_all(void))
+137 00000000 SECT6F notype ()    External     | ?_Swap_all@_Container_base12@std@@QEAAXAEAU12@@Z (public: void __cdecl std::_Container_base12::_Swap_all(struct std::_Container_base12 &))
+138 00000000 SECT60 notype ()    External     | ?_Clrcont@_Iterator_base12@std@@QEAAXXZ (public: void __cdecl std::_Iterator_base12::_Clrcont(void))
+139 00000000 SECT66 notype ()    External     | ?_Getpnext@_Iterator_base12@std@@QEAAPEAPEAU12@XZ (public: struct std::_Iterator_base12 * * __cdecl std::_Iterator_base12::_Getpnext(void))
+13A 00000000 SECT62 notype ()    External     | ?_Fill_n@std@@YAPEAEPEAE_KE@Z (unsigned char * __cdecl std::_Fill_n(unsigned char *,unsigned __int64,unsigned char))
+13B 00000000 SECT5C notype ()    Static       | ??__Eallocator_arg@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'allocator_arg''(void))
+13C 00000000 UNDEF  notype ()    External     | ?_Xbad_alloc@std@@YAXXZ (void __cdecl std::_Xbad_alloc(void))
+13D 00000000 UNDEF  notype ()    External     | ?_Xlength_error@std@@YAXPEBD@Z (void __cdecl std::_Xlength_error(char const *))
+13E 00000000 SECT4C notype ()    External     | ??0logic_error@std@@QEAA@PEBD@Z (public: __cdecl std::logic_error::logic_error(char const *))
+13F 00000000 SECT54 notype ()    External     | ??1logic_error@std@@UEAA@XZ (public: virtual __cdecl std::logic_error::~logic_error(void))
+140 00000000 SECT4B notype ()    External     | ??0logic_error@std@@QEAA@AEBV01@@Z (public: __cdecl std::logic_error::logic_error(class std::logic_error const &))
+141 00000000 SECT5A notype ()    External     | ??_Glogic_error@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::logic_error::`scalar deleting destructor'(unsigned int))
+142 00000000 UNDEF  notype ()    WeakExternal | ??_Elogic_error@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::logic_error::`vector deleting destructor'(unsigned int))
+    Default index      141 library search
+144 00000000 SECT4A notype ()    External     | ??0invalid_argument@std@@QEAA@PEBD@Z (public: __cdecl std::invalid_argument::invalid_argument(char const *))
+145 00000000 SECT53 notype ()    External     | ??1invalid_argument@std@@UEAA@XZ (public: virtual __cdecl std::invalid_argument::~invalid_argument(void))
+146 00000000 SECT49 notype ()    External     | ??0invalid_argument@std@@QEAA@AEBV01@@Z (public: __cdecl std::invalid_argument::invalid_argument(class std::invalid_argument const &))
+147 00000000 SECT59 notype ()    External     | ??_Ginvalid_argument@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::invalid_argument::`scalar deleting destructor'(unsigned int))
+148 00000000 UNDEF  notype ()    WeakExternal | ??_Einvalid_argument@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::invalid_argument::`vector deleting destructor'(unsigned int))
+    Default index      147 library search
+14A 00000000 SECT4E notype ()    External     | ??0runtime_error@std@@QEAA@PEBD@Z (public: __cdecl std::runtime_error::runtime_error(char const *))
+14B 00000000 SECT55 notype ()    External     | ??1runtime_error@std@@UEAA@XZ (public: virtual __cdecl std::runtime_error::~runtime_error(void))
+14C 00000000 SECT4D notype ()    External     | ??0runtime_error@std@@QEAA@AEBV01@@Z (public: __cdecl std::runtime_error::runtime_error(class std::runtime_error const &))
+14D 00000000 SECT5B notype ()    External     | ??_Gruntime_error@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::runtime_error::`scalar deleting destructor'(unsigned int))
+14E 00000000 UNDEF  notype ()    WeakExternal | ??_Eruntime_error@std@@UEAAPEAXI@Z (public: virtual void * __cdecl std::runtime_error::`vector deleting destructor'(unsigned int))
+    Default index      14D library search
+150 00000000 SECT4  notype ()    External     | ??0Endpoint@MilesPipe@@QEAA@PEAX_K@Z (public: __cdecl MilesPipe::Endpoint::Endpoint(void *,unsigned __int64))
+151 00000240 SECT4  notype ()    External     | ??1Endpoint@MilesPipe@@QEAA@XZ (public: __cdecl MilesPipe::Endpoint::~Endpoint(void))
+152 000002D0 SECT4  notype ()    External     | ?send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z (public: bool __cdecl MilesPipe::Endpoint::send(struct MilesTransport::Bytes))
+153 000003D0 SECT4  notype ()    External     | ?takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z (public: bool __cdecl MilesPipe::Endpoint::takeFrame(class std::vector<unsigned char,class std::allocator<unsigned char> > &))
+154 00000480 SECT4  notype ()    External     | ?pump@Endpoint@MilesPipe@@QEAAXXZ (public: void __cdecl MilesPipe::Endpoint::pump(void))
+155 000004F0 SECT4  notype ()    External     | ?cancel@Endpoint@MilesPipe@@QEAAXXZ (public: void __cdecl MilesPipe::Endpoint::cancel(void))
+156 00000530 SECT4  notype ()    External     | ?drain@Endpoint@MilesPipe@@QEAA_NK@Z (public: bool __cdecl MilesPipe::Endpoint::drain(unsigned long))
+157 00000000 SECT83 notype ()    External     | ?pending@Endpoint@MilesPipe@@QEBA_NXZ (public: bool __cdecl MilesPipe::Endpoint::pending(void)const )
+158 000006B0 SECT4  notype ()    External     | ??0Operation@Endpoint@MilesPipe@@QEAA@XZ (public: __cdecl MilesPipe::Endpoint::Operation::Operation(void))
+159 00000000 SECT44 notype ()    External     | ??0?$allocator@E@std@@QEAA@XZ (public: __cdecl std::allocator<unsigned char>::allocator<unsigned char>(void))
+15A 00000000 SECT43 notype ()    External     | ??0?$allocator@E@std@@QEAA@AEBV01@@Z (public: __cdecl std::allocator<unsigned char>::allocator<unsigned char>(class std::allocator<unsigned char> const &))
+15B 00000000 SECT7C notype ()    External     | ?deallocate@?$allocator@E@std@@QEAAXPEAE_K@Z (public: void __cdecl std::allocator<unsigned char>::deallocate(unsigned char *,unsigned __int64))
+15C 00000000 SECT76 notype ()    External     | ?allocate@?$allocator@E@std@@QEAAPEAE_K@Z (public: unsigned char * __cdecl std::allocator<unsigned char>::allocate(unsigned __int64))
+15D 00000000 SECT80 notype ()    External     | ?max_size@?$allocator@E@std@@QEBA_KXZ (public: unsigned __int64 __cdecl std::allocator<unsigned char>::max_size(void)const )
+15E 00000000 SECT81 notype ()    External     | ?max_size@?$allocator_traits@V?$allocator@E@std@@@std@@SA_KAEBV?$allocator@E@2@@Z (public: static unsigned __int64 __cdecl std::allocator_traits<class std::allocator<unsigned char> >::max_size(class std::allocator<unsigned char> const &))
+15F 00000000 SECT41 notype ()    External     | ??0?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAA@XZ (public: __cdecl std::_Wrap_alloc<class std::allocator<unsigned char> >::_Wrap_alloc<class std::allocator<unsigned char> >(void))
+160 00000000 SECT74 notype ()    External     | ?allocate@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAAPEAE_K@Z (public: unsigned char * __cdecl std::_Wrap_alloc<class std::allocator<unsigned char> >::allocate(unsigned __int64))
+161 00000000 SECT7A notype ()    External     | ?deallocate@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAAXPEAE_K@Z (public: void __cdecl std::_Wrap_alloc<class std::allocator<unsigned char> >::deallocate(unsigned char *,unsigned __int64))
+162 00000000 SECT7F notype ()    External     | ?max_size@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEBA_KXZ (public: unsigned __int64 __cdecl std::_Wrap_alloc<class std::allocator<unsigned char> >::max_size(void)const )
+163 00000000 SECT40 notype ()    External     | ??0?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ (public: __cdecl std::_Vector_val<struct std::_Simple_types<unsigned char> >::_Vector_val<struct std::_Simple_types<unsigned char> >(void))
+164 00000000 SECT50 notype ()    External     | ??1?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ (public: __cdecl std::_Vector_val<struct std::_Simple_types<unsigned char> >::~_Vector_val<struct std::_Simple_types<unsigned char> >(void))
+165 00000000 SECT3E notype ()    External     | ??0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z (public: __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >(class std::allocator<unsigned char> const &))
+166 00000000 SECT4F notype ()    External     | ??1?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@XZ (public: __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::~_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >(void))
+167 00000000 SECT70 notype ()    External     | ?_Swap_alloc@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXAEAV12@@Z (public: void __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Swap_alloc(class std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > > &))
+168 00000000 SECT5E notype ()    External     | ?_Alloc_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ (public: void __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Alloc_proxy(void))
+169 00000000 SECT63 notype ()    External     | ?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ (public: void __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Free_proxy(void))
+16A 00000000 SECT64 notype ()    External     | ?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEBA?AU?$_Wrap_alloc@V?$allocator@E@std@@@2@XZ (public: struct std::_Wrap_alloc<class std::allocator<unsigned char> > __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Getal(void)const )
+16B 00000000 SECT46 notype ()    External     | ??0?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ (public: __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::vector<unsigned char,class std::allocator<unsigned char> >(void))
+16C 00000000 SECT51 notype ()    External     | ??1?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ (public: __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::~vector<unsigned char,class std::allocator<unsigned char> >(void))
+16D 00000000 SECT78 notype ()    External     | ?capacity@?$vector@EV?$allocator@E@std@@@std@@QEBA_KXZ (public: unsigned __int64 __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::capacity(void)const )
+16E 00000000 SECT72 notype ()    External     | ?_Unused_capacity@?$vector@EV?$allocator@E@std@@@std@@QEBA_KXZ (public: unsigned __int64 __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Unused_capacity(void)const )
+16F 00000000 SECT84 notype ()    External     | ?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z (public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::resize(unsigned __int64))
+170 00000000 SECT86 notype ()    External     | ?size@?$vector@EV?$allocator@E@std@@@std@@QEBA_KXZ (public: unsigned __int64 __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::size(void)const )
+171 00000000 SECT82 notype ()    External     | ?max_size@?$vector@EV?$allocator@E@std@@@std@@QEBA_KXZ (public: unsigned __int64 __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::max_size(void)const )
+172 00000000 SECT7E notype ()    External     | ?empty@?$vector@EV?$allocator@E@std@@@std@@QEBA_NXZ (public: bool __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::empty(void)const )
+173 00000000 SECT58 notype ()    External     | ??A?$vector@EV?$allocator@E@std@@@std@@QEAAAEAE_K@Z (public: unsigned char & __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::operator[](unsigned __int64))
+174 00000000 SECT6B notype ()    External     | ?_Pop_back_n@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z (public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Pop_back_n(unsigned __int64))
+175 00000000 SECT79 notype ()    External     | ?clear@?$vector@EV?$allocator@E@std@@@std@@QEAAXXZ (public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::clear(void))
+176 00000000 SECT87 notype ()    External     | ?swap@?$vector@EV?$allocator@E@std@@@std@@QEAAXAEAV12@@Z (public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::swap(class std::vector<unsigned char,class std::allocator<unsigned char> > &))
+177 00000000 SECT5F notype ()    External     | ?_Buy@?$vector@EV?$allocator@E@std@@@std@@IEAA_N_K@Z (protected: bool __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Buy(unsigned __int64))
+178 00000000 SECT61 notype ()    External     | ?_Destroy@?$vector@EV?$allocator@E@std@@@std@@IEAAXPEAE0@Z (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Destroy(unsigned char *,unsigned char *))
+179 00000000 SECT67 notype ()    External     | ?_Grow_to@?$vector@EV?$allocator@E@std@@@std@@IEBA_K_K@Z (protected: unsigned __int64 __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Grow_to(unsigned __int64)const )
+17A 00000000 SECT6C notype ()    External     | ?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Reallocate(unsigned __int64))
+17B 00000000 SECT6E notype ()    External     | ?_Reserve@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Reserve(unsigned __int64))
+17C 00000000 SECT71 notype ()    External     | ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Tidy(void))
+17D 00000000 SECT73 notype ()    External     | ?_Xlen@?$vector@EV?$allocator@E@std@@@std@@IEBAXXZ (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Xlen(void)const )
+17E 00000000 SECT69 notype ()    External     | ?_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z (protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Orphan_range(unsigned char *,unsigned char *)const )
+17F 000006F0 SECT4  notype ()    External     | ?fault@Endpoint@MilesPipe@@AEAAXW4Failure@12@K@Z (private: void __cdecl MilesPipe::Endpoint::fault(enum MilesPipe::Endpoint::Failure,unsigned long))
+180 00000750 SECT4  notype ()    External     | ?stepRead@Endpoint@MilesPipe@@AEAA_NXZ (private: bool __cdecl MilesPipe::Endpoint::stepRead(void))
+181 00000910 SECT4  notype ()    External     | ?stepWrite@Endpoint@MilesPipe@@AEAA_NXZ (private: bool __cdecl MilesPipe::Endpoint::stepWrite(void))
+182 00000AA0 SECT4  notype ()    External     | ?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z (private: void __cdecl MilesPipe::Endpoint::readCompleted(unsigned long))
+183 00000C30 SECT4  notype ()    External     | ?writeCompleted@Endpoint@MilesPipe@@AEAAXK@Z (private: void __cdecl MilesPipe::Endpoint::writeCompleted(unsigned long))
+184 00000CE0 SECT4  notype ()    External     | ?cancelPending@Endpoint@MilesPipe@@AEAAXXZ (private: void __cdecl MilesPipe::Endpoint::cancelPending(void))
+185 00000D50 SECT4  notype ()    External     | ?collect@Endpoint@MilesPipe@@AEAA_NAEAUOperation@12@_N@Z (private: bool __cdecl MilesPipe::Endpoint::collect(struct MilesPipe::Endpoint::Operation &,bool))
+186 00000E40 SECT4  notype ()    External     | ?length@?A0xb6495310@MilesPipe@@YAIPEBE@Z (unsigned int __cdecl MilesPipe::`anonymous namespace'::length(unsigned char const *))
+187 00000000 SECT6  notype ()    External     | ??$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z (public: __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::vector<unsigned char,class std::allocator<unsigned char> ><unsigned char const *,void>(unsigned char const *,unsigned char const *))
+188 00000000 SECT3B notype ()    External     | ??$min@_K@std@@YAAEB_KAEB_K0@Z (unsigned __int64 const & __cdecl std::min<unsigned __int64>(unsigned __int64 const &,unsigned __int64 const &))
+189 00000000 SECT2E notype ()    External     | ??$_Uninitialized_default_fill_n@PEAE_KU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE_KAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z (void __cdecl std::_Uninitialized_default_fill_n<unsigned char *,unsigned __int64,struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char *,unsigned __int64,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &))
+18A 00000000 SECT9  notype ()    External     | ??$?8V?$allocator@E@std@@V01@@std@@YA_NAEBU?$_Wrap_alloc@V?$allocator@E@std@@@0@0@Z (bool __cdecl std::operator==<class std::allocator<unsigned char>,class std::allocator<unsigned char> >(struct std::_Wrap_alloc<class std::allocator<unsigned char> > const &,struct std::_Wrap_alloc<class std::allocator<unsigned char> > const &))
+18B 00000000 SECT8  notype ()    External     | ??$?8EE@std@@YA_NAEBV?$allocator@E@0@0@Z (bool __cdecl std::operator==<unsigned char,unsigned char>(class std::allocator<unsigned char> const &,class std::allocator<unsigned char> const &))
+18C 00000000 SECT22 notype ()    External     | ??$_Swap_adl@PEAE@std@@YAXAEAPEAE0@Z (void __cdecl std::_Swap_adl<unsigned char *>(unsigned char * &,unsigned char * &))
+18D 00000000 SECT18 notype ()    External     | ??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z (void __cdecl std::_Destroy_range<struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &))
+18E 00000000 SECT23 notype ()    External     | ??$_Swap_adl@PEAU_Container_proxy@std@@@std@@YAXAEAPEAU_Container_proxy@0@0@Z (void __cdecl std::_Swap_adl<struct std::_Container_proxy *>(struct std::_Container_proxy * &,struct std::_Container_proxy * &))
+18F 00000000 SECT45 notype ()    External     | ??0?$allocator@U_Container_proxy@std@@@std@@QEAA@XZ (public: __cdecl std::allocator<struct std::_Container_proxy>::allocator<struct std::_Container_proxy>(void))
+190 00000000 SECT7D notype ()    External     | ?deallocate@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@2@_K@Z (public: void __cdecl std::allocator<struct std::_Container_proxy>::deallocate(struct std::_Container_proxy *,unsigned __int64))
+191 00000000 SECT77 notype ()    External     | ?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z (public: struct std::_Container_proxy * __cdecl std::allocator<struct std::_Container_proxy>::allocate(unsigned __int64))
+192 00000000 SECT42 notype ()    External     | ??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAA@XZ (public: __cdecl std::_Wrap_alloc<class std::allocator<struct std::_Container_proxy> >::_Wrap_alloc<class std::allocator<struct std::_Container_proxy> >(void))
+193 00000000 SECT75 notype ()    External     | ?allocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z (public: struct std::_Container_proxy * __cdecl std::_Wrap_alloc<class std::allocator<struct std::_Container_proxy> >::allocate(unsigned __int64))
+194 00000000 SECT7B notype ()    External     | ?deallocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@2@_K@Z (public: void __cdecl std::_Wrap_alloc<class std::allocator<struct std::_Container_proxy> >::deallocate(struct std::_Container_proxy *,unsigned __int64))
+195 00000000 SECT31 notype ()    External     | ??$construct@U_Container_proxy@std@@U12@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z (public: void __cdecl std::_Wrap_alloc<class std::allocator<struct std::_Container_proxy> >::construct<struct std::_Container_proxy,struct std::_Container_proxy>(struct std::_Container_proxy *,struct std::_Container_proxy &&))
+196 00000000 SECT35 notype ()    External     | ??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@1@@Z (public: void __cdecl std::_Wrap_alloc<class std::allocator<struct std::_Container_proxy> >::destroy<struct std::_Container_proxy>(struct std::_Container_proxy *))
+197 00000000 SECT25 notype ()    External     | ??$_Umove@PEAE@?$vector@EV?$allocator@E@std@@@std@@IEAAPEAEPEAE00@Z (protected: unsigned char * __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Umove<unsigned char *>(unsigned char *,unsigned char *,unsigned char *))
+198 00000000 SECTB  notype ()    External     | ??$_Allocate@E@std@@YAPEAE_KPEAE@Z (unsigned char * __cdecl std::_Allocate<unsigned char>(unsigned __int64,unsigned char *))
+199 00000000 SECTC  notype ()    External     | ??$_Allocate@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@_KPEAU10@@Z (struct std::_Container_proxy * __cdecl std::_Allocate<struct std::_Container_proxy>(unsigned __int64,struct std::_Container_proxy *))
+19A 00000000 SECTD  notype ()    External     | ??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0@Z (public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Construct<unsigned char const *>(unsigned char const *,unsigned char const *))
+19B 00000000 SECT10 notype ()    External     | ??$_Debug_lt@AEB_KAEB_K@std@@YA_NAEB_K0PEB_WI@Z (bool __cdecl std::_Debug_lt<unsigned __int64 const &,unsigned __int64 const &>(unsigned __int64 const &,unsigned __int64 const &,wchar_t const *,unsigned int))
+19C 00000000 SECT30 notype ()    External     | ??$_Val_type@PEAE@std@@YAPEAEPEAE@Z (unsigned char * __cdecl std::_Val_type<unsigned char *>(unsigned char *))
+19D 00000000 SECT20 notype ()    External     | ??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEBEPEAE@Z (struct std::_Scalar_ptr_iterator_tag __cdecl std::_Ptr_cat<unsigned char,unsigned char>(unsigned char const *,unsigned char *))
+19E 00000000 SECT1F notype ()    External     | ??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEAE0@Z (struct std::_Scalar_ptr_iterator_tag __cdecl std::_Ptr_cat<unsigned char,unsigned char>(unsigned char *,unsigned char *))
+19F 00000000 SECT2A notype ()    External     | ??$_Uninit_def_fill_n@E_KE@std@@YAXPEAE_KAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z (void __cdecl std::_Uninit_def_fill_n<unsigned char,unsigned __int64,unsigned char>(unsigned char *,unsigned __int64,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &,unsigned char *,struct std::_Scalar_ptr_iterator_tag))
+1A0 00000000 SECT3C notype ()    External     | ??$swap@PEAE@std@@YAXAEAPEAE0@Z (void __cdecl std::swap<unsigned char *>(unsigned char * &,unsigned char * &))
+1A1 00000000 SECT19 notype ()    External     | ??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z (void __cdecl std::_Destroy_range<struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &,struct std::_Scalar_ptr_iterator_tag))
+1A2 00000000 SECT3D notype ()    External     | ??$swap@PEAU_Container_proxy@std@@@std@@YAXAEAPEAU_Container_proxy@0@0@Z (void __cdecl std::swap<struct std::_Container_proxy *>(struct std::_Container_proxy * &,struct std::_Container_proxy * &))
+1A3 00000000 SECT3A notype ()    External     | ??$forward@U_Container_proxy@std@@@std@@YA$$QEAU_Container_proxy@0@AEAU10@@Z (struct std::_Container_proxy && __cdecl std::forward<struct std::_Container_proxy>(struct std::_Container_proxy &))
+1A4 00000000 SECT34 notype ()    External     | ??$construct@U_Container_proxy@std@@U12@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@1@PEAU_Container_proxy@1@$$QEAU31@@Z (public: static void __cdecl std::allocator_traits<class std::allocator<struct std::_Container_proxy> >::construct<struct std::_Container_proxy,struct std::_Container_proxy>(class std::allocator<struct std::_Container_proxy> &,struct std::_Container_proxy *,struct std::_Container_proxy &&))
+1A5 00000000 SECT37 notype ()    External     | ??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@1@PEAU_Container_proxy@1@@Z (public: static void __cdecl std::allocator_traits<class std::allocator<struct std::_Container_proxy> >::destroy<struct std::_Container_proxy>(class std::allocator<struct std::_Container_proxy> &,struct std::_Container_proxy *))
+1A6 00000000 SECT2F notype ()    External     | ??$_Uninitialized_move@PEAEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z (unsigned char * __cdecl std::_Uninitialized_move<unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char *,unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &))
+1A7 00000000 SECT1C notype ()    External     | ??$_Iter_cat@PEBE@std@@YA?AUrandom_access_iterator_tag@0@AEBQEBE@Z (struct std::random_access_iterator_tag __cdecl std::_Iter_cat<unsigned char const *>(unsigned char const * const &))
+1A8 00000000 SECTE  notype ()    External     | ??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z (public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Construct<unsigned char const *>(unsigned char const *,unsigned char const *,struct std::forward_iterator_tag))
+1A9 00000000 SECT39 notype ()    External     | ??$forward@AEB_K@std@@YAAEB_KAEB_K@Z (unsigned __int64 const & __cdecl std::forward<unsigned __int64 const &>(unsigned __int64 const &))
+1AA 00000000 SECT11 notype ()    External     | ??$_Debug_lt_pred@U?$less@X@std@@AEB_KAEB_K@std@@YA_NU?$less@X@0@AEB_K1PEB_WI@Z (bool __cdecl std::_Debug_lt_pred<struct std::less<void>,unsigned __int64 const &,unsigned __int64 const &>(struct std::less<void>,unsigned __int64 const &,unsigned __int64 const &,wchar_t const *,unsigned int))
+1AB 00000000 SECT1D notype ()    External     | ??$_Move@AEAPEAE@std@@YA$$QEAPEAEAEAPEAE@Z (unsigned char * && __cdecl std::_Move<unsigned char * &>(unsigned char * &))
+1AC 00000000 SECT1E notype ()    External     | ??$_Move@AEAPEAU_Container_proxy@std@@@std@@YA$$QEAPEAU_Container_proxy@0@AEAPEAU10@@Z (struct std::_Container_proxy * && __cdecl std::_Move<struct std::_Container_proxy * &>(struct std::_Container_proxy * &))
+1AD 00000000 SECT32 notype ()    External     | ??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z (public: void __cdecl std::allocator<struct std::_Container_proxy>::construct<struct std::_Container_proxy,struct std::_Container_proxy>(struct std::_Container_proxy *,struct std::_Container_proxy &&))
+1AE 00000000 SECT36 notype ()    External     | ??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@@Z (public: void __cdecl std::allocator<struct std::_Container_proxy>::destroy<struct std::_Container_proxy>(struct std::_Container_proxy *))
+1AF 00000000 SECT26 notype ()    External     | ??$_Unchecked@PEAE@std@@YAPEAEPEAE@Z (unsigned char * __cdecl std::_Unchecked<unsigned char *>(unsigned char *))
+1B0 00000000 SECT2C notype ()    External     | ??$_Uninit_move@PEAEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z (unsigned char * __cdecl std::_Uninit_move<unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char *,unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &))
+1B1 00000000 SECT21 notype ()    External     | ??$_Rechecked@PEAEPEAE@std@@YAAEAPEAEAEAPEAEPEAE@Z (unsigned char * & __cdecl std::_Rechecked<unsigned char *,unsigned char *>(unsigned char * &,unsigned char *))
+1B2 00000000 SECT38 notype ()    External     | ??$distance@PEBE@std@@YA_JPEBE0@Z (__int64 __cdecl std::distance<unsigned char const *>(unsigned char const *,unsigned char const *))
+1B3 00000000 SECT24 notype ()    External     | ??$_Ucopy@PEBE@?$vector@EV?$allocator@E@std@@@std@@IEAAPEAEPEBE0PEAE@Z (protected: unsigned char * __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Ucopy<unsigned char const *>(unsigned char const *,unsigned char const *,unsigned char *))
+1B4 00000000 SECTA  notype ()    External     | ??$?RAEB_KAEB_K@?$less@X@std@@QEBA_NAEB_K0@Z (public: bool __cdecl std::less<void>::operator()<unsigned __int64 const &,unsigned __int64 const &>(unsigned __int64 const &,unsigned __int64 const &)const )
+1B5 00000000 SECT2B notype ()    External     | ??$_Uninit_move@EEE@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z (unsigned char * __cdecl std::_Uninit_move<unsigned char,unsigned char,unsigned char>(unsigned char *,unsigned char *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &,unsigned char *,struct std::_Scalar_ptr_iterator_tag))
+1B6 00000000 SECT1A notype ()    External     | ??$_Distance2@PEBE_J@std@@YAXPEBE0AEA_JUrandom_access_iterator_tag@0@@Z (void __cdecl std::_Distance2<unsigned char const *,__int64>(unsigned char const *,unsigned char const *,__int64 &,struct std::random_access_iterator_tag))
+1B7 00000000 SECT2D notype ()    External     | ??$_Uninitialized_copy@PEBEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z (unsigned char * __cdecl std::_Uninitialized_copy<unsigned char const *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char const *,unsigned char const *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &))
+1B8 00000000 SECT16 notype ()    External     | ??$_Debug_range@PEAE@std@@YAXPEAE0PEB_WI@Z (void __cdecl std::_Debug_range<unsigned char *>(unsigned char *,unsigned char *,wchar_t const *,unsigned int))
+1B9 00000000 SECT12 notype ()    External     | ??$_Debug_pointer@E@std@@YAXPEAEPEB_WI@Z (void __cdecl std::_Debug_pointer<unsigned char>(unsigned char *,wchar_t const *,unsigned int))
+1BA 00000000 SECT13 notype ()    External     | ??$_Debug_pointer@E@std@@YAXPEBEPEB_WI@Z (void __cdecl std::_Debug_pointer<unsigned char>(unsigned char const *,wchar_t const *,unsigned int))
+1BB 00000000 SECT27 notype ()    External     | ??$_Unchecked@PEBE@std@@YAPEBEPEBE@Z (unsigned char const * __cdecl std::_Unchecked<unsigned char const *>(unsigned char const *))
+1BC 00000000 SECT29 notype ()    External     | ??$_Uninit_copy@PEBEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z (unsigned char * __cdecl std::_Uninit_copy<unsigned char const *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > >(unsigned char const *,unsigned char const *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &))
+1BD 00000000 SECT1B notype ()    External     | ??$_Iter_cat@PEAE@std@@YA?AUrandom_access_iterator_tag@0@AEBQEAE@Z (struct std::random_access_iterator_tag __cdecl std::_Iter_cat<unsigned char *>(unsigned char * const &))
+1BE 00000000 SECT14 notype ()    External     | ??$_Debug_range2@PEAE@std@@YAXPEAE0PEB_WIUrandom_access_iterator_tag@0@@Z (void __cdecl std::_Debug_range2<unsigned char *>(unsigned char *,unsigned char *,wchar_t const *,unsigned int,struct std::random_access_iterator_tag))
+1BF 00000000 SECT28 notype ()    External     | ??$_Uninit_copy@$$CBEE@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z (unsigned char * __cdecl std::_Uninit_copy<unsigned char const ,unsigned char>(unsigned char const *,unsigned char const *,unsigned char *,struct std::_Wrap_alloc<class std::allocator<unsigned char> > &,struct std::_Scalar_ptr_iterator_tag))
+1C0 00000000 SECT17 notype ()    External     | ??$_Debug_range@PEBE@std@@YAXPEBE0PEB_WI@Z (void __cdecl std::_Debug_range<unsigned char const *>(unsigned char const *,unsigned char const *,wchar_t const *,unsigned int))
+1C1 00000000 SECT15 notype ()    External     | ??$_Debug_range2@PEBE@std@@YAXPEBE0PEB_WIUrandom_access_iterator_tag@0@@Z (void __cdecl std::_Debug_range2<unsigned char const *>(unsigned char const *,unsigned char const *,wchar_t const *,unsigned int,struct std::random_access_iterator_tag))
+1C2 00000000 SECTF  notype ()    Static       | ?catch$0@?0???$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z@4HA (int `public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Construct<unsigned char const *>(unsigned char const *,unsigned char const *,struct vector<unsigned char,class std::allocator<unsigned char> >::forward_iterator_tag)'::`1'::catch$0)
+1C3 00000000 SECT6D notype ()    Static       | ?catch$0@?0??_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z@4HA (int `protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Reallocate(unsigned __int64)'::`1'::catch$0)
+1C4 000000AC SECT5  notype ()    Static       | ?catch$0@?0??readCompleted@Endpoint@MilesPipe@@AEAAXK@Z@4HA (int `private: void __cdecl MilesPipe::Endpoint::readCompleted(unsigned long)'::`1'::catch$0)
+1C5 00000000 SECT85 notype ()    Static       | ?catch$0@?0??resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z@4HA (int `public: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::resize(unsigned __int64)'::`1'::catch$0)
+1C6 00000000 SECT7  notype ()    Static       | ?dtor$0@?0???$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z@4HA (int `public: __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::vector<unsigned char,class std::allocator<unsigned char> ><unsigned char const *,void>(unsigned char const *,unsigned char const *)'::`1'::dtor$0)
+1C7 00000000 SECT33 notype ()    Static       | ?dtor$0@?0???$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z@4HA (int `public: void __cdecl std::allocator<struct std::_Container_proxy>::construct<struct std::_Container_proxy,struct std::_Container_proxy>(struct allocator<struct std::_Container_proxy>::_Container_proxy *,struct allocator<struct std::_Container_proxy>::std &&)'::`1'::dtor$0)
+1C8 00000000 SECT3F notype ()    Static       | ?dtor$0@?0???0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z@4HA (int `public: __cdecl std::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::_Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >(class _Vector_alloc<0,struct std::_Vec_base_types<unsigned char,class std::allocator<unsigned char> > >::allocator<unsigned char> const &)'::`1'::dtor$0)
+1C9 00000000 SECT5  notype ()    Static       | ?dtor$0@?0???0Endpoint@MilesPipe@@QEAA@PEAX_K@Z@4HA (int `public: __cdecl MilesPipe::Endpoint::Endpoint(void *,unsigned __int64)'::`1'::dtor$0)
+1CA 0000003E SECT5  notype ()    Static       | ?dtor$0@?0???1Endpoint@MilesPipe@@QEAA@XZ@4HA (int `public: __cdecl MilesPipe::Endpoint::~Endpoint(void)'::`1'::dtor$0)
+1CB 00000000 SECT6A notype ()    Static       | ?dtor$0@?0??_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z@4HA (int `protected: void __cdecl std::vector<unsigned char,class std::allocator<unsigned char> >::_Orphan_range(unsigned char *,unsigned char *)const '::`1'::dtor$0)
+1CC 0000007C SECT5  notype ()    Static       | ?dtor$0@?0??send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z@4HA (int `public: bool __cdecl MilesPipe::Endpoint::send(struct MilesTransport::Bytes)'::`1'::dtor$0)
+1CD 00000094 SECT5  notype ()    Static       | ?dtor$0@?0??takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z@4HA (int `public: bool __cdecl MilesPipe::Endpoint::takeFrame(class std::vector<unsigned char,class std::allocator<unsigned char> > &)'::`1'::dtor$0)
+1CE 0000001F SECT5  notype ()    Static       | ?dtor$1@?0???0Endpoint@MilesPipe@@QEAA@PEAX_K@Z@4HA (int `public: __cdecl MilesPipe::Endpoint::Endpoint(void *,unsigned __int64)'::`1'::dtor$1)
+1CF 0000005D SECT5  notype ()    Static       | ?dtor$1@?0???1Endpoint@MilesPipe@@QEAA@XZ@4HA (int `public: __cdecl MilesPipe::Endpoint::~Endpoint(void)'::`1'::dtor$1)
+1D0 00000000 UNDEF  notype ()    External     | _CxxThrowException
+1D1 00000000 UNDEF  notype ()    External     | __CxxFrameHandler3
+1D2 00000000 SECT88 notype       Label        | $LN3
+1D3 00000000 SECT52 notype       Label        | $LN3
+1D4 00000000 SECT65 notype       Label        | $LN5
+1D5 00000000 SECT68 notype       Label        | $LN8
+1D6 00000000 SECT6F notype       Label        | $LN6
+1D7 00000000 SECT62 notype       Label        | $LN3
+1D8 00000000 SECT4C notype       Label        | $LN4
+1D9 00000000 SECT54 notype       Label        | $LN3
+1DA 00000000 SECT4B notype       Label        | $LN4
+1DB 00000000 SECT5A notype       Label        | $LN4
+1DC 00000000 SECT4A notype       Label        | $LN4
+1DD 00000000 SECT53 notype       Label        | $LN3
+1DE 00000000 SECT49 notype       Label        | $LN4
+1DF 00000000 SECT59 notype       Label        | $LN4
+1E0 00000000 SECT4E notype       Label        | $LN4
+1E1 00000000 SECT55 notype       Label        | $LN3
+1E2 00000000 SECT4D notype       Label        | $LN4
+1E3 00000000 SECT5B notype       Label        | $LN4
+1E4 00000234 SECT4  notype       Label        | $LN12
+1E5 00000000 SECT4  notype       Label        | $LN13
+1E6 000002C2 SECT4  notype       Label        | $LN6
+1E7 00000240 SECT4  notype       Label        | $LN7
+1E8 000002D0 SECT4  notype       Label        | $LN7
+1E9 000003D0 SECT4  notype       Label        | $LN6
+1EA 00000480 SECT4  notype       Label        | $LN7
+1EB 000004F0 SECT4  notype       Label        | $LN4
+1EC 00000530 SECT4  notype       Label        | $LN14
+1ED 00000000 SECT83 notype       Label        | $LN5
+1EE 000006B0 SECT4  notype       Label        | $LN3
+1EF 00000000 SECT7C notype       Label        | $LN3
+1F0 00000000 SECT76 notype       Label        | $LN3
+1F1 00000000 SECT81 notype       Label        | $LN3
+1F2 00000000 SECT41 notype       Label        | $LN3
+1F3 00000000 SECT74 notype       Label        | $LN3
+1F4 00000000 SECT7A notype       Label        | $LN3
+1F5 00000000 SECT7F notype       Label        | $LN3
+1F6 00000000 SECT40 notype       Label        | $LN4
+1F7 00000000 SECT50 notype       Label        | $LN3
+1F8 00000000 SECT3E notype       Label        | $LN4
+1F9 00000000 SECT4F notype       Label        | $LN3
+1FA 00000000 SECT70 notype       Label        | $LN3
+1FB 00000000 SECT5E notype       Label        | $LN3
+1FC 00000000 SECT63 notype       Label        | $LN3
+1FD 00000000 SECT64 notype       Label        | $LN3
+1FE 00000000 SECT46 notype       Label        | $LN4
+1FF 00000000 SECT51 notype       Label        | $LN3
+200 000000BE SECT84 notype       Label        | $LN10
+201 000000EA SECT84 notype       Label        | $LN11
+202 0000000D SECT85 notype ()    Static       | __catch$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z$0
+203 00000000 SECT84 notype       Label        | $LN13
+204 00000000 SECT82 notype       Label        | $LN3
+205 00000000 SECT7E notype       Label        | $LN5
+206 00000000 SECT58 notype       Label        | $LN6
+207 00000000 SECT6B notype       Label        | $LN3
+208 00000000 SECT79 notype       Label        | $LN3
+209 00000000 SECT87 notype       Label        | $LN9
+20A 00000000 SECT5F notype       Label        | $LN7
+20B 00000000 SECT61 notype       Label        | $LN3
+20C 00000000 SECT67 notype       Label        | $LN6
+20D 0000005C SECT6C notype       Label        | $LN8
+20E 00000124 SECT6C notype       Label        | $LN9
+20F 0000000D SECT6D notype ()    Static       | __catch$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z$0
+210 00000000 SECT6C notype       Label        | $LN11
+211 00000000 SECT6E notype       Label        | $LN5
+212 00000000 SECT71 notype       Label        | $LN4
+213 00000000 SECT73 notype       Label        | $LN3
+214 00000000 SECT69 notype       Label        | $LN10
+215 000006F0 SECT4  notype       Label        | $LN4
+216 00000750 SECT4  notype       Label        | $LN12
+217 00000910 SECT4  notype       Label        | $LN10
+218 00000B7E SECT4  notype       Label        | $LN15
+219 00000C1E SECT4  notype       Label        | $LN16
+21A 000000B9 SECT5  notype ()    Static       | __catch$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z$0
+21B 00000AA0 SECT4  notype       Label        | $LN18
+21C 00000C30 SECT4  notype       Label        | $LN5
+21D 00000CE0 SECT4  notype       Label        | $LN5
+21E 00000D50 SECT4  notype       Label        | $LN11
+21F 00000000 SECT6  notype       Label        | $LN4
+220 00000000 SECT3B notype       Label        | $LN5
+221 00000000 SECT2E notype       Label        | $LN3
+222 00000000 SECT9  notype       Label        | $LN3
+223 00000000 SECT22 notype       Label        | $LN3
+224 00000000 SECT18 notype       Label        | $LN3
+225 00000000 SECT23 notype       Label        | $LN3
+226 00000000 SECT7D notype       Label        | $LN3
+227 00000000 SECT77 notype       Label        | $LN3
+228 00000000 SECT42 notype       Label        | $LN3
+229 00000000 SECT75 notype       Label        | $LN3
+22A 00000000 SECT7B notype       Label        | $LN3
+22B 00000000 SECT31 notype       Label        | $LN3
+22C 00000000 SECT35 notype       Label        | $LN3
+22D 00000000 SECT25 notype       Label        | $LN3
+22E 00000000 SECTB  notype       Label        | $LN7
+22F 00000000 SECTC  notype       Label        | $LN7
+230 00000000 SECTD  notype       Label        | $LN3
+231 00000000 SECT10 notype       Label        | $LN3
+232 00000000 SECT20 notype       Label        | $LN3
+233 00000000 SECT1F notype       Label        | $LN3
+234 00000000 SECT2A notype       Label        | $LN3
+235 00000000 SECT3C notype       Label        | $LN3
+236 00000000 SECT3D notype       Label        | $LN3
+237 00000000 SECT34 notype       Label        | $LN3
+238 00000000 SECT37 notype       Label        | $LN3
+239 00000000 SECT2F notype       Label        | $LN3
+23A 00000000 SECT1C notype       Label        | $LN3
+23B 00000076 SECTE  notype       Label        | $LN8
+23C 0000007B SECTE  notype       Label        | $LN9
+23D 0000000D SECTF  notype ()    Static       | __catch$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z$0
+23E 00000000 SECTE  notype       Label        | $LN11
+23F 00000000 SECT11 notype       Label        | $LN6
+240 00000000 SECT32 notype       Label        | $LN6
+241 00000000 SECT2C notype       Label        | $LN3
+242 00000000 SECT38 notype       Label        | $LN3
+243 00000000 SECT24 notype       Label        | $LN3
+244 00000000 SECTA  notype       Label        | $LN5
+245 00000000 SECT2B notype       Label        | $LN3
+246 00000000 SECT1A notype       Label        | $LN4
+247 00000000 SECT2D notype       Label        | $LN3
+248 00000000 SECT16 notype       Label        | $LN3
+249 00000000 SECT12 notype       Label        | $LN4
+24A 00000000 SECT13 notype       Label        | $LN4
+24B 00000000 SECT29 notype       Label        | $LN3
+24C 00000000 SECT1B notype       Label        | $LN3
+24D 00000000 SECT14 notype       Label        | $LN5
+24E 00000000 SECT28 notype       Label        | $LN3
+24F 00000000 SECT17 notype       Label        | $LN3
+250 00000000 SECT15 notype       Label        | $LN5
+251 00000000 SECT89 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 432F41C4, selection    5 (pick associative Section 0x88)
+253 00000000 SECT89 notype       Static       | $unwind$hypot
+254 00000000 SECT8A notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3F196BD1, selection    5 (pick associative Section 0x88)
+256 00000000 SECT8A notype       Static       | $pdata$hypot
+257 00000000 SECT8B notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum BA48AFD3, selection    5 (pick associative Section 0x5D)
+259 00000000 SECT8B notype       Static       | $unwind$??__Epiecewise_construct@std@@YAXXZ
+25A 00000000 SECT8C notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 2B142464, selection    5 (pick associative Section 0x5D)
+25C 00000000 SECT8C notype       Static       | $pdata$??__Epiecewise_construct@std@@YAXXZ
+25D 00000000 SECT8D notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x52)
+25F 00000000 SECT8D notype       Static       | $unwind$??1_Container_base12@std@@QEAA@XZ
+260 00000000 SECT8E notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x52)
+262 00000000 SECT8E notype       Static       | $pdata$??1_Container_base12@std@@QEAA@XZ
+263 00000000 SECT8F notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum D4AF4BEC, selection    5 (pick associative Section 0x65)
+265 00000000 SECT8F notype       Static       | $unwind$?_Getpfirst@_Container_base12@std@@QEBAPEAPEAU_Iterator_base12@2@XZ
+266 00000000 SECT90 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 8F085A64, selection    5 (pick associative Section 0x65)
+268 00000000 SECT90 notype       Static       | $pdata$?_Getpfirst@_Container_base12@std@@QEBAPEAPEAU_Iterator_base12@2@XZ
+269 00000000 SECT91 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum A435C62C, selection    5 (pick associative Section 0x68)
+26B 00000000 SECT91 notype       Static       | $unwind$?_Orphan_all@_Container_base12@std@@QEAAXXZ
+26C 00000000 SECT92 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 1BDB8BBE, selection    5 (pick associative Section 0x68)
+26E 00000000 SECT92 notype       Static       | $pdata$?_Orphan_all@_Container_base12@std@@QEAAXXZ
+26F 00000000 SECT93 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x6F)
+271 00000000 SECT93 notype       Static       | $unwind$?_Swap_all@_Container_base12@std@@QEAAXAEAU12@@Z
+272 00000000 SECT94 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  4949095, selection    5 (pick associative Section 0x6F)
+274 00000000 SECT94 notype       Static       | $pdata$?_Swap_all@_Container_base12@std@@QEAAXAEAU12@@Z
+275 00000000 SECT95 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x62)
+277 00000000 SECT95 notype       Static       | $unwind$?_Fill_n@std@@YAPEAEPEAE_KE@Z
+278 00000000 SECT96 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9047414F, selection    5 (pick associative Section 0x62)
+27A 00000000 SECT96 notype       Static       | $pdata$?_Fill_n@std@@YAPEAEPEAE_KE@Z
+27B 00000000 SECT97 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum BA48AFD3, selection    5 (pick associative Section 0x5C)
+27D 00000000 SECT97 notype       Static       | $unwind$??__Eallocator_arg@std@@YAXXZ
+27E 00000000 SECT98 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 2B142464, selection    5 (pick associative Section 0x5C)
+280 00000000 SECT98 notype       Static       | $pdata$??__Eallocator_arg@std@@YAXXZ
+281 00000000 SECT99 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x4C)
+283 00000000 SECT99 notype       Static       | $unwind$??0logic_error@std@@QEAA@PEBD@Z
+284 00000000 SECT9A notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x4C)
+286 00000000 SECT9A notype       Static       | $pdata$??0logic_error@std@@QEAA@PEBD@Z
+287 00000000 SECT9B notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x54)
+289 00000000 SECT9B notype       Static       | $unwind$??1logic_error@std@@UEAA@XZ
+28A 00000000 SECT9C notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x54)
+28C 00000000 SECT9C notype       Static       | $pdata$??1logic_error@std@@UEAA@XZ
+28D 00000000 SECT9D notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x4B)
+28F 00000000 SECT9D notype       Static       | $unwind$??0logic_error@std@@QEAA@AEBV01@@Z
+290 00000000 SECT9E notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x4B)
+292 00000000 SECT9E notype       Static       | $pdata$??0logic_error@std@@QEAA@AEBV01@@Z
+293 00000000 SECT9F notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum E7553388, selection    5 (pick associative Section 0x5A)
+295 00000000 SECT9F notype       Static       | $unwind$??_Glogic_error@std@@UEAAPEAXI@Z
+296 00000000 SECTA0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x5A)
+298 00000000 SECTA0 notype       Static       | $pdata$??_Glogic_error@std@@UEAAPEAXI@Z
+299 00000000 SECTA1 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x4A)
+29B 00000000 SECTA1 notype       Static       | $unwind$??0invalid_argument@std@@QEAA@PEBD@Z
+29C 00000000 SECTA2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x4A)
+29E 00000000 SECTA2 notype       Static       | $pdata$??0invalid_argument@std@@QEAA@PEBD@Z
+29F 00000000 SECTA3 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x53)
+2A1 00000000 SECTA3 notype       Static       | $unwind$??1invalid_argument@std@@UEAA@XZ
+2A2 00000000 SECTA4 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x53)
+2A4 00000000 SECTA4 notype       Static       | $pdata$??1invalid_argument@std@@UEAA@XZ
+2A5 00000000 SECTA5 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x49)
+2A7 00000000 SECTA5 notype       Static       | $unwind$??0invalid_argument@std@@QEAA@AEBV01@@Z
+2A8 00000000 SECTA6 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x49)
+2AA 00000000 SECTA6 notype       Static       | $pdata$??0invalid_argument@std@@QEAA@AEBV01@@Z
+2AB 00000000 SECTA7 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum E7553388, selection    5 (pick associative Section 0x59)
+2AD 00000000 SECTA7 notype       Static       | $unwind$??_Ginvalid_argument@std@@UEAAPEAXI@Z
+2AE 00000000 SECTA8 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x59)
+2B0 00000000 SECTA8 notype       Static       | $pdata$??_Ginvalid_argument@std@@UEAAPEAXI@Z
+2B1 00000000 SECTA9 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x4E)
+2B3 00000000 SECTA9 notype       Static       | $unwind$??0runtime_error@std@@QEAA@PEBD@Z
+2B4 00000000 SECTAA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x4E)
+2B6 00000000 SECTAA notype       Static       | $pdata$??0runtime_error@std@@QEAA@PEBD@Z
+2B7 00000000 SECTAB notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x55)
+2B9 00000000 SECTAB notype       Static       | $unwind$??1runtime_error@std@@UEAA@XZ
+2BA 00000000 SECTAC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x55)
+2BC 00000000 SECTAC notype       Static       | $pdata$??1runtime_error@std@@UEAA@XZ
+2BD 00000000 SECTAD notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x4D)
+2BF 00000000 SECTAD notype       Static       | $unwind$??0runtime_error@std@@QEAA@AEBV01@@Z
+2C0 00000000 SECTAE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x4D)
+2C2 00000000 SECTAE notype       Static       | $pdata$??0runtime_error@std@@QEAA@AEBV01@@Z
+2C3 00000000 SECTAF notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum E7553388, selection    5 (pick associative Section 0x5B)
+2C5 00000000 SECTAF notype       Static       | $unwind$??_Gruntime_error@std@@UEAAPEAXI@Z
+2C6 00000000 SECTB0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x5B)
+2C8 00000000 SECTB0 notype       Static       | $pdata$??_Gruntime_error@std@@UEAAPEAXI@Z
+2C9 00000000 SECTB1 notype       Static       | .xdata
+    Section length  1E8, #relocs   28, #linenums    0, checksum 1221A5FA
+2CB 00000000 SECTB1 notype       Static       | $unwind$??0Endpoint@MilesPipe@@QEAA@PEAX_K@Z
+2CC 00000000 SECTB2 notype       Static       | .pdata
+    Section length   B4, #relocs   2D, #linenums    0, checksum B7511B27
+2CE 00000000 SECTB2 notype       Static       | $pdata$??0Endpoint@MilesPipe@@QEAA@PEAX_K@Z
+2CF 00000038 SECT3  notype       Static       | $cppxdata$??0Endpoint@MilesPipe@@QEAA@PEAX_K@Z
+2D0 00000010 SECTB1 notype       Static       | $stateUnwindMap$??0Endpoint@MilesPipe@@QEAA@PEAX_K@Z
+2D1 00000020 SECTB1 notype       Static       | $ip2state$??0Endpoint@MilesPipe@@QEAA@PEAX_K@Z
+2D2 00000040 SECTB1 notype       Static       | $unwind$?dtor$0@?0???0Endpoint@MilesPipe@@QEAA@PEAX_K@Z@4HA
+2D3 00000000 SECTB3 notype       Static       | .pdata
+    Section length   54, #relocs   15, #linenums    0, checksum DB08526A
+2D5 00000000 SECTB3 notype       Static       | $pdata$?dtor$0@?0???0Endpoint@MilesPipe@@QEAA@PEAX_K@Z@4HA
+2D6 00000048 SECTB1 notype       Static       | $unwind$?dtor$1@?0???0Endpoint@MilesPipe@@QEAA@PEAX_K@Z@4HA
+2D7 0000000C SECTB3 notype       Static       | $pdata$?dtor$1@?0???0Endpoint@MilesPipe@@QEAA@PEAX_K@Z@4HA
+2D8 00000050 SECTB1 notype       Static       | $unwind$??1Endpoint@MilesPipe@@QEAA@XZ
+2D9 0000000C SECTB2 notype       Static       | $pdata$??1Endpoint@MilesPipe@@QEAA@XZ
+2DA 00000060 SECT3  notype       Static       | $cppxdata$??1Endpoint@MilesPipe@@QEAA@XZ
+2DB 00000060 SECTB1 notype       Static       | $stateUnwindMap$??1Endpoint@MilesPipe@@QEAA@XZ
+2DC 00000070 SECTB1 notype       Static       | $ip2state$??1Endpoint@MilesPipe@@QEAA@XZ
+2DD 00000090 SECTB1 notype       Static       | $unwind$?dtor$0@?0???1Endpoint@MilesPipe@@QEAA@XZ@4HA
+2DE 00000018 SECTB3 notype       Static       | $pdata$?dtor$0@?0???1Endpoint@MilesPipe@@QEAA@XZ@4HA
+2DF 00000098 SECTB1 notype       Static       | $unwind$?dtor$1@?0???1Endpoint@MilesPipe@@QEAA@XZ@4HA
+2E0 00000024 SECTB3 notype       Static       | $pdata$?dtor$1@?0???1Endpoint@MilesPipe@@QEAA@XZ@4HA
+2E1 000000A0 SECTB1 notype       Static       | $unwind$?send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z
+2E2 00000018 SECTB2 notype       Static       | $pdata$?send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z
+2E3 00000088 SECT3  notype       Static       | $cppxdata$?send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z
+2E4 000000B0 SECTB1 notype       Static       | $stateUnwindMap$?send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z
+2E5 000000B8 SECTB1 notype       Static       | $ip2state$?send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z
+2E6 000000D0 SECTB1 notype       Static       | $unwind$?dtor$0@?0??send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z@4HA
+2E7 00000030 SECTB3 notype       Static       | $pdata$?dtor$0@?0??send@Endpoint@MilesPipe@@QEAA_NUBytes@MilesTransport@@@Z@4HA
+2E8 000000D8 SECTB1 notype       Static       | $unwind$?takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z
+2E9 00000024 SECTB2 notype       Static       | $pdata$?takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z
+2EA 000000B0 SECT3  notype       Static       | $cppxdata$?takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z
+2EB 000000E8 SECTB1 notype       Static       | $stateUnwindMap$?takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z
+2EC 000000F0 SECTB1 notype       Static       | $ip2state$?takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z
+2ED 00000108 SECTB1 notype       Static       | $unwind$?dtor$0@?0??takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z@4HA
+2EE 0000003C SECTB3 notype       Static       | $pdata$?dtor$0@?0??takeFrame@Endpoint@MilesPipe@@QEAA_NAEAV?$vector@EV?$allocator@E@std@@@std@@@Z@4HA
+2EF 00000110 SECTB1 notype       Static       | $unwind$?pump@Endpoint@MilesPipe@@QEAAXXZ
+2F0 00000030 SECTB2 notype       Static       | $pdata$?pump@Endpoint@MilesPipe@@QEAAXXZ
+2F1 00000118 SECTB1 notype       Static       | $unwind$?cancel@Endpoint@MilesPipe@@QEAAXXZ
+2F2 0000003C SECTB2 notype       Static       | $pdata$?cancel@Endpoint@MilesPipe@@QEAAXXZ
+2F3 00000120 SECTB1 notype       Static       | $unwind$?drain@Endpoint@MilesPipe@@QEAA_NK@Z
+2F4 00000048 SECTB2 notype       Static       | $pdata$?drain@Endpoint@MilesPipe@@QEAA_NK@Z
+2F5 00000000 SECTB4 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum D4AF4BEC, selection    5 (pick associative Section 0x83)
+2F7 00000000 SECTB4 notype       Static       | $unwind$?pending@Endpoint@MilesPipe@@QEBA_NXZ
+2F8 00000000 SECTB5 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D2624632, selection    5 (pick associative Section 0x83)
+2FA 00000000 SECTB5 notype       Static       | $pdata$?pending@Endpoint@MilesPipe@@QEBA_NXZ
+2FB 00000128 SECTB1 notype       Static       | $unwind$??0Operation@Endpoint@MilesPipe@@QEAA@XZ
+2FC 00000054 SECTB2 notype       Static       | $pdata$??0Operation@Endpoint@MilesPipe@@QEAA@XZ
+2FD 00000000 SECTB6 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x7C)
+2FF 00000000 SECTB6 notype       Static       | $unwind$?deallocate@?$allocator@E@std@@QEAAXPEAE_K@Z
+300 00000000 SECTB7 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x7C)
+302 00000000 SECTB7 notype       Static       | $pdata$?deallocate@?$allocator@E@std@@QEAAXPEAE_K@Z
+303 00000000 SECTB8 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x76)
+305 00000000 SECTB8 notype       Static       | $unwind$?allocate@?$allocator@E@std@@QEAAPEAE_K@Z
+306 00000000 SECTB9 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A59B2387, selection    5 (pick associative Section 0x76)
+308 00000000 SECTB9 notype       Static       | $pdata$?allocate@?$allocator@E@std@@QEAAPEAE_K@Z
+309 00000000 SECTBA notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x81)
+30B 00000000 SECTBA notype       Static       | $unwind$?max_size@?$allocator_traits@V?$allocator@E@std@@@std@@SA_KAEBV?$allocator@E@2@@Z
+30C 00000000 SECTBB notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x81)
+30E 00000000 SECTBB notype       Static       | $pdata$?max_size@?$allocator_traits@V?$allocator@E@std@@@std@@SA_KAEBV?$allocator@E@2@@Z
+30F 00000000 SECTBC notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x41)
+311 00000000 SECTBC notype       Static       | $unwind$??0?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAA@XZ
+312 00000000 SECTBD notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum E7BE24FA, selection    5 (pick associative Section 0x41)
+314 00000000 SECTBD notype       Static       | $pdata$??0?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAA@XZ
+315 00000000 SECTBE notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x74)
+317 00000000 SECTBE notype       Static       | $unwind$?allocate@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAAPEAE_K@Z
+318 00000000 SECTBF notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x74)
+31A 00000000 SECTBF notype       Static       | $pdata$?allocate@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAAPEAE_K@Z
+31B 00000000 SECTC0 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x7A)
+31D 00000000 SECTC0 notype       Static       | $unwind$?deallocate@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAAXPEAE_K@Z
+31E 00000000 SECTC1 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AED97719, selection    5 (pick associative Section 0x7A)
+320 00000000 SECTC1 notype       Static       | $pdata$?deallocate@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEAAXPEAE_K@Z
+321 00000000 SECTC2 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x7F)
+323 00000000 SECTC2 notype       Static       | $unwind$?max_size@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEBA_KXZ
+324 00000000 SECTC3 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x7F)
+326 00000000 SECTC3 notype       Static       | $pdata$?max_size@?$_Wrap_alloc@V?$allocator@E@std@@@std@@QEBA_KXZ
+327 00000000 SECTC4 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x40)
+329 00000000 SECTC4 notype       Static       | $unwind$??0?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ
+32A 00000000 SECTC5 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ADD7CC17, selection    5 (pick associative Section 0x40)
+32C 00000000 SECTC5 notype       Static       | $pdata$??0?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ
+32D 00000000 SECTC6 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x50)
+32F 00000000 SECTC6 notype       Static       | $unwind$??1?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ
+330 00000000 SECTC7 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x50)
+332 00000000 SECTC7 notype       Static       | $pdata$??1?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ
+333 00000000 SECTC8 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum EBAA22CB, selection    5 (pick associative Section 0x3E)
+335 00000000 SECTC8 notype       Static       | $unwind$??0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z
+336 00000000 SECTC9 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 8F085A64, selection    5 (pick associative Section 0x3E)
+338 00000000 SECTC9 notype       Static       | $pdata$??0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z
+339 00000000 SECTCA notype       Static       | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum E93FB885, selection    5 (pick associative Section 0x3E)
+33B 00000000 SECTCA notype       Static       | $cppxdata$??0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z
+33C 00000000 SECTCB notype       Static       | .xdata
+    Section length    8, #relocs    1, #linenums    0, checksum 9ADD2096, selection    5 (pick associative Section 0x3E)
+33E 00000000 SECTCB notype       Static       | $stateUnwindMap$??0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z
+33F 00000000 SECTCC notype       Static       | .xdata
+    Section length   18, #relocs    3, #linenums    0, checksum DC7D6D08, selection    5 (pick associative Section 0x3E)
+341 00000000 SECTCC notype       Static       | $ip2state$??0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z
+342 00000000 SECTCD notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B96BC9FB, selection    5 (pick associative Section 0x3E)
+344 00000000 SECTCD notype       Static       | $unwind$?dtor$0@?0???0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z@4HA
+345 00000000 SECTCE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x3E)
+347 00000000 SECTCE notype       Static       | $pdata$?dtor$0@?0???0?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@AEBV?$allocator@E@1@@Z@4HA
+348 00000000 SECTCF notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x4F)
+34A 00000000 SECTCF notype       Static       | $unwind$??1?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@XZ
+34B 00000000 SECTD0 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x4F)
+34D 00000000 SECTD0 notype       Static       | $pdata$??1?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAA@XZ
+34E 00000000 SECTD1 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x70)
+350 00000000 SECTD1 notype       Static       | $unwind$?_Swap_alloc@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXAEAV12@@Z
+351 00000000 SECTD2 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x70)
+353 00000000 SECTD2 notype       Static       | $pdata$?_Swap_alloc@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXAEAV12@@Z
+354 00000000 SECTD3 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum  DD7168C, selection    5 (pick associative Section 0x5E)
+356 00000000 SECTD3 notype       Static       | $unwind$?_Alloc_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ
+357 00000000 SECTD4 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 40ACE1F4, selection    5 (pick associative Section 0x5E)
+359 00000000 SECTD4 notype       Static       | $pdata$?_Alloc_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ
+35A 00000000 SECTD5 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum A435C62C, selection    5 (pick associative Section 0x63)
+35C 00000000 SECTD5 notype       Static       | $unwind$?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ
+35D 00000000 SECTD6 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 86C3E873, selection    5 (pick associative Section 0x63)
+35F 00000000 SECTD6 notype       Static       | $pdata$?_Free_proxy@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEAAXXZ
+360 00000000 SECTD7 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x64)
+362 00000000 SECTD7 notype       Static       | $unwind$?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEBA?AU?$_Wrap_alloc@V?$allocator@E@std@@@2@XZ
+363 00000000 SECTD8 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x64)
+365 00000000 SECTD8 notype       Static       | $pdata$?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@EV?$allocator@E@std@@@std@@@std@@QEBA?AU?$_Wrap_alloc@V?$allocator@E@std@@@2@XZ
+366 00000000 SECTD9 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum A435C62C, selection    5 (pick associative Section 0x46)
+368 00000000 SECTD9 notype       Static       | $unwind$??0?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ
+369 00000000 SECTDA notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 68B67E9E, selection    5 (pick associative Section 0x46)
+36B 00000000 SECTDA notype       Static       | $pdata$??0?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ
+36C 00000000 SECTDB notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x51)
+36E 00000000 SECTDB notype       Static       | $unwind$??1?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ
+36F 00000000 SECTDC notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x51)
+371 00000000 SECTDC notype       Static       | $pdata$??1?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ
+372 00000000 SECTDD notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 98B9BD84, selection    5 (pick associative Section 0x84)
+374 00000000 SECTDD notype       Static       | $unwind$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+375 00000000 SECTDE notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 121039A9, selection    5 (pick associative Section 0x84)
+377 00000000 SECTDE notype       Static       | $pdata$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+378 00000000 SECTDF notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum A1EC9887, selection    5 (pick associative Section 0x84)
+37A 00000000 SECTDF notype       Static       | $cppxdata$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+37B 00000000 SECTE0 notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0x84)
+37D 00000000 SECTE0 notype       Static       | $stateUnwindMap$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+37E 00000000 SECTE1 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 570F4CF1, selection    5 (pick associative Section 0x84)
+380 00000000 SECTE1 notype       Static       | $tryMap$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+381 00000000 SECTE2 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum   677058, selection    5 (pick associative Section 0x84)
+383 00000000 SECTE2 notype       Static       | $handlerMap$0$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+384 00000000 SECTE3 notype       Static       | .xdata
+    Section length   30, #relocs    6, #linenums    0, checksum  9689292, selection    5 (pick associative Section 0x84)
+386 00000000 SECTE3 notype       Static       | $ip2state$?resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+387 00000000 SECTE4 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x84)
+389 00000000 SECTE4 notype       Static       | $unwind$?catch$0@?0??resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z@4HA
+38A 00000000 SECTE5 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ECFC7064, selection    5 (pick associative Section 0x84)
+38C 00000000 SECTE5 notype       Static       | $pdata$?catch$0@?0??resize@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z@4HA
+38D 00000000 SECTE6 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum A435C62C, selection    5 (pick associative Section 0x82)
+38F 00000000 SECTE6 notype       Static       | $unwind$?max_size@?$vector@EV?$allocator@E@std@@@std@@QEBA_KXZ
+390 00000000 SECTE7 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B1966C32, selection    5 (pick associative Section 0x82)
+392 00000000 SECTE7 notype       Static       | $pdata$?max_size@?$vector@EV?$allocator@E@std@@@std@@QEBA_KXZ
+393 00000000 SECTE8 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum D4AF4BEC, selection    5 (pick associative Section 0x7E)
+395 00000000 SECTE8 notype       Static       | $unwind$?empty@?$vector@EV?$allocator@E@std@@@std@@QEBA_NXZ
+396 00000000 SECTE9 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x7E)
+398 00000000 SECTE9 notype       Static       | $pdata$?empty@?$vector@EV?$allocator@E@std@@@std@@QEBA_NXZ
+399 00000000 SECTEA notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x58)
+39B 00000000 SECTEA notype       Static       | $unwind$??A?$vector@EV?$allocator@E@std@@@std@@QEAAAEAE_K@Z
+39C 00000000 SECTEB notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum FEEC49CD, selection    5 (pick associative Section 0x58)
+39E 00000000 SECTEB notype       Static       | $pdata$??A?$vector@EV?$allocator@E@std@@@std@@QEAAAEAE_K@Z
+39F 00000000 SECTEC notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x6B)
+3A1 00000000 SECTEC notype       Static       | $unwind$?_Pop_back_n@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+3A2 00000000 SECTED notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum DA2EA9A2, selection    5 (pick associative Section 0x6B)
+3A4 00000000 SECTED notype       Static       | $pdata$?_Pop_back_n@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z
+3A5 00000000 SECTEE notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x79)
+3A7 00000000 SECTEE notype       Static       | $unwind$?clear@?$vector@EV?$allocator@E@std@@@std@@QEAAXXZ
+3A8 00000000 SECTEF notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum EFF2CB6A, selection    5 (pick associative Section 0x79)
+3AA 00000000 SECTEF notype       Static       | $pdata$?clear@?$vector@EV?$allocator@E@std@@@std@@QEAAXXZ
+3AB 00000000 SECTF0 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x87)
+3AD 00000000 SECTF0 notype       Static       | $unwind$?swap@?$vector@EV?$allocator@E@std@@@std@@QEAAXAEAV12@@Z
+3AE 00000000 SECTF1 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 7ED0449F, selection    5 (pick associative Section 0x87)
+3B0 00000000 SECTF1 notype       Static       | $pdata$?swap@?$vector@EV?$allocator@E@std@@@std@@QEAAXAEAV12@@Z
+3B1 00000000 SECTF2 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x5F)
+3B3 00000000 SECTF2 notype       Static       | $unwind$?_Buy@?$vector@EV?$allocator@E@std@@@std@@IEAA_N_K@Z
+3B4 00000000 SECTF3 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9E16D8C3, selection    5 (pick associative Section 0x5F)
+3B6 00000000 SECTF3 notype       Static       | $pdata$?_Buy@?$vector@EV?$allocator@E@std@@@std@@IEAA_N_K@Z
+3B7 00000000 SECTF4 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 583FB257, selection    5 (pick associative Section 0x61)
+3B9 00000000 SECTF4 notype       Static       | $unwind$?_Destroy@?$vector@EV?$allocator@E@std@@@std@@IEAAXPEAE0@Z
+3BA 00000000 SECTF5 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum D8A74F2B, selection    5 (pick associative Section 0x61)
+3BC 00000000 SECTF5 notype       Static       | $pdata$?_Destroy@?$vector@EV?$allocator@E@std@@@std@@IEAAXPEAE0@Z
+3BD 00000000 SECTF6 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 55A710BB, selection    5 (pick associative Section 0x67)
+3BF 00000000 SECTF6 notype       Static       | $unwind$?_Grow_to@?$vector@EV?$allocator@E@std@@@std@@IEBA_K_K@Z
+3C0 00000000 SECTF7 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 66E7E712, selection    5 (pick associative Section 0x67)
+3C2 00000000 SECTF7 notype       Static       | $pdata$?_Grow_to@?$vector@EV?$allocator@E@std@@@std@@IEBA_K_K@Z
+3C3 00000000 SECTF8 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 391091F4, selection    5 (pick associative Section 0x6C)
+3C5 00000000 SECTF8 notype       Static       | $unwind$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3C6 00000000 SECTF9 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum DB4B6718, selection    5 (pick associative Section 0x6C)
+3C8 00000000 SECTF9 notype       Static       | $pdata$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3C9 00000000 SECTFA notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum 8FB28271, selection    5 (pick associative Section 0x6C)
+3CB 00000000 SECTFA notype       Static       | $cppxdata$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3CC 00000000 SECTFB notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0x6C)
+3CE 00000000 SECTFB notype       Static       | $stateUnwindMap$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3CF 00000000 SECTFC notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 570F4CF1, selection    5 (pick associative Section 0x6C)
+3D1 00000000 SECTFC notype       Static       | $tryMap$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3D2 00000000 SECTFD notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum   677058, selection    5 (pick associative Section 0x6C)
+3D4 00000000 SECTFD notype       Static       | $handlerMap$0$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3D5 00000000 SECTFE notype       Static       | .xdata
+    Section length   30, #relocs    6, #linenums    0, checksum 9FFA2DF4, selection    5 (pick associative Section 0x6C)
+3D7 00000000 SECTFE notype       Static       | $ip2state$?_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3D8 00000000 SECTFF notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x6C)
+3DA 00000000 SECTFF notype       Static       | $unwind$?catch$0@?0??_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z@4HA
+3DB 00000000 SECT100 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 6BB8C590, selection    5 (pick associative Section 0x6C)
+3DD 00000000 SECT100 notype       Static      | $pdata$?catch$0@?0??_Reallocate@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z@4HA
+3DE 00000000 SECT101 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x6E)
+3E0 00000000 SECT101 notype       Static      | $unwind$?_Reserve@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3E1 00000000 SECT102 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 111E82A7, selection    5 (pick associative Section 0x6E)
+3E3 00000000 SECT102 notype       Static      | $pdata$?_Reserve@?$vector@EV?$allocator@E@std@@@std@@IEAAX_K@Z
+3E4 00000000 SECT103 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum A435C62C, selection    5 (pick associative Section 0x71)
+3E6 00000000 SECT103 notype       Static      | $unwind$?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ
+3E7 00000000 SECT104 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 3148F25D, selection    5 (pick associative Section 0x71)
+3E9 00000000 SECT104 notype       Static      | $pdata$?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ
+3EA 00000000 SECT105 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x73)
+3EC 00000000 SECT105 notype       Static      | $unwind$?_Xlen@?$vector@EV?$allocator@E@std@@@std@@IEBAXXZ
+3ED 00000000 SECT106 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ED7B2DE3, selection    5 (pick associative Section 0x73)
+3EF 00000000 SECT106 notype       Static      | $pdata$?_Xlen@?$vector@EV?$allocator@E@std@@@std@@IEBAXXZ
+3F0 00000000 SECT107 notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 80DCCB80, selection    5 (pick associative Section 0x69)
+3F2 00000000 SECT107 notype       Static      | $unwind$?_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z
+3F3 00000000 SECT108 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum C37CC495, selection    5 (pick associative Section 0x69)
+3F5 00000000 SECT108 notype       Static      | $pdata$?_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z
+3F6 00000000 SECT109 notype       Static      | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum E5275579, selection    5 (pick associative Section 0x69)
+3F8 00000000 SECT109 notype       Static      | $cppxdata$?_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z
+3F9 00000000 SECT10A notype       Static      | .xdata
+    Section length    8, #relocs    1, #linenums    0, checksum 9ADD2096, selection    5 (pick associative Section 0x69)
+3FB 00000000 SECT10A notype       Static      | $stateUnwindMap$?_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z
+3FC 00000000 SECT10B notype       Static      | .xdata
+    Section length   18, #relocs    3, #linenums    0, checksum EDE11904, selection    5 (pick associative Section 0x69)
+3FE 00000000 SECT10B notype       Static      | $ip2state$?_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z
+3FF 00000000 SECT10C notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B96BC9FB, selection    5 (pick associative Section 0x69)
+401 00000000 SECT10C notype       Static      | $unwind$?dtor$0@?0??_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z@4HA
+402 00000000 SECT10D notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x69)
+404 00000000 SECT10D notype       Static      | $pdata$?dtor$0@?0??_Orphan_range@?$vector@EV?$allocator@E@std@@@std@@IEBAXPEAE0@Z@4HA
+405 00000130 SECTB1 notype       Static       | $unwind$?fault@Endpoint@MilesPipe@@AEAAXW4Failure@12@K@Z
+406 00000060 SECTB2 notype       Static       | $pdata$?fault@Endpoint@MilesPipe@@AEAAXW4Failure@12@K@Z
+407 00000138 SECTB1 notype       Static       | $unwind$?stepRead@Endpoint@MilesPipe@@AEAA_NXZ
+408 0000006C SECTB2 notype       Static       | $pdata$?stepRead@Endpoint@MilesPipe@@AEAA_NXZ
+409 00000140 SECTB1 notype       Static       | $unwind$?stepWrite@Endpoint@MilesPipe@@AEAA_NXZ
+40A 00000078 SECTB2 notype       Static       | $pdata$?stepWrite@Endpoint@MilesPipe@@AEAA_NXZ
+40B 00000148 SECTB1 notype       Static       | $unwind$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+40C 00000084 SECTB2 notype       Static       | $pdata$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+40D 000000D8 SECT3  notype       Static       | $cppxdata$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+40E 00000158 SECTB1 notype       Static       | $stateUnwindMap$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+40F 00000168 SECTB1 notype       Static       | $tryMap$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+410 0000017C SECTB1 notype       Static       | $handlerMap$0$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+411 00000190 SECTB1 notype       Static       | $ip2state$?readCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+412 000001C0 SECTB1 notype       Static       | $unwind$?catch$0@?0??readCompleted@Endpoint@MilesPipe@@AEAAXK@Z@4HA
+413 00000048 SECTB3 notype       Static       | $pdata$?catch$0@?0??readCompleted@Endpoint@MilesPipe@@AEAAXK@Z@4HA
+414 000001D0 SECTB1 notype       Static       | $unwind$?writeCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+415 00000090 SECTB2 notype       Static       | $pdata$?writeCompleted@Endpoint@MilesPipe@@AEAAXK@Z
+416 000001D8 SECTB1 notype       Static       | $unwind$?cancelPending@Endpoint@MilesPipe@@AEAAXXZ
+417 0000009C SECTB2 notype       Static       | $pdata$?cancelPending@Endpoint@MilesPipe@@AEAAXXZ
+418 000001E0 SECTB1 notype       Static       | $unwind$?collect@Endpoint@MilesPipe@@AEAA_NAEAUOperation@12@_N@Z
+419 000000A8 SECTB2 notype       Static       | $pdata$?collect@Endpoint@MilesPipe@@AEAA_NAEAUOperation@12@_N@Z
+41A 00000000 SECT10E notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum A7E96827, selection    5 (pick associative Section 0x6)
+41C 00000000 SECT10E notype       Static      | $unwind$??$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z
+41D 00000000 SECT10F notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum DBA9F425, selection    5 (pick associative Section 0x6)
+41F 00000000 SECT10F notype       Static      | $pdata$??$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z
+420 00000000 SECT110 notype       Static      | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum EF33CE7B, selection    5 (pick associative Section 0x6)
+422 00000000 SECT110 notype       Static      | $cppxdata$??$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z
+423 00000000 SECT111 notype       Static      | .xdata
+    Section length    8, #relocs    1, #linenums    0, checksum 9ADD2096, selection    5 (pick associative Section 0x6)
+425 00000000 SECT111 notype       Static      | $stateUnwindMap$??$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z
+426 00000000 SECT112 notype       Static      | .xdata
+    Section length   18, #relocs    3, #linenums    0, checksum 3D6A9433, selection    5 (pick associative Section 0x6)
+428 00000000 SECT112 notype       Static      | $ip2state$??$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z
+429 00000000 SECT113 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B96BC9FB, selection    5 (pick associative Section 0x6)
+42B 00000000 SECT113 notype       Static      | $unwind$?dtor$0@?0???$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z@4HA
+42C 00000000 SECT114 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AF5E2A9E, selection    5 (pick associative Section 0x6)
+42E 00000000 SECT114 notype       Static      | $pdata$?dtor$0@?0???$?0PEBEX@?$vector@EV?$allocator@E@std@@@std@@QEAA@PEBE0@Z@4HA
+42F 00000000 SECT115 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x3B)
+431 00000000 SECT115 notype       Static      | $unwind$??$min@_K@std@@YAAEB_KAEB_K0@Z
+432 00000000 SECT116 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  84CEF90, selection    5 (pick associative Section 0x3B)
+434 00000000 SECT116 notype       Static      | $pdata$??$min@_K@std@@YAAEB_KAEB_K0@Z
+435 00000000 SECT117 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum F1DD62F7, selection    5 (pick associative Section 0x2E)
+437 00000000 SECT117 notype       Static      | $unwind$??$_Uninitialized_default_fill_n@PEAE_KU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE_KAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+438 00000000 SECT118 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 1DC6FDA2, selection    5 (pick associative Section 0x2E)
+43A 00000000 SECT118 notype       Static      | $pdata$??$_Uninitialized_default_fill_n@PEAE_KU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE_KAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+43B 00000000 SECT119 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x9)
+43D 00000000 SECT119 notype       Static      | $unwind$??$?8V?$allocator@E@std@@V01@@std@@YA_NAEBU?$_Wrap_alloc@V?$allocator@E@std@@@0@0@Z
+43E 00000000 SECT11A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum EFF2CB6A, selection    5 (pick associative Section 0x9)
+440 00000000 SECT11A notype       Static      | $pdata$??$?8V?$allocator@E@std@@V01@@std@@YA_NAEBU?$_Wrap_alloc@V?$allocator@E@std@@@0@0@Z
+441 00000000 SECT11B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x22)
+443 00000000 SECT11B notype       Static      | $unwind$??$_Swap_adl@PEAE@std@@YAXAEAPEAE0@Z
+444 00000000 SECT11C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x22)
+446 00000000 SECT11C notype       Static      | $pdata$??$_Swap_adl@PEAE@std@@YAXAEAPEAE0@Z
+447 00000000 SECT11D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 583FB257, selection    5 (pick associative Section 0x18)
+449 00000000 SECT11D notype       Static      | $unwind$??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+44A 00000000 SECT11E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 617DCC89, selection    5 (pick associative Section 0x18)
+44C 00000000 SECT11E notype       Static      | $pdata$??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+44D 00000000 SECT11F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x23)
+44F 00000000 SECT11F notype       Static      | $unwind$??$_Swap_adl@PEAU_Container_proxy@std@@@std@@YAXAEAPEAU_Container_proxy@0@0@Z
+450 00000000 SECT120 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x23)
+452 00000000 SECT120 notype       Static      | $pdata$??$_Swap_adl@PEAU_Container_proxy@std@@@std@@YAXAEAPEAU_Container_proxy@0@0@Z
+453 00000000 SECT121 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x7D)
+455 00000000 SECT121 notype       Static      | $unwind$?deallocate@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@2@_K@Z
+456 00000000 SECT122 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x7D)
+458 00000000 SECT122 notype       Static      | $pdata$?deallocate@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@2@_K@Z
+459 00000000 SECT123 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x77)
+45B 00000000 SECT123 notype       Static      | $unwind$?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z
+45C 00000000 SECT124 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A59B2387, selection    5 (pick associative Section 0x77)
+45E 00000000 SECT124 notype       Static      | $pdata$?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z
+45F 00000000 SECT125 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9C7880CC, selection    5 (pick associative Section 0x42)
+461 00000000 SECT125 notype       Static      | $unwind$??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAA@XZ
+462 00000000 SECT126 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum E7BE24FA, selection    5 (pick associative Section 0x42)
+464 00000000 SECT126 notype       Static      | $pdata$??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAA@XZ
+465 00000000 SECT127 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x75)
+467 00000000 SECT127 notype       Static      | $unwind$?allocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z
+468 00000000 SECT128 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x75)
+46A 00000000 SECT128 notype       Static      | $pdata$?allocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z
+46B 00000000 SECT129 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x7B)
+46D 00000000 SECT129 notype       Static      | $unwind$?deallocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@2@_K@Z
+46E 00000000 SECT12A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum AED97719, selection    5 (pick associative Section 0x7B)
+470 00000000 SECT12A notype       Static      | $pdata$?deallocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@2@_K@Z
+471 00000000 SECT12B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x31)
+473 00000000 SECT12B notype       Static      | $unwind$??$construct@U_Container_proxy@std@@U12@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+474 00000000 SECT12C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  1875D87, selection    5 (pick associative Section 0x31)
+476 00000000 SECT12C notype       Static      | $pdata$??$construct@U_Container_proxy@std@@U12@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+477 00000000 SECT12D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x35)
+479 00000000 SECT12D notype       Static      | $unwind$??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@1@@Z
+47A 00000000 SECT12E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x35)
+47C 00000000 SECT12E notype       Static      | $pdata$??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAAXPEAU_Container_proxy@1@@Z
+47D 00000000 SECT12F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8D3961AC, selection    5 (pick associative Section 0x25)
+47F 00000000 SECT12F notype       Static      | $unwind$??$_Umove@PEAE@?$vector@EV?$allocator@E@std@@@std@@IEAAPEAEPEAE00@Z
+480 00000000 SECT130 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 617DCC89, selection    5 (pick associative Section 0x25)
+482 00000000 SECT130 notype       Static      | $pdata$??$_Umove@PEAE@?$vector@EV?$allocator@E@std@@@std@@IEAAPEAEPEAE00@Z
+483 00000000 SECT131 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0xB)
+485 00000000 SECT131 notype       Static      | $unwind$??$_Allocate@E@std@@YAPEAE_KPEAE@Z
+486 00000000 SECT132 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum F0BDD041, selection    5 (pick associative Section 0xB)
+488 00000000 SECT132 notype       Static      | $pdata$??$_Allocate@E@std@@YAPEAE_KPEAE@Z
+489 00000000 SECT133 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0xC)
+48B 00000000 SECT133 notype       Static      | $unwind$??$_Allocate@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@_KPEAU10@@Z
+48C 00000000 SECT134 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  289E689, selection    5 (pick associative Section 0xC)
+48E 00000000 SECT134 notype       Static      | $pdata$??$_Allocate@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@_KPEAU10@@Z
+48F 00000000 SECT135 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 583FB257, selection    5 (pick associative Section 0xD)
+491 00000000 SECT135 notype       Static      | $unwind$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0@Z
+492 00000000 SECT136 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum FA78D958, selection    5 (pick associative Section 0xD)
+494 00000000 SECT136 notype       Static      | $pdata$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0@Z
+495 00000000 SECT137 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6EF04B8B, selection    5 (pick associative Section 0x10)
+497 00000000 SECT137 notype       Static      | $unwind$??$_Debug_lt@AEB_KAEB_K@std@@YA_NAEB_K0PEB_WI@Z
+498 00000000 SECT138 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 8D81BCED, selection    5 (pick associative Section 0x10)
+49A 00000000 SECT138 notype       Static      | $pdata$??$_Debug_lt@AEB_KAEB_K@std@@YA_NAEB_K0PEB_WI@Z
+49B 00000000 SECT139 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8CDF4DDB, selection    5 (pick associative Section 0x20)
+49D 00000000 SECT139 notype       Static      | $unwind$??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEBEPEAE@Z
+49E 00000000 SECT13A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 767E3832, selection    5 (pick associative Section 0x20)
+4A0 00000000 SECT13A notype       Static      | $pdata$??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEBEPEAE@Z
+4A1 00000000 SECT13B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8CDF4DDB, selection    5 (pick associative Section 0x1F)
+4A3 00000000 SECT13B notype       Static      | $unwind$??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEAE0@Z
+4A4 00000000 SECT13C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 767E3832, selection    5 (pick associative Section 0x1F)
+4A6 00000000 SECT13C notype       Static      | $pdata$??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEAE0@Z
+4A7 00000000 SECT13D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B574274C, selection    5 (pick associative Section 0x2A)
+4A9 00000000 SECT13D notype       Static      | $unwind$??$_Uninit_def_fill_n@E_KE@std@@YAXPEAE_KAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z
+4AA 00000000 SECT13E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 205670FA, selection    5 (pick associative Section 0x2A)
+4AC 00000000 SECT13E notype       Static      | $pdata$??$_Uninit_def_fill_n@E_KE@std@@YAXPEAE_KAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z
+4AD 00000000 SECT13F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x3C)
+4AF 00000000 SECT13F notype       Static      | $unwind$??$swap@PEAE@std@@YAXAEAPEAE0@Z
+4B0 00000000 SECT140 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum F0BDD041, selection    5 (pick associative Section 0x3C)
+4B2 00000000 SECT140 notype       Static      | $pdata$??$swap@PEAE@std@@YAXAEAPEAE0@Z
+4B3 00000000 SECT141 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x3D)
+4B5 00000000 SECT141 notype       Static      | $unwind$??$swap@PEAU_Container_proxy@std@@@std@@YAXAEAPEAU_Container_proxy@0@0@Z
+4B6 00000000 SECT142 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum F0BDD041, selection    5 (pick associative Section 0x3D)
+4B8 00000000 SECT142 notype       Static      | $pdata$??$swap@PEAU_Container_proxy@std@@@std@@YAXAEAPEAU_Container_proxy@0@0@Z
+4B9 00000000 SECT143 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x34)
+4BB 00000000 SECT143 notype       Static      | $unwind$??$construct@U_Container_proxy@std@@U12@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@1@PEAU_Container_proxy@1@$$QEAU31@@Z
+4BC 00000000 SECT144 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum  1875D87, selection    5 (pick associative Section 0x34)
+4BE 00000000 SECT144 notype       Static      | $pdata$??$construct@U_Container_proxy@std@@U12@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@1@PEAU_Container_proxy@1@$$QEAU31@@Z
+4BF 00000000 SECT145 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C40886FB, selection    5 (pick associative Section 0x37)
+4C1 00000000 SECT145 notype       Static      | $unwind$??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@1@PEAU_Container_proxy@1@@Z
+4C2 00000000 SECT146 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x37)
+4C4 00000000 SECT146 notype       Static      | $pdata$??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@1@PEAU_Container_proxy@1@@Z
+4C5 00000000 SECT147 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8D3961AC, selection    5 (pick associative Section 0x2F)
+4C7 00000000 SECT147 notype       Static      | $unwind$??$_Uninitialized_move@PEAEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+4C8 00000000 SECT148 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum EE7596ED, selection    5 (pick associative Section 0x2F)
+4CA 00000000 SECT148 notype       Static      | $pdata$??$_Uninitialized_move@PEAEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+4CB 00000000 SECT149 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8CDF4DDB, selection    5 (pick associative Section 0x1C)
+4CD 00000000 SECT149 notype       Static      | $unwind$??$_Iter_cat@PEBE@std@@YA?AUrandom_access_iterator_tag@0@AEBQEBE@Z
+4CE 00000000 SECT14A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x1C)
+4D0 00000000 SECT14A notype       Static      | $pdata$??$_Iter_cat@PEBE@std@@YA?AUrandom_access_iterator_tag@0@AEBQEBE@Z
+4D1 00000000 SECT14B notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 95C180BB, selection    5 (pick associative Section 0xE)
+4D3 00000000 SECT14B notype       Static      | $unwind$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4D4 00000000 SECT14C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum F13A8DC6, selection    5 (pick associative Section 0xE)
+4D6 00000000 SECT14C notype       Static      | $pdata$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4D7 00000000 SECT14D notype       Static      | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum A1EC9887, selection    5 (pick associative Section 0xE)
+4D9 00000000 SECT14D notype       Static      | $cppxdata$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4DA 00000000 SECT14E notype       Static      | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0xE)
+4DC 00000000 SECT14E notype       Static      | $stateUnwindMap$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4DD 00000000 SECT14F notype       Static      | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 570F4CF1, selection    5 (pick associative Section 0xE)
+4DF 00000000 SECT14F notype       Static      | $tryMap$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4E0 00000000 SECT150 notype       Static      | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum   677058, selection    5 (pick associative Section 0xE)
+4E2 00000000 SECT150 notype       Static      | $handlerMap$0$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4E3 00000000 SECT151 notype       Static      | .xdata
+    Section length   30, #relocs    6, #linenums    0, checksum FE362F85, selection    5 (pick associative Section 0xE)
+4E5 00000000 SECT151 notype       Static      | $ip2state$??$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z
+4E6 00000000 SECT152 notype       Static      | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0xE)
+4E8 00000000 SECT152 notype       Static      | $unwind$?catch$0@?0???$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z@4HA
+4E9 00000000 SECT153 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ECFC7064, selection    5 (pick associative Section 0xE)
+4EB 00000000 SECT153 notype       Static      | $pdata$?catch$0@?0???$_Construct@PEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAXPEBE0Uforward_iterator_tag@1@@Z@4HA
+4EC 00000000 SECT154 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 23120113, selection    5 (pick associative Section 0x11)
+4EE 00000000 SECT154 notype       Static      | $unwind$??$_Debug_lt_pred@U?$less@X@std@@AEB_KAEB_K@std@@YA_NU?$less@X@0@AEB_K1PEB_WI@Z
+4EF 00000000 SECT155 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 2E07E976, selection    5 (pick associative Section 0x11)
+4F1 00000000 SECT155 notype       Static      | $pdata$??$_Debug_lt_pred@U?$less@X@std@@AEB_KAEB_K@std@@YA_NU?$less@X@0@AEB_K1PEB_WI@Z
+4F2 00000000 SECT156 notype       Static      | .xdata
+    Section length   14, #relocs    2, #linenums    0, checksum 8FE21865, selection    5 (pick associative Section 0x32)
+4F4 00000000 SECT156 notype       Static      | $unwind$??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+4F5 00000000 SECT157 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B31F8ABB, selection    5 (pick associative Section 0x32)
+4F7 00000000 SECT157 notype       Static      | $pdata$??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+4F8 00000000 SECT158 notype       Static      | .rdata
+    Section length   28, #relocs    2, #linenums    0, checksum E5275579, selection    5 (pick associative Section 0x32)
+4FA 00000000 SECT158 notype       Static      | $cppxdata$??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+4FB 00000000 SECT159 notype       Static      | .xdata
+    Section length    8, #relocs    1, #linenums    0, checksum 9ADD2096, selection    5 (pick associative Section 0x32)
+4FD 00000000 SECT159 notype       Static      | $stateUnwindMap$??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+4FE 00000000 SECT15A notype       Static      | .xdata
+    Section length   18, #relocs    3, #linenums    0, checksum B65CB2FC, selection    5 (pick associative Section 0x32)
+500 00000000 SECT15A notype       Static      | $ip2state$??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z
+501 00000000 SECT15B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B96BC9FB, selection    5 (pick associative Section 0x32)
+503 00000000 SECT15B notype       Static      | $unwind$?dtor$0@?0???$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z@4HA
+504 00000000 SECT15C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 2B142464, selection    5 (pick associative Section 0x32)
+506 00000000 SECT15C notype       Static      | $pdata$?dtor$0@?0???$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QEAAXPEAU_Container_proxy@1@$$QEAU21@@Z@4HA
+507 00000000 SECT15D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 24DBB10C, selection    5 (pick associative Section 0x2C)
+509 00000000 SECT15D notype       Static      | $unwind$??$_Uninit_move@PEAEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+50A 00000000 SECT15E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 1C41A025, selection    5 (pick associative Section 0x2C)
+50C 00000000 SECT15E notype       Static      | $pdata$??$_Uninit_move@PEAEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+50D 00000000 SECT15F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum FC45C01B, selection    5 (pick associative Section 0x38)
+50F 00000000 SECT15F notype       Static      | $unwind$??$distance@PEBE@std@@YA_JPEBE0@Z
+510 00000000 SECT160 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum FA78D958, selection    5 (pick associative Section 0x38)
+512 00000000 SECT160 notype       Static      | $pdata$??$distance@PEBE@std@@YA_JPEBE0@Z
+513 00000000 SECT161 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8D3961AC, selection    5 (pick associative Section 0x24)
+515 00000000 SECT161 notype       Static      | $unwind$??$_Ucopy@PEBE@?$vector@EV?$allocator@E@std@@@std@@IEAAPEAEPEBE0PEAE@Z
+516 00000000 SECT162 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 617DCC89, selection    5 (pick associative Section 0x24)
+518 00000000 SECT162 notype       Static      | $pdata$??$_Ucopy@PEBE@?$vector@EV?$allocator@E@std@@@std@@IEAAPEAEPEBE0PEAE@Z
+519 00000000 SECT163 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 28A53F97, selection    5 (pick associative Section 0xA)
+51B 00000000 SECT163 notype       Static      | $unwind$??$?RAEB_KAEB_K@?$less@X@std@@QEBA_NAEB_K0@Z
+51C 00000000 SECT164 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 9047414F, selection    5 (pick associative Section 0xA)
+51E 00000000 SECT164 notype       Static      | $pdata$??$?RAEB_KAEB_K@?$less@X@std@@QEBA_NAEB_K0@Z
+51F 00000000 SECT165 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8D3961AC, selection    5 (pick associative Section 0x2B)
+521 00000000 SECT165 notype       Static      | $unwind$??$_Uninit_move@EEE@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z
+522 00000000 SECT166 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B9DA83A2, selection    5 (pick associative Section 0x2B)
+524 00000000 SECT166 notype       Static      | $pdata$??$_Uninit_move@EEE@std@@YAPEAEPEAE00AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z
+525 00000000 SECT167 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B574274C, selection    5 (pick associative Section 0x1A)
+527 00000000 SECT167 notype       Static      | $unwind$??$_Distance2@PEBE_J@std@@YAXPEBE0AEA_JUrandom_access_iterator_tag@0@@Z
+528 00000000 SECT168 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A6959889, selection    5 (pick associative Section 0x1A)
+52A 00000000 SECT168 notype       Static      | $pdata$??$_Distance2@PEBE_J@std@@YAXPEBE0AEA_JUrandom_access_iterator_tag@0@@Z
+52B 00000000 SECT169 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8D3961AC, selection    5 (pick associative Section 0x2D)
+52D 00000000 SECT169 notype       Static      | $unwind$??$_Uninitialized_copy@PEBEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+52E 00000000 SECT16A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum EE7596ED, selection    5 (pick associative Section 0x2D)
+530 00000000 SECT16A notype       Static      | $pdata$??$_Uninitialized_copy@PEBEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+531 00000000 SECT16B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 24DBB10C, selection    5 (pick associative Section 0x16)
+533 00000000 SECT16B notype       Static      | $unwind$??$_Debug_range@PEAE@std@@YAXPEAE0PEB_WI@Z
+534 00000000 SECT16C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 7E32D7A2, selection    5 (pick associative Section 0x16)
+536 00000000 SECT16C notype       Static      | $pdata$??$_Debug_range@PEAE@std@@YAXPEAE0PEB_WI@Z
+537 00000000 SECT16D notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x12)
+539 00000000 SECT16D notype       Static      | $unwind$??$_Debug_pointer@E@std@@YAXPEAEPEB_WI@Z
+53A 00000000 SECT16E notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x12)
+53C 00000000 SECT16E notype       Static      | $pdata$??$_Debug_pointer@E@std@@YAXPEAEPEB_WI@Z
+53D 00000000 SECT16F notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 6072F4B7, selection    5 (pick associative Section 0x13)
+53F 00000000 SECT16F notype       Static      | $unwind$??$_Debug_pointer@E@std@@YAXPEBEPEB_WI@Z
+540 00000000 SECT170 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 43A25AFA, selection    5 (pick associative Section 0x13)
+542 00000000 SECT170 notype       Static      | $pdata$??$_Debug_pointer@E@std@@YAXPEBEPEB_WI@Z
+543 00000000 SECT171 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 24DBB10C, selection    5 (pick associative Section 0x29)
+545 00000000 SECT171 notype       Static      | $unwind$??$_Uninit_copy@PEBEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+546 00000000 SECT172 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 1703F4BB, selection    5 (pick associative Section 0x29)
+548 00000000 SECT172 notype       Static      | $pdata$??$_Uninit_copy@PEBEPEAEU?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z
+549 00000000 SECT173 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8CDF4DDB, selection    5 (pick associative Section 0x1B)
+54B 00000000 SECT173 notype       Static      | $unwind$??$_Iter_cat@PEAE@std@@YA?AUrandom_access_iterator_tag@0@AEBQEAE@Z
+54C 00000000 SECT174 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 77F965B5, selection    5 (pick associative Section 0x1B)
+54E 00000000 SECT174 notype       Static      | $pdata$??$_Iter_cat@PEAE@std@@YA?AUrandom_access_iterator_tag@0@AEBQEAE@Z
+54F 00000000 SECT175 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B574274C, selection    5 (pick associative Section 0x14)
+551 00000000 SECT175 notype       Static      | $unwind$??$_Debug_range2@PEAE@std@@YAXPEAE0PEB_WIUrandom_access_iterator_tag@0@@Z
+552 00000000 SECT176 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 22DF9673, selection    5 (pick associative Section 0x14)
+554 00000000 SECT176 notype       Static      | $pdata$??$_Debug_range2@PEAE@std@@YAXPEAE0PEB_WIUrandom_access_iterator_tag@0@@Z
+555 00000000 SECT177 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 8D3961AC, selection    5 (pick associative Section 0x28)
+557 00000000 SECT177 notype       Static      | $unwind$??$_Uninit_copy@$$CBEE@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z
+558 00000000 SECT178 notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B9DA83A2, selection    5 (pick associative Section 0x28)
+55A 00000000 SECT178 notype       Static      | $pdata$??$_Uninit_copy@$$CBEE@std@@YAPEAEPEBE0PEAEAEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z
+55B 00000000 SECT179 notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 24DBB10C, selection    5 (pick associative Section 0x17)
+55D 00000000 SECT179 notype       Static      | $unwind$??$_Debug_range@PEBE@std@@YAXPEBE0PEB_WI@Z
+55E 00000000 SECT17A notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 7E32D7A2, selection    5 (pick associative Section 0x17)
+560 00000000 SECT17A notype       Static      | $pdata$??$_Debug_range@PEBE@std@@YAXPEBE0PEB_WI@Z
+561 00000000 SECT17B notype       Static      | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum B574274C, selection    5 (pick associative Section 0x15)
+563 00000000 SECT17B notype       Static      | $unwind$??$_Debug_range2@PEBE@std@@YAXPEBE0PEB_WIUrandom_access_iterator_tag@0@@Z
+564 00000000 SECT17C notype       Static      | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 22DF9673, selection    5 (pick associative Section 0x15)
+566 00000000 SECT17C notype       Static      | $pdata$??$_Debug_range2@PEBE@std@@YAXPEBE0PEB_WIUrandom_access_iterator_tag@0@@Z
+567 00000000 SECT17D notype       Static      | .bss
+    Section length    2, #relocs    0, #linenums    0, checksum        0
+569 00000001 SECT17D notype       Static      | piecewise_construct
+56A 00000000 SECT17E notype       Static      | .rdata
+    Section length   90, #relocs    0, #linenums    0, checksum D4D3A252, selection    2 (pick any)
+56C 00000000 SECT17E notype       External    | ??_C@_1JA@FLCGFIDB@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ (`string')
+56D 00000000 SECT17D notype       Static      | allocator_arg
+56E 00000000 SECT17F notype       Static      | .rdata
+    Section length   18, #relocs    3, #linenums    0, checksum        0, selection    6 (pick largest)
+570 00000008 SECT17F notype       External    | ??_7logic_error@std@@6B@ (const std::logic_error::`vftable')
+571 00000000 SECT180 notype       Static      | .rdata
+    Section length   18, #relocs    3, #linenums    0, checksum        0, selection    6 (pick largest)
+573 00000008 SECT180 notype       External    | ??_7invalid_argument@std@@6B@ (const std::invalid_argument::`vftable')
+574 00000000 SECT181 notype       Static      | .rdata
+    Section length   18, #relocs    3, #linenums    0, checksum        0, selection    6 (pick largest)
+576 00000008 SECT181 notype       External    | ??_7runtime_error@std@@6B@ (const std::runtime_error::`vftable')
+577 00000000 SECT182 notype       Static      | .xdata$x
+    Section length   1C, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+579 00000000 SECT182 notype       External    | _TI3?AVinvalid_argument@std@@
+57A 00000000 SECT183 notype       Static      | .xdata$x
+    Section length   1C, #relocs    3, #linenums    0, checksum 29C8B4F2, selection    2 (pick any)
+57C 00000000 SECT183 notype       External    | _CTA3?AVinvalid_argument@std@@
+57D 00000000 SECT184 notype       Static      | .data$r
+    Section length   2B, #relocs    1, #linenums    0, checksum 106500BA, selection    2 (pick any)
+57F 00000000 SECT184 notype       External    | ??_R0?AVinvalid_argument@std@@@8 (class std::invalid_argument `RTTI Type Descriptor')
+580 00000000 SECT185 notype       Static      | .xdata$x
+    Section length   24, #relocs    2, #linenums    0, checksum BC1A9E34, selection    2 (pick any)
+582 00000000 SECT185 notype       External    | _CT??_R0?AVinvalid_argument@std@@@8??0invalid_argument@std@@QEAA@AEBV01@@Z24
+583 00000000 SECT186 notype       Static      | .data$r
+    Section length   26, #relocs    1, #linenums    0, checksum 581E38EE, selection    2 (pick any)
+585 00000000 SECT186 notype       External    | ??_R0?AVlogic_error@std@@@8 (class std::logic_error `RTTI Type Descriptor')
+586 00000000 SECT187 notype       Static      | .xdata$x
+    Section length   24, #relocs    2, #linenums    0, checksum BC1A9E34, selection    2 (pick any)
+588 00000000 SECT187 notype       External    | _CT??_R0?AVlogic_error@std@@@8??0logic_error@std@@QEAA@AEBV01@@Z24
+589 00000000 SECT188 notype       Static      | .data$r
+    Section length   24, #relocs    1, #linenums    0, checksum 54BC55F2, selection    2 (pick any)
+58B 00000000 SECT188 notype       External    | ??_R0?AVexception@std@@@8 (class std::exception `RTTI Type Descriptor')
+58C 00000000 SECT189 notype       Static      | .xdata$x
+    Section length   24, #relocs    2, #linenums    0, checksum BC1A9E34, selection    2 (pick any)
+58E 00000000 SECT189 notype       External    | _CT??_R0?AVexception@std@@@8??0exception@std@@QEAA@AEBV01@@Z24
+58F 00000000 UNDEF  notype       External     | ??_7type_info@@6B@ (const type_info::`vftable')
+590 00000000 SECT18A notype       Static      | .xdata$x
+    Section length   1C, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+592 00000000 SECT18A notype       External    | _TI2?AVruntime_error@std@@
+593 00000000 SECT18B notype       Static      | .xdata$x
+    Section length   14, #relocs    2, #linenums    0, checksum EC3B9E9F, selection    2 (pick any)
+595 00000000 SECT18B notype       External    | _CTA2?AVruntime_error@std@@
+596 00000000 SECT18C notype       Static      | .data$r
+    Section length   28, #relocs    1, #linenums    0, checksum D357CA60, selection    2 (pick any)
+598 00000000 SECT18C notype       External    | ??_R0?AVruntime_error@std@@@8 (class std::runtime_error `RTTI Type Descriptor')
+599 00000000 SECT18D notype       Static      | .xdata$x
+    Section length   24, #relocs    2, #linenums    0, checksum BC1A9E34, selection    2 (pick any)
+59B 00000000 SECT18D notype       External    | _CT??_R0?AVruntime_error@std@@@8??0runtime_error@std@@QEAA@AEBV01@@Z24
+59C 00000000 SECT18E notype       Static      | .rdata
+    Section length   8C, #relocs    0, #linenums    0, checksum 101D7482, selection    2 (pick any)
+59E 00000000 SECT18E notype       External    | ??_C@_1IM@CBJFJAOD@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ (`string')
+59F 00000000 SECT18F notype       Static      | .rdata
+    Section length   3C, #relocs    0, #linenums    0, checksum 4C8F04E7, selection    2 (pick any)
+5A1 00000000 SECT18F notype       External    | ??_C@_1DM@LHGCHCBA@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAs?$AAu?$AAb?$AAs?$AAc?$AAr?$AAi?$AAp?$AAt?$AA?5?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$AA@ (`string')
+5A2 00000000 SECT190 notype       Static      | .rdata
+    Section length   24, #relocs    0, #linenums    0, checksum 70812DE6, selection    2 (pick any)
+5A4 00000000 SECT190 notype       External    | ??_C@_0CE@OFMIGAMM@Standard?5C?$CL?$CL?5Libraries?5Out?5of?5Ra@ (`string')
+5A5 00000000 SECT191 notype       Static      | .rdata
+    Section length   56, #relocs    0, #linenums    0, checksum 8F83C987, selection    2 (pick any)
+5A7 00000000 SECT191 notype       External    | ??_C@_1FG@IBPIFFN@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAO?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAR@ (`string')
+5A8 00000000 SECT192 notype       Static      | .rdata
+    Section length    6, #relocs    0, #linenums    0, checksum 2EEB9BF7, selection    2 (pick any)
+5AA 00000000 SECT192 notype       External    | ??_C@_15GANGMFKL@?$AA?$CF?$AAs?$AA?$AA@ (`string')
+5AB 00000000 SECT193 notype       Static      | .rdata
+    Section length   1E, #relocs    0, #linenums    0, checksum F3B436A4, selection    2 (pick any)
+5AD 00000000 SECT193 notype       External    | ??_C@_1BO@MEPPHOO@?$AA?$CC?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$CC?$AA?$AA@ (`string')
+5AE 00000000 SECT194 notype       Static      | .rdata
+    Section length   9A, #relocs    0, #linenums    0, checksum  AF8719D, selection    2 (pick any)
+5B0 00000000 SECT194 notype       External    | ??_C@_1JK@PKCFAHNP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?$DM?$AAu?$AAn?$AAs?$AAi?$AAg?$AAn?$AAe?$AAd?$AA?5?$AAc?$AAh?$AAa?$AAr?$AA?0?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ (`string')
+5B1 00000000 SECT195 notype       Static      | .rdata
+    Section length   50, #relocs    0, #linenums    0, checksum  F44E301, selection    2 (pick any)
+5B3 00000000 SECT195 notype       External    | ??_C@_1FA@HOJIAEBI@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAc?$AAo?$AAn?$AAt?$AAa?$AAi?$AAn?$AAe?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?5?$AAf@ (`string')
+5B4 00000000 SECT196 notype       Static      | .rdata
+    Section length   13, #relocs    0, #linenums    0, checksum CEE728DA, selection    2 (pick any)
+5B6 00000000 SECT196 notype       External    | ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@ (`string')
+5B7 00000000 SECT197 notype       Static      | .rdata
+    Section length   92, #relocs    0, #linenums    0, checksum AD4D2A3D, selection    2 (pick any)
+5B9 00000000 SECT197 notype       External    | ??_C@_1JC@LOPFIGKO@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ (`string')
+5BA 00000000 SECT198 notype       Static      | .rdata
+    Section length   24, #relocs    0, #linenums    0, checksum 13D5AF00, selection    2 (pick any)
+5BC 00000000 SECT198 notype       External    | ??_C@_1CE@IGJMOCCK@?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAo?$AAp?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AA?$AA@ (`string')
+5BD 00000000 SECT199 notype       Static      | .rdata
+    Section length   8E, #relocs    0, #linenums    0, checksum 6FB757B8, selection    2 (pick any)
+5BF 00000000 SECT199 notype       External    | ??_C@_1IO@LEDGBKLH@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ (`string')
+5C0 00000000 SECT19A notype       Static      | .rdata
+    Section length   2A, #relocs    0, #linenums    0, checksum 55665FBD, selection    2 (pick any)
+5C2 00000000 SECT19A notype       External    | ??_C@_1CK@EOPGIILJ@?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?$AA@ (`string')
+5C3 00000000 SECT19B notype       Static      | .rdata
+    Section length   2E, #relocs    0, #linenums    0, checksum CA385A6C, selection    2 (pick any)
+5C5 00000000 SECT19B notype       External    | ??_C@_1CO@DGLIKNHI@?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$AA@ (`string')
+5C6 00000000 SECT19C notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum 3AD97647, selection    2 (pick any)
+5C8 00000000 SECT19C notype       External    | ??_R1A@?0A@EA@exception@std@@8 (std::exception::`RTTI Base Class Descriptor at (0,-1,0,64)')
+5C9 00000000 SECT19D notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum CCAA009E, selection    2 (pick any)
+5CB 00000000 SECT19D notype       External    | ??_R3exception@std@@8 (std::exception::`RTTI Class Hierarchy Descriptor')
+5CC 00000000 SECT19E notype       Static      | .rdata$r
+    Section length    C, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+5CE 00000000 SECT19E notype       External    | ??_R2exception@std@@8 (std::exception::`RTTI Base Class Array')
+5CF 00000000 SECT19F notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+5D1 00000000 SECT19F notype       External    | ??_R4logic_error@std@@6B@ (const std::logic_error::`RTTI Complete Object Locator')
+5D2 00000000 SECT1A0 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 4225077D, selection    2 (pick any)
+5D4 00000000 SECT1A0 notype       External    | ??_R3logic_error@std@@8 (std::logic_error::`RTTI Class Hierarchy Descriptor')
+5D5 00000000 SECT1A1 notype       Static      | .rdata$r
+    Section length   14, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+5D7 00000000 SECT1A1 notype       External    | ??_R2logic_error@std@@8 (std::logic_error::`RTTI Base Class Array')
+5D8 00000000 SECT1A2 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum BBFC1360, selection    2 (pick any)
+5DA 00000000 SECT1A2 notype       External    | ??_R1A@?0A@EA@logic_error@std@@8 (std::logic_error::`RTTI Base Class Descriptor at (0,-1,0,64)')
+5DB 00000000 SECT1A3 notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+5DD 00000000 SECT1A3 notype       External    | ??_R4invalid_argument@std@@6B@ (const std::invalid_argument::`RTTI Complete Object Locator')
+5DE 00000000 SECT1A4 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 8E8F07E3, selection    2 (pick any)
+5E0 00000000 SECT1A4 notype       External    | ??_R3invalid_argument@std@@8 (std::invalid_argument::`RTTI Class Hierarchy Descriptor')
+5E1 00000000 SECT1A5 notype       Static      | .rdata$r
+    Section length   1C, #relocs    3, #linenums    0, checksum        0, selection    2 (pick any)
+5E3 00000000 SECT1A5 notype       External    | ??_R2invalid_argument@std@@8 (std::invalid_argument::`RTTI Base Class Array')
+5E4 00000000 SECT1A6 notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum E3E2BA48, selection    2 (pick any)
+5E6 00000000 SECT1A6 notype       External    | ??_R1A@?0A@EA@invalid_argument@std@@8 (std::invalid_argument::`RTTI Base Class Descriptor at (0,-1,0,64)')
+5E7 00000000 SECT1A7 notype       Static      | .rdata$r
+    Section length   24, #relocs    3, #linenums    0, checksum 81256527, selection    2 (pick any)
+5E9 00000000 SECT1A7 notype       External    | ??_R4runtime_error@std@@6B@ (const std::runtime_error::`RTTI Complete Object Locator')
+5EA 00000000 SECT1A8 notype       Static      | .rdata$r
+    Section length   14, #relocs    1, #linenums    0, checksum 4225077D, selection    2 (pick any)
+5EC 00000000 SECT1A8 notype       External    | ??_R3runtime_error@std@@8 (std::runtime_error::`RTTI Class Hierarchy Descriptor')
+5ED 00000000 SECT1A9 notype       Static      | .rdata$r
+    Section length   14, #relocs    2, #linenums    0, checksum        0, selection    2 (pick any)
+5EF 00000000 SECT1A9 notype       External    | ??_R2runtime_error@std@@8 (std::runtime_error::`RTTI Base Class Array')
+5F0 00000000 SECT1AA notype       Static      | .rdata$r
+    Section length   24, #relocs    2, #linenums    0, checksum BBFC1360, selection    2 (pick any)
+5F2 00000000 SECT1AA notype       External    | ??_R1A@?0A@EA@runtime_error@std@@8 (std::runtime_error::`RTTI Base Class Descriptor at (0,-1,0,64)')
+5F3 00000000 UNDEF  notype       External     | _fltused
+5F4 00000000 SECT1AB notype       Static      | .CRT$XCU
+    Section length   10, #relocs    2, #linenums    0, checksum        0
+5F6 00000000 SECT1AB notype       Static      | piecewise_construct$initializer$
+5F7 00000008 SECT1AB notype       Static      | allocator_arg$initializer$
+
+String Table Size = 0x8E8F bytes
+
+  Summary
+
+          10 .CRT$XCU
+           2 .bss
+          9D .data$r
+          B8 .debug$S
+          F0 .drectve
+         60C .pdata
+         6EF .rdata
+         19C .rdata$r
+          38 .text$di
+        2D43 .text$mn
+         1E4 .text$x
+         74C .xdata
+          F8 .xdata$x

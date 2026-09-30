@@ -1,0 +1,7 @@
+# Selected composition86, source-only
+
+Fresh full copy of frozen77 plus exact text-controls81 Core/Session/header changes, exact stream-lifetime83 Backend/registry, and explicit merge of the callback80 public insertion into81's public wrapper. Public ClientMiles.h is byte-identical70.53 public names are defined; nine remain missing. No source from80/81/83 or77 is changed. Full per-file origin/base hashes are in provenance.json; source-manifest.json pins all candidate files; from77.patch is the exact aggregate delta (six changed paths).
+
+File registration keeps supplied pointers and bounded one-time/nonnull/running/private-root-pin contract. Text snapshots retain81's separate function lifetimes/null versus empty.83 stream lifetime remains no-EOS, with typed reservations and descendant invalidation; no native quiescence or Audio playback claim. Full scope limits remain in80/81/83 plans. This is actual selected prototype source, not product adoption.
+
+Native86 derives affected objects from native77's frozen units.json quoted-header closures: source changed OR any transitive recorded header changed. Selection has28 entries, with explicit per-unit reasons and seven omitted unchanged objects. No new include edges are introduced by the three overlays. Registry is transitively widespread through codec.h; the resulting28 is closure-derived, not an arbitrary matrix reduction. Historical unused candidate native wrappers remain in this local composition snapshot but do not enter native86's staged production source set or object list.

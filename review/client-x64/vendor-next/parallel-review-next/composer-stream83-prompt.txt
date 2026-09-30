@@ -1,0 +1,809 @@
+Blind source review of a temporary Miles pipe backend stream lifetime patch and actual registry tests. Find concrete ownership, generation, close ordering, invalidated reservation or test falsepasses. Source review only; no EOS implementation/vendor quiescence proof, no broad equivalence claim. Distinguish current defects from missing future EOS support.
+Use only supplied authored source; do not run tools, change files, consult other reviews, or infer vendor behavior. Return concrete source-grounded concerns and scope limits; no broad clearance.
+
+FILE stream-lifetime83/lifetime83.patch
+--- pipe-composition77/candidate/transport-candidate/resource_registry.h
++++ stream-lifetime83/candidate/transport-candidate/resource_registry.h
+@@ -79,19 +79,29 @@
+         }
+     }
+ 
++    void retireBorrowed(const MilesWire::Handle &stream) {
++        for (size_t i = 0; i < entries.size(); ++i) {
++            Entry &alias = entries[i];
++            if (alias.state == 1 && alias.kind == MilesWire::BorrowedSample &&
++                same(alias.parent, stream)) retireEntry(alias);
++        }
++    }
++
+   public:
+     explicit ResourceRegistry(uint32_t maxSlots = 65536, uint32_t maxGeneration = UINT32_MAX)
+         : capacity(maxSlots), generationLimit(maxGeneration) {
+         if (!capacity || !generationLimit)
+             throw std::invalid_argument("zero registry bound");
+     }
+-    // Only reserve may allocate. Single dispatch thread; no callback registration.
+-    // A token must not outlive this registry; consume it before closing its parent.
++    // reserve/insert/insertBorrowed may allocate; publish/cancel/retire do not.
++    // Single dispatch thread; no callback registration.
++    // A token must not outlive this registry. Parent retirement invalidates tokens;
++    // later cancel is safe and cannot affect a replacement generation.
+     bool reserve(MilesWire::ResourceKind kind, const MilesWire::Handle &parent,
+                  Reservation &token) {
+-        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample && kind != MilesWire::File))
+-            return false;
+-        if (kind == MilesWire::OwnedSample) {
++        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample && kind != MilesWire::Stream && kind != MilesWire::File))
++            return false;
++        if (kind == MilesWire::OwnedSample || kind == MilesWire::Stream) {
+             void *driver = 0;
+             if (!resolve(parent, MilesWire::Driver, driver)) return false;
+         } else if (parent.kind || parent.slot || parent.generation) return false;
+@@ -134,8 +144,8 @@
+         return true;
+     }
+     bool insert(MilesWire::ResourceKind kind, void *local, MilesWire::Handle &out) {
+-        if (kind == MilesWire::BorrowedSample)
+-            return false;
++        if (kind == MilesWire::BorrowedSample || kind == MilesWire::Stream)
++            return false; // Stream identity requires a reserved, validated Driver parent.
+         return insertEntry(kind, local, out);
+     }
+     bool insertBorrowed(const MilesWire::Handle &parent, void *local, MilesWire::Handle &out) {
+@@ -168,7 +178,7 @@
+         const Entry &e = entries[h.slot - 1];
+         if (e.state != 1 || e.kind != h.kind || e.generation != h.generation || !e.local)
+             return false;
+-        if (e.kind == MilesWire::OwnedSample && e.parent.kind) {
++        if (e.kind == MilesWire::Stream || (e.kind == MilesWire::OwnedSample && e.parent.kind)) {
+             void *driver = 0;
+             if (!resolve(e.parent, MilesWire::Driver, driver)) return false;
+         }
+@@ -195,18 +205,18 @@
+             for (size_t i = 0; i < entries.size(); ++i) {
+                 Entry &child = entries[i];
+                 if ((child.state == 1 || child.state == 2 || child.state == 4) &&
+-                    child.kind == MilesWire::OwnedSample && same(child.parent, h))
++                    (child.kind == MilesWire::OwnedSample || child.kind == MilesWire::Stream) &&
++                    same(child.parent, h)) {
++                    if (child.kind == MilesWire::Stream) {
++                        const MilesWire::Handle stream = {MilesWire::Stream,
++                            static_cast<uint32_t>(i + 1), child.generation};
++                        retireBorrowed(stream);
++                    }
+                     retireEntry(child);
++                }
+             }
+         }
+-        if (e->kind == MilesWire::Stream) {
+-            for (size_t i = 0; i < entries.size(); ++i) {
+-                Entry &alias = entries[i];
+-                if (alias.state == 1 && alias.kind == MilesWire::BorrowedSample &&
+-                    same(alias.parent, h))
+-                    retireEntry(alias);
+-            }
+-        }
++        if (e->kind == MilesWire::Stream) retireBorrowed(h);
+         retireEntry(*e);
+         return true;
+     }
+--- pipe-composition77/candidate/startup-bridge23/backend.h
++++ stream-lifetime83/candidate/startup-bridge23/backend.h
+@@ -13,10 +13,15 @@
+     HMODULE module;
+     HDIGDRIVER driver;
+     MilesWire::Handle driverId;
++    // Serialized open transaction retained by the heap-owned Backend on failure.
++    MilesTransport::ResourceRegistry::Reservation streamReservation;
++    HSTREAM pendingStream;
++    bool streamOpenPending;
+     bool started, shutdown;
+     unsigned metadataInvocations;
+     explicit Backend(const char *expectedPath)
+-        : resolver(registry), module(0), driver(0), started(false), shutdown(false),
++        : resolver(registry), module(0), driver(0), pendingStream(0), streamOpenPending(false),
++          started(false), shutdown(false),
+           metadataInvocations(0) {
+         driverId = MilesWire::Handle();
+         require(GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS,
+@@ -42,6 +47,7 @@
+     StartupBridge::OwnedReply execute(const MilesWire::Header &h, const MilesWire::Call &c,
+                                       const std::vector<unsigned char> &frame) {
+         using namespace StartupBridge;
++        require(!streamOpenPending, "uncertain stream open cannot resume");
+         OwnedReply out;
+         out.result.transport_status = InvalidFields;
+         // Narrow native25 non-callback slice; reuse reviewed SDK dispatcher.
+@@ -107,6 +113,62 @@
+         default:
+             break;
+         }
++        // No EOS registration exists in this slice. File callback owners remain
++        // active throughout native open/getter/close and the existing return join.
++        if (h.opcode == MilesWire::AIL_open_stream ||
++            h.opcode == MilesWire::AIL_stream_sample_handle ||
++            h.opcode == MilesWire::AIL_close_stream) {
++            const bool opening = h.opcode == MilesWire::AIL_open_stream;
++            if (c.callback || c.reserved || c.output_mask || c.bytes.offset || c.bytes.length ||
++                !nullHandle(c.resource)) return out;
++            for (unsigned i = opening ? 1u : 0u; i < 8; ++i)
++                if (c.value[i]) return out;
++            if (opening) {
++                if (!frame.data() || !c.text.length || c.text.offset > frame.size() ||
++                    c.text.length > frame.size() - c.text.offset) return out;
++                const unsigned char *name = frame.data() + c.text.offset;
++                if (name[c.text.length - 1] || std::memchr(name, 0, c.text.length - 1)) return out;
++            } else if (c.text.offset || c.text.length) return out;
++            if (!started || shutdown) {
++                out.result.transport_status = LifecycleRefused;
++                return out;
++            }
++            void *local = 0;
++            if (!registry.resolve(c.target, opening ? MilesWire::Driver : MilesWire::Stream, local)) {
++                out.result.transport_status = InvalidResource;
++                return out;
++            }
++            if (opening) {
++                S32 streamMem = 0;
++                static_assert(sizeof(streamMem) == sizeof(c.value[0]), "native signed stream memory width");
++                std::memcpy(&streamMem, &c.value[0], sizeof(streamMem));
++                require(registry.reserve(MilesWire::Stream, c.target, streamReservation),
++                        "stream tracking capacity before native open");
++                streamOpenPending = true; // do not cancel after an unknown native effect
++                pendingStream = ::AIL_open_stream(static_cast<HDIGDRIVER>(local),
++                    reinterpret_cast<const char *>(frame.data() + c.text.offset), streamMem);
++                if (pendingStream) {
++                    require(registry.publish(streamReservation, pendingStream, out.result.resource),
++                            "publish reserved stream identity");
++                    pendingStream = 0; // registry retains the native identity before reply
++                } else registry.cancel(streamReservation); // confirmed native null only
++                streamOpenPending = false;
++            } else if (h.opcode == MilesWire::AIL_stream_sample_handle) {
++                const HSAMPLE sample = ::AIL_stream_sample_handle(static_cast<HSTREAM>(local));
++                if (sample)
++                    require(registry.insertBorrowed(c.target, sample, out.result.resource),
++                            "retain stable borrowed identity; parent remains owned on failure");
++                out.result.value[0] = c.target.kind;
++                out.result.value[1] = c.target.slot;
++                out.result.value[2] = c.target.generation;
++            } else {
++                require(registry.beginClose(c.target), "close stream identity before native effect");
++                ::AIL_close_stream(static_cast<HSTREAM>(local));
++                require(registry.retire(c.target), "retire stream and aliases after native return");
++            }
++            out.result.transport_status = Success;
++            return out;
++        }
+         if (h.opcode == MilesWire::AIL_allocate_sample_handle ||
+             h.opcode == MilesWire::AIL_release_sample_handle) {
+             if (c.callback || c.reserved || c.output_mask || c.bytes.offset || c.bytes.length ||
+
+FILE stream-lifetime83/candidate/transport-candidate/resource_registry.h
+#ifndef MILES_TRANSPORT_REGISTRY_H
+#define MILES_TRANSPORT_REGISTRY_H
+#include "../protocol-candidate/miles_wire.h"
+#include <stdexcept>
+#include <vector>
+namespace MilesTransport {
+inline bool knownResource(uint32_t k) { return k >= MilesWire::Driver && k <= MilesWire::File; }
+inline bool validHandle(const MilesWire::Handle &h) {
+    return (h.kind == 0 && h.slot == 0 && h.generation == 0) ||
+           (knownResource(h.kind) && h.slot && h.generation);
+}
+// Dispatch-thread owned. Vendor quiescence and session binding
+// are required from the caller. No vendor memory is freed by this container.
+class ResourceRegistry {
+  public:
+    class Reservation {
+        friend class ResourceRegistry;
+        ResourceRegistry *owner;
+        MilesWire::Handle handle;
+        Reservation(const Reservation &);
+        Reservation &operator=(const Reservation &);
+      public:
+        Reservation() : owner(0), handle() {}
+        ~Reservation();
+    };
+  private:
+    struct Entry {
+        uint32_t kind, generation, state;
+        void *local;
+        MilesWire::Handle parent;
+        Entry() : kind(0), generation(1), state(0), local(0) {
+            parent.kind = parent.slot = parent.generation = 0;
+        }
+    };
+    std::vector<Entry> entries;
+    uint32_t capacity, generationLimit;
+    Entry *entry(const MilesWire::Handle &h) {
+        if (!knownResource(h.kind) || !h.slot || h.slot > entries.size())
+            return 0;
+        Entry &e = entries[h.slot - 1];
+        return e.kind == h.kind && e.generation == h.generation && (e.state == 1 || e.state == 2)
+                   ? &e
+                   : 0;
+    }
+
+    bool insertEntry(MilesWire::ResourceKind kind, void *local, MilesWire::Handle &out) {
+        if (!knownResource(kind) || !local)
+            return false;
+        size_t i = 0;
+        for (; i < entries.size(); ++i)
+            if (entries[i].state == 0)
+                break;
+        if (i == entries.size()) {
+            if (i >= capacity)
+                return false;
+            entries.push_back(Entry());
+        }
+        Entry &e = entries[i];
+        e.kind = kind;
+        e.local = local;
+        e.state = 1;
+        MilesWire::Handle h = {static_cast<uint32_t>(kind), static_cast<uint32_t>(i + 1),
+                               e.generation};
+        out = h;
+        return true;
+    }
+    static bool same(const MilesWire::Handle &a, const MilesWire::Handle &b) {
+        return a.kind == b.kind && a.slot == b.slot && a.generation == b.generation;
+    }
+    void retireEntry(Entry &e) {
+        e.local = 0;
+        e.kind = 0;
+        e.parent.kind = e.parent.slot = e.parent.generation = 0;
+        if (e.generation == generationLimit)
+            e.state = 3;
+        else {
+            ++e.generation;
+            e.state = 0;
+        }
+    }
+
+    void retireBorrowed(const MilesWire::Handle &stream) {
+        for (size_t i = 0; i < entries.size(); ++i) {
+            Entry &alias = entries[i];
+            if (alias.state == 1 && alias.kind == MilesWire::BorrowedSample &&
+                same(alias.parent, stream)) retireEntry(alias);
+        }
+    }
+
+  public:
+    explicit ResourceRegistry(uint32_t maxSlots = 65536, uint32_t maxGeneration = UINT32_MAX)
+        : capacity(maxSlots), generationLimit(maxGeneration) {
+        if (!capacity || !generationLimit)
+            throw std::invalid_argument("zero registry bound");
+    }
+    // reserve/insert/insertBorrowed may allocate; publish/cancel/retire do not.
+    // Single dispatch thread; no callback registration.
+    // A token must not outlive this registry. Parent retirement invalidates tokens;
+    // later cancel is safe and cannot affect a replacement generation.
+    bool reserve(MilesWire::ResourceKind kind, const MilesWire::Handle &parent,
+                 Reservation &token) {
+        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample && kind != MilesWire::Stream && kind != MilesWire::File))
+            return false;
+        if (kind == MilesWire::OwnedSample || kind == MilesWire::Stream) {
+            void *driver = 0;
+            if (!resolve(parent, MilesWire::Driver, driver)) return false;
+        } else if (parent.kind || parent.slot || parent.generation) return false;
+        size_t i = 0;
+        for (; i < entries.size(); ++i) if (entries[i].state == 0) break;
+        if (i == entries.size()) {
+            if (i >= capacity) return false;
+            entries.push_back(Entry()); // all tracking allocation precedes vendor work
+        }
+        Entry &e = entries[i];
+        e.kind = kind;
+        e.local = 0;
+        e.parent = parent;
+        e.state = 4; // unpublished reservation; cannot resolve/close/retire directly
+        token.handle.kind = kind;
+        token.handle.slot = static_cast<uint32_t>(i + 1);
+        token.handle.generation = e.generation;
+        token.owner = this;
+        return true;
+    }
+    void cancel(Reservation &token) throw() {
+        if (token.owner != this) return;
+        Entry &e = entries[token.handle.slot - 1];
+        if (e.state == 4 && e.generation == token.handle.generation &&
+            e.kind == token.handle.kind) {
+            e.kind = 0; e.local = 0; e.parent = MilesWire::Handle(); e.state = 0;
+        }
+        token.owner = 0;
+    }
+    bool publish(Reservation &token, void *local, MilesWire::Handle &out) throw() {
+        // Violations are programming errors, never recoverable vendor-null replies.
+        if (token.owner != this || !local) return false;
+        Entry &e = entries[token.handle.slot - 1];
+        if (e.state != 4 || e.kind != token.handle.kind ||
+            e.generation != token.handle.generation) return false;
+        e.local = local;
+        e.state = 1; // durable registry ownership before external identity publication
+        out = token.handle;
+        token.owner = 0;
+        return true;
+    }
+    bool insert(MilesWire::ResourceKind kind, void *local, MilesWire::Handle &out) {
+        if (kind == MilesWire::BorrowedSample || kind == MilesWire::Stream)
+            return false; // Stream identity requires a reserved, validated Driver parent.
+        return insertEntry(kind, local, out);
+    }
+    bool insertBorrowed(const MilesWire::Handle &parent, void *local, MilesWire::Handle &out) {
+        void *stream = 0;
+        if (!local || !resolve(parent, MilesWire::Stream, stream))
+            return false;
+        for (size_t i = 0; i < entries.size(); ++i) {
+            const Entry &e = entries[i];
+            if (e.state == 1 && e.kind == MilesWire::BorrowedSample && same(e.parent, parent)) {
+                if (e.local != local)
+                    return false; // never silently retarget an existing alias
+                MilesWire::Handle h = {MilesWire::BorrowedSample, static_cast<uint32_t>(i + 1),
+                                       e.generation};
+                out = h;
+                return true;
+            }
+        }
+        MilesWire::Handle h;
+        if (!insertEntry(MilesWire::BorrowedSample, local, h))
+            return false;
+        entries[h.slot - 1].parent = parent;
+        out = h;
+        return true;
+    }
+    bool resolve(const MilesWire::Handle &h, MilesWire::ResourceKind expected, void *&out) const {
+        out = 0;
+        if (!knownResource(expected) || h.kind != static_cast<uint32_t>(expected) || !h.slot ||
+            h.slot > entries.size())
+            return false;
+        const Entry &e = entries[h.slot - 1];
+        if (e.state != 1 || e.kind != h.kind || e.generation != h.generation || !e.local)
+            return false;
+        if (e.kind == MilesWire::Stream || (e.kind == MilesWire::OwnedSample && e.parent.kind)) {
+            void *driver = 0;
+            if (!resolve(e.parent, MilesWire::Driver, driver)) return false;
+        }
+        if (e.kind == MilesWire::BorrowedSample) {
+            void *stream = 0;
+            if (!resolve(e.parent, MilesWire::Stream, stream))
+                return false;
+        }
+        out = e.local;
+        return true;
+    }
+    bool beginClose(const MilesWire::Handle &h) {
+        Entry *e = entry(h);
+        if (!e || e->state != 1 || e->kind == MilesWire::BorrowedSample)
+            return false;
+        e->state = 2;
+        return true;
+    }
+    bool retire(const MilesWire::Handle &h) {
+        Entry *e = entry(h);
+        if (!e || e->kind == MilesWire::BorrowedSample)
+            return false;
+        if (e->kind == MilesWire::Driver) {
+            for (size_t i = 0; i < entries.size(); ++i) {
+                Entry &child = entries[i];
+                if ((child.state == 1 || child.state == 2 || child.state == 4) &&
+                    (child.kind == MilesWire::OwnedSample || child.kind == MilesWire::Stream) &&
+                    same(child.parent, h)) {
+                    if (child.kind == MilesWire::Stream) {
+                        const MilesWire::Handle stream = {MilesWire::Stream,
+                            static_cast<uint32_t>(i + 1), child.generation};
+                        retireBorrowed(stream);
+                    }
+                    retireEntry(child);
+                }
+            }
+        }
+        if (e->kind == MilesWire::Stream) retireBorrowed(h);
+        retireEntry(*e);
+        return true;
+    }
+};
+inline ResourceRegistry::Reservation::~Reservation() {
+    if (owner) owner->cancel(*this);
+}
+} // namespace MilesTransport
+#endif
+
+FILE stream-lifetime83/candidate/startup-bridge23/backend.h
+#ifndef STARTUP_BRIDGE23_BACKEND_H
+#define STARTUP_BRIDGE23_BACKEND_H
+#include "../host-candidate/registry_resolver.h"
+#include "../session-version22/session_version_host.h"
+#include "reply.h"
+#include <Mss.h>
+// Same single Backend owner as the exercised live candidate, narrowed to this
+// startup/metadata/driver slice. No SessionLifecycle or fixture expectations.
+struct Backend {
+    MilesTransport::ResourceRegistry registry;
+    MilesHost::RegistryResolver resolver;
+    MilesStartup::SessionInputs metadataInputs;
+    HMODULE module;
+    HDIGDRIVER driver;
+    MilesWire::Handle driverId;
+    // Serialized open transaction retained by the heap-owned Backend on failure.
+    MilesTransport::ResourceRegistry::Reservation streamReservation;
+    HSTREAM pendingStream;
+    bool streamOpenPending;
+    bool started, shutdown;
+    unsigned metadataInvocations;
+    explicit Backend(const char *expectedPath)
+        : resolver(registry), module(0), driver(0), pendingStream(0), streamOpenPending(false),
+          started(false), shutdown(false),
+          metadataInvocations(0) {
+        driverId = MilesWire::Handle();
+        require(GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS,
+                                   reinterpret_cast<LPCSTR>(&::AIL_startup), &module) != 0,
+                "hold actual imported vendor module");
+        char loaded[MAX_PATH] = {};
+        DWORD n = GetModuleFileNameA(module, loaded, MAX_PATH);
+        if (!n || n >= MAX_PATH || _stricmp(loaded, expectedPath)) {
+            FreeLibrary(module);
+            module = 0;
+            throw std::runtime_error("imported module path mismatch");
+        }
+        printf("loaded_dll=%s\n", loaded);
+    }
+    ~Backend() {
+        if (started) {
+            ::AIL_shutdown();
+            puts("FAIL emergency vendor cleanup");
+        }
+        if (module)
+            FreeLibrary(module);
+    }
+    StartupBridge::OwnedReply execute(const MilesWire::Header &h, const MilesWire::Call &c,
+                                      const std::vector<unsigned char> &frame) {
+        using namespace StartupBridge;
+        require(!streamOpenPending, "uncertain stream open cannot resume");
+        OwnedReply out;
+        out.result.transport_status = InvalidFields;
+        // Narrow native25 non-callback slice; reuse reviewed SDK dispatcher.
+        switch (h.opcode) {
+        case MilesWire::AIL_start_sample:
+        case MilesWire::AIL_stop_sample:
+        case MilesWire::AIL_sample_status:
+        case MilesWire::AIL_set_sample_loop_count:
+        case MilesWire::AIL_set_sample_loop_block:
+        case MilesWire::AIL_set_sample_ms_position:
+        case MilesWire::AIL_set_sample_position:
+        case MilesWire::AIL_sample_position:
+        case MilesWire::AIL_sample_reverb_levels:
+        case MilesWire::AIL_set_sample_3D_position:
+        case MilesWire::AIL_set_sample_3D_velocity_vector:
+        case MilesWire::AIL_set_sample_3D_distances:
+        case MilesWire::AIL_set_sample_occlusion:
+        case MilesWire::AIL_set_sample_obstruction:
+            if (c.target.kind != MilesWire::OwnedSample) {
+                out.result.transport_status = InvalidResource;
+                return out;
+            }
+            // fall through to the shared lifecycle and real SDK dispatcher
+        // The real dispatcher validates OwnedSample | BorrowedSample for exactly
+        // these five controls, including a live stream parent via the resolver.
+        case MilesWire::AIL_set_sample_playback_rate:
+        case MilesWire::AIL_sample_playback_rate:
+        case MilesWire::AIL_set_sample_volume_levels:
+        case MilesWire::AIL_sample_volume_levels:
+        case MilesWire::AIL_set_sample_reverb_levels:
+        // Existing stream controls only; open/close/alias publication remain absent.
+        case MilesWire::AIL_start_stream:
+        case MilesWire::AIL_set_stream_loop_count:
+        case MilesWire::AIL_set_stream_loop_block:
+        case MilesWire::AIL_stream_status:
+        case MilesWire::AIL_set_stream_ms_position:
+        case MilesWire::AIL_stream_ms_position:
+        case MilesWire::AIL_sample_ms_position:
+        case MilesWire::AIL_end_sample:
+        case MilesWire::AIL_set_listener_3D_position:
+        case MilesWire::AIL_set_listener_3D_velocity_vector:
+        case MilesWire::AIL_set_listener_3D_orientation:
+        case MilesWire::AIL_set_3D_rolloff_factor:
+        case MilesWire::AIL_active_sample_count:
+        case MilesWire::AIL_digital_CPU_percent:
+        case MilesWire::AIL_digital_latency:
+        case MilesWire::AIL_get_timer_highest_delay:
+        case MilesWire::AIL_file_error:
+        case MilesWire::AIL_serve:
+        case MilesWire::AIL_room_type:
+        case MilesWire::AIL_set_room_type:
+            if (!started || shutdown) {
+                out.result.transport_status = LifecycleRefused;
+                return out;
+            }
+            switch (MilesHost::dispatch(h.opcode, c, out.result, resolver)) {
+            case MilesHost::Complete: out.result.transport_status = Success; break;
+            case MilesHost::Unsupported: out.result.transport_status = Unsupported; break;
+            case MilesHost::InvalidResource: out.result.transport_status = InvalidResource; break;
+            case MilesHost::InvalidFields: out.result.transport_status = InvalidFields; break;
+            }
+            return out;
+        default:
+            break;
+        }
+        // No EOS registration exists in this slice. File callback owners remain
+        // active throughout native open/getter/close and the existing return join.
+        if (h.opcode == MilesWire::AIL_open_stream ||
+            h.opcode == MilesWire::AIL_stream_sample_handle ||
+            h.opcode == MilesWire::AIL_close_stream) {
+            const bool opening = h.opcode == MilesWire::AIL_open_stream;
+            if (c.callback || c.reserved || c.output_mask || c.bytes.offset || c.bytes.length ||
+                !nullHandle(c.resource)) return out;
+            for (unsigned i = opening ? 1u : 0u; i < 8; ++i)
+                if (c.value[i]) return out;
+            if (opening) {
+                if (!frame.data() || !c.text.length || c.text.offset > frame.size() ||
+                    c.text.length > frame.size() - c.text.offset) return out;
+                const unsigned char *name = frame.data() + c.text.offset;
+                if (name[c.text.length - 1] || std::memchr(name, 0, c.text.length - 1)) return out;
+            } else if (c.text.offset || c.text.length) return out;
+            if (!started || shutdown) {
+                out.result.transport_status = LifecycleRefused;
+                return out;
+            }
+            void *local = 0;
+            if (!registry.resolve(c.target, opening ? MilesWire::Driver : MilesWire::Stream, local)) {
+                out.result.transport_status = InvalidResource;
+                return out;
+            }
+            if (opening) {
+                S32 streamMem = 0;
+                static_assert(sizeof(streamMem) == sizeof(c.value[0]), "native signed stream memory width");
+                std::memcpy(&streamMem, &c.value[0], sizeof(streamMem));
+                require(registry.reserve(MilesWire::Stream, c.target, streamReservation),
+                        "stream tracking capacity before native open");
+                streamOpenPending = true; // do not cancel after an unknown native effect
+                pendingStream = ::AIL_open_stream(static_cast<HDIGDRIVER>(local),
+                    reinterpret_cast<const char *>(frame.data() + c.text.offset), streamMem);
+                if (pendingStream) {
+                    require(registry.publish(streamReservation, pendingStream, out.result.resource),
+                            "publish reserved stream identity");
+                    pendingStream = 0; // registry retains the native identity before reply
+                } else registry.cancel(streamReservation); // confirmed native null only
+                streamOpenPending = false;
+            } else if (h.opcode == MilesWire::AIL_stream_sample_handle) {
+                const HSAMPLE sample = ::AIL_stream_sample_handle(static_cast<HSTREAM>(local));
+                if (sample)
+                    require(registry.insertBorrowed(c.target, sample, out.result.resource),
+                            "retain stable borrowed identity; parent remains owned on failure");
+                out.result.value[0] = c.target.kind;
+                out.result.value[1] = c.target.slot;
+                out.result.value[2] = c.target.generation;
+            } else {
+                require(registry.beginClose(c.target), "close stream identity before native effect");
+                ::AIL_close_stream(static_cast<HSTREAM>(local));
+                require(registry.retire(c.target), "retire stream and aliases after native return");
+            }
+            out.result.transport_status = Success;
+            return out;
+        }
+        if (h.opcode == MilesWire::AIL_allocate_sample_handle ||
+            h.opcode == MilesWire::AIL_release_sample_handle) {
+            if (c.callback || c.reserved || c.output_mask || c.bytes.offset || c.bytes.length ||
+                c.text.offset || c.text.length || !nullHandle(c.resource)) return out;
+            for (unsigned i = 0; i < 8; ++i) if (c.value[i]) return out;
+            if (!started || shutdown) {
+                out.result.transport_status = LifecycleRefused;
+                return out;
+            }
+            void *local = 0;
+            const bool allocating = h.opcode == MilesWire::AIL_allocate_sample_handle;
+            if (!registry.resolve(c.target, allocating ? MilesWire::Driver : MilesWire::OwnedSample,
+                                  local)) {
+                out.result.transport_status = InvalidResource;
+                return out;
+            }
+            if (allocating) {
+                MilesTransport::ResourceRegistry::Reservation reservation;
+                require(registry.reserve(MilesWire::OwnedSample, c.target, reservation),
+                        "sample tracking capacity before vendor allocation");
+                PendingSample pending; // constructed before vendor work; cannot allocate
+                pending.sample = ::AIL_allocate_sample_handle(static_cast<HDIGDRIVER>(local));
+                if (pending.sample) {
+                    require(registry.publish(reservation, pending.sample, out.result.resource),
+                            "publish reserved sample identity");
+                    pending.sample = 0; // registry now owns shutdown/release tracking
+                }
+                // Null allocation cancels its unpublished reservation on scope exit.
+            } else {
+                ::AIL_release_sample_handle(static_cast<HSAMPLE>(local));
+                require(registry.retire(c.target), "retire sample after confirmed release");
+            }
+            out.result.transport_status = Success;
+            return out;
+        }
+        if (metadata(h.opcode)) {
+            const MilesStartup::Status shape = MilesStartup::validate(h.opcode, c, bytes(frame));
+            if (shape != MilesStartup::Complete) {
+                out.result.transport_status = mapMetadata(shape);
+                return out;
+            }
+            if (shutdown || (!started && h.opcode != MilesWire::AIL_set_redist_directory)) {
+                out.result.transport_status = LifecycleRefused;
+                return out;
+            }
+            MilesStartup::Reply local;
+            ++metadataInvocations;
+            const MilesStartup::Status status =
+                MilesStartup::dispatch(h.opcode, c, bytes(frame), local, resolver, metadataInputs);
+            out.result = local.result;
+            out.result.transport_status = mapMetadata(status);
+            out.text.swap(local.text);
+            return out;
+        }
+        if (h.opcode == MilesWire::SessionVersion) {
+            MilesWire::Header checked = {};
+            if (!MilesSessionVersion::validateQuery(bytes(frame), checked))
+                return out;
+            if (shutdown) {
+                out.result.transport_status = LifecycleRefused;
+                return out;
+            }
+            std::vector<unsigned char> encoded;
+            if (!MilesSessionVersion::queryCurrentDll(bytes(frame), module, encoded)) {
+                out.result.transport_status = VersionQueryFailed;
+                return out;
+            }
+            require(decodeReply(bytes(encoded), h, out), "owned version adapter result");
+            return out;
+        }
+        if (c.callback || c.reserved || c.output_mask || c.bytes.length || c.text.length ||
+            !nullHandle(c.target) || !nullHandle(c.resource))
+            return out;
+        unsigned values = 0;
+        switch (h.opcode) {
+        case MilesWire::AIL_open_digital_driver:
+            values = 4;
+            break;
+        case MilesWire::AIL_startup:
+        case MilesWire::AIL_shutdown:
+        case MilesWire::SessionClose:
+            break;
+        default:
+            out.result.transport_status = Unsupported;
+            return out;
+        }
+        for (unsigned i = values; i < 8; ++i)
+            if (c.value[i])
+                return out;
+        out.result.transport_status = LifecycleRefused;
+        if (h.opcode == MilesWire::AIL_startup) {
+            if (started || shutdown)
+                return out;
+            const S32 value = ::AIL_startup();
+            started = value != 0;
+            out.result.return_bits = static_cast<uint32_t>(value);
+            out.result.transport_status = Success;
+            printf("vendor startup=%ld\n", value);
+            return out;
+        }
+        if (h.opcode == MilesWire::SessionClose) {
+            if (!started && shutdown && !driver)
+                out.result.transport_status = Success;
+            return out;
+        }
+        if (!started || shutdown)
+            return out;
+        if (h.opcode == MilesWire::AIL_open_digital_driver) {
+            if (driver)
+                return out;
+            MilesTransport::ResourceRegistry::Reservation reservation;
+            require(registry.reserve(MilesWire::Driver, MilesWire::Handle(), reservation),
+                    "driver tracking capacity before vendor open");
+            // Decode signed fields without implementation-defined U32-to-S32 narrowing.
+            const S32 bits = static_cast<S32>(MilesStartup::signedValue(c.value[1]));
+            const S32 channels = static_cast<S32>(MilesStartup::signedValue(c.value[2]));
+            driver = ::AIL_open_digital_driver(c.value[0], bits, channels, c.value[3]);
+            if (driver)
+                require(registry.publish(reservation, driver, driverId),
+                        "publish reserved driver identity");
+            out.result.resource = driverId;
+            out.result.transport_status = Success;
+            return out;
+        }
+        if (h.opcode == MilesWire::AIL_shutdown) {
+            ::AIL_shutdown();
+            started = false;
+            shutdown = true;
+            if (driver) {
+                require(registry.retire(driverId), "retire driver after shutdown");
+                driver = 0;
+            }
+            printf("vendor shutdown complete; retained directory bytes=%u\n",
+                   static_cast<unsigned>(metadataInputs.retainedBytes()));
+            out.result.transport_status = Success;
+            return out;
+        }
+        return out;
+    }
+
+  private:
+    struct PendingSample {
+        HSAMPLE sample;
+        PendingSample() : sample(0) {}
+        ~PendingSample() { if (sample) ::AIL_release_sample_handle(sample); }
+      private:
+        PendingSample(const PendingSample &);
+        PendingSample &operator=(const PendingSample &);
+    };
+    Backend(const Backend &);
+    Backend &operator=(const Backend &);
+};
+#endif
+
+FILE portable-registry85/tests.cpp
+#include "tree/transport-candidate/resource_registry.h"
+#include <cstdio>
+#include <cstdlib>
+using MilesTransport::ResourceRegistry;
+using namespace MilesWire;
+namespace {
+unsigned assertions=0;
+void check(bool ok){++assertions;if(!ok){std::fprintf(stderr,"FAIL registry assertion %u\n",assertions);std::abort();}}
+bool same(const Handle&a,const Handle&b){return a.kind==b.kind&&a.slot==b.slot&&a.generation==b.generation;}
+Handle sentinel(){Handle h={File,99,77};return h;}
+Handle publish(ResourceRegistry&r,ResourceKind kind,const Handle&parent,void*identity){ResourceRegistry::Reservation token;Handle h=sentinel();check(r.reserve(kind,parent,token));check(r.publish(token,identity,h));return h;}
+void resolves(ResourceRegistry&r,const Handle&h,ResourceKind kind,void*identity){void*out=0;check(r.resolve(h,kind,out));check(out==identity);}
+void absent(ResourceRegistry&r,const Handle&h,ResourceKind kind){int marker=0;void*out=&marker;check(!r.resolve(h,kind,out));check(out==0);}
+void reservationRules(){
+ ResourceRegistry r(5);int identities[5]={};Handle nil={};ResourceRegistry::Reservation stream;
+ check(!r.reserve(Stream,nil,stream));Handle file={};check(r.insert(File,&identities[0],file));check(!r.reserve(Stream,file,stream));
+ Handle driver=publish(r,Driver,nil,&identities[1]);check(r.reserve(Stream,driver,stream));
+ // On this fresh registry the next row is known; final publication confirms the
+ // probe was exactly the unpublished identity, not a guessed unrelated handle.
+ Handle unpublished={Stream,driver.slot+1,1};absent(r,unpublished,Stream);check(!r.beginClose(unpublished));check(!r.retire(unpublished));
+ Handle out=sentinel();check(!r.publish(stream,0,out));check(same(out,sentinel()));check(!r.reserve(Stream,driver,stream));
+ check(r.publish(stream,&identities[2],out));check(same(out,unpublished));resolves(r,out,Stream,&identities[2]);
+ ResourceRegistry::Reservation rejected;check(r.beginClose(driver));check(!r.reserve(Stream,driver,rejected));absent(r,out,Stream);
+ check(!r.insert(Stream,&identities[3],file));
+ std::puts("PASS reservation-parent-and-publication");
+}
+void aliasesAndClose(){
+ ResourceRegistry r(8);int identities[8]={};Handle nil={};Handle driver=publish(r,Driver,nil,&identities[0]);Handle stream=publish(r,Stream,driver,&identities[1]);Handle alias={};
+ check(r.insertBorrowed(stream,&identities[2],alias));Handle repeated=sentinel();check(r.insertBorrowed(stream,&identities[2],repeated));check(same(alias,repeated));resolves(r,alias,BorrowedSample,&identities[2]);
+ Handle refused=sentinel();check(!r.insertBorrowed(stream,&identities[3],refused));check(same(refused,sentinel()));check(!r.beginClose(alias));check(!r.retire(alias));
+ check(r.beginClose(stream));absent(r,stream,Stream);absent(r,alias,BorrowedSample);check(!r.insertBorrowed(stream,&identities[2],refused));check(same(refused,sentinel()));
+ check(r.retire(stream));absent(r,stream,Stream);absent(r,alias,BorrowedSample);Handle replacement=publish(r,Stream,driver,&identities[4]);check(replacement.slot==stream.slot);check(replacement.generation!=stream.generation);
+ Handle nextAlias={};check(r.insertBorrowed(replacement,&identities[2],nextAlias));check(nextAlias.slot==alias.slot);check(nextAlias.generation!=alias.generation);absent(r,alias,BorrowedSample);resolves(r,nextAlias,BorrowedSample,&identities[2]);
+ std::puts("PASS borrowed-identity-and-close");
+}
+void cascade(){
+ ResourceRegistry r(11);int identities[20]={};Handle nil={};Handle driver=publish(r,Driver,nil,&identities[0]);Handle owned=publish(r,OwnedSample,driver,&identities[1]);Handle stream=publish(r,Stream,driver,&identities[2]);Handle alias={};check(r.insertBorrowed(stream,&identities[3],alias));
+ Handle closing=publish(r,Stream,driver,&identities[4]);Handle closingAlias={};check(r.insertBorrowed(closing,&identities[5],closingAlias));check(r.beginClose(closing));
+ ResourceRegistry::Reservation pendingOwned,pendingStream;check(r.reserve(OwnedSample,driver,pendingOwned));check(r.reserve(Stream,driver,pendingStream));
+ Handle survivorFile={};check(r.insert(File,&identities[6],survivorFile));Handle otherDriver=publish(r,Driver,nil,&identities[7]);Handle otherOwned=publish(r,OwnedSample,otherDriver,&identities[8]);
+ check(r.retire(driver));absent(r,driver,Driver);absent(r,owned,OwnedSample);absent(r,stream,Stream);absent(r,alias,BorrowedSample);absent(r,closing,Stream);absent(r,closingAlias,BorrowedSample);
+ Handle refused=sentinel();check(!r.publish(pendingOwned,&identities[9],refused));check(same(refused,sentinel()));check(!r.publish(pendingStream,&identities[10],refused));check(same(refused,sentinel()));
+ resolves(r,survivorFile,File,&identities[6]);resolves(r,otherDriver,Driver,&identities[7]);resolves(r,otherOwned,OwnedSample,&identities[8]);
+ // Exactly eight slots were driver/children/aliases/reservations; all are reusable.
+ for(unsigned i=0;i<8;++i){Handle fresh={};check(r.insert(File,&identities[11+i],fresh));}
+ Handle full=sentinel();check(!r.insert(File,&identities[19],full));check(same(full,sentinel()));r.cancel(pendingOwned);r.cancel(pendingStream);
+ resolves(r,otherOwned,OwnedSample,&identities[8]);
+ std::puts("PASS driver-retirement-cascade");
+}
+void staleReservation(bool explicitCancel){
+ ResourceRegistry r(2);int identities[4]={};Handle nil={};ResourceRegistry::Reservation replacement;Handle newDriver={};
+ {
+  ResourceRegistry::Reservation old;Handle driver=publish(r,Driver,nil,&identities[0]);check(r.reserve(Stream,driver,old));check(r.retire(driver));newDriver=publish(r,Driver,nil,&identities[1]);check(newDriver.slot==driver.slot);check(newDriver.generation!=driver.generation);check(r.reserve(Stream,newDriver,replacement));
+  Handle out=sentinel();check(!r.publish(old,&identities[2],out));check(same(out,sentinel()));
+  if(explicitCancel)r.cancel(old);
+ } // Old destructor must not cancel the live replacement reservation.
+ Handle stream={};check(r.publish(replacement,&identities[3],stream));resolves(r,stream,Stream,&identities[3]);resolves(r,newDriver,Driver,&identities[1]);
+}
+void tokenGeneration(){staleReservation(true);staleReservation(false);std::puts("PASS stale-token-cancel-generation");}
+void capacity(){
+ ResourceRegistry r(2);int identities[3]={};Handle nil={};Handle driver=publish(r,Driver,nil,&identities[0]);ResourceRegistry::Reservation reserved,excess;check(r.reserve(Stream,driver,reserved));check(!r.reserve(Stream,driver,excess));
+ Handle out=sentinel();check(!r.publish(excess,&identities[1],out));check(same(out,sentinel()));check(r.publish(reserved,&identities[1],out));resolves(r,out,Stream,&identities[1]);
+ Handle alias=sentinel();check(!r.insertBorrowed(out,&identities[2],alias));check(same(alias,sentinel()));check(r.retire(out));check(r.reserve(Stream,driver,excess));r.cancel(excess);check(r.reserve(Stream,driver,excess));check(r.publish(excess,&identities[2],out));resolves(r,out,Stream,&identities[2]);
+ std::puts("PASS capacity-before-publication");
+}
+void exhaustion(){
+ int identities[3]={};Handle nil={};ResourceRegistry r(1,2);Handle old={};check(r.insert(File,&identities[0],old));check(old.generation==1);check(r.retire(old));Handle current={};check(r.insert(File,&identities[1],current));check(current.slot==old.slot&&current.generation==2);absent(r,old,File);check(!r.retire(old));resolves(r,current,File,&identities[1]);check(r.retire(current));absent(r,current,File);Handle refused=sentinel();check(!r.insert(File,&identities[2],refused));check(same(refused,sentinel()));ResourceRegistry::Reservation token;check(!r.reserve(File,nil,token));
+ ResourceRegistry parents(3,1);Handle driver=publish(parents,Driver,nil,&identities[0]);Handle stream=publish(parents,Stream,driver,&identities[1]);Handle alias={};check(parents.insertBorrowed(stream,&identities[2],alias));check(parents.retire(driver));absent(parents,alias,BorrowedSample);check(!parents.reserve(Driver,nil,token));
+ std::puts("PASS generation-exhaustion");
+}
+}
+int main(){reservationRules();aliasesAndClose();cascade();tokenGeneration();capacity();exhaustion();std::printf("PASS registry assertions=%u\n",assertions);}

@@ -1,0 +1,89 @@
+--- pipe-composition77/candidate/backend-boundary24/pipe/Session.h
++++ text-controls81/candidate/backend-boundary24/pipe/Session.h
+@@ -36,6 +36,10 @@
+     bool stopped;
+     std::unique_ptr<DriverProxy> driver;
+     std::unique_ptr<SampleState> samples;
++    // Caller must serialize text access with the existing Session command path.
++    // Retained with this owner; normal paired destruction remains unavailable.
++    std::string lastErrorSnapshot;
++    std::string redistSnapshot;
+     static Session &selected();
+ 
+   private:
+--- pipe-composition77/candidate/backend-boundary24/pipe/PipeCore.h
++++ text-controls81/candidate/backend-boundary24/pipe/PipeCore.h
+@@ -53,6 +53,8 @@
+ void shutdown();
+ intptr_t get_preference(uint32_t number);
+ intptr_t set_preference(uint32_t number, intptr_t value);
++const char *last_error();
++const char *set_redist_directory(const char *directory);
+ OwnedText last_errorOwned();
+ OwnedText set_redist_directoryOwned(const char *directory);
+ 
+--- pipe-composition77/candidate/backend-boundary24/pipe/PipeCore.cpp
++++ text-controls81/candidate/backend-boundary24/pipe/PipeCore.cpp
+@@ -99,6 +99,13 @@
+     return out;
+ }
+ 
++// Swap only after the owned reply is complete. Separate Session fields preserve
++// cross-function pointer stability; null remains distinct from nonnull empty.
++const char *replaceSnapshot(std::string &target, ClientMilesPipeCore57::OwnedText &text) {
++    target.swap(text.value);
++    return text.isNull ? 0 : target.c_str();
++}
++
+ uint32_t floatBits(float value) {
+     static_assert(sizeof(float) == sizeof(uint32_t), "wire F32 width");
+     uint32_t bits;
+@@ -312,6 +319,18 @@
+     return preferenceResult(session.request(MilesWire::AIL_set_preference, fields));
+ }
+ 
++const char *last_error() {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    OwnedText value = last_errorOwned();
++    return replaceSnapshot(session.lastErrorSnapshot, value);
++}
++
++const char *set_redist_directory(const char *directory) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    OwnedText value = set_redist_directoryOwned(directory);
++    return replaceSnapshot(session.redistSnapshot, value);
++}
++
+ OwnedText last_errorOwned() {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     session.requireRunning();
+@@ -323,9 +342,12 @@
+     session.requireAvailable();
+     if (!directory)
+         fail(FailureReason::InvalidArgument, "null redistribution directory");
+-    const size_t size = std::strlen(directory) + 1;
+-    if (size > MilesStartup::RequestTextLimit)
++    size_t size = 0;
++    while (size < MilesStartup::RequestTextLimit && directory[size])
++        ++size;
++    if (size == MilesStartup::RequestTextLimit)
+         fail(FailureReason::InputLimit, "redistribution directory exceeds limit");
++    ++size; // Include the terminator; no scan beyond the accepted wire extent.
+     return ownedText(session.request(MilesWire::AIL_set_redist_directory, MilesWire::Call(),
+                                      MilesTransport::Bytes(directory, size)));
+ }
+--- pipe-composition77/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ text-controls81/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -23,6 +23,12 @@
+ // Only operations with an actual37 private definition are exported here.
+ // This remains a partial plain surface; see coverage.json for unresolved names.
+ namespace ClientMiles {
++const char *last_error() {
++    return guarded<const char *>([]() -> const char * { return Core::last_error(); });
++}
++const char *set_redist_directory(const char *directory) {
++    return guarded<const char *>([=]() -> const char * { return Core::set_redist_directory(directory); });
++}
+ int32_t startup() {
+     return guarded<int32_t>([=]() -> int32_t { return Core::startup(); });
+ }

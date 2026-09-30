@@ -1,0 +1,5 @@
+# Parent pretest review
+
+Read complete authored cpp/rc, remote runner, local orchestration, text collector and safe tool identities before execution. This is a24-case own-resource Windows API observation, not SDK execution. All32 bytes are initialized and guards surround the advertised1–11-byte buffers; missing bundle and within-bundle empty/missing distinguish zero-count writes without reading uninitialized caller data. Returned count and last error are observations, not invented pass criteria. Probe only fails out-of-extent writes; root will interpret actual records separately.
+
+Selected real v120 x86 compiler/linker, SDK8.1 rc and five explicit CRT/system libraries are pinned. No vendor library, host audio or engine code. Private environment stays in private pins/archive; collector exports only fixed text files and hashes. Single fresh destination; one compile/link/run only, failure stops without retry. Parent authorizes this bounded API observation under existing task authority. It cannot establish arbitrary locale/capacity/native Miles semantics or playback fidelity. Native86 compile gate has finished before this run.

@@ -1,0 +1,43 @@
+{
+  "scope": "actual81 Core/Session plus actual codec/validator; scripted Channel and explicit unavailable Runtime substitute; no SDK/engine",
+  "start": 1790794656.795523,
+  "commands": [
+    [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-fno-omit-frame-pointer",
+      "-include",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/compat.h",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/tests.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/tree/transport-candidate/codec.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/tree/session-version22/session_version.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/tree/startup-metadata-v4/metadata_wire.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/tree/callback-reentry47/invocation_guard.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/evidence-v1/portable-text87"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-text87/evidence-v1/portable-text87"
+    ]
+  ],
+  "compile_exit": 0,
+  "run_exit": 0,
+  "markers": {
+    "PASS native-shaped-null-empty-text": 1,
+    "PASS independent-snapshot-lifetimes": 1,
+    "PASS bounded-directory-before-send": 1,
+    "PASS refused-and-forbidden-calls-preserve-snapshots": 1,
+    "PASS malformed-reply-retains-snapshots": 1
+  },
+  "changed": [],
+  "end": 1790794658.7782314,
+  "passed": true
+}
