@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <Target Name="SwgAudit">
+  <Message Importance="High" Text="GLOBAL|$(MSBuildProjectName)|$(Configuration)|$(Platform)|$(OutDir)|$(IntDir)|$(TargetPath)|$(TargetName)|$(PlatformToolset)" />
+  <Message Importance="High" Text="CL|%(ClCompile.Identity)|%(ClCompile.ObjectFileName)|%(ClCompile.PrecompiledHeaderOutputFile)|%(ClCompile.ProgramDataBaseFileName)|%(ClCompile.AssemblerListingLocation)|%(ClCompile.PreprocessorDefinitions)|%(ClCompile.AdditionalIncludeDirectories)" />
+  <Message Importance="High" Text="RC|%(ResourceCompile.Identity)|%(ResourceCompile.ResourceOutputFileName)" />
+ </Target>
+</Project>

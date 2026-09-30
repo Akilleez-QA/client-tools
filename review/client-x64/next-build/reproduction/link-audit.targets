@@ -1,0 +1,9 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <ItemGroup><Link Include="__audit" /><Lib Include="__audit" /><PostBuildEvent Include="__audit" /></ItemGroup>
+ <Target Name="SwgAudit">
+  <Message Importance="High" Text="GLOBAL|$(MSBuildProjectName)|$(Configuration)|$(Platform)|$(OutDir)|$(IntDir)|$(TargetPath)" />
+  <Message Importance="High" Text="LINK|%(Link.OutputFile)|%(Link.ImportLibrary)|%(Link.ProgramDatabaseFile)|%(Link.AdditionalLibraryDirectories)|%(Link.TargetMachine)" />
+  <Message Importance="High" Text="LIB|%(Lib.OutputFile)|%(Lib.TargetMachine)" />
+  <Message Importance="High" Text="POST|%(PostBuildEvent.Command)" />
+ </Target>
+</Project>
