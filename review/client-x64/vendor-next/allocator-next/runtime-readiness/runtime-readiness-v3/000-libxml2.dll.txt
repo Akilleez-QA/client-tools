@@ -1,0 +1,286 @@
+
+Dump of file C:\integration-current-v2\workspace\repo\src\compile\deps\parsers-v120\x64\Debug\libxml2.dll
+
+PE signature found
+
+File Type: DLL
+
+FILE HEADER VALUES
+            8664 machine (x64)
+               6 number of sections
+        6ABCD932 time date stamp Wed Sep 30 09:41:06 2026
+               0 file pointer to symbol table
+               0 number of symbols
+              F0 size of optional header
+            2022 characteristics
+                   Executable
+                   Application can handle large (>2GB) addresses
+                   DLL
+
+OPTIONAL HEADER VALUES
+             20B magic # (PE32+)
+           12.00 linker version
+          1C8600 size of code
+           81800 size of initialized data
+               0 size of uninitialized data
+          13D720 entry point (000000018013D720)
+            1000 base of code
+       180000000 image base (0000000180000000 to 000000018024DFFF)
+            1000 section alignment
+             200 file alignment
+            6.00 operating system version
+            2.06 image version
+            6.00 subsystem version
+               0 Win32 version
+          24E000 size of image
+             400 size of headers
+               0 checksum
+               2 subsystem (Windows GUI)
+             160 DLL characteristics
+                   High Entropy Virtual Addresses
+                   Dynamic base
+                   NX compatible
+          100000 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+          1F31F0 [    C569] RVA [size] of Export Directory
+          248458 [      28] RVA [size] of Import Directory
+               0 [       0] RVA [size] of Resource Directory
+          23D000 [    9D14] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+          24A000 [    2040] RVA [size] of Base Relocation Directory
+          1CABE0 [      38] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+               0 [       0] RVA [size] of Thread Storage Directory
+          1E5010 [      70] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+          248000 [     458] RVA [size] of Import Address Table Directory
+               0 [       0] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+   .text name
+  1C8499 virtual size
+    1000 virtual address (0000000180001000 to 00000001801C9498)
+  1C8600 size of raw data
+     400 file pointer to raw data (00000400 to 001C89FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #2
+  .rdata name
+   35759 virtual size
+  1CA000 virtual address (00000001801CA000 to 00000001801FF758)
+   35800 size of raw data
+  1C8A00 file pointer to raw data (001C8A00 to 001FE1FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type       Size      RVA  Pointer
+    -------- ------ -------- -------- --------
+    6ABCD932 cv           A3 001E9994   1E8394    Format: RSDS, {8F384541-02FD-4941-914E-6AD9FE24A479}, 1, C:\integration-current-v2\workspace\repo\src\compile\deps\parsers-v120\x64\Debug\parsers-o1uw0s2t\libxml2-2.6.7\win32\bin.msvc\libxml2.pdb
+    6ABCD932 feat         14 001E9A38   1E8438    Counts: Pre-VC++ 11.00=0, C/C++=277, /GS=277, /sdl=0, reserved=0
+
+SECTION HEADER #3
+   .data name
+   3C140 virtual size
+  200000 virtual address (0000000180200000 to 000000018023C13F)
+   2EC00 size of raw data
+  1FE200 file pointer to raw data (001FE200 to 0022CDFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #4
+  .pdata name
+    ADF4 virtual size
+  23D000 virtual address (000000018023D000 to 0000000180247DF3)
+    AE00 size of raw data
+  22CE00 file pointer to raw data (0022CE00 to 00237BFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #5
+  .idata name
+    12B8 virtual size
+  248000 virtual address (0000000180248000 to 00000001802492B7)
+    1400 size of raw data
+  237C00 file pointer to raw data (00237C00 to 00238FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Image has the following dependencies:
+
+    KERNEL32.dll
+
+  Section contains the following imports:
+
+    KERNEL32.dll
+             180248000 Import Address Table
+             180248480 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          7F CloseHandle
+                         350 InitializeCriticalSection
+                         129 EnterCriticalSection
+                         3A5 LeaveCriticalSection
+                         106 DeleteCriticalSection
+                         490 ReleaseMutex
+                         5BB WaitForSingleObject
+                          CE CreateMutexA
+                         214 GetCurrentThreadId
+                         582 TlsAlloc
+                         584 TlsGetValue
+                         585 TlsSetValue
+                         583 TlsFree
+                         36A IsDebuggerPresent
+                         370 IsProcessorFeaturePresent
+                         1CE GetCommandLineA
+                         4AE RtlCaptureContext
+                         4B5 RtlLookupFunctionEntry
+                         4BC RtlVirtualUnwind
+                         592 UnhandledExceptionFilter
+                         552 SetUnhandledExceptionFilter
+                         519 SetLastError
+                         351 InitializeCriticalSectionAndSpinCount
+                          B6 CreateEventW
+                         561 Sleep
+                         20F GetCurrentProcess
+                         570 TerminateProcess
+                         2C5 GetStartupInfoW
+                         2F9 GetTickCount
+                         26D GetModuleHandleW
+                         2A4 GetProcAddress
+                          E1 CreateSemaphoreW
+                         125 EncodePointer
+                          FF DecodePointer
+                         269 GetModuleFileNameW
+                         26C GetModuleHandleExW
+                         4BB RtlUnwindEx
+                         2C7 GetStdHandle
+                         245 GetFileType
+                         16E FindClose
+                         174 FindFirstFileExW
+                         226 GetDriveTypeW
+                         256 GetLastError
+                         56D SystemTimeToTzSpecificLocalTime
+                         163 FileTimeToSystemTime
+                         341 HeapSize
+                         344 HeapValidate
+                         2D7 GetSystemInfo
+                         157 ExitProcess
+                          1B AreFileApisANSI
+                         3D4 MultiByteToWideChar
+                         5DD WideCharToMultiByte
+                         15E FatalAppExitA
+                         375 IsValidCodePage
+                         1AA GetACP
+                         28D GetOEMCP
+                         1B9 GetCPInfo
+                         213 GetCurrentThread
+                         5F1 WriteFile
+                         1E2 GetConsoleCP
+                         1F4 GetConsoleMode
+                         198 FlushFileBuffers
+                         454 ReadFile
+                         452 ReadConsoleW
+                         444 RaiseException
+                         2A9 GetProcessHeap
+                         268 GetModuleFileNameA
+                         430 QueryPerformanceCounter
+                         210 GetCurrentProcessId
+                         2DD GetSystemTimeAsFileTime
+                         22E GetEnvironmentStringsW
+                         1A3 FreeEnvironmentStringsW
+                         4D2 SetConsoleCtrlHandler
+                         3FD OutputDebugStringW
+                         5BC WaitForSingleObjectEx
+                          E7 CreateThread
+                         3AA LoadLibraryExW
+                         3FC OutputDebugStringA
+                         5F0 WriteConsoleW
+                         50C SetFilePointerEx
+                         162 FileTimeToLocalFileTime
+                         23E GetFileInformationByHandle
+                         406 PeekNamedPipe
+                         250 GetFullPathNameW
+                         4F2 SetCurrentDirectoryW
+                         209 GetCurrentDirectoryW
+                          C2 CreateFileW
+                         33C HeapFree
+                         33F HeapReAlloc
+                         33E HeapQueryInformation
+                         338 HeapAlloc
+                         1A4 FreeLibrary
+                         4FC SetEnvironmentVariableA
+                         530 SetStdHandle
+                         2CC GetStringTypeW
+                         21A GetDateFormatW
+                         2FE GetTimeFormatW
+                          93 CompareStringW
+                         399 LCMapStringW
+                         25A GetLocaleInfoW
+                         377 IsValidLocale
+                         305 GetUserDefaultLCID
+                         14C EnumSystemLocalesW
+                         300 GetTimeZoneInformation
+                         4F9 SetEndOfFile
+                         4B7 RtlPcToFileHeader
+                         24D GetFullPathNameA
+
+SECTION HEADER #6
+  .reloc name
+    3B4F virtual size
+  24A000 virtual address (000000018024A000 to 000000018024DB4E)
+    3C00 size of raw data
+  239000 file pointer to raw data (00239000 to 0023CBFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42000040 flags
+         Initialized Data
+         Discardable
+         Read Only
+
+  Summary
+
+       3D000 .data
+        2000 .idata
+        B000 .pdata
+       36000 .rdata
+        4000 .reloc
+      1C9000 .text

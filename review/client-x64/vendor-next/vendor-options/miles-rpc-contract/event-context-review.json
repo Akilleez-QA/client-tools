@@ -1,0 +1,93 @@
+{
+  "scope": "Retained log classification, not new runtime or event-order acceptance; asynchronous callbacks between commands are valid.",
+  "observations": [
+    {
+      "log": "controlled-sample-1.log",
+      "last_command_id": 8,
+      "eos_sequence": 16,
+      "relation": "after last recorded command",
+      "callback_thread": 392,
+      "main_thread": 372,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "controlled-sample-2.log",
+      "last_command_id": 8,
+      "eos_sequence": 16,
+      "relation": "after last recorded command",
+      "callback_thread": 428,
+      "main_thread": 408,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "controlled-stream-1.log",
+      "last_command_id": 17,
+      "eos_sequence": 34,
+      "relation": "after last recorded command",
+      "callback_thread": 544,
+      "main_thread": 524,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "controlled-stream-2.log",
+      "last_command_id": 17,
+      "eos_sequence": 34,
+      "relation": "after last recorded command",
+      "callback_thread": 584,
+      "main_thread": 564,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "direct-sample-1.log",
+      "last_command_id": 9,
+      "eos_sequence": 17,
+      "relation": "during recorded command",
+      "callback_thread": 320,
+      "main_thread": 300,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "direct-sample-2.log",
+      "last_command_id": 9,
+      "eos_sequence": 17,
+      "relation": "during recorded command",
+      "callback_thread": 336,
+      "main_thread": 336,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "direct-stream-1.log",
+      "last_command_id": 17,
+      "eos_sequence": 34,
+      "relation": "after last recorded command",
+      "callback_thread": 464,
+      "main_thread": 444,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    },
+    {
+      "log": "direct-stream-2.log",
+      "last_command_id": 17,
+      "eos_sequence": 34,
+      "relation": "after last recorded command",
+      "callback_thread": 504,
+      "main_thread": 484,
+      "cw": 639,
+      "sw": 32,
+      "mxcsr": 8064
+    }
+  ]
+}

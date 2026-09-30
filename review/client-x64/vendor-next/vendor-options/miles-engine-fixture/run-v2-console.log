@@ -1,0 +1,21 @@
+{
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "manifest_asset": {
+    "source": "/home/akilleez/Work/swg-source/clientdata_OLD/datatables/manifest/skufree.iff",
+    "sha256": "60a8bc46c6ec43e043e473296d4f196fe272e8d60d542dfd3dc026572e04c578"
+  },
+  "wine": "wine-11.17",
+  "module": "536870916",
+  "sink_name": "swg_engine_8749fb6ab70d",
+  "private_wineserver_stop": 0,
+  "unload": "",
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "sink_removed": true
+}

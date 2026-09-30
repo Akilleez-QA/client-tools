@@ -1,5 +1,13 @@
 # Fork checkpoint — 2026-09-30
 
+## Current verified checkpoint
+
+Code head: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. [Actual four-configuration product build](../../allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md): Win32 Release/Debug zero errors; x64 Release/Debug final link fails only on60/61 Miles imports. No x64 executable launch or gameplay acceptance. [Real-engine audio baseline](miles-engine-fixture/RESULTS.md) plays/releases two samples but **fails teardown**. The original-Miles helper is still experimental, not an adopted production backend.
+
+The sections below retain the chronological record; statements marked pending describe the named earlier snapshot and are superseded by later results.
+
+## Initial checkpoint (historical)
+
 Client `integration/client-x64-next` at `91dc05e8bebe0881d0540e74d4c53de909feb876`. Server compatibility changes remain on Akilleez-QA/src `integration/windows-shared-compat`. No upstream writes or PRs. Eventual upstream x64 destination requires finished acceptance and the user's explicit PR approval.
 
 ## New committed work
@@ -93,3 +101,28 @@ Only x64 SwgClient now reserves 2 MiB of stack. The original PCRE corpus had fai
 Source-only review size at `a21af1630` was 1,916 changed C/C++ lines across 105 files. The Scene follow-up adds 3 changed lines, bringing the current production total to 1,919 across 106 files (+1,397 / -522). Tests, tooling, project XML, CI and documentation are excluded. PR #21 at `46f6003ac` has 429,176 changed source lines under the same filter, including extensive JUCE, DX11 and generated shader code. The approximately 224:1 source-size ratio is descriptive, not evidence of equivalent scope or completed migration.
 
 The original Miles RPC probe completes eight bounded runs with actual x64 controller and x86 host, exact sampled getter values, and explicit stale-generation rejection. Its direct and controlled arms both queued EOS, however. Actual game source calls Sound2d::endOfSample immediately, changing loop state and player-music timing; the experiment therefore does not validate that game callback contract. The next discriminator compares immediate, queued and unsolicited delivery with timed observer epochs, retaining any added delay rather than inventing a tolerance. No production media backend has been selected.
+
+
+## Actual product build and next media gate
+
+All four actual MSBuild builds at **49d0eeed4** have completed. Parent inspection of the raw logs confirms Win32 Release and Debug exit 0 with zero errors; x64 Release and Debug have zero compiler errors and fail strictly with 60/61 unresolved Miles imports. Debug adds `AIL_active_sample_count`. The actual product commands use individual source-built provider inputs, no `/FORCE`, and `/STACK:2097152`. All 20,552 tracked source files match the frozen head before and after. This is audited incremental build evidence, not a clean rebuild or runtime acceptance. [CI on this head also passed](https://github.com/Akilleez-QA/client-tools/actions/runs/36696895764) within its wire/storage/ownership fixture scope.
+
+The corrected isolated Link target includes all three real SwgClient objects and reports 60 Miles imports; the earlier extra `externalCommandHandler` came from omitting WinMain.obj in that diagnostic. Original records and correction remain available. The full product result above is stronger integration evidence.
+
+The 24-run EOS discriminator preserves all runs and directly changes its diagnostic observer inside the original callback for its baseline. Queued stream completion misses 40–41 nominal observer epochs; unsolicited delivery avoids those missed epochs in this finite sample but adds 0.105–0.171 ms of measured publication delay. No timing tolerance, engine callback equivalence or PCM fidelity is inferred. Parent reran the analyzer and checked its measurement boundaries. A real Audio/Sound2d fixture is now being constructed to replace the observer proxy at the next gate.
+
+An independent source audit rejects moving all of clientAudio as a transparent operation: it reads live Object/Appearance/hardpoint state, watcher lifetimes and the shared Random stream. Keeping that policy in the x64 client with a narrower AIL boundary is the next experiment, not a production decision. The complete live 61-export surface, size-less memory calls, version-resource macro, borrowed stream sample handles, reverse TreeFile I/O, callback reentrancy and Bink's shared-driver pointer all need real implementations. Placeholder exports are prohibited. The original version macro selects MSS64.DLL on x64; no matching genuine runtime is available here.
+
+Ordinary stack-walk probes in all four native configurations refute an unconditional x64 one-frame shift. Optimized frames still vary and may disappear; optional DO_TRACK>1 owner offsets remain unvalidated. No allocator fault workload was performed or proposed by that test.
+
+## Real engine fixture and private runtime staging
+
+At client49d0eeed4, the genuine Win32 Audio/Sound2d fixture compiled and linked with54 original Miles imports. Actual template serialization, TreeFile loading, two sample lifetimes, two real EOS callbacks and release were observed under isolated Wine audio. **The whole fixture failed during ExitChain teardown**, inside MemoryManager::free; the free caller and cause remain unidentified. Do not call it a passing baseline. Source inspection refutes the suspected SoundId heap-lifetime cause: its TemporaryCrcString has inline storage and an empty destructor. A source-only cleanup proposal is unexecuted and is not presented as a repair. See miles-engine-fixture/RESULTS.md and TEARDOWN-SOURCE-REVIEW.md. No allocator-fault rerun was made.
+
+The live-generation follow-up completes six bounded runs: four guarded passes and two expected discrimination failures. Unlike the old release-to-null test, stale generation1 STATUS is tested against a live generation2 handle. Guarded requests do not call Miles; bypassing only generation equality reaches legal STATUS and fails the same oracle. Parent reran postprocessing and inspected the retained raw schema/call counters. This verifies that diagnostic generation gate, not game behavior.
+
+The real-engine interface map now has native v120 Win32/x64 checks of all61 exact function signatures and six callback signatures. The private protocol remains a candidate, with buffer ownership, logical lock admission and reverse callback dispatch unresolved. No partial adapter is linked into SwgClient.
+
+Private Release/Debug runtime folders each contain genuine matching AMD64 gl05/gl06/gl07, DPVS, XML and D3DX9_43 DLLs. D3DX came from the already-downloaded Microsoft-signed SDK cabinet; nothing was installed globally. Six basic native loader checks pass for D3DX/DPVS/XML. No renderer initialization or game launch. Authenticode, source hashes and ordinary-import closure are recorded under allocator-next/runtime-readiness/private-staging-evidence. Binaries/SDKs/assets are excluded from this packet.
+
+The original Miles helper remains an experiment. Whole-audio-process migration would also move game-object/RNG/TreeFile policy; retaining game policy on x64 and forwarding the vendor boundary is narrower. Bink shares the real driver and needs a separately verified cohost path. A reviewer proposal to free-run movies, publish only latest BGRA frames and preload whole movies has **not** been adopted: timing, skipped frames, 565/5551 conversion and memory/I/O behavior require their own comparisons.

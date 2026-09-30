@@ -1,0 +1,18 @@
+{
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "wine": "wine-11.17",
+  "module": "536870916",
+  "sink_name": "swg_gen_c44bceb3f05e",
+  "private_wineserver_stop": 0,
+  "private_wineserver_wait": 0,
+  "unload": "",
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "sink_removed": true
+}

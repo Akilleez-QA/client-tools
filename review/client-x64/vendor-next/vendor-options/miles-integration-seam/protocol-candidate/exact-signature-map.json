@@ -1,0 +1,563 @@
+{
+  "private_header_sha256": "966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e",
+  "functions": [
+    {
+      "opcode": 1,
+      "name": "AIL_WAV_info",
+      "return_type": "S32",
+      "parameter_types": [
+        "void const FAR*",
+        "AILSOUNDINFO FAR*"
+      ]
+    },
+    {
+      "opcode": 2,
+      "name": "AIL_active_sample_count",
+      "return_type": "S32",
+      "parameter_types": [
+        "HDIGDRIVER"
+      ]
+    },
+    {
+      "opcode": 3,
+      "name": "AIL_allocate_sample_handle",
+      "return_type": "HSAMPLE",
+      "parameter_types": [
+        "HDIGDRIVER"
+      ]
+    },
+    {
+      "opcode": 4,
+      "name": "AIL_close_stream",
+      "return_type": "void",
+      "parameter_types": [
+        "HSTREAM"
+      ]
+    },
+    {
+      "opcode": 5,
+      "name": "AIL_digital_CPU_percent",
+      "return_type": "S32",
+      "parameter_types": [
+        "HDIGDRIVER"
+      ]
+    },
+    {
+      "opcode": 6,
+      "name": "AIL_digital_latency",
+      "return_type": "S32",
+      "parameter_types": [
+        "HDIGDRIVER"
+      ]
+    },
+    {
+      "opcode": 7,
+      "name": "AIL_end_sample",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 8,
+      "name": "AIL_file_error",
+      "return_type": "S32",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 9,
+      "name": "AIL_file_type",
+      "return_type": "S32",
+      "parameter_types": [
+        "void const FAR*",
+        "U32"
+      ]
+    },
+    {
+      "opcode": 10,
+      "name": "AIL_get_preference",
+      "return_type": "SINTa",
+      "parameter_types": [
+        "U32"
+      ]
+    },
+    {
+      "opcode": 11,
+      "name": "AIL_get_timer_highest_delay",
+      "return_type": "U32",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 12,
+      "name": "AIL_last_error",
+      "return_type": "char FAR *",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 13,
+      "name": "AIL_lock",
+      "return_type": "void",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 14,
+      "name": "AIL_open_digital_driver",
+      "return_type": "HDIGDRIVER",
+      "parameter_types": [
+        "U32",
+        "S32",
+        "S32",
+        "U32"
+      ]
+    },
+    {
+      "opcode": 15,
+      "name": "AIL_open_stream",
+      "return_type": "HSTREAM",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "char const FAR *",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 16,
+      "name": "AIL_register_EOS_callback",
+      "return_type": "AILSAMPLECB",
+      "parameter_types": [
+        "HSAMPLE",
+        "AILSAMPLECB"
+      ]
+    },
+    {
+      "opcode": 17,
+      "name": "AIL_register_stream_callback",
+      "return_type": "AILSTREAMCB",
+      "parameter_types": [
+        "HSTREAM",
+        "AILSTREAMCB"
+      ]
+    },
+    {
+      "opcode": 18,
+      "name": "AIL_release_sample_handle",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 19,
+      "name": "AIL_room_type",
+      "return_type": "S32",
+      "parameter_types": [
+        "HDIGDRIVER"
+      ]
+    },
+    {
+      "opcode": 20,
+      "name": "AIL_sample_ms_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "S32 FAR *",
+        "S32 FAR *"
+      ]
+    },
+    {
+      "opcode": 21,
+      "name": "AIL_sample_playback_rate",
+      "return_type": "S32",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 22,
+      "name": "AIL_sample_position",
+      "return_type": "U32",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 23,
+      "name": "AIL_sample_reverb_levels",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32 FAR *",
+        "F32 FAR *"
+      ]
+    },
+    {
+      "opcode": 24,
+      "name": "AIL_sample_status",
+      "return_type": "U32",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 25,
+      "name": "AIL_sample_volume_levels",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32 FAR *",
+        "F32 FAR *"
+      ]
+    },
+    {
+      "opcode": 26,
+      "name": "AIL_serve",
+      "return_type": "void",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 27,
+      "name": "AIL_set_3D_rolloff_factor",
+      "return_type": "void",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 28,
+      "name": "AIL_set_file_callbacks",
+      "return_type": "void",
+      "parameter_types": [
+        "AIL_file_open_callback",
+        "AIL_file_close_callback",
+        "AIL_file_seek_callback",
+        "AIL_file_read_callback"
+      ]
+    },
+    {
+      "opcode": 29,
+      "name": "AIL_set_listener_3D_orientation",
+      "return_type": "void",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "F32",
+        "F32",
+        "F32",
+        "F32",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 30,
+      "name": "AIL_set_listener_3D_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "F32",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 31,
+      "name": "AIL_set_listener_3D_velocity_vector",
+      "return_type": "void",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "F32",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 32,
+      "name": "AIL_set_named_sample_file",
+      "return_type": "S32",
+      "parameter_types": [
+        "HSAMPLE",
+        "C8 const FAR *",
+        "void const FAR *",
+        "U32",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 33,
+      "name": "AIL_set_preference",
+      "return_type": "SINTa",
+      "parameter_types": [
+        "U32",
+        "SINTa"
+      ]
+    },
+    {
+      "opcode": 34,
+      "name": "AIL_set_redist_directory",
+      "return_type": "char FAR*",
+      "parameter_types": [
+        "char const FAR*"
+      ]
+    },
+    {
+      "opcode": 35,
+      "name": "AIL_set_room_type",
+      "return_type": "void",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 36,
+      "name": "AIL_set_sample_3D_distances",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32",
+        "F32",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 37,
+      "name": "AIL_set_sample_3D_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 38,
+      "name": "AIL_set_sample_3D_velocity_vector",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 39,
+      "name": "AIL_set_sample_file",
+      "return_type": "S32",
+      "parameter_types": [
+        "HSAMPLE",
+        "void const FAR *",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 40,
+      "name": "AIL_set_sample_loop_block",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "S32",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 41,
+      "name": "AIL_set_sample_loop_count",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 42,
+      "name": "AIL_set_sample_ms_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 43,
+      "name": "AIL_set_sample_obstruction",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 44,
+      "name": "AIL_set_sample_occlusion",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 45,
+      "name": "AIL_set_sample_playback_rate",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 46,
+      "name": "AIL_set_sample_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "U32"
+      ]
+    },
+    {
+      "opcode": 47,
+      "name": "AIL_set_sample_reverb_levels",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 48,
+      "name": "AIL_set_sample_volume_levels",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE",
+        "F32",
+        "F32"
+      ]
+    },
+    {
+      "opcode": 49,
+      "name": "AIL_set_stream_loop_block",
+      "return_type": "void",
+      "parameter_types": [
+        "HSTREAM",
+        "S32",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 50,
+      "name": "AIL_set_stream_loop_count",
+      "return_type": "void",
+      "parameter_types": [
+        "HSTREAM",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 51,
+      "name": "AIL_set_stream_ms_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HSTREAM",
+        "S32"
+      ]
+    },
+    {
+      "opcode": 52,
+      "name": "AIL_shutdown",
+      "return_type": "void",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 53,
+      "name": "AIL_speaker_configuration",
+      "return_type": "MSSVECTOR3D FAR *",
+      "parameter_types": [
+        "HDIGDRIVER",
+        "S32 FAR *",
+        "S32 FAR *",
+        "F32 FAR *",
+        "MSS_MC_SPEC FAR *"
+      ]
+    },
+    {
+      "opcode": 54,
+      "name": "AIL_start_sample",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 55,
+      "name": "AIL_start_stream",
+      "return_type": "void",
+      "parameter_types": [
+        "HSTREAM"
+      ]
+    },
+    {
+      "opcode": 56,
+      "name": "AIL_startup",
+      "return_type": "S32",
+      "parameter_types": [
+        "void"
+      ]
+    },
+    {
+      "opcode": 57,
+      "name": "AIL_stop_sample",
+      "return_type": "void",
+      "parameter_types": [
+        "HSAMPLE"
+      ]
+    },
+    {
+      "opcode": 58,
+      "name": "AIL_stream_ms_position",
+      "return_type": "void",
+      "parameter_types": [
+        "HSTREAM",
+        "S32 FAR *",
+        "S32 FAR *"
+      ]
+    },
+    {
+      "opcode": 59,
+      "name": "AIL_stream_sample_handle",
+      "return_type": "HSAMPLE",
+      "parameter_types": [
+        "HSTREAM"
+      ]
+    },
+    {
+      "opcode": 60,
+      "name": "AIL_stream_status",
+      "return_type": "S32",
+      "parameter_types": [
+        "HSTREAM"
+      ]
+    },
+    {
+      "opcode": 61,
+      "name": "AIL_unlock",
+      "return_type": "void",
+      "parameter_types": [
+        "void"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "runs_expected": 24,
+  "runs_recorded": 24,
+  "structural_passes": 24,
+  "cleanup": {
+    "defaults_unchanged": true,
+    "sink_removed": true,
+    "unload": "",
+    "private_wineserver_stop": 0
+  },
+  "direct": {
+    "publish_delay_ms": [
+      0.0001,
+      0.0003
+    ],
+    "first_seen_delay_ms": [
+      0.0995,
+      0.6795
+    ],
+    "maximum_observer_gap_ms": [
+      1.0013,
+      5.4553
+    ],
+    "max_epoch_lateness_ms": [
+      0.00190000000000623,
+      5.415700000000015
+    ]
+  },
+  "queued": {
+    "publish_delay_ms": [
+      0.0361,
+      40.5603
+    ],
+    "first_seen_delay_ms": [
+      0.116,
+      41.2481
+    ],
+    "maximum_observer_gap_ms": [
+      1.0013,
+      1.0101
+    ],
+    "max_epoch_lateness_ms": [
+      0.0015000000000213731,
+      0.01120000000000232
+    ]
+  },
+  "unsolicited": {
+    "publish_delay_ms": [
+      0.1053,
+      0.1713
+    ],
+    "first_seen_delay_ms": [
+      0.1888,
+      0.9097
+    ],
+    "maximum_observer_gap_ms": [
+      1.0014,
+      1.3423
+    ],
+    "max_epoch_lateness_ms": [
+      0.001599999999996271,
+      0.3434999999999988
+    ]
+  }
+}

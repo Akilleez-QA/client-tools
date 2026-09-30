@@ -1,0 +1,137 @@
+{
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "hashes": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-engine-fixture/probe.cpp": "78ba05220c72a0d23186c699baadee1b3733eae9e3ea43670bbef925f25cedef",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-engine-fixture/probe.exe": "1fd6a4bc348d73cf963285e30c9885a37aaced436168335abf96cca9d8c8a502",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-engine-fixture/build.py": "4bbb3bb9975fa2185268d629e4af8d8eb8070341532ab0385b6d6dd8ce0262a3",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-engine-fixture/run.py": "cc87288d0018fc9dae5e2003f583b3295527f179f6e241baa732154ae4cbac2d",
+    "/home/akilleez/Work/swg-source-vm/client/SWGSource Client v3.0/Mss32.dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-engine-fixture/private-prefix-engine-v1/drive_c/engine-private/Mss32.dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-engine-fixture/private-prefix-engine-v1/drive_c/engine-private/sample.wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+  },
+  "wine": "wine-11.17",
+  "module": "536870916",
+  "sink_name": "swg_engine_3f9176edf4cf",
+  "sink": {
+    "index": 20461,
+    "state": "SUSPENDED",
+    "name": "swg_engine_3f9176edf4cf",
+    "description": "swg_engine_3f9176edf4cf Audio/Sink sink",
+    "driver": "PipeWire",
+    "sample_specification": "s16le 2ch 22050Hz",
+    "channel_map": "front-left,front-right",
+    "owner_module": 536870916,
+    "mute": false,
+    "volume": {
+      "front-left": {
+        "value": 65536,
+        "value_percent": "100%",
+        "db": "0.00 dB"
+      },
+      "front-right": {
+        "value": 65536,
+        "value_percent": "100%",
+        "db": "0.00 dB"
+      }
+    },
+    "balance": 0.0,
+    "base_volume": {
+      "value": 65536,
+      "value_percent": "100%",
+      "db": "0.00 dB"
+    },
+    "monitor_source": "swg_engine_3f9176edf4cf.monitor",
+    "latency": {
+      "actual": 0.0,
+      "configured": 0.0
+    },
+    "flags": [
+      "HARDWARE",
+      "DECIBEL_VOLUME",
+      "LATENCY"
+    ],
+    "properties": {
+      "node.name": "swg_engine_3f9176edf4cf",
+      "audio.format": "S16LE",
+      "audio.rate": "22050",
+      "audio.channels": "2",
+      "audio.position": "[ FL, FR ]",
+      "media.class": "Audio/Sink",
+      "device.description": "swg_engine_3f9176edf4cf Audio/Sink sink",
+      "factory.name": "support.null-audio-sink",
+      "monitor.channel-volumes": "true",
+      "monitor.passthrough": "true",
+      "pulse.module.id": "536870916",
+      "factory.id": "19",
+      "clock.quantum-limit": "8192",
+      "client.id": "81",
+      "node.driver": "true",
+      "port.group": "stream.0",
+      "node.loop.name": "data-loop.0",
+      "library.name": "audioconvert/libspa-audioconvert",
+      "object.id": "80",
+      "object.serial": "20461"
+    },
+    "ports": [],
+    "active_port": null,
+    "formats": [
+      "pcm"
+    ]
+  },
+  "runs": [
+    {
+      "label": "engine-baseline-1",
+      "routing": [
+        {
+          "seconds": 0.008418263983912766,
+          "inputs": [],
+          "all_inputs": []
+        },
+        {
+          "seconds": 0.04372063098708168,
+          "inputs": [],
+          "all_inputs": []
+        },
+        {
+          "seconds": 0.07720391498878598,
+          "inputs": [],
+          "all_inputs": []
+        },
+        {
+          "seconds": 0.11130532799870707,
+          "inputs": [],
+          "all_inputs": []
+        },
+        {
+          "seconds": 0.145333574997494,
+          "inputs": [],
+          "all_inputs": []
+        },
+        {
+          "seconds": 0.18125726698781364,
+          "inputs": [],
+          "all_inputs": []
+        },
+        {
+          "seconds": 0.21716904698405415,
+          "inputs": [],
+          "all_inputs": []
+        }
+      ],
+      "returncode": 3,
+      "wall_seconds": 0.24232695897808298,
+      "producer_observed": false
+    }
+  ],
+  "private_wineserver_stop": 0,
+  "unload": "",
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "sink_removed": true
+}

@@ -1,0 +1,59 @@
+	DLL Name: mss32.dll
+	000681b0  <none>  00c6  _AIL_room_type@4
+	000681b4  <none>  0106  _AIL_set_room_type@8
+	000681b8  <none>  00f3  _AIL_set_3D_rolloff_factor@8
+	000681bc  <none>  011a  _AIL_set_sample_obstruction@8
+	000681c0  <none>  011b  _AIL_set_sample_occlusion@8
+	000681c4  <none>  0108  _AIL_set_sample_3D_distances@16
+	000681c8  <none>  010a  _AIL_set_sample_3D_position@16
+	000681cc  <none>  010c  _AIL_set_sample_3D_velocity_vector@16
+	000681d0  <none>  00ff  _AIL_set_listener_3D_position@16
+	000681d4  <none>  0101  _AIL_set_listener_3D_velocity_vector@16
+	000681d8  <none>  00fc  _AIL_set_file_callbacks@16
+	000681dc  <none>  0143  _AIL_stream_ms_position@12
+	000681e0  <none>  012c  _AIL_set_stream_ms_position@8
+	000681e4  <none>  00b9  _AIL_register_stream_callback@8
+	000681e8  <none>  012a  _AIL_set_stream_loop_block@12
+	000681ec  <none>  012b  _AIL_set_stream_loop_count@8
+	000681f0  <none>  013a  _AIL_start_stream@4
+	000681f4  <none>  0145  _AIL_stream_sample_handle@4
+	000681f8  <none>  0039  _AIL_close_stream@4
+	000681fc  <none>  0085  _AIL_open_stream@12
+	00068200  <none>  00fe  _AIL_set_listener_3D_orientation@28
+	00068204  <none>  00d8  _AIL_sample_ms_position@12
+	00068208  <none>  0119  _AIL_set_sample_ms_position@8
+	0006820c  <none>  00b1  _AIL_register_EOS_callback@8
+	00068210  <none>  00dd  _AIL_sample_position@4
+	00068214  <none>  011d  _AIL_set_sample_position@8
+	00068218  <none>  00e3  _AIL_sample_volume_levels@12
+	0006821c  <none>  00dc  _AIL_sample_playback_rate@4
+	00068220  <none>  0116  _AIL_set_sample_loop_block@12
+	00068224  <none>  0117  _AIL_set_sample_loop_count@8
+	00068228  <none>  011f  _AIL_set_sample_reverb_levels@12
+	0006822c  <none>  0121  _AIL_set_sample_volume_levels@12
+	00068230  <none>  011c  _AIL_set_sample_playback_rate@8
+	00068234  <none>  004d  _AIL_end_sample@4
+	00068238  <none>  013e  _AIL_stop_sample@4
+	0006823c  <none>  0138  _AIL_start_sample@4
+	00068240  <none>  0103  _AIL_set_named_sample_file@20
+	00068244  <none>  0114  _AIL_set_sample_file@12
+	00068248  <none>  00c0  _AIL_release_sample_handle@4
+	0006824c  <none>  0135  _AIL_speaker_configuration@20
+	00068250  <none>  002c  _AIL_allocate_sample_handle@4
+	00068254  <none>  0048  _AIL_digital_latency@4
+	00068258  <none>  0043  _AIL_digital_CPU_percent@4
+	0006825c  <none>  0105  _AIL_set_redist_directory@4
+	00068260  <none>  0081  _AIL_open_digital_driver@16
+	00068264  <none>  0149  _AIL_unlock@0
+	00068268  <none>  0073  _AIL_lock@0
+	0006826c  <none>  0069  _AIL_last_error@0
+	00068270  <none>  0104  _AIL_set_preference@8
+	00068274  <none>  0133  _AIL_shutdown@0
+	00068278  <none>  0064  _AIL_get_preference@4
+	0006827c  <none>  013c  _AIL_startup@0
+	00068280  <none>  00ef  _AIL_serve@0
+	00068284  <none>  0065  _AIL_get_timer_highest_delay@0
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: GDI32.dll
+	DLL Name: ADVAPI32.dll

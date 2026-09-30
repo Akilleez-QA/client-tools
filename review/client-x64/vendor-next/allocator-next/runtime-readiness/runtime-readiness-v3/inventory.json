@@ -1,0 +1,368 @@
+{
+  "source_head": "49d0eeed4ddaa177d7a93ea396c37c3d9b9942da",
+  "dumpbin": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\dumpbin.exe",
+  "files": [
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\deps\\parsers-v120\\x64\\Debug\\libxml2.dll",
+      "relative_path": "src\\compile\\deps\\parsers-v120\\x64\\Debug\\libxml2.dll",
+      "bytes": 2345984,
+      "sha256": "8746e6f55dadaabda38d71043b03e5b5059eae90970cbe9d7fae513756eaf182",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll"
+      ],
+      "log": "000-libxml2.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\deps\\parsers-v120\\x64\\Release\\libxml2.dll",
+      "relative_path": "src\\compile\\deps\\parsers-v120\\x64\\Release\\libxml2.dll",
+      "bytes": 1009664,
+      "sha256": "5e1d1d4bd1a12111117c578bafce6c27cfda190c2bd0734fdfc570a9b7b933f5",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll"
+      ],
+      "log": "001-libxml2.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\Direct3d9\\Debug\\gl05_d.dll",
+      "relative_path": "src\\compile\\x64\\Direct3d9\\Debug\\gl05_d.dll",
+      "bytes": 1593856,
+      "sha256": "b05c58d08cbeb9b595e48046775a316960a5240218086bf6a4338f8f307e8355",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "DllExport.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "log": "002-gl05_d.dll.txt",
+      "ordinary_imports": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "delay_imports": [
+        "DllExport.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\Direct3d9\\Release\\gl05_r.dll",
+      "relative_path": "src\\compile\\x64\\Direct3d9\\Release\\gl05_r.dll",
+      "bytes": 821248,
+      "sha256": "807f2cdc888619fd66fc94dc7e7e483fac168bd4f41e7c80288bc73f1cd04d3a",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "DllExport.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "log": "003-gl05_r.dll.txt",
+      "ordinary_imports": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "delay_imports": [
+        "DllExport.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\Direct3d9_ffp\\Debug\\gl06_d.dll",
+      "relative_path": "src\\compile\\x64\\Direct3d9_ffp\\Debug\\gl06_d.dll",
+      "bytes": 1518592,
+      "sha256": "8f8bf3c51a1c4bb2729a0da2c23be7a4a7879010c8d56ca0bc3394277129a155",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "DllExport.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "log": "004-gl06_d.dll.txt",
+      "ordinary_imports": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "delay_imports": [
+        "DllExport.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\Direct3d9_ffp\\Release\\gl06_r.dll",
+      "relative_path": "src\\compile\\x64\\Direct3d9_ffp\\Release\\gl06_r.dll",
+      "bytes": 785408,
+      "sha256": "e4b1662cdec9cc72c9d08914f3cafa27f236874a19bc8218d1f3d2b11fc40612",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "DllExport.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "log": "005-gl06_r.dll.txt",
+      "ordinary_imports": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "delay_imports": [
+        "DllExport.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\Direct3d9_vsps\\Debug\\gl07_d.dll",
+      "relative_path": "src\\compile\\x64\\Direct3d9_vsps\\Debug\\gl07_d.dll",
+      "bytes": 1560576,
+      "sha256": "19d971fa3bf7278512023420ead685ee5ffc51141e4d3884c576ae274a0ae881",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "DllExport.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "log": "006-gl07_d.dll.txt",
+      "ordinary_imports": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "delay_imports": [
+        "DllExport.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\Direct3d9_vsps\\Release\\gl07_r.dll",
+      "relative_path": "src\\compile\\x64\\Direct3d9_vsps\\Release\\gl07_r.dll",
+      "bytes": 805376,
+      "sha256": "dd20d8d58fbb5e26982a04f4b3270608f5ab714a2981df798ab534ed6d1e38a2",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "DllExport.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "log": "007-gl07_r.dll.txt",
+      "ordinary_imports": [
+        "d3d9.dll",
+        "d3dx9_43.dll",
+        "DDRAW.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ],
+      "delay_imports": [
+        "DllExport.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\DllExport\\Debug\\DllExport.dll",
+      "relative_path": "src\\compile\\x64\\DllExport\\Debug\\DllExport.dll",
+      "bytes": 636416,
+      "sha256": "13043a9c4ada11bb339d0327ddf1c5a86a7433058f367e114b75124eb6a4af86",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll"
+      ],
+      "log": "008-DllExport.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\DllExport\\Release\\DllExport.dll",
+      "relative_path": "src\\compile\\x64\\DllExport\\Release\\DllExport.dll",
+      "bytes": 95744,
+      "sha256": "3e9da980be559b750a46cebf46523b70b6f977b5f7243f0aa34a9d7c8275259e",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll"
+      ],
+      "log": "009-DllExport.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\dpvs\\Debug\\dpvs.dll",
+      "relative_path": "src\\compile\\x64\\dpvs\\Debug\\dpvs.dll",
+      "bytes": 1455104,
+      "sha256": "e51a9d2479c7a527cb6e476819500c9c75bede1e30cd2b8332f16b0198249911",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll"
+      ],
+      "log": "010-dpvs.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\compile\\x64\\dpvs\\Release\\dpvs.dll",
+      "relative_path": "src\\compile\\x64\\dpvs\\Release\\dpvs.dll",
+      "bytes": 654336,
+      "sha256": "21913e7705af623d86eafab8eeea1a06da479002dd514e97dd8994b394ebe990",
+      "machine_hex": "0x8664",
+      "machine": "AMD64",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll"
+      ],
+      "log": "011-dpvs.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\external\\3rd\\library\\bink\\lib\\win32\\binkw32.dll",
+      "relative_path": "src\\external\\3rd\\library\\bink\\lib\\win32\\binkw32.dll",
+      "bytes": 171008,
+      "sha256": "e67e0319f9929c024a6d0757de50c65257f686f6711cb0efb7ad53afc3405dd4",
+      "machine_hex": "0x14c",
+      "machine": "I386",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "mss32.dll",
+        "USER32.dll",
+        "WINMM.dll"
+      ],
+      "log": "012-binkw32.dll.txt",
+      "ordinary_imports": [
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "WINMM.dll"
+      ],
+      "delay_imports": [
+        "mss32.dll"
+      ]
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\external\\3rd\\library\\miles-7.2e\\redist\\mss32.dll",
+      "relative_path": "src\\external\\3rd\\library\\miles-7.2e\\redist\\mss32.dll",
+      "bytes": 444416,
+      "sha256": "54bdd8e2e633e1c751e2d88afb2810bbaf60c85e385f4b1efc00dc08f7f80486",
+      "machine_hex": "0x14c",
+      "machine": "I386",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "KERNEL32.dll",
+        "USER32.dll",
+        "WINMM.dll"
+      ],
+      "log": "013-mss32.dll.txt",
+      "ordinary_imports": [
+        "KERNEL32.dll",
+        "USER32.dll",
+        "WINMM.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\integration-current-v2\\workspace\\repo\\src\\external\\3rd\\library\\vivox\\lib\\vivoxsdk.dll",
+      "relative_path": "src\\external\\3rd\\library\\vivox\\lib\\vivoxsdk.dll",
+      "bytes": 4947968,
+      "sha256": "0b92243f13816e93c915e1f7fe9998186de42019013dc5126f70a14a0d125b91",
+      "machine_hex": "0x14c",
+      "machine": "I386",
+      "dumpbin_exit": 0,
+      "imports_including_delay": [
+        "ADVAPI32.dll",
+        "DNSAPI.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "libsndfile-1.dll",
+        "ole32.dll",
+        "ortp.dll",
+        "RPCRT4.dll",
+        "SensApi.dll",
+        "SHELL32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "WINMM.dll",
+        "wrap_oal.dll",
+        "WS2_32.dll"
+      ],
+      "log": "014-vivoxsdk.dll.txt",
+      "ordinary_imports": [
+        "ADVAPI32.dll",
+        "DNSAPI.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "libsndfile-1.dll",
+        "ole32.dll",
+        "ortp.dll",
+        "RPCRT4.dll",
+        "SensApi.dll",
+        "SHELL32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "WINMM.dll",
+        "wrap_oal.dll",
+        "WS2_32.dll"
+      ],
+      "delay_imports": []
+    }
+  ]
+}

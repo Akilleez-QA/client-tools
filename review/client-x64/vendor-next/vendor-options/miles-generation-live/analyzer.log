@@ -1,0 +1,65 @@
+{
+  "outcome": "four guarded passes; two diagnostic oracle failures detected",
+  "comparisons": [
+    {
+      "mode": "sample",
+      "getter_differences": [],
+      "eos_context_and_timing_differences": {
+        "thread": {
+          "direct": 320,
+          "controlled": 356
+        },
+        "main_thread": {
+          "direct": 300,
+          "controlled": 336
+        },
+        "since_first_command_ms": {
+          "direct": 150.3467,
+          "controlled": 150.44219999999999
+        },
+        "since_observed_last_begin_ms": {
+          "direct": 50.0414,
+          "controlled": 49.34439999999999
+        },
+        "since_observed_last_end_ms": {
+          "direct": 50.037600000000005,
+          "controlled": 49.3403
+        },
+        "delivery_observation_ms": {
+          "direct": 0.051199999999999996,
+          "controlled": 0.9534
+        }
+      }
+    },
+    {
+      "mode": "stream",
+      "getter_differences": [],
+      "eos_context_and_timing_differences": {
+        "thread": {
+          "direct": 428,
+          "controlled": 468
+        },
+        "main_thread": {
+          "direct": 408,
+          "controlled": 448
+        },
+        "since_first_command_ms": {
+          "direct": 280.99309999999997,
+          "controlled": 281.0138
+        },
+        "since_observed_last_begin_ms": {
+          "direct": 29.994,
+          "controlled": 28.2772
+        },
+        "since_observed_last_end_ms": {
+          "direct": 29.9879,
+          "controlled": 28.271
+        },
+        "delivery_observation_ms": {
+          "direct": 20.1094,
+          "controlled": 21.999100000000002
+        }
+      }
+    }
+  ]
+}

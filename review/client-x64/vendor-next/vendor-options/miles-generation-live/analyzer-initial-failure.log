@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-generation-live/analyze.py", line 124, in <module>
+    if __name__=='__main__':sys.exit(main())
+                                     ~~~~^^
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-generation-live/analyze.py", line 107, in main
+    r=analyze(root/(label+'.log'));records[label]=r
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-generation-live/analyze.py", line 32, in analyze
+    audit=[row(l) for l in lines if l.startswith('audit ')]
+           ~~~^^^
+  File "/home/akilleez/Work/client-wire-validation/vendor-options/miles-generation-live/analyze.py", line 12, in row
+    return {k:(v if k in ['phase','loaded','mode'] else int(v,16) if k in ['cw','sw','mx','handle'] else int(v)) for k,v in d.items()}
+                                                                                                         ~~~^^^
+ValueError: invalid literal for int() with base 10: 'reply'

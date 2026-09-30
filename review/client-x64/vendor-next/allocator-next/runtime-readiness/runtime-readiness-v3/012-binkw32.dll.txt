@@ -1,0 +1,433 @@
+
+Dump of file C:\integration-current-v2\workspace\repo\src\external\3rd\library\bink\lib\win32\binkw32.dll
+
+PE signature found
+
+File Type: DLL
+
+FILE HEADER VALUES
+             14C machine (x86)
+               D number of sections
+        478D8E9D time date stamp Wed Jan 16 04:57:01 2008
+               0 file pointer to symbol table
+               0 number of symbols
+              E0 size of optional header
+            2102 characteristics
+                   Executable
+                   32 bit word machine
+                   DLL
+
+OPTIONAL HEADER VALUES
+             10B magic # (PE32)
+            8.00 linker version
+           1B600 size of code
+           13400 size of initialized data
+               0 size of uninitialized data
+            24F0 entry point (180024F0)
+            1000 base of code
+           20000 base of data
+        18000000 image base (18000000 to 18036FFF)
+            1000 section alignment
+             200 file alignment
+            4.00 operating system version
+            0.00 image version
+            4.00 subsystem version
+               0 Win32 version
+           37000 size of image
+             400 size of headers
+               0 checksum
+               2 subsystem (Windows GUI)
+             500 DLL characteristics
+                   NX compatible
+                   No structured exception handler
+          100000 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+           20E00 [     898] RVA [size] of Export Directory
+           205C0 [      64] RVA [size] of Import Directory
+           32000 [    2178] RVA [size] of Resource Directory
+               0 [       0] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+           35000 [    1040] RVA [size] of Base Relocation Directory
+           20180 [      1C] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+               0 [       0] RVA [size] of Thread Storage Directory
+           201A0 [      40] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+           20000 [     17C] RVA [size] of Import Address Table Directory
+           202AC [      40] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+   .text name
+    18BC virtual size
+    1000 virtual address (18001000 to 180028BB)
+    1A00 size of raw data
+     400 file pointer to raw data (00000400 to 00001DFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #2
+ BINKY12 name
+     1B0 virtual size
+    3000 virtual address (18003000 to 180031AF)
+     200 size of raw data
+    1E00 file pointer to raw data (00001E00 to 00001FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #3
+ BINKY16 name
+     8D8 virtual size
+    4000 virtual address (18004000 to 180048D7)
+     A00 size of raw data
+    2000 file pointer to raw data (00002000 to 000029FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #4
+  BINKP8 name
+     8F9 virtual size
+    5000 virtual address (18005000 to 180058F8)
+     A00 size of raw data
+    2A00 file pointer to raw data (00002A00 to 000033FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #5
+  BINK16 name
+    100B virtual size
+    6000 virtual address (18006000 to 1800700A)
+    1200 size of raw data
+    3400 file pointer to raw data (00003400 to 000045FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #6
+  BINK32 name
+    134A virtual size
+    8000 virtual address (18008000 to 18009349)
+    1400 size of raw data
+    4600 file pointer to raw data (00004600 to 000059FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #7
+    BINK name
+   15F62 virtual size
+    A000 virtual address (1800A000 to 1801FF61)
+   16000 size of raw data
+    5A00 file pointer to raw data (00005A00 to 0001B9FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #8
+  .rdata name
+    16D9 virtual size
+   20000 virtual address (18020000 to 180216D8)
+    1800 size of raw data
+   1BA00 file pointer to raw data (0001BA00 to 0001D1FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type       Size      RVA  Pointer
+    -------- ------ -------- -------- --------
+    478D8E9D cv           41 00021698    1D098    Format: RSDS, {7F0079B7-F968-4848-AF49-4407A68F060F}, 1, C:\devel\projects\bink\build\binkw32.pdb
+
+  Image has the following dependencies:
+
+    USER32.dll
+    GDI32.dll
+    KERNEL32.dll
+    WINMM.dll
+
+  Image has the following delay load dependencies:
+
+    mss32.dll
+
+  Section contains the following imports:
+
+    USER32.dll
+              180200D4 Import Address Table
+              180206F8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  16A GetWindow
+                  163 GetTopWindow
+                  16E GetWindowLongA
+                   EB GetActiveWindow
+                  17B GetWindowThreadProcessId
+                  2B3 UnregisterClassA
+                   60 CreateWindowExA
+                   C8 EndPaint
+                  200 PeekMessageA
+                   40 ClientToScreen
+                  22A ReleaseDC
+                   99 DestroyWindow
+                  24D SetCursor
+                   8E DefWindowProcA
+                  10B GetCursorPos
+                  231 ScreenToClient
+                  174 GetWindowRect
+                  1A6 IsIconic
+                  15D GetSystemMetrics
+                  1B1 IsWindowVisible
+                   FF GetClientRect
+                   20 ChangeDisplaySettingsA
+                  216 RegisterClassA
+                  28E ShowCursor
+                  10C GetDC
+                   FA GetClassLongA
+                    D BeginPaint
+                  1DF MessageBoxA
+
+    GDI32.dll
+              18020000 Import Address Table
+              18020624 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  238 SetStretchBltMode
+                   8C DeleteDC
+                   32 CreateDIBSection
+                  16B GetDeviceCaps
+                  249 StretchBlt
+                  16A GetDIBits
+                  19C GetPixel
+                  231 SetPixel
+                   8F DeleteObject
+                  20E SelectObject
+                   2D CreateCompatibleDC
+                   2C CreateCompatibleBitmap
+
+    KERNEL32.dll
+              18020034 Import Address Table
+              18020658 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  212 HeapCreate
+                  216 HeapFree
+                  210 HeapAlloc
+                   8B DisableThreadLibraryCalls
+                  316 SetEvent
+                  142 GetCurrentProcess
+                  35E TerminateProcess
+                   6F CreateThread
+                  2C3 ReleaseSemaphore
+                   6B CreateSemaphoreA
+                  390 WaitForSingleObject
+                   34 CloseHandle
+                   4F CreateEventA
+                  344 SetThreadPriority
+                  38E WaitForMultipleObjects
+                   60 CreateMutexA
+                  2C2 ReleaseMutex
+                  2D2 ResumeThread
+                  258 LocalAlloc
+                  229 InterlockedExchange
+                  171 GetLastError
+                  356 Sleep
+                  1F3 GetWindowsDirectoryA
+                  1C1 GetSystemDirectoryA
+                  17D GetModuleFileNameA
+                  1A0 GetProcAddress
+                  252 LoadLibraryA
+                  315 SetErrorMode
+                   F8 FreeLibrary
+                  17F GetModuleHandleA
+                  2A7 RaiseException
+                  143 GetCurrentProcessId
+                  28D OutputDebugStringA
+                  2A3 QueryPerformanceCounter
+                  1DF GetTickCount
+                  2A4 QueryPerformanceFrequency
+                   53 CreateFileA
+                  31B SetFilePointer
+                  2B5 ReadFile
+
+    WINMM.dll
+              18020148 Import Address Table
+              1802076C Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   C7 waveOutRestart
+                   C4 waveOutPause
+                   CC waveOutWrite
+                   B7 waveOutClose
+                   A3 timeGetTime
+                   9F timeBeginPeriod
+                   A0 timeEndPeriod
+                   CA waveOutSetVolume
+                   CB waveOutUnprepareHeader
+                   C3 waveOutOpen
+                   C5 waveOutPrepareHeader
+                   C6 waveOutReset
+
+  Section contains the following delay load imports:
+
+    mss32.dll
+              00000001 Characteristics
+              18022084 Address of HMODULE
+              18022020 Import Address Table
+              180202EC Import Name Table
+              18020570 Bound Import Name Table
+              00000000 Unload Import Name Table
+                     0 time date stamp
+
+          1800253E               0 _AIL_release_sample_handle@4
+          1800255F               0 _AIL_minimum_sample_buffer_size@12
+          1800256F               0 _AIL_load_sample_buffer@16
+          1800257F               0 _AIL_sample_user_data@8
+          1800258F               0 _AIL_register_EOB_callback@8
+          1800259F               0 _AIL_digital_latency@4
+          180025AF               0 _AIL_mem_free_lock@4
+          180025BF               0 _AIL_set_sample_user_data@12
+          180025CF               0 _AIL_set_sample_playback_rate@8
+          180025DF               0 _AIL_sample_buffer_available@4
+          180025EF               0 _AIL_stop_sample@4
+          180025FF               0 _AIL_init_sample@12
+          1800260F               0 _AIL_allocate_sample_handle@4
+          1800261F               0 _AIL_resume_sample@4
+          1800262F               0 _AIL_set_sample_buffer_count@8
+          1800263F               0 _AIL_set_sample_volume_pan@12
+          1800264F               0 _AIL_set_sample_channel_levels@20
+          1800265F               0 _AIL_sample_buffer_info@24
+          1800266F               0 _AIL_mem_alloc_lock@4
+
+SECTION HEADER #9
+   .data name
+    53E4 virtual size
+   22000 virtual address (18022000 to 180273E3)
+     200 size of raw data
+   1D200 file pointer to raw data (0001D200 to 0001D3FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #A
+ BINKBSS name
+    4FF0 virtual size
+   28000 virtual address (18028000 to 1802CFEF)
+    5000 size of raw data
+   1D400 file pointer to raw data (0001D400 to 000223FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #B
+BINKDATA name
+    408C virtual size
+   2D000 virtual address (1802D000 to 1803108B)
+    4200 size of raw data
+   22400 file pointer to raw data (00022400 to 000265FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #C
+   .rsrc name
+    2178 virtual size
+   32000 virtual address (18032000 to 18034177)
+    2200 size of raw data
+   26600 file pointer to raw data (00026600 to 000287FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #D
+  .reloc name
+    128C virtual size
+   35000 virtual address (18035000 to 1803628B)
+    1400 size of raw data
+   28800 file pointer to raw data (00028800 to 00029BFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42000040 flags
+         Initialized Data
+         Discardable
+         Read Only
+
+  Summary
+
+        6000 .data
+        2000 .rdata
+        2000 .reloc
+        3000 .rsrc
+        2000 .text
+       16000 BINK
+        2000 BINK16
+        2000 BINK32
+        5000 BINKBSS
+        5000 BINKDATA
+        1000 BINKP8
+        1000 BINKY12
+        1000 BINKY16

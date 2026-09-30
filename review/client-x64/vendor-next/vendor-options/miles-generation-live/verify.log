@@ -1,0 +1,34 @@
+{
+  "eos_cases": {
+    "between_outside_last_window": "accepted",
+    "active_outside_window": "rejected",
+    "active_inside_window": "accepted",
+    "wrong_last_command": "rejected"
+  },
+  "validators": [
+    {
+      "label": "direct-sample",
+      "returncode": 0
+    },
+    {
+      "label": "controlled-sample",
+      "returncode": 0
+    },
+    {
+      "label": "mutant-sample",
+      "returncode": 1
+    },
+    {
+      "label": "direct-stream",
+      "returncode": 0
+    },
+    {
+      "label": "controlled-stream",
+      "returncode": 0
+    },
+    {
+      "label": "mutant-stream",
+      "returncode": 1
+    }
+  ]
+}

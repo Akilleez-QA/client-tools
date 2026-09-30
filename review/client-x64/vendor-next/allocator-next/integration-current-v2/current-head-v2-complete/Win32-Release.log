@@ -1,0 +1,1293 @@
+Build started 9/30/2026 9:41:12 AM.
+     1>Project "R:\repo\src\build\win32\swg.sln" on node 1 (SwgClient target(s)).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Release|Win32".
+     1>Project "R:\repo\src\build\win32\swg.sln" (1) is building "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) on node 1 (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedRemoteDebugServer\build\win32\sharedRemoteDebugServer.vcxproj" (4) on node 2 (default targets).
+     4>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRe.AFA9AD0A.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedRemoteDebugServer.vcxproj -> R:\repo\src\engine\shared\library\sharedRemoteDebugServer\build\win32\..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRemoteDebugServer.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRe.AFA9AD0A.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedRemoteDebugServer\Release\sharedRe.AFA9AD0A.tlog\sharedRemoteDebugServer.lastbuildstate".
+     4>Done Building Project "R:\repo\src\engine\shared\library\sharedRemoteDebugServer\build\win32\sharedRemoteDebugServer.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj" (3) on node 1 (default targets).
+     3>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClien.EAA23F07.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\3rd\library\ui\build\win32\ui.vcxproj" (5) on node 2 (default targets).
+     5>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\ui\Release\ui.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         ui.vcxproj -> R:\repo\src\external\3rd\library\ui\build\win32\.\..\..\..\..\..\..\compile\win32\ui\Release\ui.lib
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\ui\Release\ui.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\ui\Release\ui.tlog\ui.lastbuildstate".
+     5>Done Building Project "R:\repo\src\external\3rd\library\ui\build\win32\ui.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedFoundation\build\win32\sharedFoundation.vcxproj" (6) on node 2 (default targets).
+     6>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedFoundation.vcxproj -> R:\repo\src\engine\shared\library\sharedFoundation\build\win32\..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFoundation\Release\sharedFoundation.tlog\sharedFoundation.lastbuildstate".
+     6>Done Building Project "R:\repo\src\engine\shared\library\sharedFoundation\build\win32\sharedFoundation.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedUtility\build\win32\sharedUtility.vcxproj" (7) on node 2 (default targets).
+     7>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     3>ClCompile:
+         All outputs are up-to-date.
+     7>Lib:
+         All outputs are up-to-date.
+         sharedUtility.vcxproj -> R:\repo\src\engine\shared\library\sharedUtility\build\win32\..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedUtility\Release\sharedUtility.tlog\sharedUtility.lastbuildstate".
+     7>Done Building Project "R:\repo\src\engine\shared\library\sharedUtility\build\win32\sharedUtility.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedCollision\build\win32\sharedCollision.vcxproj" (8) on node 2 (default targets).
+     8>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedCollision.vcxproj -> R:\repo\src\engine\shared\library\sharedCollision\build\win32\..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedCollision\Release\sharedCollision.tlog\sharedCollision.lastbuildstate".
+     8>Done Building Project "R:\repo\src\engine\shared\library\sharedCollision\build\win32\sharedCollision.vcxproj" (default targets).
+     3>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\..\..\..\..\engine\client\library\clientAnimation\include\public /I..\..\..\..\..\..\engine\client\library\clientAudio\include\public /I..\..\..\..\..\..\engine\client\library\clientDirectInput\include\public /I..\..\..\..\..\..\engine\client\library\clientGame\include\public /I..\..\..\..\..\..\engine\client\library\clientGraphics\include\public /I..\..\..\..\..\..\engine\client\library\clientObject\include\public /I..\..\..\..\..\..\engine\client\library\clientParticle\include\public /I..\..\..\..\..\..\engine\client\library\clientSkeletalAnimation\include\public /I..\..\..\..\..\..\engine\client\library\clientTerrain\include\public /I..\..\..\..\..\..\engine\client\library\clientUserInterface\include\public /I..\..\..\..\..\..\engine\shared\library\sharedCollision\include\public /I..\..\..\..\..\..\engine\shared\library\sharedCommandParser\include\public /I..\..\..\..\..\..\engine\shared\library\sharedDebug\include\public /I..\..\..\..\..\..\engine\shared\library\sharedFile\include\public /I..\..\..\..\..\..\engine\shared\library\sharedFoundation\include\public /I..\..\..\..\..\..\engine\shared\library\sharedFoundationTypes\include\public /I..\..\..\..\..\..\engine\shared\library\sharedGame\include\public /I..\..\..\..\..\..\engine\shared\library\sharedInputMap\include\public /I..\..\..\..\..\..\engine\shared\library\sharedIoWin\include\public /I..\..\..\..\..\..\engine\shared\library\sharedMath\include\public /I..\..\..\..\..\..\engine\shared\library\sharedMathArchive\include\public /I..\..\..\..\..\..\engine\shared\library\sharedMemoryManager\include\public /I..\..\..\..\..\..\engine\shared\library\sharedMemoryBlockManager\include\public /I..\..\..\..\..\..\engine\shared\library\sharedMessageDispatch\include\public /I..\..\..\..\..\..\engine\shared\library\sharedNetwork\include\public /I..\..\..\..\..\..\engine\shared\library\sharedNetworkMessages\include\public /I..\..\..\..\..\..\engine\shared\library\sharedObject\include\public /I..\..\..\..\..\..\engine\shared\library\sharedRandom\include\public /I..\..\..\..\..\..\engine\shared\library\sharedRegex\include\public /I..\..\..\..\..\..\engine\shared\library\sharedSkillSystem\include\public /I..\..\..\..\..\..\engine\shared\library\sharedSynchronization\include\public /I..\..\..\..\..\..\engine\shared\library\sharedTerrain\include\public /I..\..\..\..\..\..\engine\shared\library\sharedThread\include\public /I..\..\..\..\..\..\engine\shared\library\sharedUtility\include\public /I..\..\..\..\..\..\external\3rd\library\boost /I..\..\..\..\..\..\external\3rd\library\directx9\include /I..\..\..\..\..\..\external\3rd\library\libEverQuestTCG\include\public /I..\..\..\..\..\..\external\3rd\library\libMozilla\include\public /I..\..\..\..\..\..\external\3rd\library\pcre\4.1\win32\include /I..\..\..\..\..\..\external\3rd\library\stlport453\stlport /I..\..\..\..\..\..\external\3rd\library\ui\include /I..\..\..\..\..\..\external\ours\library\archive\include /I..\..\..\..\..\..\external\ours\library\fileInterface\include\public /I..\..\..\..\..\..\external\ours\library\localization\include /I..\..\..\..\..\..\external\ours\library\localizationArchive\include\public /I..\..\..\..\..\..\external\ours\library\singleton\include /I..\..\..\..\..\..\external\ours\library\unicode\include /I..\..\..\..\..\..\external\ours\library\unicodeArchive\include\public /I..\..\..\..\..\shared\library\swgSharedNetworkMessages\include\public /I..\..\..\..\..\shared\library\swgSharedUtility\include\public /I..\..\include\private /I..\..\include\public /I..\..\..\..\..\..\external\3rd\library\dimm /I..\..\..\..\..\..\external\3rd\library\lcdui /I..\..\..\..\..\..\external\3rd\library\lcdui_src\src\win32 /I..\..\..\..\..\..\external\3rd\library\lcdui_src\src\win32\LCDUI /Zi /nologo /W4 /WX- /O2 /Ob1 /Oi /Ot /Oy /D WIN32 /D NDEBUG /D _MBCS /D DEBUG_LEVEL=0 /D _CRT_SECURE_NO_DEPRECATE=1 /D _USE_32BIT_TIME_T=1 /D _LIB /D PCRE_STATIC /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\\" /Fd"..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClientUserInterface_r.pdb" /Gd /TP /analyze- /FC /errorReport:queue ..\..\src\shared\parser\SwgCuiCommandParserScene.cpp
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientGame\build\win32\clientGame.vcxproj" (9) on node 2 (default targets).
+     9>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\3rd\library\zlib-1.2.3\zlib.vcxproj" (10) on node 1 (default targets).
+    10>InitializeBuildStatus:
+         Creating "..\..\..\..\compile\win32\zlib\Release\zlib.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     3>ClCompile:
+         SwgCuiCommandParserScene.cpp
+    10>Lib:
+         All outputs are up-to-date.
+         zlib.vcxproj -> R:\repo\src\external\3rd\library\zlib-1.2.3\..\..\..\..\compile\win32\zlib\Release\zlib.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\compile\win32\zlib\Release\zlib.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\compile\win32\zlib\Release\zlib.tlog\zlib.lastbuildstate".
+    10>Done Building Project "R:\repo\src\external\3rd\library\zlib-1.2.3\zlib.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedFile\build\win32\sharedFile.vcxproj" (11) on node 1 (default targets).
+    11>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedFile.vcxproj -> R:\repo\src\engine\shared\library\sharedFile\build\win32\..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFile\Release\sharedFile.tlog\sharedFile.lastbuildstate".
+    11>Done Building Project "R:\repo\src\engine\shared\library\sharedFile\build\win32\sharedFile.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedMemoryManager\build\win32\sharedMemoryManager.vcxproj" (12) on node 1 (default targets).
+    12>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMe.DC2CD926.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedMemoryManager.vcxproj -> R:\repo\src\engine\shared\library\sharedMemoryManager\build\win32\..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMemoryManager.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMe.DC2CD926.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMemoryManager\Release\sharedMe.DC2CD926.tlog\sharedMemoryManager.lastbuildstate".
+    12>Done Building Project "R:\repo\src\engine\shared\library\sharedMemoryManager\build\win32\sharedMemoryManager.vcxproj" (default targets).
+     9>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedDebug\build\win32\sharedDebug.vcxproj" (13) on node 1 (default targets).
+    13>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedDebug.vcxproj -> R:\repo\src\engine\shared\library\sharedDebug\build\win32\..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedDebug\Release\sharedDebug.tlog\sharedDebug.lastbuildstate".
+    13>Done Building Project "R:\repo\src\engine\shared\library\sharedDebug\build\win32\sharedDebug.vcxproj" (default targets).
+     9>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedCompression\build\win32\sharedCompression.vcxproj" (14) on node 1 (default targets).
+    14>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCo.6BD52B35.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedCompression.vcxproj -> R:\repo\src\engine\shared\library\sharedCompression\build\win32\..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCompression.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCo.6BD52B35.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedCompression\Release\sharedCo.6BD52B35.tlog\sharedCompression.lastbuildstate".
+    14>Done Building Project "R:\repo\src\engine\shared\library\sharedCompression\build\win32\sharedCompression.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedTerrain\build\win32\sharedTerrain.vcxproj" (15) on node 1 (default targets).
+    15>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     9>Lib:
+         All outputs are up-to-date.
+         clientGame.vcxproj -> R:\repo\src\engine\client\library\clientGame\build\win32\..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientGame\Release\clientGame.tlog\clientGame.lastbuildstate".
+     9>Done Building Project "R:\repo\src\engine\client\library\clientGame\build\win32\clientGame.vcxproj" (default targets).
+    15>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientObject\build\win32\clientObject.vcxproj" (16) on node 2 (default targets).
+    16>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    15>ClCompile:
+         All outputs are up-to-date.
+    16>ClCompile:
+         All outputs are up-to-date.
+    15>Lib:
+         All outputs are up-to-date.
+         sharedTerrain.vcxproj -> R:\repo\src\engine\shared\library\sharedTerrain\build\win32\..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedTerrain\Release\sharedTerrain.tlog\sharedTerrain.lastbuildstate".
+    15>Done Building Project "R:\repo\src\engine\shared\library\sharedTerrain\build\win32\sharedTerrain.vcxproj" (default targets).
+    16>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\crypto\build\win32\crypto.vcxproj" (17) on node 1 (default targets).
+    17>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\crypto\Release\crypto.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    16>Lib:
+         All outputs are up-to-date.
+    17>ClCompile:
+         All outputs are up-to-date.
+    16>Lib:
+         clientObject.vcxproj -> R:\repo\src\engine\client\library\clientObject\build\win32\..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientObject\Release\clientObject.tlog\clientObject.lastbuildstate".
+    16>Done Building Project "R:\repo\src\engine\client\library\clientObject\build\win32\clientObject.vcxproj" (default targets).
+    17>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedFoundationTypes\build\win32\sharedFoundationTypes.vcxproj" (18) on node 2 (default targets).
+    18>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFoundationTypes\Release\sharedFo.D6CC353F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFoundationTypes\Release\sharedFo.D6CC353F.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFoundationTypes\Release\sharedFo.D6CC353F.tlog\sharedFoundationTypes.lastbuildstate".
+    18>Done Building Project "R:\repo\src\engine\shared\library\sharedFoundationTypes\build\win32\sharedFoundationTypes.vcxproj" (default targets).
+    17>Lib:
+         crypto.vcxproj -> R:\repo\src\external\ours\library\crypto\build\win32\..\..\..\..\..\..\compile\win32\crypto\Release\crypto.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\crypto\Release\crypto.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\crypto\Release\crypto.tlog\crypto.lastbuildstate".
+    17>Done Building Project "R:\repo\src\external\ours\library\crypto\build\win32\crypto.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientUserInterface\build\win32\clientUserInterface.vcxproj" (19) on node 1 (default targets).
+    19>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUs.92605A4D.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientSkeletalAnimation\build\win32\clientSkeletalAnimation.vcxproj" (20) on node 2 (default targets).
+    20>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSk.66BCFD48.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    19>ClCompile:
+         All outputs are up-to-date.
+    20>Lib:
+         All outputs are up-to-date.
+         clientSkeletalAnimation.vcxproj -> R:\repo\src\engine\client\library\clientSkeletalAnimation\build\win32\..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSkeletalAnimation.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSk.66BCFD48.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientSkeletalAnimation\Release\clientSk.66BCFD48.tlog\clientSkeletalAnimation.lastbuildstate".
+    20>Done Building Project "R:\repo\src\engine\client\library\clientSkeletalAnimation\build\win32\clientSkeletalAnimation.vcxproj" (default targets).
+    19>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedInputMap\build\win32\sharedInputMap.vcxproj" (21) on node 2 (default targets).
+    21>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    19>Lib:
+         All outputs are up-to-date.
+         clientUserInterface.vcxproj -> R:\repo\src\engine\client\library\clientUserInterface\build\win32\..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUserInterface.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUs.92605A4D.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientUserInterface\Release\clientUs.92605A4D.tlog\clientUserInterface.lastbuildstate".
+    19>Done Building Project "R:\repo\src\engine\client\library\clientUserInterface\build\win32\clientUserInterface.vcxproj" (default targets).
+    21>Lib:
+         All outputs are up-to-date.
+         sharedInputMap.vcxproj -> R:\repo\src\engine\shared\library\sharedInputMap\build\win32\..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedInputMap\Release\sharedInputMap.tlog\sharedInputMap.lastbuildstate".
+    21>Done Building Project "R:\repo\src\engine\shared\library\sharedInputMap\build\win32\sharedInputMap.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\unicodeArchive\build\win32\unicodeArchive.vcxproj" (22) on node 1 (default targets).
+    22>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedFractal\build\win32\sharedFractal.vcxproj" (23) on node 2 (default targets).
+    23>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    22>ClCompile:
+         All outputs are up-to-date.
+    23>ClCompile:
+         All outputs are up-to-date.
+    22>Lib:
+         All outputs are up-to-date.
+         unicodeArchive.vcxproj -> R:\repo\src\external\ours\library\unicodeArchive\build\win32\..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\unicodeArchive\Release\unicodeArchive.tlog\unicodeArchive.lastbuildstate".
+    22>Done Building Project "R:\repo\src\external\ours\library\unicodeArchive\build\win32\unicodeArchive.vcxproj" (default targets).
+    23>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\3rd\library\libEverQuestTCG\build\win32\libEverQuestTCG.vcxproj" (24) on node 1 (default targets).
+    24>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    23>Lib:
+         All outputs are up-to-date.
+    24>ClCompile:
+         All outputs are up-to-date.
+    23>Lib:
+         sharedFractal.vcxproj -> R:\repo\src\engine\shared\library\sharedFractal\build\win32\..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedFractal\Release\sharedFractal.tlog\sharedFractal.lastbuildstate".
+    23>Done Building Project "R:\repo\src\engine\shared\library\sharedFractal\build\win32\sharedFractal.vcxproj" (default targets).
+    24>Lib:
+         All outputs are up-to-date.
+         libEverQuestTCG.vcxproj -> R:\repo\src\external\3rd\library\libEverQuestTCG\build\win32\..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\libEverQuestTCG\Release\libEverQuestTCG.tlog\libEverQuestTCG.lastbuildstate".
+    24>Done Building Project "R:\repo\src\external\3rd\library\libEverQuestTCG\build\win32\libEverQuestTCG.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientAudio\build\win32\clientAudio.vcxproj" (25) on node 2 (default targets).
+    25>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\3rd\library\udplibrary\udplibrary.vcxproj" (26) on node 1 (default targets).
+    26>InitializeBuildStatus:
+         Creating ".\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    25>ClCompile:
+         All outputs are up-to-date.
+    26>ClCompile:
+         All outputs are up-to-date.
+    25>ClCompile:
+         All outputs are up-to-date.
+    26>Lib:
+         All outputs are up-to-date.
+         udplibrary.vcxproj -> R:\repo\src\external\3rd\library\udplibrary\.\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.lib
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\compile\win32\udplibrary\Release\udplibrary.tlog\udplibrary.lastbuildstate".
+    26>Done Building Project "R:\repo\src\external\3rd\library\udplibrary\udplibrary.vcxproj" (default targets).
+    25>Lib:
+         All outputs are up-to-date.
+         clientAudio.vcxproj -> R:\repo\src\engine\client\library\clientAudio\build\win32\..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.lib
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedPathfinding\build\win32\sharedPathfinding.vcxproj" (27) on node 1 (default targets).
+    27>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPa.7D707A5A.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    25>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientAudio\Release\clientAudio.tlog\clientAudio.lastbuildstate".
+    25>Done Building Project "R:\repo\src\engine\client\library\clientAudio\build\win32\clientAudio.vcxproj" (default targets).
+    27>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedGame\build\win32\sharedGame.vcxproj" (28) on node 2 (default targets).
+    28>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    27>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedPathfinding.vcxproj -> R:\repo\src\engine\shared\library\sharedPathfinding\build\win32\..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPathfinding.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPa.7D707A5A.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedPathfinding\Release\sharedPa.7D707A5A.tlog\sharedPathfinding.lastbuildstate".
+    27>Done Building Project "R:\repo\src\engine\shared\library\sharedPathfinding\build\win32\sharedPathfinding.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedNetworkMessages\build\win32\sharedNetworkMessages.vcxproj" (29) on node 1 (default targets).
+    29>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNe.DECF2964.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    28>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedGame.vcxproj -> R:\repo\src\engine\shared\library\sharedGame\build\win32\..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedGame\Release\sharedGame.tlog\sharedGame.lastbuildstate".
+    28>Done Building Project "R:\repo\src\engine\shared\library\sharedGame\build\win32\sharedGame.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\archive\build\win32\archive.vcxproj" (30) on node 2 (default targets).
+    30>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\archive\Release\archive.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    29>ClCompile:
+         All outputs are up-to-date.
+    30>Lib:
+         archive.vcxproj -> R:\repo\src\external\ours\library\archive\build\win32\..\..\..\..\..\..\compile\win32\archive\Release\archive.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\archive\Release\archive.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\archive\Release\archive.tlog\archive.lastbuildstate".
+    30>Done Building Project "R:\repo\src\external\ours\library\archive\build\win32\archive.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\fileInterface\build\win32\fileInterface.vcxproj" (31) on node 2 (default targets).
+    31>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    29>ClCompile:
+         All outputs are up-to-date.
+    31>Lib:
+         All outputs are up-to-date.
+         fileInterface.vcxproj -> R:\repo\src\external\ours\library\fileInterface\build\win32\..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\fileInterface\Release\fileInterface.tlog\fileInterface.lastbuildstate".
+    31>Done Building Project "R:\repo\src\external\ours\library\fileInterface\build\win32\fileInterface.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedMath\build\win32\sharedMath.vcxproj" (32) on node 2 (default targets).
+    32>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    29>Lib:
+         All outputs are up-to-date.
+         sharedNetworkMessages.vcxproj -> R:\repo\src\engine\shared\library\sharedNetworkMessages\build\win32\..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNetworkMessages.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNe.DECF2964.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedNetworkMessages\Release\sharedNe.DECF2964.tlog\sharedNetworkMessages.lastbuildstate".
+    29>Done Building Project "R:\repo\src\engine\shared\library\sharedNetworkMessages\build\win32\sharedNetworkMessages.vcxproj" (default targets).
+    32>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\SHAREDSKILLSYSTEM\build\win32\sharedSkillSystem.vcxproj" (33) on node 1 (default targets).
+    33>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSk.83EA2B87.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    32>ClCompile:
+         All outputs are up-to-date.
+    33>ClCompile:
+         All outputs are up-to-date.
+    32>Lib:
+         All outputs are up-to-date.
+    33>ClCompile:
+         All outputs are up-to-date.
+    32>Lib:
+         sharedMath.vcxproj -> R:\repo\src\engine\shared\library\sharedMath\build\win32\..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMath\Release\sharedMath.tlog\sharedMath.lastbuildstate".
+    32>Done Building Project "R:\repo\src\engine\shared\library\sharedMath\build\win32\sharedMath.vcxproj" (default targets).
+    33>Lib:
+         All outputs are up-to-date.
+         sharedSkillSystem.vcxproj -> R:\repo\src\engine\shared\library\SHAREDSKILLSYSTEM\build\win32\..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSkillSystem.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSk.83EA2B87.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedSkillSystem\Release\sharedSk.83EA2B87.tlog\sharedSkillSystem.lastbuildstate".
+    33>Done Building Project "R:\repo\src\engine\shared\library\SHAREDSKILLSYSTEM\build\win32\sharedSkillSystem.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedIoWin\build\win32\sharedIoWin.vcxproj" (34) on node 2 (default targets).
+    34>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedXml\build\win32\sharedXml.vcxproj" (35) on node 1 (default targets).
+    35>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    34>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    35>ClCompile:
+         All outputs are up-to-date.
+    34>Lib:
+         All outputs are up-to-date.
+    35>Lib:
+         All outputs are up-to-date.
+    34>Lib:
+         sharedIoWin.vcxproj -> R:\repo\src\engine\shared\library\sharedIoWin\build\win32\..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedIoWin\Release\sharedIoWin.tlog\sharedIoWin.lastbuildstate".
+    34>Done Building Project "R:\repo\src\engine\shared\library\sharedIoWin\build\win32\sharedIoWin.vcxproj" (default targets).
+    35>Lib:
+         sharedXml.vcxproj -> R:\repo\src\engine\shared\library\sharedXml\build\win32\..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedXml\Release\sharedXml.tlog\sharedXml.lastbuildstate".
+    35>Done Building Project "R:\repo\src\engine\shared\library\sharedXml\build\win32\sharedXml.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientGraphics\build\win32\clientGraphics.vcxproj" (36) on node 1 (default targets).
+    36>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedSynchronization\build\win32\sharedSynchronization.vcxproj" (37) on node 2 (default targets).
+    37>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSy.2FE4E38D.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+    36>ClCompile:
+         All outputs are up-to-date.
+    37>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    36>ClCompile:
+         All outputs are up-to-date.
+    37>Lib:
+         sharedSynchronization.vcxproj -> R:\repo\src\engine\shared\library\sharedSynchronization\build\win32\..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSynchronization.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSy.2FE4E38D.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedSynchronization\Release\sharedSy.2FE4E38D.tlog\sharedSynchronization.lastbuildstate".
+    37>Done Building Project "R:\repo\src\engine\shared\library\sharedSynchronization\build\win32\sharedSynchronization.vcxproj" (default targets).
+    36>Lib:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientTextureRenderer\build\win32\clientTextureRenderer.vcxproj" (38) on node 2 (default targets).
+    38>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTe.F1FDC6AF.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    36>Lib:
+         clientGraphics.vcxproj -> R:\repo\src\engine\client\library\clientGraphics\build\win32\..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientGraphics\Release\clientGraphics.tlog\clientGraphics.lastbuildstate".
+    36>Done Building Project "R:\repo\src\engine\client\library\clientGraphics\build\win32\clientGraphics.vcxproj" (default targets).
+    38>ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\game\shared\library\swgSharedUtility\build\win32\swgSharedUtility.vcxproj" (39) on node 1 (default targets).
+    39>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    38>ClCompile:
+         All outputs are up-to-date.
+    39>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    38>Lib:
+         All outputs are up-to-date.
+         clientTextureRenderer.vcxproj -> R:\repo\src\engine\client\library\clientTextureRenderer\build\win32\..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTextureRenderer.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTe.F1FDC6AF.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientTextureRenderer\Release\clientTe.F1FDC6AF.tlog\clientTextureRenderer.lastbuildstate".
+    38>Done Building Project "R:\repo\src\engine\client\library\clientTextureRenderer\build\win32\clientTextureRenderer.vcxproj" (default targets).
+    39>Lib:
+         All outputs are up-to-date.
+         swgSharedUtility.vcxproj -> R:\repo\src\game\shared\library\swgSharedUtility\build\win32\..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\swgSharedUtility\Release\swgSharedUtility.tlog\swgSharedUtility.lastbuildstate".
+    39>Done Building Project "R:\repo\src\game\shared\library\swgSharedUtility\build\win32\swgSharedUtility.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientTerrain\build\win32\clientTerrain.vcxproj" (40) on node 2 (default targets).
+    40>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedMathArchive\build\win32\sharedMathArchive.vcxproj" (41) on node 1 (default targets).
+    41>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMathArchive\Release\sharedMa.0202ADB3.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMathArchive\Release\sharedMa.0202ADB3.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMathArchive\Release\sharedMa.0202ADB3.tlog\sharedMathArchive.lastbuildstate".
+    41>Done Building Project "R:\repo\src\engine\shared\library\sharedMathArchive\build\win32\sharedMathArchive.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\game\shared\library\swgSharedNetworkMessages\build\win32\swgSharedNetworkMessages.vcxproj" (42) on node 1 (default targets).
+    42>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgShare.FCC0F2B5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    40>ClCompile:
+         All outputs are up-to-date.
+    42>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    40>ClCompile:
+         All outputs are up-to-date.
+    42>Lib:
+         All outputs are up-to-date.
+    40>Lib:
+         All outputs are up-to-date.
+    42>Lib:
+         swgSharedNetworkMessages.vcxproj -> R:\repo\src\game\shared\library\swgSharedNetworkMessages\build\win32\..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgSharedNetworkMessages.lib
+    40>Lib:
+         clientTerrain.vcxproj -> R:\repo\src\engine\client\library\clientTerrain\build\win32\..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.lib
+    42>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgShare.FCC0F2B5.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\swgSharedNetworkMessages\Release\swgShare.FCC0F2B5.tlog\swgSharedNetworkMessages.lastbuildstate".
+    42>Done Building Project "R:\repo\src\game\shared\library\swgSharedNetworkMessages\build\win32\swgSharedNetworkMessages.vcxproj" (default targets).
+    40>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientTerrain\Release\clientTerrain.tlog\clientTerrain.lastbuildstate".
+    40>Done Building Project "R:\repo\src\engine\client\library\clientTerrain\build\win32\clientTerrain.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\localizationArchive\build\win32\localizationArchive.vcxproj" (43) on node 1 (default targets).
+    43>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\localizationArchive\Release\localiza.A8036EC1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedObject\build\win32\sharedObject.vcxproj" (44) on node 2 (default targets).
+    44>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    43>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         localizationArchive.vcxproj -> R:\repo\src\external\ours\library\localizationArchive\build\win32\..\..\..\..\..\..\compile\win32\localizationArchive\Release\localizationArchive.lib
+    44>ClCompile:
+         All outputs are up-to-date.
+    43>FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\localizationArchive\Release\localiza.A8036EC1.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\localizationArchive\Release\localiza.A8036EC1.tlog\localizationArchive.lastbuildstate".
+    43>Done Building Project "R:\repo\src\external\ours\library\localizationArchive\build\win32\localizationArchive.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\localization\build\win32\localization.vcxproj" (45) on node 1 (default targets).
+    45>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\localization\Release\localization.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    44>ClCompile:
+         All outputs are up-to-date.
+    45>ClCompile:
+         All outputs are up-to-date.
+    44>Lib:
+         All outputs are up-to-date.
+    45>ClCompile:
+         All outputs are up-to-date.
+    44>Lib:
+         sharedObject.vcxproj -> R:\repo\src\engine\shared\library\sharedObject\build\win32\..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedObject\Release\sharedObject.tlog\sharedObject.lastbuildstate".
+    44>Done Building Project "R:\repo\src\engine\shared\library\sharedObject\build\win32\sharedObject.vcxproj" (default targets).
+    45>Lib:
+         All outputs are up-to-date.
+         localization.vcxproj -> R:\repo\src\external\ours\library\localization\build\win32\..\..\..\..\..\..\compile\win32\localization\Release\localization.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\localization\Release\localization.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\localization\Release\localization.tlog\localization.lastbuildstate".
+    45>Done Building Project "R:\repo\src\external\ours\library\localization\build\win32\localization.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedThread\build\win32\sharedThread.vcxproj" (46) on node 2 (default targets).
+    46>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientBugReporting\build\win32\clientBugReporting.vcxproj" (47) on node 1 (default targets).
+    47>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBu.147D02D6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    46>ClCompile:
+         All outputs are up-to-date.
+    47>ClCompile:
+         All outputs are up-to-date.
+    46>ClCompile:
+         All outputs are up-to-date.
+    47>ClCompile:
+         All outputs are up-to-date.
+    46>Lib:
+         All outputs are up-to-date.
+    47>Lib:
+         All outputs are up-to-date.
+    46>Lib:
+         sharedThread.vcxproj -> R:\repo\src\engine\shared\library\sharedThread\build\win32\..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedThread\Release\sharedThread.tlog\sharedThread.lastbuildstate".
+    46>Done Building Project "R:\repo\src\engine\shared\library\sharedThread\build\win32\sharedThread.vcxproj" (default targets).
+    47>Lib:
+         clientBugReporting.vcxproj -> R:\repo\src\engine\client\library\clientBugReporting\build\win32\..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBugReporting.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBu.147D02D6.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientBugReporting\Release\clientBu.147D02D6.tlog\clientBugReporting.lastbuildstate".
+    47>Done Building Project "R:\repo\src\engine\client\library\clientBugReporting\build\win32\clientBugReporting.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedStatusWindow\build\win32\sharedStatusWindow.vcxproj" (48) on node 1 (default targets).
+    48>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedSt.AE9205DD.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedImage\build\win32\sharedImage.vcxproj" (49) on node 2 (default targets).
+    49>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    48>ClCompile:
+         All outputs are up-to-date.
+    49>ClCompile:
+         All outputs are up-to-date.
+    48>ClCompile:
+         All outputs are up-to-date.
+    49>ClCompile:
+         All outputs are up-to-date.
+    48>Lib:
+         All outputs are up-to-date.
+    49>Lib:
+         All outputs are up-to-date.
+    48>Lib:
+         sharedStatusWindow.vcxproj -> R:\repo\src\engine\shared\library\sharedStatusWindow\build\win32\..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedStatusWindow.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedSt.AE9205DD.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedStatusWindow\Release\sharedSt.AE9205DD.tlog\sharedStatusWindow.lastbuildstate".
+    48>Done Building Project "R:\repo\src\engine\shared\library\sharedStatusWindow\build\win32\sharedStatusWindow.vcxproj" (default targets).
+    49>Lib:
+         sharedImage.vcxproj -> R:\repo\src\engine\shared\library\sharedImage\build\win32\..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedImage\Release\sharedImage.tlog\sharedImage.lastbuildstate".
+    49>Done Building Project "R:\repo\src\engine\shared\library\sharedImage\build\win32\sharedImage.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientParticle\build\win32\clientParticle.vcxproj" (50) on node 1 (default targets).
+    50>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" (51) on node 2 (default targets).
+    51>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\Win32\dpvs\Release\dpvs.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    50>ClCompile:
+         All outputs are up-to-date.
+    51>ClCompile:
+         All outputs are up-to-date.
+    50>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+    51>ResourceCompile:
+         All outputs are up-to-date.
+    50>Lib:
+         clientParticle.vcxproj -> R:\repo\src\engine\client\library\clientParticle\build\win32\..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientParticle\Release\clientParticle.tlog\clientParticle.lastbuildstate".
+    50>Done Building Project "R:\repo\src\engine\client\library\clientParticle\build\win32\clientParticle.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedRandom\build\win32\sharedRandom.vcxproj" (52) on node 1 (default targets).
+    52>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    51>Link:
+         All outputs are up-to-date.
+    52>ClCompile:
+         All outputs are up-to-date.
+    51>Link:
+         dpvs.vcxproj -> R:\repo\src\external\3rd\library\dpvs\implementation\msvc8\.\..\..\..\..\..\..\compile\Win32\dpvs\Release\dpvs.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\Win32\dpvs\Release\dpvs.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\Win32\dpvs\Release\dpvs.tlog\dpvs.lastbuildstate".
+    51>Done Building Project "R:\repo\src\external\3rd\library\dpvs\implementation\msvc8\dpvs.vcxproj" (default targets).
+    52>ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         sharedRandom.vcxproj -> R:\repo\src\engine\shared\library\sharedRandom\build\win32\..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedRandom\Release\sharedRandom.tlog\sharedRandom.lastbuildstate".
+    52>Done Building Project "R:\repo\src\engine\shared\library\sharedRandom\build\win32\sharedRandom.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedRegex\build\win32\sharedRegex.vcxproj" (53) on node 2 (default targets).
+    53>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedSwitcher\build\win32\sharedSwitcher.vcxproj" (54) on node 1 (default targets).
+    54>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    53>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    54>ClCompile:
+         All outputs are up-to-date.
+    53>Lib:
+         All outputs are up-to-date.
+    54>ClCompile:
+         All outputs are up-to-date.
+    53>Lib:
+         sharedRegex.vcxproj -> R:\repo\src\engine\shared\library\sharedRegex\build\win32\..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedRegex\Release\sharedRegex.tlog\sharedRegex.lastbuildstate".
+    53>Done Building Project "R:\repo\src\engine\shared\library\sharedRegex\build\win32\sharedRegex.vcxproj" (default targets).
+    54>Lib:
+         All outputs are up-to-date.
+         sharedSwitcher.vcxproj -> R:\repo\src\engine\shared\library\sharedSwitcher\build\win32\..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedSwitcher\Release\sharedSwitcher.tlog\sharedSwitcher.lastbuildstate".
+    54>Done Building Project "R:\repo\src\engine\shared\library\sharedSwitcher\build\win32\sharedSwitcher.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedCommandParser\build\win32\sharedCommandParser.vcxproj" (55) on node 2 (default targets).
+    55>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCo.20D4D8EB.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientAnimation\build\win32\clientAnimation.vcxproj" (56) on node 1 (default targets).
+    56>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    55>ClCompile:
+         All outputs are up-to-date.
+    56>ClCompile:
+         All outputs are up-to-date.
+    55>ClCompile:
+         All outputs are up-to-date.
+    56>ClCompile:
+         All outputs are up-to-date.
+    55>Lib:
+         All outputs are up-to-date.
+         sharedCommandParser.vcxproj -> R:\repo\src\engine\shared\library\sharedCommandParser\build\win32\..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCommandParser.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCo.20D4D8EB.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedCommandParser\Release\sharedCo.20D4D8EB.tlog\sharedCommandParser.lastbuildstate".
+    55>Done Building Project "R:\repo\src\engine\shared\library\sharedCommandParser\build\win32\sharedCommandParser.vcxproj" (default targets).
+    56>Lib:
+         All outputs are up-to-date.
+         clientAnimation.vcxproj -> R:\repo\src\engine\client\library\clientAnimation\build\win32\..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientAnimation\Release\clientAnimation.tlog\clientAnimation.lastbuildstate".
+    56>Done Building Project "R:\repo\src\engine\client\library\clientAnimation\build\win32\clientAnimation.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\ours\library\unicode\build\win32\unicode.vcxproj" (57) on node 2 (default targets).
+    57>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\unicode\Release\unicode.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedLog\build\win32\sharedLog.vcxproj" (58) on node 1 (default targets).
+    58>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    57>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    58>ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    57>Lib:
+         All outputs are up-to-date.
+         unicode.vcxproj -> R:\repo\src\external\ours\library\unicode\build\win32\..\..\..\..\..\..\compile\win32\unicode\Release\unicode.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\unicode\Release\unicode.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\unicode\Release\unicode.tlog\unicode.lastbuildstate".
+    57>Done Building Project "R:\repo\src\external\ours\library\unicode\build\win32\unicode.vcxproj" (default targets).
+    58>Lib:
+         All outputs are up-to-date.
+         sharedLog.vcxproj -> R:\repo\src\engine\shared\library\sharedLog\build\win32\..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedLog\Release\sharedLog.tlog\sharedLog.lastbuildstate".
+    58>Done Building Project "R:\repo\src\engine\shared\library\sharedLog\build\win32\sharedLog.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\shared\library\sharedMessageDispatch\build\win32\sharedMessageDispatch.vcxproj" (59) on node 2 (default targets).
+    59>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMe.C87164F5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\engine\client\library\clientDirectInput\build\win32\clientDirectInput.vcxproj" (60) on node 1 (default targets).
+    60>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDi.F1B57BF8.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    59>ClCompile:
+         All outputs are up-to-date.
+    60>ClCompile:
+         All outputs are up-to-date.
+    59>ClCompile:
+         All outputs are up-to-date.
+    60>ClCompile:
+         All outputs are up-to-date.
+    59>Lib:
+         All outputs are up-to-date.
+         sharedMessageDispatch.vcxproj -> R:\repo\src\engine\shared\library\sharedMessageDispatch\build\win32\..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMessageDispatch.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMe.C87164F5.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedMessageDispatch\Release\sharedMe.C87164F5.tlog\sharedMessageDispatch.lastbuildstate".
+    59>Done Building Project "R:\repo\src\engine\shared\library\sharedMessageDispatch\build\win32\sharedMessageDispatch.vcxproj" (default targets).
+    60>Lib:
+         All outputs are up-to-date.
+         clientDirectInput.vcxproj -> R:\repo\src\engine\client\library\clientDirectInput\build\win32\..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDirectInput.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDi.F1B57BF8.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\clientDirectInput\Release\clientDi.F1B57BF8.tlog\clientDirectInput.lastbuildstate".
+    60>Done Building Project "R:\repo\src\engine\client\library\clientDirectInput\build\win32\clientDirectInput.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\external\3rd\library\blat194\build\win32\blat.vcxproj" (61) on node 2 (default targets).
+    61>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\blat\Release\blat.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         blat.vcxproj -> R:\repo\src\external\3rd\library\blat194\build\win32\.\..\..\..\..\..\..\compile\win32\blat\Release\blat.lib
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\blat\Release\blat.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\blat\Release\blat.tlog\blat.lastbuildstate".
+    61>Done Building Project "R:\repo\src\external\3rd\library\blat194\build\win32\blat.vcxproj" (default targets).
+     3>Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClientUserInterface.lib" /NOLOGO ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\ConfigSwgClientUserInterface.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SetupSwgClientUserInterface.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiActions.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAttachmentList.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarCreationHelper.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiBuffUtils.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiContainerProvider.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiContainerProviderDefault.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiContainerProviderDraft.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiContainerProviderFilter.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiContainerProviderPoi.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiContainerProviderTrade.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLockableMediator.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiManager.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMediatorFactorySetup.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiServerData.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTcgManager.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiWebBrowserManager.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAllTargets.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAllTargetsGround.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAllTargetsSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAllTargetsSpace_DamagerData.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAppearanceTab.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionBid.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionBuy.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionDetails.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionFilter.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionList.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionListBase.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionListPane.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionListView.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionPaneTableModel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionPaneTypes.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAuctionSell.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarCreation.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarCustomizationBase.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarCustomizationBase_CustomizationGroup.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarCustomize2.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarLocation2.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarProfessionTemplateSelect.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarSelection.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarSetupProf.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarSimple.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiAvatarSummary.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiBiographyEdit.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiBuffBuilderBuffee.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiBuffBuilderBuffer.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiBuffDisplay.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiButtonBar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCharacterSheet.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatRooms.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatRoomsBan.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatRoomsCreate.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatRoomsInvite.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatRoomsWho.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatWindow.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatWindow_ChannelId.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatWindow_Tab.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatWindow_TabChanged.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiChatWindow_TabEditor.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiClusterSelection.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCollections.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiColorTest.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCombatState.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCombatState_Action.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandBrowser.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity_Character.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity_Friend.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity_History.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity_Ignore.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity_Personal.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommunity_Search.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiConsole.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftAssembly.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftAssemblyDialogOption.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftCustomize.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftDraft.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftExperiment.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftExperiment_Attrib.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftOption.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCraftSummary.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCredits.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCustomize.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCybernetics.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiDataStorage.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiDebugInfoPage.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiDeleteAvatarConfirmation.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiDpsMeter.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiDroidCommand.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiExamine.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiExpertise.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiExpMonitor.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiExpMonitorBox.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiFaction.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiG15Lcd.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGalacticCivilWar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGameMenu.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGroundRadar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGroundRadar_BlipPane.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGroundRadar_WaypointPane.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGroup.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiGroupLootLottery.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHarassmentMessage.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHarassmentReport.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHighlight.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHud.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudAction.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudActionGround.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudActionSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudFactory.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudGround.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudWindowManager.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudWindowManagerGround.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHudWindowManagerSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHueObjectTest.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiHyperspaceMap.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiImageDesignerDesigner.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiImageDesignerRecipient.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiIMEIndicator.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiIMEIndicatorSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiIMEInput.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiIncap.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiIncubator.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventory.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventoryContainer.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventoryContainerDetails.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventoryContainerDetailsTableModel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventoryContainerIcons.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventoryEquipment.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiInventoryInfo.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiKillMeter.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLfg.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLoadingGround.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLoadingSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLocationDisplay.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLocations.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLoginScreen.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiLootBox.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMahjong.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMahjongDataTable.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMahjongGame.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMfd.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMfdStatus.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMfdStatusBar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMissionBrowser.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMissionBrowser_TableModel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiMissionDetails.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiNetStatus.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiNewMacro.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiNews.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiNotifications.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOpt.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptAfk.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptAlarm.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptBase.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptChat.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptChatColors.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptCombat.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptControls.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptGraphics.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptKeymap.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptMisc.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptSound.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptTerrain.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptUi.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiOptVoice.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiPermissionList.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiPersistentMessageBrowser.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiPersistentMessageComposer.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiPlanetMap.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiPlayerQuestConversation.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiProfessionTemplateSelect.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiQuestAcceptance.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiQuestBuilder.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiQuestHelper.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiQuestHelper_Task.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiQuestJournal.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiRating.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceExtraction.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceExtraction_Hopper.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceExtraction_Hopper_TableModel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceExtraction_Quantity.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceExtraction_SetResource.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceExtraction_SetResource_TableModel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiResourceSplitter.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiReticle.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiRoadmap.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiRoadmap_Profession.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSceneSelection.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiServerDisconnected.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiService.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiService_HowToSearch.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiService_KnowledgeBase.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiService_KnownIssues.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiService_TicketList.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiService_TicketList_AddComment.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiShipChoose.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiShipComponentDetail.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiShipComponentManagement.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiShipReticle.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiShipView.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceAssignPlayerFormation.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceButtonBar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceConversation.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceFlyOutPage.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceGroup.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceGroupLaunch.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceMiningSale.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceMissileCount.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadarPlanar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadarPlanar_Blip.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadarSpherical.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadarSpherical2.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadarSpherical2_BlipPane.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceRadarSpherical_BlipPane.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSpaceZoneMap.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSplash.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiStatusFactory.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiStatusGround.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiStatusSpace.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiStructurePlacement.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSurvey.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiSystemMessage.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTargets.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTcgControl.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTcgWindow.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTicketPurchase.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiToolbar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTrade.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiTrade_Panel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiVendor.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiVendorSetPrice.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiVoiceActiveSpeakers.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiVoiceActiveSpeakers_TableModel.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiVoiceFlyBar.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiVoiceFlyBarMessageQueue.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiWaypointMonitor.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiWaypointMonitorBox.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiWeaponGroupAssignment.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiWebBrowserWidget.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiWebBrowserWindow.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserAudio.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserChatRoom.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserCombat.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserCustomization.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserDefault.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserLocale.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserMount.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserNebula.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserNet.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserParticle.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserRemote.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserScene.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserShip.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserShipWeaponGroup.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserUI.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserVideo.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\SwgCuiCommandParserVoice.obj
+         ..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\FirstSwgClientUserInterface.obj
+     3>SwgCuiWebBrowserWidget.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+     3>SwgCuiMfd.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+     3>SwgCuiContainerProviderFilter.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+     3>SwgCuiActions.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+         swgClientUserInterface.vcxproj -> R:\repo\src\game\client\library\swgClientUserInterface\build\win32\..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClientUserInterface.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClien.EAA23F07.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\swgClientUserInterface\Release\swgClien.EAA23F07.tlog\swgClientUserInterface.lastbuildstate".
+     3>Done Building Project "R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (62) on node 1 (default targets).
+    62>Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (62) is building "R:\repo\src\engine\client\application\DllExport\build\win32\DllExport.vcxproj" (67) on node 2 (default targets).
+    67>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\build\win32\..\..\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj.metaproj" (66) on node 1 (default targets).
+    66>Project "R:\repo\src\build\win32\..\..\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj.metaproj" (66) is building "R:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" (68) on node 1 (default targets).
+    68>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    67>ClCompile:
+         All outputs are up-to-date.
+    68>ClCompile:
+         All outputs are up-to-date.
+    67>Link:
+         All outputs are up-to-date.
+         DllExport.vcxproj -> R:\repo\src\engine\client\application\DllExport\build\win32\.\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.dll
+    68>ClCompile:
+         All outputs are up-to-date.
+    67>FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\DllExport\Release\DllExport.tlog\DllExport.lastbuildstate".
+    67>Done Building Project "R:\repo\src\engine\client\application\DllExport\build\win32\DllExport.vcxproj" (default targets).
+    68>Lib:
+         All outputs are up-to-date.
+         sharedNetwork.vcxproj -> R:\repo\src\engine\shared\library\sharedNetwork\build\win32\..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\sharedNetwork\Release\sharedNetwork.tlog\sharedNetwork.lastbuildstate".
+    68>Done Building Project "R:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" (default targets).
+    66>Done Building Project "R:\repo\src\build\win32\..\..\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj.metaproj" (default targets).
+    62>Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (62) is building "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj" (70) on node 2 (default targets).
+    70>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (63) on node 1 (default targets).
+    63>Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (63) is building "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj" (71) on node 1 (default targets).
+    71>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+    70>ClCompile:
+         All outputs are up-to-date.
+    71>ClCompile:
+         All outputs are up-to-date.
+    70>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.dll) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\Direct3d9_ffp\Release\gl06_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+    70>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_ffp) does not match the Linker's OutputFile property value (gl06_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+       ClCompile:
+         All outputs are up-to-date.
+    71>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.dll) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\Direct3d9\Release\gl05_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+    71>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9) does not match the Linker's OutputFile property value (gl05_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+    70>Link:
+         All outputs are up-to-date.
+    71>Link:
+         All outputs are up-to-date.
+    70>Link:
+         Direct3d9_ffp.vcxproj -> R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.dll
+    71>Link:
+         Direct3d9.vcxproj -> R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.dll
+    70>FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.tlog\Direct3d9_ffp.lastbuildstate".
+    70>Done Building Project "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (64) on node 1 (default targets).
+    64>Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (64) is building "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj" (72) on node 1 (default targets).
+    72>InitializeBuildStatus:
+         Creating ".\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+    72>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.dll) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\Direct3d9_vsps\Release\gl07_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+    72>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_vsps) does not match the Linker's OutputFile property value (gl07_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+       Link:
+         All outputs are up-to-date.
+         Direct3d9_vsps.vcxproj -> R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.dll
+       FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.tlog\Direct3d9_vsps.lastbuildstate".
+    72>Done Building Project "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj" (default targets).
+    62>Done Building Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (default targets).
+    71>FinalizeBuildStatus:
+         Deleting file ".\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.tlog\unsuccessfulbuild".
+         Touching ".\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.tlog\Direct3d9.lastbuildstate".
+    71>Done Building Project "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj" (default targets).
+    63>Done Building Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (default targets).
+    64>Done Building Project "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\build\win32\..\..\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj.metaproj" (65) on node 1 (default targets).
+    65>Project "R:\repo\src\build\win32\..\..\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj.metaproj" (65) is building "R:\repo\src\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj" (69) on node 2 (default targets).
+    69>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         lcdui.vcxproj -> R:\repo\src\external\3rd\library\lcdui_src\build\win32\..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.lib
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\lcdui\Release\lcdui.tlog\lcdui.lastbuildstate".
+    69>Done Building Project "R:\repo\src\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj" (default targets).
+    65>Done Building Project "R:\repo\src\build\win32\..\..\external\3rd\library\lcdui_src\build\win32\lcdui.vcxproj.metaproj" (default targets).
+     2>Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (2) is building "R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (73) on node 2 (default targets).
+    73>InitializeBuildStatus:
+         Creating "..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+    73>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\game\client\application\SwgClient\build\win32\..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exe) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\SwgClient\Release\SwgClient_r.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(SwgClient) does not match the Linker's OutputFile property value (SwgClient_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient_r.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedDebug\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\libMozilla\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\pcre\4.1\win32\lib /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\archive\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\blat\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientAnimation\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientAudio\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientBugReporting\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientDirectInput\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientGame\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientGraphics\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientObject\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientParticle\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientSkeletalAnimation\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientTerrain\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientTextureRenderer\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\clientUserInterface\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\crypto\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\Direct3d9\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\Direct3d9_ffp\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\Direct3d9_vsps\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\DllExport\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\fileInterface\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\lcdui\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\libEverQuestTCG\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\libMozilla\include\private\lib\release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\localization\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\localizationArchive\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedCollision\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedCommandParser\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedCompression\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRelease\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedFile\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedFoundation\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedFractal\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedGame\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedImage\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedInputMap\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedIoWin\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedLog\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedMath\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedMemoryManager\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedMessageDispatch\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedNetwork\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedNetworkMessages\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedObject\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedPathfinding\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRandom\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRegex\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedRemoteDebugServer\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedSkillSystem\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedStatusWindow\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedSwitcher\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedSynchronization\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedTerrain\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedThread\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedUtility\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\sharedXml\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\SwgClient\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgClientUserInterface\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgServerNetworkMessages\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgSharedNetworkMessages\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\swgSharedUtility\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\udplibrary\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\ui\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\unicode\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\unicodeArchive\Release /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\zlib\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\alienbrain110\Lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\alienbrain122\Lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\alienbrain123\Lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\atiDxtc /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\ati_compress /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\atlmfc\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\atlmfc\lib\INTEL /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\bink\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\DejaInsight /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\directx9\lib /LIBPATH:..\..\..\..\..\..\..\src\compile\win32\dpvs\Release /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\lcdui\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\libjpeg\lib /LIBPATH:"..\..\..\..\..\..\..\src\external\3rd\library\libxml2-2.6.7.win32\lib" /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya4\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya5\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya7\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\maya8\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\miles\lib\win /LIBPATH:"..\..\..\..\..\..\..\src\external\3rd\library\miles-7.2e\lib\win" /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\ms_unicode /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\nvtristrip /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\oracle_win32\ora80\oci\lib\bc /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\oracle_win32\ora80\oci\lib\msvc /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\perforce\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\plugins\accessible /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\plugins\designer /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\3.3.4\plugins\imageformats /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\accessible /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\codecs /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\designer /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\imageformats /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\qt\4.1.0\plugins\sqldrivers /LIBPATH:"..\..\..\..\..\..\..\src\external\3rd\library\soePlatform\libs\Win32-Release" /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\stationapi /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\stlport453\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\tinyxml\build\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\tinyxml\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\AudioCapture\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\CaptureCommon\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\ImageCapture\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\PICTools\Lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\Smart\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\SoeUtil\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\VideoCapture\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\videocapture\ZlibUtil\lib\win32 /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\vivox\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\vivoxSharedWrapper\lib /LIBPATH:..\..\..\..\..\..\..\src\external\3rd\library\zlib\lib\win32 archive.lib blat.lib clientAnimation.lib clientAudio.lib clientBugReporting.lib clientDirectInput.lib clientGame.lib clientGraphics.lib clientObject.lib clientParticle.lib clientSkeletalAnimation.lib clientTerrain.lib clientTextureRenderer.lib clientUserInterface.lib crypto.lib gl05_r.lib gl06_r.lib gl07_r.lib fileInterface.lib lcdui.lib libEverQuestTCG.lib localization.lib localizationArchive.lib sharedCollision.lib sharedCommandParser.lib sharedCompression.lib sharedFile.lib sharedFoundation.lib sharedFractal.lib sharedGame.lib sharedImage.lib sharedInputMap.lib sharedIoWin.lib sharedLog.lib sharedMath.lib sharedMemoryManager.lib sharedMessageDispatch.lib sharedNetwork.lib sharedNetworkMessages.lib sharedObject.lib sharedPathfinding.lib sharedRandom.lib sharedRegex.lib sharedSkillSystem.lib sharedStatusWindow.lib sharedSwitcher.lib sharedSynchronization.lib sharedTerrain.lib sharedThread.lib sharedUtility.lib sharedXml.lib swgClientUserInterface.lib swgSharedNetworkMessages.lib swgSharedUtility.lib udplibrary.lib ui.lib unicode.lib unicodeArchive.lib sharedDebug.lib zlib.lib ATI_Compress.lib atldload.lib atlsd.lib eafxisd.lib atl.lib EAFXISD.lib MFCM80D.lib MFCM80UD.lib MFCS80D.lib MFCS80UD.lib NafxcWD.lib NAFXISD.lib UafxcWD.lib mfc80d.lib mfc80ud.lib mfcdload.lib mfcs80d.lib mfcs80ud.lib nafxcwd.lib nafxisd.lib uafxcwd.lib binkw32.lib DejaDLL.Win32.lib DejaLib.Win32.lib DejaLib.X360.lib d3d9.lib d3dx.lib d3dx9.lib d3dx9dt.lib ddraw.lib dinput8.lib dsetup.lib dsound.lib DxErr9.lib dxguid.lib dpvs.lib lgLcd.lib libjpeg.lib "libxml2-win32-release.lib" Mss32.lib unicows.lib NvTriStrip.lib Base.lib Base_vchat.lib ChatAPI.lib ChatMono.lib CommodityAPI.lib dbgutil.lib monapi.lib Network.lib rdp.lib TcpLibrary.lib VChatAPI.lib 989crypt.lib stlport_vc71_stldebug_static.lib tinyxmld.lib tinyxmld_STL.lib AudioCapture.lib CaptureCommon_release.lib ImageCapture_release.lib picn20md.lib Smart_debug.lib SoeUtil_debug.lib VideoCapture_release.lib ZlibUtil_release.lib "libsndfile-1.lib" vivoxplatform.lib vivoxsdk.lib vivoxSharedWrapper_Release.lib vivoxSharedWrapper_release.lib sharedRemoteDebugServer.lib VideoCapture_release.lib ImageCapture_release.lib Smart_release.lib SoeUtil_release.lib ZlibUtil_release.lib picn20m.lib ws2_32.lib winmm.lib libpcre.a "libxml2-win32-release.lib" mss32.lib mswsock.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libc /NODEFAULTLIB:MSVCRT /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient_r.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.lib" /MACHINE:X86 /SAFESEH:NO ..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.res
+         ..\..\..\..\..\..\compile\win32\SwgClient\Release\ClientMain.obj
+         ..\..\..\..\..\..\compile\win32\SwgClient\Release\FirstSwgClient.obj
+         ..\..\..\..\..\..\compile\win32\SwgClient\Release\WinMain.obj
+            Creating library ..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.lib and object ..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exp
+    73>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>sharedXml.lib(XmlTreeDocument.obj) : warning LNK4049: locally defined symbol _xmlFree imported [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(dll_main.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(dll_main.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(fstream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(fstream.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(ios.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ios.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(streambuf.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(stdio_streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(stdio_streambuf.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(iostream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(iostream.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(codecvt.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(codecvt.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(collate.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(collate.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(ctype.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ctype.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(monetary.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(monetary.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(num_get.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(num_put.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(num_get_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get_float.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(num_put_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put_float.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(numpunct.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(numpunct.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(time_facets.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(time_facets.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(messages.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(messages.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(locale_impl.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(locale_impl.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>stlport_vc71_stldebug_static.lib(c_locale.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(c_locale.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+    73>vivoxSharedWrapper_Release.lib(vivox.obj) : warning LNK4099: PDB 'vc80_ib_1.pdb' was not found with 'vivoxSharedWrapper_Release.lib(vivox.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\vc80_ib_1.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         SwgClient.vcxproj -> R:\repo\src\game\client\application\SwgClient\build\win32\..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exe
+       FinalizeBuildStatus:
+         Deleting file "..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.tlog\unsuccessfulbuild".
+         Touching "..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.tlog\SwgClient.lastbuildstate".
+    73>Done Building Project "R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (default targets).
+     2>Done Building Project "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default targets).
+     1>Done Building Project "R:\repo\src\build\win32\swg.sln" (SwgClient target(s)).
+
+Build succeeded.
+
+       "R:\repo\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj" (default target) (3) ->
+       (Lib target) -> 
+         SwgCuiWebBrowserWidget.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+         SwgCuiMfd.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+         SwgCuiContainerProviderFilter.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+         SwgCuiActions.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [R:\repo\src\game\client\library\swgClientUserInterface\build\win32\swgClientUserInterface.vcxproj]
+
+
+       "R:\repo\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj.metaproj" (default target) (62) ->
+       "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj" (default target) (70) ->
+       (DoLinkOutputFilesMatch target) -> 
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_ffp\Release\Direct3d9_ffp.dll) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\Direct3d9_ffp\Release\gl06_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_ffp) does not match the Linker's OutputFile property value (gl06_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_ffp.vcxproj]
+
+
+       "R:\repo\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj.metaproj" (default target) (63) ->
+       "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj" (default target) (71) ->
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9\Release\Direct3d9.dll) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\Direct3d9\Release\gl05_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9) does not match the Linker's OutputFile property value (gl05_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9.vcxproj]
+
+
+       "R:\repo\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "R:\repo\src\build\win32\..\..\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj.metaproj" (default target) (64) ->
+       "R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj" (default target) (72) ->
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\engine\client\application\Direct3d9\build\win32\.\..\..\..\..\..\..\compile\win32\Direct3d9_vsps\Release\Direct3d9_vsps.dll) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\Direct3d9_vsps\Release\gl07_r.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(Direct3d9_vsps) does not match the Linker's OutputFile property value (gl07_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\engine\client\application\Direct3d9\build\win32\Direct3d9_vsps.vcxproj]
+
+
+       "R:\repo\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (default target) (73) ->
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(R:\repo\src\game\client\application\SwgClient\build\win32\..\..\..\..\..\..\compile\win32\SwgClient\Release\SwgClient.exe) does not match the Linker's OutputFile property value (R:\repo\src\compile\win32\SwgClient\Release\SwgClient_r.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(SwgClient) does not match the Linker's OutputFile property value (SwgClient_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile). [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+
+
+       "R:\repo\src\build\win32\swg.sln" (SwgClient target) (1) ->
+       "R:\repo\src\build\win32\..\..\game\client\application\SwgClient\build\win32\SwgClient.vcxproj.metaproj" (default target) (2) ->
+       "R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (default target) (73) ->
+       (Link target) -> 
+         LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         sharedXml.lib(XmlTreeDocument.obj) : warning LNK4049: locally defined symbol _xmlFree imported [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(dll_main.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(dll_main.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(fstream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(fstream.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(ios.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ios.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(streambuf.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(stdio_streambuf.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(stdio_streambuf.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(iostream.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(iostream.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(codecvt.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(codecvt.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(collate.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(collate.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(ctype.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(ctype.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(monetary.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(monetary.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_get.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_put.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_get_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_get_float.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(num_put_float.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(num_put_float.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(numpunct.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(numpunct.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(time_facets.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(time_facets.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(messages.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(messages.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(locale_impl.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(locale_impl.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         stlport_vc71_stldebug_static.lib(c_locale.obj) : warning LNK4099: PDB 'stlport_vc71_stldebug_static.pdb' was not found with 'stlport_vc71_stldebug_static.lib(c_locale.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\stlport_vc71_stldebug_static.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+         vivoxSharedWrapper_Release.lib(vivox.obj) : warning LNK4099: PDB 'vc80_ib_1.pdb' was not found with 'vivoxSharedWrapper_Release.lib(vivox.obj)' or at 'R:\repo\src\compile\win32\SwgClient\Release\vc80_ib_1.pdb'; linking object as if no debug info [R:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj]
+
+    34 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:21.32

@@ -1,0 +1,780 @@
+[
+  {
+    "configuration": "Win32-Debug",
+    "unresolved_count": 0,
+    "unresolved": [],
+    "product_link_commands": [],
+    "raw_summary": [
+      "8 Warning(s)",
+      "0 Error(s)"
+    ],
+    "Scene_TU_named": false
+  },
+  {
+    "configuration": "Win32-Release",
+    "unresolved_count": 0,
+    "unresolved": [],
+    "product_link_commands": [
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\link.exe /ERRORREPORT:QUEUE /OUT:\"..\\..\\..\\..\\..\\..\\compile\\win32\\SwgClient\\Release\\SwgClient_r.exe\" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedDebug\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\libMozilla\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\pcre\\4.1\\win32\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\archive\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\blat\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientAnimation\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientAudio\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientBugReporting\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientDirectInput\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientGame\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientGraphics\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientObject\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientParticle\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientSkeletalAnimation\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientTerrain\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientTextureRenderer\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\clientUserInterface\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\crypto\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\Direct3d9\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\Direct3d9_ffp\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\Direct3d9_vsps\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\DllExport\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\fileInterface\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\lcdui\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\libEverQuestTCG\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libMozilla\\include\\private\\lib\\release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\localization\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\localizationArchive\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedCollision\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedCommandParser\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedCompression\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedRelease\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedFile\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedFoundation\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedFractal\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedGame\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedImage\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedInputMap\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedIoWin\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedLog\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedMath\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedMemoryManager\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedMessageDispatch\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedNetwork\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedNetworkMessages\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedObject\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedPathfinding\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedRandom\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedRegex\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedRemoteDebugServer\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedSkillSystem\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedStatusWindow\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedSwitcher\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedSynchronization\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedTerrain\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedThread\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedUtility\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\sharedXml\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\SwgClient\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\swgClientUserInterface\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\swgServerNetworkMessages\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\swgSharedNetworkMessages\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\swgSharedUtility\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\udplibrary\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\ui\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\unicode\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\unicodeArchive\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\zlib\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain110\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain122\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain123\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atiDxtc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\ati_compress /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atlmfc\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atlmfc\\lib\\INTEL /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\bink\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\DejaInsight /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\directx9\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\win32\\dpvs\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\lcdui\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libjpeg\\lib /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libxml2-2.6.7.win32\\lib\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya4\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya5\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya7\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya8\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\miles\\lib\\win /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\miles-7.2e\\lib\\win\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\ms_unicode /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\nvtristrip /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\oracle_win32\\ora80\\oci\\lib\\bc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\oracle_win32\\ora80\\oci\\lib\\msvc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\perforce\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\accessible /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\designer /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\imageformats /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\accessible /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\codecs /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\designer /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\imageformats /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\sqldrivers /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\soePlatform\\libs\\Win32-Release\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\stationapi /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\stlport453\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\tinyxml\\build\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\tinyxml\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\AudioCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\CaptureCommon\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\ImageCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\PICTools\\Lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\Smart\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\SoeUtil\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\VideoCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\ZlibUtil\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\vivox\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\vivoxSharedWrapper\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\zlib\\lib\\win32 archive.lib blat.lib clientAnimation.lib clientAudio.lib clientBugReporting.lib clientDirectInput.lib clientGame.lib clientGraphics.lib clientObject.lib clientParticle.lib clientSkeletalAnimation.lib clientTerrain.lib clientTextureRenderer.lib clientUserInterface.lib crypto.lib gl05_r.lib gl06_r.lib gl07_r.lib fileInterface.lib lcdui.lib libEverQuestTCG.lib localization.lib localizationArchive.lib sharedCollision.lib sharedCommandParser.lib sharedCompression.lib sharedFile.lib sharedFoundation.lib sharedFractal.lib sharedGame.lib sharedImage.lib sharedInputMap.lib sharedIoWin.lib sharedLog.lib sharedMath.lib sharedMemoryManager.lib sharedMessageDispatch.lib sharedNetwork.lib sharedNetworkMessages.lib sharedObject.lib sharedPathfinding.lib sharedRandom.lib sharedRegex.lib sharedSkillSystem.lib sharedStatusWindow.lib sharedSwitcher.lib sharedSynchronization.lib sharedTerrain.lib sharedThread.lib sharedUtility.lib sharedXml.lib swgClientUserInterface.lib swgSharedNetworkMessages.lib swgSharedUtility.lib udplibrary.lib ui.lib unicode.lib unicodeArchive.lib sharedDebug.lib zlib.lib ATI_Compress.lib atldload.lib atlsd.lib eafxisd.lib atl.lib EAFXISD.lib MFCM80D.lib MFCM80UD.lib MFCS80D.lib MFCS80UD.lib NafxcWD.lib NAFXISD.lib UafxcWD.lib mfc80d.lib mfc80ud.lib mfcdload.lib mfcs80d.lib mfcs80ud.lib nafxcwd.lib nafxisd.lib uafxcwd.lib binkw32.lib DejaDLL.Win32.lib DejaLib.Win32.lib DejaLib.X360.lib d3d9.lib d3dx.lib d3dx9.lib d3dx9dt.lib ddraw.lib dinput8.lib dsetup.lib dsound.lib DxErr9.lib dxguid.lib dpvs.lib lgLcd.lib libjpeg.lib \"libxml2-win32-release.lib\" Mss32.lib unicows.lib NvTriStrip.lib Base.lib Base_vchat.lib ChatAPI.lib ChatMono.lib CommodityAPI.lib dbgutil.lib monapi.lib Network.lib rdp.lib TcpLibrary.lib VChatAPI.lib 989crypt.lib stlport_vc71_stldebug_static.lib tinyxmld.lib tinyxmld_STL.lib AudioCapture.lib CaptureCommon_release.lib ImageCapture_release.lib picn20md.lib Smart_debug.lib SoeUtil_debug.lib VideoCapture_release.lib ZlibUtil_release.lib \"libsndfile-1.lib\" vivoxplatform.lib vivoxsdk.lib vivoxSharedWrapper_Release.lib vivoxSharedWrapper_release.lib sharedRemoteDebugServer.lib VideoCapture_release.lib ImageCapture_release.lib Smart_release.lib SoeUtil_release.lib ZlibUtil_release.lib picn20m.lib ws2_32.lib winmm.lib libpcre.a \"libxml2-win32-release.lib\" mss32.lib mswsock.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libc /NODEFAULTLIB:MSVCRT /MANIFEST /MANIFESTUAC:\"level='asInvoker' uiAccess='false'\" /manifest:embed /manifestinput:\"C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\Include\\Manifest\\dpiaware.manifest\" /DEBUG /PDB:\"..\\..\\..\\..\\..\\..\\compile\\win32\\SwgClient\\Release\\SwgClient_r.pdb\" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:\"..\\..\\..\\..\\..\\..\\compile\\win32\\SwgClient\\Release\\SwgClient.lib\" /MACHINE:X86 /SAFESEH:NO ..\\..\\..\\..\\..\\..\\compile\\win32\\SwgClient\\Release\\SwgClient.res"
+    ],
+    "raw_summary": [
+      "34 Warning(s)",
+      "0 Error(s)"
+    ],
+    "Scene_TU_named": true
+  },
+  {
+    "configuration": "x64-Debug",
+    "unresolved_count": 61,
+    "unresolved": [
+      {
+        "symbol": "__imp_AIL_WAV_info",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_active_sample_count",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_allocate_sample_handle",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_close_stream",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_digital_CPU_percent",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_digital_latency",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_end_sample",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_file_error",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_file_type",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_get_preference",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_get_timer_highest_delay",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_last_error",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_lock",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_open_digital_driver",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_open_stream",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_register_EOS_callback",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_register_stream_callback",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_release_sample_handle",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_room_type",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_playback_rate",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_reverb_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_status",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_volume_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_serve",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_3D_rolloff_factor",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_file_callbacks",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_listener_3D_orientation",
+        "objects": [
+          "clientAudio.lib(SoundObject3d.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_listener_3D_position",
+        "objects": [
+          "clientAudio.lib(SoundObject3d.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_listener_3D_velocity_vector",
+        "objects": [
+          "clientAudio.lib(SoundObject3d.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_named_sample_file",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_preference",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_redist_directory",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_room_type",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_3D_distances",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_3D_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_3D_velocity_vector",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_file",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_loop_block",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_loop_count",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_obstruction",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_occlusion",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_playback_rate",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_reverb_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_volume_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_stream_loop_block",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_stream_loop_count",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_stream_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_shutdown",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_speaker_configuration",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_start_sample",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_start_stream",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_startup",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stop_sample",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stream_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stream_sample_handle",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stream_status",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_unlock",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      }
+    ],
+    "product_link_commands": [
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\x86_amd64\\link.exe /ERRORREPORT:QUEUE /OUT:\"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Debug\\SwgClient_d.exe\" /INCREMENTAL /NOLOGO /LIBPATH:\"C:/lcd-props-eval-v1/LCDSDK\\Lib\\x64\" /LIBPATH:C:/SDKs/DXSDK\\Lib\\x64 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedDebug\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\libMozilla\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\pcre\\4.1\\win32\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\archive\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\blat\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientAnimation\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientAudio\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientBugReporting\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientDirectInput\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientGame\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientGraphics\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientObject\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientParticle\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientSkeletalAnimation\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientTerrain\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientTextureRenderer\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientUserInterface\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\crypto\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\Direct3d9\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\Direct3d9_ffp\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\Direct3d9_vsps\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\DllExport\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\fileInterface\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\lcdui\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\libEverQuestTCG\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libMozilla\\include\\private\\lib\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\localization\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\localizationArchive\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedCollision\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedCommandParser\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedCompression\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedDebug\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedFile\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedFoundation\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedFractal\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedGame\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedImage\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedInputMap\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedIoWin\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedLog\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedMath\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedMemoryManager\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedMessageDispatch\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedNetwork\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedNetworkMessages\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedObject\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedPathfinding\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRandom\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRegex\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRemoteDebugServer\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedSkillSystem\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedStatusWindow\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedSwitcher\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedSynchronization\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedTerrain\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedThread\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedUtility\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedXml\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\SwgClient\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgClientUserInterface\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgServerNetworkMessages\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgSharedNetworkMessages\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgSharedUtility\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\udplibrary\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\ui\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\unicode\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\unicodeArchive\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\zlib\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain110\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain122\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain123\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atiDxtc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\ati_compress /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atlmfc\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atlmfc\\lib\\INTEL /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\bink\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\DejaInsight /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\directx9\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\dpvs\\Debug /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\lcdui\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libjpeg\\lib /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libxml2-2.6.7.win32\\lib\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya4\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya5\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya7\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya8\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\miles\\lib\\win /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\miles-7.2e\\lib\\win\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\ms_unicode /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\nvtristrip /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\oracle_win32\\ora80\\oci\\lib\\bc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\oracle_win32\\ora80\\oci\\lib\\msvc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\perforce\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\accessible /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\designer /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\imageformats /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\accessible /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\codecs /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\designer /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\imageformats /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\sqldrivers /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\soePlatform\\libs\\Win32-Debug\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\stationapi /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\stlport453\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\tinyxml\\build\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\tinyxml\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\AudioCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\CaptureCommon\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\ImageCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\PICTools\\Lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\Smart\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\SoeUtil\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\VideoCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\ZlibUtil\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\vivox\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\vivoxSharedWrapper\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\zlib\\lib\\win32 \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\parsers-v120\\x64\\Debug\\\\pcre.lib\" \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\parsers-v120\\x64\\Debug\\\\libxml2.lib\" \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\v120\\x64\\Debug\\\\stlport.lib\" \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\v120\\x64\\Debug\\\\vivoxSharedWrapper.lib\" archive.lib blat.lib clientAnimation.lib clientAudio.lib clientBugReporting.lib clientDirectInput.lib clientGame.lib clientGraphics.lib clientObject.lib clientParticle.lib clientSkeletalAnimation.lib clientTerrain.lib clientTextureRenderer.lib clientUserInterface.lib crypto.lib gl05_d.lib gl06_d.lib gl07_d.lib fileInterface.lib lcdui.lib libEverQuestTCG.lib localization.lib localizationArchive.lib sharedCollision.lib sharedCommandParser.lib sharedCompression.lib sharedDebug.lib sharedFile.lib sharedFoundation.lib sharedFractal.lib sharedGame.lib sharedImage.lib sharedInputMap.lib sharedIoWin.lib sharedLog.lib sharedMath.lib sharedMemoryManager.lib sharedMessageDispatch.lib sharedNetwork.lib sharedNetworkMessages.lib sharedObject.lib sharedPathfinding.lib sharedRandom.lib sharedRegex.lib sharedRemoteDebugServer.lib sharedSkillSystem.lib sharedStatusWindow.lib sharedSwitcher.lib sharedSynchronization.lib sharedTerrain.lib sharedThread.lib sharedUtility.lib sharedXml.lib swgClientUserInterface.lib swgSharedNetworkMessages.lib swgSharedUtility.lib udplibrary.lib ui.lib unicode.lib unicodeArchive.lib zlib.lib NxN_alienbrain_XDK_110_D.lib NxN_alienbrain_XDK_122.lib NxN_alienbrain_XDK_123_D.lib AtiDXTC.lib ATI_Compress.lib atldload.lib atlsd.lib eafxisd.lib atl.lib EAFXISD.lib MFCM80D.lib MFCM80UD.lib MFCS80D.lib MFCS80UD.lib NafxcWD.lib NAFXISD.lib UafxcWD.lib mfc80d.lib mfc80ud.lib mfcdload.lib mfcs80d.lib mfcs80ud.lib nafxcwd.lib nafxisd.lib uafxcwd.lib binkw32.lib DejaDLL.Win32.lib DejaLib.Win32.lib DejaLib.X360.lib d3d9.lib d3dx.lib d3dx9.lib d3dx9dt.lib ddraw.lib dinput8.lib dsetup.lib dsound.lib DxErr9.lib dxguid.lib dpvs.lib lgLcd.lib libjpeg.lib Foundation.lib Image.lib libMDtAPI.lib libMocap.lib OpenMaya.lib OpenMayaAnim.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaUI.lib libMDtApi.lib libmocap.lib cg.lib cgGL.lib Cloth.lib IMF.lib libfbxfilesdk.lib libHalf.lib libIex.lib libIlmImf.lib libImath.lib Mss32.lib unicows.lib NvTriStrip.lib libclient.lib librpc.lib libsupp.lib designercore.lib editor.lib qassistantclient.lib qaxcontainer.lib \"qt-mt334.lib\" qtmain.lib qui.lib qtwidgets100.lib cppeditor100.lib dlgplugin.lib gladeplugin.lib kdevdlgplugin.lib qaxwidget100.lib rcplugin.lib wizards.lib qjpeg100.lib qmng100.lib QAxContainerd.lib Qt3Supportd4.lib QtAssistantClientd.lib QtCored4.lib QtDesignerComponentsd4.lib QtDesignerd4.lib QtGuid4.lib qtmaind.lib QtNetworkd4.lib QtOpenGLd4.lib QtSqld4.lib QtSvgd4.lib QtTest_debug4.lib QtUiTools.lib QtXmld4.lib qtaccessiblecompatwidgetsd1.lib qtaccessiblewidgetsd1.lib qcncodecsd.lib qjpcodecsd.lib qkrcodecsd.lib qtwcodecsd.lib arthurplugin.lib containerextension.lib customwidgetplugin.lib qaxwidget.lib qt3supportwidgets.lib taskmenuextension.lib worldtimeclockplugin.lib qjpegd1.lib qmngd1.lib qsqlited.lib qsqlmysqld.lib qsqlodbcd.lib qsqlpsqld.lib Base.lib Base_vchat.lib ChatAPI.lib ChatMono.lib CommodityAPI.lib dbgutil.lib monapi.lib Network.lib rdp.lib TcpLibrary.lib VChatAPI.lib 989crypt.lib tinyxmld.lib tinyxmld_STL.lib AudioCapture.lib CaptureCommon_debug.lib ImageCapture_debug.lib picn20md.lib Smart_debug.lib SoeUtil_debug.lib VideoCapture_debug.lib ZlibUtil_debug.lib \"libsndfile-1.lib\" vivoxplatform.lib vivoxsdk.lib VideoCapture_release.lib ImageCapture_release.lib Smart_release.lib SoeUtil_release.lib ZlibUtil_release.lib picn20m.lib ws2_32.lib winmm.lib mss32.lib mswsock.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:stlport_vc71_static.lib /NODEFAULTLIB:LIBCMT /NODEFAULTLIB:MSVCRTD /NODEFAULTLIB:libc /NODEFAULTLIB:MSVCRT /MANIFEST /MANIFESTUAC:\"level='asInvoker' uiAccess='false'\" /manifest:embed /manifestinput:\"C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\Include\\Manifest\\dpiaware.manifest\" /DEBUG /PDB:\"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Debug\\SwgClient_d.pdb\" /SUBSYSTEM:WINDOWS /STACK:\"2097152\" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:\"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Debug\\SwgClient.lib\" /MACHINE:X64 /SAFESEH:NO /VERBOSE \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Debug\\obj\\SwgClient.res\""
+    ],
+    "raw_summary": [
+      "78 Warning(s)",
+      "62 Error(s)"
+    ],
+    "Scene_TU_named": true
+  },
+  {
+    "configuration": "x64-Release",
+    "unresolved_count": 60,
+    "unresolved": [
+      {
+        "symbol": "__imp_AIL_WAV_info",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_allocate_sample_handle",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_close_stream",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_digital_CPU_percent",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_digital_latency",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_end_sample",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_file_error",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_file_type",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_get_preference",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_get_timer_highest_delay",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_last_error",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_lock",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_open_digital_driver",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_open_stream",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_register_EOS_callback",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_register_stream_callback",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_release_sample_handle",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_room_type",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_playback_rate",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_reverb_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_status",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_sample_volume_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_serve",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_3D_rolloff_factor",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_file_callbacks",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_listener_3D_orientation",
+        "objects": [
+          "clientAudio.lib(SoundObject3d.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_listener_3D_position",
+        "objects": [
+          "clientAudio.lib(SoundObject3d.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_listener_3D_velocity_vector",
+        "objects": [
+          "clientAudio.lib(SoundObject3d.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_named_sample_file",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_preference",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_redist_directory",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_room_type",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_3D_distances",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_3D_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_3D_velocity_vector",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_file",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_loop_block",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_loop_count",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_obstruction",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_occlusion",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_playback_rate",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_reverb_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_sample_volume_levels",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_stream_loop_block",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_stream_loop_count",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_set_stream_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_shutdown",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_speaker_configuration",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_start_sample",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_start_stream",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_startup",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stop_sample",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stream_ms_position",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stream_sample_handle",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_stream_status",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      },
+      {
+        "symbol": "__imp_AIL_unlock",
+        "objects": [
+          "clientAudio.lib(Audio.obj)"
+        ]
+      }
+    ],
+    "product_link_commands": [
+      "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\x86_amd64\\link.exe /ERRORREPORT:QUEUE /OUT:\"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Release\\SwgClient_r.exe\" /INCREMENTAL:NO /NOLOGO /LIBPATH:\"C:/lcd-props-eval-v1/LCDSDK\\Lib\\x64\" /LIBPATH:C:/SDKs/DXSDK\\Lib\\x64 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedDebug\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\libMozilla\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\pcre\\4.1\\win32\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\archive\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\blat\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientAnimation\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientAudio\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientBugReporting\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientDirectInput\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientGame\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientGraphics\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientObject\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientParticle\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientSkeletalAnimation\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientTerrain\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientTextureRenderer\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\clientUserInterface\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\crypto\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\Direct3d9\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\Direct3d9_ffp\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\Direct3d9_vsps\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\DllExport\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\fileInterface\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\lcdui\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\libEverQuestTCG\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libMozilla\\include\\private\\lib\\release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\localization\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\localizationArchive\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedCollision\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedCommandParser\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedCompression\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRelease\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedFile\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedFoundation\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedFractal\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedGame\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedImage\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedInputMap\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedIoWin\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedLog\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedMath\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedMemoryManager\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedMessageDispatch\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedNetwork\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedNetworkMessages\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedObject\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedPathfinding\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRandom\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRegex\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedRemoteDebugServer\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedSkillSystem\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedStatusWindow\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedSwitcher\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedSynchronization\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedTerrain\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedThread\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedUtility\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\sharedXml\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\SwgClient\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgClientUserInterface\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgServerNetworkMessages\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgSharedNetworkMessages\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\swgSharedUtility\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\udplibrary\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\ui\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\unicode\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\unicodeArchive\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\zlib\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain110\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain122\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\alienbrain123\\Lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atiDxtc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\ati_compress /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atlmfc\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\atlmfc\\lib\\INTEL /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\bink\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\DejaInsight /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\directx9\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\compile\\x64\\dpvs\\Release /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\lcdui\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libjpeg\\lib /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\libxml2-2.6.7.win32\\lib\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya4\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya5\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya7\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\maya8\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\miles\\lib\\win /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\miles-7.2e\\lib\\win\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\ms_unicode /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\nvtristrip /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\oracle_win32\\ora80\\oci\\lib\\bc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\oracle_win32\\ora80\\oci\\lib\\msvc /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\perforce\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\accessible /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\designer /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\3.3.4\\plugins\\imageformats /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\accessible /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\codecs /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\designer /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\imageformats /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\qt\\4.1.0\\plugins\\sqldrivers /LIBPATH:\"..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\soePlatform\\libs\\Win32-Release\" /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\stationapi /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\stlport453\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\tinyxml\\build\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\tinyxml\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\AudioCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\CaptureCommon\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\ImageCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\PICTools\\Lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\Smart\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\SoeUtil\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\VideoCapture\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\videocapture\\ZlibUtil\\lib\\win32 /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\vivox\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\vivoxSharedWrapper\\lib /LIBPATH:..\\..\\..\\..\\..\\..\\..\\src\\external\\3rd\\library\\zlib\\lib\\win32 \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\parsers-v120\\x64\\Release\\\\pcre.lib\" \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\parsers-v120\\x64\\Release\\\\libxml2.lib\" \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\v120\\x64\\Release\\\\stlport.lib\" \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\v120\\x64\\Release\\\\vivoxSharedWrapper.lib\" archive.lib blat.lib clientAnimation.lib clientAudio.lib clientBugReporting.lib clientDirectInput.lib clientGame.lib clientGraphics.lib clientObject.lib clientParticle.lib clientSkeletalAnimation.lib clientTerrain.lib clientTextureRenderer.lib clientUserInterface.lib crypto.lib gl05_r.lib gl06_r.lib gl07_r.lib fileInterface.lib lcdui.lib libEverQuestTCG.lib localization.lib localizationArchive.lib sharedCollision.lib sharedCommandParser.lib sharedCompression.lib sharedFile.lib sharedFoundation.lib sharedFractal.lib sharedGame.lib sharedImage.lib sharedInputMap.lib sharedIoWin.lib sharedLog.lib sharedMath.lib sharedMemoryManager.lib sharedMessageDispatch.lib sharedNetwork.lib sharedNetworkMessages.lib sharedObject.lib sharedPathfinding.lib sharedRandom.lib sharedRegex.lib sharedSkillSystem.lib sharedStatusWindow.lib sharedSwitcher.lib sharedSynchronization.lib sharedTerrain.lib sharedThread.lib sharedUtility.lib sharedXml.lib swgClientUserInterface.lib swgSharedNetworkMessages.lib swgSharedUtility.lib udplibrary.lib ui.lib unicode.lib unicodeArchive.lib sharedDebug.lib zlib.lib ATI_Compress.lib atldload.lib atlsd.lib eafxisd.lib atl.lib EAFXISD.lib MFCM80D.lib MFCM80UD.lib MFCS80D.lib MFCS80UD.lib NafxcWD.lib NAFXISD.lib UafxcWD.lib mfc80d.lib mfc80ud.lib mfcdload.lib mfcs80d.lib mfcs80ud.lib nafxcwd.lib nafxisd.lib uafxcwd.lib binkw32.lib DejaDLL.Win32.lib DejaLib.Win32.lib DejaLib.X360.lib d3d9.lib d3dx.lib d3dx9.lib d3dx9dt.lib ddraw.lib dinput8.lib dsetup.lib dsound.lib DxErr9.lib dxguid.lib dpvs.lib lgLcd.lib libjpeg.lib Mss32.lib unicows.lib NvTriStrip.lib Base.lib Base_vchat.lib ChatAPI.lib ChatMono.lib CommodityAPI.lib dbgutil.lib monapi.lib Network.lib rdp.lib TcpLibrary.lib VChatAPI.lib 989crypt.lib tinyxmld.lib tinyxmld_STL.lib AudioCapture.lib CaptureCommon_release.lib ImageCapture_release.lib picn20md.lib Smart_debug.lib SoeUtil_debug.lib VideoCapture_release.lib ZlibUtil_release.lib \"libsndfile-1.lib\" vivoxplatform.lib vivoxsdk.lib sharedRemoteDebugServer.lib VideoCapture_release.lib ImageCapture_release.lib Smart_release.lib SoeUtil_release.lib ZlibUtil_release.lib picn20m.lib ws2_32.lib winmm.lib mss32.lib mswsock.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:stlport_vc71_static.lib /NODEFAULTLIB:libc /NODEFAULTLIB:MSVCRT /MANIFEST /MANIFESTUAC:\"level='asInvoker' uiAccess='false'\" /manifest:embed /manifestinput:\"C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\Include\\Manifest\\dpiaware.manifest\" /DEBUG /PDB:\"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Release\\SwgClient_r.pdb\" /SUBSYSTEM:WINDOWS /STACK:\"2097152\" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:\"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Release\\SwgClient.lib\" /MACHINE:X64 /SAFESEH:NO \"R:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\x64\\SwgClient\\Release\\obj\\SwgClient.res\""
+    ],
+    "raw_summary": [
+      "78 Warning(s)",
+      "61 Error(s)"
+    ],
+    "Scene_TU_named": true
+  }
+]

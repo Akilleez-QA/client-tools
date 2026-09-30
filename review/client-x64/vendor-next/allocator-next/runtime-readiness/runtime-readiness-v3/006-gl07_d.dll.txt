@@ -1,0 +1,445 @@
+
+Dump of file C:\integration-current-v2\workspace\repo\src\compile\x64\Direct3d9_vsps\Debug\gl07_d.dll
+
+PE signature found
+
+File Type: DLL
+
+FILE HEADER VALUES
+            8664 machine (x64)
+               8 number of sections
+        6ABCD680 time date stamp Wed Sep 30 09:29:36 2026
+               0 file pointer to symbol table
+               0 number of symbols
+              F0 size of optional header
+            2022 characteristics
+                   Executable
+                   Application can handle large (>2GB) addresses
+                   DLL
+
+OPTIONAL HEADER VALUES
+             20B magic # (PE32+)
+           12.00 linker version
+          111800 size of code
+           71800 size of initialized data
+               0 size of uninitialized data
+           7D540 entry point (0000000062A7D540) _DllMainCRTStartup
+            1000 base of code
+        62A00000 image base (0000000062A00000 to 0000000062B86FFF)
+            1000 section alignment
+             200 file alignment
+            6.00 operating system version
+            0.00 image version
+            6.00 subsystem version
+               0 Win32 version
+          187000 size of image
+             400 size of headers
+               0 checksum
+               2 subsystem (Windows GUI)
+             160 DLL characteristics
+                   High Entropy Virtual Addresses
+                   Dynamic base
+                   NX compatible
+          100000 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+          16ACC0 [     151] RVA [size] of Export Directory
+          180600 [      78] RVA [size] of Import Directory
+          184000 [     43C] RVA [size] of Resource Directory
+          176000 [    8424] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+          185000 [     DBC] RVA [size] of Base Relocation Directory
+          113E50 [      38] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+               0 [       0] RVA [size] of Thread Storage Directory
+          1542D0 [      70] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+          180000 [     600] RVA [size] of Import Address Table Directory
+          182000 [      40] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+   .text name
+  1117B6 virtual size
+    1000 virtual address (0000000062A01000 to 0000000062B127B5)
+  111800 size of raw data
+     400 file pointer to raw data (00000400 to 00111BFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #2
+  .rdata name
+   57E11 virtual size
+  113000 virtual address (0000000062B13000 to 0000000062B6AE10)
+   58000 size of raw data
+  111C00 file pointer to raw data (00111C00 to 00169BFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type       Size      RVA  Pointer
+    -------- ------ -------- -------- --------
+    6ABCD680 cv           50 0015F1C8   15DDC8    Format: RSDS, {BE441FB5-926E-4666-9ADD-3DCA28837826}, 2, R:\repo\src\compile\x64\Direct3d9_vsps\Debug\gl07_d.pdb
+    6ABCD680 feat         14 0015F218   15DE18    Counts: Pre-VC++ 11.00=0, C/C++=271, /GS=271, /sdl=0, reserved=0
+
+SECTION HEADER #3
+   .data name
+    AA41 virtual size
+  16B000 virtual address (0000000062B6B000 to 0000000062B75A40)
+    4800 size of raw data
+  169C00 file pointer to raw data (00169C00 to 0016E3FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #4
+  .pdata name
+    927C virtual size
+  176000 virtual address (0000000062B76000 to 0000000062B7F27B)
+    9400 size of raw data
+  16E400 file pointer to raw data (0016E400 to 001777FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #5
+  .idata name
+    171E virtual size
+  180000 virtual address (0000000062B80000 to 0000000062B8171D)
+    1800 size of raw data
+  177800 file pointer to raw data (00177800 to 00178FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Image has the following dependencies:
+
+    d3d9.dll
+    d3dx9_43.dll
+    DDRAW.dll
+    KERNEL32.dll
+    USER32.dll
+
+  Section contains the following imports:
+
+    d3d9.dll
+              62B804F0 Import Address Table
+              62B80B68 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                           0 D3DPERF_BeginEvent
+                           9 Direct3DCreate9
+                           1 D3DPERF_EndEvent
+                           4 D3DPERF_SetMarker
+
+    d3dx9_43.dll
+              62B80568 Import Address Table
+              62B80BE0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          48 D3DXCreateMeshFVF
+                          C6 D3DXMatrixMultiply
+                         117 D3DXSaveTextureToFileA
+                          B7 D3DXLoadSurfaceFromSurface
+                           0 D3DXAssembleShader
+                           D D3DXCompileShader
+                         114 D3DXSaveSurfaceToFileA
+
+    DDRAW.dll
+              62B80000 Import Address Table
+              62B80678 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                           7 DirectDrawCreate
+
+    KERNEL32.dll
+              62B80060 Import Address Table
+              62B806D8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         452 ReadConsoleW
+                         454 ReadFile
+                          C2 CreateFileW
+                         4FC SetEnvironmentVariableA
+                         5B3 VirtualQuery
+                         4F9 SetEndOfFile
+                         338 HeapAlloc
+                         33E HeapQueryInformation
+                         33F HeapReAlloc
+                         33C HeapFree
+                         530 SetStdHandle
+                         50C SetFilePointerEx
+                         5F1 WriteFile
+                         26A GetModuleHandleA
+                         561 Sleep
+                         364 IsBadWritePtr
+                         3FC OutputDebugStringA
+                          FC DebugBreak
+                         399 LCMapStringW
+                          93 CompareStringW
+                         2FE GetTimeFormatW
+                         21A GetDateFormatW
+                         14C EnumSystemLocalesW
+                         305 GetUserDefaultLCID
+                         377 IsValidLocale
+                         25A GetLocaleInfoW
+                         5F0 WriteConsoleW
+                          E7 CreateThread
+                         125 EncodePointer
+                          FF DecodePointer
+                         4B5 RtlLookupFunctionEntry
+                         4BB RtlUnwindEx
+                         4B7 RtlPcToFileHeader
+                         1CE GetCommandLineA
+                         214 GetCurrentThreadId
+                         256 GetLastError
+                         157 ExitProcess
+                         26C GetModuleHandleExW
+                         2A4 GetProcAddress
+                          1B AreFileApisANSI
+                         3D4 MultiByteToWideChar
+                         5DD WideCharToMultiByte
+                         370 IsProcessorFeaturePresent
+                         129 EnterCriticalSection
+                         3A5 LeaveCriticalSection
+                         36A IsDebuggerPresent
+                         375 IsValidCodePage
+                         1AA GetACP
+                         28D GetOEMCP
+                         1B9 GetCPInfo
+                         519 SetLastError
+                         213 GetCurrentThread
+                         269 GetModuleFileNameW
+                          7F CloseHandle
+                         341 HeapSize
+                         344 HeapValidate
+                         2D7 GetSystemInfo
+                         3A9 LoadLibraryExA
+                         1E2 GetConsoleCP
+                         1F4 GetConsoleMode
+                         444 RaiseException
+                         3AA LoadLibraryExW
+                         2C7 GetStdHandle
+                         2A9 GetProcessHeap
+                         245 GetFileType
+                         106 DeleteCriticalSection
+                         2C5 GetStartupInfoW
+                         268 GetModuleFileNameA
+                         430 QueryPerformanceCounter
+                         210 GetCurrentProcessId
+                         2DD GetSystemTimeAsFileTime
+                         22E GetEnvironmentStringsW
+                         1A3 FreeEnvironmentStringsW
+                         4AE RtlCaptureContext
+                         4BC RtlVirtualUnwind
+                         592 UnhandledExceptionFilter
+                         552 SetUnhandledExceptionFilter
+                         351 InitializeCriticalSectionAndSpinCount
+                          B6 CreateEventW
+                         20F GetCurrentProcess
+                         570 TerminateProcess
+                         582 TlsAlloc
+                         584 TlsGetValue
+                         585 TlsSetValue
+                         583 TlsFree
+                         2F9 GetTickCount
+                         26D GetModuleHandleW
+                          E1 CreateSemaphoreW
+                         15E FatalAppExitA
+                         4D2 SetConsoleCtrlHandler
+                         1A4 FreeLibrary
+                         198 FlushFileBuffers
+                         2CC GetStringTypeW
+                         3FD OutputDebugStringW
+                         5BC WaitForSingleObjectEx
+
+    USER32.dll
+              62B80448 Import Address Table
+              62B80AC0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         176 GetMonitorInfoA
+                         312 SetWindowLongA
+                          49 ClientToScreen
+                         24A MessageBoxA
+                           2 AdjustWindowRect
+                         1CF GetWindowRect
+                         289 RedrawWindow
+                         145 GetForegroundWindow
+                         317 SetWindowPos
+
+SECTION HEADER #6
+  .didat name
+    1832 virtual size
+  182000 virtual address (0000000062B82000 to 0000000062B83831)
+    1A00 size of raw data
+  179000 file pointer to raw data (00179000 to 0017A9FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+  Image has the following delay load dependencies:
+
+    DllExport.dll
+
+  Section contains the following delay load imports:
+
+    DllExport.dll
+              00000001 Characteristics
+      0000000062B730C8 Address of HMODULE
+      0000000062B82348 Import Address Table
+      0000000062B82040 Import Name Table
+      0000000062B834B0 Bound Import Name Table
+      0000000000000000 Unload Import Name Table
+                     0 time date stamp
+
+                                    0000000062A75CB8     0 ?allocate@MemoryManager@@SAPEAX_K0_N1@Z
+                                    0000000062A75D43     0 ?free@MemoryManager@@SAXPEAX_N@Z
+                                    0000000062A75D55     0 ?Fatal@@YAXPEBDZZ
+                                    0000000062A75D67     0 ?getKeyInt@ConfigFile@@SAHPEBD0H_N@Z
+                                    0000000062A75D79     0 ?getKeyBool@ConfigFile@@SA_NPEBD0_N1@Z
+                                    0000000062A75D8B     0 ?addStaticText@CrashReportInformation@@SAXPEBDZZ
+                                    0000000062A75D9D     0 ?DebugFatal@@YAXPEBDZZ
+                                    0000000062A75DAF     0 ?Warning@@YAXPEBDZZ
+                                    0000000062A75DC1     0 ?setFlags@Report@@SAXH@Z
+                                    0000000062A75DD3     0 ?printf@Report@@SAXPEBDZZ
+                                    0000000062A75DE5     0 ??0StaticIndexBuffer@@QEAA@H@Z
+                                    0000000062A75DF7     0 ?lock@StaticIndexBuffer@@QEAAXXZ
+                                    0000000062A75E09     0 ?unlock@StaticIndexBuffer@@QEBAXXZ
+                                    0000000062A75E1B     0 ?begin@StaticIndexBuffer@@QEAAPEAGXZ
+                                    0000000062A75E2D     0 ?setLastError@Graphics@@SAXPEBD0@Z
+                                    0000000062A75E3F     0 ?registerFlag@DebugFlags@@SAXAEA_NPEBD1@Z
+                                    0000000062A75E51     0 ?registerFlag@DebugKey@@SAXAEA_NPEBD@Z
+                                    0000000062A75E63     0 ?isPressed@DebugKey@@SA_NH@Z
+                                    0000000062A75E75     0 ??0PerformanceTimer@@QEAA@XZ
+                                    0000000062A75E87     0 ??1PerformanceTimer@@QEAA@XZ
+                                    0000000062A75E99     0 ?start@PerformanceTimer@@QEAAXXZ
+                                    0000000062A75EAB     0 ?stop@PerformanceTimer@@QEAAXXZ
+                                    0000000062A75EBD     0 ?getElapsedTime@PerformanceTimer@@QEBAMXZ
+                                    0000000062A75ECF     0 ?getVerboseHardwareLogging@ConfigSharedFoundation@@SA_NXZ
+                                    0000000062A75EE1     0 ??1DynamicIndexBufferGraphicsData@@UEAA@XZ
+                                    0000000062A75EF3     0 ??0MemoryBlockManager@@QEAA@PEBD_NHHHH@Z
+                                    0000000062A75F05     0 ??1MemoryBlockManager@@QEAA@XZ
+                                    0000000062A75F17     0 ?getElementSize@MemoryBlockManager@@QEBAHXZ
+                                    0000000062A75F29     0 ?allocate@MemoryBlockManager@@QEAAPEAX_N@Z
+                                    0000000062A75F3B     0 ?free@MemoryBlockManager@@QEAAXPEAX@Z
+                                    0000000062A75F4D     0 ??1DynamicVertexBufferGraphicsData@@UEAA@XZ
+                                    0000000062A75F5F     0 ?getTransform_o2w@Object@@QEBAAEBVTransform@@XZ
+                                    0000000062A75F71     0 ?enter@Profiler@@CAXPEBD@Z
+                                    0000000062A75F83     0 ?leave@Profiler@@CAXPEBD@Z
+                                    0000000062A75F95     0 ?frameTime@Clock@@SAMXZ
+                                    0000000062A75FA7     0 ?registerFlag@DebugFlags@@SAXAEA_NPEBD1P6AXXZH@Z
+                                    0000000062A75FB9     0 ?unregisterFlag@DebugFlags@@SAXAEA_N@Z
+                                    0000000062A75FCB     0 ??1ShaderImplementationPassPixelShaderProgramGraphicsData@@UEAA@XZ
+                                    0000000062A75FDD     0 ?getFileName@ShaderImplementationPassPixelShaderProgram@@QEBAPEBDXZ
+                                    0000000062A75FEF     0 ?getVersionMajor@ShaderImplementationPassPixelShaderProgram@@QEBAHXZ
+                                    0000000062A76001     0 ?getVersionMinor@ShaderImplementationPassPixelShaderProgram@@QEBAHXZ
+                                    0000000062A76013     0 ??1ShaderImplementationGraphicsData@@UEAA@XZ
+                                    0000000062A76025     0 ??1StaticIndexBufferGraphicsData@@UEAA@XZ
+                                    0000000062A76037     0 ?getName@Shader@@QEBAPEBDXZ
+                                    0000000062A76049     0 ??1StaticShaderGraphicsData@@UEAA@XZ
+                                    0000000062A7605B     0 ?containsPrecalculatedVertexLighting@StaticShader@@QEBA_NXZ
+                                    0000000062A7606D     0 ?getMaterial@StaticShader@@QEBA_NKAEAVMaterial@@@Z
+                                    0000000062A7607F     0 ?getTextureData@StaticShader@@QEBA_NKAEAUTextureData@StaticShaderTemplate@@@Z
+                                    0000000062A76091     0 ?getTextureCoordinateSet@StaticShader@@QEBA_NKAEAE@Z
+                                    0000000062A760A3     0 ?getTextureFactor@StaticShader@@QEBA_NKAEAK@Z
+                                    0000000062A760B5     0 ?getTextureScroll@StaticShader@@QEBA_NKAEAUTextureScroll@StaticShaderTemplate@@@Z
+                                    0000000062A760C7     0 ?getAlphaTestReferenceValue@StaticShader@@QEBA_NKAEAE@Z
+                                    0000000062A760D9     0 ?getStencilReferenceValue@StaticShader@@QEBA_NKAEAK@Z
+                                    0000000062A760EB     0 ??0Material@@QEAA@XZ
+                                    0000000062A760FD     0 ??1Material@@QEAA@XZ
+                                    0000000062A7610F     0 ?isEnabled@DataLint@@SA_NXZ
+                                    0000000062A76121     0 ??1StaticVertexBufferGraphicsData@@UEAA@XZ
+                                    0000000062A76133     0 ??1TextureGraphicsData@@UEAA@XZ
+                                    0000000062A76145     0 ?fetch@Texture@@QEBAXXZ
+                                    0000000062A76157     0 ?release@Texture@@QEBAXXZ
+                                    0000000062A76169     0 ?isFataling@ExitChain@@SA_NXZ
+                                    0000000062A7617B     0 ?isMainThread@Os@@SA_NXZ
+                                    0000000062A7618D     0 ?getInfo@TextureFormatInfo@@SAAEBU1@W4TextureFormat@@@Z
+                                    0000000062A7619F     0 ?setSupported@TextureFormatInfo@@SAXW4TextureFormat@@_N@Z
+                                    0000000062A761B1     0 ??1VertexBufferVectorGraphicsData@@UEAA@XZ
+                                    0000000062A761C3     0 ??MCrcString@@QEBA_NAEBV0@@Z
+                                    0000000062A761D5     0 ??0PersistentCrcString@@QEAA@AEBVCrcString@@@Z
+                                    0000000062A761E7     0 ??1PersistentCrcString@@UEAA@XZ
+                                    0000000062A761F9     0 ??1ShaderImplementationPassVertexShaderGraphicsData@@UEAA@XZ
+                                    0000000062A7620B     0 ?open@TreeFile@@SAPEAVAbstractFile@@PEBDW4PriorityType@2@_N@Z
+                                    0000000062A7621D     0 ??0TemporaryCrcString@@QEAA@PEBD_N@Z
+                                    0000000062A7622F     0 ??1TemporaryCrcString@@UEAA@XZ
+
+SECTION HEADER #7
+   .rsrc name
+     43C virtual size
+  184000 virtual address (0000000062B84000 to 0000000062B8443B)
+     600 size of raw data
+  17AA00 file pointer to raw data (0017AA00 to 0017AFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #8
+  .reloc name
+    1ECD virtual size
+  185000 virtual address (0000000062B85000 to 0000000062B86ECC)
+    2000 size of raw data
+  17B000 file pointer to raw data (0017B000 to 0017CFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42000040 flags
+         Initialized Data
+         Discardable
+         Read Only
+
+  Summary
+
+        B000 .data
+        2000 .didat
+        2000 .idata
+        A000 .pdata
+       58000 .rdata
+        2000 .reloc
+        1000 .rsrc
+      112000 .text

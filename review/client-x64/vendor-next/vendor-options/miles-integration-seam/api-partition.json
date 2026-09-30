@@ -1,0 +1,1175 @@
+{
+  "scope": "Prior reviewed 62-name inventory rebased to current lexical source locations; compile/link reachability remains separately established. Categories overlap semantically. No new liveness inference from comments or config guards.",
+  "source_hashes": {
+    "src/engine/client/library/clientAudio/src/win32/Audio.cpp": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+    "src/engine/client/library/clientAudio/src/win32/SoundObject3d.cpp": "06ced4889df9a9e8b3d47d7e3945daa8957518716b511118735403c9e89c154b"
+  },
+  "groups": {
+    "scalar_commands": 29,
+    "scalar_getters": 15,
+    "memory_transfer": 4,
+    "callback_registration": 3,
+    "handle_lifecycle_alias": 6,
+    "pointer_return_or_sized_scalar": 4,
+    "header_macro": 1
+  },
+  "rows": [
+    {
+      "api": "AIL_MSS_version",
+      "primary_group": "header_macro",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2469,
+          "text": "AIL_MSS_version(version, sizeof(version));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_WAV_info",
+      "primary_group": "memory_transfer",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3710,
+          "text": "S32 result = AIL_WAV_info(fileImage, &soundInfo);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_active_sample_count",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 681,
+          "text": "int const count2d = AIL_active_sample_count(s_digitalDevice2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 683,
+          "text": "int const count3d = AIL_active_sample_count(s_digitalDevice2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2900,
+          "text": "DEBUG_WARNING(true, (\"  Miles 2d count: %d\\n\", (s_digitalDevice2d != NULL) ? AIL_active_sample_count(s_digitalDevice2d) : 0));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3005,
+          "text": "DEBUG_REPORT_LOG(true, (\"  Miles count(%d)\\n\", AIL_active_sample_count(s_digitalDevice2d)));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_allocate_sample_handle",
+      "primary_group": "handle_lifecycle_alias",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 630,
+          "text": "sample2d.m_sample = AIL_allocate_sample_handle(s_digitalDevice2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 660,
+          "text": "sample3d.m_sample = AIL_allocate_sample_handle(s_digitalDevice2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4437,
+          "text": "HSAMPLE sample = AIL_allocate_sample_handle(s_digitalDevice2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5334,
+          "text": "s_bufferedSoundSample = AIL_allocate_sample_handle(s_digitalDevice2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5354,
+          "text": "s_bufferedMusicSample = AIL_allocate_sample_handle(s_digitalDevice2d);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_close_stream",
+      "primary_group": "handle_lifecycle_alias",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3367,
+          "text": "AIL_close_stream(iterSampleIdToSampleStreamMap->second.m_stream);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_digital_CPU_percent",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3526,
+          "text": "result = AIL_digital_CPU_percent(s_digitalDevice2d);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_digital_latency",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3539,
+          "text": "result = AIL_digital_latency(s_digitalDevice2d);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_end_sample",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3357,
+          "text": "AIL_end_sample(iterSampleIdToSample2dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3362,
+          "text": "AIL_end_sample(iterSampleIdToSample3dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4454,
+          "text": "AIL_end_sample(sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5373,
+          "text": "AIL_end_sample(s_bufferedSoundSample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5383,
+          "text": "AIL_end_sample(s_bufferedMusicSample);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_file_error",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4547,
+          "text": "switch (AIL_file_error())"
+        }
+      ]
+    },
+    {
+      "api": "AIL_file_type",
+      "primary_group": "memory_transfer",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2546,
+          "text": "S32 fileType = AIL_file_type(fileImage, fileSize);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_get_preference",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1297,
+          "text": "SINTa const maxDigitalMixerChannels = AIL_get_preference(DIG_MIXER_CHANNELS);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_get_timer_highest_delay",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1943,
+          "text": "s_timerCurrentDelay = static_cast<int>(AIL_get_timer_highest_delay());"
+        }
+      ]
+    },
+    {
+      "api": "AIL_last_error",
+      "primary_group": "pointer_return_or_sized_scalar",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1306,
+          "text": "WARNING(true, (\"Audio:  Digital Audio - Attempting to use a generic stereo seting, user option failed. Miles Error (%s)\", AIL_last_error()));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1313,
+          "text": "WARNING(true, (\"Audio: Digital Audio - Shutting down the audio system. Miles Error (%s)\", AIL_last_error()));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2899,
+          "text": "DEBUG_WARNING(true, (\"Error preparing 2D sample for playback: %s (%s)\\n\", iterSampleIdToSample2dMap->second.getPath()->getString(), AIL_last_error()));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3004,
+          "text": "DEBUG_WARNING(true, (\"Error preparing 3D sample for playback: \\\"%s\\\" Miles Error: (%s) Prioritized Sound Count(%d)\", iterSampleIdToSample3dMap->second.getPath()->getString(), AIL_last_error(), static_cast<int>(s_prioritizedPlayingSounds.size())));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_lock",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4922,
+          "text": "AIL_lock();"
+        }
+      ]
+    },
+    {
+      "api": "AIL_open_digital_driver",
+      "primary_group": "handle_lifecycle_alias",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1301,
+          "text": "s_digitalDevice2d = AIL_open_digital_driver(getFrequency(), getBits(), getProviderSpec(getCurrent3dProvider()), 0);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1307,
+          "text": "s_digitalDevice2d = AIL_open_digital_driver(getFrequency(), getBits(), MSS_MC_STEREO, 0);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_open_stream",
+      "primary_group": "handle_lifecycle_alias",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 605,
+          "text": "sampleStream.m_stream = AIL_open_stream(s_digitalDevice2d, sound.getSamplePath()->getString(), 0);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_register_EOS_callback",
+      "primary_group": "callback_registration",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2878,
+          "text": "AIL_register_EOS_callback(sample2d, &endOfSample2dCallBack);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2960,
+          "text": "AIL_register_EOS_callback(hSample3d, &endOfSample3dCallBack);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_register_stream_callback",
+      "primary_group": "callback_registration",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3072,
+          "text": "AIL_register_stream_callback(sampleStream, &endOfSampleStreamCallBack);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_release_sample_handle",
+      "primary_group": "handle_lifecycle_alias",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3394,
+          "text": "AIL_release_sample_handle(iterSampleIdToSample2dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3403,
+          "text": "AIL_release_sample_handle(iterSampleIdToSample3dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4455,
+          "text": "AIL_release_sample_handle(sample);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_room_type",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3826,
+          "text": "switch (AIL_room_type(s_digitalDevice2d))"
+        }
+      ]
+    },
+    {
+      "api": "AIL_sample_ms_position",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4251,
+          "text": "AIL_sample_ms_position(sample, &millisecondsTotal, &millisecondsCurrent);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4303,
+          "text": "AIL_sample_ms_position(iterSampleIdToSample2dMap->second.m_sample, &millisecondsTotal, &millisecondsCurrent);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4349,
+          "text": "AIL_sample_ms_position(iterSampleIdToSample2dMap->second.m_sample, &millisecondsTotal, &millisecondsCurrent);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4453,
+          "text": "AIL_sample_ms_position(sample, &total, &current);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_sample_playback_rate",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3326,
+          "text": "result = AIL_sample_playback_rate(iterSampleIdToSample2dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3330,
+          "text": "result = AIL_sample_playback_rate(iterSampleIdToSample3dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3334,
+          "text": "result = AIL_sample_playback_rate((AIL_stream_sample_handle(iterSampleIdToSampleStreamMap->second.m_stream)));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_sample_position",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4267,
+          "text": "int const sampleOffset = static_cast<int>(AIL_sample_position(iterSampleIdToSample3dMap->second.m_sample));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4314,
+          "text": "int const sampleOffset = static_cast<int>(AIL_sample_position(iterSampleIdToSample3dMap->second.m_sample));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_sample_reverb_levels",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3928,
+          "text": "AIL_sample_reverb_levels(iterSampleIdToData3dMap->second.m_sample, &resultDry, &resultWet);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_sample_status",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2706,
+          "text": "status = AIL_sample_status(iterSampleIdToSample2dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2711,
+          "text": "status = AIL_sample_status(iterSampleIdToSample3dMap->second.m_sample);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_sample_volume_levels",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2892,
+          "text": "//\t\t\t\tAIL_sample_volume_levels(iterSampleIdToSample2dMap->second.m_sample, &leftLevel, &rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2995,
+          "text": "//\t\t\t\tDEBUG_REPORT_LOG(true, (\"AIL_start_sample() <id> %s <vol> %.2f\\n\", iterSample->first->getString(), AIL_sample_volume_levels(hSample3d)));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3287,
+          "text": "AIL_sample_volume_levels(iterSampleIdToSample2dMap->second.m_sample, &leftLevel, &rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3296,
+          "text": "AIL_sample_volume_levels(iterSampleIdToSample3dMap->second.m_sample, &leftLevel, &rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3305,
+          "text": "AIL_sample_volume_levels((AIL_stream_sample_handle(iterSampleIdToSampleStreamMap->second.m_stream)), &leftLevel, &rightLevel);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_serve",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2448,
+          "text": "NP_PROFILER_AUTO_BLOCK_DEFINE(\"Miles AIL_serve()\");"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4958,
+          "text": "AIL_serve();"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5119,
+          "text": "AIL_serve();"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5126,
+          "text": "AIL_serve();"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_3D_rolloff_factor",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1324,
+          "text": "AIL_set_3D_rolloff_factor(s_digitalDevice2d, s_rollOffFactor);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_file_callbacks",
+      "primary_group": "callback_registration",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1293,
+          "text": "AIL_set_file_callbacks(fileOpenCallBack, fileCloseCallBack, fileSeekCallBack, fileReadCallBack);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_listener_3D_orientation",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/SoundObject3d.cpp",
+          "line": 34,
+          "text": "AIL_set_listener_3D_orientation(m_object, m_vectorForward.x, m_vectorForward.y, m_vectorForward.z, m_vectorUp.x, m_vectorUp.y, m_vectorUp.z);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_listener_3D_position",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/SoundObject3d.cpp",
+          "line": 32,
+          "text": "AIL_set_listener_3D_position(m_object, m_positionCurrent.x, m_positionCurrent.y, m_positionCurrent.z);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_listener_3D_velocity_vector",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/SoundObject3d.cpp",
+          "line": 33,
+          "text": "AIL_set_listener_3D_velocity_vector(m_object, 0.0f, 0.0f, 0.0f);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_named_sample_file",
+      "primary_group": "memory_transfer",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2836,
+          "text": "if (AIL_set_named_sample_file(sample2d, extension, sampleRawData, fileSize, 0))"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4449,
+          "text": "S32 result = AIL_set_named_sample_file(sample, sampleCacheEntry.getExtension(), sampleCacheEntry.m_sampleRawData, sampleCacheEntry.m_fileSize, 0);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5338,
+          "text": "AIL_set_named_sample_file(s_bufferedSoundSample, extension, buffer, bufferLength, 0);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5358,
+          "text": "AIL_set_named_sample_file(s_bufferedMusicSample, extension, buffer, bufferLength, 0);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_preference",
+      "primary_group": "pointer_return_or_sized_scalar",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5118,
+          "text": "AIL_set_preference(DIG_DS_MIX_FRAGMENT_CNT, 64);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5125,
+          "text": "AIL_set_preference(DIG_DS_MIX_FRAGMENT_CNT, s_bufferFragmentsMin);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_redist_directory",
+      "primary_group": "pointer_return_or_sized_scalar",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1285,
+          "text": "std::string redistDirectory(AIL_set_redist_directory(\"miles\"));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_room_type",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3788,
+          "text": "case RT_alley:           { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_ALLEY); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3789,
+          "text": "case RT_arena:           { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_ARENA); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3790,
+          "text": "case RT_auditorium:      { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_AUDITORIUM); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3791,
+          "text": "case RT_bathRoom:        { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_BATHROOM); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3792,
+          "text": "case RT_carpetedHallway: { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_HALLWAY); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3793,
+          "text": "case RT_cave:            { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_CAVE); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3794,
+          "text": "case RT_city:            { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_CITY); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3795,
+          "text": "case RT_concertHall:     { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_CONCERTHALL); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3796,
+          "text": "case RT_dizzy:           { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_DIZZY); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3797,
+          "text": "case RT_drugged:         { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_DRUGGED); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3798,
+          "text": "case RT_forest:          { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_FOREST); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3799,
+          "text": "case RT_generic:         { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_GENERIC); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3800,
+          "text": "case RT_hallway:         { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_HALLWAY); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3801,
+          "text": "case RT_hangar:          { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_HANGAR); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3802,
+          "text": "case RT_livingRoom:      { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_LIVINGROOM); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3803,
+          "text": "case RT_mountains:       { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_MOUNTAINS); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3804,
+          "text": "case RT_paddedCell:      { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_PADDEDCELL); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3805,
+          "text": "case RT_parkingLot:      { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_PARKINGLOT); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3806,
+          "text": "case RT_plain:           { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_PLAIN); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3807,
+          "text": "case RT_psychotic:       { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_PSYCHOTIC); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3808,
+          "text": "case RT_quarry:          { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_QUARRY); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3809,
+          "text": "case RT_room:            { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_ROOM); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3810,
+          "text": "case RT_sewerPipe:       { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_SEWERPIPE); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3811,
+          "text": "case RT_stoneCorridor:   { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_STONECORRIDOR); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3812,
+          "text": "case RT_stoneRoom:       { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_STONEROOM); } break;"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3813,
+          "text": "case RT_underWater:      { AIL_set_room_type(s_digitalDevice2d, ENVIRONMENT_UNDERWATER); } break;"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_3D_distances",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2988,
+          "text": "AIL_set_sample_3D_distances(hSample3d, distanceMax, distanceMin, 1);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_3D_position",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2461,
+          "text": "AIL_set_sample_3D_position(iterSampleIdToSample3dMap->second.m_sample, position_w.x, position_w.y, position_w.z);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2965,
+          "text": "AIL_set_sample_3D_position(hSample3d, position.x, position.y, position.z);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_3D_velocity_vector",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2966,
+          "text": "AIL_set_sample_3D_velocity_vector(hSample3d, 0.0f, 0.0f, 0.0f);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_file",
+      "primary_group": "memory_transfer",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2925,
+          "text": "S32 resultSet3dSampleFile = AIL_set_sample_file(hSample3d, sampleRawData, 0);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_loop_block",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2851,
+          "text": "AIL_set_sample_loop_block(sample2d, static_cast<S32>(loopStartOffset), static_cast<S32>(loopEndOffset));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_loop_count",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2865,
+          "text": "AIL_set_sample_loop_count(sample2d, 0);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2873,
+          "text": "AIL_set_sample_loop_count(sample2d, loopCount);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2947,
+          "text": "AIL_set_sample_loop_count(hSample3d, 0);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2955,
+          "text": "AIL_set_sample_loop_count(hSample3d, loopCount);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_ms_position",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4391,
+          "text": "AIL_set_sample_ms_position(iterSampleIdToSample2dMap->second.m_sample, milliSeconds);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_obstruction",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3144,
+          "text": "AIL_set_sample_obstruction(sample3d.m_sample, clamp(0.0f, obstruction, 1.0f));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_occlusion",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3129,
+          "text": "AIL_set_sample_occlusion(sample3d.m_sample, clamp(0.0f, occlusion, 1.0f));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_playback_rate",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3244,
+          "text": "AIL_set_sample_playback_rate(iterSampleIdToSample2dMap->second.m_sample, clampedPlayBackRate);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3252,
+          "text": "AIL_set_sample_playback_rate(iterSampleIdToSample3dMap->second.m_sample, clampedPlayBackRate);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3260,
+          "text": "AIL_set_sample_playback_rate((AIL_stream_sample_handle(iterSampleIdToSampleStreamMap->second.m_stream)), clampedPlayBackRate);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_position",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4406,
+          "text": "AIL_set_sample_position(iterSampleIdToSample3dMap->second.m_sample, offset);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_reverb_levels",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3174,
+          "text": "AIL_set_sample_reverb_levels(sample2d.m_sample, 1.0f, 0.0f);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3197,
+          "text": "AIL_set_sample_reverb_levels(sample3d.m_sample, 1.0f, 0.0f);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3212,
+          "text": "AIL_set_sample_reverb_levels((AIL_stream_sample_handle(sampleStream.m_stream)), 1.0f, 0.0f);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3911,
+          "text": "AIL_set_sample_reverb_levels(iterSampleIdToData3dMap->second.m_sample, static_cast<F32>(clamp(0.0f, effectLevel, 1.0f)), 0.0f);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_sample_volume_levels",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3173,
+          "text": "AIL_set_sample_volume_levels(sample2d.m_sample, leftLevel, rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3196,
+          "text": "AIL_set_sample_volume_levels(sample3d.m_sample, finalVolume, finalVolume);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3211,
+          "text": "AIL_set_sample_volume_levels((AIL_stream_sample_handle(sampleStream.m_stream)), leftLevel, rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5342,
+          "text": "AIL_set_sample_volume_levels(s_bufferedSoundSample, volume, volume);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5362,
+          "text": "AIL_set_sample_volume_levels(s_bufferedMusicSample, volume, volume);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5391,
+          "text": "AIL_set_sample_volume_levels(s_bufferedSoundSample, volume, volume);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5400,
+          "text": "AIL_set_sample_volume_levels(s_bufferedMusicSample, volume, volume);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_stream_loop_block",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3041,
+          "text": "AIL_set_stream_loop_block(sampleStream, static_cast<S32>(loopStartOffset), static_cast<S32>(loopEndOffset));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_stream_loop_count",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3059,
+          "text": "AIL_set_stream_loop_count(sampleStream, 0);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3067,
+          "text": "AIL_set_stream_loop_count(sampleStream, loopCount);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_set_stream_ms_position",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4421,
+          "text": "AIL_set_stream_ms_position(iterSampleIdToSampleStreamMap->second.m_stream, milliSeconds);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_shutdown",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1437,
+          "text": "AIL_shutdown();"
+        }
+      ]
+    },
+    {
+      "api": "AIL_speaker_configuration",
+      "primary_group": "pointer_return_or_sized_scalar",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1326,
+          "text": "AIL_speaker_configuration(s_digitalDevice2d, NULL, NULL, NULL, &s_speakers);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_start_sample",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2883,
+          "text": "AIL_start_sample(sample2d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2894,
+          "text": "//\t\t\t\tDEBUG_REPORT_LOG(true, (\"AIL_start_sample() <id> %s <left vol> %.2f <right vol> %.2f\\n\", iterSample->first->getString(), leftLevel, rightLevel));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2992,
+          "text": "AIL_start_sample(hSample3d);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2995,
+          "text": "//\t\t\t\tDEBUG_REPORT_LOG(true, (\"AIL_start_sample() <id> %s <vol> %.2f\\n\", iterSample->first->getString(), AIL_sample_volume_levels(hSample3d)));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4387,
+          "text": "AIL_start_sample(iterSampleIdToSample2dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5344,
+          "text": "AIL_start_sample(s_bufferedSoundSample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5364,
+          "text": "AIL_start_sample(s_bufferedMusicSample);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_start_stream",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3080,
+          "text": "//\t\t\tDEBUG_REPORT_LOG(true, (\"AIL_start_stream() <id> %d <left vol> %.2f <right vol> %.2f\\n\", iterSampleIdToSampleStreamMap->first.getId(), leftLevel, rightLevel));"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3083,
+          "text": "AIL_start_stream(sampleStream);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4417,
+          "text": "AIL_start_stream(iterSampleIdToSampleStreamMap->second.m_stream);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_startup",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 1289,
+          "text": "AIL_startup();"
+        }
+      ]
+    },
+    {
+      "api": "AIL_stop_sample",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3356,
+          "text": "AIL_stop_sample(iterSampleIdToSample2dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3361,
+          "text": "AIL_stop_sample(iterSampleIdToSample3dMap->second.m_sample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5372,
+          "text": "AIL_stop_sample(s_bufferedSoundSample);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 5382,
+          "text": "AIL_stop_sample(s_bufferedMusicSample);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_stream_ms_position",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4224,
+          "text": "AIL_stream_ms_position(stream, &millisecondsTotal, &millisecondsCurrent);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4282,
+          "text": "AIL_stream_ms_position(stream, &millisecondsTotal, &millisecondsCurrent);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4328,
+          "text": "AIL_stream_ms_position(iterSampleIdToSampleStreamMap->second.m_stream, &millisecondsTotal, &millisecondsCurrent);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4368,
+          "text": "AIL_stream_ms_position(iterSampleIdToSampleStreamMap->second.m_stream, &millisecondsTotal, &millisecondsCurrent);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_stream_sample_handle",
+      "primary_group": "handle_lifecycle_alias",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3211,
+          "text": "AIL_set_sample_volume_levels((AIL_stream_sample_handle(sampleStream.m_stream)), leftLevel, rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3212,
+          "text": "AIL_set_sample_reverb_levels((AIL_stream_sample_handle(sampleStream.m_stream)), 1.0f, 0.0f);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3260,
+          "text": "AIL_set_sample_playback_rate((AIL_stream_sample_handle(iterSampleIdToSampleStreamMap->second.m_stream)), clampedPlayBackRate);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3305,
+          "text": "AIL_sample_volume_levels((AIL_stream_sample_handle(iterSampleIdToSampleStreamMap->second.m_stream)), &leftLevel, &rightLevel);"
+        },
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 3334,
+          "text": "result = AIL_sample_playback_rate((AIL_stream_sample_handle(iterSampleIdToSampleStreamMap->second.m_stream)));"
+        }
+      ]
+    },
+    {
+      "api": "AIL_stream_status",
+      "primary_group": "scalar_getters",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 2716,
+          "text": "status = AIL_stream_status(iterSampleIdToSampleStreamMap->second.m_stream);"
+        }
+      ]
+    },
+    {
+      "api": "AIL_unlock",
+      "primary_group": "scalar_commands",
+      "current_lexical_locations": [
+        {
+          "file": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+          "line": 4928,
+          "text": "AIL_unlock();"
+        }
+      ]
+    }
+  ]
+}

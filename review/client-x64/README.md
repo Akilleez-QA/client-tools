@@ -4,6 +4,10 @@ Latest commits-only checkpoint: [native build, dependency and fidelity work](ven
 
 Current working code: [integration/client-x64-next](https://github.com/Akilleez-QA/client-tools/tree/integration/client-x64-next). The x64 client is not complete: full link/start and intended gameplay/media acceptance remain open.
 
+At `49d0eeed4`, actual Win32 Release/Debug builds finish with zero errors; x64 Release/Debug reach the final linker with only 60/61 Miles imports unresolved. [Commit-bound native results](vendor-next/allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md). This was an audited incremental build, not a clean rebuild. [Private runtime staging](vendor-next/allocator-next/runtime-readiness/private-staging-evidence/RESULTS.md) establishes basic loader prerequisites, not client startup.
+
+Miles remains an experimental original-engine process boundary. [The real Win32 Audio/Sound2d baseline](vendor-next/vendor-options/miles-engine-fixture/RESULTS.md) completed two sample lifetimes but failed during teardown, so it is not a passing reference. [Candidate interface plan](vendor-next/vendor-options/miles-integration-seam/PLAN.md) and [exact API signature checks](vendor-next/vendor-options/miles-integration-seam/protocol-candidate/README.md) do not establish a complete adapter or game fidelity.
+
 Previous commits-only checkpoint: [integer assembly and HTTP lock](assembly-next/RESULTS.md).
 
 Previous commits-only checkpoint: [client x64 configuration and compiler fixes](next-build/RESULTS.md).

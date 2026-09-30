@@ -1,0 +1,30 @@
+{
+  "private_wineserver_stop": 0,
+  "private_wineserver_wait": 0,
+  "sink_removed": true,
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "module": "536870916",
+  "sink_name": "swg_gen_c44bceb3f05e",
+  "unload": "",
+  "native_cleanup": "#< CLIXML\nowned_native_scratch_exists=False\n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"1\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>",
+  "native_scratch": "C:/miles-generation-live-20260930",
+  "runs_completed": 6,
+  "run_exits": {
+    "direct-sample": 0,
+    "controlled-sample": 0,
+    "mutant-sample": 9,
+    "direct-stream": 0,
+    "controlled-stream": 0,
+    "mutant-stream": 9
+  },
+  "prior_evidence_unchanged": true,
+  "private_prefix_retained": true
+}

@@ -1,0 +1,656 @@
+
+Dump of file C:\integration-current-v2\workspace\repo\src\external\3rd\library\vivox\lib\vivoxsdk.dll
+
+PE signature found
+
+File Type: DLL
+
+FILE HEADER VALUES
+             14C machine (x86)
+               5 number of sections
+        4AAE9905 time date stamp Mon Sep 14 19:27:01 2009
+               0 file pointer to symbol table
+               0 number of symbols
+              E0 size of optional header
+            2102 characteristics
+                   Executable
+                   32 bit word machine
+                   DLL
+
+OPTIONAL HEADER VALUES
+             10B magic # (PE32)
+            8.00 linker version
+          350000 size of code
+          167000 size of initialized data
+               0 size of uninitialized data
+            660B entry point (1000660B)
+            1000 base of code
+          351000 base of data
+        10000000 image base (10000000 to 10564FFF)
+            1000 section alignment
+            1000 file alignment
+            4.00 operating system version
+            3.00 image version
+            4.00 subsystem version
+               0 Win32 version
+          565000 size of image
+            1000 size of headers
+          4BBA59 checksum
+               2 subsystem (Windows GUI)
+               0 DLL characteristics
+          989680 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+          436C90 [    456B] RVA [size] of Export Directory
+          434A84 [     154] RVA [size] of Import Directory
+          52B000 [     40C] RVA [size] of Resource Directory
+               0 [       0] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+          52C000 [   37E30] RVA [size] of Base Relocation Directory
+          3518C0 [      1C] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+               0 [       0] RVA [size] of Thread Storage Directory
+          3B3EE8 [      40] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+          351000 [     61C] RVA [size] of Import Address Table Directory
+               0 [       0] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+   .text name
+  34F29A virtual size
+    1000 virtual address (10001000 to 10350299)
+  350000 size of raw data
+    1000 file pointer to raw data (00001000 to 00350FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #2
+  .rdata name
+   EA1FB virtual size
+  351000 virtual address (10351000 to 1043B1FA)
+   EB000 size of raw data
+  351000 file pointer to raw data (00351000 to 0043BFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type       Size      RVA  Pointer
+    -------- ------ -------- -------- --------
+    4AAE9905 cv           59 003B3F30   3B3F30    Format: RSDS, {21A96AB6-BAA5-4773-8B72-E0661E180AB2}, 4, C:\src\buildtools\branches\voon\tmpvkchm1\build\lib\vivoxsdk.pdb
+
+  Image has the following dependencies:
+
+    wrap_oal.dll
+    ortp.dll
+    IPHLPAPI.DLL
+    DNSAPI.dll
+    WINMM.dll
+    SensApi.dll
+    WS2_32.dll
+    libsndfile-1.dll
+    KERNEL32.dll
+    USER32.dll
+    GDI32.dll
+    SHELL32.dll
+    ole32.dll
+    ADVAPI32.dll
+    SHLWAPI.dll
+    RPCRT4.dll
+
+  Section contains the following imports:
+
+    wrap_oal.dll
+              103515A4 Import Address Table
+              1043517C Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                    4 alBufferData
+                   40 alSourceQueueBuffers
+                   45 alSourceUnqueueBuffers
+                   10 alGenBuffers
+                   11 alGenSources
+                   37 alListenerfv
+                    C alDistanceModel
+                   36 alListenerf
+                   52 alcDestroyContext
+                   5B alcMakeContextCurrent
+                   51 alcCreateContext
+                   43 alSourceStop
+                    9 alDeleteBuffers
+                    A alDeleteSources
+                   46 alSourcef
+                   47 alSourcefv
+                   48 alSourcei
+                   2D alGetSourcei
+                   3E alSourcePlay
+                   50 alcCloseDevice
+                   4F alcCaptureStop
+                   4B alcCaptureCloseDevice
+                   4C alcCaptureOpenDevice
+                   4E alcCaptureStart
+                   4D alcCaptureSamples
+                   57 alcGetIntegerv
+                   5C alcOpenDevice
+                   56 alcGetError
+                   59 alcGetString
+
+    ortp.dll
+              10351430 Import Address Table
+              10435008 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   18 get_payload_type_gsm
+                   1A get_payload_type_pcma8000
+                   17 get_payload_type_g729
+                   2C ortp_free
+                   8F rtp_session_set_symmetric_rtp
+                   3E ortp_srtp_init
+                   3C ortp_srtp_create
+                   3B ortp_srtp_add_stream
+                   9A srtp_transport_new
+                   90 rtp_session_set_transports
+                   79 rtp_session_register_event_queue
+                   91 rtp_session_signal_connect
+                   94 rtp_session_unregister_event_queue
+                   69 rtp_session_destroy
+                   3D ortp_srtp_dealloc
+                   20 get_payload_type_telephone_event
+                   43 payload_type_clone
+                   67 rtp_profile_set_payload
+                   1F get_payload_type_speex_wb
+                   1E get_payload_type_speex_nb
+                   19 get_payload_type_ilbc
+                   1B get_payload_type_pcmu3d8000
+                   1D get_payload_type_siren14_3d
+                   76 rtp_session_new
+                   86 rtp_session_set_recv_buf_size
+                   85 rtp_session_set_profile
+                   83 rtp_session_set_local_addr
+                   88 rtp_session_set_remote_addr
+                   89 rtp_session_set_scheduling_mode
+                   7E rtp_session_set_blocking_mode
+                   84 rtp_session_set_payload_type
+                   82 rtp_session_set_jitter_compensation
+                   6A rtp_session_enable_adaptive_jitter_compensation
+                   8E rtp_session_set_ssrc
+                   24 ortp_ev_queue_destroy
+                   27 ortp_ev_queue_new
+                   95 rtp_stats_display
+                   26 ortp_ev_queue_get
+                   2A ortp_event_get_type
+                   28 ortp_event_destroy
+                   1C get_payload_type_pcmu8000
+                   32 ortp_logv
+                   9F stunOpenSocketPair
+                   9E stunOpenSocket
+                   A2 stunParseServerName
+                   9D stunNatType
+                   31 ortp_init
+                    6 WIN_mutex_lock
+                    7 WIN_mutex_unlock
+                    5 WIN_mutex_init
+                   35 ortp_malloc0
+                    4 WIN_mutex_destroy
+                    9 WIN_thread_join
+                    3 WIN_cond_wait
+                    0 WIN_cond_destroy
+                    2 WIN_cond_signal
+                    8 WIN_thread_create
+                    1 WIN_cond_init
+                    F dupmsg
+                   6E rtp_session_get_profile
+                   72 rtp_session_get_send_payload_type
+                   7D rtp_session_sendm_with_ts
+                   68 rtp_session_create_packet
+                   7B rtp_session_send_dtmf
+                   6F rtp_session_get_recv_payload_type
+                   13 freeb
+                   78 rtp_session_recvm_with_ts
+                   40 ortp_strdup_printf
+                   61 qinit
+                   22 msgdsize
+                   23 msgpullup
+                   14 freemsg
+                   21 getq
+                    B allocb
+                   60 putq
+                   6D rtp_session_get_last_recv_time
+                   39 ortp_set_log_handler
+                   3A ortp_set_log_level_mask
+                   11 flushq
+                   5F peekq
+                   96 sendMessage
+                   9C stunEncodeMessage
+                   66 rtp_profile_new
+                   64 rtp_profile_destroy
+                   29 ortp_event_get_data
+                   34 ortp_malloc
+                   9B stunBuildReqSimple
+                   71 rtp_session_get_rtp_socket
+                   A3 stunServerProcessMsg
+                   A0 stunParseHostName
+                   A1 stunParseMessage
+                   16 get_payload_type_g7231
+
+    IPHLPAPI.DLL
+              1035105C Import Address Table
+              10434C34 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   3D GetBestInterface
+                   47 GetIfEntry
+                   4F GetIpAddrTable
+                   52 GetIpForwardTable
+                   3A GetAdaptersInfo
+
+    DNSAPI.dll
+              10351028 Import Address Table
+              10434C00 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   4F DnsQuery_A
+
+    WINMM.dll
+              1035135C Import Address Table
+              10434F34 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   99 waveInGetDevCapsA
+                   A0 waveInMessage
+                   A9 waveOutGetDevCapsA
+                   AE waveOutGetNumDevs
+                   B3 waveOutMessage
+                   94 timeGetTime
+                   9E waveInGetNumDevs
+
+    SensApi.dll
+              10351304 Import Address Table
+              10434EDC Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                    2 IsNetworkAlive
+
+    WS2_32.dll
+              1035137C Import Address Table
+              10434F54 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                      Ordinal    52
+                      Ordinal    51
+                      Ordinal     8
+                      Ordinal    11
+                      Ordinal    12
+                      Ordinal     3
+                      Ordinal     2
+                      Ordinal    23
+                      Ordinal    55
+                      Ordinal   111
+                      Ordinal    56
+                      Ordinal    15
+                      Ordinal    21
+                      Ordinal     6
+                      Ordinal   115
+                      Ordinal   151
+                      Ordinal    18
+                      Ordinal   112
+                      Ordinal    13
+                      Ordinal    16
+                      Ordinal     1
+                      Ordinal     4
+                      Ordinal    19
+                      Ordinal    17
+                      Ordinal    20
+                   36 WSAIoctl
+                      Ordinal    10
+                      Ordinal    14
+                      Ordinal    57
+                      Ordinal   116
+                      Ordinal     7
+                      Ordinal    53
+                      Ordinal    22
+                      Ordinal     9
+
+    libsndfile-1.dll
+              10351408 Import Address Table
+              10434FE0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                      Ordinal    37
+                      Ordinal     2
+                      Ordinal    16
+                      Ordinal    21
+                      Ordinal     3
+
+    KERNEL32.dll
+              10351074 Import Address Table
+              10434C4C Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  466 VirtualQuery
+                  212 GetNumberOfConsoleInputEvents
+                  341 PeekConsoleInputA
+                  3BF SetConsoleMode
+                  363 ReadConsoleInputA
+                  3DF SetFileAttributesA
+                   C1 DeleteFileA
+                  1D1 GetFileInformationByHandle
+                  316 MoveFileA
+                  1DD GetFullPathNameA
+                   7A CreateFileMappingA
+                  30F MapViewOfFile
+                  141 FlushConsoleInputBuffer
+                  296 GlobalMemoryStatus
+                  279 GetVersion
+                  108 ExpandEnvironmentStringsA
+                  343 PeekNamedPipe
+                  42E SleepEx
+                  438 TerminateThread
+                  1C7 GetExitCodeThread
+                   8C CreateMutexA
+                  46C WaitForMultipleObjects
+                  37D ReleaseMutex
+                   D5 DuplicateHandle
+                  24D GetSystemInfo
+                  297 GlobalMemoryStatusEx
+                  111 FileTimeToSystemTime
+                  434 SystemTimeToFileTime
+                  110 FileTimeToLocalFileTime
+                  1C3 GetEnvironmentVariableA
+                   95 CreateProcessA
+                  338 OpenProcess
+                  415 SetThreadPriority
+                  35A QueryPerformanceFrequency
+                  3D9 SetEnvironmentVariableW
+                  251 GetSystemTime
+                  1E8 GetLocalTime
+                  33C OpenThread
+                  1CA GetFileAttributesA
+                  2BF InterlockedCompareExchange
+                  392 ResetEvent
+                  3DB SetEvent
+                   73 CreateEventA
+                   A4 CreateThread
+                  25E GetTempPathA
+                  11E FindFirstFileA
+                  3DA SetErrorMode
+                  2F7 LoadLibraryExA
+                  12F FindNextFileA
+                  11A FindClose
+                  33F OutputDebugStringA
+                  148 FormatMessageA
+                  381 ReleaseSemaphore
+                   9A CreateSemaphoreA
+                  2BA InitializeCriticalSectionAndSpinCount
+                  46E WaitForSingleObject
+                  249 GetSystemDirectoryA
+                  26F GetTimeZoneInformation
+                  36E ReadFile
+                  3D5 SetEndOfFile
+                  1EB GetLocaleInfoW
+                  2E8 LCMapStringW
+                  2E6 LCMapStringA
+                  243 GetStringTypeW
+                  240 GetStringTypeA
+                  2E2 IsValidLocale
+                   F9 EnumSystemLocalesA
+                  1E9 GetLocaleInfoA
+                  272 GetUserDefaultLCID
+                  1AF GetDateFormatA
+                  26C GetTimeFormatA
+                  3D8 SetEnvironmentVariableA
+                   56 CompareStringW
+                   53 CompareStringA
+                  406 SetStdHandle
+                  3E7 SetFilePointer
+                  31F MultiByteToWideChar
+                  496 WriteConsoleW
+                  19A GetConsoleOutputCP
+                  48C WriteConsoleA
+                   79 CreateFileA
+                   44 CloseHandle
+                  2B9 InitializeCriticalSection
+                  2F6 LoadLibraryA
+                  2C2 InterlockedExchange
+                  14D FreeLibrary
+                  3AF SetConsoleCtrlHandler
+                  2E0 IsValidCodePage
+                  214 GetOEMCP
+                  153 GetACP
+                  15C GetCPInfo
+                  253 GetSystemTimeAsFileTime
+                  1AB GetCurrentProcessId
+                  106 ExitThread
+                  1A8 GetCurrentDirectoryA
+                  3CE SetCurrentDirectoryA
+                   B5 DebugBreak
+                  1BB GetDriveTypeA
+                   6D CreateDirectoryA
+                  41F SetUnhandledExceptionFilter
+                  26A GetTickCount
+                  359 QueryPerformanceCounter
+                  1C2 GetEnvironmentStringsW
+                  14C FreeEnvironmentStringsW
+                  1C0 GetEnvironmentStrings
+                  14B FreeEnvironmentStringsA
+                  1F5 GetModuleFileNameA
+                  2A9 HeapReAlloc
+                  45E VirtualAlloc
+                  461 VirtualFree
+                  2A4 HeapCreate
+                  2A5 HeapDestroy
+                  10C FatalAppExitA
+                  142 FlushFileBuffers
+                  196 GetConsoleMode
+                  184 GetConsoleCP
+                  484 WideCharToMultiByte
+                  497 WriteFile
+                   BF DeleteCriticalSection
+                  23C GetStartupInfoA
+                  1D8 GetFileType
+                  23E GetStdHandle
+                  3F0 SetHandleCount
+                  105 ExitProcess
+                  2AB HeapSize
+                  42B Sleep
+                  1AD GetCurrentThread
+                  2C1 InterlockedDecrement
+                  3F4 SetLastError
+                  2C5 InterlockedIncrement
+                  43D TlsFree
+                  43F TlsSetValue
+                  43C TlsAlloc
+                  43E TlsGetValue
+                  222 GetProcAddress
+                  1F7 GetModuleHandleA
+                  2D6 IsDebuggerPresent
+                   80 CreateFileW
+                  448 UnhandledExceptionFilter
+                  1AA GetCurrentProcess
+                  437 TerminateProcess
+                  226 GetProcessHeap
+                  2A2 HeapAlloc
+                  27A GetVersionExA
+                  170 GetCommandLineA
+                  1AE GetCurrentThreadId
+                  2A6 HeapFree
+                  1E7 GetLastError
+                  2F4 LeaveCriticalSection
+                   DA EnterCriticalSection
+                  39A RtlUnwind
+                  360 RaiseException
+
+    USER32.dll
+              1035130C Import Address Table
+              10434EE4 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  29E SetTimer
+                  2AF SetWindowsHookExA
+                  17A GetUserObjectInformationW
+                  1CD KillTimer
+                  11C GetDesktopWindow
+                  1F8 MessageBoxA
+                  2D9 UnhookWindowsHookEx
+                   1B CallNextHookEx
+                  221 PostThreadMessageA
+                  25E SendMessageA
+                  14A GetMessageA
+                  2D5 TranslateMessage
+                   A8 DispatchMessageA
+                   A0 DestroyWindow
+                  2DE UnregisterClassA
+                  234 RegisterClassExA
+                   67 CreateWindowExA
+                  159 GetProcessWindowStation
+                   95 DefWindowProcA
+
+    GDI32.dll
+              10351030 Import Address Table
+              10434C08 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  191 GetBitmapBits
+                   2F CreateDCA
+                   2E CreateCompatibleDC
+                  1B5 GetDeviceCaps
+                   2D CreateCompatibleBitmap
+                  25E SelectObject
+                   CD DeleteDC
+                   D0 DeleteObject
+                   12 BitBlt
+                  1E2 GetObjectA
+
+    SHELL32.dll
+              103512E8 Import Address Table
+              10434EC0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   BC SHGetFolderPathA
+
+    ole32.dll
+              10351420 Import Address Table
+              10434FF8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   10 CoCreateInstance
+                   6B CoUninitialize
+                   3D CoInitialize
+
+    ADVAPI32.dll
+              10351000 Import Address Table
+              10434BD8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  267 RegQueryValueExA
+                  27C RegisterEventSourceA
+                   C7 CryptReleaseContext
+                   BD CryptGenRandom
+                   AC CryptAcquireContextA
+                  22A RegCloseKey
+                  25A RegOpenKeyExA
+                   D7 DeregisterEventSource
+                  288 ReportEventA
+
+    SHLWAPI.dll
+              103512F0 Import Address Table
+              10434EC8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   33 PathAppendA
+                   39 PathCombineA
+                   8A PathRemoveFileSpecA
+                   94 PathStripPathA
+
+    RPCRT4.dll
+              103512D8 Import Address Table
+              10434EB0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  1E9 RpcStringFreeA
+                  1F3 UuidCreate
+                  1FB UuidToStringA
+
+SECTION HEADER #3
+   .data name
+   EEC04 virtual size
+  43C000 virtual address (1043C000 to 1052AC03)
+   42000 size of raw data
+  43C000 file pointer to raw data (0043C000 to 0047DFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #4
+   .rsrc name
+     40C virtual size
+  52B000 virtual address (1052B000 to 1052B40B)
+    1000 size of raw data
+  47E000 file pointer to raw data (0047E000 to 0047EFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #5
+  .reloc name
+   38C14 virtual size
+  52C000 virtual address (1052C000 to 10564C13)
+   39000 size of raw data
+  47F000 file pointer to raw data (0047F000 to 004B7FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42000040 flags
+         Initialized Data
+         Discardable
+         Read Only
+
+  Summary
+
+       EF000 .data
+       EB000 .rdata
+       39000 .reloc
+        1000 .rsrc
+      350000 .text

@@ -1,0 +1,52 @@
+{
+  "python_bits": 64,
+  "scope": "LoadLibraryEx/FreeLibrary only; D3DX version query; no game/renderer/DPVS initialization or device creation",
+  "checks": [
+    {
+      "configuration": "Release",
+      "library": "d3dx9_43.dll",
+      "loaded": true,
+      "error": 0,
+      "D3DXCheckVersion_export": true,
+      "version_matches_sdk32_d3dx43": true,
+      "freed": true
+    },
+    {
+      "configuration": "Release",
+      "library": "dpvs.dll",
+      "loaded": true,
+      "error": 0,
+      "freed": true
+    },
+    {
+      "configuration": "Release",
+      "library": "libxml2.dll",
+      "loaded": true,
+      "error": 0,
+      "freed": true
+    },
+    {
+      "configuration": "Debug",
+      "library": "d3dx9_43.dll",
+      "loaded": true,
+      "error": 0,
+      "D3DXCheckVersion_export": true,
+      "version_matches_sdk32_d3dx43": true,
+      "freed": true
+    },
+    {
+      "configuration": "Debug",
+      "library": "dpvs.dll",
+      "loaded": true,
+      "error": 0,
+      "freed": true
+    },
+    {
+      "configuration": "Debug",
+      "library": "libxml2.dll",
+      "loaded": true,
+      "error": 0,
+      "freed": true
+    }
+  ]
+}

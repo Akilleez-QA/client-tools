@@ -1,0 +1,43 @@
+{
+  "python_bits": 64,
+  "checks": [
+    {
+      "name": "d3d9.dll",
+      "native_system_path": "C:\\Windows\\System32\\d3d9.dll",
+      "exists": true,
+      "machine": "0x8664",
+      "sha256": "05cca6e73ae6cb02c1513b78517e103742ac07e8580ff67225ba2260d2c9c12b"
+    },
+    {
+      "name": "d3dx9_43.dll",
+      "native_system_path": "C:\\Windows\\System32\\d3dx9_43.dll",
+      "exists": false
+    },
+    {
+      "name": "ddraw.dll",
+      "native_system_path": "C:\\Windows\\System32\\ddraw.dll",
+      "exists": true,
+      "machine": "0x8664",
+      "sha256": "c3a8f35dccf2da4ebb72e38d07dc44b0cd4b9571afdcf8455faaf0f0ebf2171a"
+    },
+    {
+      "name": "kernel32.dll",
+      "native_system_path": "C:\\Windows\\System32\\kernel32.dll",
+      "exists": true,
+      "machine": "0x8664",
+      "sha256": "4636f65d449b1353100578c6cb139933cf2b134f5e246119d18968873a058bed"
+    },
+    {
+      "name": "user32.dll",
+      "native_system_path": "C:\\Windows\\System32\\user32.dll",
+      "exists": true,
+      "machine": "0x8664",
+      "sha256": "82870be1e008d5232cb175ebc815f645a2add4c0b164fd4ba20744192c1c81f7"
+    }
+  ],
+  "dev_x64_exists": false,
+  "product_xml_deployed": {
+    "Release": false,
+    "Debug": false
+  }
+}

@@ -1,0 +1,955 @@
+{
+  "runs_expected": 24,
+  "runs_recorded": 24,
+  "structural_passes": 24,
+  "rows": [
+    {
+      "label": "direct-sample-0-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942092154020,
+        "callback_end": 1942092154023,
+        "thread": 300,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942092154022,
+        "start": 1942090149902,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.4118,
+      "publish_delay_ms": 0.0002,
+      "first_seen_delay_ms": 0.5884,
+      "maximum_observer_gap_ms": 3.3931,
+      "max_epoch_lateness_ms": 2.394799999999975,
+      "callback_first_scheduled_epoch": 200.4118,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-sample-0-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942105389558,
+        "callback_end": 1942105389560,
+        "thread": 340,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942105389559,
+        "start": 1942103386087,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.3471,
+      "publish_delay_ms": 0.0001,
+      "first_seen_delay_ms": 0.653,
+      "maximum_observer_gap_ms": 5.4553,
+      "max_epoch_lateness_ms": 5.415700000000015,
+      "callback_first_scheduled_epoch": 200.3471,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-sample-500-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942116215890,
+        "callback_end": 1942116215895,
+        "thread": 400,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942116215893,
+        "start": 1942114206481,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.9409,
+      "publish_delay_ms": 0.0003,
+      "first_seen_delay_ms": 0.5598,
+      "maximum_observer_gap_ms": 1.0035,
+      "max_epoch_lateness_ms": 0.0037000000000002586,
+      "callback_first_scheduled_epoch": 200.4409,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-sample-500-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942125076193,
+        "callback_end": 1942125076196,
+        "thread": 420,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942125076195,
+        "start": 1942123067975,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.8218,
+      "publish_delay_ms": 0.0002,
+      "first_seen_delay_ms": 0.6795,
+      "maximum_observer_gap_ms": 1.0015,
+      "max_epoch_lateness_ms": 0.0022999999999981924,
+      "callback_first_scheduled_epoch": 200.3218,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-sample-0-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942133978587,
+        "callback_end": 1942133978588,
+        "thread": 460,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942133978997,
+        "start": 1942131972293,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.6294,
+      "publish_delay_ms": 0.041,
+      "first_seen_delay_ms": 0.3715,
+      "maximum_observer_gap_ms": 1.0023,
+      "max_epoch_lateness_ms": 0.0028000000000076852,
+      "callback_first_scheduled_epoch": 200.6294,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-sample-0-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942142956276,
+        "callback_end": 1942142956277,
+        "thread": 500,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 202,
+        "published": 1942142956937,
+        "start": 1942140946077,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 201.0199,
+      "publish_delay_ms": 0.0661,
+      "first_seen_delay_ms": 0.9811,
+      "maximum_observer_gap_ms": 1.0015,
+      "max_epoch_lateness_ms": 0.0019999999999988916,
+      "callback_first_scheduled_epoch": 201.0199,
+      "first_scheduled_epoch_at_or_after_callback": 202,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-sample-500-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942152239361,
+        "callback_end": 1942152239363,
+        "thread": 540,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 200,
+        "published": 1942152239820,
+        "start": 1942150235507,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.3854,
+      "publish_delay_ms": 0.0459,
+      "first_seen_delay_ms": 0.116,
+      "maximum_observer_gap_ms": 1.0019,
+      "max_epoch_lateness_ms": 0.003199999999992542,
+      "callback_first_scheduled_epoch": 199.8854,
+      "first_scheduled_epoch_at_or_after_callback": 200,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-sample-500-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942161460703,
+        "callback_end": 1942161460704,
+        "thread": 580,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942161461064,
+        "start": 1942159450716,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 200.9987,
+      "publish_delay_ms": 0.0361,
+      "first_seen_delay_ms": 0.5016,
+      "maximum_observer_gap_ms": 1.0101,
+      "max_epoch_lateness_ms": 0.01120000000000232,
+      "callback_first_scheduled_epoch": 200.4987,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-sample-0-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942170070422,
+        "callback_end": 1942170070424,
+        "thread": 620,
+        "sent": 1942170070645,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942170072135,
+        "start": 1942168069505,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {
+        "callback": 1942170070422,
+        "callback_end": 1942170070424,
+        "received": 1942170072133,
+        "thread": 620,
+        "receiver_thread": 612
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 200.0917,
+      "publish_delay_ms": 0.1713,
+      "first_seen_delay_ms": 0.9097,
+      "maximum_observer_gap_ms": 1.0025,
+      "max_epoch_lateness_ms": 0.0033999999999991815,
+      "callback_first_scheduled_epoch": 200.0917,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-sample-0-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942178783588,
+        "callback_end": 1942178783589,
+        "thread": 664,
+        "sent": 1942178783721,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942178784730,
+        "start": 1942176776407,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {
+        "callback": 1942178783588,
+        "callback_end": 1942178783589,
+        "received": 1942178784729,
+        "thread": 664,
+        "receiver_thread": 656
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 200.7181,
+      "publish_delay_ms": 0.1142,
+      "first_seen_delay_ms": 0.2828,
+      "maximum_observer_gap_ms": 1.0014,
+      "max_epoch_lateness_ms": 0.001599999999996271,
+      "callback_first_scheduled_epoch": 200.7181,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-sample-500-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942187289516,
+        "callback_end": 1942187289517,
+        "thread": 708,
+        "sent": 1942187289659,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942187290831,
+        "start": 1942185280523,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {
+        "callback": 1942187289516,
+        "callback_end": 1942187289517,
+        "received": 1942187290830,
+        "thread": 708,
+        "receiver_thread": 700
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 200.8993,
+      "publish_delay_ms": 0.1315,
+      "first_seen_delay_ms": 0.6015,
+      "maximum_observer_gap_ms": 1.0014,
+      "max_epoch_lateness_ms": 0.0016000000000531145,
+      "callback_first_scheduled_epoch": 200.3993,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-sample-500-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942195949997,
+        "callback_end": 1942195949998,
+        "thread": 752,
+        "sent": 1942195950258,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 201,
+        "published": 1942195951567,
+        "start": 1942193940559,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {
+        "callback": 1942195949997,
+        "callback_end": 1942195949998,
+        "received": 1942195951565,
+        "thread": 752,
+        "receiver_thread": 744
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 200.9438,
+      "publish_delay_ms": 0.157,
+      "first_seen_delay_ms": 0.5569,
+      "maximum_observer_gap_ms": 1.0879,
+      "max_epoch_lateness_ms": 0.0887000000000171,
+      "callback_first_scheduled_epoch": 200.4438,
+      "first_scheduled_epoch_at_or_after_callback": 201,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-stream-0-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942206221199,
+        "callback_end": 1942206221203,
+        "thread": 816,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 277,
+        "published": 1942206221201,
+        "start": 1942203455344,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 276.5855,
+      "publish_delay_ms": 0.0002,
+      "first_seen_delay_ms": 0.4148,
+      "maximum_observer_gap_ms": 1.0016,
+      "max_epoch_lateness_ms": 0.002100000000041291,
+      "callback_first_scheduled_epoch": 276.5855,
+      "first_scheduled_epoch_at_or_after_callback": 277,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-stream-0-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942214903650,
+        "callback_end": 1942214903654,
+        "thread": 860,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 261,
+        "published": 1942214903653,
+        "start": 1942212299426,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.4224,
+      "publish_delay_ms": 0.0003,
+      "first_seen_delay_ms": 0.578,
+      "maximum_observer_gap_ms": 1.0026,
+      "max_epoch_lateness_ms": 0.0027999999999792635,
+      "callback_first_scheduled_epoch": 260.4224,
+      "first_scheduled_epoch_at_or_after_callback": 261,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-stream-500-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942223712879,
+        "callback_end": 1942223712883,
+        "thread": 904,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 260,
+        "published": 1942223712882,
+        "start": 1942221108868,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.4011,
+      "publish_delay_ms": 0.0003,
+      "first_seen_delay_ms": 0.0995,
+      "maximum_observer_gap_ms": 1.0013,
+      "max_epoch_lateness_ms": 0.00190000000000623,
+      "callback_first_scheduled_epoch": 259.9011,
+      "first_scheduled_epoch_at_or_after_callback": 260,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "direct-stream-500-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942232494844,
+        "callback_end": 1942232494848,
+        "thread": 948,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 260,
+        "published": 1942232494847,
+        "start": 1942229891291,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.3553,
+      "publish_delay_ms": 0.0003,
+      "first_seen_delay_ms": 0.1458,
+      "maximum_observer_gap_ms": 1.0096,
+      "max_epoch_lateness_ms": 0.009799999999984266,
+      "callback_first_scheduled_epoch": 259.8553,
+      "first_scheduled_epoch_at_or_after_callback": 260,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-stream-0-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942241312395,
+        "callback_end": 1942241312398,
+        "thread": 992,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 301,
+        "published": 1942241717998,
+        "start": 1942238708849,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.3546,
+      "publish_delay_ms": 40.5603,
+      "first_seen_delay_ms": 40.6455,
+      "maximum_observer_gap_ms": 1.0014,
+      "max_epoch_lateness_ms": 0.0015000000000213731,
+      "callback_first_scheduled_epoch": 260.3546,
+      "first_scheduled_epoch_at_or_after_callback": 261,
+      "additional_epochs_to_first_seen": 40,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-stream-0-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942250182979,
+        "callback_end": 1942250182981,
+        "thread": 1036,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 301,
+        "published": 1942250586253,
+        "start": 1942247578879,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.41,
+      "publish_delay_ms": 40.3274,
+      "first_seen_delay_ms": 40.5907,
+      "maximum_observer_gap_ms": 1.0021,
+      "max_epoch_lateness_ms": 0.0024999999999977263,
+      "callback_first_scheduled_epoch": 260.41,
+      "first_scheduled_epoch_at_or_after_callback": 261,
+      "additional_epochs_to_first_seen": 40,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-stream-500-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942259095435,
+        "callback_end": 1942259095438,
+        "thread": 1080,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 301,
+        "published": 1942259499733,
+        "start": 1942256491147,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.4288,
+      "publish_delay_ms": 40.4298,
+      "first_seen_delay_ms": 41.0713,
+      "maximum_observer_gap_ms": 1.0013,
+      "max_epoch_lateness_ms": 0.0016999999999995907,
+      "callback_first_scheduled_epoch": 259.9288,
+      "first_scheduled_epoch_at_or_after_callback": 260,
+      "additional_epochs_to_first_seen": 41,
+      "structural_ok": true
+    },
+    {
+      "label": "queued-stream-500-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942267989132,
+        "callback_end": 1942267989136,
+        "thread": 1124,
+        "sent": 0,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 301,
+        "published": 1942268393478,
+        "start": 1942265386609,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {},
+      "observer_count": 600,
+      "callback_from_start_ms": 260.2523,
+      "publish_delay_ms": 40.4346,
+      "first_seen_delay_ms": 41.2481,
+      "maximum_observer_gap_ms": 1.0013,
+      "max_epoch_lateness_ms": 0.0019999999999527063,
+      "callback_first_scheduled_epoch": 259.7523,
+      "first_scheduled_epoch_at_or_after_callback": 260,
+      "additional_epochs_to_first_seen": 41,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-stream-0-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942276473852,
+        "callback_end": 1942276473855,
+        "thread": 1168,
+        "sent": 1942276473979,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 261,
+        "published": 1942276474938,
+        "start": 1942273870289,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {
+        "callback": 1942276473852,
+        "callback_end": 1942276473855,
+        "received": 1942276474935,
+        "thread": 1168,
+        "receiver_thread": 1140
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 260.3563,
+      "publish_delay_ms": 0.1086,
+      "first_seen_delay_ms": 0.6447,
+      "maximum_observer_gap_ms": 1.002,
+      "max_epoch_lateness_ms": 0.0021999999999877673,
+      "callback_first_scheduled_epoch": 260.3563,
+      "first_scheduled_epoch_at_or_after_callback": 261,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-stream-0-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942285197010,
+        "callback_end": 1942285197014,
+        "thread": 1216,
+        "sent": 1942285197141,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 261,
+        "published": 1942285198063,
+        "start": 1942282588896,
+        "frequency": 10000000,
+        "phase_us": 0
+      },
+      "event": {
+        "callback": 1942285197010,
+        "callback_end": 1942285197014,
+        "received": 1942285198061,
+        "thread": 1216,
+        "receiver_thread": 1188
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 260.8114,
+      "publish_delay_ms": 0.1053,
+      "first_seen_delay_ms": 0.1888,
+      "maximum_observer_gap_ms": 1.0014,
+      "max_epoch_lateness_ms": 0.0016999999999995907,
+      "callback_first_scheduled_epoch": 260.8114,
+      "first_scheduled_epoch_at_or_after_callback": 261,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-stream-500-1",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942293887757,
+        "callback_end": 1942293887760,
+        "thread": 1264,
+        "sent": 1942293887938,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 260,
+        "published": 1942293889038,
+        "start": 1942291285280,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {
+        "callback": 1942293887757,
+        "callback_end": 1942293887760,
+        "received": 1942293889036,
+        "thread": 1264,
+        "receiver_thread": 1236
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 260.2477,
+      "publish_delay_ms": 0.1281,
+      "first_seen_delay_ms": 0.2537,
+      "maximum_observer_gap_ms": 1.3423,
+      "max_epoch_lateness_ms": 0.3434999999999988,
+      "callback_first_scheduled_epoch": 259.7477,
+      "first_scheduled_epoch_at_or_after_callback": 260,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    },
+    {
+      "label": "unsolicited-stream-500-2",
+      "returncode": 0,
+      "producer_observed": true,
+      "completion": {
+        "count": 1,
+        "callback": 1942302625594,
+        "callback_end": 1942302625598,
+        "thread": 1312,
+        "sent": 1942302625730,
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "worker": 0,
+        "send_ok": 1
+      },
+      "observer_summary": {
+        "first": 260,
+        "published": 1942302626807,
+        "start": 1942300023270,
+        "frequency": 10000000,
+        "phase_us": 500
+      },
+      "event": {
+        "callback": 1942302625594,
+        "callback_end": 1942302625598,
+        "received": 1942302626806,
+        "thread": 1312,
+        "receiver_thread": 1284
+      },
+      "observer_count": 600,
+      "callback_from_start_ms": 260.2324,
+      "publish_delay_ms": 0.1213,
+      "first_seen_delay_ms": 0.2685,
+      "maximum_observer_gap_ms": 1.0017,
+      "max_epoch_lateness_ms": 0.0018999999999778083,
+      "callback_first_scheduled_epoch": 259.7324,
+      "first_scheduled_epoch_at_or_after_callback": 260,
+      "additional_epochs_to_first_seen": 0,
+      "structural_ok": true
+    }
+  ],
+  "cleanup": {
+    "defaults_unchanged": true,
+    "sink_removed": true,
+    "unload": "",
+    "private_wineserver_stop": 0
+  },
+  "direct": {
+    "publish_delay_ms": [
+      0.0001,
+      0.0003
+    ],
+    "first_seen_delay_ms": [
+      0.0995,
+      0.6795
+    ],
+    "maximum_observer_gap_ms": [
+      1.0013,
+      5.4553
+    ],
+    "max_epoch_lateness_ms": [
+      0.00190000000000623,
+      5.415700000000015
+    ]
+  },
+  "queued": {
+    "publish_delay_ms": [
+      0.0361,
+      40.5603
+    ],
+    "first_seen_delay_ms": [
+      0.116,
+      41.2481
+    ],
+    "maximum_observer_gap_ms": [
+      1.0013,
+      1.0101
+    ],
+    "max_epoch_lateness_ms": [
+      0.0015000000000213731,
+      0.01120000000000232
+    ]
+  },
+  "unsolicited": {
+    "publish_delay_ms": [
+      0.1053,
+      0.1713
+    ],
+    "first_seen_delay_ms": [
+      0.1888,
+      0.9097
+    ],
+    "maximum_observer_gap_ms": [
+      1.0014,
+      1.3423
+    ],
+    "max_epoch_lateness_ms": [
+      0.001599999999996271,
+      0.3434999999999988
+    ]
+  }
+}

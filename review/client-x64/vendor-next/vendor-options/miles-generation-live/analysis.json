@@ -1,0 +1,1909 @@
+{
+  "runs": {
+    "direct-sample": {
+      "violations": [],
+      "accepted": true,
+      "summary": {
+        "events": 139,
+        "eos": 1,
+        "ok": 1,
+        "generation": 3,
+        "creates": 2,
+        "releases": 2,
+        "starts": 1,
+        "vendor": 73,
+        "statuscalls": 21,
+        "live": 0,
+        "bypass": 0
+      },
+      "stale": {
+        "request_generation": 1,
+        "live_generation": 2,
+        "handle": 8875488,
+        "lifetime": 2,
+        "result": 1,
+        "status": -1,
+        "vendor_delta": 0,
+        "status_delta": 0
+      },
+      "current": {
+        "request_generation": 2,
+        "status": 2,
+        "vendor_delta": 1
+      },
+      "eos": {
+        "location": "BETWEEN",
+        "active_command": 0,
+        "observed_last_command": 8,
+        "sequence": 16,
+        "thread": 320,
+        "main_thread": 300,
+        "on_main_thread": false,
+        "cw": 639,
+        "sw": 32,
+        "mx": 8064,
+        "delivery_request": 9,
+        "since_first_command_ms": 150.3467,
+        "since_observed_last_begin_ms": 50.0414,
+        "since_observed_last_end_ms": 50.037600000000005,
+        "delivery_observation_ms": 0.051199999999999996
+      },
+      "getter_vector": [
+        [
+          4,
+          4,
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1,
+          204,
+          104
+        ],
+        [
+          7,
+          4,
+          -1,
+          -1
+        ],
+        [
+          8,
+          -1,
+          204,
+          161
+        ],
+        [
+          10,
+          2,
+          -1,
+          -1
+        ],
+        [
+          11,
+          -1,
+          204,
+          204
+        ],
+        [
+          13,
+          2,
+          -1,
+          -1
+        ],
+        [
+          14,
+          -1,
+          204,
+          204
+        ],
+        [
+          16,
+          2,
+          -1,
+          -1
+        ],
+        [
+          17,
+          -1,
+          204,
+          204
+        ],
+        [
+          19,
+          2,
+          -1,
+          -1
+        ],
+        [
+          20,
+          -1,
+          204,
+          204
+        ],
+        [
+          22,
+          2,
+          -1,
+          -1
+        ],
+        [
+          23,
+          -1,
+          204,
+          204
+        ],
+        [
+          25,
+          2,
+          -1,
+          -1
+        ],
+        [
+          26,
+          -1,
+          204,
+          204
+        ],
+        [
+          28,
+          2,
+          -1,
+          -1
+        ],
+        [
+          29,
+          -1,
+          204,
+          204
+        ],
+        [
+          31,
+          2,
+          -1,
+          -1
+        ],
+        [
+          32,
+          -1,
+          204,
+          204
+        ],
+        [
+          34,
+          2,
+          -1,
+          -1
+        ],
+        [
+          35,
+          -1,
+          204,
+          204
+        ],
+        [
+          37,
+          2,
+          -1,
+          -1
+        ],
+        [
+          38,
+          -1,
+          204,
+          204
+        ],
+        [
+          40,
+          2,
+          -1,
+          -1
+        ],
+        [
+          41,
+          -1,
+          204,
+          204
+        ],
+        [
+          43,
+          2,
+          -1,
+          -1
+        ],
+        [
+          44,
+          -1,
+          204,
+          204
+        ],
+        [
+          46,
+          2,
+          -1,
+          -1
+        ],
+        [
+          47,
+          -1,
+          204,
+          204
+        ],
+        [
+          49,
+          2,
+          -1,
+          -1
+        ],
+        [
+          50,
+          -1,
+          204,
+          204
+        ],
+        [
+          52,
+          2,
+          -1,
+          -1
+        ],
+        [
+          53,
+          -1,
+          204,
+          204
+        ],
+        [
+          55,
+          2,
+          -1,
+          -1
+        ],
+        [
+          56,
+          -1,
+          204,
+          204
+        ],
+        [
+          58,
+          2,
+          -1,
+          -1
+        ],
+        [
+          59,
+          -1,
+          204,
+          204
+        ],
+        [
+          61,
+          2,
+          -1,
+          -1
+        ],
+        [
+          62,
+          -1,
+          204,
+          204
+        ],
+        [
+          66,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          67,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "log_sha256": "15666bec52034badf6dfb92c544a22e65264bcdfab4b1ec8e5ef813e9367112b"
+    },
+    "controlled-sample": {
+      "violations": [],
+      "accepted": true,
+      "summary": {
+        "events": 139,
+        "eos": 1,
+        "ok": 1,
+        "generation": 3,
+        "creates": 2,
+        "releases": 2,
+        "starts": 1,
+        "vendor": 73,
+        "statuscalls": 21,
+        "live": 0,
+        "bypass": 0
+      },
+      "stale": {
+        "request_generation": 1,
+        "live_generation": 2,
+        "handle": 8875744,
+        "lifetime": 2,
+        "result": 1,
+        "status": -1,
+        "vendor_delta": 0,
+        "status_delta": 0
+      },
+      "current": {
+        "request_generation": 2,
+        "status": 2,
+        "vendor_delta": 1
+      },
+      "eos": {
+        "location": "BETWEEN",
+        "active_command": 0,
+        "observed_last_command": 8,
+        "sequence": 16,
+        "thread": 356,
+        "main_thread": 336,
+        "on_main_thread": false,
+        "cw": 639,
+        "sw": 32,
+        "mx": 8064,
+        "delivery_request": 9,
+        "since_first_command_ms": 150.44219999999999,
+        "since_observed_last_begin_ms": 49.34439999999999,
+        "since_observed_last_end_ms": 49.3403,
+        "delivery_observation_ms": 0.9534
+      },
+      "getter_vector": [
+        [
+          4,
+          4,
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1,
+          204,
+          104
+        ],
+        [
+          7,
+          4,
+          -1,
+          -1
+        ],
+        [
+          8,
+          -1,
+          204,
+          161
+        ],
+        [
+          10,
+          2,
+          -1,
+          -1
+        ],
+        [
+          11,
+          -1,
+          204,
+          204
+        ],
+        [
+          13,
+          2,
+          -1,
+          -1
+        ],
+        [
+          14,
+          -1,
+          204,
+          204
+        ],
+        [
+          16,
+          2,
+          -1,
+          -1
+        ],
+        [
+          17,
+          -1,
+          204,
+          204
+        ],
+        [
+          19,
+          2,
+          -1,
+          -1
+        ],
+        [
+          20,
+          -1,
+          204,
+          204
+        ],
+        [
+          22,
+          2,
+          -1,
+          -1
+        ],
+        [
+          23,
+          -1,
+          204,
+          204
+        ],
+        [
+          25,
+          2,
+          -1,
+          -1
+        ],
+        [
+          26,
+          -1,
+          204,
+          204
+        ],
+        [
+          28,
+          2,
+          -1,
+          -1
+        ],
+        [
+          29,
+          -1,
+          204,
+          204
+        ],
+        [
+          31,
+          2,
+          -1,
+          -1
+        ],
+        [
+          32,
+          -1,
+          204,
+          204
+        ],
+        [
+          34,
+          2,
+          -1,
+          -1
+        ],
+        [
+          35,
+          -1,
+          204,
+          204
+        ],
+        [
+          37,
+          2,
+          -1,
+          -1
+        ],
+        [
+          38,
+          -1,
+          204,
+          204
+        ],
+        [
+          40,
+          2,
+          -1,
+          -1
+        ],
+        [
+          41,
+          -1,
+          204,
+          204
+        ],
+        [
+          43,
+          2,
+          -1,
+          -1
+        ],
+        [
+          44,
+          -1,
+          204,
+          204
+        ],
+        [
+          46,
+          2,
+          -1,
+          -1
+        ],
+        [
+          47,
+          -1,
+          204,
+          204
+        ],
+        [
+          49,
+          2,
+          -1,
+          -1
+        ],
+        [
+          50,
+          -1,
+          204,
+          204
+        ],
+        [
+          52,
+          2,
+          -1,
+          -1
+        ],
+        [
+          53,
+          -1,
+          204,
+          204
+        ],
+        [
+          55,
+          2,
+          -1,
+          -1
+        ],
+        [
+          56,
+          -1,
+          204,
+          204
+        ],
+        [
+          58,
+          2,
+          -1,
+          -1
+        ],
+        [
+          59,
+          -1,
+          204,
+          204
+        ],
+        [
+          61,
+          2,
+          -1,
+          -1
+        ],
+        [
+          62,
+          -1,
+          204,
+          204
+        ],
+        [
+          66,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          67,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "log_sha256": "cc20ea4b21f059eb9b763423e650e838e668472c787e78cd1fb534c01a26b6f5"
+    },
+    "mutant-sample": {
+      "violations": [
+        "stale request accepted",
+        "stale request called vendor",
+        "stale request called STATUS"
+      ],
+      "accepted": false,
+      "summary": {
+        "events": 139,
+        "eos": 1,
+        "ok": 1,
+        "generation": 3,
+        "creates": 2,
+        "releases": 2,
+        "starts": 1,
+        "vendor": 74,
+        "statuscalls": 22,
+        "live": 0,
+        "bypass": 1
+      },
+      "stale": {
+        "request_generation": 1,
+        "live_generation": 2,
+        "handle": 8875584,
+        "lifetime": 2,
+        "result": 0,
+        "status": 2,
+        "vendor_delta": 1,
+        "status_delta": 1
+      },
+      "current": {
+        "request_generation": 2,
+        "status": 2,
+        "vendor_delta": 1
+      },
+      "eos": {
+        "location": "BETWEEN",
+        "active_command": 0,
+        "observed_last_command": 8,
+        "sequence": 16,
+        "thread": 392,
+        "main_thread": 372,
+        "on_main_thread": false,
+        "cw": 639,
+        "sw": 32,
+        "mx": 8064,
+        "delivery_request": 9,
+        "since_first_command_ms": 150.46609999999998,
+        "since_observed_last_begin_ms": 49.4551,
+        "since_observed_last_end_ms": 49.4512,
+        "delivery_observation_ms": 0.8269
+      },
+      "getter_vector": [
+        [
+          4,
+          4,
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1,
+          204,
+          104
+        ],
+        [
+          7,
+          4,
+          -1,
+          -1
+        ],
+        [
+          8,
+          -1,
+          204,
+          161
+        ],
+        [
+          10,
+          2,
+          -1,
+          -1
+        ],
+        [
+          11,
+          -1,
+          204,
+          204
+        ],
+        [
+          13,
+          2,
+          -1,
+          -1
+        ],
+        [
+          14,
+          -1,
+          204,
+          204
+        ],
+        [
+          16,
+          2,
+          -1,
+          -1
+        ],
+        [
+          17,
+          -1,
+          204,
+          204
+        ],
+        [
+          19,
+          2,
+          -1,
+          -1
+        ],
+        [
+          20,
+          -1,
+          204,
+          204
+        ],
+        [
+          22,
+          2,
+          -1,
+          -1
+        ],
+        [
+          23,
+          -1,
+          204,
+          204
+        ],
+        [
+          25,
+          2,
+          -1,
+          -1
+        ],
+        [
+          26,
+          -1,
+          204,
+          204
+        ],
+        [
+          28,
+          2,
+          -1,
+          -1
+        ],
+        [
+          29,
+          -1,
+          204,
+          204
+        ],
+        [
+          31,
+          2,
+          -1,
+          -1
+        ],
+        [
+          32,
+          -1,
+          204,
+          204
+        ],
+        [
+          34,
+          2,
+          -1,
+          -1
+        ],
+        [
+          35,
+          -1,
+          204,
+          204
+        ],
+        [
+          37,
+          2,
+          -1,
+          -1
+        ],
+        [
+          38,
+          -1,
+          204,
+          204
+        ],
+        [
+          40,
+          2,
+          -1,
+          -1
+        ],
+        [
+          41,
+          -1,
+          204,
+          204
+        ],
+        [
+          43,
+          2,
+          -1,
+          -1
+        ],
+        [
+          44,
+          -1,
+          204,
+          204
+        ],
+        [
+          46,
+          2,
+          -1,
+          -1
+        ],
+        [
+          47,
+          -1,
+          204,
+          204
+        ],
+        [
+          49,
+          2,
+          -1,
+          -1
+        ],
+        [
+          50,
+          -1,
+          204,
+          204
+        ],
+        [
+          52,
+          2,
+          -1,
+          -1
+        ],
+        [
+          53,
+          -1,
+          204,
+          204
+        ],
+        [
+          55,
+          2,
+          -1,
+          -1
+        ],
+        [
+          56,
+          -1,
+          204,
+          204
+        ],
+        [
+          58,
+          2,
+          -1,
+          -1
+        ],
+        [
+          59,
+          -1,
+          204,
+          204
+        ],
+        [
+          61,
+          2,
+          -1,
+          -1
+        ],
+        [
+          62,
+          -1,
+          204,
+          204
+        ],
+        [
+          66,
+          2,
+          -1,
+          -1
+        ],
+        [
+          67,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "log_sha256": "c87e9003734550f5c77bd273eb729e8a40c640678474c5769089b3ea3d1e3570"
+    },
+    "direct-stream": {
+      "violations": [],
+      "accepted": true,
+      "summary": {
+        "events": 139,
+        "eos": 1,
+        "ok": 1,
+        "generation": 3,
+        "creates": 2,
+        "releases": 2,
+        "starts": 1,
+        "vendor": 71,
+        "statuscalls": 21,
+        "live": 0,
+        "bypass": 0
+      },
+      "stale": {
+        "request_generation": 1,
+        "live_generation": 2,
+        "handle": 9000416,
+        "lifetime": 2,
+        "result": 1,
+        "status": -1,
+        "vendor_delta": 0,
+        "status_delta": 0
+      },
+      "current": {
+        "request_generation": 2,
+        "status": 2,
+        "vendor_delta": 1
+      },
+      "eos": {
+        "location": "BETWEEN",
+        "active_command": 0,
+        "observed_last_command": 17,
+        "sequence": 34,
+        "thread": 428,
+        "main_thread": 408,
+        "on_main_thread": false,
+        "cw": 639,
+        "sw": 32,
+        "mx": 8064,
+        "delivery_request": 18,
+        "since_first_command_ms": 280.99309999999997,
+        "since_observed_last_begin_ms": 29.994,
+        "since_observed_last_end_ms": 29.9879,
+        "delivery_observation_ms": 20.1094
+      },
+      "getter_vector": [
+        [
+          4,
+          4,
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1,
+          204,
+          0
+        ],
+        [
+          7,
+          4,
+          -1,
+          -1
+        ],
+        [
+          8,
+          -1,
+          204,
+          32
+        ],
+        [
+          10,
+          4,
+          -1,
+          -1
+        ],
+        [
+          11,
+          -1,
+          204,
+          80
+        ],
+        [
+          13,
+          4,
+          -1,
+          -1
+        ],
+        [
+          14,
+          -1,
+          204,
+          128
+        ],
+        [
+          16,
+          4,
+          -1,
+          -1
+        ],
+        [
+          17,
+          -1,
+          204,
+          177
+        ],
+        [
+          19,
+          2,
+          -1,
+          -1
+        ],
+        [
+          20,
+          -1,
+          204,
+          204
+        ],
+        [
+          22,
+          2,
+          -1,
+          -1
+        ],
+        [
+          23,
+          -1,
+          204,
+          204
+        ],
+        [
+          25,
+          2,
+          -1,
+          -1
+        ],
+        [
+          26,
+          -1,
+          204,
+          204
+        ],
+        [
+          28,
+          2,
+          -1,
+          -1
+        ],
+        [
+          29,
+          -1,
+          204,
+          204
+        ],
+        [
+          31,
+          2,
+          -1,
+          -1
+        ],
+        [
+          32,
+          -1,
+          204,
+          204
+        ],
+        [
+          34,
+          2,
+          -1,
+          -1
+        ],
+        [
+          35,
+          -1,
+          204,
+          204
+        ],
+        [
+          37,
+          2,
+          -1,
+          -1
+        ],
+        [
+          38,
+          -1,
+          204,
+          204
+        ],
+        [
+          40,
+          2,
+          -1,
+          -1
+        ],
+        [
+          41,
+          -1,
+          204,
+          204
+        ],
+        [
+          43,
+          2,
+          -1,
+          -1
+        ],
+        [
+          44,
+          -1,
+          204,
+          204
+        ],
+        [
+          46,
+          2,
+          -1,
+          -1
+        ],
+        [
+          47,
+          -1,
+          204,
+          204
+        ],
+        [
+          49,
+          2,
+          -1,
+          -1
+        ],
+        [
+          50,
+          -1,
+          204,
+          204
+        ],
+        [
+          52,
+          2,
+          -1,
+          -1
+        ],
+        [
+          53,
+          -1,
+          204,
+          204
+        ],
+        [
+          55,
+          2,
+          -1,
+          -1
+        ],
+        [
+          56,
+          -1,
+          204,
+          204
+        ],
+        [
+          58,
+          2,
+          -1,
+          -1
+        ],
+        [
+          59,
+          -1,
+          204,
+          204
+        ],
+        [
+          61,
+          2,
+          -1,
+          -1
+        ],
+        [
+          62,
+          -1,
+          204,
+          204
+        ],
+        [
+          66,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          67,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "log_sha256": "e89335174bba3c265e5d733e9d7b7674fe25999591b9aa018c3ddb2e1134bc1f"
+    },
+    "controlled-stream": {
+      "violations": [],
+      "accepted": true,
+      "summary": {
+        "events": 139,
+        "eos": 1,
+        "ok": 1,
+        "generation": 3,
+        "creates": 2,
+        "releases": 2,
+        "starts": 1,
+        "vendor": 71,
+        "statuscalls": 21,
+        "live": 0,
+        "bypass": 0
+      },
+      "stale": {
+        "request_generation": 1,
+        "live_generation": 2,
+        "handle": 9000544,
+        "lifetime": 2,
+        "result": 1,
+        "status": -1,
+        "vendor_delta": 0,
+        "status_delta": 0
+      },
+      "current": {
+        "request_generation": 2,
+        "status": 2,
+        "vendor_delta": 1
+      },
+      "eos": {
+        "location": "BETWEEN",
+        "active_command": 0,
+        "observed_last_command": 17,
+        "sequence": 34,
+        "thread": 468,
+        "main_thread": 448,
+        "on_main_thread": false,
+        "cw": 639,
+        "sw": 32,
+        "mx": 8064,
+        "delivery_request": 18,
+        "since_first_command_ms": 281.0138,
+        "since_observed_last_begin_ms": 28.2772,
+        "since_observed_last_end_ms": 28.271,
+        "delivery_observation_ms": 21.999100000000002
+      },
+      "getter_vector": [
+        [
+          4,
+          4,
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1,
+          204,
+          0
+        ],
+        [
+          7,
+          4,
+          -1,
+          -1
+        ],
+        [
+          8,
+          -1,
+          204,
+          32
+        ],
+        [
+          10,
+          4,
+          -1,
+          -1
+        ],
+        [
+          11,
+          -1,
+          204,
+          80
+        ],
+        [
+          13,
+          4,
+          -1,
+          -1
+        ],
+        [
+          14,
+          -1,
+          204,
+          128
+        ],
+        [
+          16,
+          4,
+          -1,
+          -1
+        ],
+        [
+          17,
+          -1,
+          204,
+          177
+        ],
+        [
+          19,
+          2,
+          -1,
+          -1
+        ],
+        [
+          20,
+          -1,
+          204,
+          204
+        ],
+        [
+          22,
+          2,
+          -1,
+          -1
+        ],
+        [
+          23,
+          -1,
+          204,
+          204
+        ],
+        [
+          25,
+          2,
+          -1,
+          -1
+        ],
+        [
+          26,
+          -1,
+          204,
+          204
+        ],
+        [
+          28,
+          2,
+          -1,
+          -1
+        ],
+        [
+          29,
+          -1,
+          204,
+          204
+        ],
+        [
+          31,
+          2,
+          -1,
+          -1
+        ],
+        [
+          32,
+          -1,
+          204,
+          204
+        ],
+        [
+          34,
+          2,
+          -1,
+          -1
+        ],
+        [
+          35,
+          -1,
+          204,
+          204
+        ],
+        [
+          37,
+          2,
+          -1,
+          -1
+        ],
+        [
+          38,
+          -1,
+          204,
+          204
+        ],
+        [
+          40,
+          2,
+          -1,
+          -1
+        ],
+        [
+          41,
+          -1,
+          204,
+          204
+        ],
+        [
+          43,
+          2,
+          -1,
+          -1
+        ],
+        [
+          44,
+          -1,
+          204,
+          204
+        ],
+        [
+          46,
+          2,
+          -1,
+          -1
+        ],
+        [
+          47,
+          -1,
+          204,
+          204
+        ],
+        [
+          49,
+          2,
+          -1,
+          -1
+        ],
+        [
+          50,
+          -1,
+          204,
+          204
+        ],
+        [
+          52,
+          2,
+          -1,
+          -1
+        ],
+        [
+          53,
+          -1,
+          204,
+          204
+        ],
+        [
+          55,
+          2,
+          -1,
+          -1
+        ],
+        [
+          56,
+          -1,
+          204,
+          204
+        ],
+        [
+          58,
+          2,
+          -1,
+          -1
+        ],
+        [
+          59,
+          -1,
+          204,
+          204
+        ],
+        [
+          61,
+          2,
+          -1,
+          -1
+        ],
+        [
+          62,
+          -1,
+          204,
+          204
+        ],
+        [
+          66,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          67,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "log_sha256": "77133870074ca9a289e37c56ce549004ab372f8cd6555cdff1f395cf33268771"
+    },
+    "mutant-stream": {
+      "violations": [
+        "stale request accepted",
+        "stale request called vendor",
+        "stale request called STATUS"
+      ],
+      "accepted": false,
+      "summary": {
+        "events": 139,
+        "eos": 1,
+        "ok": 1,
+        "generation": 3,
+        "creates": 2,
+        "releases": 2,
+        "starts": 1,
+        "vendor": 72,
+        "statuscalls": 22,
+        "live": 0,
+        "bypass": 1
+      },
+      "stale": {
+        "request_generation": 1,
+        "live_generation": 2,
+        "handle": 9000512,
+        "lifetime": 2,
+        "result": 0,
+        "status": 2,
+        "vendor_delta": 1,
+        "status_delta": 1
+      },
+      "current": {
+        "request_generation": 2,
+        "status": 2,
+        "vendor_delta": 1
+      },
+      "eos": {
+        "location": "BETWEEN",
+        "active_command": 0,
+        "observed_last_command": 17,
+        "sequence": 34,
+        "thread": 508,
+        "main_thread": 488,
+        "on_main_thread": false,
+        "cw": 639,
+        "sw": 32,
+        "mx": 8064,
+        "delivery_request": 18,
+        "since_first_command_ms": 280.5972,
+        "since_observed_last_begin_ms": 27.938399999999998,
+        "since_observed_last_end_ms": 27.9336,
+        "delivery_observation_ms": 22.398899999999998
+      },
+      "getter_vector": [
+        [
+          4,
+          4,
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1,
+          204,
+          0
+        ],
+        [
+          7,
+          4,
+          -1,
+          -1
+        ],
+        [
+          8,
+          -1,
+          204,
+          32
+        ],
+        [
+          10,
+          4,
+          -1,
+          -1
+        ],
+        [
+          11,
+          -1,
+          204,
+          80
+        ],
+        [
+          13,
+          4,
+          -1,
+          -1
+        ],
+        [
+          14,
+          -1,
+          204,
+          128
+        ],
+        [
+          16,
+          4,
+          -1,
+          -1
+        ],
+        [
+          17,
+          -1,
+          204,
+          177
+        ],
+        [
+          19,
+          2,
+          -1,
+          -1
+        ],
+        [
+          20,
+          -1,
+          204,
+          204
+        ],
+        [
+          22,
+          2,
+          -1,
+          -1
+        ],
+        [
+          23,
+          -1,
+          204,
+          204
+        ],
+        [
+          25,
+          2,
+          -1,
+          -1
+        ],
+        [
+          26,
+          -1,
+          204,
+          204
+        ],
+        [
+          28,
+          2,
+          -1,
+          -1
+        ],
+        [
+          29,
+          -1,
+          204,
+          204
+        ],
+        [
+          31,
+          2,
+          -1,
+          -1
+        ],
+        [
+          32,
+          -1,
+          204,
+          204
+        ],
+        [
+          34,
+          2,
+          -1,
+          -1
+        ],
+        [
+          35,
+          -1,
+          204,
+          204
+        ],
+        [
+          37,
+          2,
+          -1,
+          -1
+        ],
+        [
+          38,
+          -1,
+          204,
+          204
+        ],
+        [
+          40,
+          2,
+          -1,
+          -1
+        ],
+        [
+          41,
+          -1,
+          204,
+          204
+        ],
+        [
+          43,
+          2,
+          -1,
+          -1
+        ],
+        [
+          44,
+          -1,
+          204,
+          204
+        ],
+        [
+          46,
+          2,
+          -1,
+          -1
+        ],
+        [
+          47,
+          -1,
+          204,
+          204
+        ],
+        [
+          49,
+          2,
+          -1,
+          -1
+        ],
+        [
+          50,
+          -1,
+          204,
+          204
+        ],
+        [
+          52,
+          2,
+          -1,
+          -1
+        ],
+        [
+          53,
+          -1,
+          204,
+          204
+        ],
+        [
+          55,
+          2,
+          -1,
+          -1
+        ],
+        [
+          56,
+          -1,
+          204,
+          204
+        ],
+        [
+          58,
+          2,
+          -1,
+          -1
+        ],
+        [
+          59,
+          -1,
+          204,
+          204
+        ],
+        [
+          61,
+          2,
+          -1,
+          -1
+        ],
+        [
+          62,
+          -1,
+          204,
+          204
+        ],
+        [
+          66,
+          2,
+          -1,
+          -1
+        ],
+        [
+          67,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "log_sha256": "ccd47ed74a9670d57d96384d7e0a1e1c3f121f0b6b3c446e104fd3e68544b1f5"
+    }
+  },
+  "comparisons": [
+    {
+      "mode": "sample",
+      "getter_differences": [],
+      "eos_context_and_timing_differences": {
+        "thread": {
+          "direct": 320,
+          "controlled": 356
+        },
+        "main_thread": {
+          "direct": 300,
+          "controlled": 336
+        },
+        "since_first_command_ms": {
+          "direct": 150.3467,
+          "controlled": 150.44219999999999
+        },
+        "since_observed_last_begin_ms": {
+          "direct": 50.0414,
+          "controlled": 49.34439999999999
+        },
+        "since_observed_last_end_ms": {
+          "direct": 50.037600000000005,
+          "controlled": 49.3403
+        },
+        "delivery_observation_ms": {
+          "direct": 0.051199999999999996,
+          "controlled": 0.9534
+        }
+      }
+    },
+    {
+      "mode": "stream",
+      "getter_differences": [],
+      "eos_context_and_timing_differences": {
+        "thread": {
+          "direct": 428,
+          "controlled": 468
+        },
+        "main_thread": {
+          "direct": 408,
+          "controlled": 448
+        },
+        "since_first_command_ms": {
+          "direct": 280.99309999999997,
+          "controlled": 281.0138
+        },
+        "since_observed_last_begin_ms": {
+          "direct": 29.994,
+          "controlled": 28.2772
+        },
+        "since_observed_last_end_ms": {
+          "direct": 29.9879,
+          "controlled": 28.271
+        },
+        "delivery_observation_ms": {
+          "direct": 20.1094,
+          "controlled": 21.999100000000002
+        }
+      }
+    }
+  ],
+  "identity": {
+    "host.exe": {
+      "machine": 332,
+      "sha256": "c9c44f760a554c180fc0608fdab0040919fe35faeb9bc9944b93f538d4d6a866"
+    },
+    "controller.exe": {
+      "machine": 34404,
+      "sha256": "30cc460d1d0cc5c67cd850481cf2875e1424cb63ce3f6fbf6f9dcf1bce8a25dd"
+    }
+  },
+  "prior_evidence_unchanged": true
+}
