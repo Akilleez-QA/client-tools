@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Debug-Win32-candidate",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10000 bracketed TSC samples\r\n",
+    "expected_outcome": true,
+    "source_sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb"
+  },
+  {
+    "name": "Debug-Win32-stock",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10000 bracketed TSC samples\r\n",
+    "expected_outcome": true,
+    "source_sha256": "5e70007458568fcd1e8c4a007edc74aa6643cfec0e5079f8535ff6e71fa42d3c"
+  },
+  {
+    "name": "Debug-x64-candidate",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10000 bracketed TSC samples\r\n",
+    "expected_outcome": true,
+    "source_sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb"
+  },
+  {
+    "name": "Debug-x64-stock",
+    "compile": 2,
+    "run": null,
+    "output": "",
+    "expected_outcome": true,
+    "source_sha256": "5e70007458568fcd1e8c4a007edc74aa6643cfec0e5079f8535ff6e71fa42d3c"
+  },
+  {
+    "name": "Debug-x64-zero",
+    "compile": 0,
+    "run": 1,
+    "output": "FAIL timestamp sample 0\r\n",
+    "expected_outcome": true,
+    "source_sha256": "029dc4b702e28897238fd43f86c3c0faf675ad8b62b302637ee83a156c4950b0"
+  },
+  {
+    "name": "Release-Win32-candidate",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10000 bracketed TSC samples\r\n",
+    "expected_outcome": true,
+    "source_sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb"
+  },
+  {
+    "name": "Release-Win32-stock",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10000 bracketed TSC samples\r\n",
+    "expected_outcome": true,
+    "source_sha256": "5e70007458568fcd1e8c4a007edc74aa6643cfec0e5079f8535ff6e71fa42d3c"
+  },
+  {
+    "name": "Release-x64-candidate",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10000 bracketed TSC samples\r\n",
+    "expected_outcome": true,
+    "source_sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb"
+  },
+  {
+    "name": "Release-x64-stock",
+    "compile": 2,
+    "run": null,
+    "output": "",
+    "expected_outcome": true,
+    "source_sha256": "5e70007458568fcd1e8c4a007edc74aa6643cfec0e5079f8535ff6e71fa42d3c"
+  },
+  {
+    "name": "Release-x64-zero",
+    "compile": 0,
+    "run": 1,
+    "output": "FAIL timestamp sample 0\r\n",
+    "expected_outcome": true,
+    "source_sha256": "029dc4b702e28897238fd43f86c3c0faf675ad8b62b302637ee83a156c4950b0"
+  }
+]
