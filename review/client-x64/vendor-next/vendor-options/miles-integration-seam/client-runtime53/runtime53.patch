@@ -1,0 +1,28 @@
+--- client-file-dispatch50/candidate/callback-control45/host_association_mapper.cpp
++++ client-runtime53/candidate/callback-control45/host_association_mapper.cpp
+@@ -156,3 +156,14 @@
+     return count;
+ }
+ }
++
++namespace MilesFileOwner36 {
++bool HostAssociationMapper::nextUnqueuedReply(uint64_t &wire) const {
++    for (size_t i=0;i<reverse.size();++i) {
++        if(reverse[i].wire && !reverse[i].queued && owner.reply(reverse[i].intake).size) {
++            wire=reverse[i].wire;return true;
++        }
++    }
++    return false;
++}
++}
+--- client-file-dispatch50/candidate/callback-control45/host_association_mapper.h
++++ client-runtime53/candidate/callback-control45/host_association_mapper.h
+@@ -31,6 +31,8 @@
+     SessionFileOwner::Intake receiveReverse(uint64_t authenticatedSession,
+                                            MilesTransport::Bytes frame);
+     void poll();
++    // Control owner selects a ready unsent reply from the existing reverse rows.
++    bool nextUnqueuedReply(uint64_t &wire) const;
+     MilesTransport::Bytes reply(uint64_t reverseRequest) const;
+     // Only after Endpoint.send accepted the complete reply for this request.
+     // Queueing is not consumption and does not release the operation.

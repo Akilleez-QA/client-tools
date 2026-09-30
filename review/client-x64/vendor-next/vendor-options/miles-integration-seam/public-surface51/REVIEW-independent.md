@@ -1,0 +1,31 @@
+# Independent source review of public surface51
+
+Reviewed against product49d0eeed4ddaa177d7a93ea396c37c3d9b9942da and the possessed product Mss.h. Read actual Audio call sites, its sample headers and FirstClientAudio.h, plus existing47 pipe exception sites. No compilation, runtime, VM, proposal edits or product edits. This is a separate reviewer of the same source family, not independent runtime evidence.
+
+## Concrete finding
+
+**P2 — Missing live file-seek origin constants.** ClientMiles.h supplies file types/errors and native-shaped file callback typedefs but no equivalents for `AIL_FILE_SEEK_BEGIN`, `AIL_FILE_SEEK_CURRENT`, `AIL_FILE_SEEK_END`. Actual `fileSeekCallBack` switches on all three at Audio.cpp4024/4029/4034, in ordinary callback code, not diagnostics. Possessed Mss.h5227–5229 defines0/1/2. Removing mss.h from FirstClientAudio.h therefore leaves these live references without a facade replacement (or forces SDK names/literals into engine adaptation). Add three plain constants and private SDK assertions, then map the callback's case labels during adoption. This is a source-surface completeness gap, not a discovered seek behavior bug in current product.
+
+## Bounded checks and implementation limits
+
+No additional missing live function was found in Audio.cpp's AIL call inventory. `AIL_pause_stream`, `AIL_stream_volume_levels`, and digital master-volume/reverb calls are commented; digital configuration/filter/capture calls are in the disabled capture block. `file_error` and active-sample diagnostics are appropriately qualified in the proposal. Sample2d.h29, Sample3d.h28 and SampleStream.h27 still require the facade handle-type adoption; Audio.h itself contains no SDK declarations. FirstClientAudio.h currently imports mss.h and must change only with that coordinated future adaptation.
+
+Inspected scalar signatures preserve possessed S32/U32, SINTa/UINTa width, sample unsigned status versus stream signed status, signed byte-loop endpoints and signed millisecond positions. The projected WAV fields match the seven fields Audio reads and their SDK signedness. Listed preference/speaker/sample-state/file-type/file-error/room values matched the inspected declarations. File callback UINTa/S32/U32 and __stdcall shapes match the normal possessed Windows branch. Ordinary facade functions are C++ wrappers rather than DLL exports, so their lack of AILCALL is not itself an ABI mismatch; delegates still require the real SDK signature. This is source inspection, not universal Win32/Win64 compile proof.
+
+EOS/stream callbacks cannot be forwarded by casting the facade function pointer to the SDK type: opaque pointee types differ. The proposal explicitly requires typed thunks and previous-callback mapping, publication before possible synchronous invocation, retained registration lifetime and actual facade identity on return. Audio's completion callbacks search its maps by handle equality before calling Sound2::endOfSample (4730–4789), so returning an SDK pointer when the engine stored a pipe proxy would be a concrete implementation failure. The proposed requirements cover this; there is no implementation yet to assess. Mapping cannot simply wrap an unknown callback installed outside the facade, also explicitly acknowledged.
+
+The per-function text snapshots are implementable private guarantees, not unsupported vendor lifetimes. Separate result storage and retained redist input avoid replacing a setter's own argument while the SDK may retain it. The explicitly stated same-function invalidation/concurrency limit is material; it does not promise concurrent-safe text ownership. Actual call sites consume these strings immediately. The version wrapper intentionally preserves the SDK macro's observable writes and does not invent a success status. Its missing universal termination guarantee is candid and remains a separately reviewed adoption choice, not a newly introduced guarantee.
+
+There are no modern STL objects or exception classes in the proposed public header. **Actual containment is not implemented:**47 ClientMilesPipe.cpp41–42 throws ClientMiles::Failure; request entry129 invokes requireForwardAllowed, which can throw ReentryDenied. These must be inside each future public implementation's complete catch boundary, including prechecks, allocation and post-call conversion. Merely replacing the include leaves an exception crossing. The proposal correctly labels this as required work. Likewise, direct35 file callback forwarding does not itself contain an engine callback exception; no-unwind engine callbacks or reviewed native thunks remain necessary. Engine callbacks may throw through the immediate private invocation until its catch boundary; they must not unwind onward through the vendor ABI. No claim of zero exception propagation inside private callback plumbing follows from the header.
+
+The private fatal/report callback with numeric/text arguments introduces no STL ownership transfer. Its synchronous borrowed-message rule and nonreturning fallback can be implemented without inventing a native null/EOF result. The requirement to bind it before redist/version/startup and retain it through quiescence must be implemented by the future composition root. This is a terminal failure policy, not recoverable native behavior; it has not been executed or validated here.
+
+Overall, the shape permits the temporary pipe to remain private and replaceable. Fix the seek constants before declaring Audio lexical coverage complete. The larger remaining work is implementation of the already stated delegates, callback identity/lifetime and exception containment, not additional public transport types.
+
+## Reviewed input identities
+
+- `candidate/ClientMiles.h`: `b9c24065a4c98ca0298bbb01b1cfacb517761114238964c72fc9951b51495592`
+- `PROPOSAL.md`: `c7341875ff3a9c0bdb60297815193d653c54382c180701faafa03eb70e31c06e`
+- `PRIVATE-FAILURE-BOUNDARY.md`: `5de92e3565e20a11f3c17a3979a9d7a29fc5b1ff5ccb54083cdf5f64f64db19f`
+- `src/engine/client/library/clientAudio/src/win32/Audio.cpp`: `c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406`
+- `src/external/3rd/library/miles/include/Mss.h`: `966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e`

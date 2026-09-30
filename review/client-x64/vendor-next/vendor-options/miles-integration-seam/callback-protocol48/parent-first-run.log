@@ -1,0 +1,56 @@
+{
+  "scope": "portable protocol48 helper, codec and file-channel only; no SDK, worker, mapper, endpoint or native ABI execution",
+  "first_frozen_runner_attempt": true,
+  "test_freeze_sha256": "fd3ebbda3260b4af04cbb9e0ca41aed443cb715d50cce57e9ba2607569a8a948",
+  "build_command": [
+    "/usr/bin/clang++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/portable-v1/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/candidate/callback-protocol48/file_protocol.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/candidate/transport-candidate/codec.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/evidence-v1/protocol48-portable"
+  ],
+  "run_command": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/evidence-v1/protocol48-portable"
+  ],
+  "build_timeout_seconds": 120,
+  "run_timeout_seconds": 30,
+  "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+  "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+  "start_epoch": 1790787691.7510445,
+  "build_exit": 0,
+  "run_exit": 0,
+  "end_epoch": 1790787694.9161382,
+  "frozen_inputs_changed": [],
+  "test_freeze_changed": false,
+  "scenario_counts": {
+    "PASS independent golden install reply and ACK bytes": 1,
+    "PASS bounded and vector Call encoding payloads and rejection sentinels": 1,
+    "PASS install request exact fields origin and malformed lengths": 1,
+    "PASS install statuses exact echo and unchanged rejected output": 1,
+    "PASS retained file ACK origins opcodes registration and stateless duplicate boundary": 1,
+    "PASS typed fixed encoders bounds and unchanged failure output": 1,
+    "PASS stream parent echo nullable alias and malformed success rejection": 1,
+    "PASS old versions rejected across all codec and typed surfaces": 1
+  },
+  "all_scenarios_exactly_once": true,
+  "reported_check_count": 8085,
+  "unexpected_output": [],
+  "artifact_sha256": {
+    "build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run.log": "cb146aadf43d2cb1bd7cc44457ce4f87b02c6419056d9eb84e7f4caf8f4ea192",
+    "protocol48-portable": "37c427e1922f3941ff3b1e2989a6cab5ff28808ac2eaa7f8fb0732df7829ddca"
+  },
+  "pass": true
+}

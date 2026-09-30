@@ -1,0 +1,59 @@
+{
+  "manifest": "19b5ed0340011f8eacc387f426e2cc7b06be2aff14435dd59cbcab08ebd85e4e",
+  "driver": "6bc7d8ac683dda4949798957043961131018cc65c7d84ac29d236fa835bccdcd",
+  "sha256": {
+    "candidate/callback-protocol48/file_protocol.cpp": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e",
+    "candidate/callback-protocol48/file_protocol.h": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf",
+    "candidate/file-channel26/file_channel.cpp": "03d29cbfcdff8eaeabeaef620654b4190f6c2b60fac107c1f798eb826d483dce",
+    "candidate/file-channel26/file_channel.h": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+    "candidate/host-file-consumption49/file_tokens.cpp": "113f97c2ef67a1d638c27c3a820fdd0d5a53759788355504e26ccb1b7ff2f1da",
+    "candidate/host-file-consumption49/file_tokens.h": "f0201fd36d5d28be662f2e6aab863b1844f6727fb567d893510e32a00027dd8a",
+    "candidate/host-file-consumption49/reply_transaction.cpp": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db",
+    "candidate/host-file-consumption49/reply_transaction.h": "727ee26d55c9815721ebf304ffbc8a43fb9fe8a4608363eb4964c7f79c64c757",
+    "candidate/protocol-candidate/miles_wire.h": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3",
+    "candidate/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "candidate/transport-candidate/codec.cpp": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679",
+    "candidate/transport-candidate/codec.h": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7",
+    "candidate/transport-candidate/resource_registry.h": "f058c6abcf10d3b5365acb427b7f33d8debe31f4ca2d6c648472916e38960a8f",
+    "flags.json": "ac1d0224ffee5c5290f50bfd3906f8e8a053ba64c26cfc9266e2b290dcf54ffd",
+    "require-v120-amd64.h": "fc815edc015cb3aa2ccb41a9d00a013454d8397961f5fc2e23d8fd9612e3ff87",
+    "require-v120-x86.h": "08ec5001616b4ce4b6143b19ff574a2d432ff34d042efb9c0ebb107d6e9adc11",
+    "run-native.py": "6bc7d8ac683dda4949798957043961131018cc65c7d84ac29d236fa835bccdcd",
+    "symbol_parser.py": "b279d594f75246c4aede80dfb10cc99ba03ec4a4566c977704591cf7f4381261",
+    "toolchain.json": "ee2dea4f36c2aa531c7985c9f245ff5d309adcc6cb59426a076ab10bfdd171c0"
+  },
+  "input_mismatches": [],
+  "system_header_post_hashing_performed": false,
+  "objects_rechecked": {
+    "results\\amd64\\file-protocol\\file-protocol.obj": {
+      "sha256": "fc8f46d3893944c03c7fe7759c77b8574a8e862a0d901616a3af3379ba898c88",
+      "bytes": 185444,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64\\file-tokens\\file-tokens.obj": {
+      "sha256": "1958e00fe0f8a980b7a835b48a8d480fd4f6c71190c655949af67b15445c3556",
+      "bytes": 210672,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64\\reply-transaction\\reply-transaction.obj": {
+      "sha256": "0238fa540fbf9eee2f85dd899151e5a821ef17fc5376f5a97c60f31757982316",
+      "bytes": 228236,
+      "coff_machine": "0x8664"
+    },
+    "results\\x86\\file-protocol\\file-protocol.obj": {
+      "sha256": "46b628150474d904a3f019560d1d6d83c9dac534c769ab315c4a535c7f22b104",
+      "bytes": 130809,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86\\file-tokens\\file-tokens.obj": {
+      "sha256": "260ba58bd6e2ae80f05d699760d4d3d88f22adf11b53d430fc640ca2f96e439f",
+      "bytes": 138613,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86\\reply-transaction\\reply-transaction.obj": {
+      "sha256": "bd5d8ed00d2c5dabe6ca539270d3789737d18466f9210138640e14a35dcb34f1",
+      "bytes": 160870,
+      "coff_machine": "0x14c"
+    }
+  }
+}

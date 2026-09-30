@@ -1,0 +1,239 @@
+--- /dev/null
++++ b/host-file-consumption49/file_tokens.cpp
+@@ -0,0 +1,56 @@
++#include "file_tokens.h"
++namespace MilesHostFiles49 {
++namespace {
++bool same(const MilesWire::Handle &a,const MilesWire::Handle &b) {
++    return a.kind==b.kind && a.slot==b.slot && a.generation==b.generation;
++}
++}
++FileTokens::FileTokens(uint32_t count):registry(count),records(new Record[count]),capacity(count),lastToken(0) {}
++FileTokens::~FileTokens() {}
++FileTokens::Record *FileTokens::find(uint32_t token) throw() {
++    if(!token)return 0;
++    for(uint32_t i=0;i<capacity;++i)if(records[i].state!=Free && records[i].token==token)return &records[i];
++    return 0;
++}
++const FileTokens::Record *FileTokens::find(uint32_t token) const throw() {
++    if(!token)return 0;
++    for(uint32_t i=0;i<capacity;++i)if(records[i].state!=Free && records[i].token==token)return &records[i];
++    return 0;
++}
++bool FileTokens::reserveOpen(uint32_t &token) {
++    if(lastToken==UINT32_MAX)return false; // Numeric exhaustion before another open is sent; never wrap/reuse.
++    Record *record=0;
++    for(uint32_t i=0;i<capacity;++i)if(records[i].state==Free){record=&records[i];break;}
++    if(!record || !registry.reserve(MilesWire::File,MilesWire::Handle(),record->reservation))return false;
++    record->state=Reserved;record->token=++lastToken;record->hostIdentity=MilesWire::Handle();
++    record->remoteFile=MilesWire::Handle();token=record->token;return true;
++}
++bool FileTokens::cancelOpen(uint32_t token) throw() {
++    Record *r=find(token);if(!r || r->state!=Reserved)return false;
++    registry.cancel(r->reservation);r->state=Free;r->token=0;return true;
++}
++bool FileTokens::publishOpen(uint32_t token,const MilesWire::Handle &remote) throw() {
++    Record *r=find(token);
++    if(!r || r->state!=Reserved || remote.kind!=MilesWire::File || !remote.slot || !remote.generation)return false;
++    for(uint32_t i=0;i<capacity;++i)
++        if((records[i].state==Live || records[i].state==Closing) && same(records[i].remoteFile,remote))return false;
++    MilesWire::Handle host={};
++    if(!registry.publish(r->reservation,r,host))return false;
++    r->hostIdentity=host;r->remoteFile=remote;r->state=Live;return true;
++}
++bool FileTokens::resolve(uint32_t token,MilesWire::Handle &remote) const throw() {
++    const Record *r=find(token);void *raw=0;
++    if(!r || r->state!=Live || !registry.resolve(r->hostIdentity,MilesWire::File,raw) || raw!=r)return false;
++    remote=r->remoteFile;return true;
++}
++bool FileTokens::beginClose(uint32_t token) throw() {
++    Record *r=find(token);
++    if(!r || r->state!=Live || !registry.beginClose(r->hostIdentity))return false;
++    r->state=Closing;return true;
++}
++bool FileTokens::finishClose(uint32_t token) throw() {
++    Record *r=find(token);
++    if(!r || r->state!=Closing || !registry.retire(r->hostIdentity))return false;
++    r->state=Free;r->token=0;r->hostIdentity=MilesWire::Handle();r->remoteFile=MilesWire::Handle();return true;
++}
++}
+--- /dev/null
++++ b/host-file-consumption49/file_tokens.h
+@@ -0,0 +1,44 @@
++#ifndef HOST_FILE_TOKENS49_H
++#define HOST_FILE_TOKENS49_H
++#include "../transport-candidate/resource_registry.h"
++#include <memory>
++namespace MilesHostFiles49 {
++// Private x86 SDK token adapter over the existing resource registry. Serialized
++// by the host's callback producer slot. No vendor/client handles are pointers here.
++class FileTokens {
++public:
++    explicit FileTokens(uint32_t liveCapacity);
++    ~FileTokens();
++    // May allocate registry storage. Must succeed before sending FileOpen.
++    bool reserveOpen(uint32_t &opaqueToken);
++    // Only for a request never sent, or a validated ordinary failed-open result.
++    bool cancelOpen(uint32_t opaqueToken) throw();
++    // No allocation. remoteFile is the CLIENT's wire identity, not registry identity.
++    bool publishOpen(uint32_t opaqueToken,const MilesWire::Handle &remoteFile) throw();
++    bool resolve(uint32_t opaqueToken,MilesWire::Handle &remoteFile) const throw();
++    bool beginClose(uint32_t opaqueToken) throw();
++    bool finishClose(uint32_t opaqueToken) throw();
++private:
++    enum State { Free, Reserved, Live, Closing };
++    struct Record {
++        State state;
++        uint32_t token;
++        MilesWire::Handle hostIdentity, remoteFile;
++        MilesTransport::ResourceRegistry::Reservation reservation;
++        Record():state(Free),token(0),hostIdentity(),remoteFile() {}
++    private:
++        Record(const Record &);
++        Record &operator=(const Record &);
++    };
++    // Registry must outlive record Reservations during destruction.
++    MilesTransport::ResourceRegistry registry;
++    std::unique_ptr<Record[]> records;
++    const uint32_t capacity;
++    uint32_t lastToken;
++    Record *find(uint32_t) throw();
++    const Record *find(uint32_t) const throw();
++    FileTokens(const FileTokens &);
++    FileTokens &operator=(const FileTokens &);
++};
++}
++#endif
+--- /dev/null
++++ b/host-file-consumption49/reply_transaction.cpp
+@@ -0,0 +1,79 @@
++#include "reply_transaction.h"
++#include <exception>
++#include <stdexcept>
++namespace MilesHostFiles49 {
++namespace {
++bool same(const MilesWire::Handle &a,const MilesWire::Handle &b) {
++    return a.kind==b.kind && a.slot==b.slot && a.generation==b.generation;
++}
++}
++ReplyTransaction::ReplyTransaction(FileTokens &table,const MilesFileChannel26::Request &original,
++    uint64_t registration,uint32_t existingToken,void *buffer,size_t bufferCapacity)
++    :tokens(table),request(original),token(existingToken),returnedBits(0),opened(0),
++     destination(buffer),capacity(bufferCapacity),ackSize(0),current(Prepared) {
++    MilesFileProtocol48::FileAckExpected expected;
++    if(!MilesFileProtocol48::expectFileAck(request,registration,expected) ||
++       !MilesFileProtocol48::encodeFileConsumptionAck(expected,ackBytes,sizeof ackBytes,ackSize))
++        throw std::invalid_argument("validated current-version file request and installed registration required");
++    if(request.opcode()==MilesWire::FileRead) {
++        if(capacity<request.count() || (request.count() && !destination))
++            throw std::invalid_argument("read destination must cover complete requested extent");
++    } else if(destination || capacity)throw std::invalid_argument("buffer only belongs to read");
++    if(request.opcode()==MilesWire::FileOpen) {
++        if(token)throw std::invalid_argument("open has no existing SDK token");
++        // Last fallible preparation: reserve all registry ownership before send.
++        if(!tokens.reserveOpen(token))throw std::runtime_error("host file capacity or token space exhausted before send");
++    } else {
++        MilesWire::Handle remote={};
++        if(!tokens.resolve(token,remote) || !same(remote,request.target()))
++            throw std::invalid_argument("SDK token must resolve to exact client wire File identity");
++    }
++}
++ReplyTransaction::~ReplyTransaction() {
++    if(current==Prepared) {if(!cancelBeforeSend())std::terminate();}
++    else if(current!=Acked && current!=Cancelled)std::terminate();
++}
++bool ReplyTransaction::cancelBeforeSend() throw() {
++    if(current!=Prepared)return false;
++    if(request.opcode()==MilesWire::FileOpen && !tokens.cancelOpen(token))return false;
++    current=Cancelled;return true;
++}
++bool ReplyTransaction::beginSend() throw() {
++    if(current!=Prepared)return false;
++    if(request.opcode()==MilesWire::FileClose && !tokens.beginClose(token))return false;
++    current=Issued;return true;
++}
++bool ReplyTransaction::consume(MilesTransport::Bytes frame) throw() {
++    if(current!=Issued){current=Failed;return false;}
++    current=Failed; // Sticky before validation: malformed/uncertain results cannot be retried.
++    try {
++        MilesFileChannel26::OwnedReply reply;
++        if(MilesFileChannel26::decodeReply(frame,request,reply)!=MilesFileChannel26::Valid)return false;
++        if(request.opcode()==MilesWire::FileOpen) {
++            if(reply.returnBits) {
++                if(!tokens.publishOpen(token,reply.file))return false;
++                opened=token;
++            } else if(!tokens.cancelOpen(token))return false;
++        } else if(request.opcode()==MilesWire::FileRead) {
++            // Real decoder checked frame bounds/payload extent; copyRead checks
++            // destination capacity/nullness and returned-count equality again.
++            if(MilesFileChannel26::copyRead(reply,request.count(),destination,capacity)!=MilesFileChannel26::Valid)return false;
++        } else if(request.opcode()==MilesWire::FileClose) {
++            if(!tokens.finishClose(token))return false;
++        }
++        // Seek bits and all status fields came through the exact real decoder.
++        returnedBits=reply.returnBits;current=Consumed;return true;
++    } catch(...) {return false;} // Allocation/validation uncertainty is never EOF or retry permission.
++}
++MilesTransport::Bytes ReplyTransaction::ack() const throw() {
++    return current==Consumed?MilesTransport::Bytes(ackBytes,ackSize):MilesTransport::Bytes();
++}
++bool ReplyTransaction::observeAckWriteComplete() throw() {
++    if(current!=Consumed)return false;
++    current=Acked;return true;
++}
++bool ReplyTransaction::result(uint32_t &bits,uint32_t &openedToken) const throw() {
++    if(current!=Acked)return false;
++    bits=returnedBits;openedToken=opened;return true;
++}
++}
+--- /dev/null
++++ b/host-file-consumption49/reply_transaction.h
+@@ -0,0 +1,37 @@
++#ifndef HOST_FILE_REPLY_TRANSACTION49_H
++#define HOST_FILE_REPLY_TRANSACTION49_H
++#include "file_tokens.h"
++#include "../callback-protocol48/file_protocol.h"
++namespace MilesHostFiles49 {
++// One serialized host callback. Request/token/buffer preparation precedes send.
++// FileTokens and vendor destination must outlive this transaction. The caller
++// supplies authentic session context and a genuine validated outstanding Request.
++class ReplyTransaction {
++public:
++    enum State { Prepared, Issued, Consumed, Acked, Cancelled, Failed };
++    ReplyTransaction(FileTokens &,const MilesFileChannel26::Request &,uint64_t registration,
++                     uint32_t existingToken,void *readDestination=0,size_t readCapacity=0);
++    // Issued/Consumed/Failed destruction is forbidden: unknown effects/ACK uncertainty
++    // require retention or the nonreturning host failure boundary, never rollback.
++    ~ReplyTransaction();
++    bool cancelBeforeSend() throw();
++    bool beginSend() throw(); // Call BEFORE transport may expose any request byte.
++    bool consume(MilesTransport::Bytes reply) throw(); // false => terminal host failure; no retry
++    MilesTransport::Bytes ack() const throw(); // available only after exact consumption
++    bool observeAckWriteComplete() throw(); // host I/O owner reports actual completed write
++    bool result(uint32_t &returnBits,uint32_t &openedToken) const throw(); // only after Acked
++    State state() const throw(){return current;}
++private:
++    FileTokens &tokens;
++    MilesFileChannel26::Request request;
++    uint32_t token,returnedBits,opened;
++    void *destination;
++    size_t capacity;
++    unsigned char ackBytes[MilesFileProtocol48::ConsumptionAckBytes];
++    size_t ackSize;
++    State current;
++    ReplyTransaction(const ReplyTransaction &);
++    ReplyTransaction &operator=(const ReplyTransaction &);
++};
++}
++#endif
+--- a/transport-candidate/resource_registry.h
++++ b/transport-candidate/resource_registry.h
+@@ -89,7 +89,7 @@
+     // A token must not outlive this registry; consume it before closing its parent.
+     bool reserve(MilesWire::ResourceKind kind, const MilesWire::Handle &parent,
+                  Reservation &token) {
+-        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample))
++        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample && kind != MilesWire::File))
+             return false;
+         if (kind == MilesWire::OwnedSample) {
+             void *driver = 0;

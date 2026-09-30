@@ -1,0 +1,170 @@
+--- callback-composition46/candidate/file-owner36/session_file_owner.h
++++ client-file-dispatch50/candidate/file-owner36/session_file_owner.h
+@@ -30,6 +30,7 @@
+ // failure and until proven vendor quiescence, all closes, ACKs and worker join.
+ // Destruction supplies no implicit close, ACK, worker join or quiescence proof.
+ class SessionFileOwner {
++    friend class HostAssociationMapper; // Reads the genuine local session/registration only.
+ public:
+     enum Intake { Queued, Rejected, FailedUnanswered };
+     enum FileState { Reserved, OpenUnpublished, Published, ClosePending, ClosedAwaitingAck, Uncertain };
+--- callback-composition46/candidate/callback-control45/host_association_mapper.h
++++ client-file-dispatch50/candidate/callback-control45/host_association_mapper.h
+@@ -1,6 +1,7 @@
+ #ifndef MILES_HOST_ASSOCIATION_MAPPER45_H
+ #define MILES_HOST_ASSOCIATION_MAPPER45_H
+ #include "../file-owner36/session_file_owner.h"
++#include "../callback-protocol48/file_protocol.h"
+ 
+ namespace MilesFileOwner36 {
+ // Private single-control-thread composition. The pipe owner authenticates peers
+@@ -22,6 +23,11 @@
+     bool observeForwardReturn(uint64_t authenticatedSession, uint64_t wireRequest);
+     // Outer command result owner explicitly consumes a Settled result once.
+     bool consumeCommand(uint64_t wireRequest);
++    enum ControlResult { FileQueued, AckConsumed, ControlRejected, ControlFailedUnanswered };
++    // Intended authenticated endpoint entry. ACK is dispatched before new-ID intake.
++    // AckConsumed sends no reply; it records consumption, never a file result.
++    ControlResult receiveControl(uint64_t authenticatedSession, MilesTransport::Bytes frame);
++    // Trusted internal path; production endpoint code must use receiveControl.
+     SessionFileOwner::Intake receiveReverse(uint64_t authenticatedSession,
+                                            MilesTransport::Bytes frame);
+     void poll();
+@@ -29,7 +35,8 @@
+     // Only after Endpoint.send accepted the complete reply for this request.
+     // Queueing is not consumption and does not release the operation.
+     bool markReplyQueued(uint64_t reverseRequest);
+-    // Called only for a fully validated ACK on the authenticated reverse pipe.
++    // Trusted internal path, only after exact retained ACK validation.
++    // Production endpoint code uses receiveControl instead.
+     // ACK carries reverse identity, NEVER a peer-selected local intake ordinal.
+     bool acknowledgeConsumed(uint64_t authenticatedSession, uint64_t reverseRequest);
+     void fail(); // Unknown outcomes remain pinned. Supplies no file cleanup.
+@@ -40,6 +47,7 @@
+     struct Reverse {
+         uint64_t wire, intake;
+         bool queued;
++        MilesFileProtocol48::FileAckExpected expected;
+         Reverse() : wire(0), intake(0), queued(false) {}
+     };
+     struct Command {
+--- callback-composition46/candidate/callback-control45/host_association_mapper.cpp
++++ client-file-dispatch50/candidate/callback-control45/host_association_mapper.cpp
+@@ -6,7 +6,7 @@
+     MilesCoordinator::Coordinator &c, SessionFileOwner &o, size_t maximum)
+     : session(s), backgroundLane(lane), lastWire(0), lastReverse(0), lastIntake(0),
+       coordinator(c), owner(o), reverse(maximum) {
+-    if (!s || !lane || !maximum)
++    if (!s || !lane || !maximum || s != o.session || !o.registration)
+         throw std::invalid_argument("session, background lane and reverse capacity required");
+ }
+ MilesCoordinator::Error HostAssociationMapper::publishCommand(uint64_t wire,
+@@ -54,40 +54,78 @@
+     for (size_t i = 0; i < reverse.size(); ++i) if (reverse[i].wire == wire) return &reverse[i];
+     return 0;
+ }
++HostAssociationMapper::ControlResult HostAssociationMapper::receiveControl(
++    uint64_t s, MilesTransport::Bytes frame) {
++    try {
++        MilesWire::Header header = {};
++        MilesWire::Call call = {};
++        if (s != session || !MilesTransport::decodeCall(frame, header, call)) {
++            fail(); return ControlRejected;
++        }
++        // An ACK reuses the original ID and must never enter monotonic intake.
++        if (header.opcode == MilesWire::FileConsumptionAck) {
++            const Reverse *record = find(header.request);
++            if (!record || !MilesFileProtocol48::validateFileConsumptionAck(frame, record->expected)) {
++                fail(); return ControlRejected;
++            }
++            return acknowledgeConsumed(s, header.request) ? AckConsumed : ControlRejected;
++        }
++        const SessionFileOwner::Intake result = receiveReverse(s, frame);
++        if (result == SessionFileOwner::Queued) return FileQueued;
++        return result == SessionFileOwner::Rejected ? ControlRejected : ControlFailedUnanswered;
++    } catch (...) {
++        // Retain any published row/job. External failure handling supplies no EOF.
++        fail(); return ControlFailedUnanswered;
++    }
++}
+ SessionFileOwner::Intake HostAssociationMapper::receiveReverse(uint64_t s, MilesTransport::Bytes frame) {
+-    MilesWire::Header header = {};
+-    MilesWire::Call call = {};
+-    if (s != session || !MilesTransport::decodeCall(frame, header, call) ||
+-        header.kind != MilesWire::ReverseRequest || !header.request ||
+-        header.request <= lastReverse || lastIntake == UINT64_MAX) {
+-        fail(); return SessionFileOwner::Rejected;
+-    }
+-    uint64_t admission = 0;
+-    MilesCoordinator::CallbackKind kind = MilesCoordinator::Unsolicited;
+-    if (header.causal_request) {
+-        if ((command.state != Executing && command.state != ReturnedWaiting) ||
+-            header.causal_request != command.wire || header.lane != command.lane ||
+-            header.lock_lease != command.lease) {
++    try {
++        MilesWire::Header header = {};
++        MilesWire::Call call = {};
++        if (s != session || !MilesTransport::decodeCall(frame, header, call) ||
++            header.kind != MilesWire::ReverseRequest || !header.request ||
++            header.request <= lastReverse || lastIntake == UINT64_MAX) {
+             fail(); return SessionFileOwner::Rejected;
+         }
+-        admission = command.admission; kind = MilesCoordinator::CausalReverseIo;
+-    } else if (header.lane != backgroundLane || header.lock_lease) {
+-        fail(); return SessionFileOwner::Rejected;
++        uint64_t admission = 0;
++        MilesCoordinator::CallbackKind kind = MilesCoordinator::Unsolicited;
++        if (header.causal_request) {
++            if ((command.state != Executing && command.state != ReturnedWaiting) ||
++                header.causal_request != command.wire || header.lane != command.lane ||
++                header.lock_lease != command.lease) {
++                fail(); return SessionFileOwner::Rejected;
++            }
++            admission = command.admission; kind = MilesCoordinator::CausalReverseIo;
++        } else if (header.lane != backgroundLane || header.lock_lease) {
++            fail(); return SessionFileOwner::Rejected;
++        }
++        size_t slot = 0;
++        for (; slot < reverse.size(); ++slot) if (!reverse[slot].wire) break;
++        if (slot == reverse.size()) { fail(); return SessionFileOwner::FailedUnanswered; }
++        const MilesFileChannel26::Association association = {
++            header.request, header.causal_request, header.lane, header.lock_lease
++        };
++        MilesFileChannel26::Request request;
++        MilesFileProtocol48::FileAckExpected expected;
++        if (MilesFileChannel26::decodeRequest(frame, association, request) != MilesFileChannel26::Valid ||
++            !MilesFileProtocol48::expectFileAck(request, owner.registration, expected)) {
++            fail(); return SessionFileOwner::Rejected;
++        }
++        // Original opcode/envelope and genuine registration precede all file effects.
++        // Deep rejection above publishes no reverse row and consumes no intake ID.
++        // All correlation storage precedes file admission/possible worker execution.
++        Reverse &record = reverse[slot];
++        record.expected = expected;
++        record.wire = header.request; record.intake = ++lastIntake; record.queued = false;
++        lastReverse = header.request;
++        const TrustedAssociation trusted(session, record.intake, admission, association, kind);
++        const SessionFileOwner::Intake result = owner.receive(trusted, frame);
++        if (result != SessionFileOwner::Queued) fail();
++        return result;
++    } catch (...) {
++        // Before publication there is no file work; afterwards keep the row/job.
++        fail(); return SessionFileOwner::FailedUnanswered;
+     }
+-    size_t slot = 0;
+-    for (; slot < reverse.size(); ++slot) if (!reverse[slot].wire) break;
+-    if (slot == reverse.size()) { fail(); return SessionFileOwner::FailedUnanswered; }
+-    const MilesFileChannel26::Association association = {
+-        header.request, header.causal_request, header.lane, header.lock_lease
+-    };
+-    // All correlation storage precedes file admission/possible worker execution.
+-    Reverse &record = reverse[slot];
+-    record.wire = header.request; record.intake = ++lastIntake; record.queued = false;
+-    lastReverse = header.request;
+-    const TrustedAssociation trusted(session, record.intake, admission, association, kind);
+-    const SessionFileOwner::Intake result = owner.receive(trusted, frame);
+-    if (result != SessionFileOwner::Queued) fail();
+-    return result;
+ }
+ void HostAssociationMapper::poll() { owner.poll(); settle(); }
+ MilesTransport::Bytes HostAssociationMapper::reply(uint64_t wire) const {

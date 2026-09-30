@@ -1,0 +1,34 @@
+{
+  "scope": "portable protocol48 helper, codec and file-channel only; no SDK, worker, mapper, endpoint or native ABI execution",
+  "first_frozen_runner_attempt": true,
+  "test_freeze_sha256": "fd3ebbda3260b4af04cbb9e0ca41aed443cb715d50cce57e9ba2607569a8a948",
+  "build_command": [
+    "/usr/bin/clang++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/portable-v1/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/candidate/callback-protocol48/file_protocol.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/candidate/transport-candidate/codec.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/evidence-v1/protocol48-portable"
+  ],
+  "run_command": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-protocol48/evidence-v1/protocol48-portable"
+  ],
+  "build_timeout_seconds": 120,
+  "run_timeout_seconds": 30,
+  "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+  "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+  "start_epoch": 1790787691.7510445,
+  "build_exit": null,
+  "run_exit": null
+}

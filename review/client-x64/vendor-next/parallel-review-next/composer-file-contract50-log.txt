@@ -1,0 +1,131 @@
+# Integration review: host `ReplyTransaction` ↔ client `HostAssociationMapper` / protocol 48
+
+Scope is only the supplied sources. No clearance of end-to-end wiring, `SessionFileOwner`, `ResourceRegistry`, or `MilesFileChannel26` decode semantics beyond what these files call.
+
+---
+
+## Contract the two sides agree on (when outer code cooperates)
+
+| Step | Host (`ReplyTransaction`) | Client (`HostAssociationMapper` + `file_protocol`) |
+|------|-----------------------------|-----------------------------------------------------|
+| Prepare | Constructor: `expectFileAck` + `encodeFileConsumptionAck`; open reserves token; others `resolve` + target match | — |
+| Request on wire | `beginSend()` before bytes visible; close also `beginClose` | `receiveReverse`: decode + `expectFileAck` → store `Reverse.expected` |
+| Reply | `consume(frame)` after `Issued` only | Reply built elsewhere; `markReplyQueued(wire)` requires non-empty `owner.reply(intake)` |
+| ACK | `ack()` only if `Consumed`; then `observeAckWriteComplete()` | `receiveControl`: `FileConsumptionAck` **before** reverse intake; `validateFileConsumptionAck`; `acknowledgeConsumed` requires `queued` |
+| Finish | Destructor only `Prepared`→cancel or `Acked`/`Cancelled`; else `terminate()` | `acknowledgeConsumed` clears `Reverse`, calls `settle()` |
+
+ACK identity is aligned in code: host encodes from `FileAckExpected.original` with opcode `FileConsumptionAck`; client looks up `header.request` and validates `sameOrigin` + registration + `value[0]` original opcode (`file_protocol.cpp` encode/validate paths).
+
+---
+
+## Concrete defects (in supplied source)
+
+### 1. Client: reverse row pinned if `owner.receive` ≠ `Queued` after publication
+
+In `receiveReverse`, the `Reverse` slot is filled **before** `owner.receive`:
+
+```cpp
+record.expected = expected;
+record.wire = header.request; record.intake = ++lastIntake; record.queued = false;
+// ...
+const SessionFileOwner::Intake result = owner.receive(trusted, frame);
+if (result != SessionFileOwner::Queued) fail();
+```
+
+`fail()` does not clear `reverse[]`. Any non-`Queued` outcome (or the `catch` path after publication) leaves `wire` set, `queued == false`, with no path through `acknowledgeConsumed` to free the slot. That is a **control-thread resource leak** and can exhaust `reverse` capacity (`FailedUnanswered` on full table) even though the comment claims deep rejection “publishes no reverse row” — publication here is the mapper row, not only file effects.
+
+**vs integration:** If `SessionFileOwner::receive` is defined never to fail after mapper validation, this is dormant; the source itself still allows the failure modes above.
+
+---
+
+### 2. Host: `FileClose` retires token on any successfully decoded reply, ignoring `returnBits`
+
+In `consume`, close always calls `finishClose` when `decodeReply` returns `Valid`:
+
+```cpp
+} else if(request.opcode()==MilesWire::FileClose) {
+    if(!tokens.finishClose(token))return false;
+}
+returnedBits=reply.returnBits;current=Consumed;return true;
+```
+
+Unlike `FileOpen` (branch on `reply.returnBits` for `publishOpen` vs `cancelOpen`), a **valid frame with a failed close** still moves the token `Live` → `Closing` → `Free` via `beginSend` + `finishClose`. Host SDK token table and client file handle lifecycle can diverge if the wire protocol uses `returnBits` for close failure.
+
+**vs integration:** Defect relative to open’s explicit success/failure handling unless channel26 guarantees “valid decode ⇒ close succeeded.” That guarantee is **not** in the supplied excerpts.
+
+---
+
+### 3. Host: `FileOpen` / token table stuck in `Reserved` on post-decode failures
+
+`consume` sets `current = Failed` before validation. On open success path, if `publishOpen` fails, or on failure path if `cancelOpen` fails, `consume` returns `false` and state stays `Failed`. Destructor then `std::terminate()` (not `Acked`/`Cancelled`). Token remains **`Reserved`** (never published/cancelled in those failure branches).
+
+That matches the documented “terminal, not cleanup” stance for the **transaction** object, but it is still a **handle-lifetime defect** for the token table unless the process exits: no API here recovers `Reserved` after a failed `consume` on open.
+
+---
+
+### 4. Host: `FileClose` + failed `consume` leaves token in `Closing`
+
+`beginSend` calls `beginClose` → state `Closing`. Malformed reply or `finishClose` failure → `consume` false, transaction `Failed`, destructor terminates. Record stays **`Closing`** with registry close begun — no rollback in this source.
+
+Again intentional for transaction uncertainty, but a **concrete token-state stuck** unless outer layer never destroys the transaction in that state (not specified here).
+
+---
+
+## Ordering and false-success (code vs outer wiring)
+
+### Enforced in source
+
+- **Client ACK before new reverse intake:** `receiveControl` handles `FileConsumptionAck` before `receiveReverse` (comment and structure match).
+- **Client ACK only after queued reply:** `acknowledgeConsumed` requires `record->queued`; `markReplyQueued` requires non-empty `owner.reply(intake)`.
+- **Host ACK payload only after consumption:** `ack()` empty unless `current == Consumed`.
+- **Host consume not retryable:** `consume` forces `Failed` before parsing; only success sets `Consumed`.
+
+### Not enforced between host and client (integration assumptions only)
+
+- **No type here ties** host `observeAckWriteComplete` to client `markReplyQueued` ordering. If the host sends consumption ACK before the client calls `markReplyQueued`, `acknowledgeConsumed` fails → `fail()` → session pinned. Not a logic bug inside one side; **required endpoint ordering is undocumented in this slice**.
+- **Causal reverse vs ACK:** `receiveReverse` requires command `Executing`/`ReturnedWaiting` for causal requests; the ACK branch does **not** check command state. ACK can be processed while command is still `Executing` if `queued` is already true. Whether that violates coordinator/admission rules depends on `completeAdmission` / `observeForwardReturn` ordering — **not defined in supplied files**.
+- **`observeAckWriteComplete`:** transitions `Consumed` → `Acked` with no check that the written bytes matched `ack()`. False success is possible in **outer I/O** if it calls this without a real write verification.
+- **Duplicate ACK:** protocol comment says codec does not authorize duplicate ACKs; second ACK misses `find` → `fail()`. Harsh session failure, not silent double-consume — behavior is explicit but **not** duplicate-tolerant.
+
+---
+
+## Malformed-frame behavior (consistent terminal bias)
+
+| Location | Behavior |
+|----------|----------|
+| Host `consume` | Not `Issued` → `Failed`; else sticky `Failed` then parse; catch → false |
+| Client `receiveControl` | Bad session/decode → `fail()`, `ControlRejected` |
+| Client ACK | Bad validate → `fail()`, `ControlRejected` |
+| Client `receiveReverse` | Decode/identity failures before row fill → `Rejected` (no row); after row fill → see defect #1 |
+
+Host malformed reply: no ACK (`ack()` empty), transaction must not be destroyed except terminate — aligns with stated ACK uncertainty policy.
+
+---
+
+## Symmetry checks that look consistent (limited reassurance)
+
+- Non-open host ops: constructor requires `tokens.resolve(token)` and `same(remote, request.target())` — matches client storing wire file identity in requests (details in channel26, not supplied).
+- `FileAckExpected` built from the same `expectFileAck(request, registration, …)` on both sides (host in constructor, client at reverse intake).
+- Open: host `reserveOpen` before send; client intake does not touch host tokens — correct separation.
+
+---
+
+## Scope limits (no broad clearance)
+
+- **Not reviewed:** `SessionFileOwner::receive` / `acknowledge` / `reply`, `ResourceRegistry`, `decodeReply` / `copyRead` / `returnBits` semantics, endpoint send/receive loops, replay, or session authentication beyond `s == session` checks.
+- **Not shown:** that host ever calls `beginSend` → send request → `consume` → send `ack()` → `observeAckWriteComplete` → destroy, or client `markReplyQueued` relative to reply on the wire.
+- **Vendor/SDK pipeline:** explicitly out of scope per your note.
+
+---
+
+## Summary table
+
+| Issue | Kind |
+|-------|------|
+| Reverse row after failed `owner.receive` | **Code defect** in mapper |
+| Close ignores `returnBits` for `finishClose` | **Code defect** unless channel26 defines otherwise |
+| Open `Reserved` / close `Closing` after failed `consume` + destroy | **Documented terminal transaction**; **token table stuck** unless process ends |
+| ACK before `markReplyQueued`, duplicate ACK, causal vs ACK order | **Integration assumption** / endpoint contract |
+| `observeAckWriteComplete` without write proof | **Outer false-success** risk |
+
+I can go deeper on one path (e.g. causal command + ACK + `settle`) if you paste `SessionFileOwner` intake/ack snippets or channel26 close reply rules from the same authored tree.

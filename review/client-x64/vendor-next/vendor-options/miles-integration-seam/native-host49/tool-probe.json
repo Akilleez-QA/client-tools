@@ -1,0 +1,41 @@
+{
+    "scope":  "Read-only vcvars selection, where, hashes and file versions; no compiler invocation",
+    "vcvars":  {
+                   "sha256":  "fe5d1e2bd4cb318a52e5352ee0f9602bf132dde88188bdad7df40d41f0b8ad32",
+                   "path":  "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\vcvarsall.bat"
+               },
+    "architectures":  [
+                          {
+                              "selected_tools":  [
+                                                     {
+                                                         "path":  "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\cl.exe",
+                                                         "sha256":  "2f7fea06e2d024a28dd271620ab469e0641e9758a99d5e20e1adad87cb440039",
+                                                         "version":  "18.00.40629.0 built by: REL"
+                                                     },
+                                                     {
+                                                         "path":  "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\dumpbin.exe",
+                                                         "sha256":  "60c800a237952531d4bf7b206080d81befa602a98973c8e1cf6e867ce02370ce",
+                                                         "version":  "12.00.21005.1 built by: REL"
+                                                     }
+                                                 ],
+                              "architecture":  "x86",
+                              "vcvars_argument":  "x86"
+                          },
+                          {
+                              "selected_tools":  [
+                                                     {
+                                                         "path":  "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\cl.exe",
+                                                         "sha256":  "4f3919c3033446e1edc9c1731779d89211a1a818c81f5205317e92aa48e34ea5",
+                                                         "version":  "18.00.40629.0 built by: REL"
+                                                     },
+                                                     {
+                                                         "path":  "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64\\dumpbin.exe",
+                                                         "sha256":  "990176448151c2dbbfa1f298a74bbcaf056fe7924b83eca6a0ea8a532bec168a",
+                                                         "version":  "12.00.21005.1 built by: REL"
+                                                     }
+                                                 ],
+                              "architecture":  "amd64",
+                              "vcvars_argument":  "amd64"
+                          }
+                      ]
+}

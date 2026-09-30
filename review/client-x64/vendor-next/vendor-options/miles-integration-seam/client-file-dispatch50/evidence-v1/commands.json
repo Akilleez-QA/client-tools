@@ -1,0 +1,40 @@
+{
+  "scope": "portable real mapper/owner/selected-services/Invocation/codec with scripted worker/job; no ABI/Windows/engine/vendor evidence",
+  "first_attempt": true,
+  "build_command": [
+    "/usr/bin/clang++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "-include",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/native35_compat.h",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/callback-control45/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/callback-composition46/selected_fixture.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/callback-control45/host_association_mapper.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/session-file-admission34/coordinator.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/file-owner36/session_file_owner.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/file-owner36/portable_job.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/selected-file-services44/selected_services.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/transport-candidate/codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/callback-protocol48/file_protocol.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/portable-v1/callback-reentry47/invocation_guard.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/evidence-v1/dispatch50-portable"
+  ],
+  "run_command": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/client-file-dispatch50/evidence-v1/dispatch50-portable"
+  ],
+  "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+  "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+  "start_epoch": 1790788153.752702,
+  "build_exit": null,
+  "run_exit": null
+}

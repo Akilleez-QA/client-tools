@@ -1,0 +1,8 @@
+PASS distinct coordinator same session refused
+PASS Pending forward join and older original ACK after newer intake
+PASS ACK before forward return does not settle prematurely
+PASS pending early unsent wrong-session unknown and duplicate ACK refused
+PASS exact retained ACK context opcode registration and unused fields
+PASS malformed file fields rejected before correlation publication
+PASS sibling uncertainty retained across both slot poll orders and close ACK
+PASS 407 dispatch50 checks; scripted job only

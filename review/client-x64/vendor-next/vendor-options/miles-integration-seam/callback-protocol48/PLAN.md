@@ -1,0 +1,38 @@
+# Private callback protocol 48 — source-only plan and candidate
+
+No build or test has run. Existing46 and product sources remain unchanged. This candidate copies protocol, codec, registry and file-channel dependencies from callback-composition46, bumps the **private paired-helper wire version to3**, and adds narrow typed callback controls. This is unrelated to the SWG network protocol and changes no public ClientMiles signature. A single matched client/host snapshot is required; all codec paths reject v1/v2 rather than negotiate or silently accept older semantics. SDK installation, host thunks, streams and actual pipes remain unenabled.
+
+## Contract critique and decisions
+
+The single registration is sufficient for one installed four-function table per dedicated helper process. It identifies the client's retained table, never its function addresses. Four independently managed registrations would create unnecessary partial-install states. Initial scope refuses null/default-table and replacement/reinstallation transitions before any vendor action. The full session owner must prepare the actual worker/TLS, service table and reverse transport before the installation command; this protocol does not implement those prerequisites.
+
+Success echo establishes reported correlation, **not evidence that SDK installation occurred**. The trusted host may encode Installed only after the actual typed SDK installation returned successfully. The host thunk binding must already be usable while that call runs, in case it calls back. The client does not mark Installed on request send, table retention, coordinator registration or echo-free reply. Ambiguous transport failure remains terminal uncertainty, never a fabricated refusal or default filesystem path.
+
+ACK reuses the original reverse request number; it is not another monotonically numbered file invocation. Route its distinct opcode before `mapper.receiveReverse`. Validate against the captured FileAckExpected and the authenticated endpoint/session, then call `mapper.acknowledgeConsumed(authenticatedSession, original.request)`. Mapper remains responsible for queued-result and one-time consumption state. The peer never supplies a local intake number. No new general RPC framework or scheduler is introduced.
+
+## Exact wire schema
+
+All integers use the existing explicit little-endian encoding. Call frame=48-byte Header+88-byte Call=136 bytes; Result frame=48+80=128. Native struct layout assertions are schema checks, not permission to memcpy structs onto the wire.
+
+**Install command:** Header has version3, kind Request, opcode28 (`AIL_set_file_callbacks`), admitted nonzero request/lane, causal_request=0, lock_lease=0. Call.callback is the single nonzero session file-table registration. Target/resource, all eight values, both spans, output_mask and reserved are zero. Exact length136, no trailing bytes. This initial registration uses ordinary admission outside a lock lease.
+
+**Install reply:** kind Reply, opcode28, same request/cause/lane/lease, exact length128. transport_status is one of Installed=0, Unsupported=1, InvalidFields=3, LifecycleRefused=0x1001 (existing numerical status values). On Installed, Result.callback echoes the retained nonzero registration. On any allowed refusal it is zero. Every other result field is zero. Unknown statuses, success without exact echo, refusal with echo or payload, and context mismatch are invalid. Dedicated `decodeInstallReply` checks this shape; do not weaken StartupBridge's existing generic callback-zero decoder. Malformed or uncorrelatable commands are terminal protocol failures, not permission to fabricate a typed normal reply. The encoder is not a vendor-call or registration-state machine.
+
+**File consumption ACK:** append `FileConsumptionAck=0x100e` after unchanged CallbackAck=0x100c and SessionClose=0x100d. Header kind ReverseRequest, exact length136, and original file request's request/cause/lane/lease. Call.callback is installed registration; value0 is original FileOpen/FileClose/FileSeek/FileRead opcode; every other field is zero. It has no response and no payload. EOS `CallbackAck` retains its old number and purpose; it cannot acknowledge file consumption. The peer's ACK does not get to choose its expected file opcode or registration: both are compared to an independently retained FileAckExpected.
+
+`expectFileAck` captures fixed original header and registration from a fully validated file Request before its side effects. It allocates no filename/table object. Keep that expectation with the existing bounded outstanding-operation record until settlement/failure handling; do not reconstruct expected fields from the incoming ACK. The installed registration and authenticated session are session-owner facts. A stateless codec accepting the same frame twice does not authorize its second consumption.
+
+The host's sole callback transport owner sends the ACK only after validating the original reply against its outstanding request and consuming it: copy read bytes into the vendor destination, publish a pre-reserved host file token for successful open, or finish confirmed close bookkeeping. It uses an already available 136-byte stack/fixed buffer. `encodeCallInto` validates capacity and all fallible shape constraints before any write; its shared explicit field writer allocates nothing and performs no raw struct copying. The ACK encoder has no payload or output aliasing issue. A short/null output buffer or invalid expectation leaves buffer and written unchanged. Write completion is not client consumption; the client mapper observes consumption only when it receives and validates this ACK. ACK send uncertainty enters the existing terminal-failure design; no normal scalar return is invented here.
+
+## Preserve stream version2 semantics in version3
+
+Opcode59 (`AIL_stream_sample_handle`) successful replies must echo validated parent Stream kind/slot/generation in value0/1/2, **including a successful null alias**. Result.resource is null or a valid BorrowedSample. Callback/text/bytes/null_mask/return_bits and remaining values are zero. `decodeStreamAliasSuccess` compares that echo to a retained expected parent and returns the alias only on exact match. It is a standalone success validator; it neither handles refusals nor installs streams, changes alias ownership, proves stable identity across calls, or replaces the rest of StartupBridge's reply rules. This explicitly preserves stream-native38's v2 parent contract while its file-channel predecessor was still v1. Old versions are rejected everywhere.
+
+## Minimal source set and review sequence
+
+1. Private protocol version3 and one appended control constant, preserving all existing numbers.
+2. Existing codec gains a bounded no-allocation Call writer sharing field serialization with its vector writer; opcode maximum includes the appended ACK.
+3. New narrow file_protocol.h/.cpp encodes/validates install and file ACK; includes the standalone stream59 parent-echo success validator.
+4. Review source.patch, provenance-v1.json and PROPOSED-TESTS.md. Only after review author/freeze a bounded portable gate. No test runner or native work is authorized by this document.
+
+Still required before operational adoption: paired client/host composition, registration transition owner, host thunks/failure boundary, retained ACK expectations in the transport's outstanding table, callback endpoint ownership, consumption routing, producer quiescence and engine lifecycle. No API64 library, native ABI validation, DLL callback execution, or runtime fidelity is supplied by protocol values.

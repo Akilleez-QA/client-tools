@@ -1,0 +1,110 @@
+Second-pass review against only the supplied sources, scoped to close encoding, row retention, settlement vs callbacks, and new defects/gaps under your stated policy.
+
+## Close and failure status on the wire
+
+**Close cannot encode SDK failure (or any non-success status) in a valid reply frame.**
+
+`decodeReply` rejects `FileClose` when `result.return_bits` is non-zero:
+
+```cpp
+if (request.opcode() == MilesWire::FileClose && result.return_bits)
+    return InvalidResult;
+```
+
+On the client executor, `FileClose` never assigns `result.returnBits`; it only calls `services.close` and leaves the default `returnBits == 0` from `Completion`. `encodeCompletion` / `encodeCompletionInto` always refuse non-`Returned` completion states, so `CallThrew` or read/seek error states cannot be encoded as a reply at all.
+
+**Implication:** close success/failure on the SDK side is not represented on the wire. A failed close that still returns normally looks like success (`return_bits == 0`). A failed close that throws becomes non-`Returned` → encode fails in `poll`, not a on-wire failure code. That matches a “no close failure channel” contract but is a **test/documentation gap** if anyone expects host `finishClose` to correlate with SDK close status.
+
+Host `ReplyTransaction::consume` for close only checks `tokens.finishClose(token)` after a fully valid decode; it never inspects status bits (and the decoder forbids them).
+
+---
+
+## Rejected vs uncertain published rows — retention
+
+**Policy in source:** retain published correlation state; do not treat that as cleanup.
+
+| Layer | What gets published before failure | Cleared on `fail()`? |
+|--------|-------------------------------------|----------------------|
+| `HostAssociationMapper::receiveReverse` | `reverse[]` row (`wire`, `intake`, `expected`) **before** `owner.receive` | No — only `acknowledgeConsumed` clears a row |
+| `SessionFileOwner::receive` | Operation slot, optional file reservation, coordinator callback (if admit succeeds) | Partial — failed open may `releaseFile`; uncertain ops stay in `operations[]` |
+| `ReplyTransaction` (host) | `beginSend` → `Issued`; `consume` sets sticky `Failed` before decode | Destructor `terminate()` unless `Acked`/`Cancelled`/`Prepared`+cancel |
+
+**Rejected** paths that never publish a reverse row (decode/association failure in `receiveReverse` before slot assignment) do not consume mapper intake IDs for file work — comments say deep rejection publishes no reverse row.
+
+**After a reverse row exists**, `owner.receive != Queued` calls `fail()` but **does not remove** the reverse row (`receiveReverse` only fails; no `*record = Reverse()`). That is intentional failure-owned retention, not settlement.
+
+**Do not relabel as cleanup:** `retainedReverse()` / `retainedOperations()` count lingering rows; `releaseFile` after close ack explicitly requires `!file->uncertain`. Uncertain ownership retention is separate from successful close teardown.
+
+---
+
+## False settlement while a callback is unconsumed
+
+**Causal reverse I/O (admission-tied):** `Coordinator::completeAdmission` returns `PendingCallback` when `causalPending(r)` — any `CausalReverseIo` callback with `cause == admissionOrdinal` and `!acknowledged`. `HostAssociationMapper::settle()` only moves `ReturnedWaiting` → `Settled` on `Ok`, so **causal file callbacks block admission settlement** until `acknowledge` drains them.
+
+**Unsolicited (background lane):** callbacks have no `cause` matching `admissionOrdinal`, so they **do not** block `completeAdmission`. Admission can reach `Settled` while an unsolicited reverse file callback is still unacknowledged. That is an explicit design split in the mapper (`Unsolicited` vs `CausalReverseIo`), not an accidental settle — but it is a **scope limit** if you assumed “no settle with any file callback outstanding.”
+
+**Failed coordinator:** `causalPending` is still checked before the `current != Failed` lock-depth bypass, so unconsumed causal callbacks still block `Ok` from `completeAdmission`.
+
+I do not see a path in supplied sources where `command.state == Settled` while a **causal** reverse file callback for that admission is still unacknowledged, assuming `admitCallback` ran for that operation.
+
+---
+
+## New concrete internal defect (not just missing integration)
+
+**`FileClose` advances file state before reply encoding is known good.**
+
+In `SessionFileOwner::poll`, after a successful invocation:
+
+```cpp
+else if (o.request.opcode() == MilesWire::FileClose && !o.file->uncertain)
+    o.file->state = ClosedAwaitingAck;
+if (encodeCompletionInto(...) != Valid) {
+    o.uncertain = true;
+    failure();
+    continue;
+}
+```
+
+On encode failure, the operation is marked `uncertain` and `failure()` runs, but **`file->uncertain` is not set** and state remains `ClosedAwaitingAck`. Elsewhere, adapter/invocation failure sets `file->state = Uncertain` and `file->uncertain = true`.
+
+So the file record can read “close awaiting ack” while the operation is failure-owned uncertain and may never become `ready` (no valid reply, no `acknowledge`). That is **misleading lifecycle state on the file object**, not successful cleanup. `acknowledge`’s `releaseFile` guard (`!file->uncertain`) does not fix the wrong intermediate label.
+
+Contrast: encode failure does not falsely settle the admission mapper; it does corrupt the **file** state machine relative to uncertain retention policy.
+
+---
+
+## Dual `lastIntake` desync after partial failure (internal + integration assumption)
+
+`HostAssociationMapper` does `record.intake = ++lastIntake` **before** `owner.receive`. `SessionFileOwner` only sets `lastIntake = a.intake` on the success path after `admitCallback` succeeds (and not on early `Rejected` / pre-admit failures).
+
+If a reverse row is published and `owner.receive` returns without updating `lastIntake` (e.g. `Rejected` after mapper already decoded — rare if decodes match — or `FailedUnanswered` before `lastIntake = a.intake`, e.g. admit failure, slot exhaustion after mapper reserved reverse), **mapper’s intake counter runs ahead of the owner’s**. The next reverse request gets `Rejected` on `a.intake != lastIntake + 1` even if the session were incorrectly continued.
+
+Under your policy (**terminal exit on `fail()`**, no recovery), this is only safe if the **caller never polls `receiveReverse` again** after `fail()`. Supplied sources do not enforce that; **missing caller contract / test gap**, with **internal coupling** that makes “continue after fail” unsafe.
+
+---
+
+## Host post-send unknown outcomes
+
+`ReplyTransaction::consume`: non-`Issued` → `Failed`; on entry to consume, `current = Failed` before validation — **no retry**. Matches terminal host-side handling. Destructor `terminate()` unless `Acked`/`Cancelled`/cancelled `Prepared` — aligns with owned-host exit, not soft recovery.
+
+---
+
+## Missing caller integration vs internal
+
+| Issue | Kind |
+|--------|------|
+| Continue session after `HostAssociationMapper::fail()` without process teardown | **Integration** — dual `lastIntake` and stuck reverse rows assume abandonment |
+| Host must drive `consume` → ack write → `observeAckWriteComplete` → `result` or hit destructor terminate | **Integration** — not wired in these files |
+| Close SDK outcome invisible on wire | **Contract** by decoder + invocation, not a transport bug |
+| `ClosedAwaitingAck` after encode failure | **Internal** state ordering bug |
+| No tests in supplied sources for: close encode-fail after invoke OK, intake desync after `FailedUnanswered`, causal vs unsolicited settle with pending callbacks, host sticky `Failed` destructor | **Test gap** |
+
+---
+
+## Scope limits (no clearance)
+
+- No supplied driver for when host sends reply frames or when client reads ACKs — cannot prove end-to-end “unknown post-send” handling outside `ReplyTransaction`/`receiveControl`.
+- `Coordinator`, worker adapter, and token tables are only partially shown; `beginClose`/`finishClose` invariants on the host are assumed consistent with client `registry.beginClose`.
+- Unsolicited reverse I/O can settle admissions with callbacks still open — intentional per coordinator causality, not a false causal settle.
+
+**Bottom line:** Close cannot encode failure status in a valid reply; uncertain/rejected **published** rows are retained by design and must not be called cleanup; causal admissions do not falsely settle while causal callbacks are unacknowledged. **New internal issue:** `FileClose` sets `ClosedAwaitingAck` before encode, leaving a non-uncertain file state when encode fails. **New coupling/gap:** split `lastIntake` after mapper-published reverse + owner failure without owner bump.

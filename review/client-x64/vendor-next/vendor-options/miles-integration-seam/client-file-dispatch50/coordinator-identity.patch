@@ -1,0 +1,11 @@
+--- draft-source-v1/host_association_mapper.cpp
++++ candidate/host_association_mapper.cpp
+@@ -6,7 +6,7 @@
+     MilesCoordinator::Coordinator &c, SessionFileOwner &o, size_t maximum)
+     : session(s), backgroundLane(lane), lastWire(0), lastReverse(0), lastIntake(0),
+       coordinator(c), owner(o), reverse(maximum) {
+-    if (!s || !lane || !maximum || s != o.session || !o.registration)
++    if (!s || !lane || !maximum || s != o.session || &c != &o.coordinator || !o.registration)
+         throw std::invalid_argument("session, background lane and reverse capacity required");
+ }
+ MilesCoordinator::Error HostAssociationMapper::publishCommand(uint64_t wire,

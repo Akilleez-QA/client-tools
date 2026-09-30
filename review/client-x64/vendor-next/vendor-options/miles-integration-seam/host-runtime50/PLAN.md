@@ -1,0 +1,23 @@
+# Host runtime50 candidate — source only
+
+New concrete host composition, not a fixture or runtime readiness claim. No compile, test, SDK execution or product edits. Native-host49 evidence applies only to its earlier six objects, not these new files.
+
+The 17 dependency files are copied unchanged with exact provenance.json hashes: real host49 token/transaction, version3 protocol48/codec/file decoder, stream38 Endpoint, and Scope41. SDK Mss.h is not copied; host_sdk_callbacks.cpp consumes it as a future private build input.
+
+host_sdk_callbacks.cpp defines all four actual AILCALLBACK thunks and asserts their exact SDK typedefs, Win32 token width, and signed seek bit preservation. installSdkCallbacks atomically publishes the sole process-lifetime Runtime and calls the actual SDK setter; it returns only after the SDK returns. host_install.cpp connects exact protocol48 install decoding, independently admitted Scope41 origin and actual SDK installation to the success echo. Serialization is prevalidated; the successful reply is exposed only after SDK return. Lifecycle/registration/replacement refusal never calls the SDK. No executable caller is wired or installation enabled yet. Public native35 API is untouched.
+
+host_file_runtime.cpp constructs Endpoint on one dedicated thread. The command/SDK threads never access it. One producer mutex serializes tickets; recursion and Scope41 origin snapshot occur before acquiring it. A manual-reset work event publishes the stack ticket; auto-reset reply/consumed/done events transfer exclusive access to its immutable/request/reply/transaction fields. Owner releases all ticket accesses before signaling done. Producer consumes using actual ReplyTransaction on its own stack, owner sends its exact ACK and reports completed write, then producer returns. Request IDs cannot wrap; FileTokens reserves token/registry capacity before beginSend. Status, remote File identity and opaque token remain distinct.
+
+Endpoint sends remain fallible allocations. Any exception or malformed/uncertain state is process-terminal. No error result is fabricated and no unwind into Backend occurs. Active phase waits are bounded; idle receive has no ten-second command watchdog. No generic queue, nested callback dispatch or TLS active callback table was added. TLS is exclusively the same-thread recursion marker; actual selected client callback table remains client-owned.
+
+## Explicit unfinished operational connection
+
+This slice intentionally has no executable/build target or command-loop call to installSdkCallbacks. Runtime's destructor is terminal: process-lifetime retention is enforced, not advertised as clean shutdown. A paired teardown must establish stopped callback producers, empty file ownership and ACK settlement before implementing normal owner drain. Current host49 FileTokens has no empty-obligation query; add a narrow query only in the next candidate when that proof is wired. This is incomplete composition, not a tested normal teardown.
+
+Next exact edits: copy Backend38 and host31 into this candidate; replace fixture command loop with authenticated both-pipe bootstrap, transfer callback handle once, and wrap admitted SDK calls in Scope41. Route opcode28 to installAdmitted before blanket callback rejection, passing actual Backend lifecycle and independently admitted origin; this boundary owns Scope41 for installation (do not nest an outer scope). Other admitted SDK calls need their own Scope41. Do not call installer until paired client owner46 and retained failure path are implemented. Runtime is constructed before publication with immutable registration and session supplied by that transaction. Preserve startup-before-registration: callback owner preparation occurs when installer is received, not an invented default callback table at startup.
+
+Review this source before any gate: event happens-before/access ownership; callback-time origin snapshot; actual Mss.h type compatibility; failure/no unwind; active timeout policy; pending read lifetime; process-lifetime binding. No SDK ABI evidence exists for these new thunks until a separately authorized actual-header native compile.
+
+## Pretest source corrections
+
+Source inspection found and corrected zero-initialized request magic/version before any run. Parent independently found the same omission. Parent also identified that Endpoint pump can return after four synchronous partial completions with no pending event; send and idle loops now continue pumping instead of treating no event as failure or sleeping before issuing remaining I/O. Active send retains its deadline. These were draft source corrections; no test or compile was attempted.

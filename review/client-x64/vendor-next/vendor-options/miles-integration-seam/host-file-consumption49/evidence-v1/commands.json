@@ -1,0 +1,52 @@
+{
+  "build": [
+    "/usr/bin/clang++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/portable-v1/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/host-file-consumption49/file_tokens.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/host-file-consumption49/reply_transaction.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/callback-protocol48/file_protocol.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/transport-candidate/codec.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable"
+  ],
+  "positive": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable"
+  ],
+  "death_commands": [
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable",
+      "issued"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable",
+      "failed-context"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable",
+      "failed-status"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable",
+      "failed-read"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable",
+      "failed-close"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable",
+      "consumed-ack-uncertain"
+    ]
+  ]
+}

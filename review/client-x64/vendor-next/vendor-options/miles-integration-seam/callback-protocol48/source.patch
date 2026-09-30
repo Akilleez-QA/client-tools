@@ -1,0 +1,239 @@
+--- /dev/null
++++ b/callback-protocol48/file_protocol.cpp
+@@ -0,0 +1,89 @@
++#include "file_protocol.h"
++namespace MilesFileProtocol48 {
++namespace {
++bool nullHandle(const MilesWire::Handle &h){return !h.kind && !h.slot && !h.generation;}
++bool zeroValues(const uint32_t *v,unsigned first){for(unsigned i=first;i<8;++i)if(v[i])return false;return true;}
++bool sameOrigin(const MilesWire::Header &h,const MilesWire::Header &expected) {
++    return h.request==expected.request && h.causal_request==expected.causal_request &&
++           h.lane==expected.lane && h.lock_lease==expected.lock_lease;
++}
++bool currentOrigin(const MilesWire::Header &h) {
++    return h.magic==MilesWire::Magic && h.version==MilesWire::Version && h.request && h.lane;
++}
++bool installHeader(const MilesWire::Header &h) {
++    return currentOrigin(h) && h.kind==MilesWire::Request && h.opcode==MilesWire::AIL_set_file_callbacks &&
++        !h.causal_request && !h.lock_lease;
++}
++bool status(uint32_t s){return s==Installed || s==Unsupported || s==InvalidFields || s==LifecycleRefused;}
++bool fileExpected(const FileAckExpected &e) {
++    return e.registration && currentOrigin(e.original) && e.original.kind==MilesWire::ReverseRequest &&
++        e.original.opcode>=MilesWire::FileOpen && e.original.opcode<=MilesWire::FileRead;
++}
++bool emptyCall(const MilesWire::Call &c,unsigned usedValues) {
++    return nullHandle(c.target) && nullHandle(c.resource) && zeroValues(c.value,usedValues) &&
++        !c.bytes.offset && !c.bytes.length && !c.text.offset && !c.text.length && !c.output_mask && !c.reserved;
++}
++bool emptyResult(const MilesWire::Result &r,unsigned usedValues) {
++    return !r.return_bits && zeroValues(r.value,usedValues) && !r.bytes.offset && !r.bytes.length &&
++        !r.text.offset && !r.text.length && !r.null_mask;
++}
++}
++bool encodeInstall(const MilesWire::Header &h,uint64_t registration,
++                   unsigned char *buffer,size_t capacity,size_t &written) {
++    if(!installHeader(h) || !registration)return false;
++    MilesWire::Call c={};c.callback=registration;
++    return MilesTransport::encodeCallInto(h,c,MilesTransport::Bytes(),MilesTransport::Bytes(),buffer,capacity,written);
++}
++bool decodeInstall(MilesTransport::Bytes bytes,const MilesWire::Header &expected,InstallRequest &out) {
++    MilesWire::Header h={};MilesWire::Call c={};
++    if(!installHeader(expected) || bytes.size!=InstallCallBytes || !MilesTransport::decodeCall(bytes,h,c) ||
++       !installHeader(h) || !sameOrigin(h,expected) || !c.callback || !emptyCall(c,0))return false;
++    out.header=h;out.registration=c.callback;return true;
++}
++bool encodeInstallReply(const InstallRequest &request,InstallStatus outcome,
++                        unsigned char *buffer,size_t capacity,size_t &written) {
++    if(!installHeader(request.header) || !request.registration || !status(outcome))return false;
++    MilesWire::Header h=request.header;h.kind=MilesWire::Reply;
++    MilesWire::Result r={};r.transport_status=outcome;r.callback=outcome==Installed?request.registration:0;
++    return MilesTransport::encodeResultInto(h,r,MilesTransport::Bytes(),MilesTransport::Bytes(),buffer,capacity,written);
++}
++bool decodeInstallReply(MilesTransport::Bytes bytes,const InstallRequest &request,InstallStatus &out) {
++    MilesWire::Header h={};MilesWire::Result r={};
++    if(!installHeader(request.header) || !request.registration || bytes.size!=InstallReplyBytes ||
++       !MilesTransport::decodeResult(bytes,h,r) || h.kind!=MilesWire::Reply ||
++       h.opcode!=MilesWire::AIL_set_file_callbacks || !sameOrigin(h,request.header) || !status(r.transport_status) ||
++       !emptyResult(r,0) || !nullHandle(r.resource) ||
++       r.callback!=(r.transport_status==Installed?request.registration:0))return false;
++    out=static_cast<InstallStatus>(r.transport_status);return true;
++}
++bool expectFileAck(const MilesFileChannel26::Request &request,uint64_t registration,FileAckExpected &out) {
++    if(!request.valid())return false;
++    FileAckExpected candidate;candidate.original=request.header();candidate.registration=registration;
++    if(!fileExpected(candidate))return false;
++    out=candidate;return true;
++}
++bool encodeFileConsumptionAck(const FileAckExpected &expected,unsigned char *buffer,size_t capacity,size_t &written) {
++    if(!fileExpected(expected))return false;
++    MilesWire::Header h=expected.original;h.opcode=MilesWire::FileConsumptionAck;
++    MilesWire::Call c={};c.callback=expected.registration;c.value[0]=expected.original.opcode;
++    return MilesTransport::encodeCallInto(h,c,MilesTransport::Bytes(),MilesTransport::Bytes(),buffer,capacity,written);
++}
++bool validateFileConsumptionAck(MilesTransport::Bytes bytes,const FileAckExpected &expected) {
++    MilesWire::Header h={};MilesWire::Call c={};
++    return fileExpected(expected) && bytes.size==ConsumptionAckBytes && MilesTransport::decodeCall(bytes,h,c) &&
++        h.kind==MilesWire::ReverseRequest && h.opcode==MilesWire::FileConsumptionAck &&
++        sameOrigin(h,expected.original) && c.callback==expected.registration &&
++        c.value[0]==expected.original.opcode && emptyCall(c,1);
++}
++bool decodeStreamAliasSuccess(MilesTransport::Bytes bytes,const MilesWire::Header &expected,
++                              const MilesWire::Handle &parent,MilesWire::Handle &alias) {
++    MilesWire::Header h={};MilesWire::Result r={};
++    if(!currentOrigin(expected) || expected.kind!=MilesWire::Request || expected.opcode!=MilesWire::AIL_stream_sample_handle ||
++       parent.kind!=MilesWire::Stream || !parent.slot || !parent.generation || bytes.size!=128 ||
++       !MilesTransport::decodeResult(bytes,h,r) || h.kind!=MilesWire::Reply || h.opcode!=expected.opcode ||
++       !sameOrigin(h,expected) || r.transport_status || r.callback || !emptyResult(r,3) ||
++       r.value[0]!=parent.kind || r.value[1]!=parent.slot || r.value[2]!=parent.generation ||
++       (!nullHandle(r.resource) && r.resource.kind!=MilesWire::BorrowedSample))return false;
++    alias=r.resource;return true;
++}
++}
+--- /dev/null
++++ b/callback-protocol48/file_protocol.h
+@@ -0,0 +1,46 @@
++#ifndef PRIVATE_FILE_PROTOCOL48_H
++#define PRIVATE_FILE_PROTOCOL48_H
++#include "../file-channel26/file_channel.h"
++namespace MilesFileProtocol48 {
++// Existing transport status values; only these apply to initial table installation.
++enum InstallStatus { Installed=0, Unsupported=1, InvalidFields=3, LifecycleRefused=0x1001 };
++enum { InstallCallBytes=136, InstallReplyBytes=128, ConsumptionAckBytes=136 };
++struct InstallRequest {
++    MilesWire::Header header;
++    uint64_t registration;
++    InstallRequest():header(),registration(0) {}
++};
++// Header is an admitted ordinary command: Request/opcode28, nonzero request/lane,
++// causal=lease=0. Does not authenticate, enforce replay, or call the SDK.
++bool encodeInstall(const MilesWire::Header &,uint64_t registration,
++                   unsigned char *,size_t capacity,size_t &written);
++bool decodeInstall(MilesTransport::Bytes,const MilesWire::Header &expected,InstallRequest &out);
++// Installed may be supplied ONLY after actual SDK installation returned; the
++// helper encodes a report, not proof that SDK installation happened.
++bool encodeInstallReply(const InstallRequest &,InstallStatus,
++                        unsigned char *,size_t capacity,size_t &written);
++bool decodeInstallReply(MilesTransport::Bytes,const InstallRequest &,InstallStatus &out);
++
++// Fixed retained expectation: captured before file side effects, no filename or
++// client-local intake. Authenticated session and consumed-once state remain outer.
++struct FileAckExpected {
++    MilesWire::Header original;
++    uint64_t registration;
++    FileAckExpected():original(),registration(0) {}
++};
++bool expectFileAck(const MilesFileChannel26::Request &,uint64_t installedRegistration,FileAckExpected &out);
++// Host's sole callback transport owner calls this only AFTER reply validation,
++// read-copy/open-token publication/close bookkeeping. Not an ACK of send alone.
++// No allocation and no raw native-struct copying. Rejection leaves output intact.
++bool encodeFileConsumptionAck(const FileAckExpected &,unsigned char *,size_t capacity,size_t &written);
++bool validateFileConsumptionAck(MilesTransport::Bytes,const FileAckExpected &);
++// Route this distinct opcode before reverse-file monotonic intake; after full
++// validation call mapper.acknowledgeConsumed(authenticatedSession, original.request).
++// This stateless codec does NOT consume replay state or authorize duplicate ACKs.
++
++// v3 retains v2 opcode59 success parent echo, including null alias. Outer code
++// retains refusal handling and stable alias ownership; this validates success only.
++bool decodeStreamAliasSuccess(MilesTransport::Bytes,const MilesWire::Header &expected,
++                              const MilesWire::Handle &expectedParent,MilesWire::Handle &alias);
++}
++#endif
+--- a/protocol-candidate/miles_wire.h
++++ b/protocol-candidate/miles_wire.h
+@@ -4,9 +4,10 @@
+ #include <stdint.h>
+ #include <stddef.h>
+ namespace MilesWire {
++// Private paired-endpoint version3; unrelated to the SWG network protocol.
+ // Encode/decode fields explicitly little-endian; these structs are schema/layout
+ // checks, NOT permission to send native padding or dereference received bytes.
+-enum { Magic=0x31534d57, Version=1, MaxFrameBytes=1048576 };
++enum { Magic=0x31534d57, Version=3, MaxFrameBytes=1048576 };
+ enum Kind { Request=1, Reply=2, Event=3, ReverseRequest=4, ReverseReply=5 };
+ enum ResourceKind { Null=0, Driver=1, OwnedSample=2, Stream=3, BorrowedSample=4, Buffer=5, File=6 };
+ struct Handle { uint32_t kind, slot, generation; }; // all zero is vendor null
+@@ -27,7 +28,9 @@
+ // SessionVersion is host-side MSS_version macro query, not a forwarded export.
+ enum Control { Hello=0x1000, BufferBegin, BufferChunk, BufferSeal, BufferRelease,
+  SessionVersion, FileOpen, FileClose, FileSeek, FileRead, EndOfSample, EndOfStream,
+- CallbackAck, SessionClose };
++ CallbackAck, SessionClose, FileConsumptionAck=0x100e };
++static_assert(CallbackAck==0x100c && SessionClose==0x100d && FileConsumptionAck==0x100e,
++              "append-only private control opcodes");
+ enum Opcode {
+  AIL_WAV_info = 1,
+  AIL_active_sample_count = 2,
+--- a/transport-candidate/codec.cpp
++++ b/transport-candidate/codec.cpp
+@@ -43,7 +43,7 @@
+         return s;
+     }
+ };
+-bool opcode(uint32_t o) { return (o >= 1 && o <= 61) || (o >= Hello && o <= SessionClose); }
++bool opcode(uint32_t o) { return (o >= 1 && o <= 61) || (o >= Hello && o <= FileConsumptionAck); }
+ bool envelopeOpcode(uint32_t o) { return opcode(o) && o != EndOfSample && o != EndOfStream; }
+ bool header(const Header &h) {
+     return h.magic == Magic && h.version == Version && opcode(h.opcode);
+@@ -67,6 +67,20 @@
+     void span(const Span &s){put(s.offset,4);put(s.length,4);}
+     void payload(Bytes b){for(size_t i=0;i<b.size;++i)*p++=b.data[i];}
+ };
++template<class W> void callFields(W &w,const Header &h,const Call &c,const Span &sa,const Span &sb,Bytes a,Bytes b) {
++    putHeader(w, h);
++    w.handle(c.target);
++    w.handle(c.resource);
++    for (unsigned i = 0; i < 8; ++i)
++        w.put(c.value[i], 4);
++    w.span(sa);
++    w.span(sb);
++    w.put(c.output_mask, 4);
++    w.put(0, 4);
++    w.put(c.callback, 8);
++    w.payload(a);
++    w.payload(b);
++}
+ template<class W> void resultFields(W &w,const Header &h,const Result &c,const Span &sa,const Span &sb,Bytes a,Bytes b) {
+     putHeader(w, h);
+     w.put(c.transport_status, 4);
+@@ -139,20 +153,16 @@
+     if (!plan(h, 136, a, b, sa, sb))
+         return false;
+     Writer w;
+-    putHeader(w, h);
+-    w.handle(c.target);
+-    w.handle(c.resource);
+-    for (unsigned i = 0; i < 8; ++i)
+-        w.put(c.value[i], 4);
+-    w.span(sa);
+-    w.span(sb);
+-    w.put(c.output_mask, 4);
+-    w.put(0, 4);
+-    w.put(c.callback, 8);
+-    w.payload(a);
+-    w.payload(b);
++    callFields(w,h,c,sa,sb,a,b);
+     out.swap(w.b);
+     return true;
++}
++bool encodeCallInto(Header h,const Call &c,Bytes a,Bytes b,unsigned char *buffer,size_t capacity,size_t &written) {
++    if(!header(h) || !envelopeOpcode(h.opcode) || (h.kind!=Request && h.kind!=ReverseRequest) ||
++       c.reserved || !validHandle(c.target) || !validHandle(c.resource))return false;
++    Span sa,sb;
++    if(!plan(h,136,a,b,sa,sb) || !buffer || capacity<h.bytes)return false;
++    FixedWriter w(buffer);callFields(w,h,c,sa,sb,a,b);written=h.bytes;return true;
+ }
+ bool decodeCall(Bytes b, Header &outH, Call &outC) {
+     if (!input(b, 136))
+--- a/transport-candidate/codec.h
++++ b/transport-candidate/codec.h
+@@ -9,6 +9,9 @@
+ };
+ bool encodeCall(MilesWire::Header, const MilesWire::Call &, Bytes, Bytes,
+                 std::vector<unsigned char> &);
++// No allocation; rejection leaves buffer/written unchanged. Payload must not alias buffer.
++bool encodeCallInto(MilesWire::Header, const MilesWire::Call &, Bytes, Bytes,
++                    unsigned char *buffer, size_t capacity, size_t &written);
+ bool decodeCall(Bytes, MilesWire::Header &, MilesWire::Call &);
+ bool encodeResult(MilesWire::Header, const MilesWire::Result &, Bytes, Bytes,
+                   std::vector<unsigned char> &);

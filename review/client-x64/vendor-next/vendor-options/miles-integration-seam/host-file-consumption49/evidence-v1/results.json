@@ -1,0 +1,96 @@
+{
+  "scope": "real host49 token/consumption sources with real codec; no Endpoint/SDK/engine/native ABI",
+  "first_attempt": true,
+  "build_command": [
+    "/usr/bin/clang++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/portable-v1/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/host-file-consumption49/file_tokens.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/host-file-consumption49/reply_transaction.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/callback-protocol48/file_protocol.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/candidate/transport-candidate/codec.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-file-consumption49/evidence-v1/host49-portable"
+  ],
+  "sanitizers": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "start_epoch": 1790788036.6942773,
+  "build_exit": 0,
+  "positive_exit": 0,
+  "deaths": [
+    {
+      "mode": "issued",
+      "exit": 73,
+      "expected_exit": 73,
+      "armed_oracle_checks": 8,
+      "pass": true,
+      "scope": "expected production destructor std::terminate only; _Exit deliberately skips teardown/leak analysis"
+    },
+    {
+      "mode": "failed-context",
+      "exit": 73,
+      "expected_exit": 73,
+      "armed_oracle_checks": 14,
+      "pass": true,
+      "scope": "expected production destructor std::terminate only; _Exit deliberately skips teardown/leak analysis"
+    },
+    {
+      "mode": "failed-status",
+      "exit": 73,
+      "expected_exit": 73,
+      "armed_oracle_checks": 14,
+      "pass": true,
+      "scope": "expected production destructor std::terminate only; _Exit deliberately skips teardown/leak analysis"
+    },
+    {
+      "mode": "failed-read",
+      "exit": 73,
+      "expected_exit": 73,
+      "armed_oracle_checks": 40,
+      "pass": true,
+      "scope": "expected production destructor std::terminate only; _Exit deliberately skips teardown/leak analysis"
+    },
+    {
+      "mode": "failed-close",
+      "exit": 73,
+      "expected_exit": 73,
+      "armed_oracle_checks": 35,
+      "pass": true,
+      "scope": "expected production destructor std::terminate only; _Exit deliberately skips teardown/leak analysis"
+    },
+    {
+      "mode": "consumed-ack-uncertain",
+      "exit": 73,
+      "expected_exit": 73,
+      "armed_oracle_checks": 32,
+      "pass": true,
+      "scope": "expected production destructor std::terminate only; _Exit deliberately skips teardown/leak analysis"
+    }
+  ],
+  "scenario_counts": {
+    "PASS separate SDK token host registry and client wire identities with stale-token refusal": 1,
+    "PASS failed open publishes no token and non1 status stays exact": 1,
+    "PASS explicit and destructor presend cancellation permit slot reuse without token reuse": 1,
+    "PASS exact bounded read copy short read zero read and ACK result ordering": 1,
+    "PASS read buffer and remote target rejected before any send": 1,
+    "PASS signed seek bits preserved through real reply decoder": 1,
+    "PASS live capacity fails before another reservation and preserves output": 1
+  },
+  "positive_checks": 338,
+  "positive_pass": true,
+  "frozen_inputs_changed": [],
+  "end_epoch": 1790788038.915654,
+  "pass": true
+}

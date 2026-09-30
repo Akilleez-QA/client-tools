@@ -1,0 +1,118 @@
+## Verdict on the claimed close-encoding defect
+
+From **only** the supplied sources, there is **no concrete, memory-corruption-free path** from a **valid `FileClose` `Request`**, a **normal successful void `close` callback** (no throw), and a **`Completion` still in `Returned`**, into **`encodeCompletionInto` returning `InvalidResult`**, without also breaking unrelated opcodes or depending on behavior not shown in the paste.
+
+The close reply path is intentionally minimal: default completion fields + null published handle + 128-byte fixed result frame. Failure would have to come from `MilesTransport::encodeResultInto`, and the close-specific logic in `encodeCompletionInto` does not introduce a separate state-driven failure mode.
+
+---
+
+## Normal close path (source trace)
+
+**1. Request validation (`decodeRequest`)**  
+`FileClose` requires `fileHandle(call.target)`, null resource, no text, and `zeroValues(call.value, 0)` — so a validated close has no payload spans and no nonzero call values.
+
+**2. Invocation (`invokeOnAdmittedExecutor`, `FileClose`)**  
+Only `services.close(...)` runs; there is no write to `result.returnBits`, `result.state`, or `result.bytes`.
+
+**3. Default `Completion`**  
+`Completion::Completion() : state(Returned), returnBits(0), opened() {}`  
+After a normal close: `state == Returned`, `returnBits == 0`, `bytes` empty.
+
+**4. `poll` before encode**  
+- `published` is default-constructed `MilesWire::Handle published={};` and is **not** set on `FileClose`.  
+- Encoding is `encodeCompletionInto(*inv, published, &o.output[0], o.output.size(), o.written)`.  
+- For close, `o.output` is **`128` bytes** only:  
+  `output(128+(r.opcode()==MilesWire::FileRead?r.count():0))`.
+
+**5. `encodeCompletionInto` (close-specific gates)**  
+| Check | Close outcome |
+|--------|----------------|
+| `work.finished()` | Satisfied when `poll` runs after `AdapterCompleted` |
+| `completion.state == Returned` | Default + no close branch changes it |
+| `FileOpen && returnBits` + `publishedFile` | Not taken |
+| `else if (!nullHandle(publishedFile))` | `published` is all-zero → passes |
+| `result.return_bits = completion.returnBits` | `0` |
+| Payload `bytes` | empty → `Bytes(0, 0)` |
+| Second payload | `MilesTransport::Bytes()` empty |
+
+So **all close-specific logic in `file_channel.cpp` succeeds** on the normal path. Any failure is **`encodeResultInto(...) == false`**.
+
+**6. `encodeResultInto` (supplied `codec.cpp`)**  
+For this call: `a`/`b` empty, `plan(h, 128, …)` sets **`h.bytes == 128`**, and close needs **`capacity >= 128`**, which matches `o.output.size()`.
+
+Early failures that still matter on paper:
+
+- `header(h)`, `envelopeOpcode(h.opcode)`, `h.kind == ReverseReply` — same header family already accepted by `decodeRequest` for this operation.  
+- `!buffer || capacity < h.bytes` — not for close with a 128-element `output`.  
+- **`!validHandle(c.resource)`** with `result = {}` → resource all-zero.
+
+`validHandle` is **not defined** in the paste. What you *can* infer without vendor docs:
+
+- `decodeResult` ends with `if (!validHandle(c.resource) || !spans(...)) return false;`
+- `decodeReply` requires **null** `result.resource` for non-open success (including `FileClose`), and **`FileClose` with `result.return_bits != 0` is rejected**.
+
+So a **working** close reply on the wire **requires** `validHandle` to accept the encoded null resource. If it did not, failure would be **codec-wide** (encode/decode mismatch), not a **session close-state** bug demonstrable from `SessionFileOwner` state alone.
+
+**No supplied line** ties `ClosePending`, `ClosedAwaitingAck`, or `beginClose` to fields read inside `encodeCompletionInto` (it does not read `FileRecord` state).
+
+---
+
+## 128-byte buffer vs fixed codec
+
+- Result layout uses **`plan(..., fixed=128, ...)`**; with empty payloads, **`written == 128`**.  
+- `Operation` preallocates **exactly 128** for non-read opcodes — **tight but sufficient** for `capacity < h.bytes`, not `capacity < written` with slack.  
+- This is sizing alignment, not evidence that normal close hits `InvalidResult` unless `h.bytes` or `capacity` diverge (they do not on the traced close path).
+
+---
+
+## `encodeCompletionInto` failure without corruption (close only)
+
+| Failure site | Reachable on normal close? |
+|--------------|----------------------------|
+| `!work.finished()` | No in `poll` after completed job |
+| `state != Returned` | No if close does not throw (`CallThrew`) |
+| Non-null `publishedFile` on non-open | No; `published` stays zeroed |
+| `encodeResultInto` capacity | No; 128 vs 128 |
+| `encodeResultInto` `validHandle({})` | **Not demonstrable** without `validHandle` body; symmetric decode expectations imply null must be valid |
+| `plan` / `MaxFrameBytes` | Empty payloads; no close-specific extent like `FileRead` |
+
+**Excluded by your constraints:** UB/corruption, throws from `close`, changing production objects outside this trace, coordinator/job behavior not in paste.
+
+So treating `encodeCompletionInto != Valid` on close as a **proven state defect** is **not supported** by the supplied source; it would be **speculation** or **defensive handling around codec preconditions** you did not exhibit failing.
+
+---
+
+## Normal close + ACK: premature resource release (narrow check)
+
+Relevant order in paste:
+
+1. **Receive `FileClose`:** `state = ClosePending`, `registry.beginClose` — **not** `releaseFile`.  
+2. **Job runs** with `binding` from `Published` file (`receive` requires `state==Published` before enqueue; close then moves to `ClosePending`).  
+3. **`poll`:** after successful encode, `ClosedAwaitingAck` if `!uncertain`; **`releaseFile` is not called here**.  
+4. **`acknowledge`:** sets `closeAcknowledged`, clears the **operation** slot; **`releaseFile`** only if `closeAcknowledged && !uncertain` and **no other `operations[n]` shares `file`**.
+
+On the **happy path**, file teardown via `releaseFile` happens **after** `o.ready` (encode succeeded) and **in `acknowledge`**, not before the close callback or before encoding. The close callback runs while the `FileRecord` and binding still exist; `close()` is invoked before reply encoding, which matches closing the local handle before ACK-driven registry retirement.
+
+**Source-grounded nuance (not “encode failed”):** `releaseFile` → `registry.retire` + drop `files[i]` runs when the last holding operation is acked; **`~FileRecord` may destroy `Binding` after `close` already ran** — that is post-close cleanup, not premature release relative to the traced encode path.
+
+**Out of scope per your note:** whether the client must call `reply()` before `acknowledge()`, or whether anything retains `output` after the operation slot is cleared — integration, not shown failing encode on close.
+
+---
+
+## Scope limits (no broad clearance)
+
+- **`validHandle` implementation** — central to `encodeResultInto` failure; absent from paste; cannot close the null-resource case from text alone beyond decode/encode symmetry.  
+- **`beginClose` / registry** — may affect **other** requests; not read by `encodeCompletionInto` on the completed close job.  
+- **`FileInvocationJob`, coordinator, worker** — only `poll`’s `AdapterCompleted` + `Returned` gate is used; not expanded here.  
+- **Failed/uncertain close** — `o.uncertain`, `failure()`, skipped `ClosedAwaitingAck`; not the “normal void close” path you specified.  
+- **Terminal retention / reply-then-ACK ordering** — explicitly unresolved; not repeated as findings.
+
+---
+
+## Bottom line
+
+For **valid `FileClose` + normal void `close` + default-zero completion fields + 128-byte `output` + `published == null`**, the supplied code shows a **complete success path** through `encodeCompletionInto`’s own checks into `encodeResultInto` with **`h.bytes == 128`**.  
+
+**No demonstrated bug** that session close **state** causes `encodeCompletionInto` failure on that path.  
+
+Remaining **concrete** items: **`validHandle` opacity** (codec contract, not traced owner state), **exact 128-byte sizing** (adequate for empty result, not slack), and **ACK-gated `releaseFile`** (consistent with encode-before-ack on the happy path, not premature release before encoding).

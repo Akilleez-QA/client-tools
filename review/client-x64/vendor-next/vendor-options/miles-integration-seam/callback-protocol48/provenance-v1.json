@@ -1,0 +1,70 @@
+{
+  "scope": "source-only; no compilation/test execution; no endpoint enabled",
+  "files": [
+    {
+      "output": "candidate/callback-protocol48/file_protocol.cpp",
+      "sha256": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e",
+      "source": null,
+      "source_sha256": null,
+      "transformation": "new narrow private protocol helper"
+    },
+    {
+      "output": "candidate/callback-protocol48/file_protocol.h",
+      "sha256": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf",
+      "source": null,
+      "source_sha256": null,
+      "transformation": "new narrow private protocol helper"
+    },
+    {
+      "output": "candidate/file-channel26/file_channel.cpp",
+      "sha256": "03d29cbfcdff8eaeabeaef620654b4190f6c2b60fac107c1f798eb826d483dce",
+      "source": "callback-composition46/candidate/file-channel26/file_channel.cpp",
+      "source_sha256": "03d29cbfcdff8eaeabeaef620654b4190f6c2b60fac107c1f798eb826d483dce",
+      "transformation": "byte-identical copy"
+    },
+    {
+      "output": "candidate/file-channel26/file_channel.h",
+      "sha256": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+      "source": "callback-composition46/candidate/file-channel26/file_channel.h",
+      "source_sha256": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+      "transformation": "byte-identical copy"
+    },
+    {
+      "output": "candidate/protocol-candidate/miles_wire.h",
+      "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3",
+      "source": "callback-composition46/candidate/protocol-candidate/miles_wire.h",
+      "source_sha256": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9",
+      "transformation": "private v3/control append"
+    },
+    {
+      "output": "candidate/reverse-file-seam20/ClientAudioFileCallbacks.h",
+      "sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+      "source": "callback-composition46/candidate/reverse-file-seam20/ClientAudioFileCallbacks.h",
+      "source_sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+      "transformation": "byte-identical copy"
+    },
+    {
+      "output": "candidate/transport-candidate/codec.cpp",
+      "sha256": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679",
+      "source": "callback-composition46/candidate/transport-candidate/codec.cpp",
+      "source_sha256": "9ba3ed648975d856d1715f76a959868f6cd00ca58ac783f3ff075f97e29dfd06",
+      "transformation": "bounded Call encoder sharing explicit field writer; appended opcode maximum"
+    },
+    {
+      "output": "candidate/transport-candidate/codec.h",
+      "sha256": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7",
+      "source": "callback-composition46/candidate/transport-candidate/codec.h",
+      "source_sha256": "f64abebcd7f713ca9901989ae14947e99104858bb6a82a7da6032cfe50412602",
+      "transformation": "bounded Call encoder sharing explicit field writer; appended opcode maximum"
+    },
+    {
+      "output": "candidate/transport-candidate/resource_registry.h",
+      "sha256": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768",
+      "source": "callback-composition46/candidate/transport-candidate/resource_registry.h",
+      "source_sha256": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768",
+      "transformation": "byte-identical copy"
+    }
+  ],
+  "stream_v2_contract_source": "stream-native38/private-source-v1/startup-bridge23/reply.h:80-89 and backend-boundary24/pipe/ClientMilesPipe.cpp:400-414",
+  "stream_v2_contract_note": "standalone helper preserves exact retained parent match including null alias; does not copy/enable existing stream backend"
+}
