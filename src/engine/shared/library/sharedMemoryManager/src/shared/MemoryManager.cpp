@@ -278,7 +278,7 @@ namespace MemoryManagerNamespace
 	FreeBlock *           ms_firstFreeBlock;
 
 	int                   ms_allocateCalls;
-	unsigned long         ms_allocateBytesTotal;
+	MemoryManager::ByteCount ms_allocateBytesTotal;
 #ifndef _WIN32
 	int                   ms_processVmSizeKBytes;
 #endif
@@ -294,13 +294,13 @@ namespace MemoryManagerNamespace
 #endif
 
 #if DO_TRACK || DO_GUARDS
-	unsigned long         ms_currentBytesRequested;
+	MemoryManager::ByteCount ms_currentBytesRequested;
 #endif
-	unsigned long         ms_currentBytesAllocated;
+	MemoryManager::ByteCount ms_currentBytesAllocated;
 #if DO_TRACK
-	unsigned long         ms_currentBytesAllocatedNoLeakTest;
+	MemoryManager::ByteCount ms_currentBytesAllocatedNoLeakTest;
 #endif
-	unsigned long         ms_maxBytesAllocated;
+	MemoryManager::ByteCount ms_maxBytesAllocated;
 
 	bool                  ms_allowNameLookup = true;
 	int                   ms_logMessageFd = -1;
@@ -664,8 +664,8 @@ MemoryManager::~MemoryManager()
 
 	ms_criticalSection->enter();
 
-		DEBUG_REPORT_LOG_PRINT(true, ("MM::remove %lu/%lu=bytes %d/%d=allocs\n", getCurrentNumberOfBytesAllocated(), getMaximumNumberOfBytesAllocated(), getCurrentNumberOfAllocations(), getMaximumNumberOfAllocations()));
-		DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("MM::remove %lu/%lu=bytes %d/%d=allocs\n", getCurrentNumberOfBytesAllocated(), getMaximumNumberOfBytesAllocated(), getCurrentNumberOfAllocations(), getMaximumNumberOfAllocations()));
+		DEBUG_REPORT_LOG_PRINT(true, ("MM::remove %" PRIu64 "/%" PRIu64 "=bytes %d/%d=allocs\n", static_cast<uint64_t>(getCurrentNumberOfBytesAllocated()), static_cast<uint64_t>(getMaximumNumberOfBytesAllocated()), getCurrentNumberOfAllocations(), getMaximumNumberOfAllocations()));
+		DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("MM::remove %" PRIu64 "/%" PRIu64 "=bytes %d/%d=allocs\n", static_cast<uint64_t>(getCurrentNumberOfBytesAllocated()), static_cast<uint64_t>(getMaximumNumberOfBytesAllocated()), getCurrentNumberOfAllocations(), getMaximumNumberOfAllocations()));
 
 #if DO_TRACK
 		if (!ConfigSharedFoundation::getDemoMode() && ms_allocations && ms_reportAllocations)
@@ -763,7 +763,7 @@ void MemoryManagerNamespace::allocateSystemMemory(int megabytes)
 
 // ----------------------------------------------------------------------
 
-unsigned long MemoryManager::getCurrentNumberOfBytesAllocated(const int processId)
+MemoryManager::ByteCount MemoryManager::getCurrentNumberOfBytesAllocated(const int processId)
 {	
 	UNREF(processId);
 	return ms_currentBytesAllocated;
@@ -771,7 +771,7 @@ unsigned long MemoryManager::getCurrentNumberOfBytesAllocated(const int processI
 
 // ----------------------------------------------------------------------
 
-unsigned long MemoryManager::getCurrentNumberOfBytesAllocatedNoLeakTest()
+MemoryManager::ByteCount MemoryManager::getCurrentNumberOfBytesAllocatedNoLeakTest()
 {
 #if DO_TRACK
 	return ms_currentBytesAllocatedNoLeakTest;
@@ -782,7 +782,7 @@ unsigned long MemoryManager::getCurrentNumberOfBytesAllocatedNoLeakTest()
 
 // ----------------------------------------------------------------------
 
-unsigned long MemoryManager::getMaximumNumberOfBytesAllocated()
+MemoryManager::ByteCount MemoryManager::getMaximumNumberOfBytesAllocated()
 {
 	return ms_maxBytesAllocated;
 }
@@ -850,7 +850,7 @@ void MemoryManager::debugReport()
 	DEBUG_FATAL(!ms_installed, ("not installed"));
 	DEBUG_REPORT_PRINT(ms_limitSet, ("MM: %9dmb (%s limit)\n", ms_limitMegabytes, ms_hardLimit ? "hard" : "soft"));
 	DEBUG_REPORT_PRINT(true,        ("MM: %9d/%9d/%9d  cur/max/tot allocs\n", ms_allocations, ms_maxAllocations, ms_allocateCalls));
-	DEBUG_REPORT_PRINT(true,        ("MM: %9lu/%9lu/%9lu  cur/max/tot bytes\n",  ms_currentBytesAllocated, ms_maxBytesAllocated, ms_allocateBytesTotal));
+	DEBUG_REPORT_PRINT(true,        ("MM: %9" PRIu64 "/%9" PRIu64 "/%9" PRIu64 "  cur/max/tot bytes\n",  static_cast<uint64_t>(ms_currentBytesAllocated), static_cast<uint64_t>(ms_maxBytesAllocated), static_cast<uint64_t>(ms_allocateBytesTotal)));
 #endif
 }
 
@@ -1565,7 +1565,7 @@ void MemoryManager::free(void * userPointer, bool array)
 		++ms_freeCalls;
 		--ms_allocations;
 
-		DEBUG_FATAL((ms_currentBytesAllocated < static_cast<unsigned long>(memorySize)), ("currentBytesAllocated underflow"));
+		DEBUG_FATAL((ms_currentBytesAllocated < static_cast<ByteCount>(memorySize)), ("currentBytesAllocated underflow"));
 		ms_currentBytesAllocated -= memorySize;
 #if DO_TRACK
 		if (!allocatedBlock->checkForLeaks())
@@ -1915,11 +1915,11 @@ namespace MemoryManagerNamespace
 	// in disabled mode for linux
 	int                   ms_allocateCalls;
 	int                   ms_freeCalls;
-	unsigned long         ms_allocateBytesTotal;
+	MemoryManager::ByteCount ms_allocateBytesTotal;
 #ifndef _WIN32
 	int                   ms_processVmSizeKBytes;
 #endif
-	unsigned long         ms_maxBytesAllocated;	
+	MemoryManager::ByteCount ms_maxBytesAllocated;
 	int                   ms_allocations;
 	int                   ms_maxAllocations;
 	bool                  ms_installed;
@@ -1991,7 +1991,7 @@ void MemoryManager::verify(bool, bool)
 
 // ----------------------------------------------------------------------
 
-unsigned long MemoryManager::getCurrentNumberOfBytesAllocated(const int processId)
+MemoryManager::ByteCount MemoryManager::getCurrentNumberOfBytesAllocated(const int processId)
 {
 	
 #ifdef _WIN32
@@ -2053,14 +2053,14 @@ unsigned long MemoryManager::getCurrentNumberOfBytesAllocated(const int processI
 
 // ----------------------------------------------------------------------
 
-unsigned long MemoryManager::getCurrentNumberOfBytesAllocatedNoLeakTest()
+MemoryManager::ByteCount MemoryManager::getCurrentNumberOfBytesAllocatedNoLeakTest()
 {
 	return 0;
 }
 
 // ----------------------------------------------------------------------
 
-unsigned long MemoryManager::getMaximumNumberOfBytesAllocated()
+MemoryManager::ByteCount MemoryManager::getMaximumNumberOfBytesAllocated()
 {
 #ifdef _WIN32
 	return 0;
