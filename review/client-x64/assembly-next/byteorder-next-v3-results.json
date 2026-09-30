@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Debug-Win32-candidate",
+    "compile": 0,
+    "run": 0,
+    "machine": 332,
+    "expected_outcome": true,
+    "output": "PASS 166631 input cases (both directions)\r\n",
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17"
+  },
+  {
+    "name": "Debug-Win32-stock",
+    "compile": 0,
+    "run": 0,
+    "machine": 332,
+    "expected_outcome": true,
+    "output": "PASS 166631 input cases (both directions)\r\n",
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2"
+  },
+  {
+    "name": "Debug-x64-candidate",
+    "compile": 0,
+    "run": 0,
+    "machine": 34404,
+    "expected_outcome": true,
+    "output": "PASS 166631 input cases (both directions)\r\n",
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17"
+  },
+  {
+    "name": "Debug-x64-stock",
+    "compile": 2,
+    "run": null,
+    "machine": null,
+    "expected_outcome": true,
+    "output": "",
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2"
+  },
+  {
+    "name": "Debug-x64-broken",
+    "compile": 0,
+    "run": 1,
+    "machine": 34404,
+    "expected_outcome": true,
+    "output": "FAIL long 80000000\r\n",
+    "source_sha256": "d1c64350f2dac2ceb10e3d4e4f7034d51c34bd593e6a2b8b3b98091efc193909"
+  },
+  {
+    "name": "Release-Win32-candidate",
+    "compile": 0,
+    "run": 0,
+    "machine": 332,
+    "expected_outcome": true,
+    "output": "PASS 166631 input cases (both directions)\r\n",
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17"
+  },
+  {
+    "name": "Release-Win32-stock",
+    "compile": 0,
+    "run": 0,
+    "machine": 332,
+    "expected_outcome": true,
+    "output": "PASS 166631 input cases (both directions)\r\n",
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2"
+  },
+  {
+    "name": "Release-x64-candidate",
+    "compile": 0,
+    "run": 0,
+    "machine": 34404,
+    "expected_outcome": true,
+    "output": "PASS 166631 input cases (both directions)\r\n",
+    "source_sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17"
+  },
+  {
+    "name": "Release-x64-stock",
+    "compile": 2,
+    "run": null,
+    "machine": null,
+    "expected_outcome": true,
+    "output": "",
+    "source_sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2"
+  },
+  {
+    "name": "Release-x64-broken",
+    "compile": 0,
+    "run": 1,
+    "machine": 34404,
+    "expected_outcome": true,
+    "output": "FAIL long 80000000\r\n",
+    "source_sha256": "d1c64350f2dac2ceb10e3d4e4f7034d51c34bd593e6a2b8b3b98091efc193909"
+  }
+]

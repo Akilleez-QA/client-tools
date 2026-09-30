@@ -1,6 +1,8 @@
 # Client x64 review packet
 
-Latest commits-only checkpoint: [client x64 configuration and compiler fixes](next-build/RESULTS.md).
+Latest commits-only checkpoint: [integer assembly and HTTP lock](assembly-next/RESULTS.md).
+
+Previous commits-only checkpoint: [client x64 configuration and compiler fixes](next-build/RESULTS.md).
 
 Previous follow-up: [CI, reproducibility and final-head server validation](followups/README.md).
 The original tables and manifests below record the **initial submission baselines**;

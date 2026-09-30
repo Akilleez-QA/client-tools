@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Debug-Win32-candidate",
+    "compile": 0,
+    "run": 0,
+    "expected_outcome": true,
+    "machine": 332,
+    "binding": true,
+    "header_sha256": "99cb2f98c28e1f4f082058d5d08c45bbeb797467bf396e537ca7c241c6450579",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nPASS final unlock permits retry acquisition\r\nPASS ownership worker joined\r\nPASS worker exit code\r\nPASS lock reusable after transfer\r\nPASS stress event created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS protected payload stays coherent\r\nPASS exact protected update total\r\nSUMMARY 27/27\r\n"
+  },
+  {
+    "name": "Debug-Win32-stock",
+    "compile": 0,
+    "run": 0,
+    "expected_outcome": true,
+    "machine": 332,
+    "binding": true,
+    "header_sha256": "89f05c5173213810a8856a0c82f216007a0a4a6c74881496c47fa72d887801f8",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nPASS final unlock permits retry acquisition\r\nPASS ownership worker joined\r\nPASS worker exit code\r\nPASS lock reusable after transfer\r\nPASS stress event created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS protected payload stays coherent\r\nPASS exact protected update total\r\nSUMMARY 27/27\r\n"
+  },
+  {
+    "name": "Debug-x64-candidate",
+    "compile": 0,
+    "run": 0,
+    "expected_outcome": true,
+    "machine": 34404,
+    "binding": true,
+    "header_sha256": "99cb2f98c28e1f4f082058d5d08c45bbeb797467bf396e537ca7c241c6450579",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nPASS final unlock permits retry acquisition\r\nPASS ownership worker joined\r\nPASS worker exit code\r\nPASS lock reusable after transfer\r\nPASS stress event created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS protected payload stays coherent\r\nPASS exact protected update total\r\nSUMMARY 27/27\r\n"
+  },
+  {
+    "name": "Debug-x64-stock",
+    "compile": 2,
+    "run": null,
+    "expected_outcome": true,
+    "machine": null,
+    "binding": false,
+    "header_sha256": "89f05c5173213810a8856a0c82f216007a0a4a6c74881496c47fa72d887801f8",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": ""
+  },
+  {
+    "name": "Release-Win32-candidate",
+    "compile": 0,
+    "run": 0,
+    "expected_outcome": true,
+    "machine": 332,
+    "binding": true,
+    "header_sha256": "99cb2f98c28e1f4f082058d5d08c45bbeb797467bf396e537ca7c241c6450579",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nPASS final unlock permits retry acquisition\r\nPASS ownership worker joined\r\nPASS worker exit code\r\nPASS lock reusable after transfer\r\nPASS stress event created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS protected payload stays coherent\r\nPASS exact protected update total\r\nSUMMARY 27/27\r\n"
+  },
+  {
+    "name": "Release-Win32-stock",
+    "compile": 0,
+    "run": 0,
+    "expected_outcome": true,
+    "machine": 332,
+    "binding": true,
+    "header_sha256": "89f05c5173213810a8856a0c82f216007a0a4a6c74881496c47fa72d887801f8",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nPASS final unlock permits retry acquisition\r\nPASS ownership worker joined\r\nPASS worker exit code\r\nPASS lock reusable after transfer\r\nPASS stress event created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS protected payload stays coherent\r\nPASS exact protected update total\r\nSUMMARY 27/27\r\n"
+  },
+  {
+    "name": "Release-x64-candidate",
+    "compile": 0,
+    "run": 0,
+    "expected_outcome": true,
+    "machine": 34404,
+    "binding": true,
+    "header_sha256": "99cb2f98c28e1f4f082058d5d08c45bbeb797467bf396e537ca7c241c6450579",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nPASS final unlock permits retry acquisition\r\nPASS ownership worker joined\r\nPASS worker exit code\r\nPASS lock reusable after transfer\r\nPASS stress event created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker created\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS stress worker joined\r\nPASS worker exit code\r\nPASS protected payload stays coherent\r\nPASS exact protected update total\r\nSUMMARY 27/27\r\n"
+  },
+  {
+    "name": "Release-x64-stock",
+    "compile": 2,
+    "run": null,
+    "expected_outcome": true,
+    "machine": null,
+    "binding": false,
+    "header_sha256": "89f05c5173213810a8856a0c82f216007a0a4a6c74881496c47fa72d887801f8",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": ""
+  },
+  {
+    "name": "Release-x64-broken-acquire",
+    "compile": 0,
+    "run": 1,
+    "expected_outcome": true,
+    "machine": 34404,
+    "binding": true,
+    "header_sha256": "9ba96c75610f3863a05619cb3fcaf9f31f561cd308f0d5facb6481326c2305f8",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nFAIL other thread excluded while nested error=0\r\n"
+  },
+  {
+    "name": "Release-x64-broken-release",
+    "compile": 0,
+    "run": 1,
+    "expected_outcome": true,
+    "machine": 34404,
+    "binding": true,
+    "header_sha256": "9548d1390fe1a188955804d7c5f6c4057395f143e11bf6e5796325669046437f",
+    "tu_sha256": "3a2e27e089669a38bc419f4663fe1a925656442c00917a713121ae816e66e186",
+    "output": "PASS initial acquisition\r\nPASS recursive acquisition\r\nPASS ownership worker created\r\nPASS first competing attempt completed\r\nPASS other thread excluded while nested\r\nPASS second competing attempt completed\r\nPASS one unlock does not release nested owner\r\nPASS worker ready for retry acquisition\r\nFAIL final unlock permits retry acquisition error=0\r\n"
+  }
+]
