@@ -27,7 +27,9 @@ substitute a definition of `yield_thread()`.
 Diagnostic copies with acquisition or final release removed must fail the
 specific exclusion or progress check. Stock Win32 must pass; stock x64 must fail
 with C4235 at the inline assembly. Each event wait is bounded to 10 seconds;
-compiles and test processes have 120- and 45-second outer deadlines. Logs,
+compiler wrappers and test processes use 120- and 45-second subprocess timeouts.
+The compiler timeout does not guarantee cleanup of descendant compiler/linker
+processes. Logs,
 commands, source hashes, PE architecture, elapsed times and JSON verdicts remain
 in the output directory. A nonzero runner exit means some expected result did
 not occur.
