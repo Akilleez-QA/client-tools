@@ -1,0 +1,17 @@
+[
+  "g++",
+  "-m32",
+  "-std=c++17",
+  "-Werror=deprecated-declarations",
+  "-pthread",
+  "-include",
+  "cstring",
+  "-I/home/akilleez/Work/swg-source/server-autoptr-next/external/ours/library/archive/src/shared",
+  "-I/home/akilleez/Work/swg-source/server-autoptr-next/external/ours/library/archive/src/linux",
+  "-I/home/akilleez/Work/swg-source/server-autoptr-next/external/ours/library/archive/include",
+  "/home/akilleez/Work/swg-source/client-build-next/tools/test-byte-stream/fixtures.cpp",
+  "/home/akilleez/Work/swg-source/server-autoptr-next/external/ours/library/archive/src/shared/ByteStream.cpp",
+  "/home/akilleez/Work/swg-source/server-autoptr-next/external/ours/library/archive/src/linux/ArchiveMutex.cpp",
+  "-o",
+  "/home/akilleez/Work/client-wire-validation/bytestream-next/server-unique-ptr/probe32"
+]

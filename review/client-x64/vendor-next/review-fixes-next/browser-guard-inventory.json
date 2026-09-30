@@ -1,0 +1,244 @@
+[
+  {
+    "path": "src/engine/client/library/clientGame/src/shared/core/Game.cpp",
+    "line": 148,
+    "text": "#include \"libMozilla/libMozilla.h\"",
+    "guards": [
+      [
+        147,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/core/SwgCuiWebBrowserManager.cpp",
+    "line": 16,
+    "text": "#include \"libMozilla/libMozilla.h\"",
+    "guards": [
+      [
+        15,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/core/SwgCuiWebBrowserManager.cpp",
+    "line": 68,
+    "text": "libMozilla::setUserAgent(\"StarWarsGalaxies\");",
+    "guards": [
+      [
+        59,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/core/SwgCuiWebBrowserManager.cpp",
+    "line": 69,
+    "text": "libMozilla::enableMemoryCache(true);",
+    "guards": [
+      [
+        59,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/core/SwgCuiWebBrowserManager.cpp",
+    "line": 70,
+    "text": "libMozilla::enableDiskCache(true, 50 * 1024);",
+    "guards": [
+      [
+        59,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/core/SwgCuiWebBrowserManager.cpp",
+    "line": 100,
+    "text": "libMozilla::update();",
+    "guards": [
+      [
+        98,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 29,
+    "text": "#include \"libMozilla/libMozilla.h\"",
+    "guards": [
+      [
+        28,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 49,
+    "text": "class UIMozillaCallbacks : public libMozilla::ICallback",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 61,
+    "text": "virtual void onURIChanged( libMozilla::Window * )",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 65,
+    "text": "virtual void onProgressChanged( libMozilla::Window * )",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 69,
+    "text": "virtual void onStatusChanged( libMozilla::Window * )",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 73,
+    "text": "virtual bool doValidateURI( libMozilla::Window *, const char *pURI )",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 79,
+    "text": "class UIMozillaCanvasBlitter : public libMozilla::IBlitter",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 141,
+    "text": "libMozilla::destroyWindow(m_MozillaWindow);",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 246,
+    "text": "libMozilla::Window* SwgCuiWebBrowserWidget::getMozillaWindow()",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 250,
+    "text": "m_MozillaWindow = libMozilla::createWindow(GetWidth(), GetHeight());",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 354,
+    "text": "Flags |= libMozilla::Window::ALT;",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 356,
+    "text": "Flags |= libMozilla::Window::CONTROL;",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.cpp",
+    "line": 358,
+    "text": "Flags |= libMozilla::Window::SHIFT;",
+    "guards": [
+      [
+        41,
+        "#if DEBUG=0"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.h",
+    "line": 16,
+    "text": "#include \"libMozilla/libMozilla.h\"",
+    "guards": [
+      [
+        8,
+        "#ifndef INCLUDED_SwgCuiWebBrowserWidget_H"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.h",
+    "line": 75,
+    "text": "libMozilla::Window*       getMozillaWindow();",
+    "guards": [
+      [
+        8,
+        "#ifndef INCLUDED_SwgCuiWebBrowserWidget_H"
+      ]
+    ]
+  },
+  {
+    "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiWebBrowserWidget.h",
+    "line": 77,
+    "text": "libMozilla::Window*       m_MozillaWindow;",
+    "guards": [
+      [
+        8,
+        "#ifndef INCLUDED_SwgCuiWebBrowserWidget_H"
+      ]
+    ]
+  }
+]

@@ -1,6 +1,10 @@
 # Client x64 review packet
 
-Latest commits-only checkpoint: [integer assembly and HTTP lock](assembly-next/RESULTS.md).
+Latest commits-only checkpoint: [native build, dependency and fidelity work](vendor-next/vendor-options/CHECKPOINT-2026-09-30.md).
+
+Current working code: [integration/client-x64-next](https://github.com/Akilleez-QA/client-tools/tree/integration/client-x64-next). The x64 client is not complete: full link/start and intended gameplay/media acceptance remain open.
+
+Previous commits-only checkpoint: [integer assembly and HTTP lock](assembly-next/RESULTS.md).
 
 Previous commits-only checkpoint: [client x64 configuration and compiler fixes](next-build/RESULTS.md).
 
@@ -19,7 +23,7 @@ These are separate review branches on `Akilleez-QA/client-tools`, based on upstr
 
 The combined A+B+C2 diff is 1,202 changed lines, including 828 wire-harness lines. A+B+C1 is 1,191. These are measured branch diffs, not an estimate of the remaining full-client migration.
 
-Exact SHAs, commit lists, file lists and counts: [branches.json](branches.json). C1 and C2 are alternatives, not two changes to merge independently. No choice to ship the numerical candidate is implied by publishing it for review.
+Exact SHAs, commit lists, file lists and counts: [branches.json](branches.json). C1 and C2 were the initial comparison alternatives, not two changes to merge independently. The later integration branch carries C2; its bounded numerical evidence and native Direct3D limitations remain in the subsequent checkpoints.
 
 ## Draft descriptions and evidence
 

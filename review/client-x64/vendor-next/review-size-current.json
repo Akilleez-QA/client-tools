@@ -1,0 +1,1371 @@
+{
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "5c481293a1d5d4351d4a265e44ede6e7c5a1b397",
+  "categories": {
+    "CI": {
+      "files": 1,
+      "added": 73,
+      "removed": 0,
+      "binary": 0
+    },
+    "Project/solution XML and build configuration": {
+      "files": 68,
+      "added": 7528,
+      "removed": 27,
+      "binary": 0
+    },
+    "Production C/C++": {
+      "files": 106,
+      "added": 1397,
+      "removed": 522,
+      "binary": 0
+    },
+    "Other": {
+      "files": 1,
+      "added": 3,
+      "removed": 0,
+      "binary": 0
+    },
+    "Tests/build tools and their documentation": {
+      "files": 46,
+      "added": 3597,
+      "removed": 0,
+      "binary": 0
+    }
+  },
+  "files": [
+    {
+      "path": ".github/workflows/wire-compatibility.yml",
+      "added": "73",
+      "removed": "0",
+      "category": "CI"
+    },
+    {
+      "path": "src/build/win32/swg.sln",
+      "added": "270",
+      "removed": "1",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9.vcxproj",
+      "added": "165",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9_ffp.vcxproj",
+      "added": "165",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9_vsps.vcxproj",
+      "added": "165",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/src/shared/MemoryManagerHook.cpp",
+      "added": "37",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/src/win32/Direct3d9.h",
+      "added": "8",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/application/DllExport/build/win32/DllExport.vcxproj",
+      "added": "134",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/application/DllExport/src/win32/DllExport.cpp",
+      "added": "93",
+      "removed": "92",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/application/Headless/src/shared/MemoryManagerHook.cpp",
+      "added": "37",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/application/MayaExporter/src/win32/ExportStaticMesh.cpp",
+      "added": "2",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/application/Viewer/src/win32/ViewerDoc.cpp",
+      "added": "4",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientAnimation/build/win32/clientAnimation.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+      "added": "25",
+      "removed": "21",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientBugReporting/build/win32/clientBugReporting.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientDirectInput/build/win32/clientDirectInput.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/build/win32/clientGame.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/HTTPpost/TCPQueue.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/HTTPpost/VeCritsec.hpp",
+      "added": "17",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/core/ClientHeadTracking.cpp",
+      "added": "12",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/core/Game.cpp",
+      "added": "10",
+      "removed": "9",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/core/PlotterManager.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/CreatureObject.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/CreatureObject.h",
+      "added": "2",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/GroupObject.cpp",
+      "added": "4",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/GroupObject.h",
+      "added": "5",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+      "added": "116",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/shared/RenderWorld.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/shared/RenderWorldServices.cpp",
+      "added": "12",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientObject/build/win32/clientObject.vcxproj",
+      "added": "110",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientParticle/build/win32/clientParticle.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/build/win32/clientSkeletalAnimation.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/appearance/MeshConstructionHelper.cpp",
+      "added": "5",
+      "removed": "5",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/appearance/SkeletalAppearance2.cpp",
+      "added": "15",
+      "removed": "14",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/appearance/SoftwareBlendSkeletalShaderPrimitive.cpp",
+      "added": "97",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/controller/LogicalAnimationTableTemplateList.cpp",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientTerrain/build/win32/clientTerrain.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientTextureRenderer/build/win32/clientTextureRenderer.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/build/win32/clientUserInterface.vcxproj",
+      "added": "112",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/src/shared/core/CuiChatFormatter.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/src/shared/core/CuiCombatManager.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/src/shared/core/CuiIoWin.cpp",
+      "added": "0",
+      "removed": "5",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedCollision/build/win32/sharedCollision.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedCollision/src/shared/core/CollisionUtils.cpp",
+      "added": "7",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedCommandParser/build/win32/sharedCommandParser.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedCompression/build/win32/sharedCompression.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDatabaseInterface/src_oci/OciSession.cpp",
+      "added": "3",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/build/win32/sharedDebug.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/CallStack.cpp",
+      "added": "4",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/CallStack.h",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/CallStackCollector.cpp",
+      "added": "9",
+      "removed": "9",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/InstallTimer.cpp",
+      "added": "3",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/InstallTimer.h",
+      "added": "2",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/win32/DebugHelp.cpp",
+      "added": "55",
+      "removed": "11",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/win32/DebugHelp.h",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/win32/ProfilerTimer.cpp",
+      "added": "10",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFile/build/win32/sharedFile.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFile/src/shared/Iff.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/build/win32/sharedFoundation.vcxproj",
+      "added": "110",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/AutoDeltaNetworkIdPackedMap.h",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/Fatal.cpp",
+      "added": "11",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/Md5.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/Misc.h",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/Tag.h",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp",
+      "added": "26",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp",
+      "added": "45",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.h",
+      "added": "8",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/Os.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/SetupSharedFoundation.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundationTypes/build/win32/sharedFoundationTypes.vcxproj",
+      "added": "36",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFractal/build/win32/sharedFractal.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedGame/build/win32/sharedGame.vcxproj",
+      "added": "110",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedImage/build/win32/sharedImage.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedInputMap/build/win32/sharedInputMap.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedIoWin/build/win32/sharedIoWin.vcxproj",
+      "added": "110",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedLog/build/win32/sharedLog.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMath/build/win32/sharedMath.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMath/src/shared/Transform.cpp",
+      "added": "27",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMath/src/win32/SseMath.cpp",
+      "added": "194",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMath/src/win32/SseMath.h",
+      "added": "7",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMathArchive/build/win32/sharedMathArchive.vcxproj",
+      "added": "36",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/build/win32/sharedMemoryManager.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp",
+      "added": "117",
+      "removed": "72",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.h",
+      "added": "18",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/win32/OsNewDel.cpp",
+      "added": "38",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedMessageDispatch/build/win32/sharedMessageDispatch.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/build/win32/sharedNetwork.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/src/win32/Sock.h",
+      "added": "3",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/build/win32/sharedNetworkMessages.vcxproj",
+      "added": "109",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/include/public/sharedNetworkMessages/NetworkMessageTimestamp.h",
+      "added": "1",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/NetworkMessageTimestamp.h",
+      "added": "22",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.h",
+      "added": "3",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+      "added": "6",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.h",
+      "added": "5",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+      "added": "10",
+      "removed": "8",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+      "added": "9",
+      "removed": "7",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.h",
+      "added": "5",
+      "removed": "4",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+      "added": "4",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+      "added": "3",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+      "added": "4",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+      "added": "3",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedObject/build/win32/sharedObject.vcxproj",
+      "added": "112",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedPathfinding/build/win32/sharedPathfinding.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedRandom/build/win32/sharedRandom.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedRegex/build/win32/sharedRegex.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedRegex/src/win32/RegexServices.cpp",
+      "added": "12",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedRemoteDebugServer/build/win32/sharedRemoteDebugServer.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedSkillSystem/build/win32/sharedSkillSystem.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedStatusWindow/build/win32/sharedStatusWindow.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedStatusWindow/src/win32/StatusWindow.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedSwitcher/build/win32/sharedSwitcher.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedSynchronization/build/win32/sharedSynchronization.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedTerrain/build/win32/sharedTerrain.vcxproj",
+      "added": "110",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedThread/build/win32/sharedThread.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedUtility/build/win32/sharedUtility.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedUtility/src/shared/CachedFileManager.cpp",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/build/win32/sharedXml.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/src/shared/core/SetupSharedXml.cpp",
+      "added": "3",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/src/shared/tree/XmlTreeDocumentList.cpp",
+      "added": "4",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/blat194/build/win32/blat.vcxproj",
+      "added": "117",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/dpvs/implementation/include/dpvsPrivateDefs.hpp",
+      "added": "13",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/dpvs/implementation/include/dpvsSystem.hpp",
+      "added": "9",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/dpvs/implementation/msvc8/dpvs.vcxproj",
+      "added": "50",
+      "removed": "23",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/dpvs/implementation/sources/dpvsImpObject.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/dpvs/implementation/sources/dpvsMath.cpp",
+      "added": "12",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/lcdui_src/build/win32/lcdui.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/libEverQuestTCG/build/win32/libEverQuestTCG.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/libMozilla/build/win32/libMozilla.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp",
+      "added": "2",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/stlport453/README",
+      "added": "3",
+      "removed": "0",
+      "category": "Other"
+    },
+    {
+      "path": "src/external/3rd/library/stlport453/src/stlport_prefix.h",
+      "added": "10",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/udplibrary/UdpLibrary.hpp",
+      "added": "2",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/udplibrary/udplibrary.vcxproj",
+      "added": "103",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/ui/build/win32/ui.vcxproj",
+      "added": "113",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/shared/core/UiMemoryBlockManager.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/win32/UILoader.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/win32/UIOutputStream.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/win32/UITabbedPane.cpp",
+      "added": "8",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/3rd/library/zlib-1.2.3/zlib.vcxproj",
+      "added": "57",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/archive/build/win32/archive.vcxproj",
+      "added": "109",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/archive/include/Archive/ArchiveCount.h",
+      "added": "1",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/Archive.h",
+      "added": "20",
+      "removed": "12",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/ArchiveCount.h",
+      "added": "23",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaMap.h",
+      "added": "11",
+      "removed": "10",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.h",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaQueue.h",
+      "added": "6",
+      "removed": "5",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaSet.h",
+      "added": "10",
+      "removed": "9",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaVector.h",
+      "added": "11",
+      "removed": "10",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "added": "63",
+      "removed": "66",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/ByteStream.h",
+      "added": "22",
+      "removed": "18",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/crypto/build/win32/crypto.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/core/FirstCrypto.h",
+      "added": "11",
+      "removed": "0",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/original/cryptlib.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/original/filters.h",
+      "added": "9",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/original/mqueue.h",
+      "added": "7",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/fileInterface/build/win32/fileInterface.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/localization/build/win32/localization.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/localizationArchive/build/win32/localizationArchive.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/unicode/build/win32/unicode.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/build/win32/unicodeArchive.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+      "added": "20",
+      "removed": "9",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+      "added": "3",
+      "removed": "3",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj",
+      "added": "137",
+      "removed": "3",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/game/client/application/SwgClient/src/win32/WinMain.cpp",
+      "added": "2",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/game/client/library/swgClientUserInterface/build/win32/swgClientUserInterface.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiDebugInfoPage.cpp",
+      "added": "1",
+      "removed": "1",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/game/client/library/swgClientUserInterface/src/shared/parser/SwgCuiCommandParserScene.cpp",
+      "added": "1",
+      "removed": "2",
+      "category": "Production C/C++"
+    },
+    {
+      "path": "src/game/shared/library/swgSharedNetworkMessages/build/win32/swgSharedNetworkMessages.vcxproj",
+      "added": "108",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "src/game/shared/library/swgSharedUtility/build/win32/swgSharedUtility.vcxproj",
+      "added": "120",
+      "removed": "0",
+      "category": "Project/solution XML and build configuration"
+    },
+    {
+      "path": "tools/build-client-deps/PARSERS.md",
+      "added": "20",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/README.md",
+      "added": "89",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/build-parsers.py",
+      "added": "173",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/build.py",
+      "added": "236",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/client-runtime-deps.props",
+      "added": "14",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/dependency-build.props",
+      "added": "15",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/logitech-lcd.props",
+      "added": "16",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/parser-deps.props",
+      "added": "25",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/renderer-deps.props",
+      "added": "17",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/tests/parser-smoke.c",
+      "added": "26",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/tests/test_owner.py",
+      "added": "200",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/build-client-deps/validate-logitech-lcd.py",
+      "added": "21",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/configure-client-x64/README.md",
+      "added": "37",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/configure-client-x64/check.py",
+      "added": "53",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/configure-client-x64/client-x64.props",
+      "added": "32",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/configure-client-x64/generate.py",
+      "added": "138",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-archive-decoders/README.md",
+      "added": "12",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-archive-decoders/fixtures.cpp",
+      "added": "135",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-archive-decoders/run.py",
+      "added": "85",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-byte-stream/README.md",
+      "added": "14",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-byte-stream/fixtures.cpp",
+      "added": "99",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-byte-stream/run.py",
+      "added": "79",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/.gitignore",
+      "added": "1",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/README.md",
+      "added": "135",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/caller.cpp",
+      "added": "41",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/compare_dll.py",
+      "added": "116",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/numerical.cpp",
+      "added": "68",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/occlusion.cpp",
+      "added": "33",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/run.py",
+      "added": "256",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/stress.cpp",
+      "added": "22",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/test_compare_dll.py",
+      "added": "90",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-dpvs/verify.py",
+      "added": "61",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-ui-memory/README.md",
+      "added": "29",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-ui-memory/fixtures.cpp",
+      "added": "26",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-ui-memory/run.py",
+      "added": "102",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/README.md",
+      "added": "195",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/count_sites.cpp",
+      "added": "32",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/fatal.cpp",
+      "added": "13",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/fixtures.cpp",
+      "added": "366",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/login_cluster.cpp",
+      "added": "105",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/mission_glue.cpp",
+      "added": "45",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/run.py",
+      "added": "239",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/shim/StlForwardDeclaration.h",
+      "added": "19",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/shim/hashmap_shim.h",
+      "added": "4",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/shim/sharedFoundation/FirstSharedFoundation.h",
+      "added": "52",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    },
+    {
+      "path": "tools/test-wire-compatibility/wire_types.cpp",
+      "added": "11",
+      "removed": "0",
+      "category": "Tests/build tools and their documentation"
+    }
+  ],
+  "definition": "Final-tree diff additions plus deletions; production C/C++ under src only. Tests, build tools, project files, CI and docs excluded from production subtotal."
+}

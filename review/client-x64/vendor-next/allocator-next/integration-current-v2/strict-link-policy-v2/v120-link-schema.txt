@@ -1,0 +1,10 @@
+  <EnumProperty Name="ForceFileOutput" DisplayName="Force File Output" Description="The /FORCE option tells the linker to create an .exe file or DLL even if a symbol is referenced but not defined or is multiply defined. It may create invalid exe file." Category="General" F1Keyword="VC.Project.VCLinkerTool.ForceFileOutput">
+    <EnumValue Name="Enabled" Switch="FORCE" DisplayName="Enabled" Description="/FORCE with no arguments implies both multiple and unresolved.">
+    </EnumValue>
+    <EnumValue Name="MultiplyDefinedSymbolOnly" Switch="FORCE:MULTIPLE" DisplayName="Multiply Defined Symbol Only" Description="Use /FORCE:MULTIPLE to create an output file whether or not LINK finds more than one definition for a symbol.">
+    </EnumValue>
+    <EnumValue Name="UndefinedSymbolOnly" Switch="FORCE:UNRESOLVED" DisplayName="Undefined Symbol Only" Description="Use /FORCE:UNRESOLVED to create an output file whether or not LINK finds an undefined symbol. /FORCE:UNRESOLVED is ignored if the entry point symbol is unresolved.">
+    </EnumValue>
+  </EnumProperty>
+  <EnumProperty Name="CreateHotPatchableImage" DisplayName="Create Hot Patchable Image" Description="Prepares an image for hotpatching." Category="General" F1Keyword="VC.Project.VCLinkerTool.CreateHotPatchableImage">
+    <EnumValue Name="Enabled" Switch="FUNCTIONPADMIN" DisplayName="Enabled" Description="Prepares an image for hotpatching.">

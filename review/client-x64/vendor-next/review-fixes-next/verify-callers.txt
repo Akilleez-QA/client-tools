@@ -1,0 +1,21 @@
+review-fixes-next/source/src/game/client/library/swgClientUserInterface/src/shared/parser/SwgCuiCommandParserDefault.cpp:161:		{ Commands::memoryVerify,                0, "",                                   "Call MemoryManager::verify()"},
+review-fixes-next/source/src/game/client/library/swgClientUserInterface/src/shared/parser/SwgCuiCommandParserDefault.cpp:771:		MemoryManager::verify(true, true);
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.h:37:	static void install(SetFlagsFunction setFlagsFunction, PrintfFunction printfFunction, ProfilerEnterFunction profilerEnterFunction, ProfilerLeaveFunction profilerLeaveFunction, MemoryManagerVerifyFunction memoryManagerVerifyFunction);
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.h:46:	static void memoryManagerVerify (bool guardPatterns, bool freePatterns);
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.h:52:	static MemoryManagerVerifyFunction ms_memoryManagerVerifyFunction;
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.h:73:inline void UiReport::memoryManagerVerify (bool guardPatterns, bool freePatterns)
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.h:75:	if (ms_memoryManagerVerifyFunction)
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.h:76:		ms_memoryManagerVerifyFunction (guardPatterns, freePatterns);
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.cpp:25:UiReport::MemoryManagerVerifyFunction UiReport::ms_memoryManagerVerifyFunction = 0;
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.cpp:29:void UiReport::install(SetFlagsFunction setFlagsFunction, PrintfFunction printfFunction, ProfilerEnterFunction profilerEnterFunction, ProfilerLeaveFunction profilerLeaveFunction, MemoryManagerVerifyFunction memoryManagerVerifyFunction)
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/UiReport.cpp:35:	ms_memoryManagerVerifyFunction = memoryManagerVerifyFunction;
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/SetupUi.h:31:		UiReport::MemoryManagerVerifyFunction m_memoryManagerVerifyFunction;
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/SetupUi.cpp:46:  m_memoryManagerVerifyFunction (0),
+review-fixes-next/source/src/external/3rd/library/ui/src/shared/core/SetupUi.cpp:61:	UiReport::install (data.m_reportSetFlagsFunction, data.m_reportPrintfFunction, data.m_profilerEnterFunction, data.m_profilerLeaveFunction, data.m_memoryManagerVerifyFunction);
+review-fixes-next/source/src/engine/client/library/clientUserInterface/src/shared/core/CuiManager.cpp:353:	setupUiData.m_memoryManagerVerifyFunction  = MemoryManager::verify;
+review-fixes-next/source/src/engine/shared/library/sharedFoundation/src/win32/Os.cpp:715:		MemoryManager::verify(ms_validateGuardPatterns, ms_validateFreePatterns);
+review-fixes-next/source/src/engine/client/library/clientGame/src/shared/core/Game.cpp:1096:			MemoryManager::verify(ms_verifyGuardPatterns, ms_verifyFreePatterns);
+review-fixes-next/source/src/engine/client/library/clientObject/src/shared/appearance/DynamicMeshAppearanceShaderSet.cpp:662:		//MemoryManager::verify(true, true);
+review-fixes-next/source/src/engine/client/library/clientObject/src/shared/appearance/DynamicMeshAppearanceShaderSet.cpp:732:	//MemoryManager::verify(true, true);
+review-fixes-next/source/src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp:1696:void MemoryManager::verify(bool guardPatterns, bool freePatterns)
+review-fixes-next/source/src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp:1984:void MemoryManager::verify(bool, bool)

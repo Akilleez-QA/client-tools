@@ -1,0 +1,37 @@
+667:		DEBUG_REPORT_LOG_PRINT(true, ("MM::remove %" PRIu64 "/%" PRIu64 "=bytes %d/%d=allocs\n", static_cast<uint64_t>(getCurrentNumberOfBytesAllocated()), static_cast<uint64_t>(getMaximumNumberOfBytesAllocated()), getCurrentNumberOfAllocations(), getMaximumNumberOfAllocations()));
+668:		DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("MM::remove %" PRIu64 "/%" PRIu64 "=bytes %d/%d=allocs\n", static_cast<uint64_t>(getCurrentNumberOfBytesAllocated()), static_cast<uint64_t>(getMaximumNumberOfBytesAllocated()), getCurrentNumberOfAllocations(), getMaximumNumberOfAllocations()));
+852:	DEBUG_REPORT_PRINT(true,        ("MM: %9d/%9d/%9d  cur/max/tot allocs\n", ms_allocations, ms_maxAllocations, ms_allocateCalls));
+853:	DEBUG_REPORT_PRINT(true,        ("MM: %9" PRIu64 "/%9" PRIu64 "/%9" PRIu64 "  cur/max/tot bytes\n",  static_cast<uint64_t>(ms_currentBytesAllocated), static_cast<uint64_t>(ms_maxBytesAllocated), static_cast<uint64_t>(ms_allocateBytesTotal)));
+930:		snprintf(buffer, sizeof(buffer)-1, "%8p %3dmb : ", systemAllocation, systemAllocation->getSize() / (1024 * 1024));
+1212:	FATAL(!calculateAllocationSize(size, requestedAllocationSize), ("allocation size %" PRIuPTR " exceeds memory manager range", static_cast<uintptr_t>(size)));
+1233:			DEBUG_REPORT(true, (ms_debugReportAllocations ? Report::RF_print : 0) | (ms_debugLogAllocations ? Report::RF_log : 0), ("%s(%d): alloc %" PRIuPTR "=bytes %d=array\n", fileName, line, static_cast<uintptr_t>(size), static_cast<int>(array)));
+1237:			DEBUG_REPORT(true, (ms_debugReportAllocations ? Report::RF_print : 0) | (ms_debugLogAllocations ? Report::RF_log : 0), ("%0*" PRIxPTR ": alloc %" PRIuPTR "=bytes %d=array\n", static_cast<int>(sizeof(uintptr_t) * 2), static_cast<uintptr_t>(owner), static_cast<uintptr_t>(size), static_cast<int>(array)));
+1268:			FATAL(true, ("failed allocation attempt for %d (%" PRIuPTR " actual)", allocSize, static_cast<uintptr_t>(size)));
+1323:						DEBUG_REPORT(true, (ms_debugReportAllocations ? Report::RF_print : 0) | (ms_debugLogAllocations ? Report::RF_log : 0), ("  %0*" PRIxPTR ": caller %d\n", static_cast<int>(sizeof(uintptr_t) * 2), static_cast<uintptr_t>(owners[i + OFFSET]), i));
+1374:	DEBUG_REPORT_LOG_PRINT(ms_debugReportLogMemoryAllocFreePointers, ("MM::alloc %0*" PRIxPTR "\n", static_cast<int>(sizeof(uintptr_t) * 2), reinterpret_cast<uintptr_t>(memory)));
+1381://	DEBUG_REPORT_LOG(ms_logEachAlloc, ("MemoryManager::allocate() requested_size=%d, alloc_size=%d, ptr=%p\n", size, allocSize, memory));
+1405://			DEBUG_REPORT_LOG(ms_logEachAlloc, ("MemoryManager::reallocate() new_requested_size=%d, org ptr=%p, new ptr=NULL\n", newSize, userPointer));
+1418://		DEBUG_REPORT_LOG(ms_logEachAlloc, ("MemoryManager::reallocate() new_requested_size=%d, org ptr=%p, new ptr=%p\n", newSize, userPointer, userPointer));
+1437://	DEBUG_REPORT_LOG(ms_logEachAlloc, ("MemoryManager::reallocate() new_requested_size=%d, org ptr=%p, new ptr=%p\n", newSize, userPointer, newPointer));
+1471:	DEBUG_REPORT_LOG_PRINT(ms_debugReportLogMemoryAllocFreePointers, ("MM::free %0*" PRIxPTR "\n", static_cast<int>(sizeof(uintptr_t) * 2), reinterpret_cast<uintptr_t>(userPointer)));
+1480:		DEBUG_FATAL(allocatedBlock->getNext()->getPrevious() != allocatedBlock,                                      ("Bad free (1) %p", userPointer));
+1481:		DEBUG_FATAL(allocatedBlock->getPrevious()->getNext() != allocatedBlock,                                      ("Bad free (2) %p", userPointer));
+1482:		DEBUG_FATAL(allocatedBlock->isFree(),                                                                        ("Freeing already free block %p", userPointer));
+1503:					DEBUG_REPORT_LOG_PRINT(true, ("MemoryManager::free corrupted guard prefix at position %3d = %02x\n", i - cms_guardBandSize, static_cast<int>(*guard)));
+1504:					DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("MemoryManager::free corrupted guard prefix at position %3d = %02x\n", i - cms_guardBandSize, static_cast<int>(*guard)));
+1515:					DEBUG_REPORT_LOG_PRINT(true, ("MemoryManager::free corrupted guard suffix at position %3d = %02x\n", j, static_cast<int>(*guard)));
+1516:					DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("MemoryManager::free corrupted guard suffix at position %3d = %02x\n", j, static_cast<int>(*guard)));
+1576://		DEBUG_REPORT_LOG(ms_logEachAlloc, ("MemoryManager::free() requested_size=%d, alloc_size=%d, userPointer=%p, allocatedBlock=%p\n", requestedSize, memorySize, userPointer, allocatedBlock));
+1721:								DEBUG_REPORT_LOG_PRINT(true, ("corrupted free pattern at position %3d [membase=%p, memaddr=%p] = %02x\n", i, static_cast<void *>(reinterpret_cast<byte *>(block) + cms_freeBlockSize), static_cast<void *>(reinterpret_cast<byte *>(block) + cms_freeBlockSize + i), static_cast<int>(*memory)));
+1722:								DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("corrupted free pattern at position %3d = %02x\n", i, static_cast<int>(*memory)));
+1746:								DEBUG_REPORT_LOG_PRINT(true, ("corrupted guard prefix at position %3d = %02x\n", i - cms_guardBandSize, static_cast<int>(*guard)));
+1747:								DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("corrupted guard prefix at position %3d = %02x\n", i - cms_guardBandSize, static_cast<int>(*guard)));
+1758:								DEBUG_REPORT_LOG_PRINT(true, ("corrupted guard suffix at position %3d = %02x\n", j, static_cast<int>(*guard)));
+1759:								DEBUG_OUTPUT_CHANNEL("Foundation\\MemoryManager", ("corrupted guard suffix at position %3d = %02x\n", j, static_cast<int>(*guard)));
+1802:		sprintf(buffer, "%s(%d) : %p memory %s, %d bytes\n", fileName, line, memory, leak ? "leak" : "allocation", static_cast<int>(requestedSize));
+1806:		sprintf(buffer, "unknown(0x%0*" PRIXPTR ") : %p memory %s, %d bytes\n", static_cast<int>(sizeof(uintptr_t) * 2), static_cast<uintptr_t>(owner), memory, leak ? "leak" : "allocation", static_cast<int>(requestedSize));
+1819:					sprintf(buffer, "  0x%0*" PRIXPTR " : caller %d\n", static_cast<int>(sizeof(uintptr_t) * 2), static_cast<uintptr_t>(block->getOwner(i)), i);
+2016:				snprintf(filename, sizeof(filename)-1, "/proc/%d/statm", processId);
+2027:				if (fscanf (inStatmFile, "%d %d", &s_statm.tpsr, &s_statm.rss) == 2)
+2213:				snprintf(filename, sizeof(filename)-1, "/proc/%d/status", processId);
+2227:					if (1 == sscanf(buffer, "VmSize: %d", &temp))

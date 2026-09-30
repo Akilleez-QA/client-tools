@@ -1,0 +1,74 @@
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+mode=stream main=488 frequency=10000000 loaded=C:\cadence-private\Mss32.dll bytes=9020 SMP_DONE=2
+seq=0 qpc=3 tid=488 op=entry status=-1 total=-1 pos=-1 flag=0 cw=027f sw=0000 mxcsr=00001f80
+seq=1 qpc=1110663 tid=488 op=start-enter status=-1 total=-1 pos=-1 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=2 qpc=1110695 tid=488 op=start-return status=-1 total=-1 pos=-1 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=3 qpc=1617300 tid=488 op=serve-enter status=-1 total=-1 pos=-1 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=4 qpc=1617454 tid=488 op=status-enter status=-1 total=-1 pos=-1 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=5 qpc=1617458 tid=488 op=status-return status=4 total=-1 pos=-1 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=6 qpc=1617488 tid=488 op=position-return status=4 total=204 pos=0 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=7 qpc=2123501 tid=488 op=serve-enter status=4 total=204 pos=0 flag=0 cw=027f sw=4020 mxcsr=00001f80
+seq=8 qpc=2123646 tid=488 op=status-enter status=4 total=204 pos=0 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=9 qpc=2123651 tid=488 op=status-return status=4 total=204 pos=0 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=10 qpc=2123673 tid=488 op=position-return status=4 total=204 pos=32 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=11 qpc=2625258 tid=488 op=serve-enter status=4 total=204 pos=32 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=12 qpc=2625350 tid=488 op=status-enter status=4 total=204 pos=32 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=13 qpc=2625358 tid=488 op=status-return status=4 total=204 pos=32 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=14 qpc=2625379 tid=488 op=position-return status=4 total=204 pos=80 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=15 qpc=3132368 tid=488 op=serve-enter status=4 total=204 pos=80 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=16 qpc=3132464 tid=488 op=status-enter status=4 total=204 pos=80 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=17 qpc=3132471 tid=488 op=status-return status=4 total=204 pos=80 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=18 qpc=3132493 tid=488 op=position-return status=4 total=204 pos=128 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=19 qpc=3640102 tid=488 op=serve-enter status=4 total=204 pos=128 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=20 qpc=3640222 tid=488 op=status-enter status=4 total=204 pos=128 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=21 qpc=3640228 tid=488 op=status-return status=4 total=204 pos=128 flag=0 cw=027f sw=0020 mxcsr=00001f80
+seq=22 qpc=3640250 tid=488 op=position-return status=4 total=204 pos=177 flag=0 cw=027f sw=0220 mxcsr=00001f80
+seq=23 qpc=3913289 tid=508 op=eos status=4 total=204 pos=177 flag=1 cw=027f sw=0020 mxcsr=00001f80
+seq=24 qpc=4146867 tid=488 op=serve-enter status=4 total=204 pos=177 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=25 qpc=4146950 tid=488 op=status-enter status=4 total=204 pos=177 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=26 qpc=4146955 tid=488 op=status-return status=2 total=204 pos=177 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=27 qpc=4146975 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=28 qpc=4146978 tid=488 op=hold-start status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=29 qpc=4652311 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=30 qpc=4652381 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=31 qpc=4652389 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=32 qpc=4652412 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=33 qpc=5158975 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=34 qpc=5159054 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=35 qpc=5159061 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=36 qpc=5159085 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=37 qpc=5666054 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=38 qpc=5666168 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=39 qpc=5666174 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=40 qpc=5666201 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=41 qpc=6172971 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=42 qpc=6173054 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=43 qpc=6173060 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=44 qpc=6173085 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=45 qpc=6682248 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=46 qpc=6682355 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=47 qpc=6682363 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=48 qpc=6682386 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=49 qpc=7188342 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=50 qpc=7188430 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=51 qpc=7188436 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=52 qpc=7188457 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=53 qpc=7695219 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=54 qpc=7695313 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=55 qpc=7695318 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=56 qpc=7695341 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=57 qpc=8201727 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=58 qpc=8201804 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=59 qpc=8201809 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=60 qpc=8201832 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=61 qpc=8708523 tid=488 op=serve-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=62 qpc=8708662 tid=488 op=status-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=63 qpc=8708667 tid=488 op=status-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=64 qpc=8708695 tid=488 op=position-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=65 qpc=9151721 tid=488 op=release-enter status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=66 qpc=9151869 tid=488 op=release-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+seq=67 qpc=9229283 tid=488 op=shutdown-return status=2 total=204 pos=204 flag=1 cw=027f sw=0220 mxcsr=00001f80
+summary events=68 overflow=0 eos=1 rc=0

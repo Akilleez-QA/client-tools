@@ -1,0 +1,17 @@
+Build started 9/30/2026 9:11:40 AM.
+Project "Q:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" on node 1 (DeploySwgParserRuntime target(s)).
+BuildSwgParserDependencies:
+  "C:/ci-dpvs-review/python/python.exe" "Q:\repo\tools\build-client-deps\build-parsers.py" --output "C:/parser-props-eval-v1/deps\." --vcvars "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" --platform "x64" --configuration "Release" --pcre-archive "C:/xml-pcre-next/pcre-4.1.tar.gz" --libxml-archive "C:/xml-pcre-next/libxml2-2.6.7.tar.gz"
+  Q:\repo\tools\build-client-deps\build-parsers.py:33: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+    source.extractall(work)
+  Built genuine legacy parsers: C:\parser-props-eval-v1\deps
+DeploySwgParserRuntime:
+  Creating directory "C:\parser-props-eval-v1\runtime".
+  Copying file from "C:/parser-props-eval-v1/deps\libxml2.dll" to "C:/parser-props-eval-v1/runtime/libxml2.dll".
+Done Building Project "Q:\repo\src\game\client\application\SwgClient\build\win32\SwgClient.vcxproj" (DeploySwgParserRuntime target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:10.20

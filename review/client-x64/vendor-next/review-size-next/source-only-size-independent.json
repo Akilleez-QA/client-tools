@@ -1,0 +1,48 @@
+{
+  "base": "94945103",
+  "extension_scope": [
+    ".c",
+    ".cc",
+    ".cpp",
+    ".cxx",
+    ".h",
+    ".hh",
+    ".hpp",
+    ".hxx",
+    ".inl"
+  ],
+  "prefix": "src/",
+  "current": {
+    "head": "a21af1630",
+    "files": 105,
+    "added": 1396,
+    "deleted": 520
+  },
+  "pr21": {
+    "head": "46f6003ac",
+    "files": 1564,
+    "added": 422164,
+    "deleted": 7012,
+    "third_party": {
+      "files": 880,
+      "added": 328323,
+      "deleted": 334
+    },
+    "JUCE_8_0_14": {
+      "files": 830,
+      "added": 327632,
+      "deleted": 0
+    },
+    "Direct3d11": {
+      "files": 89,
+      "added": 64156,
+      "deleted": 0
+    },
+    "generated_EmbeddedShaderCorpus_cpp": {
+      "files": 1,
+      "added": 39732,
+      "deleted": 0
+    }
+  },
+  "limits": "Counts include vendor source and generated shader corpus; PR21 also adds a whole Direct3d11 renderer. Not equivalent work or completion scope."
+}

@@ -27,7 +27,7 @@ Correlation with original asset stays0.999827–0.999994. There is no byte-equal
 
 ## Callback and floating-point correction
 
-Unlike the earlier ALSA type-null probe's main-thread callbacks, this clocked route delivers EOS on a separate Miles thread. Direct sample: main304/EOS328; controlled sample360/408. Direct stream440/488; controlled stream524/572. Sample EOS139/138ms; stream268/269ms. EOS is not the device-drain timestamp. Callback x87 word027f/MXCSR1f80; main after offline decode has MXCSR1fa0. These are probe/backend observations, not a universal Miles threading rule. SWG's actual PC64 render/collision FPU state has not been replayed here.
+All four one-command runs below delivered EOS on a separate Miles thread. The retained-handle direct repeats include both main-thread and foreign-thread callbacks; this route does not have one universal callback thread. Direct sample: main304/EOS328; controlled sample360/408. Direct stream440/488; controlled stream524/572. Sample EOS139/138ms; stream268/269ms. EOS is not the device-drain timestamp. Callback x87 word027f/MXCSR1f80; main after offline decode has MXCSR1fa0. These are probe/backend observations, not a universal Miles threading rule. SWG's actual PC64 render/collision FPU state has not been replayed here.
 
 ## Evidence ceiling
 

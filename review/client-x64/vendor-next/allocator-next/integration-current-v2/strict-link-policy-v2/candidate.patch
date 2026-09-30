@@ -1,0 +1,13 @@
+diff --git i/tools/configure-client-x64/client-x64.props w/tools/configure-client-x64/client-x64.props
+index 06a8fc980..f60fe8831 100644
+--- i/tools/configure-client-x64/client-x64.props
++++ w/tools/configure-client-x64/client-x64.props
+@@ -19,6 +19,8 @@
+     </ResourceCompile>
+     <Link>
+       <TargetMachine>MachineX64</TargetMachine>
++      <!-- Unresolved or duplicate symbols must fail the x64 client link. -->
++      <ForceFileOutput Condition="'$(ProjectName)'=='SwgClient'" />
+       <AdditionalLibraryDirectories Condition="'$(DXSDK_DIR)'!=''">$(DXSDK_DIR)\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+     </Link>
+     <Lib><TargetMachine>MachineX64</TargetMachine></Lib>

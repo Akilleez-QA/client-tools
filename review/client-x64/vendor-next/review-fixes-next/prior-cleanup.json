@@ -1,0 +1,32 @@
+{
+  "'$(Configuration)|$(Platform)'=='Debug|Win32'": [
+    "nspr4.lib",
+    "plc4.lib",
+    "profdirserviceprovider_s.lib",
+    "xpcom.lib",
+    "xul.lib"
+  ],
+  "'$(Configuration)|$(Platform)'=='Debug|x64'": [
+    "nspr4.lib",
+    "plc4.lib",
+    "profdirserviceprovider_s.lib",
+    "xpcom.lib",
+    "xul.lib"
+  ],
+  "'$(Configuration)|$(Platform)'=='Release|Win32'": [
+    "nspr4.lib",
+    "plc4.lib",
+    "profdirserviceprovider_s.lib",
+    "xpcom.lib",
+    "xul.lib",
+    "libMozilla.lib"
+  ],
+  "'$(Configuration)|$(Platform)'=='Release|x64'": [
+    "nspr4.lib",
+    "plc4.lib",
+    "profdirserviceprovider_s.lib",
+    "xpcom.lib",
+    "xul.lib",
+    "libMozilla.lib"
+  ]
+}

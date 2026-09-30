@@ -1,0 +1,595 @@
+{
+  "runs": [
+    {
+      "label": "sample-1",
+      "main": 300,
+      "eos": {
+        "seq": 11,
+        "qpc": 2811674,
+        "tid": 320,
+        "op": "eos",
+        "status": 4,
+        "total": 204,
+        "pos": 161,
+        "flag": 1,
+        "cw": 639,
+        "sw": 32,
+        "mxcsr": 8064
+      },
+      "eos_neighbors": [
+        {
+          "seq": 10,
+          "qpc": 2320625,
+          "tid": 300,
+          "op": "position-return",
+          "status": 4,
+          "total": 204,
+          "pos": 161,
+          "flag": 0,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        },
+        {
+          "seq": 12,
+          "qpc": 2828889,
+          "tid": 300,
+          "op": "serve-enter",
+          "status": 4,
+          "total": 204,
+          "pos": 161,
+          "flag": 1,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        }
+      ],
+      "first_done": {
+        "seq": 14,
+        "qpc": 2828958,
+        "tid": 300,
+        "op": "status-return",
+        "status": 2,
+        "total": 204,
+        "pos": 161,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "first_done_position": {
+        "seq": 15,
+        "qpc": 2828963,
+        "tid": 300,
+        "op": "position-return",
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "observed_gap": false,
+      "cadence_ms": [
+        50.6118,
+        50.8347
+      ],
+      "retention_ms": 500.278,
+      "wall_seconds": 0.8616929929994512,
+      "events": 56,
+      "route_snapshots": 22
+    },
+    {
+      "label": "sample-2",
+      "main": 336,
+      "eos": {
+        "seq": 11,
+        "qpc": 2589180,
+        "tid": 356,
+        "op": "eos",
+        "status": 4,
+        "total": 204,
+        "pos": 161,
+        "flag": 1,
+        "cw": 639,
+        "sw": 32,
+        "mxcsr": 8064
+      },
+      "eos_neighbors": [
+        {
+          "seq": 10,
+          "qpc": 2100523,
+          "tid": 336,
+          "op": "position-return",
+          "status": 4,
+          "total": 204,
+          "pos": 161,
+          "flag": 0,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        },
+        {
+          "seq": 12,
+          "qpc": 2607594,
+          "tid": 336,
+          "op": "serve-enter",
+          "status": 4,
+          "total": 204,
+          "pos": 161,
+          "flag": 1,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        }
+      ],
+      "first_done": {
+        "seq": 14,
+        "qpc": 2607660,
+        "tid": 336,
+        "op": "status-return",
+        "status": 2,
+        "total": 204,
+        "pos": 161,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "first_done_position": {
+        "seq": 15,
+        "qpc": 2607666,
+        "tid": 336,
+        "op": "position-return",
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "observed_gap": false,
+      "cadence_ms": [
+        50.6597,
+        50.8131
+      ],
+      "retention_ms": 500.3232,
+      "wall_seconds": 0.8540655069809873,
+      "events": 56,
+      "route_snapshots": 23
+    },
+    {
+      "label": "sample-3",
+      "main": 372,
+      "eos": {
+        "seq": 11,
+        "qpc": 2609405,
+        "tid": 392,
+        "op": "eos",
+        "status": 4,
+        "total": 204,
+        "pos": 161,
+        "flag": 1,
+        "cw": 639,
+        "sw": 32,
+        "mxcsr": 8064
+      },
+      "eos_neighbors": [
+        {
+          "seq": 10,
+          "qpc": 2120549,
+          "tid": 372,
+          "op": "position-return",
+          "status": 4,
+          "total": 204,
+          "pos": 161,
+          "flag": 0,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        },
+        {
+          "seq": 12,
+          "qpc": 2626942,
+          "tid": 372,
+          "op": "serve-enter",
+          "status": 4,
+          "total": 204,
+          "pos": 161,
+          "flag": 1,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        }
+      ],
+      "first_done": {
+        "seq": 14,
+        "qpc": 2627006,
+        "tid": 372,
+        "op": "status-return",
+        "status": 2,
+        "total": 204,
+        "pos": 161,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "first_done_position": {
+        "seq": 15,
+        "qpc": 2627012,
+        "tid": 372,
+        "op": "position-return",
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "observed_gap": false,
+      "cadence_ms": [
+        50.5585,
+        50.6922
+      ],
+      "retention_ms": 500.0083,
+      "wall_seconds": 0.856012963980902,
+      "events": 56,
+      "route_snapshots": 22
+    },
+    {
+      "label": "stream-1",
+      "main": 408,
+      "eos": {
+        "seq": 23,
+        "qpc": 3928238,
+        "tid": 428,
+        "op": "eos",
+        "status": 4,
+        "total": 204,
+        "pos": 177,
+        "flag": 1,
+        "cw": 639,
+        "sw": 32,
+        "mxcsr": 8064
+      },
+      "eos_neighbors": [
+        {
+          "seq": 22,
+          "qpc": 3654855,
+          "tid": 408,
+          "op": "position-return",
+          "status": 4,
+          "total": 204,
+          "pos": 177,
+          "flag": 0,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        },
+        {
+          "seq": 24,
+          "qpc": 4161440,
+          "tid": 408,
+          "op": "serve-enter",
+          "status": 4,
+          "total": 204,
+          "pos": 177,
+          "flag": 1,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        }
+      ],
+      "first_done": {
+        "seq": 26,
+        "qpc": 4161522,
+        "tid": 408,
+        "op": "status-return",
+        "status": 2,
+        "total": 204,
+        "pos": 177,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "first_done_position": {
+        "seq": 27,
+        "qpc": 4161541,
+        "tid": 408,
+        "op": "position-return",
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "observed_gap": false,
+      "cadence_ms": [
+        50.5582,
+        50.7558
+      ],
+      "retention_ms": 500.2143,
+      "wall_seconds": 0.999085356015712,
+      "events": 68,
+      "route_snapshots": 29
+    },
+    {
+      "label": "stream-2",
+      "main": 448,
+      "eos": {
+        "seq": 23,
+        "qpc": 3888274,
+        "tid": 468,
+        "op": "eos",
+        "status": 4,
+        "total": 204,
+        "pos": 177,
+        "flag": 1,
+        "cw": 639,
+        "sw": 32,
+        "mxcsr": 8064
+      },
+      "eos_neighbors": [
+        {
+          "seq": 22,
+          "qpc": 3619244,
+          "tid": 448,
+          "op": "position-return",
+          "status": 4,
+          "total": 204,
+          "pos": 177,
+          "flag": 0,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        },
+        {
+          "seq": 24,
+          "qpc": 4126156,
+          "tid": 448,
+          "op": "serve-enter",
+          "status": 4,
+          "total": 204,
+          "pos": 177,
+          "flag": 1,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        }
+      ],
+      "first_done": {
+        "seq": 26,
+        "qpc": 4126335,
+        "tid": 448,
+        "op": "status-return",
+        "status": 2,
+        "total": 204,
+        "pos": 177,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "first_done_position": {
+        "seq": 27,
+        "qpc": 4126359,
+        "tid": 448,
+        "op": "position-return",
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "observed_gap": false,
+      "cadence_ms": [
+        50.5952,
+        50.8145
+      ],
+      "retention_ms": 500.2855,
+      "wall_seconds": 0.9977403090160806,
+      "events": 68,
+      "route_snapshots": 29
+    },
+    {
+      "label": "stream-3",
+      "main": 488,
+      "eos": {
+        "seq": 23,
+        "qpc": 3913289,
+        "tid": 508,
+        "op": "eos",
+        "status": 4,
+        "total": 204,
+        "pos": 177,
+        "flag": 1,
+        "cw": 639,
+        "sw": 32,
+        "mxcsr": 8064
+      },
+      "eos_neighbors": [
+        {
+          "seq": 22,
+          "qpc": 3640250,
+          "tid": 488,
+          "op": "position-return",
+          "status": 4,
+          "total": 204,
+          "pos": 177,
+          "flag": 0,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        },
+        {
+          "seq": 24,
+          "qpc": 4146867,
+          "tid": 488,
+          "op": "serve-enter",
+          "status": 4,
+          "total": 204,
+          "pos": 177,
+          "flag": 1,
+          "cw": 639,
+          "sw": 544,
+          "mxcsr": 8064
+        }
+      ],
+      "first_done": {
+        "seq": 26,
+        "qpc": 4146955,
+        "tid": 488,
+        "op": "status-return",
+        "status": 2,
+        "total": 204,
+        "pos": 177,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "first_done_position": {
+        "seq": 27,
+        "qpc": 4146975,
+        "tid": 488,
+        "op": "position-return",
+        "status": 2,
+        "total": 204,
+        "pos": 204,
+        "flag": 1,
+        "cw": 639,
+        "sw": 544,
+        "mxcsr": 8064
+      },
+      "observed_gap": false,
+      "cadence_ms": [
+        50.1757,
+        50.9277
+      ],
+      "retention_ms": 500.4743,
+      "wall_seconds": 1.008348556002602,
+      "events": 68,
+      "route_snapshots": 28
+    }
+  ],
+  "old_log_correction": [
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/command-controller-sample/probe.log",
+      "sha256": "91df56733fbba0afce7385cf9407c4d496f930613def5b0cd99b3615790b7c5d",
+      "main": 360,
+      "eos_thread": 408,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/command-controller-stream/probe.log",
+      "sha256": "fb553da82983df3e56ae3ede4d0af020d1fb70f231c605ef7375b559921324d1",
+      "main": 524,
+      "eos_thread": 572,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/command-direct-sample/probe.log",
+      "sha256": "20834e4d14659de9129bd2661b1428df41c153368e4fa4ed1a8fd5710a008da1",
+      "main": 304,
+      "eos_thread": 328,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/command-direct-stream/probe.log",
+      "sha256": "1dcf67fefb445d876e501ba1018634f06964309ffa5d320adf61336f3e810af2",
+      "main": 440,
+      "eos_thread": 488,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/drain-sample-1/probe.log",
+      "sha256": "c3d28ae861a3b6ebb5d491d10dd7d17b33ceb435c3c11f87d075bb429bccdc4d",
+      "main": 300,
+      "eos_thread": 324,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/drain-sample-2/probe.log",
+      "sha256": "802929ad89474d38c987d9275cf5ed29800f56e77b51c70afb683e5bdb4e34ee",
+      "main": 356,
+      "eos_thread": 404,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/drain-sample-3/probe.log",
+      "sha256": "216b210c383224311f265b2e4673aaa37feaeb9b8abf432571de9f8ceeaa3463",
+      "main": 436,
+      "eos_thread": 436,
+      "cw": "027f",
+      "mxcsr": "00001fa0",
+      "same_thread": true
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/drain-stream-1/probe.log",
+      "sha256": "8adeceacdac8046c90ec21cada759301750bc281a915225fa5e64d2eb332ac89",
+      "main": 516,
+      "eos_thread": 516,
+      "cw": "027f",
+      "mxcsr": "00001fa0",
+      "same_thread": true
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/drain-stream-2/probe.log",
+      "sha256": "2563f95577777a8614d789e64f03d41eb5d2d6ead9de86225d730b906a8af7ed",
+      "main": 600,
+      "eos_thread": 600,
+      "cw": "027f",
+      "mxcsr": "00001fa0",
+      "same_thread": true
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-realtime/drain-stream-3/probe.log",
+      "sha256": "d71d5fbbe9db76e7f1a5eefabc20dc044016add801fe94dd72f9b22d3d8fcb8a",
+      "main": 684,
+      "eos_thread": 732,
+      "cw": "027f",
+      "mxcsr": "00001f80",
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/run-b/handle0.log",
+      "sha256": "b6e4780be094255b21b424a9b5f8163e0d8a9d9474ab1bc9b03311d1a13c3b74",
+      "main": 300,
+      "eos_thread": 320,
+      "same_thread": false
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-file-callbacks/run-b/handle1.log",
+      "sha256": "3bf9d5b697604ce490d21874de1c999389da0e5d37df2fbca8a94b5a180caf20",
+      "main": 340,
+      "eos_thread": 340,
+      "same_thread": true
+    }
+  ],
+  "first_done_positions_identical": {
+    "sample": true,
+    "stream": true
+  },
+  "all_checks_passed": true
+}

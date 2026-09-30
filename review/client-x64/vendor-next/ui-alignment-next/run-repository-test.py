@@ -1,6 +1,6 @@
 from pathlib import Path
 import json,subprocess,shutil
-root=Path('C:/ui-alignment-repo-test-v3');root.mkdir()
+root=Path('C:/ui-alignment-repo-test-v4');root.mkdir()
 repo=root/'source';ui=repo/'src/external/3rd/library/ui/src/shared/core';ui.mkdir(parents=True)
 original=Path('C:/client-next-build/src/external/3rd/library/ui')
 shutil.copy('C:/ui-alignment-candidate.cpp',ui/'UiMemoryBlockManager.cpp')

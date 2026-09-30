@@ -1,0 +1,68 @@
+[
+  {
+    "project": "SwgClient",
+    "config": "Release",
+    "platform": "Win32",
+    "changed": []
+  },
+  {
+    "project": "SwgClient",
+    "config": "Release",
+    "platform": "x64",
+    "changed": [
+      "INPUTS"
+    ],
+    "removed": [
+      "vivoxSharedWrapper_Release.lib",
+      "vivoxSharedWrapper_release.lib"
+    ],
+    "added": [
+      "Q:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\v120\\x64\\Release\\\\vivoxSharedWrapper.lib"
+    ]
+  },
+  {
+    "project": "SwgClient",
+    "config": "Debug",
+    "platform": "Win32",
+    "changed": []
+  },
+  {
+    "project": "SwgClient",
+    "config": "Debug",
+    "platform": "x64",
+    "changed": [
+      "INPUTS"
+    ],
+    "removed": [
+      "vivoxSharedWrapper_Debug.lib",
+      "vivoxSharedWrapper_debug.lib"
+    ],
+    "added": [
+      "Q:\\repo\\tools\\configure-client-x64\\..\\..\\src\\compile\\deps\\v120\\x64\\Debug\\\\vivoxSharedWrapper.lib"
+    ]
+  },
+  {
+    "project": "Direct3d9",
+    "config": "Release",
+    "platform": "Win32",
+    "changed": []
+  },
+  {
+    "project": "Direct3d9",
+    "config": "Release",
+    "platform": "x64",
+    "changed": []
+  },
+  {
+    "project": "Direct3d9",
+    "config": "Debug",
+    "platform": "Win32",
+    "changed": []
+  },
+  {
+    "project": "Direct3d9",
+    "config": "Debug",
+    "platform": "x64",
+    "changed": []
+  }
+]

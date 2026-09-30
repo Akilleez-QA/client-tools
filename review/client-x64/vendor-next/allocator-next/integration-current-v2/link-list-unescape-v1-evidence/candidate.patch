@@ -1,0 +1,26 @@
+diff --git i/tools/build-client-deps/client-runtime-deps.props w/tools/build-client-deps/client-runtime-deps.props
+index f5d6d56e6..fdd79b209 100644
+--- i/tools/build-client-deps/client-runtime-deps.props
++++ w/tools/build-client-deps/client-runtime-deps.props
+@@ -6,7 +6,7 @@
+     <Link>
+       <!-- The legacy explicit STL-debug archive is x86. Consumers request the
+            ordinary static ABI, including Debug; /MTd is not _STLP_DEBUG. -->
+-      <AdditionalDependencies>$(SwgClientDepsPath)stlport.lib;$(SwgClientDepsPath)vivoxSharedWrapper.lib;$([System.String]::Copy('%(Link.AdditionalDependencies)').Replace('stlport_vc71_stldebug_static.lib;', '').Replace('vivoxSharedWrapper_Release.lib;', '').Replace('vivoxSharedWrapper_release.lib;', '').Replace('vivoxSharedWrapper_Debug.lib;', '').Replace('vivoxSharedWrapper_debug.lib;', ''))</AdditionalDependencies>
++      <AdditionalDependencies>$(SwgClientDepsPath)stlport.lib;$(SwgClientDepsPath)vivoxSharedWrapper.lib;$([MSBuild]::Unescape($([System.String]::Copy('%(Link.AdditionalDependencies)').Replace('stlport_vc71_stldebug_static.lib;', '').Replace('vivoxSharedWrapper_Release.lib;', '').Replace('vivoxSharedWrapper_release.lib;', '').Replace('vivoxSharedWrapper_Debug.lib;', '').Replace('vivoxSharedWrapper_debug.lib;', ''))))</AdditionalDependencies>
+       <!-- Real source-built STLport above replaces this observed autolink name. -->
+       <IgnoreSpecificDefaultLibraries>stlport_vc71_static.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+     </Link>
+diff --git i/tools/build-client-deps/parser-deps.props w/tools/build-client-deps/parser-deps.props
+index c295b9c19..ec155108d 100644
+--- i/tools/build-client-deps/parser-deps.props
++++ w/tools/build-client-deps/parser-deps.props
+@@ -7,7 +7,7 @@
+   </PropertyGroup>
+   <ItemDefinitionGroup>
+     <Link>
+-      <AdditionalDependencies>$(SwgParserDepsPath)pcre.lib;$(SwgParserDepsPath)libxml2.lib;$([System.String]::Copy('%(Link.AdditionalDependencies)').Replace('libpcre.a;', '').Replace('libxml2-win32-release.lib;', '').Replace('libxml2-win32-debug.lib;', ''))</AdditionalDependencies>
++      <AdditionalDependencies>$(SwgParserDepsPath)pcre.lib;$(SwgParserDepsPath)libxml2.lib;$([MSBuild]::Unescape($([System.String]::Copy('%(Link.AdditionalDependencies)').Replace('libpcre.a;', '').Replace('libxml2-win32-release.lib;', '').Replace('libxml2-win32-debug.lib;', ''))))</AdditionalDependencies>
+     </Link>
+   </ItemDefinitionGroup>
+   <Target Name="ValidateSwgParserDependencies" BeforeTargets="PrepareForBuild">

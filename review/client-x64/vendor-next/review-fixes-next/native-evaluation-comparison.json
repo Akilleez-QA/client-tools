@@ -1,0 +1,31 @@
+{
+  "Debug": {
+    "before_entries": 233,
+    "after_entries": 233,
+    "removed": [],
+    "all_other_entries_same_order": true
+  },
+  "Optimized": {
+    "before_entries": 191,
+    "after_entries": 181,
+    "removed": [
+      "nspr4.lib",
+      "plc4.lib",
+      "profdirserviceprovider_s.lib",
+      "xpcom.lib",
+      "xul.lib",
+      "nspr4.lib",
+      "profdirserviceprovider_s.lib",
+      "xpcom.lib",
+      "xul.lib",
+      "libMozilla.lib"
+    ],
+    "all_other_entries_same_order": true
+  },
+  "Release": {
+    "before_entries": 155,
+    "after_entries": 155,
+    "removed": [],
+    "all_other_entries_same_order": true
+  }
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "platform": "Win32",
+    "cfg": "Release",
+    "exit": 0,
+    "command": [
+      "C:/ci-dpvs-review/python/python.exe",
+      "C:\\parser-integration-v3\\repo\\tools\\build-client-deps\\build-parsers.py",
+      "--output",
+      "C:\\parser-integration-v3\\Win32-Release",
+      "--vcvars",
+      "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat",
+      "--platform",
+      "Win32",
+      "--configuration",
+      "Release",
+      "--pcre-archive",
+      "C:/xml-pcre-next/pcre-4.1.tar.gz",
+      "--libxml-archive",
+      "C:/xml-pcre-next/libxml2-2.6.7.tar.gz"
+    ]
+  },
+  {
+    "platform": "Win32",
+    "cfg": "Debug",
+    "exit": 0,
+    "command": [
+      "C:/ci-dpvs-review/python/python.exe",
+      "C:\\parser-integration-v3\\repo\\tools\\build-client-deps\\build-parsers.py",
+      "--output",
+      "C:\\parser-integration-v3\\Win32-Debug",
+      "--vcvars",
+      "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat",
+      "--platform",
+      "Win32",
+      "--configuration",
+      "Debug",
+      "--pcre-archive",
+      "C:/xml-pcre-next/pcre-4.1.tar.gz",
+      "--libxml-archive",
+      "C:/xml-pcre-next/libxml2-2.6.7.tar.gz"
+    ]
+  },
+  {
+    "platform": "x64",
+    "cfg": "Release",
+    "exit": 0,
+    "command": [
+      "C:/ci-dpvs-review/python/python.exe",
+      "C:\\parser-integration-v3\\repo\\tools\\build-client-deps\\build-parsers.py",
+      "--output",
+      "C:\\parser-integration-v3\\x64-Release",
+      "--vcvars",
+      "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat",
+      "--platform",
+      "x64",
+      "--configuration",
+      "Release",
+      "--pcre-archive",
+      "C:/xml-pcre-next/pcre-4.1.tar.gz",
+      "--libxml-archive",
+      "C:/xml-pcre-next/libxml2-2.6.7.tar.gz"
+    ]
+  },
+  {
+    "platform": "x64",
+    "cfg": "Debug",
+    "exit": 0,
+    "command": [
+      "C:/ci-dpvs-review/python/python.exe",
+      "C:\\parser-integration-v3\\repo\\tools\\build-client-deps\\build-parsers.py",
+      "--output",
+      "C:\\parser-integration-v3\\x64-Debug",
+      "--vcvars",
+      "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat",
+      "--platform",
+      "x64",
+      "--configuration",
+      "Debug",
+      "--pcre-archive",
+      "C:/xml-pcre-next/pcre-4.1.tar.gz",
+      "--libxml-archive",
+      "C:/xml-pcre-next/libxml2-2.6.7.tar.gz"
+    ]
+  }
+]
