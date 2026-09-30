@@ -1,0 +1,11 @@
+# Authorized native compile-only result
+
+The one authorized invocation passed on its first run at C:/pipe-native26. Both actual v120 x86 and amd64 groups passed /Zs and /c with /W4 /WX /EHsc. Exactly two x86 objects reported COFF machine 0x14c and six x64 objects reported 0x8664. Both discovered nonempty include sets containing the exact possessed Mss.h, with no unrecorded staged header. Source/header/tool identities remained stable around compilation and all frozen inputs remained unchanged.
+
+Symbol checks passed: the real x86 host_dispatch object contains all seven unresolved decorated AIL imports; the host composition object references actual MilesHost::dispatch. The x64 pipe object defines all seven facade operations and does not define set_file_callbacks. The native25 object references all eight actual AIL operations; its exact callback typedef and stereo-value assertions compiled. The same fixed install-order sample compiles with callback registration unresolved, with no test substitute linked.
+
+Receipt SHA-256: a9cafb12af94f16e98d53f63b13a44d9c68ee3af5d0271c9f7215eaa13c4d4ff. Approved composed source archive: 7ba7a8329a1074d321ae2ca16783ee87bda0a8065616549caf863a4e1dab74c8. Approved manifest: 8a04b23fb0e7377fecba9557b0121ccc85313d2e84ac4c581ddfec92f52fa1de. Parent authorization identities were written locally before first VM contact in AUTHORIZATION-v1.json.
+
+No link, import-library generation, produced executable, vendor/engine execution, Wine run or game launch occurred. No .exe/.dll/.lib was produced by this gate. Only text receipts/logs were retrieved; COFF objects remain private on the VM and are excluded from the packet. Private SDK/header/tool contents are excluded too. Frozen23/24/25/26 and product were not modified; only the new staged source composition was compiled.
+
+Limits: the composed host has NOT been linked or executed, so this is no new host runtime coverage. Actual dispatcher effects, resource admission/lifetime, serve behavior, callbacks/reentrancy, driver-provider expansion, partial startup/shutdown cleanup, Bink binding and full client adoption remain unproved here. File callback registration remains deliberately absent on the pipe. No further native/vendor execution is automatically authorized.

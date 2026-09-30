@@ -1,0 +1,53 @@
+{
+  "scope": "One portable baseline and explicit old-null mutation; no engine/vendor calls.",
+  "inputs_before": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel-zero26/zero_buffer.cpp": "77202dcbafebff0febe8b32c33b23ad454d314a75c952f8b472dbd4d0ed24bd4",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel-zero26/check.py": "f88d415647d30c14c2a4e209047dd971fa4857f744ce697a8ea82b7c523a07c3",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel-zero26/PLAN.md": "3caf911d707a74ace1f7ed5de26263f1321dcb4c261430a5248a0798b917f9fd",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel26/file_channel.cpp": "0c5253d7f2a3a7b06ba54af756f170eca6c5f3b84fbbdce952a5700de6a64e27",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel26/file_channel.h": "58b4c91c09207e2c83c0700c7b85056370c1694aaca5f0ae7346eb0c53076fde",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/protocol-candidate/miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.h": "d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp": "15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768"
+  },
+  "cases": [
+    {
+      "name": "frozen",
+      "expected_exit": 0,
+      "build_exit": 0,
+      "executable_sha256": "1b32a002c9f88836cf5bc2095bbe0a041d7749be1ed0de251844deb37540427e",
+      "run_exit": 0,
+      "expected_marker_observed": true
+    },
+    {
+      "name": "old-null",
+      "expected_exit": 1,
+      "build_exit": 0,
+      "executable_sha256": "cd55880df0825d1215a54ef250671e84199c67d34cf1ea3d19c95ea392641446",
+      "run_exit": 1,
+      "expected_marker_observed": true
+    }
+  ],
+  "mutation_sha256": "a9684ec34905bd6e3174ff0c991619825ab27c05915c47e923158364da9a51e8",
+  "mutation": {
+    "from": "result.bytes.resize(operation.count() ? operation.count() : 1);",
+    "to": "result.bytes.resize(operation.count());"
+  },
+  "inputs_after": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel-zero26/zero_buffer.cpp": "77202dcbafebff0febe8b32c33b23ad454d314a75c952f8b472dbd4d0ed24bd4",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel-zero26/check.py": "f88d415647d30c14c2a4e209047dd971fa4857f744ce697a8ea82b7c523a07c3",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel-zero26/PLAN.md": "3caf911d707a74ace1f7ed5de26263f1321dcb4c261430a5248a0798b917f9fd",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel26/file_channel.cpp": "0c5253d7f2a3a7b06ba54af756f170eca6c5f3b84fbbdce952a5700de6a64e27",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-channel26/file_channel.h": "58b4c91c09207e2c83c0700c7b85056370c1694aaca5f0ae7346eb0c53076fde",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/protocol-candidate/miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.h": "d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp": "15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768"
+  },
+  "inputs_unchanged": true
+}

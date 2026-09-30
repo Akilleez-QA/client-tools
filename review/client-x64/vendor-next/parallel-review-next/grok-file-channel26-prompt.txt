@@ -1,0 +1,632 @@
+Narrow static challenge of frozen file-channel26, a PRIVATE value/invocation adapter. Review only open status versus valid local key 0, signed seek values, oversized/negative-converted read results, owned buffers, post-call allocation failure and uncertain completion. Do not redesign the bridge. It explicitly supplies no real executor/TLS, file retirement, publication owner, disconnect cleanup, or SDK runtime. Serialized invocation and retention by an external admitted executor are preconditions, not established by its shared_ptr. Tests are scripted only. An unfinished external integration is not itself an introduced defect; identify concrete mapping/ownership errors or overclaims inside this source, and keep unresolved prerequisites separate.
+Use supplied source only; no tools/browsing/filesystem/edits/execution. No peer opinions or full SDK body supplied. Return at most 900 words, concrete file/line and counterexample, and identify test coverage that would distinguish a proposed defect. Source-manifest SHA256 b064bdbf619920c045f1e5f1b3a9327d3141b76e6d886d651566dc1fd9931425.
+Actual original callbacks: open returns status separately from an incrementing uintptr-sized client map key that can start at zero; close alone closes/deletes/removes the mapped AbstractFile; seek returns signed tell() result; read returns the original int bytesRead converted to U32, including possible negative-to-U32 bits. No callback result normalization is authorized here.
+
+FILE file-channel26/file_channel.h
+```
+1: #ifndef MILES_FILE_CHANNEL26_H
+2: #define MILES_FILE_CHANNEL26_H
+3: 
+4: #include "../reverse-file-seam20/ClientAudioFileCallbacks.h"
+5: #include "../transport-candidate/codec.h"
+6: #include <memory>
+7: #include <string>
+8: 
+9: // Private value adapter, not an engine scheduler or SDK callback table.
+10: namespace MilesFileChannel26
+11: {
+12: struct Association
+13: {
+14:     uint64_t request, causal, lane, lease;
+15: };
+16: 
+17: enum Validation
+18: {
+19:     Valid,
+20:     Malformed,
+21:     WrongAssociation,
+22:     UnsupportedExtent,
+23:     InvalidFields,
+24:     InvalidResult
+25: };
+26: 
+27: class Request
+28: {
+29: public:
+30:     Request();
+31:     uint32_t opcode() const;
+32:     MilesWire::Handle target() const;
+33:     uint32_t count() const;
+34:     int32_t offset() const;
+35:     uint32_t origin() const;
+36:     const std::string &name() const;
+37:     const MilesWire::Header &header() const;
+38:     bool valid() const;
+39: 
+40: private:
+41:     MilesWire::Header envelope;
+42:     MilesWire::Call call;
+43:     std::string filename;
+44:     bool validated;
+45:     friend Validation decodeRequest(MilesTransport::Bytes, const Association &, Request &);
+46: };
+47: 
+48: Validation decodeRequest(MilesTransport::Bytes frame, const Association &expected,
+49:                          Request &out);
+50: 
+51: // Exact existing client-local signatures; no filesystem implementation here.
+52: struct FileServices
+53: {
+54:     decltype(&ClientAudioFileCallbacks::open) open;
+55:     decltype(&ClientAudioFileCallbacks::close) close;
+56:     decltype(&ClientAudioFileCallbacks::seek) seek;
+57:     decltype(&ClientAudioFileCallbacks::read) read;
+58: };
+59: FileServices canonicalServices(); // Compile-only adapter until executor is proven.
+60: 
+61: struct Binding
+62: {
+63:     const MilesWire::Handle identity;
+64:     const ClientAudioFileCallbacks::LocalFileHandle local;
+65:     Binding(MilesWire::Handle wire, ClientAudioFileCallbacks::LocalFileHandle key);
+66: };
+67: 
+68: // CallThrew leaves possible side effects unknown. It authorizes neither retry
+69: // nor retirement/cleanup of the file binding or an unpublished successful open.
+70: enum CompletionState { Returned, ReadCountOutsideBuffer, CallThrew };
+71: struct Completion
+72: {
+73:     CompletionState state;
+74:     uint32_t returnBits;
+75:     ClientAudioFileCallbacks::OpenResult opened;
+76:     std::vector<unsigned char> bytes;
+77:     Completion();
+78: };
+79: 
+80: // Must be retained by the chosen executor until invokeOnAdmittedExecutor returns.
+81: // Serialized executor ownership is required; concurrent entry is unsupported.
+82: // This class supplies no thread, cancellation, file retirement or engine policy.
+83: // The lifetime pin retains caller-owned context; it does not prove TLS/affinity.
+84: class Invocation
+85: {
+86: public:
+87:     Invocation(const Request &, const FileServices &, std::shared_ptr<const Binding>,
+88:                std::shared_ptr<void> lifetimePin);
+89:     bool invokeOnAdmittedExecutor(); // false means duplicate, never another call.
+90:     bool finished() const;
+91:     const Completion &completion() const;
+92:     const Request &request() const;
+93: 
+94: private:
+95:     Request operation;
+96:     FileServices services;
+97:     std::shared_ptr<const Binding> binding;
+98:     std::shared_ptr<void> context;
+99:     Completion result;
+100:     bool begun, returned;
+101:     Invocation(const Invocation &);
+102:     Invocation &operator=(const Invocation &);
+103: };
+104: 
+105: // Publication identity comes from the trusted external file owner, never local
+106: // key bits. Successful open requires one; failed open and other results forbid it.
+107: // Rejected completion does not alter the frame and never fabricates EOF.
+108: Validation encodeCompletion(const Invocation &, MilesWire::Handle publishedFile,
+109:                             std::vector<unsigned char> &frame);
+110: 
+111: struct OwnedReply
+112: {
+113:     uint32_t returnBits;
+114:     MilesWire::Handle file;
+115:     std::vector<unsigned char> bytes;
+116:     OwnedReply();
+117: };
+118: Validation decodeReply(MilesTransport::Bytes, const Request &, OwnedReply &);
+119: Validation copyRead(const OwnedReply &, uint32_t requested, void *destination,
+120:                     size_t capacity);
+121: }
+122: 
+123: #endif
+```
+
+FILE file-channel26/file_channel.cpp
+```
+1: #include "file_channel.h"
+2: #include <cstring>
+3: #include <limits>
+4: #include <stdexcept>
+5: 
+6: namespace MilesFileChannel26
+7: {
+8: namespace
+9: {
+10: bool nullHandle(const MilesWire::Handle &value)
+11: {
+12:     return !value.kind && !value.slot && !value.generation;
+13: }
+14: 
+15: bool fileHandle(const MilesWire::Handle &value)
+16: {
+17:     return value.kind == MilesWire::File && value.slot && value.generation;
+18: }
+19: 
+20: bool same(const MilesWire::Handle &a, const MilesWire::Handle &b)
+21: {
+22:     return a.kind == b.kind && a.slot == b.slot && a.generation == b.generation;
+23: }
+24: 
+25: bool association(const MilesWire::Header &header, const Association &expected)
+26: {
+27:     return expected.request && expected.lane && header.request == expected.request &&
+28:         header.causal_request == expected.causal && header.lane == expected.lane &&
+29:         header.lock_lease == expected.lease;
+30: }
+31: 
+32: bool zeroValues(const uint32_t *values, unsigned first)
+33: {
+34:     for (unsigned i = first; i < 8; ++i)
+35:     {
+36:         if (values[i])
+37:             return false;
+38:     }
+39:     return true;
+40: }
+41: }
+42: 
+43: Request::Request() : envelope(), call(), validated(false) {}
+44: uint32_t Request::opcode() const { return envelope.opcode; }
+45: MilesWire::Handle Request::target() const { return call.target; }
+46: uint32_t Request::count() const { return call.value[0]; }
+47: int32_t Request::offset() const
+48: {
+49:     int32_t value;
+50:     std::memcpy(&value, &call.value[0], sizeof(value));
+51:     return value;
+52: }
+53: uint32_t Request::origin() const { return call.value[1]; }
+54: const std::string &Request::name() const { return filename; }
+55: const MilesWire::Header &Request::header() const { return envelope; }
+56: bool Request::valid() const { return validated; }
+57: 
+58: Validation decodeRequest(MilesTransport::Bytes frame, const Association &expected,
+59:                          Request &out)
+60: {
+61:     Request candidate;
+62:     if (!MilesTransport::decodeCall(frame, candidate.envelope, candidate.call))
+63:         return Malformed;
+64:     const MilesWire::Header &header = candidate.envelope;
+65:     const MilesWire::Call &call = candidate.call;
+66:     if (header.kind != MilesWire::ReverseRequest || !association(header, expected))
+67:         return WrongAssociation;
+68:     if (header.opcode < MilesWire::FileOpen || header.opcode > MilesWire::FileRead ||
+69:         !nullHandle(call.resource) || call.output_mask || call.callback || call.bytes.length)
+70:         return InvalidFields;
+71:     if (header.opcode == MilesWire::FileOpen)
+72:     {
+73:         if (!nullHandle(call.target) || !zeroValues(call.value, 0) || !call.text.length)
+74:             return InvalidFields;
+75:         if (call.text.length > 512)
+76:             return UnsupportedExtent;
+77:         const unsigned char *text = frame.data + call.text.offset;
+78:         if (text[call.text.length - 1] ||
+79:             std::memchr(text, 0, call.text.length - 1))
+80:             return InvalidFields;
+81:         candidate.filename.assign(reinterpret_cast<const char *>(text), call.text.length - 1);
+82:     }
+83:     else
+84:     {
+85:         if (!fileHandle(call.target) || call.text.length)
+86:             return InvalidFields;
+87:         unsigned used = 0;
+88:         if (header.opcode == MilesWire::FileSeek)
+89:         {
+90:             used = 2;
+91:             if (call.value[1] > ClientAudioFileCallbacks::SeekEnd)
+92:                 return InvalidFields;
+93:         }
+94:         if (header.opcode == MilesWire::FileRead)
+95:         {
+96:             used = 1;
+97:             if (call.value[0] > static_cast<uint32_t>(std::numeric_limits<int32_t>::max()) ||
+98:                 call.value[0] > MilesWire::MaxFrameBytes - 128)
+99:                 return UnsupportedExtent;
+100:         }
+101:         if (!zeroValues(call.value, used))
+102:             return InvalidFields;
+103:     }
+104:     candidate.validated = true;
+105:     out.filename.swap(candidate.filename);
+106:     out.envelope = candidate.envelope;
+107:     out.call = candidate.call;
+108:     out.validated = true;
+109:     return Valid;
+110: }
+111: 
+112: Binding::Binding(MilesWire::Handle wire, ClientAudioFileCallbacks::LocalFileHandle key)
+113:     : identity(wire), local(key) {}
+114: 
+115: Completion::Completion() : state(Returned), returnBits(0), opened() {}
+116: 
+117: Invocation::Invocation(const Request &request, const FileServices &table,
+118:                        std::shared_ptr<const Binding> file, std::shared_ptr<void> lifetimePin)
+119:     : operation(request), services(table), binding(file), context(lifetimePin),
+120:       begun(false), returned(false)
+121: {
+122:     if (!operation.valid() || !context || !services.open || !services.close ||
+123:         !services.seek || !services.read)
+124:         throw std::invalid_argument("validated operation, services and lifetime pin required");
+125:     if (operation.opcode() == MilesWire::FileOpen)
+126:     {
+127:         if (binding)
+128:             throw std::invalid_argument("open has no existing file binding");
+129:     }
+130:     else if (!binding || !same(binding->identity, operation.target()))
+131:         throw std::invalid_argument("exact live file binding required");
+132:     if (operation.opcode() == MilesWire::FileRead)
+133:         result.bytes.resize(operation.count() ? operation.count() : 1);
+134:         // All allocation precedes the callback; even a zero-byte call gets storage.
+135: }
+136: 
+137: bool Invocation::invokeOnAdmittedExecutor()
+138: {
+139:     if (begun)
+140:         return false;
+141:     begun = true;
+142:     try
+143:     {
+144:         switch (operation.opcode())
+145:         {
+146:         case MilesWire::FileOpen:
+147:             result.opened = services.open(operation.name().c_str());
+148:             result.returnBits = result.opened.callbackResult;
+149:             break;
+150:         case MilesWire::FileClose:
+151:             services.close(binding->local);
+152:             break;
+153:         case MilesWire::FileSeek:
+154:             result.returnBits = static_cast<uint32_t>(
+155:                 services.seek(binding->local, operation.offset(), operation.origin()));
+156:             break;
+157:         case MilesWire::FileRead:
+158:             result.returnBits = services.read(binding->local,
+159:                 result.bytes.empty() ? 0 : &result.bytes[0], operation.count());
+160:             if (result.returnBits > operation.count())
+161:             {
+162:                 result.state = ReadCountOutsideBuffer;
+163:                 result.bytes.clear();
+164:             }
+165:             else
+166:                 result.bytes.resize(result.returnBits);
+167:             break;
+168:         }
+169:     }
+170:     catch (...)
+171:     {
+172:         // An exception is not an observed SDK return or permission to retry.
+173:         result.state = CallThrew;
+174:         result.bytes.clear();
+175:     }
+176:     returned = true;
+177:     return true;
+178: }
+179: 
+180: bool Invocation::finished() const { return returned; }
+181: const Completion &Invocation::completion() const
+182: {
+183:     if (!returned)
+184:         throw std::logic_error("operation has not returned");
+185:     return result;
+186: }
+187: const Request &Invocation::request() const { return operation; }
+188: 
+189: Validation encodeCompletion(const Invocation &work, MilesWire::Handle publishedFile,
+190:                             std::vector<unsigned char> &frame)
+191: {
+192:     if (!work.finished())
+193:         return InvalidResult;
+194:     const Completion &completion = work.completion();
+195:     if (completion.state != Returned)
+196:         return InvalidResult;
+197:     const Request &operation = work.request();
+198:     MilesWire::Result result = {};
+199:     result.return_bits = completion.returnBits;
+200:     if (operation.opcode() == MilesWire::FileOpen && completion.returnBits)
+201:     {
+202:         if (!fileHandle(publishedFile))
+203:             return InvalidResult;
+204:         result.resource = publishedFile;
+205:     }
+206:     else if (!nullHandle(publishedFile))
+207:         return InvalidResult;
+208:     MilesWire::Header header = operation.header();
+209:     header.kind = MilesWire::ReverseReply;
+210:     MilesTransport::Bytes bytes(completion.bytes.empty() ? 0 : &completion.bytes[0],
+211:                                 completion.bytes.size());
+212:     return MilesTransport::encodeResult(header, result, bytes, MilesTransport::Bytes(), frame)
+213:         ? Valid : InvalidResult;
+214: }
+215: 
+216: OwnedReply::OwnedReply() : returnBits(0), file() {}
+217: 
+218: Validation decodeReply(MilesTransport::Bytes frame, const Request &request, OwnedReply &out)
+219: {
+220:     MilesWire::Header header;
+221:     MilesWire::Result result;
+222:     if (!request.valid() || !MilesTransport::decodeResult(frame, header, result))
+223:         return Malformed;
+224:     const MilesWire::Header &original = request.header();
+225:     Association expected = {original.request, original.causal_request,
+226:                             original.lane, original.lock_lease};
+227:     if (header.kind != MilesWire::ReverseReply || header.opcode != request.opcode() ||
+228:         !association(header, expected))
+229:         return WrongAssociation;
+230:     if (result.transport_status || result.text.length || result.null_mask || result.callback ||
+231:         !zeroValues(result.value, 0))
+232:         return InvalidResult;
+233:     if (request.opcode() == MilesWire::FileOpen && result.return_bits)
+234:     {
+235:         if (!fileHandle(result.resource))
+236:             return InvalidResult;
+237:     }
+238:     else if (!nullHandle(result.resource))
+239:         return InvalidResult;
+240:     if (request.opcode() == MilesWire::FileClose && result.return_bits)
+241:         return InvalidResult;
+242:     if (request.opcode() == MilesWire::FileRead)
+243:     {
+244:         if (result.return_bits > request.count() || result.bytes.length != result.return_bits)
+245:             return InvalidResult;
+246:     }
+247:     else if (result.bytes.length)
+248:         return InvalidResult;
+249:     OwnedReply candidate;
+250:     candidate.returnBits = result.return_bits;
+251:     candidate.file = result.resource;
+252:     if (result.bytes.length)
+253:         candidate.bytes.assign(frame.data + result.bytes.offset,
+254:                                frame.data + result.bytes.offset + result.bytes.length);
+255:     out.bytes.swap(candidate.bytes);
+256:     out.returnBits = candidate.returnBits;
+257:     out.file = candidate.file;
+258:     return Valid;
+259: }
+260: 
+261: Validation copyRead(const OwnedReply &reply, uint32_t requested, void *destination,
+262:                     size_t capacity)
+263: {
+264:     if (!nullHandle(reply.file) || reply.returnBits > requested ||
+265:         reply.bytes.size() != reply.returnBits || capacity < requested ||
+266:         (requested && !destination))
+267:         return InvalidResult;
+268:     if (reply.returnBits)
+269:         std::memcpy(destination, &reply.bytes[0], reply.returnBits);
+270:     return Valid;
+271: }
+272: }
+```
+
+FILE file-channel26/canonical_services.cpp
+```
+1: #include "file_channel.h"
+2: 
+3: namespace MilesFileChannel26
+4: {
+5: FileServices canonicalServices()
+6: {
+7:     FileServices services = {
+8:         &ClientAudioFileCallbacks::open,
+9:         &ClientAudioFileCallbacks::close,
+10:         &ClientAudioFileCallbacks::seek,
+11:         &ClientAudioFileCallbacks::read
+12:     };
+13:     return services;
+14: }
+15: }
+```
+
+FILE reverse-file-seam20/ClientAudioFileCallbacks.h
+```
+1: // Experimental client-local interface. Candidate only; not a wire structure.
+2: #ifndef INCLUDED_ClientAudioFileCallbacks_H
+3: #define INCLUDED_ClientAudioFileCallbacks_H
+4: 
+5: #include <stdint.h>
+6: 
+7: namespace ClientAudioFileCallbacks
+8: {
+9: 
+10: // The original Audio.cpp map key, held only in this client process. Zero is a
+11: // valid key. This wrapper is intentionally not convertible to bool or void *.
+12: struct LocalFileHandle
+13: {
+14: 	uintptr_t value;
+15: };
+16: 
+17: struct OpenResult
+18: {
+19: 	uint32_t callbackResult;
+20: 	LocalFileHandle handle; // Usable iff callbackResult != 0, even when value == 0.
+21: };
+22: 
+23: enum SeekOrigin
+24: {
+25: 	SeekBegin = 0,
+26: 	SeekCurrent = 1,
+27: 	SeekEnd = 2
+28: };
+29: 
+30: // These ordinary C++ calls execute synchronously on the calling client thread.
+31: // The coordinator must first establish engine/TLS lifetime, compatible thread
+32: // context, serialization with ALL original file callbacks, and operation pins.
+33: // This interface neither installs threads nor schedules callbacks. It must not
+34: // be registered as an SDK callback table or called by an arbitrary I/O reactor.
+35: //
+36: // fileName is the original NUL-terminated byte name, live through the call.
+37: // Read destination is caller-owned local storage of at least requestedBytes,
+38: // live through the call. No native pointer or LocalFileHandle goes on the wire.
+39: OpenResult open(char const *fileName);
+40: void close(LocalFileHandle handle); // Original callback alone closes/deletes.
+41: int32_t seek(LocalFileHandle handle, int32_t offset, uint32_t origin);
+42: uint32_t read(LocalFileHandle handle, void *destination, uint32_t requestedBytes);
+43: 
+44: // seek returns the original signed result. read returns the original U32 bits,
+45: // including the original int-to-U32 conversion; it does not clamp or normalize.
+46: // Validation and transport failures belong outside this direct adapter.
+47: 
+48: } // namespace ClientAudioFileCallbacks
+49: 
+50: #endif
+```
+
+FILE transport-candidate/codec.cpp relevant implementation
+```
+135: bool decodeCall(Bytes b, Header &outH, Call &outC) {
+136:     if (!input(b, 136))
+137:         return false;
+138:     Reader r(b);
+139:     Header h = getHeader(r);
+140:     if (!header(h) || !envelopeOpcode(h.opcode) || h.bytes != b.size ||
+141:         (h.kind != Request && h.kind != ReverseRequest))
+142:         return false;
+143:     Call c;
+144:     c.target = r.handle();
+145:     c.resource = r.handle();
+146:     for (unsigned i = 0; i < 8; ++i)
+147:         c.value[i] = r.u();
+148:     c.bytes = r.span();
+149:     c.text = r.span();
+150:     c.output_mask = r.u();
+151:     c.reserved = r.u();
+152:     c.callback = r.get(8);
+153:     if (c.reserved || !validHandle(c.target) || !validHandle(c.resource) ||
+154:         !spans(b.size, 136, c.bytes, c.text))
+155:         return false;
+156:     outH = h;
+157:     outC = c;
+158:     return true;
+159: }
+160: bool encodeResult(Header h, const Result &c, Bytes a, Bytes b, std::vector<unsigned char> &out) {
+161:     if (!header(h) || !envelopeOpcode(h.opcode) || (h.kind != Reply && h.kind != ReverseReply) ||
+162:         !validHandle(c.resource))
+163:         return false;
+164:     Span sa, sb;
+165:     if (!plan(h, 128, a, b, sa, sb))
+166:         return false;
+167:     Writer w;
+168:     putHeader(w, h);
+169:     w.put(c.transport_status, 4);
+170:     w.put(c.return_bits, 4);
+171:     w.handle(c.resource);
+172:     for (unsigned i = 0; i < 8; ++i)
+173:         w.put(c.value[i], 4);
+174:     w.span(sa);
+175:     w.span(sb);
+176:     w.put(c.null_mask, 4);
+177:     w.put(c.callback, 8);
+178:     w.payload(a);
+179:     w.payload(b);
+180:     out.swap(w.b);
+181:     return true;
+182: }
+```
+
+FILE file-channel26/channel_test.cpp selected SCRIPTED tests
+```
+153: void mapping()
+154: {
+155:     const unsigned initialCalls = calls;
+156:     Request open = request(MilesWire::FileOpen, 0, 0, "MiXeD/path.wav");
+157:     CHECK(calls == initialCalls && open.name() == "MiXeD/path.wav");
+158:     openResult.callbackResult = 7; // Preserve nonzero bits, not a bool rewrite.
+159:     openResult.handle.value = 0;
+160:     Invocation work(open, services, std::shared_ptr<const Binding>(), lifetime());
+161:     std::vector<unsigned char> reply(3, 0x55);
+162:     CHECK(encodeCompletion(work, file, reply) == InvalidResult && reply.size() == 3);
+163:     invoke(work);
+164:     CHECK(work.completion().returnBits == 7 && work.completion().opened.handle.value == 0);
+165:     CHECK(seenName == "MiXeD/path.wav");
+166:     CHECK(encodeCompletion(work, noFile, reply) == InvalidResult && reply.size() == 3);
+167:     CHECK(encodeCompletion(work, file, reply) == Valid);
+168:     OwnedReply decoded;
+169:     CHECK(decodeReply(bytes(reply), open, decoded) == Valid);
+170:     CHECK(decoded.returnBits == 7 && decoded.file.slot == file.slot);
+171:     const unsigned once = calls;
+172:     CHECK(!work.invokeOnAdmittedExecutor() && calls == once);
+173: 
+174:     openResult.callbackResult = 0;
+175:     openResult.handle.value = static_cast<uintptr_t>(UINT64_C(0x100000003));
+176:     Invocation failed(open, services, std::shared_ptr<const Binding>(), lifetime());
+177:     invoke(failed);
+178:     CHECK(failed.completion().opened.handle.value == openResult.handle.value);
+179:     CHECK(encodeCompletion(failed, file, reply) == InvalidResult);
+180:     CHECK(encodeCompletion(failed, noFile, reply) == Valid);
+181:     CHECK(decodeReply(bytes(reply), open, decoded) == Valid && !decoded.returnBits && !decoded.file.kind);
+182: 
+183:     const uintptr_t highKey = static_cast<uintptr_t>(UINT64_C(0x100000001));
+184:     static_assert(sizeof(uintptr_t) == 8, "This portable x64 test covers non-narrowed local identity");
+185:     Request seek = request(MilesWire::FileSeek, static_cast<uint32_t>(-123), Local::SeekEnd);
+186:     seekResult = -37;
+187:     Invocation seeking(seek, services, binding(highKey), lifetime());
+188:     invoke(seeking);
+189:     CHECK(seenKey == highKey && seekOffset == -123 && seekOrigin == Local::SeekEnd);
+190:     CHECK(seeking.completion().returnBits == static_cast<uint32_t>(-37));
+191:     CHECK(encodeCompletion(seeking, noFile, reply) == Valid);
+219:     Invocation zero(request(MilesWire::FileRead, 0), services, binding(0), lifetime());
+220:     invoke(zero);
+221:     CHECK(readRequest == 0 && zero.completion().state == Returned);
+222:     CHECK(copyRead(decoded, 0, 0, 0) == Valid);
+223: 
+224:     readResult = UINT32_MAX; // Original negative int-to-U32 result, not EOF.
+225:     Invocation badRead(read, services, binding(0), lifetime());
+226:     invoke(badRead);
+227:     CHECK(badRead.completion().state == ReadCountOutsideBuffer);
+228:     CHECK(badRead.completion().returnBits == UINT32_MAX && badRead.completion().bytes.empty());
+229:     reply.assign(3, 0x66);
+230:     CHECK(encodeCompletion(badRead, noFile, reply) == InvalidResult && reply[0] == 0x66);
+231: 
+232:     Request close = request(MilesWire::FileClose);
+233:     Invocation closing(close, services, binding(highKey), lifetime());
+234:     invoke(closing);
+235:     CHECK(seenKey == highKey && closing.completion().returnBits == 0);
+236:     CHECK(encodeCompletion(closing, noFile, reply) == Valid);
+237:     CHECK(decodeReply(bytes(reply), close, decoded) == Valid);
+238:     CHECK(decoded.bytes.empty() && !decoded.file.kind);
+242: void postOpenFailure()
+243: {
+244:     openResult.callbackResult = 1;
+245:     openResult.handle.value = 0;
+246:     Request open = request(MilesWire::FileOpen, 0, 0, "owned-before-publication");
+247:     std::shared_ptr<void> pin = lifetime();
+248:     std::weak_ptr<void> probe(pin);
+249:     Invocation work(open, services, std::shared_ptr<const Binding>(), pin);
+250:     pin.reset();
+251:     invoke(work);
+252:     const unsigned afterOpen = calls;
+253:     std::vector<unsigned char> reply(3, 0x55);
+254:     bool allocationCaught = false;
+255:     failNextAllocation = true;
+256:     try
+257:     {
+258:         encodeCompletion(work, file, reply);
+259:     }
+260:     catch (const std::bad_alloc &)
+261:     {
+262:         allocationCaught = true;
+263:     }
+264:     CHECK(allocationCaught && !failNextAllocation);
+265:     CHECK(work.finished() && work.completion().state == Returned);
+266:     CHECK(work.completion().opened.callbackResult == 1 && work.completion().opened.handle.value == 0);
+267:     CHECK(!probe.expired() && calls == afterOpen);
+268:     CHECK(reply.size() == 3 && reply[0] == 0x55);
+269:     CHECK(!work.invokeOnAdmittedExecutor() && calls == afterOpen);
+270:     // No retry or invented close is used to hide the unpublished ownership gap.
+271: 
+272:     throwOnOpen = true;
+273:     Invocation unknown(open, services, std::shared_ptr<const Binding>(), lifetime());
+274:     invoke(unknown);
+275:     throwOnOpen = false;
+276:     CHECK(unknown.completion().state == CallThrew);
+277:     CHECK(encodeCompletion(unknown, noFile, reply) == InvalidResult && reply[0] == 0x55);
+278:     CHECK(!unknown.invokeOnAdmittedExecutor() && calls == afterOpen + 1);
+279:     std::puts("PASS post-open encode allocation failure retains ownership; exception stays unknown");
+```

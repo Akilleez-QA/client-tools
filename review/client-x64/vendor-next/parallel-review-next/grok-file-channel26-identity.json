@@ -1,0 +1,19 @@
+{
+  "model": "grok-4.7-high",
+  "mode": "ask",
+  "timeout_seconds": 300,
+  "source_manifest_sha256": "b064bdbf619920c045f1e5f1b3a9327d3141b76e6d886d651566dc1fd9931425",
+  "prompt_sha256": "302253eb1ffc7b834ce34c8386ec3eac37f64b320810f7d24adfdc07faba55c9",
+  "prompt_bytes": 26770,
+  "inputs": {
+    "file-channel26/file_channel.h": "58b4c91c09207e2c83c0700c7b85056370c1694aaca5f0ae7346eb0c53076fde",
+    "file-channel26/file_channel.cpp": "0c5253d7f2a3a7b06ba54af756f170eca6c5f3b84fbbdce952a5700de6a64e27",
+    "file-channel26/canonical_services.cpp": "3b9777f73e1940df24da9e319a4eb1a635d94634904ff66dd2e3726433218430",
+    "reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "transport-candidate/codec.cpp": "15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e",
+    "file-channel26/channel_test.cpp": "b107ca407a6a468a6171400d3d0bdd7afb31551ca7aacbdb8b586f0fd256a91c"
+  },
+  "scope": "Narrow file-channel26 value, ownership and uncertain completion semantics; scripted tests only.",
+  "exit": 124,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

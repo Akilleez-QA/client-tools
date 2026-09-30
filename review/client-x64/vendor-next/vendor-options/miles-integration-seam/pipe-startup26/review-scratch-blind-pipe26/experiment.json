@@ -1,0 +1,62 @@
+[
+  {
+    "name": "baseline-build",
+    "args": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-g",
+      "-fsanitize=address,undefined",
+      "pipe-startup26/tests/seven_operations.cpp",
+      "backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "transport-candidate/codec.cpp",
+      "session-version22/session_version.cpp",
+      "startup-metadata-v4/metadata_wire.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/review-scratch-blind-pipe26/seven-baseline"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "name": "baseline-run",
+    "args": [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/review-scratch-blind-pipe26/seven-baseline"
+    ],
+    "exit": 0,
+    "output": "PASS 1267 scripted-framed checks; no vendor execution\n"
+  },
+  {
+    "name": "host-poisoned-build",
+    "args": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-g",
+      "-fsanitize=address,undefined",
+      "pipe-startup26/tests/seven_operations.cpp",
+      "backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "transport-candidate/codec.cpp",
+      "session-version22/session_version.cpp",
+      "startup-metadata-v4/metadata_wire.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/review-scratch-blind-pipe26/seven-host-poisoned"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "name": "host-poisoned-run",
+    "args": [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/review-scratch-blind-pipe26/seven-host-poisoned"
+    ],
+    "exit": 0,
+    "output": "PASS 1267 scripted-framed checks; no vendor execution\n"
+  }
+]

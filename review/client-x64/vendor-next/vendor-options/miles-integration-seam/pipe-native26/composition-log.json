@@ -1,0 +1,41 @@
+[
+  {
+    "command": [
+      "patch",
+      "--batch",
+      "--forward",
+      "--fuzz=0",
+      "-p1",
+      "-i",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/patches/01-seven-pipe-operations.patch"
+    ],
+    "exit": 0,
+    "output": "patching file backend-boundary24/pipe/ClientMilesPipe.cpp\npatching file startup-bridge23/reply.h\npatching file startup-bridge23/backend.h\n"
+  },
+  {
+    "command": [
+      "patch",
+      "--batch",
+      "--forward",
+      "--fuzz=0",
+      "-p1",
+      "-i",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/patches/02-fresh-sample-fixed-stereo.patch"
+    ],
+    "exit": 0,
+    "output": "patching file native-startup25/ClientMilesStartup.h\npatching file native-startup25/native/native_startup25.cpp\npatching file native-startup25/sample/install_order.h\npatching file native-startup25/sample/install_order.cpp\n"
+  },
+  {
+    "command": [
+      "patch",
+      "--batch",
+      "--forward",
+      "--fuzz=0",
+      "-p1",
+      "-i",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-startup26/patches/03-require-sdk-include-evidence.patch"
+    ],
+    "exit": 0,
+    "output": "patching file native-startup25/build-native.py\n"
+  }
+]

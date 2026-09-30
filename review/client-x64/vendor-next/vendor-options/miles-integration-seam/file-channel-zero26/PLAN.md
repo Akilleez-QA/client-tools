@@ -1,0 +1,7 @@
+# Zero-count buffer discrimination, prospective supplement
+
+2026-09-30. Parent reviewed an in-progress file_channel.cpp before its final freeze and raised a possible null zero-count read buffer. Rechecking the current file, source-v1.tar and first test receipt shows all bind SHA0c5253d7f2a3a7b06ba54af756f170eca6c5f3b84fbbdce952a5700de6a64e27, which already allocates max(1,count). This is missing test coverage, not a defect in frozen26. Parent accepted that correction and authorized this separate portable discrimination only.
+
+Before test execution: invoke the frozen adapter once with FileRead count0 and a test-only service requiring a nonnull destination. Preserve the real call, raw result0 and empty returned byte vector. Prediction: frozen source passes; a private source mutation reverting the constructor allocation to resize(count) produces a null callback destination and fails the same assertion with a specific nonzero result. Do not change frozen26, fabricate EOF by skipping the callback, run any engine/vendor workload or adopt product code.
+
+This is a supplemental oracle for the existing file26 plan, not a new executor design. The script will preserve source/compiler/test/executable identities, exact commands and both first results; no automatic retry. The mutation is deliberately unsafe source behavior exercised only by a scripted service that inspects the pointer without dereferencing null. No actual MemoryFile or allocator fault workload runs. Compile uses ASan/UBSan and warnings-as-errors.

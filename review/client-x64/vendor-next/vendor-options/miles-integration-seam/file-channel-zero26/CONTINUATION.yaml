@@ -1,0 +1,115 @@
+schema: POODO_CONTINUATION/3.0
+capsule_id: PC-file26-zero1
+revision: 1
+parent_capsule: null
+generated_at: '2026-09-30T14:16:17.997994+00:00'
+objective: Discriminate zero-count buffer behavior without editing frozen file26.
+acceptance:
+- id: AC-filezero26-1
+  criterion: Frozen implementation supplies nonnull zero-count destination and no bytes; explicit old-null
+    mutation fails exactly that assertion.
+authority:
+  allowed: Separate portable supplement and private mutation only.
+  prohibited: Frozen source/receipt edits, engine/vendor/VM workload, adoption/push.
+constraints: No dereference of null; preserve canonical-call cadence; no synthetic EOF bypass.
+user_directives: Parent accepted source-inspection race correction and requested missing test coverage
+  only.
+current_head: D-filezero26-1
+claims:
+- id: O-filezero26-1
+  state: observed
+  status: active
+  text: Frozen source passed, explicit old-null mutation failed expected pointer assertion; both build0
+    and inputs unchanged.
+  source_type: artifact
+  locator: evidence-v1/results.json
+  observed_at: '2026-09-30T14:16:17.997994+00:00'
+  freshness: Named sources and results only
+  evidence_family: EF-filezero26-test
+  rehydration_status: checked
+  supports:
+  - AC-filezero26-1
+  limits: Scripted service only; not real engine read, TLS or file lifetime evidence.
+evidence_bundles:
+- id: E-filezero26-1
+  request: Run one frozen baseline and one controlled old-null allocation mutation under ASan/UBSan.
+  material_inputs:
+  - A-filezero26-result
+  result_or_locator: evidence-v1/
+  completeness: complete
+  artifacts:
+  - A-filezero26-result
+  supports_claims:
+  - O-filezero26-1
+orientations:
+- id: OR-filezero26-1
+  text: Frozen max1 allocation was already correct; coverage now discriminates its removal.
+  depends_on:
+  - O-filezero26-1
+  confidence:
+    artifact_identity: high
+    test_path: high
+    causal_model: high
+    outcome: high
+  strongest_rival: H-filezero26-1
+alternatives:
+- id: H-filezero26-1
+  status: discriminated
+  text: The zero-read check passes even if a null destination is supplied.
+  discriminator: Old-null mutation returns1 with the exact destination assertion.
+decisions:
+- id: D-filezero26-1
+  text: Freeze supplemental evidence and preserve original source unchanged.
+  depends_on:
+  - O-filezero26-1
+  reversible: true
+  reverse_if: Parent identifies an attribution or test defect.
+predictions:
+- id: P-filezero26-1
+  kind: prospective
+  created_at: '2026-09-30T14:14:51.408501+00:00'
+  created_before_observation: true
+  observable: Frozen run0 and old-null run1 with the specific null-destination marker.
+  acceptance: One service call, nonnull buffer for count0, raw0, no returned bytes.
+  failure_means: Preserve discrepancy; do not repair frozen packet.
+  oracle: A-filezero26-plan
+  oracle_version: PLAN before supplemental tests
+  artifact: A-filezero26-result
+  environment: Linux x64 g++ ASan/UBSan; test-only service table.
+  status: passed
+  status_history:
+  - pending
+  - passed
+  outcome_evidence:
+  - E-filezero26-1
+outcomes:
+- id: OUT-filezero26-1
+  state: passed
+  evidence:
+  - E-filezero26-1
+contradictions: []
+artifacts:
+- id: A-filezero26-plan
+  locator: PLAN.md
+  identity_method: sha256
+  identity: 3caf911d707a74ace1f7ed5de26263f1321dcb4c261430a5248a0798b917f9fd
+  mutable: false
+  captured_at: '2026-09-30T14:16:17.997994+00:00'
+  role: input
+- id: A-filezero26-result
+  locator: evidence-v1/results.json
+  identity_method: sha256
+  identity: 35255922cac5b3f82b81169c7c29f644d8a5d25d4d8cb8c06fdbbc331201888a
+  mutable: false
+  captured_at: '2026-09-30T14:16:17.997994+00:00'
+  role: evidence
+rehydration:
+  status: complete
+  losses: []
+delivery_state: checked
+outcome_state: passed
+highest_justified_claim: Supplement distinguishes frozen nonnull zero-count behavior from explicit old-null
+  mutation; no frozen code defect or repair.
+required_runtime_observation: None for the supplemental pure gate; real engine execution remains unauthorized.
+who_controls_next_test: Parent /root
+next_step: Parent reconciles supplemental test evidence with frozen source review.

@@ -1,0 +1,11 @@
+--- a/native-startup25/build-native.py
++++ b/native-startup25/build-native.py
+@@ -50,6 +50,8 @@
+           'builders_before': before_builders}
+ if code == 0:
+     headers = includes(log)
++    if not headers or sdk.resolve() not in {Path(p).resolve() for p in headers}:
++        raise RuntimeError("expected actual Mss.h absent from compiler include evidence")
+     before = {'sources': identities(source_files), 'headers': identities(headers), 'tools': identities(tools)}
+     code, log = run(command + ['/c', '/showIncludes'], out, 'objects', env)
+     result['compile_exit'] = code

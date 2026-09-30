@@ -1,0 +1,49 @@
+--- a/native-startup25/ClientMilesStartup.h
++++ b/native-startup25/ClientMilesStartup.h
+@@ -9,6 +9,7 @@
+ #endif
+ 
+ namespace ClientMiles {
++static const int32_t StereoSpeakerConfiguration = 2;
+ // Same callback shapes as the existing reviewed SDK signature checks. These
+ // are process-local callbacks; see CALLBACK-ADAPTATION.md before integration.
+ typedef uint32_t (CLIENT_MILES25_CALLBACK *FileOpenCallback)(char const *, uintptr_t *);
+--- a/native-startup25/native/native_startup25.cpp
++++ b/native-startup25/native/native_startup25.cpp
+@@ -6,6 +6,7 @@
+ #error Requires the actual v120 x64 target and possessed private Miles 7.2a header.
+ #endif
+ 
++static_assert(ClientMiles::StereoSpeakerConfiguration == MSS_MC_STEREO, "fixed stereo SDK value");
+ static_assert(std::is_same<uintptr_t, UINTa>::value, "native file identity width/type");
+ static_assert(std::is_same<intptr_t, SINTa>::value, "native signed address type");
+ static_assert(std::is_same<uint32_t, U32>::value, "native count type");
+--- a/native-startup25/sample/install_order.h
++++ b/native-startup25/sample/install_order.h
+@@ -4,7 +4,6 @@
+ namespace Startup25 {
+ struct Inputs {
+     int32_t configuredProvider;
+-    int32_t stereoProvider;
+     float position[3], face[3], up[3], rolloff;
+     ClientMiles::FileOpenCallback open;
+     ClientMiles::FileCloseCallback close;
+--- a/native-startup25/sample/install_order.cpp
++++ b/native-startup25/sample/install_order.cpp
+@@ -1,6 +1,7 @@
+ #include "install_order.h"
+ namespace Startup25 {
+ void installOrder(Inputs const &in, Observations &out) {
++    out = Observations(); // A new attempt must not expose prior driver/error observations.
+     out.directory = ClientMiles::set_redist_directoryOwned("miles");
+     out.startupResult = ClientMiles::startup();
+     // Actual Audio does not branch on startup's return; do not import the old
+@@ -11,7 +12,7 @@
+     out.driver = ClientMiles::open_digital_driver(22050, 16, in.configuredProvider, 0);
+     if (!out.driver) {
+         out.firstOpenError = ClientMiles::last_errorOwned(); // actual Audio logs here
+-        out.driver = ClientMiles::open_digital_driver(22050, 16, in.stereoProvider, 0);
++        out.driver = ClientMiles::open_digital_driver(22050, 16, ClientMiles::StereoSpeakerConfiguration, 0);
+         out.usedStereoFallback = true; // actual Audio updates its provider string here
+         if (!out.driver) {
+             out.secondOpenError = ClientMiles::last_errorOwned();
