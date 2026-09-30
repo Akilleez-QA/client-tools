@@ -1,0 +1,47 @@
+{
+  "scope": "Compile declarations and usage excerpt only; no SDK, link or executable.",
+  "linked": false,
+  "executed": false,
+  "before": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/ClientMilesPlayback.h": "ae476531b1fdcdc83c77709c63bacc8bd03d23449dea5fa0a960db5166cf8b15",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/compile_exercise.cpp": "908a4fba91675dfdc123088f259c330ec7137054765c9d7d16d3baf5263f36ee",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/operations.json": "f8b458c60e0568bab9afb71a5a072a21f2478fcccc27fd9ae3d15398cd086256",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/portable_contract.cpp": "9e9c703fad533a8e90bcb3c917368d00d6f9a2cd0fb5b4ae84f971f8cd5f02b9",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/native_playback28.cpp": "ac40f32bafdbdac91b7abd816d716165c136fcb47533dad78f4a25cd31659523",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/build-native.py": "6e8e81ab9530ee86fd5473cb3f6ec788a1fbb5b497d35e3097d78b3b068ba723",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/check-portable.py": "d2b100d8d1fa82b83350d96c5adf0614bf01c3642f89720f81042f70e97f13a8",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/ClientMilesSample.h": "04f33063e540c3edc1a51e8f1c20cbe70b833128e31813dae0f522b4b3f94732",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/usr/bin/nm": "b16707aadd1c1953f51fa32d462b2d463a54031f7a743d63e8333c6bf3985abd"
+  },
+  "checks": [
+    {
+      "source": "compile_exercise.cpp",
+      "exit": 0
+    },
+    {
+      "source": "portable_contract.cpp",
+      "exit": 0
+    }
+  ],
+  "references_all_nineteen": true,
+  "objects": {
+    "compile_exercise.o": "f227f93f4f9adc8e858bb54c75175980b96a8fd7ffebf35ee13fd658150b9e1c",
+    "portable_contract.o": "c884e91d23d8839fb59c63258197f9cf7bba6d91e616a045ddaa38aefe84bb52"
+  },
+  "after": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/ClientMilesPlayback.h": "ae476531b1fdcdc83c77709c63bacc8bd03d23449dea5fa0a960db5166cf8b15",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/compile_exercise.cpp": "908a4fba91675dfdc123088f259c330ec7137054765c9d7d16d3baf5263f36ee",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/operations.json": "f8b458c60e0568bab9afb71a5a072a21f2478fcccc27fd9ae3d15398cd086256",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/portable_contract.cpp": "9e9c703fad533a8e90bcb3c917368d00d6f9a2cd0fb5b4ae84f971f8cd5f02b9",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/native_playback28.cpp": "ac40f32bafdbdac91b7abd816d716165c136fcb47533dad78f4a25cd31659523",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/build-native.py": "6e8e81ab9530ee86fd5473cb3f6ec788a1fbb5b497d35e3097d78b3b068ba723",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/check-portable.py": "d2b100d8d1fa82b83350d96c5adf0614bf01c3642f89720f81042f70e97f13a8",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/ClientMilesSample.h": "04f33063e540c3edc1a51e8f1c20cbe70b833128e31813dae0f522b4b3f94732",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/usr/bin/nm": "b16707aadd1c1953f51fa32d462b2d463a54031f7a743d63e8333c6bf3985abd"
+  },
+  "passed": true
+}

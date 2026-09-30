@@ -1,0 +1,73 @@
+{
+  "scope": "Compile public declarations/example only; no SDK, link or executable.",
+  "linked": false,
+  "executed": false,
+  "before": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/live-bridge-candidate/revision4-tools/build_receipt.py": "25bfaf641c1d1705453804f0097b6722cc3dcdff1b0f9da485ce43ca691337d2",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/live-bridge-candidate/revision4-tools/receipt.py": "d9d5c572b8cb13ad631f411dc178f580f59c980148c6d8296f8ad887def2b487",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/ClientMilesSample.h": "04f33063e540c3edc1a51e8f1c20cbe70b833128e31813dae0f522b4b3f94732",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/.gitignore": "6d74cc08065db1dde6a36e012f512b2aa9c81250bcd1e19146fe5d182f5d7624",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/ClientMilesStream.h": "d2360b4c20220aff091541b9182c853ec39164df48b7a024ea99be5bdbee8ac4",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/OWNERSHIP.md": "5d5b33c1b8b45962c0ccb58e1416e1fd2c870173d48a42a721cc668757f737b3",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/PLAN.md": "72889bc33bcbf1ce4435724676e3eb7c9b814f26ddceaed3c8fc9ccaeddfef9b",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/build-native.py": "6dd475b13ef0e63da774897ef26dbbdf776435f08731425880158973fe4f7e35",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/check-portable.py": "4d5db5bf548824532d75f42ede5e6e31ef050028c654197a0c9ddbe835df2e0b",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/input-identities.json": "6654813afb7594dfa04f91c49c37b9b9553e2dec7c919b0a0961b5daf39a1e1d",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/native_stream28.cpp": "046b6e13bd09d7dd8a4a439bf222f4e6172a73392edacceec55d467fa03e8213",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/portable_contract.cpp": "4739563ac00880ce86b47e137c093fbf13e877108a69a7546fa75763696c1a1f",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/prepare-source.py": "8ccd56ea6f856243e474e37295821fdecbd593c3ae83288c2a838c8b6bc0321f",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/stream_calls.cpp": "8151cceb88114869ddba0b84dea98d1c60df43d19d231b1dc9fb8d3ad7afd661",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/stream_calls.h": "f9321a58eb8e731d3da401dc982d99c4498dd4eb855ff19a46917a819e94ce57",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/source-manifest.json": "087ca6c4241d1ce36122f022f6f383b702510a5ac7175d0529c70d6486865aba",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/usr/bin/nm": "b16707aadd1c1953f51fa32d462b2d463a54031f7a743d63e8333c6bf3985abd"
+  },
+  "checks": [
+    {
+      "source": "stream_calls.cpp",
+      "exit": 0
+    },
+    {
+      "source": "portable_contract.cpp",
+      "exit": 0
+    }
+  ],
+  "undefined_facade_functions": [
+    "close_stream",
+    "open_stream",
+    "set_stream_loop_block",
+    "set_stream_loop_count",
+    "set_stream_ms_position",
+    "start_stream",
+    "stream_ms_position",
+    "stream_status"
+  ],
+  "exact_eight_unresolved": true,
+  "objects": {
+    "portable_contract.o": "0ba58d0703f5f05c273ab5b22ddd0d417c91a326973efc4dfb7a57ed44e5d9b7",
+    "stream_calls.o": "7d6cff521c2eb80005c30b80a6ce8f392da2e9364240fe926bfc935b9df7e524"
+  },
+  "after": {
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/backend-boundary24/ClientMiles.h": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/live-bridge-candidate/revision4-tools/build_receipt.py": "25bfaf641c1d1705453804f0097b6722cc3dcdff1b0f9da485ce43ca691337d2",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/live-bridge-candidate/revision4-tools/receipt.py": "d9d5c572b8cb13ad631f411dc178f580f59c980148c6d8296f8ad887def2b487",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-sample27/ClientMilesSample.h": "04f33063e540c3edc1a51e8f1c20cbe70b833128e31813dae0f522b4b3f94732",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/.gitignore": "6d74cc08065db1dde6a36e012f512b2aa9c81250bcd1e19146fe5d182f5d7624",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/ClientMilesStream.h": "d2360b4c20220aff091541b9182c853ec39164df48b7a024ea99be5bdbee8ac4",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/OWNERSHIP.md": "5d5b33c1b8b45962c0ccb58e1416e1fd2c870173d48a42a721cc668757f737b3",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/PLAN.md": "72889bc33bcbf1ce4435724676e3eb7c9b814f26ddceaed3c8fc9ccaeddfef9b",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/build-native.py": "6dd475b13ef0e63da774897ef26dbbdf776435f08731425880158973fe4f7e35",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/check-portable.py": "4d5db5bf548824532d75f42ede5e6e31ef050028c654197a0c9ddbe835df2e0b",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/input-identities.json": "6654813afb7594dfa04f91c49c37b9b9553e2dec7c919b0a0961b5daf39a1e1d",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/native_stream28.cpp": "046b6e13bd09d7dd8a4a439bf222f4e6172a73392edacceec55d467fa03e8213",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/portable_contract.cpp": "4739563ac00880ce86b47e137c093fbf13e877108a69a7546fa75763696c1a1f",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/prepare-source.py": "8ccd56ea6f856243e474e37295821fdecbd593c3ae83288c2a838c8b6bc0321f",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/stream_calls.cpp": "8151cceb88114869ddba0b84dea98d1c60df43d19d231b1dc9fb8d3ad7afd661",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/stream_calls.h": "f9321a58eb8e731d3da401dc982d99c4498dd4eb855ff19a46917a819e94ce57",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/source-manifest.json": "087ca6c4241d1ce36122f022f6f383b702510a5ac7175d0529c70d6486865aba",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/usr/bin/nm": "b16707aadd1c1953f51fa32d462b2d463a54031f7a743d63e8333c6bf3985abd"
+  },
+  "passed": true
+}

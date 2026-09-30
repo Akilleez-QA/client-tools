@@ -1,0 +1,307 @@
+Broad independent review: compare plain native-Miles-shaped sample and stream interfaces with direct forwarding for semantic mismatches, ownership blind spots and coverage gaps. SDK source not supplied, so do not invent ABI claims. Owned samples/streams only; borrowed aliases deliberately deferred.
+Use only supplied authored source; do not run tools, change files, consult other reviews, or infer vendor behavior. Return concrete source-grounded concerns and scope limits; no broad clearance.
+
+FILE native-sample27/ClientMilesSample.h
+#ifndef CLIENT_MILES_SAMPLE27_H
+#define CLIENT_MILES_SAMPLE27_H
+
+#include "../backend-boundary24/ClientMiles.h"
+
+namespace ClientMiles
+{
+// Allocated sample identity, local to the selected backend and owning driver.
+// Copies alias one allocation; release exactly once. No borrowed stream samples.
+struct OwnedSample;
+typedef OwnedSample *HSAMPLE;
+
+HSAMPLE allocate_sample_handle(HDIGDRIVER driver);
+int32_t set_named_sample_file(HSAMPLE sample, const char *suffix,
+                             const void *fileImage, uint32_t fileBytes, int32_t block);
+void sample_ms_position(HSAMPLE sample, int32_t *totalMilliseconds,
+                        int32_t *currentMilliseconds);
+void end_sample(HSAMPLE sample);
+void release_sample_handle(HSAMPLE sample);
+
+// Allocation null and named-file scalar returns stay actual SDK values. Output
+// pointers preserve nullability and millisecond units. No image ownership moves:
+// the caller retains suffix/image storage through the documented vendor lifetime;
+// this candidate's usage excerpt conservatively keeps both stable through release.
+// This subset does not expose start/playback or a borrowed-sample conversion.
+}
+
+#endif
+
+FILE native-playback28/ClientMilesPlayback.h
+#ifndef CLIENT_MILES_PLAYBACK28_H
+#define CLIENT_MILES_PLAYBACK28_H
+#include "../native-sample27/ClientMilesSample.h"
+namespace ClientMiles {
+// Allocated samples only: existing OwnedSample aliases, valid until release.
+// No stream-sample conversion, callback registration or buffer ownership transfer.
+void start_sample(HSAMPLE sample);
+void stop_sample(HSAMPLE sample);
+uint32_t sample_status(HSAMPLE sample);
+void set_sample_loop_count(HSAMPLE sample, int32_t count);
+void set_sample_loop_block(HSAMPLE sample, int32_t startByte, int32_t endByte);
+void set_sample_ms_position(HSAMPLE sample, int32_t milliseconds);
+void set_sample_position(HSAMPLE sample, uint32_t byteOffset);
+uint32_t sample_position(HSAMPLE sample);
+void set_sample_playback_rate(HSAMPLE sample, int32_t rate);
+int32_t sample_playback_rate(HSAMPLE sample);
+void set_sample_volume_levels(HSAMPLE sample, float left, float right);
+void sample_volume_levels(HSAMPLE sample, float * left, float * right);
+void set_sample_reverb_levels(HSAMPLE sample, float dry, float wet);
+void sample_reverb_levels(HSAMPLE sample, float * dry, float * wet);
+void set_sample_3D_position(HSAMPLE sample, float x, float y, float z);
+void set_sample_3D_velocity_vector(HSAMPLE sample, float xPerMs, float yPerMs, float zPerMs);
+void set_sample_3D_distances(HSAMPLE sample, float maximum, float minimum, int32_t autoWetAttenuation);
+void set_sample_occlusion(HSAMPLE sample, float value);
+void set_sample_obstruction(HSAMPLE sample, float value);
+// Byte positions/loop offsets and millisecond positions remain distinct SDK units.
+// Getter output pointers pass through unchanged, including null; this facade adds
+// no pointer-validity guarantees beyond the actual SDK contract. Stop, end and
+// release stay separate. No clamping, scheduling, range narrowing or replay.
+}
+#endif
+
+FILE native-playback28/native_playback28.cpp
+#include "ClientMilesPlayback.h"
+#include <Mss.h>
+#include <type_traits>
+#if !defined(_WIN64) || _MSC_VER != 1800
+#error Requires actual v120 x64 and the pinned private Miles 7.2a header.
+#endif
+static_assert(std::is_same<uint32_t, U32>::value, "exact unsigned native scalar");
+static_assert(std::is_same<int32_t, S32>::value, "exact signed native scalar");
+static_assert(std::is_same<float, F32>::value, "exact native floating point");
+static_assert(std::is_same<decltype(&::AIL_start_sample), void (AILCALL *)(::HSAMPLE)>::value, "actual start_sample declaration");
+static_assert(std::is_same<decltype(&ClientMiles::start_sample), void (*)(ClientMiles::HSAMPLE)>::value, "facade start_sample shape");
+static_assert(std::is_same<decltype(&::AIL_stop_sample), void (AILCALL *)(::HSAMPLE)>::value, "actual stop_sample declaration");
+static_assert(std::is_same<decltype(&ClientMiles::stop_sample), void (*)(ClientMiles::HSAMPLE)>::value, "facade stop_sample shape");
+static_assert(std::is_same<decltype(&::AIL_sample_status), U32 (AILCALL *)(::HSAMPLE)>::value, "actual sample_status declaration");
+static_assert(std::is_same<decltype(&ClientMiles::sample_status), U32 (*)(ClientMiles::HSAMPLE)>::value, "facade sample_status shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_loop_count), void (AILCALL *)(::HSAMPLE, S32)>::value, "actual set_sample_loop_count declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_loop_count), void (*)(ClientMiles::HSAMPLE, S32)>::value, "facade set_sample_loop_count shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_loop_block), void (AILCALL *)(::HSAMPLE, S32, S32)>::value, "actual set_sample_loop_block declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_loop_block), void (*)(ClientMiles::HSAMPLE, S32, S32)>::value, "facade set_sample_loop_block shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_ms_position), void (AILCALL *)(::HSAMPLE, S32)>::value, "actual set_sample_ms_position declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_ms_position), void (*)(ClientMiles::HSAMPLE, S32)>::value, "facade set_sample_ms_position shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_position), void (AILCALL *)(::HSAMPLE, U32)>::value, "actual set_sample_position declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_position), void (*)(ClientMiles::HSAMPLE, U32)>::value, "facade set_sample_position shape");
+static_assert(std::is_same<decltype(&::AIL_sample_position), U32 (AILCALL *)(::HSAMPLE)>::value, "actual sample_position declaration");
+static_assert(std::is_same<decltype(&ClientMiles::sample_position), U32 (*)(ClientMiles::HSAMPLE)>::value, "facade sample_position shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_playback_rate), void (AILCALL *)(::HSAMPLE, S32)>::value, "actual set_sample_playback_rate declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_playback_rate), void (*)(ClientMiles::HSAMPLE, S32)>::value, "facade set_sample_playback_rate shape");
+static_assert(std::is_same<decltype(&::AIL_sample_playback_rate), S32 (AILCALL *)(::HSAMPLE)>::value, "actual sample_playback_rate declaration");
+static_assert(std::is_same<decltype(&ClientMiles::sample_playback_rate), S32 (*)(ClientMiles::HSAMPLE)>::value, "facade sample_playback_rate shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_volume_levels), void (AILCALL *)(::HSAMPLE, F32, F32)>::value, "actual set_sample_volume_levels declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_volume_levels), void (*)(ClientMiles::HSAMPLE, F32, F32)>::value, "facade set_sample_volume_levels shape");
+static_assert(std::is_same<decltype(&::AIL_sample_volume_levels), void (AILCALL *)(::HSAMPLE, F32 *, F32 *)>::value, "actual sample_volume_levels declaration");
+static_assert(std::is_same<decltype(&ClientMiles::sample_volume_levels), void (*)(ClientMiles::HSAMPLE, F32 *, F32 *)>::value, "facade sample_volume_levels shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_reverb_levels), void (AILCALL *)(::HSAMPLE, F32, F32)>::value, "actual set_sample_reverb_levels declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_reverb_levels), void (*)(ClientMiles::HSAMPLE, F32, F32)>::value, "facade set_sample_reverb_levels shape");
+static_assert(std::is_same<decltype(&::AIL_sample_reverb_levels), void (AILCALL *)(::HSAMPLE, F32 *, F32 *)>::value, "actual sample_reverb_levels declaration");
+static_assert(std::is_same<decltype(&ClientMiles::sample_reverb_levels), void (*)(ClientMiles::HSAMPLE, F32 *, F32 *)>::value, "facade sample_reverb_levels shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_3D_position), void (AILCALL *)(::HSAMPLE, F32, F32, F32)>::value, "actual set_sample_3D_position declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_3D_position), void (*)(ClientMiles::HSAMPLE, F32, F32, F32)>::value, "facade set_sample_3D_position shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_3D_velocity_vector), void (AILCALL *)(::HSAMPLE, F32, F32, F32)>::value, "actual set_sample_3D_velocity_vector declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_3D_velocity_vector), void (*)(ClientMiles::HSAMPLE, F32, F32, F32)>::value, "facade set_sample_3D_velocity_vector shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_3D_distances), void (AILCALL *)(::HSAMPLE, F32, F32, S32)>::value, "actual set_sample_3D_distances declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_3D_distances), void (*)(ClientMiles::HSAMPLE, F32, F32, S32)>::value, "facade set_sample_3D_distances shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_occlusion), void (AILCALL *)(::HSAMPLE, F32)>::value, "actual set_sample_occlusion declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_occlusion), void (*)(ClientMiles::HSAMPLE, F32)>::value, "facade set_sample_occlusion shape");
+static_assert(std::is_same<decltype(&::AIL_set_sample_obstruction), void (AILCALL *)(::HSAMPLE, F32)>::value, "actual set_sample_obstruction declaration");
+static_assert(std::is_same<decltype(&ClientMiles::set_sample_obstruction), void (*)(ClientMiles::HSAMPLE, F32)>::value, "facade set_sample_obstruction shape");
+
+namespace ClientMiles {
+void start_sample(HSAMPLE sample) {
+    ::AIL_start_sample(reinterpret_cast<::HSAMPLE>(sample));
+}
+void stop_sample(HSAMPLE sample) {
+    ::AIL_stop_sample(reinterpret_cast<::HSAMPLE>(sample));
+}
+uint32_t sample_status(HSAMPLE sample) {
+    return ::AIL_sample_status(reinterpret_cast<::HSAMPLE>(sample));
+}
+void set_sample_loop_count(HSAMPLE sample, int32_t count) {
+    ::AIL_set_sample_loop_count(reinterpret_cast<::HSAMPLE>(sample), count);
+}
+void set_sample_loop_block(HSAMPLE sample, int32_t startByte, int32_t endByte) {
+    ::AIL_set_sample_loop_block(reinterpret_cast<::HSAMPLE>(sample), startByte, endByte);
+}
+void set_sample_ms_position(HSAMPLE sample, int32_t milliseconds) {
+    ::AIL_set_sample_ms_position(reinterpret_cast<::HSAMPLE>(sample), milliseconds);
+}
+void set_sample_position(HSAMPLE sample, uint32_t byteOffset) {
+    ::AIL_set_sample_position(reinterpret_cast<::HSAMPLE>(sample), byteOffset);
+}
+uint32_t sample_position(HSAMPLE sample) {
+    return ::AIL_sample_position(reinterpret_cast<::HSAMPLE>(sample));
+}
+void set_sample_playback_rate(HSAMPLE sample, int32_t rate) {
+    ::AIL_set_sample_playback_rate(reinterpret_cast<::HSAMPLE>(sample), rate);
+}
+int32_t sample_playback_rate(HSAMPLE sample) {
+    return ::AIL_sample_playback_rate(reinterpret_cast<::HSAMPLE>(sample));
+}
+void set_sample_volume_levels(HSAMPLE sample, float left, float right) {
+    ::AIL_set_sample_volume_levels(reinterpret_cast<::HSAMPLE>(sample), left, right);
+}
+void sample_volume_levels(HSAMPLE sample, float * left, float * right) {
+    ::AIL_sample_volume_levels(reinterpret_cast<::HSAMPLE>(sample), left, right);
+}
+void set_sample_reverb_levels(HSAMPLE sample, float dry, float wet) {
+    ::AIL_set_sample_reverb_levels(reinterpret_cast<::HSAMPLE>(sample), dry, wet);
+}
+void sample_reverb_levels(HSAMPLE sample, float * dry, float * wet) {
+    ::AIL_sample_reverb_levels(reinterpret_cast<::HSAMPLE>(sample), dry, wet);
+}
+void set_sample_3D_position(HSAMPLE sample, float x, float y, float z) {
+    ::AIL_set_sample_3D_position(reinterpret_cast<::HSAMPLE>(sample), x, y, z);
+}
+void set_sample_3D_velocity_vector(HSAMPLE sample, float xPerMs, float yPerMs, float zPerMs) {
+    ::AIL_set_sample_3D_velocity_vector(reinterpret_cast<::HSAMPLE>(sample), xPerMs, yPerMs, zPerMs);
+}
+void set_sample_3D_distances(HSAMPLE sample, float maximum, float minimum, int32_t autoWetAttenuation) {
+    ::AIL_set_sample_3D_distances(reinterpret_cast<::HSAMPLE>(sample), maximum, minimum, autoWetAttenuation);
+}
+void set_sample_occlusion(HSAMPLE sample, float value) {
+    ::AIL_set_sample_occlusion(reinterpret_cast<::HSAMPLE>(sample), value);
+}
+void set_sample_obstruction(HSAMPLE sample, float value) {
+    ::AIL_set_sample_obstruction(reinterpret_cast<::HSAMPLE>(sample), value);
+}
+}
+
+FILE native-stream28/ClientMilesStream.h
+#ifndef CLIENT_MILES_STREAM_FACADE_H
+#define CLIENT_MILES_STREAM_FACADE_H
+
+#include "../backend-boundary24/ClientMiles.h"
+
+namespace ClientMiles
+{
+// Owned by the caller after a nonnull open; close once before driver teardown.
+// Copies alias one stream. This is an opaque identity, not an RAII owner.
+struct OwnedStream;
+typedef OwnedStream *HSTREAM;
+
+HSTREAM open_stream(HDIGDRIVER driver, const char *filename, int32_t streamMem);
+void close_stream(HSTREAM stream);
+void start_stream(HSTREAM stream);
+void set_stream_loop_count(HSTREAM stream, int32_t count);
+void set_stream_loop_block(HSTREAM stream, int32_t loopStartOffset, int32_t loopEndOffset);
+int32_t stream_status(HSTREAM stream);
+void set_stream_ms_position(HSTREAM stream, int32_t milliseconds);
+void stream_ms_position(HSTREAM stream, int32_t *totalMilliseconds,
+                        int32_t *currentMilliseconds);
+
+// Signed SDK values, native offsets and nullable output pointers pass unchanged.
+// This subset has no stream_sample_handle: borrowed stream samples are not
+// allocated OwnedSample identities and may not enter their release API.
+// Callbacks/EOS and borrowed-sample controls await their own lifetime contract.
+}
+#endif
+
+FILE native-stream28/native_stream28.cpp
+#include "ClientMilesStream.h"
+#include <Mss.h>
+#include <type_traits>
+
+#if !defined(_WIN64) || _MSC_VER != 1800
+#error Requires actual v120 x64 and the pinned private Miles 7.2a header.
+#endif
+
+static_assert(std::is_same<int32_t, S32>::value, "exact native signed scalar type");
+static_assert(std::is_same<char, C8>::value, "exact native filename character type");
+
+// Handles intentionally differ. Bind all other facade arguments/results to the
+// possessed SDK types, and separately assert each actual native declaration.
+static_assert(std::is_same<decltype(&ClientMiles::open_stream),
+    ClientMiles::HSTREAM (*)(ClientMiles::HDIGDRIVER, const char *, S32)>::value,
+    "facade open shape");
+static_assert(std::is_same<decltype(&::AIL_open_stream),
+    ::HSTREAM (AILCALL *)(::HDIGDRIVER, const char *, S32)>::value,
+    "actual open signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::close_stream),
+    void (*)(ClientMiles::HSTREAM)>::value, "facade close shape");
+static_assert(std::is_same<decltype(&::AIL_close_stream),
+    void (AILCALL *)(::HSTREAM)>::value, "actual close signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::start_stream),
+    void (*)(ClientMiles::HSTREAM)>::value, "facade start shape");
+static_assert(std::is_same<decltype(&::AIL_start_stream),
+    void (AILCALL *)(::HSTREAM)>::value, "actual start signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::set_stream_loop_count),
+    void (*)(ClientMiles::HSTREAM, S32)>::value, "facade signed loop count");
+static_assert(std::is_same<decltype(&::AIL_set_stream_loop_count),
+    void (AILCALL *)(::HSTREAM, S32)>::value, "actual loop count signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::set_stream_loop_block),
+    void (*)(ClientMiles::HSTREAM, S32, S32)>::value, "facade signed native offsets");
+static_assert(std::is_same<decltype(&::AIL_set_stream_loop_block),
+    void (AILCALL *)(::HSTREAM, S32, S32)>::value, "actual loop block signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::stream_status),
+    S32 (*)(ClientMiles::HSTREAM)>::value, "facade signed status");
+static_assert(std::is_same<decltype(&::AIL_stream_status),
+    S32 (AILCALL *)(::HSTREAM)>::value, "actual status signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::set_stream_ms_position),
+    void (*)(ClientMiles::HSTREAM, S32)>::value, "facade signed milliseconds");
+static_assert(std::is_same<decltype(&::AIL_set_stream_ms_position),
+    void (AILCALL *)(::HSTREAM, S32)>::value, "actual set position signature");
+
+static_assert(std::is_same<decltype(&ClientMiles::stream_ms_position),
+    void (*)(ClientMiles::HSTREAM, S32 *, S32 *)>::value, "facade nullable signed outputs");
+static_assert(std::is_same<decltype(&::AIL_stream_ms_position),
+    void (AILCALL *)(::HSTREAM, S32 *, S32 *)>::value, "actual position signature");
+
+namespace ClientMiles
+{
+HSTREAM open_stream(HDIGDRIVER driver, const char *filename, int32_t streamMem)
+{
+    return reinterpret_cast<HSTREAM>(::AIL_open_stream(
+        reinterpret_cast<::HDIGDRIVER>(driver), filename, streamMem));
+}
+
+void close_stream(HSTREAM stream)
+{
+    ::AIL_close_stream(reinterpret_cast<::HSTREAM>(stream));
+}
+
+void start_stream(HSTREAM stream)
+{
+    ::AIL_start_stream(reinterpret_cast<::HSTREAM>(stream));
+}
+
+void set_stream_loop_count(HSTREAM stream, int32_t count)
+{
+    ::AIL_set_stream_loop_count(reinterpret_cast<::HSTREAM>(stream), count);
+}
+
+void set_stream_loop_block(HSTREAM stream, int32_t loopStartOffset, int32_t loopEndOffset)
+{
+    ::AIL_set_stream_loop_block(reinterpret_cast<::HSTREAM>(stream),
+                                loopStartOffset, loopEndOffset);
+}
+
+int32_t stream_status(HSTREAM stream)
+{
+    return ::AIL_stream_status(reinterpret_cast<::HSTREAM>(stream));
+}
+
+void set_stream_ms_position(HSTREAM stream, int32_t milliseconds)
+{
+    ::AIL_set_stream_ms_position(reinterpret_cast<::HSTREAM>(stream), milliseconds);
+}
+
+void stream_ms_position(HSTREAM stream, int32_t *totalMilliseconds,
+                        int32_t *currentMilliseconds)
+{
+    ::AIL_stream_ms_position(reinterpret_cast<::HSTREAM>(stream),
+                             totalMilliseconds, currentMilliseconds);
+}
+}

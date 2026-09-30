@@ -1,0 +1,126 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\sample-live31\build-v1\amd64-Release\controller.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Section contains the following imports:
+
+    ADVAPI32.dll
+             14001A000 Import Address Table
+             140027B88 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         212 OpenProcessToken
+                         16F GetTokenInformation
+                          C0 CryptAcquireContextA
+                          DB CryptReleaseContext
+                          D4 CryptGetHashParam
+                          D1 CryptGenRandom
+                          C3 CryptCreateHash
+                          D8 CryptHashData
+                          C6 CryptDestroyHash
+                          7A ConvertSidToStringSidA
+                          80 ConvertStringSecurityDescriptorToSecurityDescriptorA
+
+    KERNEL32.dll
+             14001A060 Import Address Table
+             140027BE8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         454 ReadFile
+                         5F1 WriteFile
+                          7F CloseHandle
+                         256 GetLastError
+                         28E GetOverlappedResult
+                          6B CancelIoEx
+                         4A6 ResetEvent
+                          B3 CreateEventA
+                         2FA GetTickCount64
+                         5B9 WaitForMultipleObjects
+                          94 ConnectNamedPipe
+                         5BB WaitForSingleObject
+                         20F GetCurrentProcess
+                         210 GetCurrentProcessId
+                         570 TerminateProcess
+                         233 GetExitCodeProcess
+                         56B SwitchToThread
+                         4AC ResumeThread
+                          D7 CreateProcessA
+                         3B5 LocalFree
+                          D2 CreateNamedPipeA
+                         273 GetNamedPipeClientProcessId
+                          C8 CreateJobObjectA
+                          1C AssignProcessToJobObject
+                         517 SetInformationJobObject
+                         4B7 RtlPcToFileHeader
+                         444 RaiseException
+                         4B5 RtlLookupFunctionEntry
+                         4BB RtlUnwindEx
+                         125 EncodePointer
+                          FF DecodePointer
+                         1CE GetCommandLineA
+                         338 HeapAlloc
+                         33C HeapFree
+                         519 SetLastError
+                         214 GetCurrentThreadId
+                         36A IsDebuggerPresent
+                         370 IsProcessorFeaturePresent
+                         157 ExitProcess
+                         26C GetModuleHandleExW
+                         2A4 GetProcAddress
+                         3D4 MultiByteToWideChar
+                         5DD WideCharToMultiByte
+                         341 HeapSize
+                         129 EnterCriticalSection
+                         3A5 LeaveCriticalSection
+                         2C7 GetStdHandle
+                         245 GetFileType
+                         106 DeleteCriticalSection
+                         2C5 GetStartupInfoW
+                         2A9 GetProcessHeap
+                         268 GetModuleFileNameA
+                         269 GetModuleFileNameW
+                         430 QueryPerformanceCounter
+                         2DD GetSystemTimeAsFileTime
+                         22E GetEnvironmentStringsW
+                         1A3 FreeEnvironmentStringsW
+                         4AE RtlCaptureContext
+                         4BC RtlVirtualUnwind
+                         592 UnhandledExceptionFilter
+                         552 SetUnhandledExceptionFilter
+                         351 InitializeCriticalSectionAndSpinCount
+                         561 Sleep
+                         582 TlsAlloc
+                         584 TlsGetValue
+                         585 TlsSetValue
+                         583 TlsFree
+                         26D GetModuleHandleW
+                         375 IsValidCodePage
+                         1AA GetACP
+                         28D GetOEMCP
+                         1B9 GetCPInfo
+                         399 LCMapStringW
+                         3AA LoadLibraryExW
+                         33F HeapReAlloc
+                         1E2 GetConsoleCP
+                         1F4 GetConsoleMode
+                         50C SetFilePointerEx
+                         3FD OutputDebugStringW
+                         2CC GetStringTypeW
+                         198 FlushFileBuffers
+                         530 SetStdHandle
+                         5F0 WriteConsoleW
+                          C2 CreateFileW
+
+  Summary
+
+        4000 .data
+        2000 .pdata
+        F000 .rdata
+        1000 .reloc
+       19000 .text

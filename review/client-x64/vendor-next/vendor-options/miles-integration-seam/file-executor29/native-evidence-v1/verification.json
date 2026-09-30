@@ -1,0 +1,122 @@
+{
+  "status": "eight_native_object_compiles_passed",
+  "runner_invocations": 1,
+  "cl_object_compilations": 8,
+  "native_objects_rechecked": true,
+  "input_and_include_identities_unchanged": true,
+  "manifest_sha256": "a02c162efe3dfd320f50cc4e0d8f56f236b99d770904c3c22e988e5dc48b135d",
+  "driver_sha256": "ca93eb658f8dd70d78bfcd285385074d7ed34dd9a449ba5c32964099709bef73",
+  "evidence_zip_sha256": "0f03918c7267a62d5f46447ff8f4754dda0609618766bb6783e56e72116ebe79",
+  "builds": [
+    {
+      "configuration": "Debug",
+      "platform": "Win32",
+      "mode": "baseline",
+      "exit_code": 0,
+      "coff_machine": "0x14c",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "fe7619ac1e72ed9be159eeaf4d17689de95aadb0420ae1d0b05cc908696fabb4"
+    },
+    {
+      "configuration": "Debug",
+      "platform": "Win32",
+      "mode": "candidate",
+      "exit_code": 0,
+      "coff_machine": "0x14c",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "3d2b8dc242723c9dccb1e44f6c903d725b6d67807eef577636149628b19dfb2a"
+    },
+    {
+      "configuration": "Debug",
+      "platform": "x64",
+      "mode": "baseline",
+      "exit_code": 0,
+      "coff_machine": "0x8664",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "405d545c1a1ccdd8cd6a2deb40ae672a303b4a367ac504b7e55fb226c8f81cd0"
+    },
+    {
+      "configuration": "Debug",
+      "platform": "x64",
+      "mode": "candidate",
+      "exit_code": 0,
+      "coff_machine": "0x8664",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "22eb66877e86d9a450367122b1f2e9729a76ebadbf6b75c302a5b9e88656a0a0"
+    },
+    {
+      "configuration": "Release",
+      "platform": "Win32",
+      "mode": "baseline",
+      "exit_code": 0,
+      "coff_machine": "0x14c",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "26ce2b2bbe07709750c7f83fd957e60b01952facb651361d0d44151c5b4208aa"
+    },
+    {
+      "configuration": "Release",
+      "platform": "Win32",
+      "mode": "candidate",
+      "exit_code": 0,
+      "coff_machine": "0x14c",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "e798dbb921c305ba69fdf6efe5dcd71c475faa164ca85a1b62f200d840e3c51a"
+    },
+    {
+      "configuration": "Release",
+      "platform": "x64",
+      "mode": "baseline",
+      "exit_code": 0,
+      "coff_machine": "0x8664",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "1dc691a3b3d1cb715fb0c2931501800807b0743954cc8f484140fccc8e8aea54"
+    },
+    {
+      "configuration": "Release",
+      "platform": "x64",
+      "mode": "candidate",
+      "exit_code": 0,
+      "coff_machine": "0x8664",
+      "diagnostics": [],
+      "non_include_log": [
+        "Audio.cpp",
+        "SEAM29 _MSC_FULL_VER=180040629"
+      ],
+      "object_sha256": "e73624522c350be53550927894ea0627a3f9734327b34f564235533cce7e6045"
+    }
+  ],
+  "limits": [
+    "No link, engine execution, DLL invocation or runtime acceptance",
+    "COFF x64 machine is object evidence only, not Miles SDK64 runtime",
+    "Inherited adapter-name prefix check does not establish consumer linkage"
+  ],
+  "receipt_field_note": "local-after.json compiler_invocations=1 counts the matrix runner invocation; eight cl.exe /c compilations are recorded in results."
+}

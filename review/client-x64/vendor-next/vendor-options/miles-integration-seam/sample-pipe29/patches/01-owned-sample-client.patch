@@ -1,0 +1,189 @@
+--- a/backend-boundary24/pipe/Session.h
++++ b/backend-boundary24/pipe/Session.h
+@@ -6,6 +6,7 @@
+ #include <memory>
+ 
+ namespace ClientMilesPipe {
++struct SampleState;
+ // Composition-root-only owner; not included by game policy. Bootstrap/Hello
+ // occurs in the concrete channel before selecting this sole session. Explicit
+ // close follows ClientMiles::shutdown and hides SessionClose from game callers.
+@@ -18,11 +19,15 @@
+     // Private implementation operations, not an application backend interface.
+     StartupBridge::OwnedReply request(uint32_t opcode, const MilesWire::Call &fields,
+                                       MilesTransport::Bytes text = MilesTransport::Bytes());
++    bool uncertain() const { return faulted_; }
++    size_t sampleProxyCount() const; // private composition/test observation
++    void rejectResult(); // terminal uncertainty; no retry after an invalid sample result
+     void requireRunning() const;
+     void requireAvailable() const;
+     bool started;
+     bool stopped;
+     std::unique_ptr<ClientMiles::DigitalDriver> driver;
++    std::unique_ptr<SampleState> samples;
+     static Session &selected();
+ 
+   private:
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -1,4 +1,6 @@
+ #include "Session.h"
++#include "../../native-sample27/ClientMilesSample.h"
++#include <list>
+ #include "../../native-startup25/ClientMilesStartup.h"
+ #include <cstring>
+ #include <limits>
+@@ -8,7 +10,19 @@
+     MilesWire::Handle wire;
+     const ClientMilesPipe::Session *owner;
+ };
++struct OwnedSample {
++    MilesWire::Handle wire;
++    bool live;
++    OwnedSample() : wire(), live(false) {}
++};
+ } // namespace ClientMiles
++
++namespace ClientMilesPipe {
++struct SampleState {
++    typedef std::list<std::unique_ptr<ClientMiles::OwnedSample> > Proxies;
++    Proxies proxies;
++};
++}
+ 
+ namespace {
+ ClientMilesPipe::Session *selectedSession = 0;
+@@ -86,7 +100,7 @@
+ 
+ namespace ClientMilesPipe {
+ Session::Session(std::unique_ptr<Channel> channel)
+-    : started(false), stopped(false), channel_(std::move(channel)), closed_(false),
++    : started(false), stopped(false), samples(new SampleState), channel_(std::move(channel)), closed_(false),
+       faulted_(false) {
+     if (selectedSession || !channel_)
+         fail(ClientMiles::FailureReason::WrongState, "one Miles session must be selected");
+@@ -104,6 +118,13 @@
+     if (!selectedSession)
+         fail(ClientMiles::FailureReason::WrongState, "Miles implementation not selected");
+     return *selectedSession;
++}
++
++size_t Session::sampleProxyCount() const { return samples->proxies.size(); }
++
++void Session::rejectResult() {
++    faulted_ = true;
++    fail(ClientMiles::FailureReason::BackendFailed, "invalid sample reply; outcome uncertain");
+ }
+ 
+ void Session::requireAvailable() const {
+@@ -173,6 +194,7 @@
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     session.requireRunning();
+     session.request(MilesWire::AIL_shutdown, MilesWire::Call());
++    session.samples->proxies.clear(); // confirmed vendor shutdown, local handles expire
+     session.started = false;
+     session.stopped = true;
+ }
+@@ -300,4 +322,78 @@
+     fields.value[0] = static_cast<uint32_t>(room);
+     session.request(MilesWire::AIL_set_room_type, fields);
+ }
++// Private helper compares identity without dereferencing caller-provided pointers.
++static OwnedSample &ownedSample(ClientMilesPipe::Session &session, HSAMPLE sample) {
++    session.requireRunning();
++    for (ClientMilesPipe::SampleState::Proxies::iterator i=session.samples->proxies.begin();
++         i!=session.samples->proxies.end(); ++i) {
++        OwnedSample *candidate = i->get();
++        if (sample == candidate && candidate->live) return *candidate;
++    }
++    fail(FailureReason::InvalidArgument, "sample is not live in this selected Session");
++    throw std::logic_error("unreachable");
++}
++
++HSAMPLE allocate_sample_handle(HDIGDRIVER driver) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = driverCall(session, driver);
++    // Both proxy allocation and container publication precede remote side effects.
++    std::unique_ptr<OwnedSample> local(new OwnedSample);
++    OwnedSample *sample = local.get();
++    session.samples->proxies.push_back(std::move(local));
++    StartupBridge::OwnedReply reply;
++    try {
++        reply = session.request(MilesWire::AIL_allocate_sample_handle, fields);
++    } catch (...) {
++        // Only an observed refusal permits discarding the unpublished proxy.
++        if (!session.uncertain()) session.samples->proxies.pop_back();
++        throw;
++    }
++    if (StartupBridge::nullHandle(reply.result.resource)) {
++        session.samples->proxies.pop_back(); // never exposed, so cannot alias a stale handle
++        return 0;
++    }
++    sample->wire = reply.result.resource;
++    sample->live = true;
++    return sample;
++}
++
++void sample_ms_position(HSAMPLE sample, int32_t *total, int32_t *current) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = {};
++    fields.target = ownedSample(session, sample).wire;
++    fields.output_mask = (total ? 1u : 0u) | (current ? 2u : 0u);
++    StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_sample_ms_position, fields);
++    // Decoder knows the opcode; only this layer knows which outputs were requested.
++    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]))
++        session.rejectResult();
++    const int32_t a = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[0]));
++    const int32_t b = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[1]));
++    if (total) *total = a;
++    if (current) *current = b;
++}
++
++void end_sample(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    MilesWire::Call fields = {};
++    fields.target = ownedSample(session, sample).wire;
++    session.request(MilesWire::AIL_end_sample, fields);
++}
++
++void release_sample_handle(HSAMPLE sample) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    OwnedSample &owned = ownedSample(session, sample);
++    MilesWire::Call fields = {};
++    fields.target = owned.wire;
++    session.request(MilesWire::AIL_release_sample_handle, fields);
++    // Native HSAMPLE lifetime ends here. Caller reuse of that raw pointer is invalid.
++    // Wire generations are a separate host/callback obligation, not pointer tokens.
++    for (ClientMilesPipe::SampleState::Proxies::iterator i=session.samples->proxies.begin();
++         i!=session.samples->proxies.end(); ++i) {
++        if (i->get()==&owned) { session.samples->proxies.erase(i); break; }
++    }
++}
++
++// set_named_sample_file is deliberately not defined: native rebind and failed-bind
++// input-lifetime rules plus actual sealed-upload/host ownership must be resolved.
+ } // namespace ClientMiles
+--- a/startup-bridge23/reply.h
++++ b/startup-bridge23/reply.h
+@@ -69,16 +69,18 @@
+                                h.opcode == MilesWire::AIL_last_error);
+     const bool versionOp = ok && h.opcode == MilesWire::SessionVersion;
+     const bool valueOp = ok && h.opcode == MilesWire::AIL_speaker_configuration;
++    const bool sampleTime = ok && h.opcode == MilesWire::AIL_sample_ms_position;
+     const bool returnOp =
+         ok && (h.opcode == MilesWire::AIL_startup || h.opcode == MilesWire::AIL_get_preference ||
+                h.opcode == MilesWire::AIL_set_preference || h.opcode == MilesWire::AIL_room_type);
+-    const bool resourceOp = ok && h.opcode == MilesWire::AIL_open_digital_driver;
++    const bool sampleAllocation = ok && h.opcode == MilesWire::AIL_allocate_sample_handle;
++    const bool resourceOp = ok && (h.opcode == MilesWire::AIL_open_digital_driver || sampleAllocation);
+     if ((!returnOp && r.return_bits) || (!resourceOp && !nullHandle(r.resource)))
+         return false;
+-    if (resourceOp && !nullHandle(r.resource) && r.resource.kind != MilesWire::Driver)
++    if (resourceOp && !nullHandle(r.resource) && r.resource.kind != (sampleAllocation ? MilesWire::OwnedSample : MilesWire::Driver))
+         return false;
+     for (unsigned i = 0; i < 8; ++i)
+-        if (!(valueOp && i == 3) && r.value[i])
++        if (!(valueOp && i == 3) && !(sampleTime && i < 2) && r.value[i])
+             return false;
+     if (versionOp) {
+         char text[MilesSessionVersion::Capacity];

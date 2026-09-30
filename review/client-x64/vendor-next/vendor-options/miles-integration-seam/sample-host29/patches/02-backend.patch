@@ -1,0 +1,83 @@
+--- a/startup-bridge23/backend.h
++++ b/startup-bridge23/backend.h
+@@ -46,6 +46,8 @@
+         out.result.transport_status = InvalidFields;
+         // Narrow native25 non-callback slice; reuse reviewed SDK dispatcher.
+         switch (h.opcode) {
++        case MilesWire::AIL_sample_ms_position:
++        case MilesWire::AIL_end_sample:
+         case MilesWire::AIL_set_listener_3D_position:
+         case MilesWire::AIL_set_listener_3D_velocity_vector:
+         case MilesWire::AIL_set_listener_3D_orientation:
+@@ -66,6 +68,41 @@
+             return out;
+         default:
+             break;
++        }
++        if (h.opcode == MilesWire::AIL_allocate_sample_handle ||
++            h.opcode == MilesWire::AIL_release_sample_handle) {
++            if (c.callback || c.reserved || c.output_mask || c.bytes.offset || c.bytes.length ||
++                c.text.offset || c.text.length || !nullHandle(c.resource)) return out;
++            for (unsigned i = 0; i < 8; ++i) if (c.value[i]) return out;
++            if (!started || shutdown) {
++                out.result.transport_status = LifecycleRefused;
++                return out;
++            }
++            void *local = 0;
++            const bool allocating = h.opcode == MilesWire::AIL_allocate_sample_handle;
++            if (!registry.resolve(c.target, allocating ? MilesWire::Driver : MilesWire::OwnedSample,
++                                  local)) {
++                out.result.transport_status = InvalidResource;
++                return out;
++            }
++            if (allocating) {
++                MilesTransport::ResourceRegistry::Reservation reservation;
++                require(registry.reserve(MilesWire::OwnedSample, c.target, reservation),
++                        "sample tracking capacity before vendor allocation");
++                PendingSample pending; // constructed before vendor work; cannot allocate
++                pending.sample = ::AIL_allocate_sample_handle(static_cast<HDIGDRIVER>(local));
++                if (pending.sample) {
++                    require(registry.publish(reservation, pending.sample, out.result.resource),
++                            "publish reserved sample identity");
++                    pending.sample = 0; // registry now owns shutdown/release tracking
++                }
++                // Null allocation cancels its unpublished reservation on scope exit.
++            } else {
++                ::AIL_release_sample_handle(static_cast<HSAMPLE>(local));
++                require(registry.retire(c.target), "retire sample after confirmed release");
++            }
++            out.result.transport_status = Success;
++            return out;
+         }
+         if (metadata(h.opcode)) {
+             const MilesStartup::Status shape = MilesStartup::validate(h.opcode, c, bytes(frame));
+@@ -142,9 +179,13 @@
+         if (h.opcode == MilesWire::AIL_open_digital_driver) {
+             if (driver || c.value[0] != 22050 || c.value[1] != 16 || c.value[2] != 2 || c.value[3])
+                 return out;
++            MilesTransport::ResourceRegistry::Reservation reservation;
++            require(registry.reserve(MilesWire::Driver, MilesWire::Handle(), reservation),
++                    "driver tracking capacity before vendor open");
+             driver = ::AIL_open_digital_driver(22050, 16, MSS_MC_STEREO, 0);
+             if (driver)
+-                require(registry.insert(MilesWire::Driver, driver, driverId), "register driver");
++                require(registry.publish(reservation, driver, driverId),
++                        "publish reserved driver identity");
+             out.result.resource = driverId;
+             out.result.transport_status = Success;
+             return out;
+@@ -166,6 +207,14 @@
+     }
+ 
+   private:
++    struct PendingSample {
++        HSAMPLE sample;
++        PendingSample() : sample(0) {}
++        ~PendingSample() { if (sample) ::AIL_release_sample_handle(sample); }
++      private:
++        PendingSample(const PendingSample &);
++        PendingSample &operator=(const PendingSample &);
++    };
+     Backend(const Backend &);
+     Backend &operator=(const Backend &);
+ };

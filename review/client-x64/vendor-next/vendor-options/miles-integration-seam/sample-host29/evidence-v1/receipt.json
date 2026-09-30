@@ -1,0 +1,20 @@
+{
+  "scope": "Frozen authored-registry checks only; no VM, SDK or vendor execution.",
+  "compiler": {
+    "path": "/usr/bin/g++",
+    "sha256": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9"
+  },
+  "checks": [
+    {
+      "name": "compile",
+      "exit": 0
+    },
+    {
+      "name": "authored-registry",
+      "exit": 0
+    }
+  ],
+  "manifest": "70d84b2f848bbcc234fc0f7c69dd5f80f0e72effee614d160b539e7623c0a836",
+  "stable": true,
+  "passed": true
+}

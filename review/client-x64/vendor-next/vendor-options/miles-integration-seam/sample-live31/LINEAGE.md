@@ -1,0 +1,3 @@
+# Successor31 source lineage
+
+Parent explicitly approved exactly the reply resource-kind signedness correction after frozen30 failed v120 C4389 under /WX. The expression now casts the existing conditional enum to uint32_t, matching r.resource.kind; wire constants remain2/1 and behavior is unchanged. Fresh directory, runner, builder, sink and private runtime path labels select31. All780-request counts/status/admission and lifetime assertions are unchanged. Frozen30 source and failed receipt5b142ad2... are preserved. No warning suppression, callback/binding/query/playback expansion or runtime authorization. The parent preauthorized ONE fresh build for this exact successor; no automatic repair/retry after it.

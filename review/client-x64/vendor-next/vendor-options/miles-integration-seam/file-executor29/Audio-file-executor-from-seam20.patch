@@ -1,0 +1,197 @@
+--- a/src/engine/client/library/clientAudio/src/win32/Audio.cpp
++++ b/src/engine/client/library/clientAudio/src/win32/Audio.cpp
+@@ -3937,14 +3937,9 @@
+ static int once = true;
+ 
+ //-----------------------------------------------------------------------------
+-U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
+-{
+-	if (once && !Os::isMainThread())
+-	{
+-		once = false;
+-		PerThreadData::threadInstall(false);
+-	}
+-
++// Shared file operations only. Callers own TLS admission and serialization.
++static U32 fileOpenCommon(char const *fileName, UINTa *fileHandle)
++{
+ 	AbstractFile *abstractFile = TreeFile::open(fileName, AbstractFile::PriorityAudioVideo, true);
+ 
+ 	if (abstractFile != NULL)
+@@ -3966,7 +3961,7 @@
+ }
+ 
+ //-----------------------------------------------------------------------------
+-void __stdcall fileCloseCallBack(UINTa const fileHandle)
++U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
+ {
+ 	if (once && !Os::isMainThread())
+ 	{
+@@ -3974,6 +3969,13 @@
+ 		PerThreadData::threadInstall(false);
+ 	}
+ 
++	return fileOpenCommon(fileName, fileHandle);
++}
++
++//-----------------------------------------------------------------------------
++// Shared file operations only. Callers own TLS admission and serialization.
++static void fileCloseCommon(UINTa const fileHandle)
++{
+ 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
+ 
+ 	if (fileMapIter != s_fileMap.end())
+@@ -4005,7 +4007,7 @@
+ }
+ 
+ //-----------------------------------------------------------------------------
+-S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)
++void __stdcall fileCloseCallBack(UINTa const fileHandle)
+ {
+ 	if (once && !Os::isMainThread())
+ 	{
+@@ -4013,6 +4015,13 @@
+ 		PerThreadData::threadInstall(false);
+ 	}
+ 
++	fileCloseCommon(fileHandle);
++}
++
++//-----------------------------------------------------------------------------
++// Shared file operations only. Callers own TLS admission and serialization.
++static S32 fileSeekCommon(UINTa const fileHandle, S32 const offset, U32 const type)
++{
+ 	int result = 0;
+ 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
+ 
+@@ -4061,6 +4070,42 @@
+ }
+ 
+ //-----------------------------------------------------------------------------
++S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)
++{
++	if (once && !Os::isMainThread())
++	{
++		once = false;
++		PerThreadData::threadInstall(false);
++	}
++
++	return fileSeekCommon(fileHandle, offset, type);
++}
++
++//-----------------------------------------------------------------------------
++// Shared file operations only. Callers own TLS admission and serialization.
++static U32 fileReadCommon(UINTa const fileHandle, void *buffer, U32 const bytes)
++{
++	int bytesRead = 0;
++
++	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
++
++	if (fileMapIter != s_fileMap.end())
++	{
++		AbstractFile *abstractFile = fileMapIter->second;
++
++		bytesRead = abstractFile->read(buffer, bytes);
++	}
++	else
++	{
++#ifdef _DEBUG
++		determineCallbackError("read", fileHandle);
++#endif
++	}
++
++	return static_cast<U32>(bytesRead);
++}
++
++//-----------------------------------------------------------------------------
+ U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const bytes)
+ {
+ // miles crasher hack
+@@ -4079,29 +4124,13 @@
+ 		PerThreadData::threadInstall(false);
+ 	}
+ 
+-	int bytesRead = 0;
+-
+-	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
+-
+-	if (fileMapIter != s_fileMap.end())
+-	{
+-		AbstractFile *abstractFile = fileMapIter->second;
+-
+-		bytesRead = abstractFile->read(buffer, bytes);
+-	}
+-	else
+-	{
+-#ifdef _DEBUG
+-		determineCallbackError("read", fileHandle);
+-#endif
+-	}
+-
+-	return static_cast<U32>(bytesRead);
++	return fileReadCommon(fileHandle, buffer, bytes);
+ }
+ 
+ //-----------------------------------------------------------------------------
+ // Client-local entry points for a future admitted reverse-file request. Keep
+-// the original callback bodies and their single AudioNamespace file map.
++// the shared operation bodies and their single AudioNamespace file map.
++// Admission guarantees installed engine TLS; these calls bypass legacy TLS setup.
+ static_assert(sizeof(U32) == sizeof(uint32_t) &&
+               !std::numeric_limits<U32>::is_signed, "file U32 contract");
+ static_assert(sizeof(S32) == sizeof(int32_t) &&
+@@ -4120,25 +4149,25 @@
+ {
+ 	UINTa nativeHandle = 0;
+ 	OpenResult result;
+-	result.callbackResult = static_cast<uint32_t>(fileOpenCallBack(fileName, &nativeHandle));
++	result.callbackResult = static_cast<uint32_t>(fileOpenCommon(fileName, &nativeHandle));
+ 	result.handle.value = static_cast<uintptr_t>(nativeHandle);
+ 	return result;
+ }
+ 
+ void ClientAudioFileCallbacks::close(LocalFileHandle const handle)
+ {
+-	fileCloseCallBack(static_cast<UINTa>(handle.value));
++	fileCloseCommon(static_cast<UINTa>(handle.value));
+ }
+ 
+ int32_t ClientAudioFileCallbacks::seek(LocalFileHandle const handle, int32_t const offset, uint32_t const origin)
+ {
+-	return static_cast<int32_t>(fileSeekCallBack(static_cast<UINTa>(handle.value),
++	return static_cast<int32_t>(fileSeekCommon(static_cast<UINTa>(handle.value),
+ 		static_cast<S32>(offset), static_cast<U32>(origin)));
+ }
+ 
+ uint32_t ClientAudioFileCallbacks::read(LocalFileHandle const handle, void *destination, uint32_t const requestedBytes)
+ {
+-	return static_cast<uint32_t>(fileReadCallBack(static_cast<UINTa>(handle.value),
++	return static_cast<uint32_t>(fileReadCommon(static_cast<UINTa>(handle.value),
+ 		destination, static_cast<U32>(requestedBytes)));
+ }
+ 
+--- a/src/engine/client/library/clientAudio/src/win32/ClientAudioFileCallbacks.h
++++ b/src/engine/client/library/clientAudio/src/win32/ClientAudioFileCallbacks.h
+@@ -28,16 +28,18 @@
+ };
+ 
+ // These ordinary C++ calls execute synchronously on the calling client thread.
+-// The coordinator must first establish engine/TLS lifetime, compatible thread
+-// context, serialization with ALL original file callbacks, and operation pins.
+-// This interface neither installs threads nor schedules callbacks. It must not
++// The caller must have known, already-installed engine TLS and hold engine/file
++// lifetime and operation pins. Calls bypass the SDK callbacks' legacy TLS setup.
++// The coordinator must serialize these calls with ALL original file callbacks;
++// this interface supplies no concurrency guarantee, lock, or admission check.
++// It neither installs threads nor schedules callbacks. It must not
+ // be registered as an SDK callback table or called by an arbitrary I/O reactor.
+ //
+ // fileName is the original NUL-terminated byte name, live through the call.
+ // Read destination is caller-owned local storage of at least requestedBytes,
+ // live through the call. No native pointer or LocalFileHandle goes on the wire.
+ OpenResult open(char const *fileName);
+-void close(LocalFileHandle handle); // Original callback alone closes/deletes.
++void close(LocalFileHandle handle); // Shared original operation alone closes/deletes.
+ int32_t seek(LocalFileHandle handle, int32_t offset, uint32_t origin);
+ uint32_t read(LocalFileHandle handle, void *destination, uint32_t requestedBytes);
+ 

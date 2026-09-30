@@ -1,0 +1,139 @@
+# Independent review: owned sample vs owned stream facades
+
+Scope is limited to the pasted headers and the two `.cpp` translation units. `backend-boundary24/ClientMiles.h`, any `native_sample27.cpp`, and vendor/SDK behavior are **out of scope** except where this code explicitly depends on them. Borrowed samples/streams are intentionally excluded per comments; this review does not treat that deferral as safe—only notes gaps.
+
+---
+
+## 1. Handle identity and the `reinterpret_cast` boundary
+
+Both implementations forward by casting facade handles to `::HSAMPLE` / `::HSTREAM` and back on `open_stream`:
+
+- Playback: every call uses `reinterpret_cast<::HSAMPLE>(sample)` (and the symmetric pattern for streams on open/close).
+
+`native_stream28.cpp` states handles **intentionally differ** and still uses `reinterpret_cast` between `ClientMiles::HSTREAM` and `::HSTREAM`.
+
+**Concern (source-grounded):** Compile-time checks bind **function pointer types** and scalar typedefs (`U32`/`S32`/`F32`, etc.) to the pinned `Mss.h` declarations. Nothing in the supplied source asserts that `ClientMiles::OwnedSample*` / `ClientMiles::OwnedStream*` are representation-compatible with the SDK’s `::HSAMPLE` / `::HSTREAM`, or that cross-type `reinterpret_cast` is defined behavior. That is the central blind spot for “owned identity local to the selected backend” (`ClientMilesSample.h`) versus opaque SDK pointers. Without `ClientMiles.h` / sample `.cpp`, the sample path’s casts are **unverified** in the material you provided.
+
+**Scope limit:** No conclusion that casts are wrong or right at runtime—only that **supplied proofs do not close the handle-identity gap**.
+
+---
+
+## 2. Ownership and lifetime (documented vs undocumented)
+
+### Samples (`ClientMilesSample.h`)
+
+- Model: allocated handle, **release exactly once**; copies **alias one allocation**; **no borrowed** stream samples.
+- `set_named_sample_file`: explicit that **suffix/image stay caller-owned** through vendor lifetime; facade does not move image ownership.
+- Allocation null and scalar returns “stay actual SDK values.”
+
+**Blind spots in supplied text only:**
+
+- **`HDIGDRIVER` lifetime** relative to `allocate_sample_handle` / `release_sample_handle` is not stated in these files (driver comes from an unpasted header).
+- **Split lifecycle across two headers:** allocation, named file, `sample_ms_position`, `end_sample`, `release_sample_handle` live in `native-sample27`; `start_sample` / `stop_sample` live in `native-playback28`. Comments say stop/end/release stay separate, but **ordering and validity** (e.g. start after release, `end_sample` vs `stop_sample`) are not specified in one contract—callers must infer from SDK + comments.
+- **`OwnedSample` is not RAII** (pointer typedef only). Enforcement is entirely conventional; the facade adds no use-after-release guard.
+
+### Streams (`ClientMilesStream.h`)
+
+- “**Owned by the caller after a nonnull open**; close once before driver teardown.”
+- “Copies alias one stream.”
+- “**Opaque identity, not an RAII owner.**”
+
+**Asymmetry vs sample file path:**
+
+- Sample header documents **caller retention of suffix/image** for named-file load. Stream `open_stream(driver, filename, streamMem)` has **no parallel comment** on `filename` (or `streamMem`) lifetime or validity window in the supplied header—only “signed SDK values … pass unchanged.”
+
+**Blind spot:** Stream ownership is described at open/close level; **filename/memory policy** is less explicit than on the sample named-file API in the same review set.
+
+---
+
+## 3. Semantic shape: sample playback vs stream (intentional asymmetry)
+
+| Area | Owned sample (playback header + cpp) | Owned stream (header + cpp) |
+|------|--------------------------------------|-----------------------------|
+| Start | `start_sample` in playback28 | `start_stream` in stream28 |
+| Stop | `stop_sample` in playback28 | **Not declared** in supplied stream facade |
+| Status return | `uint32_t sample_status` (asserted vs `U32`) | `int32_t stream_status` (asserted vs `S32`) |
+| Byte position | `set_sample_position` / `sample_position` (`uint32_t`) | **Not in subset** |
+| MS position get | `sample_ms_position` in **sample27** | `stream_ms_position` in **stream28** |
+| MS position set | `set_sample_ms_position` in playback28 | `set_stream_ms_position` in stream28 |
+| Loop block params | `startByte`, `endByte` (playback) | `loopStartOffset`, `loopEndOffset` (stream) |
+
+**Concerns:**
+
+1. **Status typing:** Same conceptual “status” for two owned resource kinds is **unsigned** on samples and **signed** on streams in the facade, matching separate `static_assert` targets—not a forwarding bug in the cpp, but a **client-facing semantic split** if code abstracts “Miles resource status” uniformly.
+
+2. **Stream playback control gap:** Supplied stream API can **start** and **close**, but has **no** `stop_stream` (or pause) entry. Sample playback exposes **stop** separately from **end** / **release** (playback vs sample27). For streams, stop/teardown semantics are **underspecified in this slice**—only `close_stream` is present.
+
+3. **Position surface:** Sample playback exposes **byte** and **ms** set/get (get-ms on sample27 only). Stream subset is **ms-only** for position in the supplied files—no byte stream position. Comments on playback stress byte vs ms distinction; stream loop block uses “offset” naming without tying to bytes in the stream header (playback explicitly says “Byte positions/loop offsets”).
+
+4. **Module split for samples:** Playback is useless without sample27’s handle type and (unpasted) alloc/release. Stream is **self-contained** in one header/cpp pair for its subset. Integration risk: linking/including only one half of the sample stack.
+
+---
+
+## 4. Direct forwarding: what is and is not checked
+
+### Playback28 (`native_playback28.cpp`)
+
+- Toolchain gate: `_WIN64` + `_MSC_VER == 1800`, pinned Miles 7.2a header.
+- Scalar identity: `uint32_t`↔`U32`, `int32_t`↔`S32`, `float`↔`F32`.
+- Per-API `static_assert` pairs facade `ClientMiles::…` declaration with `::AIL_…` **pointer-to-function** types, including calling convention on the SDK side (`AILCALL`).
+
+**Forwarding body:** Straight pass-through of handle and parameters; getters pass `float*` / `F32*` through unchanged, consistent with header (“no pointer-validity guarantees beyond the actual SDK contract”).
+
+**Not checked in supplied source:** `AILCALL` on facade functions (facade uses plain `void (*)(…)`); reliance is on the SDK function pointer type matching the implementation’s actual convention when linked—asserted on **SDK** side only.
+
+### Stream28 (`native_stream28.cpp`)
+
+- Same toolchain/scalar checks; adds `char`↔`C8` for filename.
+- Asserts facade vs `::AIL_*` signatures for each exported stream function.
+
+**Not checked:** `open_stream` **return value** cast from `::HSTREAM` to `ClientMiles::HSTREAM` (no `static_assert` on handle typedef relationship).
+
+---
+
+## 5. Explicit coverage gaps (authored, not oversights to “fix” without scope)
+
+From comments and missing declarations:
+
+**Samples (sample27 + playback28):**
+
+- No **borrowed-sample** conversion (`ClientMilesSample.h`).
+- No **start/playback** in sample27 header (deferred to playback28).
+- No sample **implementation file** in the paste → alloc/set file/end/release forwarding and asserts **not reviewable**.
+
+**Streams (stream28):**
+
+- No `stream_sample_handle` / borrowed stream samples.
+- **Callbacks / EOS** “await their own lifetime contract.”
+- No stop, volume, 3D, reverb, byte position, or playback-rate stream APIs in this slice (contrast with playback28’s breadth on samples).
+
+**Both:**
+
+- No RAII wrappers; raw handles.
+- Playback header: **no clamping, scheduling, range narrowing or replay**—behavior is raw SDK pass-through; misuse surfaces as SDK behavior (not documented here).
+
+---
+
+## 6. Cross-facade consistency risks (documentation-level)
+
+1. **“Owned” wording:** Samples tie ownership to **backend + owning driver**; streams say caller owns after **nonnull open** and must close before **driver teardown**. Whether `open_stream` failure returns null and whether that matches `allocate_sample_handle` policy is only partially spelled (samples mention allocation null explicitly; streams mention “nonnull open” for ownership start).
+
+2. **`end_sample` vs `stop_sample`:** Present only on sample side; stream has no analog in supplied API—another lifecycle asymmetry.
+
+3. **Include guard naming:** `CLIENT_MILES_STREAM_FACADE_H` vs `CLIENT_MILES_PLAYBACK28_H` / `CLIENT_MILES_SAMPLE27_H`—cosmetic only; no semantic issue.
+
+---
+
+## 7. Scope limits (no clearance)
+
+| Can assess from pasted source | Cannot assess |
+|------------------------------|---------------|
+| Declared subsets, comments, and intentional exclusions | SDK semantics of status bits, loop counts, invalid handles |
+| Playback/stream forwarding is 1:1 in cpp bodies shown | Sample alloc/release implementation |
+| `static_assert` coverage per listed `AIL_*` symbol | Whether all game code paths need APIs not in these subsets |
+| Asymmetry: stream stop absent, status signedness, byte vs ms coverage | `ClientMiles::HDIGDRIVER` casting and driver shutdown order |
+| Filename/image lifetime gap on stream open vs sample named file | ABI equivalence of opaque `Owned*` vs `::H*` |
+
+**Bottom line:** The two slices are **thin, intentionally incomplete** facades with **honest** pass-through commentary on pointers and units. The largest **reviewable** risks are: (1) **handle `reinterpret_cast` without supplied proof**, (2) **sample lifecycle split + unpasted sample.cpp**, (3) **stream open filename lifetime undocumented** relative to sample file image, (4) **stream vs sample operational asymmetry** (stop, status type, position APIs), and (5) **large API surface on playback samples vs minimal stream module**—not shown to be wrong, but **not comparable coverage** for “plain Miles-shaped” owned resources.
+
+I am not granting broad clearance on correctness, safety, or completeness relative to a full client Miles integration—only the concerns and limits above.

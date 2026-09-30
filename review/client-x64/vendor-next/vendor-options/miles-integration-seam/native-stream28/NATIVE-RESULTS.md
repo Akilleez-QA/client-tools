@@ -1,0 +1,23 @@
+# Native stream28 object gate result
+
+The single authorized v120 AMD64 compile-only gate passed on its first invocation at fresh C:/native-stream28. Actual /Zs discovery, /c object compilation and dumpbin /symbols each exited0. The prepared driver received only --approved-compile-only; there was no repair/retry. No link, library, PE, vendor call, engine execution or playback occurred.
+
+| Actual object | COFF machine | Immediate SHA256 |
+|---|---|---|
+| native_stream28.obj | 0x8664 | `0484027392d3d0224499541ff8e7f26d0a77dae5987856476daf23b7e7650e4b` |
+| stream_calls.obj | 0x8664 | `68189d93ded047957beda1a4dddacef4ce399bc51f9dbeb6316c8919632b76fd` |
+| portable_contract.obj | 0x8664 | `5ef777e1d7ac6074f4b8c8be0447538bdfbe6b8a54b83091637492777d24ff98` |
+
+The native delegate object has exactly these eight undefined imports: AIL_open_stream, AIL_close_stream, AIL_start_stream, AIL_set_stream_loop_count, AIL_set_stream_loop_block, AIL_stream_status, AIL_set_stream_ms_position and AIL_stream_ms_position. All are actual __imp_ symbols, not substitute library definitions. The usage excerpt and portable type contract also compiled as AMD64 objects. Objects remain private in C:/native-stream28/native-v1; only text logs and receipts were retrieved.
+
+The source assertions compiled against the actual possessed Mss.h SHA256966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e, with actual v120 amd64 compiler/tool identities in the receipt. Recorded7source,85header and45tool entries were unchanged across object compilation;5Python builder/helper files and the source set were unchanged across the full prepared gate. The helpers were checked against the16-entry source manifest before import. The explicit native source checks bind every facade non-handle argument/result to the actual SDK types and assert the eight real SDK declarations; opaque handle types intentionally differ.
+
+Receipt evidence-native-v1/receipt.json SHA256 `02dd6d41d24c702226860e8e505d7f9148237fa51697ab07f73ec620d91badd4` was bound to the original invocation output before fetching. The text evidence archive evidence-native-v1.tar SHA256 `cc4aac5af79991b608fe350d8c2bf6323bf8cfc274e34ada05db2a06dfad2867` was independently matched to its remote hash. Evidence-native-v1/local-check.json additionally records local rechecks of all16 frozen source entries, all26 original preparation packet entries and input reference identities. These prove the named artifact relationships, not universal provenance of every machine input.
+
+Frozen source archive source-v1.tar remains SHA256 `6055b9c780cdaf90d5ce152989a4f6b5abab6520c364b9bee7425556cb809cd9`; source-manifest.json remains `087ca6c4241d1ce36122f022f6f383b702510a5ac7175d0529c70d6486865aba`. Its schema is flat seam-relative path to digest string, path base miles-integration-seam/. Prepared packet-v1 and its report remain unchanged as the historical pre-native checkpoint. This report and the native continuation append the new observation.
+
+The new packet-manifest-v2.json uses flat packet-relative `{"bytes": N, "sha256": "..."}` records, path base native-stream28/. packet-v2.tar includes only authored text and receipts/logs, excluding source tar archives, objects, vendor SDK body, libraries, DLLs, executables, assets and prefixes. Initial capsule-format lint failure and corrected metadata are retained in evidence-metadata-v1; it was a revision1 parent-reference formatting mistake and did not affect any source/native gate input.
+
+Delivery state: built as native objects only. Outcome state: passed for the exact compile-only gate. Highest justified claim: these eight owned-stream facade operations and their actual SDK forwarding compile with the pinned Win64 Miles7.2a declarations using v120 AMD64, with exactly eight real imports left unresolved. This is not a linked or executed native64 Miles implementation, usable playback or an Audio migration.
+
+Remaining handoff: actual x64 vendor linking/runtime availability; stream behavior, file-services scheduling and uncertainty-safe close; borrowed stream-sample parent lifetime; shared sample controls; callbacks/EOS; shared unknown-buffer extent APIs; disposable pipe mapping. OwnedStream labels ownership in this slice only. The SDK accepts both allocated and stream-borrowed HSAMPLE in some common controls, so future parent-linked borrowed design must preserve legitimate control use without inventing a large duplicate API or allowing borrowed sample release. That question remains unresolved and did not change the frozen source. Root controls the next selected gate; no runtime is authorized by this result.

@@ -1,0 +1,34 @@
+[
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "if(Test-Path 'C:/sample-live31'){throw 'exists'};New-Item -ItemType Directory 'C:/sample-live31'"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/sample-live31/source-v1.tar",
+    "builder@127.0.0.1:C:/sample-live31/source-v1.tar"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/sample-live31/staging-v1/stage.py",
+    "builder@127.0.0.1:C:/sample-live31/stage.py"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "& C:/ci-dpvs-review/python/python.exe 'C:/sample-live31/stage.py';exit $LASTEXITCODE"
+  ]
+]

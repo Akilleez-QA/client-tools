@@ -1,0 +1,30 @@
+[
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/staging-v1/collect.py",
+    "builder@127.0.0.1:C:/native-playback28/collect.py"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "& C:/ci-dpvs-review/python/python.exe C:/native-playback28/collect.py;exit $LASTEXITCODE"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "builder@127.0.0.1:C:/native-playback28/text-evidence-v1.tar",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-playback28/text-evidence-v1.tar"
+  ]
+]

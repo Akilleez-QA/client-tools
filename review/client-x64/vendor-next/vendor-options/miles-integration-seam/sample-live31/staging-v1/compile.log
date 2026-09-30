@@ -1,0 +1,20 @@
+{
+  "receipt_sha256": "431369dddaff04d73ffba1e25922c50d8a3a80d9cd00d3da9baa4932a8b7bd74",
+  "stable_matrix": true,
+  "builds": [
+    {
+      "architecture": "x86",
+      "discovery_exit": 0,
+      "exit_code": 0,
+      "inputs_unchanged": true
+    },
+    {
+      "architecture": "amd64",
+      "discovery_exit": 0,
+      "exit_code": 0,
+      "inputs_unchanged": true
+    }
+  ]
+}
+C:\sample-live31\stage.py:9: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  t.extractall(root)

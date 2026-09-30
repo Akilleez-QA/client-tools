@@ -1,0 +1,37 @@
+{
+  "status": "static-source-checks-passed",
+  "body_checks": {
+    "Open": {
+      "identical_operation_body": true,
+      "identical_native_prefix_and_TLS": true
+    },
+    "Close": {
+      "identical_operation_body": true,
+      "identical_native_prefix_and_TLS": true
+    },
+    "Seek": {
+      "identical_operation_body": true,
+      "identical_native_prefix_and_TLS": true
+    },
+    "Read": {
+      "identical_operation_body": true,
+      "identical_native_prefix_and_TLS": true
+    }
+  },
+  "unrelated_audio_source_unchanged": true,
+  "sdk_registration_unchanged": true,
+  "header_declarations_unchanged_vendor_free": true,
+  "patch_checks": [
+    {
+      "patch": "Audio-file-executor.patch",
+      "applies_and_reconstructs_candidate": true
+    },
+    {
+      "patch": "Audio-file-executor-from-seam20.patch",
+      "applies_and_reconstructs_candidate": true
+    }
+  ],
+  "product_unmodified_by_check": true,
+  "compiler_run": false,
+  "runtime_run": false
+}

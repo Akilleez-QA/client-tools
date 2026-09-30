@@ -1,0 +1,14 @@
+[
+  "scp",
+  "-q",
+  "-i",
+  "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+  "-P",
+  "2223",
+  "-o",
+  "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+  "-o",
+  "BatchMode=yes",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/native-stream28/source-v1.tar",
+  "builder@127.0.0.1:C:/native-stream28/source-v1.tar"
+]

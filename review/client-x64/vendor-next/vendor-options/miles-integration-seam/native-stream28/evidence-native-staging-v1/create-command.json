@@ -1,0 +1,4 @@
+[
+  "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+  "$ErrorActionPreference='Stop'; if (Test-Path 'C:/native-stream28') { throw 'Gate directory already exists' }; New-Item -ItemType Directory -Path 'C:/native-stream28' | Out-Null; Write-Output 'fresh C:/native-stream28 created'"
+]

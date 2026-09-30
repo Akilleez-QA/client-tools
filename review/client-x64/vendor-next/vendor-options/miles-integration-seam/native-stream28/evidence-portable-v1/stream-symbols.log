@@ -1,0 +1,9 @@
+                 U ClientMiles::open_stream(ClientMiles::DigitalDriver*, char const*, int)
+                 U ClientMiles::close_stream(ClientMiles::OwnedStream*)
+                 U ClientMiles::start_stream(ClientMiles::OwnedStream*)
+                 U ClientMiles::stream_status(ClientMiles::OwnedStream*)
+                 U ClientMiles::stream_ms_position(ClientMiles::OwnedStream*, int*, int*)
+                 U ClientMiles::set_stream_loop_block(ClientMiles::OwnedStream*, int, int)
+                 U ClientMiles::set_stream_loop_count(ClientMiles::OwnedStream*, int)
+                 U ClientMiles::set_stream_ms_position(ClientMiles::OwnedStream*, int)
+                 U __stack_chk_fail

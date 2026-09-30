@@ -1,0 +1,18 @@
+[
+  "/usr/bin/g++",
+  "-std=c++11",
+  "-Wall",
+  "-Wextra",
+  "-Werror",
+  "-fsanitize=address,undefined",
+  "-g",
+  "sample-pipe28/client_test.cpp",
+  "backend-boundary24/pipe/ClientMilesPipe.cpp",
+  "transport-candidate/codec.cpp",
+  "session-version22/session_version.cpp",
+  "startup-metadata-v4/metadata_wire.cpp",
+  "buffer-upload-candidate/buffer_upload.cpp",
+  "host-candidate/retained_buffers.cpp",
+  "-o",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/sample-pipe28/evidence-v1/client-test"
+]

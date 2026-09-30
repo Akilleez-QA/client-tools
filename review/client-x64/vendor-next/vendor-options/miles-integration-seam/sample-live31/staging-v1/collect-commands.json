@@ -1,0 +1,42 @@
+[
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/sample-live31/staging-v1/collect.py",
+    "builder@127.0.0.1:C:/sample-live31/collect.py"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "& C:/ci-dpvs-review/python/python.exe C:/sample-live31/collect.py;exit $LASTEXITCODE"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "builder@127.0.0.1:C:/sample-live31/text-evidence-v1.tar",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/sample-live31/text-evidence-v1.tar"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "builder@127.0.0.1:C:/sample-live31/private-pair-v1.tar",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/sample-live31/private-pair-v1.tar"
+  ]
+]

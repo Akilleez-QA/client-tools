@@ -1,0 +1,131 @@
+schema: POODO_CONTINUATION/3.0
+capsule_id: PC-nativestream28-native-1
+revision: 2
+parent_capsule: PC-nativestream28-1
+generated_at: '2026-09-30T14:50:25.838447+00:00'
+objective: Prepare eight native-Miles-shaped stream operations under the incomplete parent faithful-x64
+  goal; freeze before native approval.
+acceptance:
+- id: AC-nativestream28-native
+  criterion: One authorized actual v120 AMD64 object-only gate passes with three objects/eight real unresolved
+    imports and stable pins; text evidence only.
+authority:
+  allowed: Root-authorized exact frozen-source native object-only gate and text receipt collection; gate
+    now completed.
+  prohibited: Any further native invocation without new root direction; link/vendor/engine/runtime/playback,
+    product/frozen source edits, SDK/binary publication or push.
+constraints: Eight owned stream operations only; actual signed scalar/pointer shapes; no borrowed sample
+  getter or callbacks.
+user_directives: Native64-first plain Miles facade; reuse existing driver, distinguish owned and borrowed
+  sample lifetimes; no broad option study or descendants.
+current_head: D-nativestream28-native
+claims:
+- id: O-nativestream28-native
+  state: observed
+  status: active
+  text: First actual v120 gate passed with three AMD64 COFF objects, eight unresolved AIL imports and
+    stable recorded source/header/tool/helper entries.
+  source_type: artifact
+  locator: evidence-native-v1/receipt.json; native-symbols.log
+  observed_at: '2026-09-30T14:50:25.838447+00:00'
+  freshness: Frozen source and named VM gate only
+  evidence_family: EF-nativestream28-native
+  rehydration_status: checked
+  supports:
+  - AC-nativestream28-native
+  limits: No linking or runtime; ownership/callback/stream behavior and available x64 vendor implementation
+    unproved.
+evidence_bundles:
+- id: E-nativestream28-native
+  request: One v120 /Zs then /c and dumpbin exact-import/COFF checks on pinned actual SDK.
+  material_inputs:
+  - A-nativestream28-source
+  result_or_locator: evidence-native-v1/; evidence-native-staging-v1/native-invocation.log
+  completeness: complete
+  artifacts:
+  - A-nativestream28-native
+  supports_claims:
+  - O-nativestream28-native
+orientations:
+- id: OR-nativestream28-native
+  text: Actual native compile-only gate passed; runtime and borrowed lifetime remain outside current evidence.
+  depends_on:
+  - O-nativestream28-native
+  confidence:
+    artifact_identity: high
+    test_path: high
+    causal_model: medium
+    outcome: high
+  strongest_rival: H-nativestream28-runtime
+alternatives:
+- id: H-nativestream28-runtime
+  status: live
+  text: Compilation/imports do not establish functioning stream behavior or borrowed lifetime safety.
+  discriminator: Separate reviewed native-library/runtime/lifetime gate, not authorized here.
+decisions:
+- id: D-nativestream28-native
+  text: Preserve successful first gate and hand off text evidence; no further execution.
+  depends_on:
+  - O-nativestream28-native
+  reversible: true
+  reverse_if: Source-bound review identifies a forwarding or ownership-contract defect.
+predictions:
+- id: P-nativestream28-native
+  kind: prospective
+  created_at: '2026-09-30T14:40:36.216595+00:00'
+  created_before_observation: true
+  observable: Three actual v120 AMD64 COFF objects; exactly eight unresolved real SDK imports.
+  acceptance: Pinned sources/header/tools/helpers stable, no link/PE/runtime.
+  failure_means: Preserve first failure and stop; no automatic repair/retry of frozen source.
+  oracle: A-nativestream28-source
+  oracle_version: PLAN and prepared build-native.py
+  artifact: A-nativestream28-source
+  environment: Future fresh C:/native-stream28, actual v120 AMD64 and possessed pinned7.2a header.
+  status: passed
+  status_history:
+  - pending
+  - passed
+  outcome_evidence:
+  - E-nativestream28-native
+outcomes:
+- id: OUT-nativestream28-native
+  prediction: P-nativestream28-native
+  status: passed
+  evidence:
+  - E-nativestream28-native
+  text: Three native AMD64 objects and exactly eight real unresolved imports; stable inputs, no link/runtime.
+contradictions: []
+artifacts:
+- id: A-nativestream28-source
+  locator: source-v1.tar
+  identity_method: sha256
+  identity: 6055b9c780cdaf90d5ce152989a4f6b5abab6520c364b9bee7425556cb809cd9
+  mutable: false
+  captured_at: '2026-09-30T14:46:02.819322+00:00'
+  role: input
+- id: A-nativestream28-portable
+  locator: evidence-portable-v1/receipt.json
+  identity_method: sha256
+  identity: 163b0779e7ca3016c865d62af0f10571122a19fa47200ac07582afaff80eb815
+  mutable: false
+  captured_at: '2026-09-30T14:46:02.819322+00:00'
+  role: evidence
+- id: A-nativestream28-native
+  locator: evidence-native-v1/receipt.json
+  identity_method: sha256
+  identity: 02dd6d41d24c702226860e8e505d7f9148237fa51697ab07f73ec620d91badd4
+  mutable: false
+  captured_at: '2026-09-30T14:50:25.838447+00:00'
+  role: evidence
+rehydration:
+  status: complete
+  losses: []
+delivery_state: built
+outcome_state: passed
+highest_justified_claim: Eight actual native owned-stream forwards compile as v120 AMD64 objects against
+  pinned Win64 SDK; no link/runtime claim.
+required_runtime_observation: None authorized in this gate; separate real x64 vendor/runtime and borrowed-lifetime
+  checks remain prerequisites for adoption.
+who_controls_next_test: Parent /root
+next_step: Root reviews text evidence and selects a distinct next bounded native-shaped interface/lifetime
+  gate.

@@ -1,0 +1,35 @@
+{
+  "product_commit": "49d0eeed4ddaa177d7a93ea396c37c3d9b9942da",
+  "original_audio_sha256": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+  "operation_identity": {
+    "Open": {
+      "operation_body_sha256": "57b64d63bad5b2bfb901be9783855250f6cae92986bcdf1548e90fceed3f214c",
+      "legacy_prefix_sha256": "e51e8a8dba905d237097f6326982de0663a5284d028a63b2d32a0443470ff386"
+    },
+    "Close": {
+      "operation_body_sha256": "060639b70d45a9567b14d08fb62e69ccd3151ae42e1ae67c4873fd4c9b6481cd",
+      "legacy_prefix_sha256": "e51e8a8dba905d237097f6326982de0663a5284d028a63b2d32a0443470ff386"
+    },
+    "Seek": {
+      "operation_body_sha256": "4890f89751dcdd94b1587317b9561ff1ea3fd30036417ecc8ad09b4a2c50cb3f",
+      "legacy_prefix_sha256": "e51e8a8dba905d237097f6326982de0663a5284d028a63b2d32a0443470ff386"
+    },
+    "Read": {
+      "operation_body_sha256": "42bdd8b224eb2dc38d7eb8ad141a385598232d6004d4617c1103e836490722f5",
+      "legacy_prefix_sha256": "f4781d636a8063bd093a83b8dc517207b8fce6dfcf673b976446283eb23f8fd8"
+    }
+  },
+  "sha256": {
+    "baseline/src/engine/client/library/clientAudio/src/win32/Audio.cpp": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+    "seam20/src/engine/client/library/clientAudio/src/win32/Audio.cpp": "e99b66dffd1224766b46d3ba7d64a9cc2a13b4595e7c28271322764c3bdb7563",
+    "seam20/src/engine/client/library/clientAudio/src/win32/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "seam20/src/engine/client/library/clientAudio/include/public/clientAudio/ClientAudioFileCallbacks.h": "928c6397745ea2e8265178f0badf172b108419447a74af34c542fddfa2effbde",
+    "candidate/src/engine/client/library/clientAudio/src/win32/Audio.cpp": "9328dd05e60219c5e9d9a9fb05d698a99a7f6ef9f940fc651cb7b8ca72dd842e",
+    "candidate/src/engine/client/library/clientAudio/src/win32/ClientAudioFileCallbacks.h": "e287ba5de9aa040576794de058aaf061640c4614e8e5517c350850707256b5aa",
+    "candidate/src/engine/client/library/clientAudio/include/public/clientAudio/ClientAudioFileCallbacks.h": "928c6397745ea2e8265178f0badf172b108419447a74af34c542fddfa2effbde",
+    "Audio-file-executor.patch": "d70695082181af365c4176b50d7d8ec5a0f4d33b0ed4e02aa2832d146e135028",
+    "Audio-file-executor-from-seam20.patch": "d985e947b806b93be1350f53c1323e81c67ad97e73957f9479a54a7a232a7ee8",
+    "ClientAudioFileCallbacks.h": "e287ba5de9aa040576794de058aaf061640c4614e8e5517c350850707256b5aa",
+    "prepare-source.py": "461da74a7bf0af762a652a199b1bf67c1f87d223ff1c9760065059d9f5b6eb7b"
+  }
+}
