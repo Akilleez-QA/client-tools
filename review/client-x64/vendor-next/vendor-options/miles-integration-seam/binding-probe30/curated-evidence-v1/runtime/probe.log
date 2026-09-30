@@ -1,0 +1,22 @@
+loaded_dll=C:\binding30-private\mss32.dll sdk_header_version=7.2a compiler=180040629
+startup_s32=1 startup_bits=00000001
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+bind=A1 sample=008D3360 bytes=44144 return_s32=1 return_bits=00000001 error_null=0 error_terminated=1 error_bytes=0 error_hex=-
+query=A1 total_s32=1000 total_bits=000003e8 current_s32=0 current_bits=00000000 expected_total=1000 expected_current=0
+end=A1 returned=1
+bind=B1 sample=008D3360 bytes=88244 return_s32=1 return_bits=00000001 error_null=0 error_terminated=1 error_bytes=0 error_hex=-
+query=B1 total_s32=2000 total_bits=000007d0 current_s32=0 current_bits=00000000 expected_total=2000 expected_current=0
+end=B1 returned=1
+bind=A2 sample=008D3360 bytes=44144 return_s32=1 return_bits=00000001 error_null=0 error_terminated=1 error_bytes=0 error_hex=-
+query=A2 total_s32=1000 total_bits=000003e8 current_s32=0 current_bits=00000000 expected_total=1000 expected_current=0
+end=A2 returned=1
+bind=F sample=008D3360 bytes=44144 return_s32=0 return_bits=00000000 error_null=0 error_terminated=1 error_bytes=29 error_hex=556e737570706f7274656420776176652066696c6520666f726d61742e
+bind=B2-after-F sample=008D3360 bytes=88244 return_s32=1 return_bits=00000001 error_null=0 error_terminated=1 error_bytes=29 error_hex=556e737570706f7274656420776176652066696c6520666f726d61742e
+query=B2-after-F total_s32=2000 total_bits=000007d0 current_s32=0 current_bits=00000000 expected_total=2000 expected_current=0
+end=B2-after-F returned=1
+release_returned
+shutdown_returned
+PASS fixed same-sample PCM rebind characterization; all inputs alive through shutdown; no retirement proof

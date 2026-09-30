@@ -1,0 +1,261 @@
+Review asynchronous adapter lifetime: callback can run before submit returns; queued work owns one shared job reference; independent receive thread must remain live. Review premature destruction, result publication, exception safety and missing integration requirements. No engine workload is permitted. Engine submit returns false only if not queued and executes callback once if accepted; owner must retain worker. Find concrete defects and distinguish incomplete integration.
+Use only supplied authored source; do not run tools, change files, consult other reviews, or infer vendor behavior. Return concrete source-grounded concerns and scope limits; no broad clearance.
+
+FILE file-executor31/FileInvocationJob.h
+#ifndef MILES_FILE_INVOCATION_JOB30_H
+#define MILES_FILE_INVOCATION_JOB30_H
+#include "EngineFileWorker.h"
+#include "../file-channel26/file_channel.h"
+#include <memory>
+
+namespace MilesFileExecutor30
+{
+// Private modern-STL owner adapter. Never include this from engine/STLport TUs.
+class FileInvocationJob
+{
+public:
+    enum Status { Pending, AdapterCompleted, DispatchUncertain };
+    // Admission/replay checks and resource/context pins already belong to owner.
+    // Null means not queued. Exceptions before queueing stay in the owner's TU.
+    static std::shared_ptr<FileInvocationJob> enqueueAdmitted(
+        EngineFileWorker &, const MilesFileChannel26::Request &,
+        std::shared_ptr<const MilesFileChannel26::Binding>, std::shared_ptr<void> pin);
+    ~FileInvocationJob();
+    Status status() const;
+    bool wait() const; // NOT receive/control thread or file worker; no timeout/retry.
+    // Available only after adapter completed; still inspect Completion::state.
+    const MilesFileChannel26::Invocation *completedInvocation() const;
+private:
+    struct State;
+    struct PendingContext;
+    State *state;
+    FileInvocationJob(const MilesFileChannel26::Request &,
+        std::shared_ptr<const MilesFileChannel26::Binding>, std::shared_ptr<void>);
+    static void execute(void *);
+    FileInvocationJob(const FileInvocationJob &);
+    FileInvocationJob &operator=(const FileInvocationJob &);
+};
+}
+#endif
+
+FILE file-executor31/FileInvocationJob.cpp
+// Compile separately using the adapter's native modern STL, never engine STLport.
+#include "FileInvocationJob.h"
+#include <windows.h>
+#include <cstdlib>
+#include <stdexcept>
+
+namespace MilesFileExecutor30
+{
+struct FileInvocationJob::State
+{
+    MilesFileChannel26::Invocation invocation;
+    HANDLE completed;
+    bool invoked, unexpected;
+    State(const MilesFileChannel26::Request &request,
+          std::shared_ptr<const MilesFileChannel26::Binding> binding,
+          std::shared_ptr<void> pin)
+        : invocation(request, MilesFileChannel26::canonicalServices(), binding, pin),
+          completed(CreateEvent(NULL, TRUE, FALSE, NULL)), invoked(false), unexpected(false)
+    {
+        if (!completed)
+            throw std::runtime_error("file completion event creation failed before admission to worker");
+    }
+    ~State() { CloseHandle(completed); }
+};
+struct FileInvocationJob::PendingContext
+{
+    std::shared_ptr<FileInvocationJob> job;
+    explicit PendingContext(std::shared_ptr<FileInvocationJob> value) : job(value) {}
+};
+FileInvocationJob::FileInvocationJob(const MilesFileChannel26::Request &request,
+    std::shared_ptr<const MilesFileChannel26::Binding> binding, std::shared_ptr<void> pin)
+    : state(new State(request, binding, pin)) {}
+FileInvocationJob::~FileInvocationJob() { delete state; }
+
+std::shared_ptr<FileInvocationJob> FileInvocationJob::enqueueAdmitted(
+    EngineFileWorker &worker, const MilesFileChannel26::Request &request,
+    std::shared_ptr<const MilesFileChannel26::Binding> binding, std::shared_ptr<void> pin)
+{
+    std::shared_ptr<FileInvocationJob> job(new FileInvocationJob(request, binding, pin));
+    std::unique_ptr<PendingContext> pending(new PendingContext(job));
+    // Callback can run before submit returns; transfer pointer ownership BEFORE
+    // submit, and reclaim it only on false (which guarantees no queue publication).
+    PendingContext *context = pending.release();
+    if (!worker.submit(context, &FileInvocationJob::execute))
+    {
+        delete context;
+        return std::shared_ptr<FileInvocationJob>();
+    }
+    return job;
+}
+void FileInvocationJob::execute(void *opaque)
+{
+    // All typed ownership/destruction stays in this adapter TU, not engine code.
+    std::unique_ptr<PendingContext> pending(static_cast<PendingContext *>(opaque));
+    State &value = *pending->job->state;
+    try { value.invoked = value.invocation.invokeOnAdmittedExecutor(); }
+    catch (...) { value.unexpected = true; }
+    // Event publication releases the complete immutable result to waiter/poller.
+    if (!SetEvent(value.completed))
+        std::abort();
+    // The queued shared owner is released only after the callback has returned.
+}
+FileInvocationJob::Status FileInvocationJob::status() const
+{
+    DWORD const value = WaitForSingleObject(state->completed, 0);
+    if (value == WAIT_TIMEOUT)
+        return Pending;
+    if (value != WAIT_OBJECT_0 || state->unexpected || !state->invoked)
+        return DispatchUncertain;
+    return AdapterCompleted;
+}
+bool FileInvocationJob::wait() const
+{
+    return WaitForSingleObject(state->completed, INFINITE) == WAIT_OBJECT_0;
+}
+const MilesFileChannel26::Invocation *FileInvocationJob::completedInvocation() const
+{
+    return status() == AdapterCompleted ? &state->invocation : NULL;
+}
+}
+
+FILE file-channel26/file_channel.h
+#ifndef MILES_FILE_CHANNEL26_H
+#define MILES_FILE_CHANNEL26_H
+
+#include "../reverse-file-seam20/ClientAudioFileCallbacks.h"
+#include "../transport-candidate/codec.h"
+#include <memory>
+#include <string>
+
+// Private value adapter, not an engine scheduler or SDK callback table.
+namespace MilesFileChannel26
+{
+struct Association
+{
+    uint64_t request, causal, lane, lease;
+};
+
+enum Validation
+{
+    Valid,
+    Malformed,
+    WrongAssociation,
+    UnsupportedExtent,
+    InvalidFields,
+    InvalidResult
+};
+
+class Request
+{
+public:
+    Request();
+    uint32_t opcode() const;
+    MilesWire::Handle target() const;
+    uint32_t count() const;
+    int32_t offset() const;
+    uint32_t origin() const;
+    const std::string &name() const;
+    const MilesWire::Header &header() const;
+    bool valid() const;
+
+private:
+    MilesWire::Header envelope;
+    MilesWire::Call call;
+    std::string filename;
+    bool validated;
+    friend Validation decodeRequest(MilesTransport::Bytes, const Association &, Request &);
+};
+
+Validation decodeRequest(MilesTransport::Bytes frame, const Association &expected,
+                         Request &out);
+
+// Exact existing client-local signatures; no filesystem implementation here.
+struct FileServices
+{
+    decltype(&ClientAudioFileCallbacks::open) open;
+    decltype(&ClientAudioFileCallbacks::close) close;
+    decltype(&ClientAudioFileCallbacks::seek) seek;
+    decltype(&ClientAudioFileCallbacks::read) read;
+};
+FileServices canonicalServices(); // Compile-only adapter until executor is proven.
+
+struct Binding
+{
+    const MilesWire::Handle identity;
+    const ClientAudioFileCallbacks::LocalFileHandle local;
+    Binding(MilesWire::Handle wire, ClientAudioFileCallbacks::LocalFileHandle key);
+};
+
+// CallThrew leaves possible side effects unknown. It authorizes neither retry
+// nor retirement/cleanup of the file binding or an unpublished successful open.
+enum CompletionState { Returned, ReadCountOutsideBuffer, CallThrew };
+struct Completion
+{
+    CompletionState state;
+    uint32_t returnBits;
+    ClientAudioFileCallbacks::OpenResult opened;
+    std::vector<unsigned char> bytes;
+    Completion();
+};
+
+// Must be retained by the chosen executor until invokeOnAdmittedExecutor returns.
+// Serialized executor ownership is required; concurrent entry is unsupported.
+// This class supplies no thread, cancellation, file retirement or engine policy.
+// The lifetime pin retains caller-owned context; it does not prove TLS/affinity.
+class Invocation
+{
+public:
+    Invocation(const Request &, const FileServices &, std::shared_ptr<const Binding>,
+               std::shared_ptr<void> lifetimePin);
+    bool invokeOnAdmittedExecutor(); // false means duplicate, never another call.
+    bool finished() const;
+    const Completion &completion() const;
+    const Request &request() const;
+
+private:
+    Request operation;
+    FileServices services;
+    std::shared_ptr<const Binding> binding;
+    std::shared_ptr<void> context;
+    Completion result;
+    bool begun, returned;
+    Invocation(const Invocation &);
+    Invocation &operator=(const Invocation &);
+};
+
+// Publication identity comes from the trusted external file owner, never local
+// key bits. Successful open requires one; failed open and other results forbid it.
+// Rejected completion does not alter the frame and never fabricates EOF.
+Validation encodeCompletion(const Invocation &, MilesWire::Handle publishedFile,
+                            std::vector<unsigned char> &frame);
+
+struct OwnedReply
+{
+    uint32_t returnBits;
+    MilesWire::Handle file;
+    std::vector<unsigned char> bytes;
+    OwnedReply();
+};
+Validation decodeReply(MilesTransport::Bytes, const Request &, OwnedReply &);
+Validation copyRead(const OwnedReply &, uint32_t requested, void *destination,
+                    size_t capacity);
+}
+
+#endif
+
+FILE file-executor31/PLAN.md
+# Step31 successor: checked join and scoped object gate
+
+Source-only successor to frozen file-executor30. The private namespace/type names are deliberately unchanged to keep the correction narrow. `checked-join-from30.patch` contains the entire mechanism change: a protected-handle checked wait in the owned Thread subclass, plus corrected failure contracts. FileInvocationJob sources are byte-identical to step30.
+
+`Thread::wait()` discards the OS wait result. Step31 instead accepts only WAIT_OBJECT_0. Any other result returns false from drainAndJoin with the thread pointer and owner reference retained; it performs no subsequent dereference or resource destruction and never claims TLS teardown completed. Intake remains closed. The owner must retain the worker and dependent engine resources; this code does not retry, force-terminate or destroy them. Engine Thread itself is unchanged.
+
+`create()` returns NULL for a caught allocation exception; that is not a universal recovery guarantee. Actual engine MemoryManager allocation can FATAL. Thread creation failure still releases the owner and unused initial self reference only when _beginthreadex returned a null handle. A successful thread is owned through its checked join, including Thread::threadFunc TLS removal.
+
+All other step30 scope and integration limits remain: engine-owned FIFO; opaque pointer/function boundary; separately compiled modern file26 adapter; no direct modern-STL/engine-STL layout sharing or cross-boundary deletion; independent receive progress; existing coordinator/pin policy remains external. Global-file/FileOpen admission mapping, vendor termination evidence, residual-close adapter, actual Audio partial-install ownership and fatal teardown remain unresolved. The prototype is not connected to product execution.
+
+The proposed gate is **20 object compilations**, five TUs × Debug/Release × Win32/x64. No baseline step30 compilation is needed to discriminate this new source's type/include compatibility, and no full-Audio recompilation is included. The frozen step29 matrix already covers the common-body seam; it does not prove this worker compiles or links. This gate deliberately does not link or execute any engine code.
+
+`prepare-native.py` prepares only a fresh local input directory, verifying the pinned49d0 checkout, previous step29 snapshot, and frozen30 manifest first. `run-native.py` is the exact proposed VM-side driver, not executed during source preparation. It stops on the first failed compile, COFF machine or STL include-boundary check; there is no retry path.

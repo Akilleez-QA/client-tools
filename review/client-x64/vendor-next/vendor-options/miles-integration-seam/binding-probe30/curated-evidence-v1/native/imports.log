@@ -1,0 +1,102 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\binding-probe30\native-build-v1\probe.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Section contains the following imports:
+
+    mss32.dll
+                4100FC Import Address Table
+                416674 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   D8 _AIL_sample_ms_position@12
+                   4D _AIL_end_sample@4
+                  103 _AIL_set_named_sample_file@20
+                   C0 _AIL_release_sample_handle@4
+                   2C _AIL_allocate_sample_handle@4
+                  105 _AIL_set_redist_directory@4
+                   81 _AIL_open_digital_driver@16
+                   69 _AIL_last_error@0
+                  133 _AIL_shutdown@0
+                  13C _AIL_startup@0
+
+    KERNEL32.dll
+                410000 Import Address Table
+                416578 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  5E1 WriteFile
+                   C2 CreateFileW
+                  5E0 WriteConsoleW
+                  522 SetStdHandle
+                   7F CloseHandle
+                  3FA OutputDebugStringW
+                  4FD SetFilePointerEx
+                  3A7 LoadLibraryExW
+                  336 HeapReAlloc
+                  262 GetModuleFileNameA
+                  265 GetModuleHandleExA
+                  125 EnterCriticalSection
+                  3A2 LeaveCriticalSection
+                  440 RaiseException
+                  4AD RtlUnwind
+                  1C8 GetCommandLineA
+                  121 EncodePointer
+                   FE DecodePointer
+                  32F HeapAlloc
+                  250 GetLastError
+                  333 HeapFree
+                  367 IsDebuggerPresent
+                  36D IsProcessorFeaturePresent
+                  372 IsValidCodePage
+                  1A4 GetACP
+                  286 GetOEMCP
+                  1B3 GetCPInfo
+                  50B SetLastError
+                  20E GetCurrentThreadId
+                  3D1 MultiByteToWideChar
+                  105 DeleteCriticalSection
+                  151 ExitProcess
+                  266 GetModuleHandleExW
+                  29D GetProcAddress
+                  5CD WideCharToMultiByte
+                  2C0 GetStdHandle
+                  23E GetFileType
+                  2BE GetStartupInfoW
+                  2A2 GetProcessHeap
+                  263 GetModuleFileNameW
+                  42D QueryPerformanceCounter
+                  20A GetCurrentProcessId
+                  2D6 GetSystemTimeAsFileTime
+                  227 GetEnvironmentStringsW
+                  19D FreeEnvironmentStringsW
+                  338 HeapSize
+                  582 UnhandledExceptionFilter
+                  543 SetUnhandledExceptionFilter
+                  348 InitializeCriticalSectionAndSpinCount
+                  552 Sleep
+                  209 GetCurrentProcess
+                  561 TerminateProcess
+                  573 TlsAlloc
+                  575 TlsGetValue
+                  576 TlsSetValue
+                  574 TlsFree
+                  267 GetModuleHandleW
+                  2C5 GetStringTypeW
+                  396 LCMapStringW
+                  192 FlushFileBuffers
+                  1DC GetConsoleCP
+                  1EE GetConsoleMode
+
+  Summary
+
+        4000 .data
+        7000 .rdata
+        2000 .reloc
+        F000 .text

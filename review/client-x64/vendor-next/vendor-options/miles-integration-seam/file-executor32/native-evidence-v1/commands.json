@@ -1,0 +1,98 @@
+[
+  {
+    "name": "01-create.log",
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "$ErrorActionPreference='Stop'; if(Test-Path 'C:/file-executor32'){throw 'Destination exists'}; if(Get-Process cl -ErrorAction SilentlyContinue){throw 'Compiler already running'}; New-Item -ItemType Directory 'C:/file-executor32'"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "02-upload-private-inputs.tar.log",
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-executor32/native-evidence-v1/private-inputs.tar",
+      "builder@127.0.0.1:C:/file-executor32/private-inputs.tar"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "02-upload-stage-inputs.py.log",
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-executor32/native-evidence-v1/stage-inputs.py",
+      "builder@127.0.0.1:C:/file-executor32/stage-inputs.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "02-upload-collect-evidence.py.log",
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-executor32/native-evidence-v1/collect-evidence.py",
+      "builder@127.0.0.1:C:/file-executor32/collect-evidence.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "03-stage.log",
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "& C:/ci-dpvs-review/python/python.exe C:/file-executor32/stage-inputs.py; exit $LASTEXITCODE"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "04-native-matrix.log",
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "& C:/ci-dpvs-review/python/python.exe C:/file-executor32/run-native.py; exit $LASTEXITCODE"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "05-collect.log",
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "& C:/ci-dpvs-review/python/python.exe C:/file-executor32/collect-evidence.py; exit $LASTEXITCODE"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "06-download.log",
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "builder@127.0.0.1:C:/file-executor32/curated-evidence.zip",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/file-executor32/native-evidence-v1/curated-evidence.zip"
+    ],
+    "exit_code": 0
+  }
+]

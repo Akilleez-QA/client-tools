@@ -1,0 +1,56 @@
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -10,16 +10,16 @@
+     MilesWire::Handle wire;
+     const ClientMilesPipe::Session *owner;
+ };
+-struct OwnedSample {
++struct Sample {
+     MilesWire::Handle wire;
+     bool live;
+-    OwnedSample() : wire(), live(false) {}
++    Sample() : wire(), live(false) {}
+ };
+ } // namespace ClientMiles
+ 
+ namespace ClientMilesPipe {
+ struct SampleState {
+-    typedef std::list<std::unique_ptr<ClientMiles::OwnedSample> > Proxies;
++    typedef std::list<std::unique_ptr<ClientMiles::Sample> > Proxies;
+     Proxies proxies;
+ };
+ }
+@@ -323,11 +323,11 @@
+     session.request(MilesWire::AIL_set_room_type, fields);
+ }
+ // Private helper compares identity without dereferencing caller-provided pointers.
+-static OwnedSample &ownedSample(ClientMilesPipe::Session &session, HSAMPLE sample) {
++static Sample &ownedSample(ClientMilesPipe::Session &session, HSAMPLE sample) {
+     session.requireRunning();
+     for (ClientMilesPipe::SampleState::Proxies::iterator i=session.samples->proxies.begin();
+          i!=session.samples->proxies.end(); ++i) {
+-        OwnedSample *candidate = i->get();
++        Sample *candidate = i->get();
+         if (sample == candidate && candidate->live) return *candidate;
+     }
+     fail(FailureReason::InvalidArgument, "sample is not live in this selected Session");
+@@ -338,8 +338,8 @@
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = driverCall(session, driver);
+     // Both proxy allocation and container publication precede remote side effects.
+-    std::unique_ptr<OwnedSample> local(new OwnedSample);
+-    OwnedSample *sample = local.get();
++    std::unique_ptr<Sample> local(new Sample);
++    Sample *sample = local.get();
+     session.samples->proxies.push_back(std::move(local));
+     StartupBridge::OwnedReply reply;
+     try {
+@@ -382,7 +382,7 @@
+ 
+ void release_sample_handle(HSAMPLE sample) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    OwnedSample &owned = ownedSample(session, sample);
++    Sample &owned = ownedSample(session, sample);
+     MilesWire::Call fields = {};
+     fields.target = owned.wire;
+     session.request(MilesWire::AIL_release_sample_handle, fields);

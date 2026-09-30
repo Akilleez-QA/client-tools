@@ -1,0 +1,11 @@
+--- a/file-channel26/file_channel.h
++++ b/file-channel26/file_channel.h
+@@ -63,6 +63,8 @@
+     const MilesWire::Handle identity;
+     const ClientAudioFileCallbacks::LocalFileHandle local;
+     Binding(MilesWire::Handle wire, ClientAudioFileCallbacks::LocalFileHandle key);
++private:
++    Binding &operator=(const Binding &);
+ };
+ 
+ // CallThrew leaves possible side effects unknown. It authorizes neither retry

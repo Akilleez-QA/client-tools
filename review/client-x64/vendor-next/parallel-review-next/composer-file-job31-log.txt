@@ -1,0 +1,110 @@
+# Asynchronous adapter lifetime review (source-only)
+
+Scope is limited to the supplied `FileInvocationJob` sources, `file_channel.h` contracts, and `PLAN.md` integration notes. `EngineFileWorker` is not present; the review treats your stated submit rules as external fact, not verified engine behavior. This is not clearance of step31/product integration.
+
+---
+
+## What the adapter gets right (against your stated rules)
+
+**Callback before `submit` returns.** `enqueueAdmitted` releases `PendingContext` to the engine before `submit`, and only `delete context` on `false`. On success, `execute` owns the opaque pointer via `unique_ptr<PendingContext>`. `PendingContext` holds `shared_ptr<FileInvocationJob>`, so the job outlives `execute` even if the callback finishes before `submit` returns. The local `job` in `enqueueAdmitted` keeps a second strong ref until the function returns, so completion cannot destroy `State` during that window.
+
+**Single queued ownership of the job ref from the queue side.** One `PendingContext` → one `shared_ptr<FileInvocationJob>` for the worker callback; that ref is released only when `execute` returns (destruction of `unique_ptr<PendingContext>`).
+
+**Invocation / pin / binding for the worker entry.** `State` embeds `Invocation` constructed with `binding` and `pin`; `execute` calls `invokeOnAdmittedExecutor()` on that instance before signaling. That matches `file_channel.h`: retain `Invocation` until `invokeOnAdmittedExecutor` returns; serialized executor (concurrent entry unsupported).
+
+**False submit path.** Failed submit deletes `context` without running `execute`; returns null `shared_ptr`; the ephemeral `job` is destroyed in the adapter TU—consistent with “not queued” and “exceptions before queueing stay in the owner’s TU.”
+
+---
+
+## Concrete source-grounded concerns
+
+### 1. `wait()` vs `status()` / `completedInvocation()` — inconsistent completion contract
+
+```cpp
+bool FileInvocationJob::wait() const
+{
+    return WaitForSingleObject(state->completed, INFINITE) == WAIT_OBJECT_0;
+}
+```
+
+`wait()` succeeds whenever the manual-reset event is signaled. `completedInvocation()` is gated on `status() == AdapterCompleted`, which additionally requires `!state->unexpected && state->invoked`.
+
+After `catch (...) { value.unexpected = true; }`, or when `invokeOnAdmittedExecutor()` returns `false` (duplicate — `file_channel.h`: “false means duplicate, never another call”), the event is still set via `SetEvent`, so `wait()` returns `true` while `status()` is `DispatchUncertain` and `completedInvocation()` is `NULL`.
+
+**Concern:** Any owner that treats `wait()` as “adapter finished successfully, read result via `completedInvocation()`” has a concrete footgun in this API surface—not an engine issue.
+
+### 2. Result consumption requires retaining the returned `shared_ptr` (easy to destroy published state)
+
+Publication is: mutate `State` (via `Invocation`), then `SetEvent`, then release the queue’s `shared_ptr` when `execute` ends. The event handle lives inside `State`; `Invocation` and `Completion` live there too.
+
+If the owner does not keep the `shared_ptr` returned from `enqueueAdmitted` until after a successful `AdapterCompleted` path (or equivalent policy), the last ref can drop at the end of `execute` (queue ref only) or when the return value is discarded. That runs `~FileInvocationJob` → `delete state` → `CloseHandle(completed)` while independent waiters may still need the job object to call `wait()` / `status()` / `completedInvocation()`.
+
+The header only documents null return as “not queued”; it does not spell out “must retain returned `shared_ptr` until completion is read.” **Concern:** lifetime bug class for callers; implied by design but not enforced or documented on the type.
+
+### 3. `SetEvent` failure → `std::abort()` with no publication fallback
+
+If `SetEvent` fails after invoke (success or `unexpected`), the adapter aborts. Waiters block forever on `wait()`; `status()` stays `Pending`. **Concern:** hard hang for any thread using the adapter wait surface; no degraded `DispatchUncertain` path (may be acceptable policy, but it is a sharp failure mode in authored code).
+
+### 4. No adapter-side synchronization on `~FileInvocationJob` vs concurrent `wait()` / `status()`
+
+Destructor unconditionally `delete state`. Concurrent const waits are safe only if another `shared_ptr` keeps the job alive. The adapter does not extend lifetime for pollers (no internal `shared_from_this`, no retained waiter ref). **Concern:** same as (2)—correct use depends on owner retaining `shared_ptr`; destroying or letting the last ref go while another thread uses a raw `FileInvocationJob*` is UB. Not fixable from excerpts alone without owner protocol.
+
+### 5. `DispatchUncertain` collapses distinct failure modes
+
+`status()` treats `WAIT_OBJECT_0` with `unexpected || !invoked` uniformly as `DispatchUncertain`. Authored `file_channel.h` distinguishes `CallThrew` in `Completion` from duplicate invoke (`false` return). **`completedInvocation()` is NULL for all uncertain cases**, so the adapter does not expose `completion().state` on failure paths even though `Invocation` may hold partial state after an exception. **Concern:** owners encoding replies must not infer from the event alone; they must use `status()` and must not call `completedInvocation()` when uncertain—integration discipline, with limited diagnostic surface in the adapter API.
+
+---
+
+## Exception safety (within supplied adapter)
+
+| Phase | Behavior |
+|--------|----------|
+| `State` ctor (`CreateEvent` fails) | Throws before queue; no submit |
+| `enqueueAdmitted` before submit | Comment: owner TU owns exceptions |
+| `execute` body | `catch (...)` → `unexpected = true`; event still signaled |
+| After accepted submit | `execute` always runs `SetEvent` (or aborts) |
+
+**Gap:** exception safety for *observing* results is tied to `status()`, not `wait()` (see §1).
+
+---
+
+## Incomplete integration (PLAN.md + headers — not adapter logic bugs)
+
+These are explicit scope limits or external owner obligations; distinguishing them avoids blaming `FileInvocationJob` for missing product wiring.
+
+| Requirement | Where stated | In `FileInvocationJob`? |
+|-------------|--------------|---------------------------|
+| Owner retains **worker** (and engine resources) through drain/join | `PLAN.md` (step31 `drainAndJoin`; false wait → retain thread + owner) | No — only `EngineFileWorker &` at enqueue |
+| **Independent receive/control thread** stays live | Your review criteria + `PLAN.md` (“independent receive progress”) | `wait()` comment forbids receive/control/file worker; no receive lifecycle |
+| Serialized executor / no concurrent `Invocation` | `file_channel.h` | Assumed of worker; not enforced in adapter |
+| Admission, replay, pins | `FileInvocationJob.h` comment | External to adapter |
+| `canonicalServices()` “compile-only until executor is proven” | `file_channel.h` | Used in `State` ctor |
+| Prototype not connected; global-file admission, vendor teardown, partial-install ownership | `PLAN.md` | N/A |
+| Step31 gate: **20 object compilations**, no link/execute engine | `PLAN.md` | Does not prove worker link or runtime FIFO behavior |
+
+**Worker destruction with queued or running work:** Not specified in supplied adapter sources. Correctness depends on owner retaining worker until jobs complete—aligned with PLAN, not implementable to verify here.
+
+**Receive thread vs file worker:** Adapter explicitly excludes receive/control/file worker from `wait()`. Keeping receive progress independent is an **integration** requirement; the job adapter neither coordinates nor documents receive↔job ordering.
+
+---
+
+## Premature destruction checklist (authored mechanisms only)
+
+| Scenario | Supplied mitigation |
+|----------|---------------------|
+| Callback before `submit` returns | `PendingContext` + local `job` in `enqueueAdmitted` |
+| `submit` false | `delete context`; no callback; null return |
+| Invoke / binding / pin during worker run | `shared_ptr` in `State` / `Invocation`; queue holds job ref until `execute` returns |
+| Read result after completion | Owner must retain job `shared_ptr`; event alone does not preserve `State` |
+| Tear down worker while work pending | **Not addressed** — owner must retain worker (PLAN) |
+
+---
+
+## Scope limits (no broad clearance)
+
+- No `EngineFileWorker`, `Thread`, or step31 drain/join sources—submit-once/false semantics and worker lifetime are **assumed**, not reviewed against engine code.
+- `PLAN.md` states step31 `FileInvocationJob` is **byte-identical to step30**; lifetime findings apply to both; step31’s checked join does not change this adapter.
+- No validation of `encodeCompletion`, coordinator policy, or wire/receive loops in the supplied files.
+- Vendor/engine FIFO ordering, TLS, or MemoryManager FATAL paths are out of scope per your constraints.
+
+**Bottom line:** The enqueue/context/`shared_ptr` pattern matches “callback may run before `submit` returns” and “queued work holds one job ref.” Concrete adapter-level issues to track: **`wait()` vs `AdapterCompleted`/`completedInvocation()` mismatch**, **silent loss of readable results if the enqueue `shared_ptr` is not retained**, and **`SetEvent` failure → abort/hang**. Worker retention, receive-thread liveness, serialization, and product connection remain **incomplete integration**, explicitly external in PLAN and comments—not proven by this source slice.

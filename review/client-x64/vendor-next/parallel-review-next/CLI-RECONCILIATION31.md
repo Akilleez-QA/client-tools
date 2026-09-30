@@ -1,0 +1,9 @@
+# File worker review: parent reconciliation
+
+Composer2.5 reviewed four supplied authored files (11,944-byte prompt), completing in33.31s, exit0. Grok4.7-high received the separate 7,121-byte worker/queue slice and timed out at240s, exit124, no output. The Grok attempt provides no review or clearance. Raw prompts/results/identities remain alongside this note.
+
+Parent inspected the actual EngineFileWorker, FileInvocationJob and FileChannel source. Composer correctly identified two caller-contract clarifications: waiting for the event is not an operation-success verdict, and a shared job owner must remain alive while polling or consuming its returned Invocation pointer. These are now concise comments in the prepared step32 header; wait/status behavior is unchanged. Its normal shared_ptr lifetime examples require caller misuse and do not establish an implementation bug. No shared_from_this mechanism was added.
+
+Composer's claim that SetEvent failure followed by abort leaves waiters hanging is rejected: abort terminates this process. That is a fail-stop policy with a severe outcome, not a demonstrated continuing-process hang. A policy to recover instead would require separate ownership and shutdown evidence; this review does not supply it.
+
+The exception-safe callback-before-submit-return pattern remains supported by reading the complete code under the stated submit-once/no-publication-on-false contract. The review does not prove native runtime queue scheduling, TLS teardown, global-file registration, vendor callback quiescence, or product Audio/ExitChain behavior. Separate parent review found Thread::wait ignored the OS result; step31 added checked join. Its first native compile failed on the new reference-owning class's implicit copy assignment warning; step32 declares that class noncopyable without suppressing warnings. These findings originate from different observations; model agreement is not runtime corroboration.

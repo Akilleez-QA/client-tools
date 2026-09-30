@@ -1,0 +1,23 @@
+--- a/EngineFileWorker.cpp
++++ b/EngineFileWorker.cpp
+@@ -28,6 +28,8 @@
+         return handle != NULL;
+     }
+ private:
++    EngineFileThread(const EngineFileThread &);
++    EngineFileThread &operator=(const EngineFileThread &);
+     void run() { owner.run(); }
+     EngineFileWorker &owner;
+ };
+--- a/FileInvocationJob.h
++++ b/FileInvocationJob.h
+@@ -18,7 +18,9 @@
+         std::shared_ptr<const MilesFileChannel26::Binding>, std::shared_ptr<void> pin);
+     ~FileInvocationJob();
+     Status status() const;
++    // Reports event signaled, not operation success; inspect status/Completion.
+     bool wait() const; // NOT receive/control thread or file worker; no timeout/retry.
++    // Keep a shared job owner alive while polling/waiting and using this pointer.
+     // Available only after adapter completed; still inspect Completion::state.
+     const MilesFileChannel26::Invocation *completedInvocation() const;
+ private:

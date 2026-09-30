@@ -1,0 +1,11 @@
+# Proposed compile gate — not authorized or run
+
+Pin product49d0, file-executor29 candidate Audio/header and file-channel26 sources by hash. Reuse step29's audited Debug/Release Win32/x64 define/include rows, v120 guard, private output layout and exact `/c /Y- /Gm-` object-only flags. Do not rerun its frozen runner unchanged: this is a new recipe requiring source review.
+
+1. Compile EngineFileWorker.cpp with the actual engine include order, including STLport4.5.3, FirstSharedFoundation and sharedThread/sharedSynchronization. No file_channel or FileInvocationJob header enters this TU. Verify `/showIncludes` retains engine STLport and no modern transport header leaks in.
+2. Compile FileInvocationJob.cpp, file-channel26/file_channel.cpp, file-channel26/canonical_services.cpp, and their existing transport codec dependencies as separate modern-STL adapter TUs using the same compiler/architecture/CRT choice, but **without engine/STLport include directories or FirstSharedFoundation**. Local relative headers resolve into the pinned private seam snapshot. The only worker header consumed is EngineFileWorker.h, containing no engine/STL types. Public step29 declarations match seam20's types; canonicalServices must ultimately resolve to step29 implementations, not legacy-TLS wrappers.
+3. Original Audio.cpp/step29 candidate already have object-only matrix evidence. Do not infer that the new worker compiles or links from it. First new gate is worker+adapter object compilation; verify actual includes, compiler/COFF identity and diagnostics. No executable, DLL load, generated code execution or Audio/ExitChain harness belongs to this gate.
+
+A later separately reviewed same-module link integration must establish engine Thread/Mutex/Gate/MemoryManager symbol resolution and modern adapter canonicalServices linkage, compatible v120 calling conventions/CRT, and the unchanged vendor-free ClientAudioFileCallbacks ABI. The opaque boundary deliberately carries only pointers and functions, with allocation/destruction remaining in the defining TU. Object compilation alone will not prove those link or runtime properties.
+
+Stop on the first unexpected failure and retain it. Do not repair/retry, change standard libraries, widen scope, or run an engine workload under this source proposal.

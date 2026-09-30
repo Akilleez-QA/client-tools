@@ -1,0 +1,34 @@
+[
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "if(Test-Path 'C:/borrowed-native33'){throw 'exists'};New-Item -ItemType Directory 'C:/borrowed-native33'"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/borrowed-native33/source-v1.tar",
+    "builder@127.0.0.1:C:/borrowed-native33/source-v1.tar"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/borrowed-native33/staging-v1/stage.py",
+    "builder@127.0.0.1:C:/borrowed-native33/stage.py"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "& C:/ci-dpvs-review/python/python.exe 'C:/borrowed-native33/stage.py';exit $LASTEXITCODE"
+  ]
+]

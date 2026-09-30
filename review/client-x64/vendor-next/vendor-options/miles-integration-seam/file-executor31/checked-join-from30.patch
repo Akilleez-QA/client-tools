@@ -1,0 +1,42 @@
+--- a/EngineFileWorker.h
++++ b/EngineFileWorker.h
+@@ -13,13 +13,15 @@
+     enum StartResult { Started, AlreadyStarted, AllocationFailed, ThreadCreationFailed };
+     typedef void (*Execute)(void *); // Must not throw; context owner retains it.
+ 
+-    static EngineFileWorker *create(); // NULL on allocation failure, no exception.
++    static EngineFileWorker *create(); // NULL on caught allocation exception.
++    // Engine MemoryManager may instead FATAL; recovery is not guaranteed.
+     static void destroy(EngineFileWorker *); // Same-TU allocation/destruction.
+     // Owner MUST drainAndJoin before destroy; never implicit teardown.
+     StartResult start(); // Owner thread only; returns after run() signals TLS-ready.
+     bool submit(void *context, Execute execute); // Nonblocking; false = not queued.
+     // Owner only, after vendor production ended and every required close queued.
+     // Closes intake, drains FIFO, joins through TLS removal; never call on worker.
++    // Failed join returns false and RETAINS ownership; do not destroy resources.
+     bool drainAndJoin();
+ 
+ private:
+--- a/EngineFileWorker.cpp
++++ b/EngineFileWorker.cpp
+@@ -16,6 +16,10 @@
+     {
+         handle = NULL;
+         id = 0;
++    }
++    bool checkedJoin()
++    {
++        return WaitForSingleObject(handle, INFINITE) == WAIT_OBJECT_0;
+     }
+     bool startOwned()
+     {
+@@ -154,7 +158,8 @@
+     impl->stopping = true;
+     impl->pending.open();
+     impl->mutex.leave();
+-    impl->thread->wait();
++    if (!impl->thread->checkedJoin())
++        return false; // Keep owner ref/thread/resources: termination is unproved.
+     impl->thread->deref(); // Join completed, including PerThreadData::threadRemove.
+     impl->thread = NULL;
+     return true;

@@ -1,0 +1,7 @@
+# Step32 source successor — compile gate pending
+
+Frozen31 and its first-failure evidence are unchanged. `source-from31.patch` adds only private, undefined copy-constructor/assignment declarations to EngineFileThread, following the engine's existing noncopyable thread pattern. Two header comments clarify that wait means signaled rather than operation success, and the shared job owner must outlive polling/waiting and use of the returned Invocation pointer. No runtime policy, warning suppression, wait/status semantics or ownership implementation changed.
+
+Proposed gate remains the same20 object compiles and exact flags as31, stopping on first failure. `exact-flags.json` is unchanged. The runner differs only in fresh root `C:/file-executor32` and guard label `EXEC32`; no link/runtime. Final private input manifest SHA-256 is `949d56d8a0d23efe1e4f0ed9461a2e19cdafd36d7849469fdc66f4f259e1c2e1`, runner `a0ec2996dd06364697e975665f698f6b95b009f4e2403b2ca0a0952c72b02a31`, with9547 pinned entries. A provisional local preparation was updated for the authorized comments before this final freeze; only these final identities are submitted for review.
+
+After a separate parent gate, the proposed invocation is `C:/ci-dpvs-review/python/python.exe C:/file-executor32/run-native.py`. No VM/compiler was contacted during32 preparation. All missing admission/shutdown/product integration limits from30/31 remain.

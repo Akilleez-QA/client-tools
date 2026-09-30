@@ -1,0 +1,172 @@
+{
+  "recipe_manifest": "17d635166bc16fb65ee03b0c60714517db5ed3b58e36a8b284736d3a89afe0dd",
+  "receipt_sha256": "42303cb6f5fb9498a51be97e2e56e3ba78b1603248198f5bde0943ec36caa2b9",
+  "sink_name": "swg_binding30_f845c059e1",
+  "process_cleanup": [
+    {
+      "tag": "wine-config.log",
+      "pid": 1391638,
+      "initial_exit": 0,
+      "exit": 0
+    },
+    {
+      "tag": "probe.log",
+      "pid": 1391726,
+      "initial_exit": 0,
+      "exit": 0
+    }
+  ],
+  "probe_invocations": 1,
+  "runtime_inputs": {
+    "receipt_sha256": "42303cb6f5fb9498a51be97e2e56e3ba78b1603248198f5bde0943ec36caa2b9",
+    "exe_sha256": "362ae3248b3f8d6d6e287aa6fe6a53b9c8959a1cdec611bfb5e6acfa27eaa49d",
+    "dll_path": "/home/akilleez/Work/swg-source-vm/client/SWGSource Client v3.0/Mss32.dll",
+    "dll_sha256": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "plugins": {
+      "AudioCapture.flt": "6e05a05eb4a5c25d0062a9c22ea55ad7c18d63c1369c05ca9059c76580f5a853",
+      "Msseax.m3d": "cf8a75167ce825804da64265de8ac8723415e337704128d2eb26f1d9f6a6c812",
+      "index.html": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mssdolby.flt": "7c597839209437f9e74238bbc36efcecb449daabf7a2fa1068aa888e798216af",
+      "mssds3d.flt": "d7616b1936d832de0d43a4d7de65fbefc3fa84d200705cd5fdf8056bc0be6011",
+      "mssdsp.flt": "4d82bbc98b12546ef897b5561f2f609b4c93253557d078e7a05b5f3fc810bde9",
+      "msseax.flt": "15f5e78c282e04b50406633e349d8098d0c5fa957b7fbc6e4516b42ad66e513b",
+      "mssmp3.asi": "094cbb896e83d978fbe1f9bc1c6aca45430570e0a86790cfd4ef4f92a6063573",
+      "mssogg.asi": "a4e3d0dfc61d5c4a470836ce4aff7eb025ac53c4326ef0be8636aba2fc1fbdf1",
+      "msssoft.m3d": "f6f328d875e07296eec678400e9e43d215d566a3a1e582e1befd5a58cea0bfa5",
+      "msssrs.flt": "fe93e1e96c33e7f7991663ea408a1ce5ba20b47936e2b8fd6f8d60787586446d",
+      "mssvoice.asi": "8687d0fef5db98b2408b80567fce6cf59ad8896392659164627fca625e735ed5"
+    }
+  },
+  "retirement_proof": false,
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "owned_module": "536870916",
+  "command": [
+    "wine",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/binding-probe30/runtime-recipe-v1/private-run-959d3f4e/prefix/drive_c/binding30-private/probe.exe",
+    "C:\\binding30-private\\Mss32.dll",
+    "C:\\binding30-private\\miles"
+  ],
+  "probe_exit": 0,
+  "trace": {
+    "binds": [
+      [
+        "A1",
+        "008D3360",
+        "44144",
+        "1",
+        "00000001",
+        "0",
+        "1",
+        "0",
+        "-"
+      ],
+      [
+        "B1",
+        "008D3360",
+        "88244",
+        "1",
+        "00000001",
+        "0",
+        "1",
+        "0",
+        "-"
+      ],
+      [
+        "A2",
+        "008D3360",
+        "44144",
+        "1",
+        "00000001",
+        "0",
+        "1",
+        "0",
+        "-"
+      ],
+      [
+        "F",
+        "008D3360",
+        "44144",
+        "0",
+        "00000000",
+        "0",
+        "1",
+        "29",
+        "556e737570706f7274656420776176652066696c6520666f726d61742e"
+      ],
+      [
+        "B2-after-F",
+        "008D3360",
+        "88244",
+        "1",
+        "00000001",
+        "0",
+        "1",
+        "29",
+        "556e737570706f7274656420776176652066696c6520666f726d61742e"
+      ]
+    ],
+    "queries": [
+      [
+        "A1",
+        "1000",
+        "000003e8",
+        "0",
+        "00000000",
+        "1000"
+      ],
+      [
+        "B1",
+        "2000",
+        "000007d0",
+        "0",
+        "00000000",
+        "2000"
+      ],
+      [
+        "A2",
+        "1000",
+        "000003e8",
+        "0",
+        "00000000",
+        "1000"
+      ],
+      [
+        "B2-after-F",
+        "2000",
+        "000007d0",
+        "0",
+        "00000000",
+        "2000"
+      ]
+    ],
+    "events": [
+      "bind=A1",
+      "query=A1",
+      "end=A1",
+      "bind=B1",
+      "query=B1",
+      "end=B1",
+      "bind=A2",
+      "query=A2",
+      "end=A2",
+      "bind=F",
+      "bind=B2-after-F",
+      "query=B2-after-F",
+      "end=B2-after-F",
+      "release_returned",
+      "shutdown_returned"
+    ]
+  },
+  "inputs_unchanged": true,
+  "cleanup_errors": [],
+  "owned_children_reaped": true,
+  "owned_sink_absent": true,
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true
+}
