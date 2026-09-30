@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "candidate",
+    "command": [
+      "g++",
+      "-std=c++11",
+      "-g",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-I/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/coordinator-candidate",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/coordinator-candidate/coordinator.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review17/coordinator_parent.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review17/grok17-failed-unlock/candidate"
+    ],
+    "build": 0,
+    "run": 0,
+    "output": "PASS 30 parent coordinator mechanism checks; no vendor calls\n",
+    "expected": true,
+    "source_sha256": "d434149188ee15bfc51c9a3286c9c5a49ef5d4762e8a7bb95d485cc852ec16b6"
+  },
+  {
+    "mode": "mutant",
+    "command": [
+      "g++",
+      "-std=c++11",
+      "-g",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-I/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/coordinator-candidate",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review17/grok17-failed-unlock/coordinator-mutant.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review17/coordinator_parent.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review17/grok17-failed-unlock/mutant"
+    ],
+    "build": 0,
+    "run": 1,
+    "output": "FAIL parent line 43\n",
+    "expected": true,
+    "source_sha256": "7ad4de3e667515d7904de53c496dfd9a026ed31fc60072d034ed802e9969ce10"
+  }
+]

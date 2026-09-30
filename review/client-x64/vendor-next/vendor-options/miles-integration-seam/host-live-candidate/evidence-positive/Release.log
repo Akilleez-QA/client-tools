@@ -1,0 +1,127 @@
+loaded_dll=C:\host-live-private\mss32.dll
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+PASS 1 register real sample
+PASS 2 register real stream
+PASS 3 dispatch complete
+CONTROL volume mask=0
+PASS 4 dispatch complete
+volume mask=0 expected=00000000,00000000 observed=00000000,00000000
+PASS 5 volume bits and out presence
+CONTROL volume mask=1
+PASS 6 dispatch complete
+volume mask=1 expected=3e800000,00000000 observed=3e800000,00000000
+PASS 7 volume bits and out presence
+CONTROL volume mask=2
+PASS 8 dispatch complete
+volume mask=2 expected=00000000,3f400000 observed=00000000,3f400000
+PASS 9 volume bits and out presence
+CONTROL volume mask=3
+PASS 10 dispatch complete
+volume mask=3 expected=3e800000,3f400000 observed=3e800000,3f400000
+PASS 11 volume bits and out presence
+PASS 12 dispatch complete
+PASS 13 dispatch complete
+PASS 14 real playback rate
+PASS 15 dispatch complete
+loop-count control=1 candidate=1
+PASS 16 real loop count effect
+PASS 17 dispatch complete
+loop-block control=1,0,-1 candidate=1,0,-1
+PASS 18 real loop block effect
+PASS 19 dispatch complete
+PASS 20 dispatch complete
+PASS 21 real byte position
+PASS 22 dispatch complete
+CONTROL sample-ms mask=0
+PASS 23 dispatch complete
+PASS 24 real sample ms and out presence
+CONTROL sample-ms mask=1
+PASS 25 dispatch complete
+PASS 26 real sample ms and out presence
+CONTROL sample-ms mask=2
+PASS 27 dispatch complete
+PASS 28 real sample ms and out presence
+CONTROL sample-ms mask=3
+PASS 29 dispatch complete
+PASS 30 real sample ms and out presence
+PASS 31 dispatch complete
+PASS 32 quiescent sample status
+PASS 33 dispatch complete
+CONTROL volume mask=0
+PASS 34 dispatch complete
+volume mask=0 expected=00000000,00000000 observed=00000000,00000000
+PASS 35 volume bits and out presence
+CONTROL volume mask=1
+PASS 36 dispatch complete
+volume mask=1 expected=3f400000,00000000 observed=3f400000,00000000
+PASS 37 volume bits and out presence
+CONTROL volume mask=2
+PASS 38 dispatch complete
+volume mask=2 expected=00000000,3e800000 observed=00000000,3e800000
+PASS 39 volume bits and out presence
+CONTROL volume mask=3
+PASS 40 dispatch complete
+volume mask=3 expected=3f400000,3e800000 observed=3f400000,3e800000
+PASS 41 volume bits and out presence
+PASS 42 dispatch complete
+PASS 43 dispatch complete
+PASS 44 real playback rate
+PASS 45 dispatch complete
+loop-count control=3 candidate=3
+PASS 46 real loop count effect
+PASS 47 dispatch complete
+loop-block control=3,128,1024 candidate=3,128,1024
+PASS 48 real loop block effect
+PASS 49 dispatch complete
+PASS 50 dispatch complete
+PASS 51 real byte position
+PASS 52 dispatch complete
+CONTROL sample-ms mask=0
+PASS 53 dispatch complete
+PASS 54 real sample ms and out presence
+CONTROL sample-ms mask=1
+PASS 55 dispatch complete
+PASS 56 real sample ms and out presence
+CONTROL sample-ms mask=2
+PASS 57 dispatch complete
+PASS 58 real sample ms and out presence
+CONTROL sample-ms mask=3
+PASS 59 dispatch complete
+PASS 60 real sample ms and out presence
+PASS 61 dispatch complete
+PASS 62 quiescent sample status
+PASS 63 dispatch complete
+PASS 64 quiescent stream status
+CONTROL stream-ms mask=0
+PASS 65 dispatch complete
+PASS 66 real stream ms and out presence
+CONTROL stream-ms mask=1
+PASS 67 dispatch complete
+PASS 68 real stream ms and out presence
+CONTROL stream-ms mask=2
+PASS 69 dispatch complete
+PASS 70 real stream ms and out presence
+CONTROL stream-ms mask=3
+PASS 71 dispatch complete
+PASS 72 real stream ms and out presence
+PASS 73 stale ID rejected
+PASS 74 unused field rejected
+PASS 75 rejected setters leave vendor volume intact
+CLEANUP complete
+arm=20 calls=8
+arm=21 calls=2
+arm=22 calls=2
+arm=24 calls=2
+arm=25 calls=8
+arm=40 calls=2
+arm=41 calls=2
+arm=42 calls=2
+arm=45 calls=2
+arm=46 calls=2
+arm=48 calls=2
+arm=58 calls=4
+arm=60 calls=1
+75/75 checks; 13 distinct dispatched arms

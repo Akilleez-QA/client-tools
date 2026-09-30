@@ -1,0 +1,49 @@
+{
+  "input_sha256": {
+    "vendor-options/miles-integration-seam/coordinator-candidate/coordinator.cpp": "d434149188ee15bfc51c9a3286c9c5a49ef5d4762e8a7bb95d485cc852ec16b6",
+    "vendor-options/miles-integration-seam/coordinator-candidate/coordinator.h": "fb7e2d84697976787f702c1a0af5771d724e8dc17e6899e631858eb7fc709512",
+    "vendor-options/miles-integration-seam/coordinator-candidate/coordinator_test.cpp": "23c8593e4ea7a2b6cf121869c31b81e4cff5c65e2ac95219922b3f08ca3138f8",
+    "vendor-options/miles-integration-seam/parent-review17/coordinator_parent.cpp": "9f6e196cfc65464c291473d1c168cc23f8fd3660df77cbe52a14eff3a8f18303",
+    "vendor-options/miles-integration-seam/protocol-candidate/miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9"
+  },
+  "results": [
+    {
+      "name": "reproduce87",
+      "exit": 0,
+      "expected_observed": true,
+      "command": [
+        "clang++",
+        "-std=c++11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "vendor-options/miles-integration-seam/coordinator-candidate/coordinator.cpp",
+        "vendor-options/miles-integration-seam/coordinator-candidate/coordinator_test.cpp",
+        "-o",
+        "vendor-options/miles-integration-seam/parent-review17/reproduce87"
+      ]
+    },
+    {
+      "name": "parent23",
+      "exit": 0,
+      "expected_observed": true,
+      "command": [
+        "clang++",
+        "-std=c++11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "vendor-options/miles-integration-seam/coordinator-candidate/coordinator.cpp",
+        "vendor-options/miles-integration-seam/parent-review17/coordinator_parent.cpp",
+        "-o",
+        "vendor-options/miles-integration-seam/parent-review17/parent23"
+      ]
+    }
+  ]
+}

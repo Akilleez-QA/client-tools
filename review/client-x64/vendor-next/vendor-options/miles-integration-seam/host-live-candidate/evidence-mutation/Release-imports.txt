@@ -1,0 +1,147 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\miles-host-live-mutant-v1\Release\probe.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Section contains the following imports:
+
+    mss32.dll
+                41510C Import Address Table
+                41B82C Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                   FE _AIL_set_listener_3D_orientation@28
+                  101 _AIL_set_listener_3D_velocity_vector@16
+                   FF _AIL_set_listener_3D_position@16
+                  10C _AIL_set_sample_3D_velocity_vector@16
+                  10A _AIL_set_sample_3D_position@16
+                  108 _AIL_set_sample_3D_distances@16
+                  11B _AIL_set_sample_occlusion@8
+                  11A _AIL_set_sample_obstruction@8
+                   F3 _AIL_set_3D_rolloff_factor@8
+                  106 _AIL_set_room_type@8
+                   C6 _AIL_room_type@4
+                  12C _AIL_set_stream_ms_position@8
+                  12A _AIL_set_stream_loop_block@12
+                  12B _AIL_set_stream_loop_count@8
+                  13A _AIL_start_stream@4
+                   2A _AIL_active_sample_count@4
+                   DF _AIL_sample_reverb_levels@12
+                  11F _AIL_set_sample_reverb_levels@12
+                   4D _AIL_end_sample@4
+                  13E _AIL_stop_sample@4
+                  138 _AIL_start_sample@4
+                   48 _AIL_digital_latency@4
+                   43 _AIL_digital_CPU_percent@4
+                   57 _AIL_file_error@0
+                   EF _AIL_serve@0
+                   65 _AIL_get_timer_highest_delay@0
+                  143 _AIL_stream_ms_position@12
+                  146 _AIL_stream_status@4
+                   39 _AIL_close_stream@4
+                   85 _AIL_open_stream@12
+                   D8 _AIL_sample_ms_position@12
+                  119 _AIL_set_sample_ms_position@8
+                   DD _AIL_sample_position@4
+                  11D _AIL_set_sample_position@8
+                   D6 _AIL_sample_loop_count@4
+                   E3 _AIL_sample_volume_levels@12
+                   DC _AIL_sample_playback_rate@4
+                   E1 _AIL_sample_status@4
+                   D5 _AIL_sample_loop_block@12
+                  116 _AIL_set_sample_loop_block@12
+                  117 _AIL_set_sample_loop_count@8
+                  121 _AIL_set_sample_volume_levels@12
+                  11C _AIL_set_sample_playback_rate@8
+                  103 _AIL_set_named_sample_file@20
+                   C0 _AIL_release_sample_handle@4
+                   2C _AIL_allocate_sample_handle@4
+                   35 _AIL_close_digital_driver@4
+                   81 _AIL_open_digital_driver@16
+                   69 _AIL_last_error@0
+                  133 _AIL_shutdown@0
+                  13C _AIL_startup@0
+
+    KERNEL32.dll
+                415000 Import Address Table
+                41B720 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                  105 DeleteCriticalSection
+                  4EA SetEndOfFile
+                   C2 CreateFileW
+                  2C5 GetStringTypeW
+                  5E0 WriteConsoleW
+                  3FA OutputDebugStringW
+                  522 SetStdHandle
+                  1B3 GetCPInfo
+                  286 GetOEMCP
+                  1A4 GetACP
+                  372 IsValidCodePage
+                  3A7 LoadLibraryExW
+                  336 HeapReAlloc
+                  267 GetModuleHandleW
+                  574 TlsFree
+                  576 TlsSetValue
+                  575 TlsGetValue
+                  573 TlsAlloc
+                  561 TerminateProcess
+                  209 GetCurrentProcess
+                  552 Sleep
+                  348 InitializeCriticalSectionAndSpinCount
+                  543 SetUnhandledExceptionFilter
+                  582 UnhandledExceptionFilter
+                  1DC GetConsoleCP
+                  192 FlushFileBuffers
+                  396 LCMapStringW
+                  338 HeapSize
+                  19D FreeEnvironmentStringsW
+                  227 GetEnvironmentStringsW
+                  2D6 GetSystemTimeAsFileTime
+                  20A GetCurrentProcessId
+                  42D QueryPerformanceCounter
+                  263 GetModuleFileNameW
+                  5E1 WriteFile
+                  2A2 GetProcessHeap
+                  20E GetCurrentThreadId
+                  50B SetLastError
+                  2BE GetStartupInfoW
+                  262 GetModuleFileNameA
+                  264 GetModuleHandleA
+                  121 EncodePointer
+                   FE DecodePointer
+                  125 EnterCriticalSection
+                  3A2 LeaveCriticalSection
+                  450 ReadFile
+                  440 RaiseException
+                  4AD RtlUnwind
+                  1C8 GetCommandLineA
+                  36D IsProcessorFeaturePresent
+                  250 GetLastError
+                  32F HeapAlloc
+                  333 HeapFree
+                  151 ExitProcess
+                  266 GetModuleHandleExW
+                  29D GetProcAddress
+                   1B AreFileApisANSI
+                  3D1 MultiByteToWideChar
+                  5CD WideCharToMultiByte
+                  367 IsDebuggerPresent
+                   7F CloseHandle
+                  1EE GetConsoleMode
+                  44E ReadConsoleW
+                  4FD SetFilePointerEx
+                  2C0 GetStdHandle
+                  23E GetFileType
+
+  Summary
+
+        4000 .data
+        8000 .rdata
+        2000 .reloc
+       14000 .text

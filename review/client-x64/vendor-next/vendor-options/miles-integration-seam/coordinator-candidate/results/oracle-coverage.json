@@ -1,0 +1,87 @@
+[
+  {
+    "oracle_id": "session_replay",
+    "coverage": "partial",
+    "limit": "Incarnation rejects stale model operations; no Closed state, wire reply matching or actual channels."
+  },
+  {
+    "oracle_id": "handshake_and_sequence",
+    "coverage": "partial",
+    "limit": "Admission ordinal replay/exhaustion checked; protocol version handshake and submitted-wire correlation/replay absent."
+  },
+  {
+    "oracle_id": "lock_owner_starvation",
+    "coverage": "partial",
+    "limit": "Owner continuation/unlock works after foreign admission rejection; pending intake queue, fair selection and liveness absent."
+  },
+  {
+    "oracle_id": "nested_lock_ownership",
+    "coverage": "mechanism",
+    "limit": "Owner and recursive depth mechanism checked; no actual Miles lock call."
+  },
+  {
+    "oracle_id": "causal_reverse_io",
+    "coverage": "partial",
+    "limit": "Causal admission pins outer completion until acknowledgment; no actual TreeFile routing or channel reactor."
+  },
+  {
+    "oracle_id": "foreign_callback_during_call",
+    "coverage": "partial",
+    "limit": "Unsolicited remains distinct from causal callback; callback execution affinity/source-thread measurement absent (UnsupportedContract)."
+  },
+  {
+    "oracle_id": "idle_eos_progress",
+    "coverage": "partial",
+    "limit": "Callback admission requires no active forward call; no executor, Sound2d effect or latency claim."
+  },
+  {
+    "oracle_id": "close_frontier_channel_reorder",
+    "coverage": "partial",
+    "limit": "Out-of-order ack hole blocks frontier; vendor gate, actual channels and retirement absent."
+  },
+  {
+    "oracle_id": "close_inflight_call",
+    "coverage": "partial",
+    "limit": "Request pin survives beginClose and blocks ordinary resource admission; actual SDK close/return values absent."
+  },
+  {
+    "oracle_id": "close_inflight_callback",
+    "coverage": "partial",
+    "limit": "Callback pin remains until acknowledgment, including during close; no callback effect executor or retirement."
+  },
+  {
+    "oracle_id": "close_generates_callback",
+    "coverage": "partial",
+    "limit": "Late and causal callback observations accepted during cleanup and extend frontier; actual SDK close behavior untested."
+  },
+  {
+    "oracle_id": "post_fence_callback_violation",
+    "coverage": "unimplemented",
+    "limit": "No registration retirement, vendor termination grant or post-retirement dispatch exists."
+  },
+  {
+    "oracle_id": "generation_and_registration_reuse",
+    "coverage": "unimplemented",
+    "limit": "Only handle structural validity; resource registry liveness/parent expansion not integrated; registrations never retire/reuse."
+  },
+  {
+    "oracle_id": "host_death_ambiguous",
+    "coverage": "partial",
+    "limit": "Failed retains active admission pins and callback state, refuses vendor admissions; queued/submitted/returned correlation and client terminal delivery not implemented."
+  },
+  {
+    "oracle_id": "combined_locked_reverse_io_foreign_eos",
+    "coverage": "partial",
+    "limit": "Mechanism retains separate identities, permits causal completion while unsolicited ack pending, excludes foreign lane. Game affinity/reentry remains UnsupportedContract."
+  },
+  {
+    "oracle_id": "backpressure_both_channels",
+    "coverage": "unimplemented",
+    "limit": "No pipes, partial frames, OS I/O reactor or writer cancellation implemented."
+  },
+  {
+    "oracle_id": "shutdown_pending_reverse_file",
+    "coverage": "partial",
+    "limit": "Draining allows trusted cleanup and causal observation/ack/completion; actual shutdown order, channels, no-new-callback evidence and Closed state absent."
+  }
+]

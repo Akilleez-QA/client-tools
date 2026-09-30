@@ -1,0 +1,15 @@
+PASS exchange reads=2 writes=1
+CASE exchange child_exit=0
+PASS fragmented reads=32 writes=20
+CASE fragmented child_exit=0
+PASS bad-small sent-bytes=48
+CASE bad-small child_exit=0
+PASS bad-large sent-bytes=48
+CASE bad-large child_exit=0
+PASS close-header sent-bytes=13
+CASE close-header child_exit=0
+PASS close-body sent-bytes=60
+CASE close-body child_exit=0
+PASS backpressure reverse-progress-while-command-pending=1 cancellation-drained=1
+CASE backpressure child_exit=0
+PASS 7 private cross-process transport cases

@@ -5,6 +5,7 @@
 namespace MilesHost {
 class RegistryResolver : public Resolver {
  MilesTransport::ResourceRegistry const &registry;
+ RegistryResolver &operator=(RegistryResolver const &);
 public:
  explicit RegistryResolver(MilesTransport::ResourceRegistry const &value):registry(value) {}
  bool resolve(MilesWire::Handle const &handle,uint32_t allowed,uintptr_t &native) {

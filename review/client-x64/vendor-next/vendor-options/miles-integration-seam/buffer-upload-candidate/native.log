@@ -1,0 +1,68 @@
+[
+  {
+    "arch": "x86",
+    "config": "Debug",
+    "variant": "actual",
+    "build_exit": 0,
+    "run_exit": 0,
+    "expected_observed": true
+  },
+  {
+    "arch": "x86",
+    "config": "Debug",
+    "variant": "premature-seal",
+    "build_exit": 0,
+    "run_exit": 1,
+    "expected_observed": true
+  },
+  {
+    "arch": "x86",
+    "config": "Release",
+    "variant": "actual",
+    "build_exit": 0,
+    "run_exit": 0,
+    "expected_observed": true
+  },
+  {
+    "arch": "x86",
+    "config": "Release",
+    "variant": "premature-seal",
+    "build_exit": 0,
+    "run_exit": 1,
+    "expected_observed": true
+  },
+  {
+    "arch": "amd64",
+    "config": "Debug",
+    "variant": "actual",
+    "build_exit": 0,
+    "run_exit": 0,
+    "expected_observed": true
+  },
+  {
+    "arch": "amd64",
+    "config": "Debug",
+    "variant": "premature-seal",
+    "build_exit": 0,
+    "run_exit": 1,
+    "expected_observed": true
+  },
+  {
+    "arch": "amd64",
+    "config": "Release",
+    "variant": "actual",
+    "build_exit": 0,
+    "run_exit": 0,
+    "expected_observed": true
+  },
+  {
+    "arch": "amd64",
+    "config": "Release",
+    "variant": "premature-seal",
+    "build_exit": 0,
+    "run_exit": 1,
+    "expected_observed": true
+  }
+]
+C:\miles-upload-parent17-v2\run.py:4: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  with tarfile.open(r/'input.tar') as t:t.extractall(r)

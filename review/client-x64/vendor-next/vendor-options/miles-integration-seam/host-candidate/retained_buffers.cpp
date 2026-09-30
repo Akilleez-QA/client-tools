@@ -33,9 +33,17 @@ bool RetainedBuffers::stage(Kind kind, const void *frame, size_t frameSize,
     // Any allocation exception leaves published tokens, active copy and accounting unchanged.
     const Token token = reserveToken();
     if (!token) return false;
-    entries.insert(std::make_pair(token, candidate));
-    out = token;
+    // Insert only an empty payload: copying candidate here would transiently
+    // allocate a second complete image on older compilers without implicit moves.
+    Entry empty;
+    empty.kind = kind;
+    std::pair<Entries::iterator, bool> inserted = entries.insert(std::make_pair(token, empty));
+    if (!inserted.second) return false;
+    // Both vectors use the same default allocator. Swap transfers storage without
+    // allocation; no throwing byte copy remains after the map insertion succeeds.
+    inserted.first->second.bytes.swap(candidate.bytes);
     used += length;
+    out = token;
     return true;
 }
 bool RetainedBuffers::view(Token token, View &out) const {

@@ -1,0 +1,106 @@
+#include "coordinator.h"
+#include <cstdio>
+static unsigned checks;
+static bool check(bool ok,int line){++checks;if(!ok)std::printf("FAIL %d\n",line);return ok;}
+#define CHECK(x) if(!check((x),__LINE__))return 1
+int main(){
+ using namespace MilesCoordinator;
+ MilesWire::Handle sample={MilesWire::OwnedSample,1,1};
+ std::vector<MilesWire::Handle> resources(1,sample),none;
+ Coordinator c(100);
+ CHECK(c.registerCallback(99,1,sample)==StaleSession);
+ CHECK(c.registerCallback(100,1,sample)==Ok);
+ CHECK(c.registerCallback(100,1,sample)==InvalidIdentity);
+ CHECK(c.admitGame(99,1,10,0,AcquireLock,resources)==StaleSession);
+ CHECK(c.admitGame(100,2,10,0,AcquireLock,resources)==InvalidIdentity);
+ CHECK(c.admitGame(100,1,10,0,AcquireLock,resources)==Ok);
+ CHECK(c.lease()==0 && c.leaseDepth()==0);
+ CHECK(c.completeAdmission(100,1)==Ok);
+ Id lease=c.lease();CHECK(lease!=0 && c.leaseOwner()==10 && c.leaseDepth()==1);
+ CHECK(c.admitGame(100,2,20,lease,Ordinary,resources)==WrongLease);
+ CHECK(c.admitGame(100,2,10,lease,AcquireLock,resources)==Ok);
+ CHECK(c.completeAdmission(100,2)==Ok && c.leaseDepth()==2);
+ CHECK(c.admitGame(100,3,20,lease,ReleaseLock,none)==WrongLease);
+ CHECK(c.admitGame(100,3,10,lease,Ordinary,resources)==Ok);
+ CallbackId reverse={},worker={},bad={};
+ CHECK(c.admitCallback(100,1,CausalReverseIo,99,bad)==InvalidIdentity && !bad.sequence);
+ CHECK(c.admitCallback(100,1,Unsolicited,3,bad)==InvalidIdentity);
+ CHECK(c.admitCallback(100,1,CausalReverseIo,3,reverse)==Ok);
+ CHECK(c.admitCallback(100,1,Unsolicited,0,worker)==Ok);
+ CHECK(reverse.sequence!=worker.sequence);
+ CHECK(c.completeAdmission(100,3)==PendingCallback);
+ CHECK(c.admitGame(100,4,10,lease,Ordinary,resources)==Busy);
+ CHECK(c.beginClose(100,1)==Ok);
+ Readiness ready={};CHECK(c.readiness(100,1,ready)==Ok);
+ CHECK(ready.callbackPins==2);
+ CHECK(ready.requestPins==1 && ready.closeFrontier==2 && ready.acknowledgedFrontier==0 && ready.vendorTerminationUnproven);
+ CHECK(c.acknowledge(100,worker)==Ok);
+ CHECK(c.readiness(100,1,ready)==Ok && ready.acknowledgedFrontier==0);
+ CHECK(ready.callbackPins==1);
+ CHECK(c.completeAdmission(100,3)==PendingCallback);
+ CHECK(c.acknowledge(100,reverse)==Ok);
+ CHECK(c.readiness(100,1,ready)==Ok && ready.acknowledgedFrontier==2);
+ CHECK(c.completeAdmission(100,3)==Ok);
+ CHECK(c.readiness(100,1,ready)==Ok && ready.requestPins==0 && ready.vendorTerminationUnproven);
+ CHECK(c.acknowledge(100,reverse)==Unknown);
+ CHECK(c.admitCallback(100,1,Unsolicited,0,worker)==Ok);
+ CHECK(c.readiness(100,1,ready)==Ok && ready.closeFrontier==3 && ready.acknowledgedFrontier==2);
+ CHECK(c.admitGame(100,4,10,lease,Ordinary,resources)==ClosingResource);
+ CHECK(c.beginDrain(100)==Ok && c.state()==Draining);
+ CHECK(c.admitGame(100,4,10,lease,ReleaseLock,none)==WrongState);
+ CHECK(c.admitCleanup(100,4,20,lease,ReleaseLock,none)==WrongLease);
+ CHECK(c.admitCleanup(100,4,10,lease,AcquireLock,none)==WrongState);
+ CHECK(c.admitCleanup(100,4,10,lease,ReleaseLock,none)==Ok);
+ CHECK(c.completeAdmission(100,4)==Ok && c.leaseDepth()==1);
+ CHECK(c.admitCleanup(100,5,10,lease,ReleaseLock,none)==Ok);
+ CHECK(c.completeAdmission(100,5)==Ok && c.leaseDepth()==0 && c.lease()==0);
+ CHECK(c.admitCleanup(100,6,10,0,Ordinary,resources)==Ok);
+ CHECK(c.admitCallback(100,1,CausalReverseIo,6,reverse)==Ok);
+ CHECK(c.completeAdmission(100,6)==PendingCallback);
+ CHECK(c.acknowledge(100,reverse)==Ok);
+ CHECK(c.completeAdmission(100,6)==Ok);
+ CHECK(c.readiness(100,1,ready)==Ok && ready.acknowledgedFrontier==2 && ready.closeFrontier==4);
+ CHECK(c.acknowledge(100,worker)==Ok);
+ CHECK(c.readiness(100,1,ready)==Ok && ready.acknowledgedFrontier==4 && ready.vendorTerminationUnproven);
+ CHECK(ready.callbackPins==0);
+ // Failure retains active resource pins, unacknowledged callbacks and lease diagnostics.
+ Coordinator f(200);CHECK(f.registerCallback(200,1,sample)==Ok);
+ CHECK(f.admitGame(200,1,1,0,AcquireLock,none)==Ok && f.completeAdmission(200,1)==Ok);
+ Id held=f.lease();CHECK(f.admitGame(200,2,1,held,Ordinary,resources)==Ok);
+ CHECK(f.admitCallback(200,1,CausalReverseIo,2,reverse)==Ok);
+ CHECK(f.fail(200)==Ok && f.state()==Failed && f.activeAdmission()==2 && f.lease()==held);
+ CHECK(f.readiness(200,1,ready)==Ok && ready.requestPins==1);
+ CHECK(f.admitCleanup(200,3,1,held,ReleaseLock,none)==WrongState);
+ CHECK(f.completeAdmission(200,2)==PendingCallback);
+ CHECK(f.admitCallback(200,1,Unsolicited,0,worker)==Ok);
+ CHECK(f.acknowledge(200,reverse)==Ok);
+ CHECK(f.completeAdmission(200,2)==Ok && f.state()==Failed && f.lease()==held);
+ CHECK(f.readiness(200,1,ready)==Ok && ready.requestPins==0 && ready.vendorTerminationUnproven);
+ CHECK(f.beginDrain(200)==WrongState);
+ // Incarnation rejects old request/callback completion without disturbing current pins.
+ Coordinator fresh(201);CHECK(fresh.registerCallback(201,1,sample)==Ok);
+ CHECK(fresh.admitGame(201,1,1,0,Ordinary,resources)==Ok);
+ CHECK(fresh.completeAdmission(200,1)==StaleSession);
+ CHECK(fresh.acknowledge(200,worker)==StaleSession);
+ CHECK(fresh.readiness(201,1,ready)==Ok && ready.requestPins==1);
+ // Small prospective limits discriminate exhaustion without enormous allocations.
+ Limits limits;limits.maximumId=2;limits.registrations=1;limits.callbacks=1;limits.requestResources=1;
+ Coordinator small(300,limits);CHECK(small.registerCallback(300,1,sample)==Ok);
+ CHECK(small.registerCallback(300,2,sample)==Capacity);
+ CHECK(small.admitCallback(300,1,Unsolicited,0,worker)==Ok);
+ CHECK(small.admitCallback(300,1,Unsolicited,0,bad)==Capacity && !bad.sequence);
+ CHECK(small.acknowledge(300,worker)==Ok);
+ CHECK(small.admitCallback(300,1,Unsolicited,0,worker)==Ok && worker.sequence==2);
+ CHECK(small.acknowledge(300,worker)==Ok);
+ CHECK(small.admitCallback(300,1,Unsolicited,0,bad)==Capacity);
+ CHECK(small.admitGame(300,1,1,0,Ordinary,none)==Ok && small.completeAdmission(300,1)==Ok);
+ CHECK(small.admitGame(300,2,1,0,Ordinary,none)==Ok && small.completeAdmission(300,2)==Ok);
+ CHECK(small.admitGame(300,3,1,0,Ordinary,none)==Capacity);
+ CHECK(small.admitGame(300,0,1,0,Ordinary,none)==InvalidIdentity);
+ Coordinator structure(400);resources.push_back(sample);
+ CHECK(structure.admitGame(400,1,1,0,Ordinary,resources)==InvalidIdentity);
+ resources.resize(1);resources[0].generation=0;
+ CHECK(structure.admitGame(400,1,1,0,Ordinary,resources)==InvalidIdentity);
+ CHECK(structure.admitGame(400,1,1,0,ReleaseLock,none)==WrongLease);
+ std::printf("PASS %u coordinator mechanism checks; no vendor calls\n",checks);return 0;
+}

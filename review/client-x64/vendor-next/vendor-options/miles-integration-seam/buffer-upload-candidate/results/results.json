@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "arch": "x86",
+      "config": "Debug",
+      "variant": "actual",
+      "build_exit": 0,
+      "run_exit": 0,
+      "expected_observed": true
+    },
+    {
+      "arch": "x86",
+      "config": "Debug",
+      "variant": "premature-seal",
+      "build_exit": 0,
+      "run_exit": 1,
+      "expected_observed": true
+    },
+    {
+      "arch": "x86",
+      "config": "Release",
+      "variant": "actual",
+      "build_exit": 0,
+      "run_exit": 0,
+      "expected_observed": true
+    },
+    {
+      "arch": "x86",
+      "config": "Release",
+      "variant": "premature-seal",
+      "build_exit": 0,
+      "run_exit": 1,
+      "expected_observed": true
+    },
+    {
+      "arch": "amd64",
+      "config": "Debug",
+      "variant": "actual",
+      "build_exit": 0,
+      "run_exit": 0,
+      "expected_observed": true
+    },
+    {
+      "arch": "amd64",
+      "config": "Debug",
+      "variant": "premature-seal",
+      "build_exit": 0,
+      "run_exit": 1,
+      "expected_observed": true
+    },
+    {
+      "arch": "amd64",
+      "config": "Release",
+      "variant": "actual",
+      "build_exit": 0,
+      "run_exit": 0,
+      "expected_observed": true
+    },
+    {
+      "arch": "amd64",
+      "config": "Release",
+      "variant": "premature-seal",
+      "build_exit": 0,
+      "run_exit": 1,
+      "expected_observed": true
+    }
+  ],
+  "source_sha256": {
+    "buffer-upload-candidate\\buffer_upload.cpp": "e36e074e1031f4df9366b865131e7575045a0d497c07219b576f3ce419fd9bd5",
+    "buffer-upload-candidate\\buffer_upload.h": "a3fef35e517a2f3a8d6bc96592f09876eca61ae8241686059160ca1a751d889e",
+    "buffer-upload-candidate\\buffer_upload_mutant.cpp": "e9a3d843d447e33860c62283d5925b0f2dec14ba6636440c998932dbbd5c9aaf",
+    "buffer-upload-candidate\\tests.cpp": "8838f562c6f239128f98716423305074761962f96acc2c45776b1d5b1df49a90",
+    "protocol-candidate\\miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9"
+  }
+}

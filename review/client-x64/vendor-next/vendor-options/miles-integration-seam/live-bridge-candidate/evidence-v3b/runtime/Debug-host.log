@@ -1,0 +1,34 @@
+loaded_dll=C:\bridge-live-private\mss32.dll
+entry cw=027f mxcsr=00001f80
+request=1 opcode=4096 transport=0 vendor=0
+vendor startup=1
+request=2 opcode=56 transport=0 vendor=1
+vendor driver_nonnull=1
+request=3 opcode=14 transport=0 vendor=0
+request=4 opcode=3 transport=0 vendor=0
+request=5 opcode=4097 transport=0 vendor=0
+request=6 opcode=4098 transport=0 vendor=0
+request=7 opcode=4099 transport=0 vendor=0
+vendor bind direct=1 framed=1
+request=8 opcode=32 transport=0 vendor=1
+vendor duration direct=204,0 framed=204,0
+request=9 opcode=20 transport=0 vendor=0
+vendor rate direct=22050 framed=22050
+request=10 opcode=21 transport=0 vendor=22050
+request=11 opcode=48 transport=0 vendor=0
+vendor volume direct=3e800000,3f400000 framed=3e800000,3f400000
+request=12 opcode=25 transport=0 vendor=0
+request=13 opcode=45 transport=0 vendor=0
+vendor rate direct=11025 framed=11025
+request=14 opcode=21 transport=0 vendor=11025
+vendor duration direct=407,0 framed=407,0
+request=15 opcode=20 transport=0 vendor=0
+request=16 opcode=7 transport=0 vendor=0
+vendor sample release complete; bytes retained
+request=17 opcode=18 transport=0 vendor=0
+request=18 opcode=21 transport=2 vendor=0
+request=19 opcode=4100 transport=0 vendor=0
+vendor shutdown complete; retained image still alive
+request=20 opcode=52 transport=0 vendor=0
+request=21 opcode=4109 transport=0 vendor=0
+PASS host ordered shutdown; no callback registrations

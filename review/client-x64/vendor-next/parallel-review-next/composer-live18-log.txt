@@ -1,0 +1,106 @@
+## Evidence artifacts (bounded)
+
+Under `live-bridge-candidate/`, paths **`evidence-v2/`** and **`evidence-mutation-v1/`** (and common names like `RESULTS.md`, `manifest.json`, `*.log`) **are not present** in this workspace from read-only opens. I cannot verify manifest vs built binary, run logs, or mutation receipts against source. Everything below is **source-only** plus what `bridge.cpp` itself prints on success (`PASS 21 framed requests…`, `checks==21` at ```125:125:/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/live-bridge-candidate/bridge.cpp```).
+
+---
+
+## Request/reply field coverage (21 counted round-trips)
+
+| # | Opcode (controller order) | Host beyond decode | `Backend::execute` | Miles/vendor or other real work |
+|---|---------------------------|--------------------|--------------------|----------------------------------|
+| 1 | `Hello` | Shape + nonce only ```86:86``` | **Not called** | None (fixture handshake) |
+| 2–20 | See ```116:124``` | Coordinator admit + execute when handles resolve ```88:92``` | Per-op gates ```33:71``` | Mix of `AIL_*`, `BufferUpload`, registry |
+| 21 | `SessionClose` | Same loop | State gate only ```44:44``` | No `AIL_*` |
+
+**Header (Request/Reply):** Host enforces `kind`, monotonic `request`, `lane==1`, `!lock_lease`, `!causal_request` ```85:85```; controller mirrors on reply ```107:107```. **`lock_lease`, non-zero `causal_request`, and `lane != 1` are never exercised** (unreachable in this client).
+
+**Call:** `callback` / `reserved` rejected in `execute` ```35:35``` and codec ```153:153```; **no negative tests** in controller. Unused `value[]` / handle / span rules are centralized in ```36:41``` — **only ops in the happy-path script are covered**; garbage on other opcodes is not fuzzed.
+
+**Call spans:** `bytes`/`text` validated per-op ```39:39```; controller only sends payload for Hello (32 B nonce), one full `BufferChunk`, and inline `.wav` text on bind ```116:119```.
+
+**Call `output_mask`:** Allowed only for `AIL_sample_volume_levels` / `AIL_sample_ms_position` ```40:41```; exercised at ```119:122```. All setters require mask `0` (implicit via ```41:41```).
+
+**Result:** Controller checks **`transport_status`** (default `0`; post-release rate expects **`2`** ```123:123```) and selected **`return_bits` / `value[]`** ```116:121```. **`Result.resource`, `bytes`, `text`, `null_mask`, `callback` are never asserted** on replies; host always encodes empty result payloads ```94:94```. **`null_mask` is never set** in `execute` (partial `Result` init).
+
+**Codec vs backend status namespaces:** `execute` uses fixture statuses `0–5` ```34:34```, ```42:42```, ```68:70```; `MilesHost::dispatch` **overwrites** `Result` and sets `transport_status` to `DispatchStatus` `0–3` ```330:334:/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp```. Values **`2` and `3` therefore mean different things** depending on whether failure happened before or after `dispatch` — not a happy-path bug, but **weak for production error taxonomy**.
+
+---
+
+## Concrete defects / inconsistencies (fixture semantics)
+
+1. **Direct vs framed cross-check uses two different `HSAMPLE`s**  
+   After bind, `control` is used for direct `AIL_*` ```59:61```, ```65:66```, ```68:69```, ```70:70``` while framed ops resolve **`c.target` → strategic `sampleId`** ```54:54```, ```67:67```. Status **`5`** means “direct on `control` ≠ framed on `sample`”, not “codec wrong on one handle”. That is coherent as a stress test but **easy to misread as a transport bug**.
+
+2. **Setters invoked twice on bind path**  
+   For volume/rate sets, bridge calls vendor on **`control`** then `dispatch` applies the same setter on **`sample`** ```65:67```. Happy path assumes both stay aligned; **no single-handle set coverage**.
+
+3. **Stale-handle path skips `execute` and coordinator completion semantics differ**  
+   If registry resolve fails, host sets **`transport_status=2`** and **does not** call `execute` or `completeAdmission` ```88:89``` vs ```90:92```. Post-release `AIL_sample_playback_rate` expects **`2`** ```123:123``` — consistent with source, but **`execute`’s `!bound` → status `4` ```64:64``` is unreachable** for that client sequence (unreachable fixture state for this controller, not necessarily a production host).
+
+4. **`RetainedBuffers` token leak on throw after `stage`**  
+   `set_named_sample_file` stages a token ```58:58```; there is **no `retire` on failure** before later `require()` throws ```59:61```. Fixture exits on throw; **not proven cleanup** for partial bind failure (production would need explicit retire).
+
+5. **`Backend` destructor is explicitly “not ordered shutdown”**  
+   If `started` and ordered path not finished, releases samples and `AIL_shutdown` and prints **`FAIL emergency vendor cleanup`** ```31:32``` — ordered success requires reaching host ```97:97``` / controller ```125:125``` without exception.
+
+6. **Hello reply `transport_status`**  
+   Non-Hello path zero-initializes `result` ```85:85```; Hello never sets fields — **`0` by accident of `{}`**, not an explicit success assignment. Works with ```107:107``` default `expected=0`, but **Hello success is implicit**.
+
+---
+
+## Token / resource lifecycle (happy path only)
+
+- **Driver / sample / buffer handles:** registry insert/retire ```46:47```, ```48:52```, ```53:53```, ```63:63```.  
+- **Buffer upload:** `BufferUpload` append/seal/release ```48:52```; **`BufferRelease` blocked if `sample||control`** ```52:52```.  
+- **Bind:** sealed copy + SHA check ```57:57```, ```19:24```; retain **stage → view → commit** only if `bound` ```61:61```; **`control` + `sample` both registered as `OwnedSample`**.  
+- **Shutdown:** requires no sample/control/upload ```53:53```; **`retained.deactivate()`** only ```53:53``` — bytes can outlive vendor session per comment.  
+- **SessionClose:** requires `shutdown && !started && !sample && !control && !upload` ```44:44```.
+
+**Unused in this fixture:** coordinator **`registerCallback` / `admitCallback` / locks** (always `Ordinary`, ```91:91```); callback pipe **connected but no registrations** ```86:86```, ```97:97```; **`BorrowedSample` / streams / file opcodes**.
+
+---
+
+## Unused-field and failure cleanup (coverage gaps)
+
+- **Host does not re-validate `Call` shape** for ops other than Hello before admission ```87:92``` — relies on trusted controller + `execute` (production gap, not violated by built-in client).  
+- **`AIL_open_digital_driver`:** hard-coded `22050/16/stereo`; **`c.value[1]`/`[2]` must match but only those literals are tested** ```46:46```.  
+- **`readFile`:** fixed **9020** bytes and hash ```17:17```, ```19:24``` — no wrong-size/wrong-hash path in controller.  
+- **Registry resolve failure → status 2** without distinguishing stale generation vs wrong kind (host ```88:89```).  
+- **`incarnation(nonce)` uses only first 16 hex chars** ```14:14``` — full 32-byte nonce on wire but coordinator id is truncated (documented behavior; mismatch risk if prose assumes full nonce).
+
+---
+
+## Proof “21 requests → real code” (source-level, not log-verified)
+
+- **`Client::checks`** increments once per `call()` ```107:107```; controller requires **`21`** ```125:125```.  
+- **Vendor DLL identity (x86 host):** logs **`GetModuleFileNameA(..., "mss32.dll")`** ```78:78``` — not cross-checked to evidence manifest here.  
+- **Requests without Miles API:** Hello (host only); buffer ops (`BufferUpload`); SessionClose (state); post-release rate (**no `execute`**).  
+- **Requests with Miles API on happy path:** startup through shutdown as in ```116:124```, except the deliberate **non-execute** stale rate call ```123:123```.  
+- **`AIL_end_sample`:** only **`dispatch` → sample** ```67:67```; **`control` ended only on release** ```63:63``` — asymmetric but bounded by next call being release.
+
+---
+
+## Unreachable / fixture-only vs production
+
+| Item | Classification |
+|------|----------------|
+| Second `Hello`, malformed spans, non-zero `reserved`/`callback` | Unreachable with built client; codec/host partially defend |
+| `execute` `transport_status=4` on post-release rate | Unreachable (host pre-resolve → `2`) |
+| Callback pipe traffic | Unreachable ```86:86``` |
+| Lock lease / drain except shutdown | Partially reachable (`beginDrain` on shutdown ```90:90```); lock actions never sent |
+| PID pipe binding failure | Optional ```83:83``` (`LIMIT` log, test continues) |
+| Dual-sample direct/framed compare | **Intentional fixture design**, not production IPC contract |
+| Evidence manifest ↔ binary ↔ logs | **Cannot verify** (artifacts missing) |
+
+---
+
+## Actionable follow-ups (if hardening this seam)
+
+1. Add or restore **`evidence-v2` / `evidence-mutation-v1`** with manifest hashes tied to ```78:78``` and controller binary; without them, **`PASS`/`21` claims are source-only**.  
+2. Assert **reply `Result` fields** you care about (`resource` after alloc/bind, `null_mask` policy) or document them as intentionally ignored.  
+3. Either **document or fix** the **control vs sample** dual-handle cross-check so reviewers do not treat status **`5`** as codec regression.  
+4. On bind failure after `retained.stage`, **`retire` staged token** (or single scoped guard) before `require()` throws.  
+5. For production host: **validate `Call` before coordinator admission** (mirror ```36:41```) and **unify `transport_status` namespaces** between bridge fixture and `host_dispatch`.  
+6. Add at least one **negative wire case** (stale generation, non-zero `reserved`, wrong PCM hash) — currently **zero mutation coverage** in-tree from inspectable evidence paths.
+
+I did not read RESULTS prose, other model reports, or parent reconciliation, per your scope.

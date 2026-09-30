@@ -1,0 +1,19 @@
+{
+  "native_build_matrix": "Win32/x64 Debug/Release v120 /W4 /WX",
+  "repair_checks_each": 25,
+  "retained_checks_each": 41,
+  "stage_payload_allocations_repaired": 1,
+  "stage_payload_allocations_old_control": 3,
+  "payload_old_expected_exit": 1,
+  "genuine_runtime": "Wine private prefix and private null sink; original DLL",
+  "framed_requests_each": 21,
+  "positive_exit_each": 0,
+  "mutation_exit_each": 1,
+  "mutation_status": 5,
+  "normal_vendor_shutdown_each": true,
+  "default_audio_unchanged": true,
+  "product_changes": false,
+  "known_intermediate_failure": "v3 repair test consumed a rejected admission ordinal; preserved in evidence-v3-failed. v3b uses shared admitNext helper.",
+  "measurement_limit": "ordinary exact-size allocations during stage, not total capacity/RSS/peak; v3c prints old published view after expected failure rather than a short-circuited zero",
+  "source_versions": "v3b component and bridge; v3c changes only diagnostic payload view evaluation order; mutation-v3 changes private dispatcher argument order and expected-failure controller"
+}

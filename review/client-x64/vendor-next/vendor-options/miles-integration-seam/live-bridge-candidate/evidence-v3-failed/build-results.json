@@ -1,0 +1,216 @@
+{
+  "results": [
+    {
+      "config": "Debug",
+      "arch": "x86",
+      "exit": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "x86",
+      "test": "repairs",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "x86",
+      "test": "retained",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "x86",
+      "test": "payload",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "x86",
+      "test": "payload-old",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 1
+    },
+    {
+      "config": "Debug",
+      "arch": "amd64",
+      "exit": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "amd64",
+      "test": "repairs",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "amd64",
+      "test": "retained",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "amd64",
+      "test": "payload",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Debug",
+      "arch": "amd64",
+      "test": "payload-old",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 1
+    },
+    {
+      "config": "Release",
+      "arch": "x86",
+      "exit": 0
+    },
+    {
+      "config": "Release",
+      "arch": "x86",
+      "test": "repairs",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 0
+    },
+    {
+      "config": "Release",
+      "arch": "x86",
+      "test": "retained",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Release",
+      "arch": "x86",
+      "test": "payload",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Release",
+      "arch": "x86",
+      "test": "payload-old",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 1
+    },
+    {
+      "config": "Release",
+      "arch": "amd64",
+      "exit": 0
+    },
+    {
+      "config": "Release",
+      "arch": "amd64",
+      "test": "repairs",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 0
+    },
+    {
+      "config": "Release",
+      "arch": "amd64",
+      "test": "retained",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Release",
+      "arch": "amd64",
+      "test": "payload",
+      "compile": 0,
+      "run": 0,
+      "expected_run": 0
+    },
+    {
+      "config": "Release",
+      "arch": "amd64",
+      "test": "payload-old",
+      "compile": 0,
+      "run": 1,
+      "expected_run": 1
+    }
+  ],
+  "source_sha256": {
+    "live-bridge-candidate\\admission.h": "59a0e6bfdf8fbc81280e14595c1b03334566f4e6fa50fc04c3609e7da50eed9d",
+    "live-bridge-candidate\\bridge.cpp": "bdfc00c3edb95cb5acad84092032af1d7fd0619913c13086922f7a186c2c66a8",
+    "live-bridge-candidate\\build-native-v3.py": "c7b87c2360a30cd0d2c86c8aa0db8792e6a39829770f721e013b2b13bee58fb4",
+    "live-bridge-candidate\\build-native.py": "32c99dd72ddf9bc607d255103adc99be74b241193c08357003e66b011b2611d5",
+    "live-bridge-candidate\\common.h": "2f314da264262c3a8077c890258f25436153f456ea98da08d074f152b894d601",
+    "live-bridge-candidate\\payload-allocation-test.cpp": "230413da302954ffbd9aee5c318a2279024067e9d3239a5f78712c9f71e25d3b",
+    "live-bridge-candidate\\repair-tests.cpp": "0220b1b98eddb1f7a9369da9a680bd79d26fc3c52985220f9210f955383604e7",
+    "live-bridge-candidate\\retained-v2-control.cpp": "9f8fc1f78238b0347e25606fdc1be658414b73aefb021c3ef91577bcd45d7401",
+    "live-bridge-candidate\\run-mutation-private.py": "ce9486b929fb38aead3697723d2a7c65738339d3dd2f868b5b58e7c119a2337a",
+    "live-bridge-candidate\\run-private.py": "8bcd8ddba7f2380a4bbf10629bf5f8b9b65bcbfd6b76139a28ab805bcdca3225",
+    "host-candidate\\compile-preflight-v3.py": "0477b788180ee9dfdff7caac50686fe9d2ba5958bb4caf83e516f8775d86107b",
+    "host-candidate\\compile-preflight.py": "fc70a1572b4b1f1e1cc88c01727af74aa37ec51930b93dc77b9c075cc88039fd",
+    "host-candidate\\compile-retained.py": "e564fee5faddf57020fc5492f1ca01e90e5bedc5afff6b97f40463b875c61486",
+    "host-candidate\\compile-session.py": "f8c410daf6fa00d140feabbebaa01e877f0b565239a59ca3194f3d6c028668da",
+    "host-candidate\\compile.py": "d10198236d42eec866260369dc5cb7cc2401f2791660a067148a02050b944056",
+    "host-candidate\\host_dispatch.cpp": "4810fd0dcad43c769e077f3c2ad8d3ad9ebffec426920ff6f5e0063bd4103595",
+    "host-candidate\\host_dispatch.h": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66",
+    "host-candidate\\preflight.cpp": "7904b10c603958bfe31cb37796f5b87f9cbacce4aa8ad9ef9ecf0627f00a7fa7",
+    "host-candidate\\registry_resolver.h": "825f78d913ae822545ac12c5621ef2d17ab422270de960339ab0590ecd8b8c2a",
+    "host-candidate\\retained_buffers.cpp": "263e9ae67ce8f0142758a82f7c85606e56f223125c78eac7199de37c23207091",
+    "host-candidate\\retained_buffers.h": "e62c472f1e46f783a130da8081bb92e958d8e3acaa9010d2fabae6169f329d8e",
+    "host-candidate\\retained_buffers_test.cpp": "2d8bc31b0666d8ec6aab84e2551e2ec67df2872ac0663a0e1f5f8cb1dd15ce86",
+    "host-candidate\\session_lifecycle.cpp": "58cfefa0177b45d3445faae5cfbc9fa1e902c8e9e6bbd593ad1e0bfc2818f1aa",
+    "host-candidate\\session_lifecycle.h": "42e20d84790396676bb35c36cb0acc79fd04e6dd0a0a7fbb039bb257c06f099c",
+    "host-candidate\\session_lifecycle_test.cpp": "49eaab31311e68530f145044573443e62fb06e19a7792c3ecae47750bd6fa33a",
+    "transport-candidate\\codec.cpp": "15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e",
+    "transport-candidate\\codec.h": "d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0",
+    "transport-candidate\\resource_registry.h": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768",
+    "transport-candidate\\run-native.py": "e7549adcfe6e780c1e8c72bb7da99806c3cebe86ba0b46982722ed7fdc655dd6",
+    "transport-candidate\\sound-info-codec.cpp": "39c08092a658627a2069066906e2a795708c4ea51e49f0c897936beec11e44c2",
+    "transport-candidate\\sound-info-codec.h": "d12fe9d590e53bcbb05b725a5a10bdf2d883e91eb59e7cdffc0dbc7e68f0d112",
+    "transport-candidate\\sound-info-run-native.py": "746a2f1ad4a9fcb763c65139dbabc271aab8ece3ebd5cdba5b607edec06b353f",
+    "transport-candidate\\sound-info-run-vendor.py": "a8725a97f4400c26d2abb02442a5ca344e0d6cb21ac3277543a603ea6dbd0426",
+    "transport-candidate\\sound-info-tests.cpp": "397e7e33fb1d24dd6ab1d2454e41cb65330602cadbf185e28fe976bfbe046aad",
+    "transport-candidate\\sound-info-vendor-test.cpp": "27a09d819c089c313768aa5947b21a6776cb91c33e6f57ce5da8cba507b9647c",
+    "transport-candidate\\tests.cpp": "a913db4f70acba9d2c611486a0431cab9c76749e7508f8c32ce5983989ad8eff",
+    "pipe-transport-candidate\\collect-native.py": "30c8b7a38d266cd64bed0eca8e42ddd0ac9fc1bea0ac1bc9995bac5d1c98aa9a",
+    "pipe-transport-candidate\\endpoint.cpp": "c8ceb314bc9de684e14887c4687b2d48c50ccd5377294e4ce453d313778209b8",
+    "pipe-transport-candidate\\endpoint.h": "51dfef9fbb4439d937cb5be44ab8bbffc69429a0b7b76c84f708d4a0d8fc04c5",
+    "pipe-transport-candidate\\fixture.cpp": "7e37cfb6fc177bcc97a4e1a8b7547afb0e9a01b89787f74fa6fcc57b8647c35d",
+    "pipe-transport-candidate\\run-native-v2.py": "e1374cff284dd6a9567e9267c5c0e717155d22182d105eb0272a703db3b1e2c2",
+    "pipe-transport-candidate\\run-native-v3.py": "5a10229695fb5ce50753d3663d9214e1c14a25a66dec4c4d09676b869d6ef0f6",
+    "pipe-transport-candidate\\run-native-v4.py": "1d7c1b9af39bd13bafbdc9e082c8bc639ed4738cd601a9882dce4756f004cc39",
+    "pipe-transport-candidate\\run-native-v5.py": "4eb3059142089b43101a6cd557b037a6bc05449a12f6cfabb9f287c3610c555a",
+    "pipe-transport-candidate\\run-native.py": "694c1c088dcd21b5d6fa86d8397ad35b3fec9a835fa4b3595b72833f718c9304",
+    "protocol-candidate\\check-native-v2.py": "ce2909b1febcd931f7326d8d59a32717d81f48fe178209db4d3ac152758d3e08",
+    "protocol-candidate\\check-native-v3.py": "3bc31c10b87a9b1de7ec1ed2d504bc2eb998990e0f393f8bfe67b79def34abe6",
+    "protocol-candidate\\check-native.py": "02ad6c5c2289ef7e11ad330fbae6f7770b7b9aa2c0f9c355055b973e2fd3b8d3",
+    "protocol-candidate\\layout.cpp": "28b38dd36c118decbe94c34f854abde455e8f2594acd416a20ac3747ae9999fd",
+    "protocol-candidate\\miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9",
+    "protocol-candidate\\sdk-declarations-v1.cpp": "5472530c4c42b6357f1c945d714501c1e7e1b4117dee336004484d107b1aea8b",
+    "protocol-candidate\\sdk-declarations.cpp": "d33be669dd85a888e3bc530fe01ecdb808457e7b793728fd5fc07536e58fc898",
+    "coordinator-candidate\\compile-native-v2.py": "949384484f1ab62d5336dcd4604f02acf1f2ebc3c40b8207d08b7b6d5e0539aa",
+    "coordinator-candidate\\compile-native.py": "766cddea719312d89290c89f3a11419e5538fd6c69c9d3fecb2add157c5477cc",
+    "coordinator-candidate\\coordinator.cpp": "d434149188ee15bfc51c9a3286c9c5a49ef5d4762e8a7bb95d485cc852ec16b6",
+    "coordinator-candidate\\coordinator.h": "fb7e2d84697976787f702c1a0af5771d724e8dc17e6899e631858eb7fc709512",
+    "coordinator-candidate\\coordinator_test.cpp": "23c8593e4ea7a2b6cf121869c31b81e4cff5c65e2ac95219922b3f08ca3138f8",
+    "buffer-upload-candidate\\buffer_upload.cpp": "e36e074e1031f4df9366b865131e7575045a0d497c07219b576f3ce419fd9bd5",
+    "buffer-upload-candidate\\buffer_upload.h": "a3fef35e517a2f3a8d6bc96592f09876eca61ae8241686059160ca1a751d889e",
+    "buffer-upload-candidate\\native.py": "83e80fb5ecbc5cea77f44895db064393a034a7634e31d43289e227c832984c11",
+    "buffer-upload-candidate\\run-native.py": "2faf1f5aaa7d7c9779c2e3d65499db5b5533115f4b914870b48315175f231cc0",
+    "buffer-upload-candidate\\tests.cpp": "8838f562c6f239128f98716423305074761962f96acc2c45776b1d5b1df49a90"
+  }
+}

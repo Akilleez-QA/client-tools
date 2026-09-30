@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "status": "prospective independent oracle; no executed tests",
+  "implementation_read": false,
+  "conventions": {
+    "session_identity": "bound channel/process context, not invented existing wire field",
+    "progress": "fair enabled scheduling; finite test budget must be reported",
+    "quiescence": "external proven vendor fact, separate from captured frontier",
+    "outcomes": "admission, dispatch, callback effect, completion and acknowledgement are distinct"
+  },
+  "cases": [
+    {
+      "id": "session_replay",
+      "setup": [
+        "S1 Running; request7/resource(sample,2,3) completed",
+        "S1 Closed; fresh S2 Running on new bound channels; numeric resource tuple reused"
+      ],
+      "steps": [
+        "Deliver S1 request7/reply7/EOS(reg4,seq9) on S2 context"
+      ],
+      "expected": [
+        "Reject each as wrong session before lookup/vendor/game callback",
+        "S2 counters, pins and resource unchanged"
+      ],
+      "forbidden": [
+        "Trust matching slot/generation alone",
+        "Apply old reply to new pending request7"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "handshake_and_sequence",
+      "setup": [
+        "S Running with version1, accepted request sequence12"
+      ],
+      "steps": [
+        "Submit version2 frame",
+        "Replay request12",
+        "Submit exhausted maximum sequence followed by wrapped0"
+      ],
+      "expected": [
+        "Version mismatch explicit reject/fail per handshake policy",
+        "Duplicate not executed twice",
+        "Exhaustion requires terminal session/new handshake, never wrap"
+      ],
+      "forbidden": [
+        "Treat sequence modulo as new work",
+        "Conflate codec-valid with session-admitted"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "lock_owner_starvation",
+      "setup": [
+        "LaneA holds leaseL depth1",
+        "LaneB ordinary request queued first and blocked by L"
+      ],
+      "steps": [
+        "LaneA submits next operation under L",
+        "LaneA submits unlockL",
+        "Pump fair coordinator"
+      ],
+      "expected": [
+        "A continuation and unlock can progress without B first",
+        "B remains unexecuted until final unlock then becomes eligible"
+      ],
+      "forbidden": [
+        "Global FIFO head blocks A behind B",
+        "Execute B while lease held",
+        "Claim latency bound from scheduler steps"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "nested_lock_ownership",
+      "setup": [
+        "A holds L depth2"
+      ],
+      "steps": [
+        "B requests unlockL",
+        "A unlocks once",
+        "B request remains queued",
+        "A unlocks again"
+      ],
+      "expected": [
+        "B unlock rejected with ownership reason; depth unchanged",
+        "Depth1 still excludes B",
+        "Final matching unlock permits B"
+      ],
+      "forbidden": [
+        "Foreign lane decrement",
+        "One unlock clears all nesting",
+        "Infer callback nesting bound from lock depth"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "causal_reverse_io",
+      "setup": [
+        "A vendor open_stream request20 active on stack under leaseL"
+      ],
+      "steps": [
+        "Vendor same-stack fileRead reverse requestR declares causal20/source roleA",
+        "Client services allowed TreeFile operation",
+        "Return reverse replyR",
+        "Vendor completes20"
+      ],
+      "expected": [
+        "R routes to waiting permitted causal lane; both channels continue draining",
+        "ReplyR consumed before outer20 completes",
+        "Exact request association; no duplicate read"
+      ],
+      "forbidden": [
+        "Wait for outer20 before servicingR",
+        "Run game code under transport mutex",
+        "Discard reverse service because session is draining"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "foreign_callback_during_call",
+      "setup": [
+        "A vendor request20 active",
+        "WorkerW independent EOS source context, resourceS registrationG"
+      ],
+      "steps": [
+        "Receive EOS E with no causal parent while20 outstanding"
+      ],
+      "expected": [
+        "E stays unsolicited/worker-origin; never assigned causal20 by coincidence",
+        "Pin S/G before callback execution; record assigned affinity or UnsupportedContract",
+        "Outer20 completion not fabricated by E"
+      ],
+      "forbidden": [
+        "Treat any callback while callactive as nested",
+        "Execute E on A solely because A waits"
+      ],
+      "real_vendor_limit": "Actual game callback affinity and lock/reentry safety require engine trace; model classification alone is insufficient."
+    },
+    {
+      "id": "idle_eos_progress",
+      "setup": [
+        "Running; no calls, no frame pump, no serve/getter scheduled",
+        "Valid resource S/registrationG"
+      ],
+      "steps": [
+        "Worker EOS E enters callback channel",
+        "Pump channel reactor and a contract-permitted callback executor"
+      ],
+      "expected": [
+        "E admitted and delivered without a new ordinary request/frame",
+        "Effect/completion/ack recorded separately; exactly once",
+        "If no permitted executor contract exists, explicit blocker rather than successful delivery claim"
+      ],
+      "forbidden": [
+        "Require next getter/alter/serve",
+        "Count receipt as Sound2::endOfSample execution"
+      ],
+      "real_vendor_limit": "Real callback timing/affinity still must match original engine; no assumed worker pool."
+    },
+    {
+      "id": "close_frontier_channel_reorder",
+      "setup": [
+        "S has G callback sequence10 and11 captured; complete9",
+        "Close has genuine vendor no-new-callback evidence and captured frontierG=11"
+      ],
+      "steps": [
+        "Command channel close reply arrives first",
+        "Callback11 arrives/completes before10",
+        "Attempt retire",
+        "Callback10 arrives/completes and both acknowledged"
+      ],
+      "expected": [
+        "No retirement on close reply",
+        "No retirement while hole10 remains despite maxack11",
+        "Retire only after contiguous frontier11 plus vendor gate and no request pins"
+      ],
+      "forbidden": [
+        "Use cross-channel arrival as fence",
+        "Use maximum ack as contiguous completion",
+        "Retire based on queue empty"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "close_inflight_call",
+      "setup": [
+        "RequestQ on S admitted and vendor-running; S pin held"
+      ],
+      "steps": [
+        "Request closeS",
+        "Attempt new ordinary opS",
+        "Q completes",
+        "Release/close sequence completes"
+      ],
+      "expected": [
+        "S enters closing/admission barrier; new ordinary op rejected/deferred explicitly",
+        "Q gets its actual one terminal result and retains required resources until done",
+        "Close waits for Q and legitimate callback/reverse services"
+      ],
+      "forbidden": [
+        "Free S/storage while Q runs",
+        "Cancel Q by returning success",
+        "Reject necessary release-induced reverseIO indiscriminately"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "close_inflight_callback",
+      "setup": [
+        "EOS E S/G dispatched; game callback not finished"
+      ],
+      "steps": [
+        "CloseS starts",
+        "Vendor close completes with captured E frontier",
+        "Attempt retire",
+        "Callback completes and ack arrives"
+      ],
+      "expected": [
+        "E pin survives Closing and close reply",
+        "No proxy/game callback state retirement before actual completion/ack",
+        "Final retirement also requires genuine no-new-callback gate"
+      ],
+      "forbidden": [
+        "Reject already admitted E due Closing",
+        "Treat callback dequeued as finished"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "close_generates_callback",
+      "setup": [
+        "Closing S; callback service remains active",
+        "Vendor release invokes callbackE before completing"
+      ],
+      "steps": [
+        "Receive E with valid closing S/G and release causal context",
+        "Service permitted callback",
+        "Vendor release completes"
+      ],
+      "expected": [
+        "E retained/admitted according to closing frontier, not discarded solely due Closing",
+        "Completion contributes to newly captured frontier",
+        "No deadlock from release waiting on disabled callback channel"
+      ],
+      "forbidden": [
+        "Disable all callback admission immediately",
+        "Invent SDK guarantee close cannot callback"
+      ],
+      "real_vendor_limit": "Whether this exact SDK API produces callbacks and may wait is an observation gate; injected trace tests only mechanism."
+    },
+    {
+      "id": "post_fence_callback_violation",
+      "setup": [
+        "S retired only after modeled no-new-callback gate and frontier"
+      ],
+      "steps": [
+        "A new valid-looking old-registration callback arrives"
+      ],
+      "expected": [
+        "Reject stale identity; record violated quiescence assumption as failure",
+        "Never dispatch into retired/new game state"
+      ],
+      "forbidden": [
+        "Treat observed gate violation as harmless success",
+        "Accept old callback after generation reuse"
+      ],
+      "real_vendor_limit": "This control cannot prove the no-new-callback fact; its occurrence in genuine runs invalidates the lifecycle design."
+    },
+    {
+      "id": "generation_and_registration_reuse",
+      "setup": [
+        "Slot2 generation3 retired; slot2 generation4 live",
+        "Registration8 replaced by9 on live resource"
+      ],
+      "steps": [
+        "Receive old resource EOS",
+        "Receive old registration EOS on current resource",
+        "Receive current EOS"
+      ],
+      "expected": [
+        "Reject old resource before game lookup",
+        "Reject/differentiate retired registration without applying new callback",
+        "Only current identity may dispatch subject to policy"
+      ],
+      "forbidden": [
+        "Check slot only",
+        "Check resource generation but ignore callback registration generation"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "host_death_ambiguous",
+      "setup": [
+        "Q1 locally queued never sent; Q2 dispatched with vendor entry observed; Q3 vendor-returned but reply not received"
+      ],
+      "steps": [
+        "Host dies",
+        "Disconnect channels",
+        "Start a separately explicit S2 handshake"
+      ],
+      "expected": [
+        "S1 Failed; all pending receive exactly one transport terminal result",
+        "Q1 NotExecuted if local evidence proves no dispatch",
+        "Q2/Q3 ExecutionUnknown from client perspective; no invented Miles return",
+        "Old handles invalid; no automatic replay intoS2"
+      ],
+      "forbidden": [
+        "Return zero/null as vendor success",
+        "Retry Q2/Q3 to guess state",
+        "Transparent restart preserving playhead"
+      ],
+      "real_vendor_limit": "Model only; real vendor behavior not established."
+    },
+    {
+      "id": "combined_locked_reverse_io_foreign_eos",
+      "setup": [
+        "A owns L and runs open_stream Q",
+        "Q waits for causal TreeFile read R",
+        "WorkerW emits unrelated EOS E touching game sound state also relevant to Q",
+        "B ordinary work queued"
+      ],
+      "steps": [
+        "Receive R on callback/reverse channel",
+        "Receive E before R reply",
+        "Attempt to schedule B",
+        "Service permitted R and return reply",
+        "Finish Q and unlockL",
+        "Run permitted E completion policy"
+      ],
+      "expected": [
+        "Preserve R causalQ and E unsolicited source identity",
+        "R must progress despite E and blockedB; no shared transport lock cycle",
+        "B never executes inside L",
+        "E pin retained; effect ordering follows explicit tested affinity/reentry policy or scenario reports UnsupportedContract",
+        "No silent EOS loss or invented causal link"
+      ],
+      "forbidden": [
+        "Holding dispatch mutex while waiting for R/E ack",
+        "Make E wait for next frame and label equivalent",
+        "Run E on A solely to break deadlock",
+        "Report fullsemanticpass when affinity contract unknown"
+      ],
+      "real_vendor_limit": "Adversarial overlap is prospective, not an observed original deadlock. Real Audio/Sound2d and TreeFile trace is required for execution-order acceptance."
+    },
+    {
+      "id": "backpressure_both_channels",
+      "setup": [
+        "Command reply partially written; callback channel reverse request pending"
+      ],
+      "steps": [
+        "Apply finite command-channel backpressure",
+        "Continue callback-channel read/write readiness",
+        "Remove pressure"
+      ],
+      "expected": [
+        "Independent channel progresses until its own real bound",
+        "Pending partial frame retained, not duplicated",
+        "No lock held by blockedwriter prevents reverse reply"
+      ],
+      "forbidden": [
+        "One channel blocked halts all progress",
+        "Treat partial frame as complete"
+      ],
+      "real_vendor_limit": "A pure state model cannot validate actual overlapped-I/O cancellation/lifetime; later OS transport tests required."
+    },
+    {
+      "id": "shutdown_pending_reverse_file",
+      "setup": [
+        "Session Draining with legitimate vendor close needing fileClose reverse call"
+      ],
+      "steps": [
+        "Reject new ordinary request",
+        "Allow already admitted close reverse service",
+        "Finish callbacks and requests",
+        "Establish vendor gate and finish shutdown"
+      ],
+      "expected": [
+        "Every pending operation terminal; TreeFile resources released in admitted order",
+        "Closed only after necessary services complete",
+        "No work admitted into Closed"
+      ],
+      "forbidden": [
+        "Close pipes before necessary reverse callbacks",
+        "Claim drain from empty command queue only"
+      ],
+      "real_vendor_limit": "Actual game AIL_shutdown versus explicit driver close order remains independently measured."
+    }
+  ]
+}

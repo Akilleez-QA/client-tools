@@ -1,5 +1,13 @@
 # Fork checkpoint — 2026-09-30
 
+## Current review checkpoint: focused changes and bounded Miles IPC
+
+The product remains `49d0eeed4`; there is no newly linked x64 game. Three small client candidates now have checkout-scoped tests and two rounds of blind Astra maintainer/senior review. Their readiness ratings are 9–9.5/10, conditional on the separately reviewed imemmove prerequisite for ByteOrder/network. [PR candidate packet](../../pr-ready-next/README.md) lists precise bases, heads, production sizes, failed controls, drafts and reviewer dissent. No new PRs or upstream writes occurred.
+
+The media work is still experimental. New coordinator, upload, pipe and genuine-host component tests are under [the media-session directory](miles-integration-seam/). The limited real x64-controller/x86-host slice completes 21 requests in each of Debug and Release using the original DLL under private Wine/null sinks. It performs no playback and registers no callbacks. A valid L/R mutation is rejected and still completes normal teardown.
+
+Independent review found extra retained-image copies, premature shutdown admission, a cross-channel fault-check gap and suspended-child cleanup risk. The revised candidate has 25 policy/cleanup checks plus 41 retained-buffer checks in all four native configurations. The measured stage allocates one payload-sized block versus three in the old control; this is not a process memory bound. The failed intermediate ordinal test remains preserved. See [v3 results](miles-integration-seam/live-bridge-candidate/RESULTS-v3.md) for raw evidence, source versions and limits. The failed real-engine Audio/ExitChain baseline remains unresolved and was not retried.
+
 ## Current verified checkpoint
 
 Code head: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. [Actual four-configuration product build](../allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md): Win32 Release/Debug zero errors; x64 Release/Debug final link fails only on60/61 Miles imports. No x64 executable launch or gameplay acceptance. [Real-engine audio baseline](miles-engine-fixture/RESULTS.md) plays/releases two samples but **fails teardown**. The original-Miles helper is still experimental, not an adopted production backend.

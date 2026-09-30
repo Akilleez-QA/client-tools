@@ -1,0 +1,34 @@
+No actionable defect in this single-control-thread admitted-work model. Lease ownership, pin retention, acknowledgment holes, sequence consumption, and identifier exhaustion hold in the source. The oracle scenarios were not executed, and vendor quiescence is not established.
+
+## Invariants that hold
+
+Rejected admits return before publication, so a bad ordinal, lease, handle, or duplicate does not consume `lastAdmission`. The only write is after those checks:
+
+```46:48:/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/coordinator-candidate/coordinator.cpp
+    std::vector<MilesWire::Handle> copied(resources); // Allocation before publication.
+    pins.swap(copied);admissionOrdinal=r;admissionLane=lane;admissionLease=lease;admissionAction=a;lastAdmission=r;
+    return Ok;
+```
+
+While `depth > 0`, a mismatched lane or lease returns `WrongLease` (`coordinator.cpp:33-34`) and does not change depth. Nested acquire reuses the current lease; only a completed acquire at depth 0 mints `++lastLease` (`coordinator.cpp:63-64`). Release decrements once and clears `leaseId` only when depth reaches 0 (`coordinator.cpp:66-68`). Caps return `Capacity` before `lastAdmission + 1`, `issued + 1`, or `++lastLease`, so those counters do not wrap (`coordinator.cpp:30-31`, `38`, `92-93`).
+
+`fail` does not clear pins or the held lease (`coordinator.cpp:136-138`). `completeAdmission` still refuses while a matching causal callback is unacknowledged (`coordinator.cpp:59`, `50-54`). Out-of-order acks stay in the map; `frontier` moves only through the contiguous prefix (`coordinator.cpp:108-112`). `beginClose` records `issued`, and a later callback on a closing registration advances `closeFrontier` to that sequence (`coordinator.cpp:119`, `97`). `readiness` always sets `vendorTerminationUnproven` (`coordinator.cpp:125`). That flag is not evidence that callbacks have stopped.
+
+## Absent integration, not source defects
+
+The header and `PLAN.md` leave intake replay, deferred queues, and fair scheduling outside this model (`coordinator.h:27-28`, `PLAN.md:28`). There is no retire or generation-reuse operation; registration ids are a session-lifetime cap (`PLAN.md:30`). Handshake version, channel backpressure, per-request NotExecuted versus ExecutionUnknown, and a no-new-callback gate are not this type’s job. `coordinator-oracle/cases.json` labels itself a prospective oracle with no executed tests (`cases.json:3-4`). This review does not treat those scenarios as run.
+
+## Missing discriminating case
+
+`coordinator_test.cpp:66-77` fails the session during an in-flight **Ordinary** admit. Ordinary completion does not change depth, so the test passes even if the Failed guard is removed.
+
+That guard is `coordinator.cpp:62-70`: lease changes run only when `current != Failed`. Nothing in the unit file completes an in-flight `ReleaseLock` after `fail`.
+
+Minimal case:
+
+1. `admitGame(session, 1, lane=7, lease=0, AcquireLock, {})`, then `completeAdmission` → depth 1, lease `L`, owner 7.
+2. `admitGame(session, 2, lane=7, lease=L, ReleaseLock, {})` → `Ok`, still depth 1.
+3. `fail(session)`, then `completeAdmission(session, 2)` → `Ok`.
+4. Expect `Failed`, `leaseDepth()==1`, `lease()==L`, `leaseOwner()==7`.
+
+Deleting `if(current!=Failed)` at `coordinator.cpp:62` makes step 4 show depth 0 and lease 0 (a fabricated unlock) while every current check still passes. The present source keeps the pre-fail lease.

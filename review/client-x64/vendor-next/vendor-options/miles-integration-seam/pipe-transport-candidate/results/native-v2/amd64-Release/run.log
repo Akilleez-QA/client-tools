@@ -1,0 +1,15 @@
+PASS exchange reads=2 writes=1
+PASS child exchange read-completions=2
+PASS fragmented reads=32 writes=20
+PASS child exchange read-completions=46
+PASS bad-small sent-bytes=48
+PASS child invalid-size body-capacity=0
+PASS bad-large sent-PASS childbytes=48
+ invalid-size body-capacity=0
+PPASS child partiAaSl frame rejected
+S close-header sent-bytes=13
+PASS close-body sePASS child partial frame rejected
+nt-bytes=60
+PASS childPASS backpressure reverse-progress-while-comma backpressure command-read-ncount=0
+d-pending=1 cancellation-drained=1
+PASS 7 private cross-process transport cases

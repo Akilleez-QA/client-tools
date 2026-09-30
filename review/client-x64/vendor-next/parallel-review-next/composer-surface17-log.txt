@@ -1,0 +1,100 @@
+## Scope read
+
+- **Product** `client-build-next` @ `49d0eeed4`: Miles entry is **`Audio.cpp` only** among the three files. **`Sound2d.cpp` / `Sound3d.cpp`** call **`Audio::*`** only (no direct `AIL_*`).
+- **Candidate** `miles-integration-seam`: **`protocol-candidate/API-MAP.md`** (61 opcodes), **`host-candidate/host_dispatch.cpp`**, **`session_lifecycle.cpp`**, **`retained_buffers.*`**, **`transport-candidate/sound-info-codec.*`**.
+
+---
+
+## Actual61 import surface (protocol = linker checklist)
+
+Frozen in `miles_wire.h` / `API-MAP.md` (opcodes 1–61). Matches reviewed **Audio** reachability; **not** the whole DLL.
+
+| Bucket | Opcodes / symbols |
+|--------|-------------------|
+| **Lifecycle / globals** | `AIL_startup`, `AIL_shutdown`, `AIL_open_digital_driver`, `AIL_allocate_sample_handle`, `AIL_release_sample_handle`, `AIL_close_stream`, `AIL_lock`, `AIL_unlock` |
+| **Init / prefs / strings** | `AIL_set_redist_directory`, `AIL_set_file_callbacks`, `AIL_get_preference`, `AIL_set_preference`, `AIL_last_error`, `AIL_speaker_configuration` |
+| **Memory / probe** | `AIL_WAV_info`, `AIL_file_type`, `AIL_set_named_sample_file`, `AIL_set_sample_file` |
+| **Streams** | `AIL_open_stream`, `AIL_stream_sample_handle`, `AIL_stream_*` (status, ms, loops, start) |
+| **Callbacks** | `AIL_register_EOS_callback`, `AIL_register_stream_callback` |
+| **Scalar playback/control** | remaining sample/driver getters/setters, `AIL_serve`, `AIL_file_error`, `AIL_get_timer_highest_delay`, … |
+
+**Outside the 61 but present in `Audio.cpp`:** `AIL_MSS_version` (macro / `SessionVersion` seam), **`AIL_digital_configuration`**, **`AIL_find_filter` / `AIL_filter_property` / `AIL_open_filter` / `AIL_close_filter`** (capture). **`AIL_close_digital_driver`** is used in **`session_lifecycle.cpp`**, not in **`Audio::remove()`** (shutdown only nulls driver then `AIL_shutdown()`).
+
+**`Sound2d` / `Sound3d` indirect Miles** (via `Audio`): volume/rate/time/EOS/cache — no extra exports.
+
+---
+
+## Implemented vs missing (host candidate)
+
+| Layer | What exists | Runtime? |
+|-------|-------------|----------|
+| **Scalar dispatch** | **39/61** opcodes in `supports()` / `SUPPORTED.md` — playback getters/setters, 3D/listener/room, `AIL_serve`, `AIL_file_error`, `AIL_get_timer_highest_delay` | **No**: preflight rejects before vendor; DLL unloaded in documented runs |
+| **Missing dispatch (22/61)** | `WAV_info`, `allocate`, `release`, `open/close` driver/stream, `startup/shutdown`, `lock/unlock`, `set/get_preference`, `set_redist_directory`, `last_error`, `set_file_callbacks`, `file_type`, `set_named_sample_file`, `set_sample_file`, `speaker_configuration`, `register_*_callback`, `stream_sample_handle` | Unsupported at gate |
+| **Lifecycle mechanism** | `SessionLifecycle`: `startup`, `openDriver`, `allocateSample`, `releaseSample`, `shutdown` + `ResourceRegistry` | **Isolated**; not tied to wire/coordinator/pipes |
+| **Input binding** | `dispatchImpl` **rejects any nonzero** `call.bytes`, `call.text`, `call.resource`, `call.callback` (line 57) | Blocks **all** buffer/path/callback opcodes even if arms were added |
+| **Retained image** | `RetainedBuffers`: stage/commit/retire/deactivate; caps `uint32_t` length | **Not** wired to `Call.resource` or `BufferBegin/Chunk/Seal` |
+| **WAV metadata wire** | `sound-info-codec`: 44-byte scalar+offset encode/decode | **No** `AIL_WAV_info` host arm; no vendor calls |
+| **Callbacks / reverse I/O** | Coordinator oracles **partial**; no EOS executor, no TreeFile channel | N/A |
+| **Transport** | Frame layout + control opcodes in `miles_wire.h` | **No** pipes/reactor (oracle: unimplemented) |
+
+---
+
+## Smallest **no-playback** vertical slice (load + duration + volume + rate)
+
+**Game source chain (no `AIL_start_sample`):**
+
+1. **Cache / duration probe:** `AudioNamespace::cacheSample` → static **`getSampleTime(char const *path, byte *fileImage, int fileSize, …)`** (`Audio.cpp` ~4427–4462):  
+   `AIL_allocate_sample_handle` → `AIL_set_named_sample_file` → `AIL_sample_ms_position` → `AIL_end_sample` → `AIL_release_sample_handle`.
+2. **Optional metadata:** **`Audio::getSampleInformation`** (~3710): `AIL_WAV_info` + same **`getSampleTime`** for `m_time`.
+3. **Volume / rate on a loaded handle (play prep, still no start):** from **`Audio::playSample` 2D path** (~2836+): after `set_named_sample_file`, **`Audio::setSamplePlayBackRate`** / volume via **`Audio::setSampleVolume`** → `AIL_set_sample_playback_rate`, `AIL_set_sample_volume_levels`, `AIL_set_sample_reverb_levels`; readbacks **`Audio::getSampleVolume`**, **`Audio::getSamplePlayBackRate`**.
+
+**Sound2d** uses duration via **`Audio::getSampleTime(SampleId, …)`** only when a **playing** sample exists; the **no-playback** duration you care about for cache sizing is the static **`getSampleTime(path, image, size)`** path above.
+
+### Exact missing **data / ownership** to make that path valid on a pipe
+
+| Prerequisite | Why | Owner |
+|--------------|-----|--------|
+| **Session + driver wire handles** | Probe uses `s_digitalDevice2d` | Coordinator drives **`SessionLifecycle::startup` → `openDriver`**; client stores returned **`MilesWire::Handle` (Driver)**; host registry must match **`host_dispatch` `Resolver`** (today: separate registries in lifecycle vs dispatch tests). |
+| **Sealed byte image + extension** | `AIL_set_named_sample_file(sample, suffix, data, fileSize, 0)` | **`BufferBegin/Chunk/Seal`** → host **`RetainedBuffers::stage` + `commit`**; `Call.resource` = buffer handle; **`call.text`** = NUL-terminated suffix; **`value[0]`** = `file_size` per API-MAP. Image must stay **committed/active** until vendor finishes with that sample load (**API-MAP**: retain through vendor use; **`retire(active)` forbidden**). |
+| **Owned sample handle** | allocate/release pair | **`allocateSample(driver)`** over wire (opcode **3** — not in dispatch); **`releaseSample(..., callbacksQuiesced=true)`** (opcode **18** + lifecycle; no EOS in probe → quiescence trivial). |
+| **Dispatch arms + lift payload gate** | Today: opcode **32** missing; line **57** forbids `text`/`resource` | Implement **`AIL_set_named_sample_file`** resolving **active retained view** + text span; add **`AIL_allocate_sample_handle`** / **`AIL_release_sample_handle`** (or lifecycle RPC that publishes handles into **same** registry dispatch uses). |
+| **Scalar ops after load** | volume/rate/ms | Opcodes **20, 21, 25, 45, 47, 48** already in dispatch **if** `OwnedSample` resolves — still need **working allocate + set_named** first. |
+| **`AIL_WAV_info` (optional same image)** | `getSampleInformation` | Host opcode **1** + return **44-byte `SoundInfo`** via **`encodeSoundInfo`**; host must **`resolveSoundInfoPointers`** into **same retained slab** as request; client decodes scalars only (matches `Audio.cpp` 3714–3725). |
+| **Thread / lane** | `SessionLifecycle` pins **constructing thread** | Coordinator must run lifecycle + vendor on that lane; x64 client calls are not direct `AIL_*`. |
+
+**Not required for this slice:** EOS registration, `AIL_start_sample`, streams, file callbacks (TreeFile stays on client for this path), lock/unlock (until concurrent `alter`/`serve`).
+
+---
+
+## Callback / lifecycle / binding summary
+
+- **Callbacks:** opcodes **16–17** unimplemented; coordinator does not retire registrations (`post_fence_callback_violation` unimplemented). Irrelevant for no-playback probe.
+- **Lifecycle:** `releaseSample` / `shutdown` require **`callbacksQuiesced`**; no automatic proof from registry alone (`COORDINATOR-ASSUMPTIONS.md`).
+- **Borrowed sample:** dispatch v3 allows **5** arms for stream alias; **no-playback 2D probe** uses **OwnedSample** only.
+
+---
+
+## Concrete narrowing / signature assumptions
+
+| Issue | Where |
+|-------|--------|
+| **`SessionLifecycle::startup`**: `started = (result != 0)` vs **`AIL_INIT_SUCCESS == 0`** in `Mss.h` | `session_lifecycle.cpp` ~31 — treats success as failure if return is 0 |
+| **`AIL_get_preference` / `AIL_set_preference`**: client **`SINTa` 64-bit** vs host **32-bit** checked scalar | `API-MAP` / `CONTRACT.md`; `Audio.cpp` ~1297 casts to `int` |
+| **`RetainedBuffers::stage`**: `length` → **`uint32_t`**; `fileSize` from TreeFile is **`int`** | Must reject negative / `> UINT32_MAX` before wire |
+| **`sound-info-codec`**: `retainedSize > UINT32_MAX` rejected; conservative **null data ⇒ zero length** | Not proven against all vendor outputs until real `WAV_info` on host |
+| **`AIL_set_sample_file`**: SDK has **no size**; 3D path passes **`0` block** with cache size only at adapter (`CONTRACT.md`) — distinct from **`set_named_sample_file`** slice |
+| **`host_dispatch` `AIL_sample_status`**: assigns **`U32` return to `return_bits` raw**; most other ints use **`bits()`** | Asymmetric encoding vs other S32 returns |
+| **`AIL_file_type`**: requires explicit **`v0 U32 size <= buffer extent`** | `getSampleType` / `Audio.cpp` ~2546 |
+
+---
+
+## Remaining work (ordered, minimal — not a generic RPC framework)
+
+1. **Single registry + coordinator hookup** — lifecycle creates driver/sample; dispatch **`Resolver`** reads same table.
+2. **Buffer seal path** — client upload + host `RetainedBuffers`; **remove or narrow** the global “no `resource`/`text`” rejection for opcodes **32** (and **1**, **9**).
+3. **Host arms**: **`AIL_startup`**, **`AIL_open_digital_driver`**, **`AIL_allocate_sample_handle`**, **`AIL_set_named_sample_file`**, **`AIL_end_sample`**, **`AIL_release_sample_handle`** (+ fix **startup** boolean).
+4. **One synchronous request/reply** (no full 61-op framework) exercising **`cacheSample`/`getSampleTime` equivalence**.
+5. **Then** attach existing scalar arms for **volume/rate/ms** on that handle.
+6. Optional: **`WAV_info`** + **`sound-info-codec`** on the same sealed image for **`getSampleInformation`**.
+
+**Do not count as done:** 39 compile-only dispatch arms, codec unit tests, coordinator mechanism tests without vendor, or session preflight with DLL unloaded.

@@ -1,0 +1,32 @@
+[
+  {
+    "arch": "x86",
+    "cfg": "Debug",
+    "build_exit": 0
+  },
+  {
+    "arch": "amd64",
+    "cfg": "Debug",
+    "build_exit": 0
+  },
+  {
+    "cfg": "Debug",
+    "run_exit": 0,
+    "text": "PASS exchange reads=2 writes=1\r\nCASE exchange child_exit=0\r\nPASS fragmented reads=32 writes=20\r\nCASE fragmented child_exit=0\r\nPASS bad-small sent-bytes=48\r\nCASE bad-small child_exit=0\r\nPASS bad-large sent-bytes=48\r\nCASE bad-large child_exit=0\r\nPASS close-header sent-bytes=13\r\nCASE close-header child_exit=0\r\nPASS close-body sent-bytes=60\r\nCASE close-body child_exit=0\r\nPASS backpressure reverse-progress-while-command-pending=1 cancellation-drained=1\r\nCASE backpressure child_exit=0\r\nPASS 7 private cross-process transport cases\r\n"
+  },
+  {
+    "arch": "x86",
+    "cfg": "Release",
+    "build_exit": 0
+  },
+  {
+    "arch": "amd64",
+    "cfg": "Release",
+    "build_exit": 0
+  },
+  {
+    "cfg": "Release",
+    "run_exit": 0,
+    "text": "PASS exchange reads=2 writes=1\r\nCASE exchange child_exit=0\r\nPASS fragmented reads=32 writes=20\r\nCASE fragmented child_exit=0\r\nPASS bad-small sent-bytes=48\r\nCASE bad-small child_exit=0\r\nPASS bad-large sent-bytes=48\r\nCASE bad-large child_exit=0\r\nPASS close-header sent-bytes=13\r\nCASE close-header child_exit=0\r\nPASS close-body sent-bytes=60\r\nCASE close-body child_exit=0\r\nPASS backpressure reverse-progress-while-command-pending=1 cancellation-drained=1\r\nCASE backpressure child_exit=0\r\nPASS 7 private cross-process transport cases\r\n"
+  }
+]

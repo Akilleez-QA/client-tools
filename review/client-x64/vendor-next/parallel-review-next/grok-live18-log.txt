@@ -1,0 +1,52 @@
+The 21-request no-playback trace matches the Debug and Release host logs. It shows two samples in one Miles session agreeing on one 9020-byte image. It does not show an independent oracle, playback, or game fidelity.
+
+## Sample trace
+
+The controller sends one 9020-byte file (`bridge.cpp` lines 111 and 117–124). The host log records the same 21 replies. Volume bits `3e800000` / `3f400000` are the IEEE values of the `0.25` / `0.75` pair the controller sends at line 121.
+
+| Req | Opcode | What the host does | Release-host.log |
+|---|---|---|---|
+| 5–7 | 4097, 4098, 4099 | `BufferUpload(9020,9020)`, one chunk at offset 0, seal | transport 0 |
+| 8 | 32 | SHA-256 the sealed bytes, stage one retained copy, bind both `HSAMPLE`s to that pointer | `direct=1 framed=1` |
+| 9 | 20 | Compare millisecond position | `204,0` both; controller requires only `>0` and current `0` (line 120) |
+| 10 | 21 | Compare rate | `22050` |
+| 11–12 | 48, 25 | Set both samples, then compare levels | `3e800000,3f400000`, transport 0 |
+| 13–14 | 45, 21 | Set rate `11025`, compare | `11025` |
+| 15 | 20 | Compare position again | `407,0` both; controller discards the reply (line 122) |
+| 16–17 | 7, 18 | `AIL_end_sample` on the framed sample only; release ends the control sample | `bytes retained` |
+| 18 | 21 | Stale framed handle | transport 2, as required |
+| 19–21 | 4100, 52, 4109 | Drop the upload, `AIL_shutdown`, `deactivate()`, `SessionClose` | `retained image still alive`, then host `PASS` |
+
+Native pointers stay in the x86 host. The pipe carries kind/slot/generation plus the file bytes (`codec.cpp` lines 111–132). `view.data` is passed only into in-process `AIL_set_named_sample_file` (`bridge.cpp` lines 58–61).
+
+## Concrete defects
+
+**The control sample is the same Miles session, not an independent check.** Lines 59–61 allocate a second `HSAMPLE` on the same driver and pass one `view.data` into both binds. Lines 65–66 then apply the wire setter to `control` before `dispatch` applies it to the framed sample. Lines 68–70 compare those two getters. Agreement means both call sites into the same `mss32.dll` returned the same bits. The v2 logs show that for this file: position `204,0`, rate `22050` then `11025`, levels `3e800000,3f400000`. A Miles bug that hits both samples the same way still passes. The first position check does not pin `204`; the post-rate `407,0` is not checked at all.
+
+**Failure codes collapse, and a failed framed bind is still transport 0.** Field rejection starts as status 3 (line 34). After line 42, bad lifecycle, a SHA-256 miss (line 57), and a refused `SessionClose` all return 4. Chunk and seal failures are status 3 again (lines 50–51). If the framed `AIL_set_named_sample_file` returns 0, line 61 still sets transport 0 and returns. The direct bind failure on line 60 throws instead. These runs never hit that split: both binds logged `1`.
+
+**Host success ignores a comparison miss.** Status 5 is set only on getter mismatch (lines 68–70). The loop still completes the coordinator admission (lines 90–92) and prints `PASS` when `SessionClose` is transport 0 (lines 95–97). The reviewed controller cannot reach that `PASS` after a mismatch: `call` requires transport 0 at line 107, then line 126 kills the host. The recorded v2 replies are transport 0 until the intentional stale-handle 2.
+
+**Server PID binding fails open, and only on the command pipe.** Line 83 continues when `GetNamedPipeServerProcessId` fails. The callback pipe is not checked. These host logs have no `LIMIT server PID query unavailable` line, so the recorded runs took the success branch. The controller side does require both client PIDs (line 116). The nonce is the pipe name and the child command line (lines 111–113). Hello checks all 32 hex characters (line 86). The coordinator id is only the first 16, and an all-zero prefix becomes `1` (`bridge.cpp` line 14, used at lines 84 and 90–92).
+
+## Mutation evidence
+
+`evidence-mutation-v1` Release and Debug host logs show request 12 as `direct=3e800000,3f400000` and `framed=3f400000,3e800000`, transport 5, then requests 13–21 and host `PASS`. The controller log says the swap was rejected and the process exit is 1 (`results.json`). That continued teardown is not what the reviewed controller does.
+
+The mutant sources are not in the evidence directory. `source-manifest.json` records `bridge.cpp` `c58d85fd…` and `host_dispatch.cpp` `a6ebc766…`. `results.json` `source_sha256.bridge.cpp` is still `7f3ae2ee…`, the evidence-v2 hash. `PROVENANCE.json` says that split is intentional. The reviewed `host_dispatch.cpp` getter at lines 157–162 does not swap channels. The reviewed `bridge.cpp` has no `DISCRIMINATED` string. Treat the mutation logs as evidence about those hashed binaries, not as a run of this tree.
+
+## Unreachable in this 21-step script
+
+`beginDrain` runs before `execute` (line 90). A refused shutdown would leave the coordinator in `Draining` (`coordinator.cpp` lines 131–134) with no way back to `Active`. This script shuts down only after both samples and the upload are gone.
+
+`AIL_allocate_sample_handle` resolves the driver handle and then allocates from the `driver` member (line 47). The bind path resolves the buffer handle and then copies `upload` (lines 55–57). A second driver or upload cannot exist (`if(driver||…)` at line 46, `if(upload||…)` at line 48), so those ignored pointers cannot diverge here.
+
+The framed sample is ended by opcode 7; the control sample is ended inside release (lines 63 and 73–78). This script always sends end before release.
+
+`SessionLifecycle` is not in either `build.cmd`. Its `callbacksQuiesced` shutdown is not on this path.
+
+## What these runs establish
+
+Debug and Release v2 host logs match: original `mss32.dll` loaded from `C:\bridge-live-private\mss32.dll`, startup `1`, one driver, bind `1/1`, the getter pairs above, stale rate handle transport 2, ordered shutdown, controller exit 0. The callback pipe stayed empty. No `AIL_start_sample` (opcode 54) appears. Current position stays `0`. The entry x87/MXCSR line is not repeated after vendor calls. Wine/ALSA noise is on the controller capture; the host log does not show playback.
+
+Keep this as a single-file, no-playback IPC slice. Before any wider claim, give the control sample its own byte copy, pin both position reads to expected values, make transport non-zero on a failed framed bind, fail the host process on status 5, and fail closed on both pipe PIDs.

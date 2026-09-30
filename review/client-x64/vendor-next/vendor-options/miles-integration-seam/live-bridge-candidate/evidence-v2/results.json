@@ -1,0 +1,40 @@
+{
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "sink_name": "swg_bridge_live_44649b9df5",
+  "runs": [
+    {
+      "config": "Debug",
+      "returncode": 0,
+      "host_sha256": "6a8afd420f3f75abe3a861b3d2a9a3c202e897b8f2a000a846081aad023cf7bf",
+      "controller_sha256": "ecf5ea41bab00d07b82185f6cf313f2a672fc557141a74ff9ce8fba591cc82a2",
+      "exact_count": true,
+      "cleanup": true,
+      "loaded_exact": true
+    },
+    {
+      "config": "Release",
+      "returncode": 0,
+      "host_sha256": "2773c3c35581a3b2565c37a6a3295d80c6d063211908e5046d02166bd6a61b41",
+      "controller_sha256": "b81631f98c4a303f3d8724ba560182752547c78c494983651f988589b71595d1",
+      "exact_count": true,
+      "cleanup": true,
+      "loaded_exact": true
+    }
+  ],
+  "private_inputs": {
+    "dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+  },
+  "owned_module": "536870916",
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "source_sha256": {
+    "bridge.cpp": "7f3ae2eeee393d4e6b58a2c58e686b7bb342f17bc093ad66c6442548e06c162c"
+  }
+}

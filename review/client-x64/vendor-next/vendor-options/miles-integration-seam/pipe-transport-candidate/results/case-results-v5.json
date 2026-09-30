@@ -1,0 +1,76 @@
+{
+  "Debug": {
+    "exchange": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-exchange.log"
+    },
+    "fragmented": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-fragmented.log"
+    },
+    "bad-small": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-bad-small.log"
+    },
+    "bad-large": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-bad-large.log"
+    },
+    "close-header": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-close-header.log"
+    },
+    "close-body": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-close-body.log"
+    },
+    "backpressure": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Debug/child-backpressure.log"
+    }
+  },
+  "Release": {
+    "exchange": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-exchange.log"
+    },
+    "fragmented": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-fragmented.log"
+    },
+    "bad-small": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-bad-small.log"
+    },
+    "bad-large": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-bad-large.log"
+    },
+    "close-header": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-close-header.log"
+    },
+    "close-body": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-close-body.log"
+    },
+    "backpressure": {
+      "controller_case_pass": true,
+      "child_exit": 0,
+      "child_log": "native-v5/amd64-Release/child-backpressure.log"
+    }
+  }
+}

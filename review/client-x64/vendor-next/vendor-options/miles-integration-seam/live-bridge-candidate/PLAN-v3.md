@@ -1,0 +1,10 @@
+# Prospective v3 repair and controls
+
+Preserve the v2 source archive, runtime records, mutation packet and explicit retraction of its aggregate-memory claim. This candidate repairs the four findings in LIVE-BRIDGE-FOLLOWUP18.md. No product adoption.
+
+1. Stage retained bytes once, insert an empty map entry, then swap same-default-allocator vectors without allocation. Publish used bytes and output token only afterward. Run the existing 41 store checks and an ordinary successful-allocation observation for the known 9,020-byte payload. Count exact payload allocations, not RSS/capacity/allocator overhead. No allocation-failure injection. Exception publication guarantee is source-derived, not forced-failure-tested.
+2. Complete admission and enter Draining only after an actual successful shutdown result. Rejected shutdown leaves Active. Once Draining, only SessionClose receives trusted cleanup admission. Native model controls use explicit synthetic operation outcomes, not vendor-success claims.
+3. Check both endpoint states/reasons before accepting replies and during drain. Unexpected callback closure and invalid frame length fail even when a command reply is ready. PeerClosed is tolerated only at the final-reply/ordered-close boundary; reply content must still validate SessionClose success. Native pipe-only controls exercise fault and normal-close races without Miles.
+4. Own the child/thread/job immediately on process creation. Assignment/resume failure terminates and waits for the benign suspended child, then closes handles. Exercise invalid job assignment before any child instruction executes. No SDK, media, engine or device workload in this control.
+
+Only after independent source review and successful native component controls: repeat the genuine 21-request no-playback run and the private valid L/R-swap discriminator, using the original private DLL and known valid PCM, isolated sink/prefix and unchanged defaults. All actual failures retained. No streams, callbacks, playback, unsafe media, engine teardown or synthetic vendor success.
