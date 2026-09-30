@@ -1,9 +1,35 @@
 #!/usr/bin/env python3
 """Native v120 real-header overlap probe; Debug is deliberately compile-only."""
-import argparse, hashlib, json, os, re, shutil, subprocess, sys
+import argparse, hashlib, json, ntpath, os, re, shutil, subprocess, sys
 from pathlib import Path
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def unique_line(path, fragment):
+    lines = [i for i, line in enumerate(Path(path).read_text().splitlines(), 1) if fragment in line]
+    if len(lines) != 1:
+        raise ValueError('expected diagnostic source anchor is not unique: ' + fragment)
+    return lines[0]
+
+def expected_ambiguity(text, exit_code, locations):
+    """Accept only the complete expected set of English MSVC error records."""
+    if exit_code == 0:
+        return False
+    expected = {(ntpath.normcase(ntpath.normpath(str(path))), line) for path, line in locations}
+    observed = []
+    diagnostic = re.compile(r"^(.+)\((\d+)(?:,\d+)?\)\s*:\s*error\s+(C\d+)\s*:\s*'([^']+)'\s*:\s*ambiguous call to overloaded function\s*$")
+    for line in text.splitlines():
+        # Include linker/fatal/unrecognized error records: each must match below.
+        if not re.search(r"\berror\b", line, re.I):
+            continue
+        match = diagnostic.fullmatch(line.strip())
+        if not match or match.group(3) != 'C2668' or match.group(4) != 'memmove':
+            return False
+        location = (ntpath.normcase(ntpath.normpath(match.group(1))), int(match.group(2)))
+        if location not in expected or location in observed:
+            return False
+        observed.append(location)
+    return set(observed) == expected and bool(expected)
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--checkout',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
@@ -29,7 +55,11 @@ def main():
         text=x.stdout.decode('utf-8','replace')
         r['included_headers']={s.strip():sha(s.strip()) for s in re.findall(r'Note: including file:\s*(.+)',text)}
         if a.expect_ambiguity:
-            if x.returncode==0 or 'C2668' not in text or 'memmove' not in text: raise ValueError('expected native memmove ambiguity was not observed')
+            locations = [(header, unique_line(header, 'return memmove(destination, source, static_cast<uint>(length));')),
+                         (probe, unique_line(probe, 'else result = memmove('))]
+            if not expected_ambiguity(text, x.returncode, locations):
+                raise ValueError('expected memmove diagnostics absent or additional/unrecognized errors present')
+            r['expected_error_locations'] = [(str(path), line) for path, line in locations]
             r['observed_expected_ambiguity']=True
         else:
             if x.returncode: raise ValueError('build failed; see build.log')
