@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\vendor-bink-probe\verify_vm.py", line 9, in <module>
+    assert len(payload)==int(fields['length']) and '%016x'%h==fields['fnv1a64'] and fields['pointer_bytes']=='8' and fields['child_exit']=='0' and r.returncode==0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

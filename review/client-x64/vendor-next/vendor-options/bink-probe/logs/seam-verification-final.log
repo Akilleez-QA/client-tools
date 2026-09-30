@@ -1,0 +1,45 @@
+{"file": "probe32.exe", "sha256": "387aa6af36f2ea5eb805c2ee01123903b2fea088324bf9a2676fe5e743420b7c", "machine": "0x14c"}
+{"file": "driver64.exe", "sha256": "31802f73ab27186517d6a4bc22fe641234ef6329b1a7f0517faa651bb6c64a82", "machine": "0x8664"}
+{"file": "binkw32.dll", "sha256": "e67e0319f9929c024a6d0757de50c65257f686f6711cb0efb7ad53afc3405dd4", "machine": "0x14c"}
+[
+  {
+    "run": 0,
+    "header": {
+      "pointer_bytes": "8",
+      "length": "116",
+      "child_exit": "0",
+      "fnv1a64": "478950ba1e591338"
+    },
+    "payload_sha256": "fa2b4ae80efc784bbe343f9c0104c707ba5755b7d2ffaae4330a52cd6073d32a",
+    "events": [
+      {
+        "event": "runtime_loaded_exports_resolved",
+        "pointer_bytes": 4,
+        "header": "1.9c"
+      },
+      {
+        "event": "no_asset_decode_not_run"
+      }
+    ]
+  },
+  {
+    "run": 1,
+    "header": {
+      "pointer_bytes": "8",
+      "length": "116",
+      "child_exit": "0",
+      "fnv1a64": "478950ba1e591338"
+    },
+    "payload_sha256": "fa2b4ae80efc784bbe343f9c0104c707ba5755b7d2ffaae4330a52cd6073d32a",
+    "events": [
+      {
+        "event": "runtime_loaded_exports_resolved",
+        "pointer_bytes": 4,
+        "header": "1.9c"
+      },
+      {
+        "event": "no_asset_decode_not_run"
+      }
+    ]
+  }
+]
