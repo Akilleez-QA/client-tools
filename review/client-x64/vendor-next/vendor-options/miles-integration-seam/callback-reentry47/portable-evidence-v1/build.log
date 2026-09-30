@@ -1,0 +1,12 @@
+/usr/bin/ld: /tmp/ccdn3ZB2.o: in function `(anonymous namespace)::preferenceResult(StartupBridge::OwnedReply const&)':
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v1/backend-boundary24/pipe/ClientMilesPipe.cpp:108:(.text+0xfc9): undefined reference to `MilesStartup::signedValue(unsigned int)'
+/usr/bin/ld: /tmp/ccdn3ZB2.o: in function `ClientMiles::startup()':
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v1/backend-boundary24/pipe/ClientMilesPipe.cpp:202:(.text+0x31be): undefined reference to `MilesStartup::signedValue(unsigned int)'
+/usr/bin/ld: /tmp/ccdn3ZB2.o: in function `ClientMiles::speaker_configuration_spec(ClientMiles::DigitalDriver*)':
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v1/backend-boundary24/pipe/ClientMilesPipe.cpp:295:(.text+0x5a94): undefined reference to `MilesStartup::signedValue(unsigned int)'
+/usr/bin/ld: /tmp/ccdn3ZB2.o: in function `ClientMiles::room_type(ClientMiles::DigitalDriver*)':
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v1/backend-boundary24/pipe/ClientMilesPipe.cpp:331:(.text+0x6ce7): undefined reference to `MilesStartup::signedValue(unsigned int)'
+/usr/bin/ld: /tmp/ccdn3ZB2.o: in function `ClientMiles::stream_status(ClientMiles::OwnedStream*)':
+/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v1/backend-boundary24/pipe/ClientMilesPipe.cpp:433:(.text+0xb94a): undefined reference to `MilesStartup::signedValue(unsigned int)'
+/usr/bin/ld: /tmp/ccdn3ZB2.o:/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v1/backend-boundary24/pipe/ClientMilesPipe.cpp:445: more undefined references to `MilesStartup::signedValue(unsigned int)' follow
+collect2: error: ld returned 1 exit status

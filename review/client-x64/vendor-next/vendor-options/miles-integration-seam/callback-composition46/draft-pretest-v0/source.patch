@@ -1,0 +1,297 @@
+--- /dev/null
++++ b/callback-composition46/selected_fixture.cpp
+@@ -0,0 +1,37 @@
++// Test callbacks only. Production retain/Invocation/owner/mapper remain real.
++#include "selected_fixture.h"
++#include <stdexcept>
++namespace Script36 {
++ClientAudioFileCallbacks::OpenResult open(const char *);
++void close(ClientAudioFileCallbacks::LocalFileHandle);
++int32_t seek(ClientAudioFileCallbacks::LocalFileHandle,int32_t,uint32_t);
++uint32_t read(ClientAudioFileCallbacks::LocalFileHandle,void *,uint32_t);
++}
++namespace Script46 {
++unsigned opensB=0,closesB=0,seeksB=0,readsB=0;
++namespace {
++uint32_t openA(const char *name,ClientMiles::FileHandle *handle) {
++    const ClientAudioFileCallbacks::OpenResult r=Script36::open(name);
++    *handle=r.handle.value;return r.callbackResult;
++}
++void closeA(ClientMiles::FileHandle handle) {Script36::close(ClientAudioFileCallbacks::LocalFileHandle{handle});}
++int32_t seekA(ClientMiles::FileHandle handle,int32_t offset,uint32_t origin) {
++    return Script36::seek(ClientAudioFileCallbacks::LocalFileHandle{handle},offset,origin);
++}
++uint32_t readA(ClientMiles::FileHandle handle,void *buffer,uint32_t n) {
++    return Script36::read(ClientAudioFileCallbacks::LocalFileHandle{handle},buffer,n);
++}
++const ClientMiles::FileHandle otherHandle=static_cast<ClientMiles::FileHandle>(UINT64_C(0x100000007));
++void checkB(ClientMiles::FileHandle h) {if(h!=otherHandle)throw std::runtime_error("B local handle mismatch");}
++uint32_t openB(const char *,ClientMiles::FileHandle *h) {++opensB;*h=otherHandle;return UINT32_C(0x80000001);}
++void closeB(ClientMiles::FileHandle h) {checkB(h);++closesB;}
++int32_t seekB(ClientMiles::FileHandle h,int32_t,uint32_t) {checkB(h);++seeksB;return INT32_MIN;}
++uint32_t readB(ClientMiles::FileHandle h,void *p,uint32_t n) {
++    checkB(h);++readsB;for(uint32_t i=0;i<n;++i)static_cast<unsigned char *>(p)[i]=static_cast<unsigned char>(0xa0+i);return n;
++}
++}
++MilesFileChannel26::FileServices selected(bool alternate,std::shared_ptr<void> pin) {
++    return alternate?MilesSelectedFileServices44::retain(&openB,&closeB,&seekB,&readB,pin)
++                    :MilesSelectedFileServices44::retain(&openA,&closeA,&seekA,&readA,pin);
++}
++}
+--- /dev/null
++++ b/callback-composition46/selected_fixture.h
+@@ -0,0 +1,8 @@
++#ifndef TEST_SELECTED_FIXTURE46_H
++#define TEST_SELECTED_FIXTURE46_H
++#include "../selected-file-services44/selected_services.h"
++namespace Script46 {
++extern unsigned opensB, closesB, seeksB, readsB;
++MilesFileChannel26::FileServices selected(bool alternate, std::shared_ptr<void> lifetime);
++}
++#endif
+--- a/callback-control45/tests.cpp
++++ b/callback-control45/tests.cpp
+@@ -1,9 +1,10 @@
+ #include "host_association_mapper.h"
++#include "../callback-composition46/selected_fixture.h"
+ #include <cstdio>
+ #include <stdexcept>
+ namespace Script36 {
+ extern unsigned opens, closes;
+-extern bool dispatchUncertain;
++extern bool dispatchUncertain, throwOpen;
+ void pump();
+ }
+ using namespace MilesFileOwner36;
+@@ -14,14 +15,17 @@
+ struct Fixture {
+     std::unique_ptr<EngineFileWorker, void (*)(EngineFileWorker *)> worker;
+     std::shared_ptr<FileSessionContext> context;
++    const uint64_t session;
+     MilesCoordinator::Coordinator coordinator;
+     SessionFileOwner owner;
+     HostAssociationMapper mapper;
+-    explicit Fixture(size_t capacity = 8)
++    explicit Fixture(size_t capacity = 8, uint64_t sessionId = Session, bool alternate = false,
++        std::shared_ptr<void> callbackLifetime = std::shared_ptr<void>(new int(2)))
+         : worker(EngineFileWorker::create(), &EngineFileWorker::destroy),
+-          context(new FileSessionContext(*worker, std::shared_ptr<void>(new int(1)))),
+-          coordinator(Session), owner(coordinator, Session, 1, context, 8, 8),
+-          mapper(Session, Background, coordinator, owner, capacity) {}
++          context(new FileSessionContext(*worker, std::shared_ptr<void>(new int(1)),
++              Script46::selected(alternate, callbackLifetime))), session(sessionId),
++          coordinator(session), owner(coordinator, session, 1, context, 8, 8),
++          mapper(session, Background, coordinator, owner, capacity) {}
+     void begin(uint64_t wire = 100, uint64_t admission = 1, uint64_t lease = 0,
+                MilesCoordinator::Action action = MilesCoordinator::Ordinary) {
+         CHECK(mapper.publishCommand(wire, admission, 8, lease, action,
+@@ -29,19 +33,19 @@
+     }
+     MilesCoordinator::Readiness pins() const {
+         MilesCoordinator::Readiness result = {};
+-        CHECK(coordinator.readiness(Session, 1, result) == MilesCoordinator::Ok);
++        CHECK(coordinator.readiness(session, 1, result) == MilesCoordinator::Ok);
+         return result;
+     }
+ };
+ static std::vector<unsigned char> request(uint64_t reverse, uint64_t cause = 100,
+     uint64_t lane = 8, uint64_t lease = 0, uint32_t opcode = MilesWire::FileOpen,
+-    MilesWire::Handle target = MilesWire::Handle()) {
++    MilesWire::Handle target = MilesWire::Handle(), uint32_t value = 0) {
+     MilesWire::Header header = {};
+     header.magic = MilesWire::Magic; header.version = MilesWire::Version;
+     header.kind = MilesWire::ReverseRequest; header.opcode = opcode;
+     header.request = reverse; header.causal_request = cause;
+     header.lane = lane; header.lock_lease = lease;
+-    MilesWire::Call call = {}; call.target = target;
++    MilesWire::Call call = {}; call.target = target; call.value[0] = value;
+     std::vector<unsigned char> frame;
+     CHECK(MilesTransport::encodeCall(header, call, MilesTransport::Bytes(),
+         opcode == MilesWire::FileOpen ? MilesTransport::Bytes("a", 2) : MilesTransport::Bytes(), frame));
+@@ -53,7 +57,7 @@
+ static void ready(Fixture &f) { Script36::pump(); f.mapper.poll(); }
+ static void acknowledge(Fixture &f, uint64_t wire) {
+     CHECK(f.mapper.markReplyQueued(wire));
+-    CHECK(f.mapper.acknowledgeConsumed(Session, wire));
++    CHECK(f.mapper.acknowledgeConsumed(f.session, wire));
+ }
+ int main() {
+     try {
+@@ -189,7 +193,153 @@
+             CHECK(!f.owner.retainedOperations());
+         }
+         std::puts("PASS malformed frame rejected");
+-        std::printf("PASS %u control-owner checks; scripted executor only\n", checks);
++        // Two complete independent sessions use real retained tables through every layer.
++        {
++            CHECK(sizeof(ClientMiles::FileHandle)>sizeof(uint32_t));
++            std::shared_ptr<void> lifeA(new int(11)),lifeB(new int(22));
++            std::weak_ptr<void> watchA=lifeA,watchB=lifeB;
++            {
++                Fixture a(8,177,false,lifeA),b(8,178,true,lifeB);
++                lifeA.reset();lifeB.reset();a.context.reset();b.context.reset();
++                a.begin();b.begin();auto open=request(501);
++                const unsigned beforeA=Script36::opens,beforeB=Script46::opensB;
++                CHECK(a.mapper.receiveReverse(a.session,bytes(open))==SessionFileOwner::Queued);
++                CHECK(b.mapper.receiveReverse(b.session,bytes(open))==SessionFileOwner::Queued);
++                CHECK(Script36::opens==beforeA && Script46::opensB==beforeB);
++                ready(b);a.mapper.poll();
++                CHECK(Script36::opens==beforeA+1 && Script46::opensB==beforeB+1);
++                MilesWire::Header h={};MilesWire::Result ar={},br={};
++                CHECK(MilesTransport::decodeResult(a.mapper.reply(501),h,ar));
++                CHECK(MilesTransport::decodeResult(b.mapper.reply(501),h,br));
++                CHECK(ar.return_bits==7 && br.return_bits==UINT32_C(0x80000001));
++                CHECK(!watchA.expired() && !watchB.expired());
++                CHECK(a.mapper.observeForwardReturn(a.session,100));
++                CHECK(b.mapper.observeForwardReturn(b.session,100));
++                acknowledge(b,501);CHECK(a.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++                acknowledge(a,501);CHECK(a.mapper.consumeCommand(100));CHECK(b.mapper.consumeCommand(100));
++                CHECK(!watchA.expired() && !watchB.expired());
++                // Same reverse IDs across sessions remain separate; local B handle stays >32 bits.
++                auto readA=request(502,0,Background,0,MilesWire::FileRead,ar.resource,3);
++                auto readB=request(502,0,Background,0,MilesWire::FileRead,br.resource,3);
++                CHECK(a.mapper.receiveReverse(a.session,bytes(readA))==SessionFileOwner::Queued);
++                CHECK(b.mapper.receiveReverse(b.session,bytes(readB))==SessionFileOwner::Queued);
++                ready(a);b.mapper.poll();
++                CHECK(a.mapper.reply(502).size==131 && b.mapper.reply(502).size==131);
++                CHECK(a.mapper.reply(502).data[128]==0 && b.mapper.reply(502).data[128]==0xa0);
++                CHECK(Script46::readsB==1);acknowledge(a,502);acknowledge(b,502);
++                auto seekA=request(503,0,Background,0,MilesWire::FileSeek,ar.resource);
++                auto seekB=request(503,0,Background,0,MilesWire::FileSeek,br.resource);
++                CHECK(a.mapper.receiveReverse(a.session,bytes(seekA))==SessionFileOwner::Queued);
++                CHECK(b.mapper.receiveReverse(b.session,bytes(seekB))==SessionFileOwner::Queued);
++                ready(b);a.mapper.poll();MilesWire::Result sr={};
++                CHECK(MilesTransport::decodeResult(a.mapper.reply(503),h,sr));CHECK(sr.return_bits==static_cast<uint32_t>(-17));
++                CHECK(MilesTransport::decodeResult(b.mapper.reply(503),h,sr));CHECK(sr.return_bits==UINT32_C(0x80000000));
++                CHECK(Script46::seeksB==1);acknowledge(a,503);acknowledge(b,503);
++                auto closeA=request(504,0,Background,0,MilesWire::FileClose,ar.resource);
++                auto closeB=request(504,0,Background,0,MilesWire::FileClose,br.resource);
++                CHECK(a.mapper.receiveReverse(a.session,bytes(closeA))==SessionFileOwner::Queued);
++                CHECK(b.mapper.receiveReverse(b.session,bytes(closeB))==SessionFileOwner::Queued);
++                ready(a);b.mapper.poll();CHECK(Script46::closesB==1);
++                acknowledge(a,504);acknowledge(b,504);
++                CHECK(!a.owner.retainedOperations() && !b.owner.retainedOperations());
++                CHECK(!watchA.expired() && !watchB.expired()); // Session remains callback owner.
++            }
++            CHECK(watchA.expired() && watchB.expired());
++        }
++        std::puts("PASS two sessions select distinct retained tables through mapper-owner-job-invocation");
++        {
++            std::shared_ptr<void> life(new int(33));std::weak_ptr<void> watch=life;
++            {
++                Fixture f(8,Session,false,life);life.reset();f.context.reset();f.begin();
++                auto open=request(501);Script36::throwOpen=true;
++                CHECK(f.mapper.receiveReverse(Session,bytes(open))==SessionFileOwner::Queued);
++                ready(f);Script36::throwOpen=false;
++                CHECK(f.coordinator.state()==MilesCoordinator::Failed);
++                CHECK(f.owner.retainedOperations()==1 && f.mapper.retainedReverse()==1);
++                CHECK(!f.mapper.reply(501).size && !watch.expired());
++                CHECK(f.mapper.observeForwardReturn(Session,100));
++                CHECK(f.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++                CHECK(!f.mapper.consumeCommand(100));CHECK(!watch.expired());
++                // Rejected ACK cannot release uncertain ownership.
++                CHECK(!f.mapper.acknowledgeConsumed(Session,501));CHECK(!watch.expired());
++            }
++            CHECK(watch.expired()); // Test-only fake-file teardown, NOT production cleanup proof.
++        }
++        std::puts("PASS selected callback exception retains table through uncertain path");
++        {
++            Fixture f;f.begin();auto first=request(501),second=request(502);
++            CHECK(f.mapper.receiveReverse(Session,bytes(first))==SessionFileOwner::Queued);
++            CHECK(f.mapper.receiveReverse(Session,bytes(second))==SessionFileOwner::Queued);
++            ready(f);CHECK(f.mapper.observeForwardReturn(Session,100));
++            acknowledge(f,502);
++            CHECK(f.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++            CHECK(f.pins().callbackPins==1 && f.pins().requestPins==1);
++            acknowledge(f,501);CHECK(f.mapper.commandState()==HostAssociationMapper::Settled);
++            CHECK(!f.pins().callbackPins && !f.pins().requestPins);
++        }
++        std::puts("PASS multiple causal callbacks ACK out of order");
++        {
++            Fixture f;f.begin();auto first=request(501),second=request(502);
++            CHECK(f.mapper.receiveReverse(Session,bytes(first))==SessionFileOwner::Queued);
++            ready(f);CHECK(f.mapper.observeForwardReturn(Session,100));
++            CHECK(f.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++            CHECK(f.mapper.receiveReverse(Session,bytes(second))==SessionFileOwner::Queued);
++            ready(f);acknowledge(f,501);
++            CHECK(f.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++            CHECK(f.pins().callbackPins==1);acknowledge(f,502);
++            CHECK(f.mapper.commandState()==HostAssociationMapper::Settled);
++        }
++        std::puts("PASS second causal callback arrives while returned waiting");
++        for(unsigned mode=0;mode<3;++mode) {
++            Fixture f;f.begin();auto open=request(501);
++            CHECK(f.mapper.receiveReverse(Session,bytes(open))==SessionFileOwner::Queued);
++            ready(f);if(mode==2)CHECK(f.mapper.observeForwardReturn(Session,100));
++            CHECK(!f.mapper.observeForwardReturn(mode==0?78:Session,mode==1?101:100));
++            CHECK(f.coordinator.state()==MilesCoordinator::Failed);
++            CHECK(f.pins().requestPins==1 && f.pins().callbackPins==1);
++            CHECK(f.mapper.retainedReverse()==1 && !f.mapper.consumeCommand(100));
++        }
++        std::puts("PASS stale wrong and duplicate forward return cannot release pins");
++        for(unsigned mode=0;mode<2;++mode) {
++            Fixture f;f.begin();MilesWire::Handle unknown={MilesWire::File,7,99};
++            auto invalid=mode==0?request(501,100,8,0,MilesWire::FileClose,unknown)
++                                :request(501,100,8,0,MilesWire::FileOpen,MilesWire::Handle(),1);
++            const unsigned before=Script36::opens;
++            CHECK(f.mapper.receiveReverse(Session,bytes(invalid))==SessionFileOwner::Rejected);
++            CHECK(f.coordinator.state()==MilesCoordinator::Failed);
++            CHECK(!f.owner.retainedOperations() && f.mapper.retainedReverse()==1);
++            CHECK(!f.mapper.reply(501).size && Script36::opens==before);
++            CHECK(f.pins().requestPins==1 && !f.pins().callbackPins);
++            auto later=request(502);
++            CHECK(f.mapper.receiveReverse(Session,bytes(later))==SessionFileOwner::FailedUnanswered);
++            ready(f);CHECK(Script36::opens==before);
++            CHECK(f.mapper.retainedReverse()==2 && f.owner.retainedOperations()==1);
++        }
++        std::puts("PASS valid envelope owner target and open-field rejection");
++        {
++            Fixture f;f.begin();CHECK(f.mapper.observeForwardReturn(Session,100));
++            CHECK(f.mapper.commandState()==HostAssociationMapper::Settled);
++            CHECK(!f.pins().requestPins && !f.pins().callbackPins);
++            CHECK(f.mapper.consumeCommand(100));
++        }
++        std::puts("PASS zero callback forward return settles");
++        {
++            Fixture f;f.begin();auto open=request(501);
++            CHECK(f.mapper.receiveReverse(Session,bytes(open))==SessionFileOwner::Queued);ready(f);
++            CHECK(f.mapper.markReplyQueued(501));CHECK(!f.mapper.markReplyQueued(501));
++            CHECK(f.coordinator.state()==MilesCoordinator::Failed);
++            CHECK(f.owner.retainedOperations()==1 && f.mapper.retainedReverse()==1);
++        }
++        std::puts("PASS duplicate reply queue observation fails with ownership retained");
++        {
++            Fixture f;f.begin();CHECK(f.mapper.observeForwardReturn(Session,100));
++            const unsigned before=Script36::opens;auto late=request(501);
++            CHECK(f.mapper.receiveReverse(Session,bytes(late))==SessionFileOwner::Rejected);
++            CHECK(f.coordinator.state()==MilesCoordinator::Failed && Script36::opens==before);
++            CHECK(!f.owner.retainedOperations() && !f.mapper.retainedReverse());
++        }
++        std::puts("PASS causal callback after settled is refused before file admission");
++        std::printf("PASS %u composed selected-service/control-owner checks; scripted worker/job only\n", checks);
+         return 0;
+     } catch (...) { return 1; }
+ }
+--- a/file-owner36/portable_job.cpp
++++ b/file-owner36/portable_job.cpp
+@@ -26,15 +26,15 @@
+     MilesFileChannel26::Invocation invocation;
+     mutable bool done;
+     bool uncertain;
+-    State(const MilesFileChannel26::Request &r,std::shared_ptr<const MilesFileChannel26::Binding> b,std::shared_ptr<void> p)
+-        :invocation(r,MilesFileChannel26::FileServices{&Script36::open,&Script36::close,&Script36::seek,&Script36::read},b,p),done(false),uncertain(Script36::dispatchUncertain) {}
++    State(const MilesFileChannel26::Request &r,const MilesFileChannel26::FileServices &services,std::shared_ptr<const MilesFileChannel26::Binding> b,std::shared_ptr<void> p)
++        :invocation(r,services,b,p),done(false),uncertain(Script36::dispatchUncertain) {}
+ };
+-FileInvocationJob::FileInvocationJob(const MilesFileChannel26::Request &r,std::shared_ptr<const MilesFileChannel26::Binding> b,std::shared_ptr<void> p):state(new State(r,b,p)) {}
++FileInvocationJob::FileInvocationJob(const MilesFileChannel26::Request &r,const MilesFileChannel26::FileServices &services,std::shared_ptr<const MilesFileChannel26::Binding> b,std::shared_ptr<void> p):state(new State(r,services,b,p)) {}
+ FileInvocationJob::~FileInvocationJob(){delete state;}
+-std::shared_ptr<FileInvocationJob> FileInvocationJob::enqueueAdmitted(EngineFileWorker &,const MilesFileChannel26::Request &r,std::shared_ptr<const MilesFileChannel26::Binding> b,std::shared_ptr<void> p){
++std::shared_ptr<FileInvocationJob> FileInvocationJob::enqueueAdmitted(EngineFileWorker &,const MilesFileChannel26::Request &r,const MilesFileChannel26::FileServices &services,std::shared_ptr<const MilesFileChannel26::Binding> b,std::shared_ptr<void> p){
+     if(Script36::submitFailure==1)throw std::bad_alloc();
+     if(Script36::submitFailure==2)return std::shared_ptr<FileInvocationJob>();
+-    std::shared_ptr<FileInvocationJob> job(new FileInvocationJob(r,b,p));Script36::pending.push_back(job);return job;
++    std::shared_ptr<FileInvocationJob> job(new FileInvocationJob(r,services,b,p));Script36::pending.push_back(job);return job;
+ }
+ FileInvocationJob::Status FileInvocationJob::status() const {return !state->done?Pending:state->uncertain?DispatchUncertain:AdapterCompleted;}
+ bool FileInvocationJob::wait() const {if(!state->done){state->invocation.invokeOnAdmittedExecutor();state->done=true;}return true;}

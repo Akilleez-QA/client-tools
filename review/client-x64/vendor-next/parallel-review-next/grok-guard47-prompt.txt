@@ -1,0 +1,56 @@
+Review only this small thread-local guard for a private client C++ boundary. Scope objects are noncopyable same-thread stack/LIFO. Forward calls invoke requireForwardAllowed before touching sharedSession. File Invocation creates a Scope; if not admitted it throws into own catch and sets CallThrew; after callback it also sets CallThrew if scope.violated even when callback swallowed exception. Identify concrete concurrency/unwind/sticky-state defects from this code; no vendor behavior inference. Return concise findings or bounded no finding.
+Use only supplied authored source; do not run tools, change files, consult other reviews, or infer vendor behavior. Return concrete source-grounded concerns and scope limits; no broad clearance.
+
+FILE callback-reentry47/candidate/callback-reentry47/invocation_guard.h
+#ifndef MILES_CALLBACK_INVOCATION_GUARD47_H
+#define MILES_CALLBACK_INVOCATION_GUARD47_H
+
+// Private client C++ boundary. Never used as an SDK callback exception ABI.
+namespace MilesCallbackGuard47 {
+struct ReentryDenied {};
+class Scope {
+public:
+    Scope() throw();
+    ~Scope() throw();
+    bool admitted() const throw();
+    bool violated() const throw();
+private:
+    Scope *previous_;
+    bool violated_;
+    Scope(const Scope &);
+    Scope &operator=(const Scope &);
+    friend void requireForwardAllowed();
+};
+// No allocation or shared-session access on the allowed path.
+void requireForwardAllowed();
+}
+#endif
+
+FILE callback-reentry47/candidate/callback-reentry47/invocation_guard.cpp
+#include "invocation_guard.h"
+namespace MilesCallbackGuard47 {
+namespace {
+#if defined(_MSC_VER)
+__declspec(thread) Scope *active = 0;
+#else
+thread_local Scope *active = 0;
+#endif
+}
+Scope::Scope() throw() : previous_(active), violated_(active != 0) {
+    // Unsupported nested invocation poisons every containing invocation,
+    // even if its caller catches the rejection and returns normally.
+    for (Scope *scope = previous_; scope; scope = scope->previous_)
+        scope->violated_ = true;
+    active = this;
+}
+Scope::~Scope() throw() { active = previous_; }
+bool Scope::admitted() const throw() { return previous_ == 0; }
+bool Scope::violated() const throw() { return violated_; }
+void requireForwardAllowed() {
+    if (!active)
+        return;
+    for (Scope *scope = active; scope; scope = scope->previous_)
+        scope->violated_ = true;
+    throw ReentryDenied();
+}
+}

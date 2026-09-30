@@ -1,0 +1,101 @@
+--- a/candidate/callback-control45/tests.cpp
++++ b/candidate/callback-control45/tests.cpp
+@@ -4,7 +4,7 @@
+ #include <stdexcept>
+ namespace Script36 {
+ extern unsigned opens, closes;
+-extern bool dispatchUncertain, throwOpen;
++extern bool dispatchUncertain, throwOpen, openFails;
+ void pump();
+ }
+ using namespace MilesFileOwner36;
+@@ -20,11 +20,11 @@
+     SessionFileOwner owner;
+     HostAssociationMapper mapper;
+     explicit Fixture(size_t capacity = 8, uint64_t sessionId = Session, bool alternate = false,
+-        std::shared_ptr<void> callbackLifetime = std::shared_ptr<void>(new int(2)))
++        std::shared_ptr<void> callbackLifetime = std::shared_ptr<void>(new int(2)), size_t fileCapacity = 8)
+         : worker(EngineFileWorker::create(), &EngineFileWorker::destroy),
+           context(new FileSessionContext(*worker, std::shared_ptr<void>(new int(1)),
+               Script46::selected(alternate, callbackLifetime))), session(sessionId),
+-          coordinator(session), owner(coordinator, session, 1, context, 8, 8),
++          coordinator(session), owner(coordinator, session, 1, context, fileCapacity, 8),
+           mapper(session, Background, coordinator, owner, capacity) {}
+     void begin(uint64_t wire = 100, uint64_t admission = 1, uint64_t lease = 0,
+                MilesCoordinator::Action action = MilesCoordinator::Ordinary) {
+@@ -339,6 +339,75 @@
+             CHECK(!f.owner.retainedOperations() && !f.mapper.retainedReverse());
+         }
+         std::puts("PASS causal callback after settled is refused before file admission");
++        // One file slot: two failed opens must not consume or publish it.
++        {
++            Fixture f(8,Session,false,std::shared_ptr<void>(new int(49)),1);
++            Script36::openFails=true;
++            for (uint64_t id=601; id!=603; ++id) {
++                auto frame=request(id,0,Background);
++                CHECK(f.mapper.receiveReverse(Session,bytes(frame))==SessionFileOwner::Queued);
++                ready(f); MilesWire::Header h={}; MilesWire::Result result={};
++                CHECK(MilesTransport::decodeResult(f.mapper.reply(id),h,result));
++                CHECK(result.return_bits==0 && !result.resource.kind && !result.resource.slot && !result.resource.generation);
++                CHECK(f.coordinator.state()!=MilesCoordinator::Failed);
++                acknowledge(f,id); CHECK(!f.owner.retainedOperations());
++            }
++            Script36::openFails=false;
++            auto frame=request(603,0,Background);
++            CHECK(f.mapper.receiveReverse(Session,bytes(frame))==SessionFileOwner::Queued);
++            ready(f); MilesWire::Header h={}; MilesWire::Result result={};
++            CHECK(MilesTransport::decodeResult(f.mapper.reply(603),h,result));
++            CHECK(result.return_bits==7 && result.resource.kind==MilesWire::File && result.resource.slot);
++            acknowledge(f,603);
++            auto close=request(604,0,Background,0,MilesWire::FileClose,result.resource);
++            CHECK(f.mapper.receiveReverse(Session,bytes(close))==SessionFileOwner::Queued);
++            ready(f); acknowledge(f,604);
++            SessionFileOwner::FileState state;
++            CHECK(!f.owner.fileState(result.resource,state));
++        }
++        std::puts("PASS failed open with nonzero local output publishes no resource and reuses one slot");
++        {
++            Fixture f; f.begin(); auto frame=request(701);
++            const unsigned before=Script36::opens;
++            CHECK(f.mapper.receiveReverse(Session,bytes(frame))==SessionFileOwner::Queued);
++            CHECK(Script36::opens==before && !f.mapper.reply(701).size);
++            CHECK(f.mapper.observeForwardReturn(Session,100));
++            CHECK(f.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++            CHECK(Script36::opens==before && !f.mapper.reply(701).size);
++            CHECK(f.pins().requestPins==1 && f.pins().callbackPins==1);
++            CHECK(!f.mapper.consumeCommand(100));
++            ready(f); CHECK(Script36::opens==before+1 && f.mapper.reply(701).size==128);
++            CHECK(f.mapper.commandState()==HostAssociationMapper::ReturnedWaiting);
++            CHECK(f.pins().requestPins==1 && f.pins().callbackPins==1);
++            acknowledge(f,701);
++            CHECK(f.mapper.commandState()==HostAssociationMapper::Settled);
++            CHECK(!f.pins().requestPins && !f.pins().callbackPins);
++            CHECK(f.mapper.consumeCommand(100));
++        }
++        std::puts("PASS forward return while actual portable job Pending then completion and ACK");
++        // No Fixture/SessionFileOwner exists here: isolate Invocation's ownership.
++        {
++            using namespace MilesFileChannel26;
++            std::shared_ptr<void> life(new int(49)), context(new int(50));
++            std::weak_ptr<void> weakLife=life, weakContext=context;
++            FileServices services=Script46::selected(false,life);
++            std::weak_ptr<const void> weakTable=services.owner;
++            auto frame=request(801,0,Background); Request decoded;
++            Association association={801,0,Background,0};
++            CHECK(decodeRequest(bytes(frame),association,decoded)==Valid);
++            std::unique_ptr<Invocation> invocation(new Invocation(decoded,services,
++                std::shared_ptr<const Binding>(),context));
++            services=FileServices(); life.reset(); context.reset();
++            CHECK(!weakLife.expired() && !weakTable.expired() && !weakContext.expired());
++            const unsigned before=Script36::opens;
++            CHECK(invocation->invokeOnAdmittedExecutor());
++            CHECK(Script36::opens==before+1 && invocation->completion().state==Returned);
++            CHECK(invocation->completion().opened.callbackResult==7 && invocation->completion().opened.handle.value==0);
++            CHECK(!weakLife.expired() && !weakTable.expired() && !weakContext.expired());
++            invocation.reset();
++            CHECK(weakLife.expired() && weakTable.expired() && weakContext.expired());
++        }
++        std::puts("PASS isolated Invocation retains selected table and context without session owner");
+         std::printf("PASS %u composed selected-service/control-owner checks; scripted worker/job only\n", checks);
+         return 0;
+     } catch (...) { return 1; }

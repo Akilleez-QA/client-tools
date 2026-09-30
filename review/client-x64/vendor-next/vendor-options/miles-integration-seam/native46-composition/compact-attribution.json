@@ -1,0 +1,87 @@
+{
+  "new_objects": [
+    {
+      "unit": "selected-services",
+      "source": "selected-file-services44/selected_services.cpp",
+      "source_sha256": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5",
+      "exit_code": 0,
+      "diagnostics": [],
+      "forbidden_includes": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "d95eb082968607e6e61d7db727fc96fe6bc28e60860c096365b8561668131060",
+      "actual_symbols_log_sha256": "20e82b0762ef34d3f244c99292181369ea5ccb5f6f319597fd3c09f1b2788d3a",
+      "selected_undefined_refs": [],
+      "no_canonical_or_AIL_refs": true
+    },
+    {
+      "unit": "actual-job",
+      "source": "file-executor33/FileInvocationJob.cpp",
+      "source_sha256": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c",
+      "exit_code": 0,
+      "diagnostics": [],
+      "forbidden_includes": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "4152661a9a3106388f32e046705e5a8e0217ff01a5a5893f6dd39af68d8fc2df",
+      "actual_symbols_log_sha256": "38810226030c6e92d0bae74754ac7cf19e7c104bcb1fbc88469097efa474100a",
+      "selected_undefined_refs": [
+        "?submit@EngineFileWorker@MilesFileExecutor30@@QEAA_NPEAXP6AX0@Z@Z",
+        "??0Invocation@MilesFileChannel26@@QEAA@AEBVRequest@1@AEBUFileServices@1@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@std@@V?$shared_ptr@X@5@@Z",
+        "?invokeOnAdmittedExecutor@Invocation@MilesFileChannel26@@QEAA_NXZ"
+      ],
+      "no_canonical_or_AIL_refs": true
+    },
+    {
+      "unit": "owner",
+      "source": "file-owner36/session_file_owner.cpp",
+      "source_sha256": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e",
+      "exit_code": 0,
+      "diagnostics": [],
+      "forbidden_includes": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "a3a2b820e44b8482dac3af459955126c13f1fe18939faeb95ddc42956ee62342",
+      "actual_symbols_log_sha256": "26196b66e96faf92faf97149603729c1dbc685bc5a2919d1575ffc9e7132669f",
+      "selected_undefined_refs": [
+        "?completion@Invocation@MilesFileChannel26@@QEBAAEBUCompletion@2@XZ",
+        "?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@SA?AV?$shared_ptr@VFileInvocationJob@MilesFileExecutor30@@@std@@AEAVEngineFileWorker@2@AEBVRequest@MilesFileChannel26@@AEBUFileServices@7@V?$shared_ptr@$$CBUBinding@MilesFileChannel26@@@4@V?$shared_ptr@X@4@@Z",
+        "?completedInvocation@FileInvocationJob@MilesFileExecutor30@@QEBAPEBVInvocation@MilesFileChannel26@@XZ"
+      ],
+      "no_canonical_or_AIL_refs": true
+    },
+    {
+      "unit": "file-channel",
+      "source": "file-channel26/file_channel.cpp",
+      "source_sha256": "03d29cbfcdff8eaeabeaef620654b4190f6c2b60fac107c1f798eb826d483dce",
+      "exit_code": 0,
+      "diagnostics": [],
+      "forbidden_includes": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "0fdcd99253969bf271cf059b5f032927874db38e571494edfc78477d007c5d21",
+      "actual_symbols_log_sha256": "6034e13951095843dfb27d17b0a0837859dbe7b429c1ed8a2b7e7d1927021ffb",
+      "selected_undefined_refs": [],
+      "no_canonical_or_AIL_refs": true
+    },
+    {
+      "unit": "mapper",
+      "source": "callback-control45/host_association_mapper.cpp",
+      "source_sha256": "cbd65fdc9468e4aec692bb8b48d9d3251289846b0ad05e1cffab011929c98883",
+      "exit_code": 0,
+      "diagnostics": [],
+      "forbidden_includes": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "29da3d273d76c17f46f00ee2389554443da0d5d0748fb31d103cd73e2f8c5b3c",
+      "actual_symbols_log_sha256": "e33673d7f48f9141738278639a063e7aabbd13f79554425b9a734ae8053ef704",
+      "selected_undefined_refs": [
+        "?receive@SessionFileOwner@MilesFileOwner36@@QEAA?AW4Intake@12@AEBVTrustedAssociation@2@UBytes@MilesTransport@@@Z",
+        "?acknowledge@SessionFileOwner@MilesFileOwner36@@QEAA_N_K0@Z"
+      ],
+      "no_canonical_or_AIL_refs": true
+    }
+  ],
+  "passed": true,
+  "reused41_codec_coordinator_unchanged": true,
+  "inputs_unchanged": true,
+  "selected_retain_definitions": [
+    "?retain@MilesSelectedFileServices44@@YA?AUFileServices@MilesFileChannel26@@P6AIPEBDPEA_K@ZP6AX_K@ZP6AH3HI@ZP6AI3PEAXI@ZV?$shared_ptr@X@std@@@Z"
+  ],
+  "raw_receipt_sha256": "31a795472a7783b95d9acc363eb75057315176f2b9072a0ed6da12c31d2a488f"
+}

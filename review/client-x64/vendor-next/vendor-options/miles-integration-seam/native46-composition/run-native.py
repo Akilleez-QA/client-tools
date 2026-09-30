@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""Proposed v120 AMD64 object-only gate; execute only after root identity approval."""
+from pathlib import Path
+import hashlib,json,os,re,shutil,struct,subprocess,sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from symbol_parser import undefined_symbols,defined_symbols,has_required,no_miles_imports
+if os.name!='nt' or sys.argv[1:]!=['--approved-compile-only']:
+ raise SystemExit('Windows and explicit approved compile-only invocation required')
+ROOT=Path('C:/native46-composition');OUT=ROOT/'results'
+VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')
+UNITS=[('selected-services','selected-file-services44/selected_services.cpp'),('actual-job','file-executor33/FileInvocationJob.cpp'),('owner','file-owner36/session_file_owner.cpp'),('file-channel','file-channel26/file_channel.cpp'),('mapper','callback-control45/host_association_mapper.cpp')]
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+m=json.loads((ROOT/'input-manifest.json').read_text())
+for n,v in m['sha256'].items():
+ if sha(ROOT/n)!=v:raise RuntimeError('Input identity mismatch: '+n)
+reuse=json.loads((ROOT/'reused-units.json').read_text())
+for n,v in reuse['sha256'].items():
+ if sha(Path(n))!=v:raise RuntimeError('Reused unit identity mismatch: '+n)
+for n,meta in reuse['objects'].items():
+ if hex(struct.unpack_from('<H',Path(n).read_bytes())[0])!=meta['machine']:raise RuntimeError('Reused unit machine mismatch')
+for n,v in reuse['source_dependencies'].items():
+ if sha(ROOT/'candidate'/n)!=v:raise RuntimeError('Changed reused source/header dependency: '+n)
+OUT.mkdir(exist_ok=False)
+r={'expected_objects':len(UNITS),'linked':False,'executed':False,'builds':[],
+ 'input_manifest_sha256':sha(ROOT/'input-manifest.json'),
+ 'policy':'stop first compile/header/COFF/import failure; no retry',
+ 'header_hashes':'single-time compile observations, not before/after header attestation',
+ 'reused_units_before':reuse,'new_objects_only':5}
+def save():(OUT/'results.json').write_text(json.dumps(r,indent=2)+'\n')
+try:
+ setup=OUT/'environment.cmd';setup.write_text('@echo off\ncall "'+str(VCVARS)+'" amd64 >nul\nif errorlevel 1 exit /b %errorlevel%\nset\n')
+ p=subprocess.run(['cmd','/d','/c',str(setup)],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=45)
+ if p.returncode:raise RuntimeError('vcvars failed')
+ env={k.upper():v for k,v in os.environ.items()}
+ for line in p.stdout.decode(errors='replace').splitlines():
+  if '=' in line and not line.startswith('='):
+   k,v=line.split('=',1);env[k.upper()]=v
+ cl=shutil.which('cl.exe',path=env['PATH']);dumpbin=shutil.which('dumpbin.exe',path=env['PATH'])
+ if not cl or not dumpbin:raise RuntimeError('Native tools missing')
+ r['tools']={str(p):sha(p) for p in [Path(cl),Path(dumpbin),VCVARS]}
+ if r['tools']!=reuse['tool_sha256']:raise RuntimeError('Selected native tool identity differs from reused units')
+ flags=json.loads((ROOT/'flags.json').read_text())
+ for name,rel in UNITS:
+  out=OUT/name;out.mkdir();source=ROOT/'candidate'/rel;obj=out/(name+'.obj')
+  command=[cl]+flags+['/FI'+str(ROOT/'require-v120.h'),'/Fd'+str(out/(name+'.pdb')),str(source),'/Fo'+str(obj)]
+  (out/'command.json').write_text(json.dumps(command,indent=2)+'\n')
+  row={'unit':name,'source':rel,'command':command,'cwd':str(out),'status':'pending'};r['builds'].append(row);save()
+  try:p=subprocess.run(command,cwd=out,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=180)
+  except subprocess.TimeoutExpired as error:
+   (out/'compile.log').write_bytes(error.stdout or b'');row['status']='timeout';raise
+  (out/'compile.log').write_bytes(p.stdout);lines=p.stdout.decode(errors='replace').splitlines();includes={}
+  for line in lines:
+   match=re.match(r'^Note: including file:\s*(.+?)\s*$',line)
+   if match:
+    path=Path(match.group(1)).resolve();includes[str(path)]=sha(path)
+  (out/'actual-includes.json').write_text(json.dumps(includes,indent=2)+'\n')
+  paths=[x.replace('\\','/').lower() for x in includes]
+  forbidden=[x for x in paths if '/stlport' in x or '/src/engine/' in x or '/snapshot/' in x or x.endswith('/mss.h')]
+  row.update(exit_code=p.returncode,diagnostics=[x for x in lines if re.search(r'\b(?:warning|error|fatal error) [A-Z]\d+',x)],forbidden_includes=forbidden,actual_includes_sha256=sha(out/'actual-includes.json'))
+  if p.returncode:row['status']='compile-failed';raise RuntimeError(name+' compile failed')
+  if forbidden:row['status']='header-boundary-failed';raise RuntimeError(name+' header boundary failed')
+  row.update(object_sha256=sha(obj),coff_machine=hex(struct.unpack_from('<H',obj.read_bytes())[0]))
+  if row['coff_machine']!='0x8664':row['status']='wrong-machine';raise RuntimeError('Wrong COFF machine')
+  command=[dumpbin,'/symbols',str(obj)];(out/'symbols-command.json').write_text(json.dumps(command,indent=2)+'\n')
+  p=subprocess.run(command,cwd=out,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=45);(out/'symbols.log').write_bytes(p.stdout)
+  undef=undefined_symbols(p.stdout.decode(errors='replace'))
+  row['undefined_symbols']=undef
+  defined=defined_symbols(p.stdout.decode(errors='replace'));row['defined_symbols']=defined
+  if p.returncode:raise RuntimeError('dumpbin failed')
+  if not no_miles_imports(undef):raise RuntimeError('Unexpected direct SDK reference')
+  if any('canonicalServices' in symbol for symbol in undef):raise RuntimeError('Unexpected canonical fallback dependency')
+  required={'owner':['?enqueueAdmitted@FileInvocationJob@MilesFileExecutor30@@'],
+            'actual-job':['?submit@EngineFileWorker@MilesFileExecutor30@@','??0Invocation@MilesFileChannel26@@'],
+            'mapper':['?receive@SessionFileOwner@MilesFileOwner36@@','?acknowledge@SessionFileOwner@MilesFileOwner36@@']}.get(name,[])
+  if name=='selected-services' and not has_required(defined,['?retain@MilesSelectedFileServices44@@']):raise RuntimeError('Selected table retention implementation missing')
+  if name=='actual-job' and not any(x.startswith('??0Invocation@MilesFileChannel26@@') and 'FileServices' in x for x in undef):raise RuntimeError('Actual job not bound to explicit service table')
+  if not has_required(undef,required):
+   row['status']='required-reference-missing';raise RuntimeError(name+' actual dependency reference missing')
+  row['status']='compiled';save();print(json.dumps({'unit':name,'status':row['status'],'exit_code':row['exit_code']}),flush=True)
+except Exception as error:r['failure']={'type':type(error).__name__,'message':str(error)}
+finally:
+ reused_after={n:sha(Path(n)) for n in reuse['sha256']};r['reused_units_after']=reused_after;r['reused_units_unchanged']=reused_after==reuse['sha256']
+ after={n:sha(ROOT/n) for n in m['sha256']};(OUT/'inputs-after.json').write_text(json.dumps(after,indent=2)+'\n')
+ r['inputs_unchanged']=after==m['sha256'];r['passed']=not r.get('failure') and r['inputs_unchanged'] and r['reused_units_unchanged'] and len(r['builds'])==len(UNITS) and all(x['status']=='compiled' for x in r['builds']);save()
+sys.exit(0 if r['passed'] else 1)

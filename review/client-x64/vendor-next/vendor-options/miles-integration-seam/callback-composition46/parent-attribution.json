@@ -1,0 +1,18 @@
+{
+  "scope": "parent raw-record and source attribution; same portable experiment, no independent execution",
+  "frozen_files": 31,
+  "freeze_sha256": "4f04a5beec06c0581a38607334f1eb3847fa9c5838ac30875da00c47f3f32b31",
+  "scenario_groups": 20,
+  "assertions": 333,
+  "production_components": [
+    "selected services",
+    "mapper",
+    "owner",
+    "Invocation",
+    "codec",
+    "Coordinator"
+  ],
+  "substituted": "portable worker/job, Windows FileInvocationJob not executed",
+  "positive_discrimination": "two internal tables preserve distinct status/read bytes/wide B handle after caller references reset; both return/ACK orders plus multiple causal ACKs tested",
+  "limits": "Two internal fixture owners do not claim public multi-session support or callback replacement. No pipe/authentication/TLS/native runtime or vendor termination."
+}

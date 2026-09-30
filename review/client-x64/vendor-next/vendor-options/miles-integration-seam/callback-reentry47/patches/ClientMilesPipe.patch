@@ -1,0 +1,32 @@
+--- a/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ b/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -1,4 +1,5 @@
+ #include "Session.h"
++#include "../../callback-reentry47/invocation_guard.h"
+ #include "../../protocol-candidate/pair_outputs.h"
+ #include "../../native-playback28/ClientMilesPlayback.h"
+ #include <list>
+@@ -125,6 +126,7 @@
+ }
+ 
+ Session &Session::selected() {
++    MilesCallbackGuard47::requireForwardAllowed();
+     if (!selectedSession)
+         fail(ClientMiles::FailureReason::WrongState, "Miles implementation not selected");
+     return *selectedSession;
+@@ -152,6 +154,7 @@
+ 
+ StartupBridge::OwnedReply Session::request(uint32_t opcode, const MilesWire::Call &fields,
+                                            MilesTransport::Bytes text) {
++    MilesCallbackGuard47::requireForwardAllowed();
+     if (faulted_ || closed_)
+         fail(ClientMiles::FailureReason::BackendFailed,
+              "Miles session cannot issue another request");
+@@ -173,6 +176,7 @@
+ }
+ 
+ void Session::close() {
++    MilesCallbackGuard47::requireForwardAllowed();
+     if (faulted_)
+         fail(ClientMiles::FailureReason::BackendFailed, "cannot retry an uncertain Miles close");
+     if (!stopped || started || closed_)

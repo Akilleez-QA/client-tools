@@ -1,0 +1,21 @@
+PASS forward-before-ACK join and distinct wire/local IDs
+PASS ACK-before-forward join
+PASS unsolicited callback during unrelated command
+PASS idle callback open-close lifetime
+PASS causal/session/lane/lease validation
+PASS unsupported lock actions rejected before admission
+PASS reverse replay before and after ACK
+PASS early/stale/duplicate/peer-intake ACK rejection
+PASS uncertain file execution retains forward and callback pins
+PASS reverse storage capacity fails before second file admission
+PASS malformed frame rejected
+PASS two sessions select distinct retained tables through mapper-owner-job-invocation
+PASS selected callback exception retains table through uncertain path
+PASS multiple causal callbacks ACK out of order
+PASS second causal callback arrives while returned waiting
+PASS stale wrong and duplicate forward return cannot release pins
+PASS valid envelope owner target and open-field rejection
+PASS zero callback forward return settles
+PASS duplicate reply queue observation fails with ownership retained
+PASS causal callback after settled is refused before file admission
+PASS 333 composed selected-service/control-owner checks; scripted worker/job only

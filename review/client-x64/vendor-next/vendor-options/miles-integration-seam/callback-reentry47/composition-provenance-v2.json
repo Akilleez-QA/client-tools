@@ -1,0 +1,172 @@
+{
+  "roots": [
+    "callback-reentry47/tests.cpp",
+    "callback-reentry47/invocation_guard.cpp",
+    "backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "file-channel26/file_channel.cpp",
+    "transport-candidate/codec.cpp",
+    "session-version22/session_version.cpp",
+    "startup-metadata-v4/metadata_wire.cpp"
+  ],
+  "files": [
+    {
+      "path": "callback-reentry47/tests.cpp",
+      "sha256": "01667edf3f723d58a40325540906c76a09e3430c17ee2c6df3c435c9b79c8fd5",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/candidate/callback-reentry47/tests.cpp",
+      "selection": "frozen47 overlay"
+    },
+    {
+      "path": "callback-reentry47/invocation_guard.h",
+      "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/candidate/callback-reentry47/invocation_guard.h",
+      "selection": "frozen47 overlay"
+    },
+    {
+      "path": "file-channel26/file_channel.h",
+      "sha256": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-composition46/candidate/file-channel26/file_channel.h",
+      "selection": "46 unchanged dependency"
+    },
+    {
+      "path": "reverse-file-seam20/ClientAudioFileCallbacks.h",
+      "sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-composition46/candidate/reverse-file-seam20/ClientAudioFileCallbacks.h",
+      "selection": "46 unchanged dependency"
+    },
+    {
+      "path": "transport-candidate/codec.h",
+      "sha256": "f64abebcd7f713ca9901989ae14947e99104858bb6a82a7da6032cfe50412602",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-composition46/candidate/transport-candidate/codec.h",
+      "selection": "46 unchanged dependency"
+    },
+    {
+      "path": "transport-candidate/resource_registry.h",
+      "sha256": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-composition46/candidate/transport-candidate/resource_registry.h",
+      "selection": "46 unchanged dependency"
+    },
+    {
+      "path": "protocol-candidate/miles_wire.h",
+      "sha256": "39b45fcf81e5186814f2a342ccca25369a1bab21c7da5164e82cb2ecb025be0a",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/protocol-candidate/miles_wire.h",
+      "selection": "38 protocol including Version2 and pair mask"
+    },
+    {
+      "path": "backend-boundary24/pipe/Session.h",
+      "sha256": "e74fea70bb6f2c2705bc9b1cc59022645eb4fde3ea7ad5cc0aa7de5ffbcea0bd",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/backend-boundary24/pipe/Session.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "backend-boundary24/ClientMiles.h",
+      "sha256": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/backend-boundary24/ClientMiles.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "backend-boundary24/pipe/Channel.h",
+      "sha256": "3b5af2ca31784ce3f9438ad87271963f309980fd6910a190e9ccf9cdc4d9739e",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/backend-boundary24/pipe/Channel.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "startup-bridge23/reply.h",
+      "sha256": "5a95a70bc3622bb500057d77a37629fa82127d7fbafe9095abf09b1292e437b6",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/startup-bridge23/reply.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "session-version22/session_version.h",
+      "sha256": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/session-version22/session_version.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "startup-metadata-v4/metadata.h",
+      "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/startup-metadata-v4/metadata.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "host-candidate/host_dispatch.h",
+      "sha256": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/host-candidate/host_dispatch.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "callback-reentry47/invocation_guard.cpp",
+      "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/candidate/callback-reentry47/invocation_guard.cpp",
+      "selection": "frozen47 overlay"
+    },
+    {
+      "path": "backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "sha256": "b64ce883b26c97bf1fe99a1781a5b4626972798a52e6b8500ee5f13359d218a5",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "selection": "frozen47 overlay"
+    },
+    {
+      "path": "protocol-candidate/pair_outputs.h",
+      "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/protocol-candidate/pair_outputs.h",
+      "selection": "38 protocol including Version2 and pair mask"
+    },
+    {
+      "path": "native-playback28/ClientMilesPlayback.h",
+      "sha256": "e97181694f6e25fcc49f019607fdad15ee0e9a78be6b4f18d6aec5517001b833",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/native-playback28/ClientMilesPlayback.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "native-sample27/ClientMilesSample.h",
+      "sha256": "f26f9aa77247b32fe21025046efef511a3422836b3f45a6c7cee3905b339cfb3",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/native-sample27/ClientMilesSample.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "native-stream28/ClientMilesStream.h",
+      "sha256": "412f331293a81e6aaf3e8b0e6c600b7f24443535cdab4ad46b04d02e0c274844",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/native-stream28/ClientMilesStream.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "native-startup25/ClientMilesStartup.h",
+      "sha256": "fdee8b2afc7e906bcba0878bd2a03fca914d898b30d96eeaccf1876528047321",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/native-startup25/ClientMilesStartup.h",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "file-channel26/file_channel.cpp",
+      "sha256": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/candidate/file-channel26/file_channel.cpp",
+      "selection": "frozen47 overlay"
+    },
+    {
+      "path": "transport-candidate/codec.cpp",
+      "sha256": "9ba3ed648975d856d1715f76a959868f6cd00ca58ac783f3ff075f97e29dfd06",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-composition46/candidate/transport-candidate/codec.cpp",
+      "selection": "46 unchanged dependency"
+    },
+    {
+      "path": "session-version22/session_version.cpp",
+      "sha256": "eb92d358dfc983ebbfb09f44cff70ca30feaf8a8b5c3cffd85b4ffd47b0d084a",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/session-version22/session_version.cpp",
+      "selection": "38 unchanged pipe dependency"
+    },
+    {
+      "path": "startup-metadata-v4/metadata_wire.cpp",
+      "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2",
+      "parent": "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/stream-native38/private-source-v1/startup-metadata-v4/metadata_wire.cpp",
+      "selection": "38 unchanged real missing link dependency"
+    }
+  ],
+  "protocol_difference": "Only Version=1 to Version=2; 38 header selected verbatim. 46 codec/Invocation consume this explicit composition version. No interoperability claim.",
+  "macro_substitutions": [],
+  "sdk_inputs": [],
+  "v1_failure": {
+    "receipt_sha256": "a823840f522d2d16836c4e71e7c881cfc5bdc79731e2d3ae7d4c29e60a26f6df",
+    "build_log_sha256": "29a0308a34424475b1aaa69320b43bd1fe7a636ff516236208f8df59daf8d5ad",
+    "outcome": "failed link; test not run; real MilesStartup::signedValue TU omitted",
+    "preserved": true
+  }
+}

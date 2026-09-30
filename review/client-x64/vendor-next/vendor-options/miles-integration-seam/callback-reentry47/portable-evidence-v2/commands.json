@@ -1,0 +1,26 @@
+{
+  "build": [
+    "g++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-g",
+    "-pthread",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/callback-reentry47/tests.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/callback-reentry47/invocation_guard.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/file-channel26/file_channel.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/transport-candidate/codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/session-version22/session_version.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-composition-v2/startup-metadata-v4/metadata_wire.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-evidence-v2/guard47-test"
+  ],
+  "run": [
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/callback-reentry47/portable-evidence-v2/guard47-test"
+  ]
+}

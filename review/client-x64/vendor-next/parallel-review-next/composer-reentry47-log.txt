@@ -1,0 +1,118 @@
+## Scope limits (from supplied source only)
+
+- **Same-thread, stack/LIFO**: `Scope` pushes/pops `thread_local active` in ctor/dtor only; `admitted()` means `previous_ == 0`; nesting poisons the `previous_` chain in `Scope::Scope()` and in `requireForwardAllowed()`.
+- **Sticky violation** is a flag on **live** `Scope` objects on that thread’s stack, checked in `file_channel` after the `try`/`catch` via `callbackScope.violated()`.
+- **Private `Session` construction/destruction** is not wrapped by the guard; tests construct `Session` before `Scope` in `main`.
+- **Callback-spawned threads**: only a manually started second thread with its own `Scope` is tested; no coverage claim for threads created inside a callback.
+- **Direct native backend**: no supplied changes; not reviewed here.
+
+---
+
+## Concrete coverage gaps (missed tests, not proven defects)
+
+### 1. In-callback forward denial uses `ClientMiles::startup()`, not patched entry points
+
+Production guards are on `Session::selected()`, `Session::request()`, and `Session::close()` (patches). Inside the admitted callback, mode 1 only does:
+
+```cpp
+if (c.mode == 1) denied(forward); // forward = ClientMiles::startup()
+```
+
+`main` denies `forward` under `Scope`, and separately catches `ReentryDenied` from `session.request` / `session.close` **outside** the file callback path.
+
+**Gap**: No supplied test calls `session.request`, `session.close`, or any path that must hit `Session::selected()` **from inside** an admitted `read` callback (with or without swallowing `ReentryDenied`). Sticky `violated()` after swallowed reentry is only shown for `startup()` in the callback, not for the three patched APIs.
+
+**Classification**: **Missed test** (and an assumption that `startup()` exercises the same guarded surface as the patch).
+
+---
+
+### 2. `Session::selected()` never targeted directly
+
+Patch adds `requireForwardAllowed()` to `selected()`; tests never assert denial or `scope.violated()` specifically for a `selected()` reentry attempt (only `request` / `close` under outer `Scope` in `main`).
+
+**Classification**: **Missed test** for that entry point.
+
+---
+
+### 3. Second `invokeOnAdmittedExecutor()` — guard vs one-shot channel
+
+Each mode ends with:
+
+```cpp
+CHECK(!work.invokeOnAdmittedExecutor());
+```
+
+Supplied `file_channel` patch shows `if (begun) return false; begun = true;` before the guard. After a full invoke, `returned = true` is also set in the snippet. A second call can fail due to **`begun` / `returned` lifecycle**, not due to `thread_local active` (callback `Scope` is already destroyed).
+
+**Classification**: **False-pass risk** — this check does **not** demonstrate guard-based rejection of a second same-thread entry on the same work object; at most it aligns with channel one-shot semantics.
+
+---
+
+### 4. Open / close / seek share the same guard wrapper but are not exercised
+
+Reentry behavior is injected in the shared `begun` block before the opcode `switch`. Tests only drive **`FileRead`** and only attach reentry logic to **`read`**. `open` / `close` / `seek` are stubs with no forward/nest modes.
+
+**Classification**: **Missed test** (same code path in patch; no separate defect in the guard from supplied files).
+
+---
+
+### 5. Swallowed `ReentryDenied` with an **ancestor** `Scope` outside `callbackScope`
+
+The guard text says nested unsupported use poisons **containing** scopes. The scenario “admitted callback, then forward, host catches `ReentryDenied`” is only run when `callbackScope` is the **only** guard frame (`previous_ == 0` in mode 1).  
+
+If a host held an outer `MilesCallbackGuard47::Scope` during `invokeOnAdmittedExecutor`, supplied `file_channel` logic would `!admitted()` and throw **before** `read` — as in the nested `Invocation` block (`context->calls` stays 4). There is **no** test that forward reentry runs under an outer frame that remains **admitted** while a deeper frame is active (by design `admitted()` forbids that for `callbackScope`).
+
+**Classification**: **Missed test** for “poison propagates to ancestor on swallowed forward during admitted leaf callback” — largely **moot** for the supplied admission rule (ancestor ⇒ not admitted), but the **comment’s “containing invocation” story is only partially exercised** (nested `Scope` in mode 3 and nested `Invocation`, not swallowed forward with multiple frames).
+
+---
+
+### 6. Unwind / exception ordering only partially swept
+
+| Scenario | Covered? |
+|----------|----------|
+| `ReentryDenied` at `!admitted()` before service (nested `Invocation`) | Yes (`CallThrew`, no extra `read`) |
+| Guard throw caught and swallowed in callback (mode 1) | Yes (`CallThrew`, `violated()`) |
+| Arbitrary `std::exception` from callback (mode 2) | Yes |
+| Nested `Scope` in callback (mode 3) | Yes |
+| `Scope` destroyed after non-guard exception (`catch (int)`) then `requireForwardAllowed()` | Yes |
+| **`ReentryDenied` or other exception propagating out of callback without `file_channel` swallowing** (host/unwind above `Invocation`) | **Not** isolated in supplied tests |
+| **`requireForwardAllowed()` when `active == 0`** after callback completes | Yes (end of each mode loop) — confirms no sticky **thread** state after `Scope` destruction (by design) |
+
+**Classification**: mostly **missed tests** for host-side unwind above the channel wrapper.
+
+---
+
+### 7. Two-thread isolation
+
+The worker thread waits on `release` while main calls `startup()`. That validates **TLS isolation** for a **non-callback** thread holding `Scope`. It does not validate callback-created threads (explicitly out of scope).
+
+**Classification**: aligned with stated limits; **not** a false pass for claimed scope.
+
+---
+
+## Supplied behavior that tests do support (narrowly)
+
+- Outer `Scope` in `main`: `startup` / `session.request` / `session.close` throw; outer `violated()`; session and channel counters unchanged — **same-thread reentry into patched session forward APIs while a guard frame is active**.
+- Admitted callback: modes 0–3, completion encoding, `violated()` → `CallThrew` in channel.
+- Nested `Invocation` under outer `Scope`: no `read`, outer `violated()` — admission + poison on nested entry.
+- Mode 3: nested `Scope` in callback → not admitted, violated, completion `CallThrew`.
+- No persistent guard state after callback `Scope` is destroyed (`requireForwardAllowed()` at end of modes with `active == 0`).
+
+---
+
+## Code vs test (from supplied guard only)
+
+| Observation | Verdict |
+|-------------|--------|
+| Nested ctor always sets `violated_` on self when `active != 0` and walks `previous_` to poison | **By design** in `invocation_guard.cpp`; mode 3 + nested `Invocation` match |
+| `requireForwardAllowed()` no-ops when `!active` | Tested after invoke loop and after `catch (int)` |
+| Sticky failure requires live `Scope` and `violated()` check in `file_channel` | Tested for in-callback paths; **not** shown for `Session::request`/`close`/`selected` from callback |
+| Patched APIs vs test forward hook mismatch | **Coverage hole**, not a demonstrated logic bug in the guard implementation itself |
+
+---
+
+## Summary
+
+**Do not treat the supplied suite as clearing all same-thread reentry orders.** The largest holes are: **(1)** callback reentry tests use **`startup()` only**, not the three **patched** `Session` methods from inside an admitted callback; **(2)** **`selected()`** is un tested; **(3)** **second `invokeOnAdmittedExecutor()`** can pass without proving guard reentry blocking; **(4)** only **`read`** exercises custom reentry behavior despite a shared guard block for all opcodes.
+
+Distinguishing **missed test** vs **defect**: from **only** the authored guard + patches + tests, the guard’s poison/LIFO/admission rules are **consistent** with what is tested; **defects in production protection** for `request`/`close`/`selected` during callbacks are **not provable** without either in-callback tests on those entry points or supplied linkage showing `startup()` always reaches them. Scope limits (session ctor/dtor, callback-spawned threads, native backend) are **not** falsely claimed by tests but also **not** fully exercised where excluded.

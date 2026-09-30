@@ -1,0 +1,25 @@
+--- run-portable-v1.py
++++ run-portable-v2.py
+@@ -14,7 +14,7 @@
+ if not a.approved_portable:
+     p.error('explicit reviewed portable gate required')
+ root = Path(__file__).resolve().parent
+-manifest = root / 'composition-freeze-v1.json'
++manifest = root / 'composition-freeze-v2.json'
+ expected = json.loads(manifest.read_text())['files']
+ def identities():
+     result = {}
+@@ -26,10 +26,10 @@
+         result[entry['path']] = actual
+     return result
+ before = identities()
+-evidence = root / 'portable-evidence-v1'
++evidence = root / 'portable-evidence-v2'
+ evidence.mkdir(exist_ok=False)  # Previous failure/success cannot be overwritten.
+-source = root / 'portable-composition-v1'
+-roots = json.loads((root / 'composition-provenance-v1.json').read_text())['roots']
++source = root / 'portable-composition-v2'
++roots = json.loads((root / 'composition-provenance-v2.json').read_text())['roots']
+ command = ['g++', '-std=c++11', '-Wall', '-Wextra', '-Werror', '-pedantic',
+            '-fsanitize=address,undefined', '-fno-omit-frame-pointer', '-g', '-pthread']
+ command += [str(source / name) for name in roots]

@@ -1,0 +1,18 @@
+--- a/candidate/file-owner36/portable_job.cpp
++++ b/candidate/file-owner36/portable_job.cpp
+@@ -9,11 +9,11 @@
+ std::vector<std::weak_ptr<MilesFileExecutor30::FileInvocationJob> > pending;
+ ClientAudioFileCallbacks::OpenResult open(const char *){
+     ++opens;if(throwOpen)throw std::runtime_error("scripted open uncertainty");
+-    ClientAudioFileCallbacks::OpenResult r={openFails?0u:7u,{0}};return r;
++    ClientAudioFileCallbacks::OpenResult r={openFails?0u:7u,{openFails?static_cast<uintptr_t>(0x7654):0}};return r;
+ }
+-void close(ClientAudioFileCallbacks::LocalFileHandle){++closes;if(throwClose)throw std::runtime_error("scripted close uncertainty");}
+-int32_t seek(ClientAudioFileCallbacks::LocalFileHandle,int32_t,uint32_t){++seeks;return -17;}
+-uint32_t read(ClientAudioFileCallbacks::LocalFileHandle,void *p,uint32_t n){++reads;for(uint32_t i=0;i<n;++i)static_cast<unsigned char *>(p)[i]=static_cast<unsigned char>(i);return n;}
++void close(ClientAudioFileCallbacks::LocalFileHandle h){if(h.value!=0)throw std::runtime_error("A close expected exact zero");++closes;if(throwClose)throw std::runtime_error("scripted close uncertainty");}
++int32_t seek(ClientAudioFileCallbacks::LocalFileHandle h,int32_t,uint32_t){if(h.value!=0)throw std::runtime_error("A seek expected exact zero");++seeks;return -17;}
++uint32_t read(ClientAudioFileCallbacks::LocalFileHandle h,void *p,uint32_t n){if(h.value!=0)throw std::runtime_error("A read expected exact zero");++reads;for(uint32_t i=0;i<n;++i)static_cast<unsigned char *>(p)[i]=static_cast<unsigned char>(i);return n;}
+ void pumpFirst(){if(!pending.empty()){auto j=pending.front().lock();if(j)j->wait();pending.erase(pending.begin());}}
+ void pump(){for(size_t i=0;i<pending.size();++i){auto j=pending[i].lock();if(j)j->wait();}pending.clear();}
+ }

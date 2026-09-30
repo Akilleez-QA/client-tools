@@ -1,0 +1,59 @@
+{
+  "manifest": "d404be130dcad1d5876aeb90af7d3d76ba044668a6ff0a4192c9852d74eeb077",
+  "driver": "118d3faf4d1dfeeb0fb5fdff27333d53ecf818c39abf3ce058f1df00ba2dcb0f",
+  "sha256": {
+    "candidate/callback-control45/host_association_mapper.cpp": "cbd65fdc9468e4aec692bb8b48d9d3251289846b0ad05e1cffab011929c98883",
+    "candidate/callback-control45/host_association_mapper.h": "46c17a51be2d9f733d8dd8383bee15dc886caf8bf7472f2280deca4a18e70729",
+    "candidate/file-channel26/file_channel.cpp": "03d29cbfcdff8eaeabeaef620654b4190f6c2b60fac107c1f798eb826d483dce",
+    "candidate/file-channel26/file_channel.h": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+    "candidate/file-executor33/EngineFileWorker.h": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4",
+    "candidate/file-executor33/FileInvocationJob.cpp": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c",
+    "candidate/file-executor33/FileInvocationJob.h": "dc21ebece9ea39841cf2c63da2b2c0f81fff8e45456f99adea2b12ace0aa5471",
+    "candidate/file-owner36/session_file_owner.cpp": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e",
+    "candidate/file-owner36/session_file_owner.h": "fa211434f28aeacbbd4e374c818517e0ec23d5ddf4be29ffeea8a0f769814c35",
+    "candidate/native-file-callbacks35/ClientMilesFileCallbacks.h": "f4a47366de0bcabe2ca0752de8cc8545c23b419d926f999dfbb1028c17b7d58e",
+    "candidate/protocol-candidate/miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9",
+    "candidate/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "candidate/selected-file-services44/selected_services.cpp": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5",
+    "candidate/selected-file-services44/selected_services.h": "939e35bd5e612e2255146d40731258fbfb9455e383a90a615184461e86d63045",
+    "candidate/session-file-admission34/coordinator.cpp": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534",
+    "candidate/session-file-admission34/coordinator.h": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0",
+    "candidate/transport-candidate/codec.cpp": "9ba3ed648975d856d1715f76a959868f6cd00ca58ac783f3ff075f97e29dfd06",
+    "candidate/transport-candidate/codec.h": "f64abebcd7f713ca9901989ae14947e99104858bb6a82a7da6032cfe50412602",
+    "candidate/transport-candidate/resource_registry.h": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768",
+    "flags.json": "aea7ab80e95260fe46471152f0ec6c785ada9b39f21ad4945a89bcdfe485ec03",
+    "require-v120.h": "94cd6dd363e249afc861ad9bea866ed1c6c6c9b84dd48c75815e44341b299ebe",
+    "reused-units.json": "9f128952e70583e739e8010fb19785c5e264374dd4331ce329fb1b3f84da54a4",
+    "run-native.py": "118d3faf4d1dfeeb0fb5fdff27333d53ecf818c39abf3ce058f1df00ba2dcb0f",
+    "symbol_parser.py": "b279d594f75246c4aede80dfb10cc99ba03ec4a4566c977704591cf7f4381261"
+  },
+  "input_mismatches": [],
+  "system_header_post_hashing_performed": false,
+  "objects_rechecked": {
+    "results\\actual-job\\actual-job.obj": {
+      "sha256": "4152661a9a3106388f32e046705e5a8e0217ff01a5a5893f6dd39af68d8fc2df",
+      "bytes": 187999,
+      "coff_machine": "0x8664"
+    },
+    "results\\file-channel\\file-channel.obj": {
+      "sha256": "0fdcd99253969bf271cf059b5f032927874db38e571494edfc78477d007c5d21",
+      "bytes": 234800,
+      "coff_machine": "0x8664"
+    },
+    "results\\mapper\\mapper.obj": {
+      "sha256": "29da3d273d76c17f46f00ee2389554443da0d5d0748fb31d103cd73e2f8c5b3c",
+      "bytes": 174289,
+      "coff_machine": "0x8664"
+    },
+    "results\\owner\\owner.obj": {
+      "sha256": "a3a2b820e44b8482dac3af459955126c13f1fe18939faeb95ddc42956ee62342",
+      "bytes": 386128,
+      "coff_machine": "0x8664"
+    },
+    "results\\selected-services\\selected-services.obj": {
+      "sha256": "d95eb082968607e6e61d7db727fc96fe6bc28e60860c096365b8561668131060",
+      "bytes": 134421,
+      "coff_machine": "0x8664"
+    }
+  }
+}

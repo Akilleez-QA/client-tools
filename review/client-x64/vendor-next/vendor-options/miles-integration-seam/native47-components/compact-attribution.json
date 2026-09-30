@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "new_object_count": 3,
+  "units": [
+    {
+      "unit": "invocation-guard",
+      "source": "callback-reentry47/invocation_guard.cpp",
+      "source_sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6",
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "8fef2a375ef6d4efbff921015e9c5313636f3dec5e5ccdc1764fccc2131ad8ff",
+      "forbidden_includes": [],
+      "symbols_log_sha256": "7ed995b7ed292f15798fa20dbf9db63e9497083c47536d5b34419eb277f15d33",
+      "guard_TLS_undefined": [
+        "_tls_index"
+      ],
+      "guard_definitions": [
+        "?active@?A0x1cf433b2@MilesCallbackGuard47@@3PEAVScope@2@EA",
+        "??0Scope@MilesCallbackGuard47@@QEAA@XZ",
+        "??1Scope@MilesCallbackGuard47@@QEAA@XZ",
+        "?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ",
+        "?violated@Scope@MilesCallbackGuard47@@QEBA_NXZ",
+        "?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ",
+        "_TI1?AUReentryDenied@MilesCallbackGuard47@@",
+        "_CTA1?AUReentryDenied@MilesCallbackGuard47@@",
+        "??_R0?AUReentryDenied@MilesCallbackGuard47@@@8",
+        "_CT??_R0?AUReentryDenied@MilesCallbackGuard47@@@81"
+      ],
+      "AIL_undefined": []
+    },
+    {
+      "unit": "file-channel",
+      "source": "file-channel26/file_channel.cpp",
+      "source_sha256": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e",
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "63853da83137ce4a13eb5361fc0ac334c809dd0c5b6b9b59117cc51147729379",
+      "forbidden_includes": [],
+      "symbols_log_sha256": "a7e56b5ba2d27f945b781fb3e76004e85a439bdef7517bb22f47e206ca12a610",
+      "guard_TLS_undefined": [
+        "??0Scope@MilesCallbackGuard47@@QEAA@XZ",
+        "??1Scope@MilesCallbackGuard47@@QEAA@XZ",
+        "?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ",
+        "?violated@Scope@MilesCallbackGuard47@@QEBA_NXZ"
+      ],
+      "guard_definitions": [
+        "_TI1?AUReentryDenied@MilesCallbackGuard47@@",
+        "_CTA1?AUReentryDenied@MilesCallbackGuard47@@",
+        "??_R0?AUReentryDenied@MilesCallbackGuard47@@@8",
+        "_CT??_R0?AUReentryDenied@MilesCallbackGuard47@@@81"
+      ],
+      "AIL_undefined": []
+    },
+    {
+      "unit": "client-pipe",
+      "source": "backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "source_sha256": "b64ce883b26c97bf1fe99a1781a5b4626972798a52e6b8500ee5f13359d218a5",
+      "diagnostics": [],
+      "coff_machine": "0x8664",
+      "object_sha256": "1855fc66af4d152e97387da2c39a60e6bc7b934da16893afca9eaee1612eb8cd",
+      "forbidden_includes": [],
+      "symbols_log_sha256": "a0d00bc6d31dd71ce56f161dfeae26b4df9d8daa7bd4ce58c61ddd99484350fc",
+      "guard_TLS_undefined": [
+        "?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ"
+      ],
+      "guard_definitions": [],
+      "AIL_undefined": []
+    }
+  ],
+  "tools_unchanged": true,
+  "inputs_unchanged": true,
+  "tool_hashes": {
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe": "4f3919c3033446e1edc9c1731779d89211a1a818c81f5205317e92aa48e34ea5",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\dumpbin.exe": "990176448151c2dbbfa1f298a74bbcaf056fe7924b83eca6a0ea8a532bec168a",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\vcvarsall.bat": "fe5d1e2bd4cb318a52e5352ee0f9602bf132dde88188bdad7df40d41f0b8ad32"
+  },
+  "raw_receipt_sha256": "3a1b24cd677b80f266eeb07e68dfa48db7cb50f17ea788bb1af8a4915a2fe901",
+  "linked": false,
+  "executed": false
+}

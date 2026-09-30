@@ -1,0 +1,119 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native47-components\results\invocation-guard\invocation-guard.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   30, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length  654, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .debug$T
+    Section length   64, #relocs    0, #linenums    0, checksum        0
+008 00000000 SECT4  notype       Static       | .tls$
+    Section length    8, #relocs    0, #linenums    0, checksum        0
+00A 00000000 SECT4  notype       External     | ?active@?A0x1cf433b2@MilesCallbackGuard47@@3PEAVScope@2@EA (class MilesCallbackGuard47::Scope * MilesCallbackGuard47::`anonymous namespace'::active)
+00B 00000000 SECT5  notype       Static       | .text$mn
+    Section length   DC, #relocs    6, #linenums    0, checksum 29D7A940, selection    1 (pick no duplicates)
+00D 00000000 SECT6  notype       Static       | .debug$S
+    Section length  104, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0x5)
+00F 00000000 SECT7  notype       Static       | .text$mn
+    Section length   2E, #relocs    2, #linenums    0, checksum E330437D, selection    1 (pick no duplicates)
+011 00000000 SECT8  notype       Static       | .debug$S
+    Section length   B4, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x7)
+013 00000000 SECT9  notype       Static       | .text$mn
+    Section length   43, #relocs    0, #linenums    0, checksum 48299873, selection    1 (pick no duplicates)
+015 00000000 SECTA  notype       Static       | .debug$S
+    Section length   B8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0x9)
+017 00000000 SECTB  notype       Static       | .text$mn
+    Section length   AE, #relocs    6, #linenums    0, checksum 9316E2A7, selection    1 (pick no duplicates)
+019 00000000 SECTC  notype       Static       | .debug$S
+    Section length  108, #relocs    6, #linenums    0, checksum        0, selection    5 (pick associative Section 0xB)
+01B 00000000 SECTD  notype       Static       | .text$mn
+    Section length   11, #relocs    0, #linenums    0, checksum 5C9CB0B4, selection    1 (pick no duplicates)
+01D 00000000 SECTE  notype       Static       | .debug$S
+    Section length   B8, #relocs    4, #linenums    0, checksum        0, selection    5 (pick associative Section 0xD)
+01F 00000000 SECT5  notype ()    External     | ??0Scope@MilesCallbackGuard47@@QEAA@XZ (public: __cdecl MilesCallbackGuard47::Scope::Scope(void))
+020 00000000 SECT7  notype ()    External     | ??1Scope@MilesCallbackGuard47@@QEAA@XZ (public: __cdecl MilesCallbackGuard47::Scope::~Scope(void))
+021 00000000 SECT9  notype ()    External     | ?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ (public: bool __cdecl MilesCallbackGuard47::Scope::admitted(void)const )
+022 00000000 SECTD  notype ()    External     | ?violated@Scope@MilesCallbackGuard47@@QEBA_NXZ (public: bool __cdecl MilesCallbackGuard47::Scope::violated(void)const )
+023 00000000 SECTB  notype ()    External     | ?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ (void __cdecl MilesCallbackGuard47::requireForwardAllowed(void))
+024 00000000 UNDEF  notype ()    External     | _CxxThrowException
+025 00000000 UNDEF  notype ()    External     | _RTC_InitBase
+026 00000000 UNDEF  notype ()    External     | _RTC_Shutdown
+027 00000000 SECT5  notype       Label        | $LN8
+028 00000000 SECT7  notype       Label        | $LN3
+029 00000000 SECT9  notype       Label        | $LN5
+02A 00000000 SECTD  notype       Label        | $LN3
+02B 00000000 SECTB  notype       Label        | $LN7
+02C 00000000 SECTF  notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C0C307C6, selection    5 (pick associative Section 0x5)
+02E 00000000 SECTF  notype       Static       | $unwind$??0Scope@MilesCallbackGuard47@@QEAA@XZ
+02F 00000000 SECT10 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 51B26353, selection    5 (pick associative Section 0x5)
+031 00000000 SECT10 notype       Static       | $pdata$??0Scope@MilesCallbackGuard47@@QEAA@XZ
+032 00000000 SECT11 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 15BCD18D, selection    5 (pick associative Section 0x7)
+034 00000000 SECT11 notype       Static       | $unwind$??1Scope@MilesCallbackGuard47@@QEAA@XZ
+035 00000000 SECT12 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum ECFC7064, selection    5 (pick associative Section 0x7)
+037 00000000 SECT12 notype       Static       | $pdata$??1Scope@MilesCallbackGuard47@@QEAA@XZ
+038 00000000 SECT13 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum C0C307C6, selection    5 (pick associative Section 0x9)
+03A 00000000 SECT13 notype       Static       | $unwind$?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ
+03B 00000000 SECT14 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum A712C50E, selection    5 (pick associative Section 0x9)
+03D 00000000 SECT14 notype       Static       | $pdata$?admitted@Scope@MilesCallbackGuard47@@QEBA_NXZ
+03E 00000000 SECT15 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 15BCD18D, selection    5 (pick associative Section 0xD)
+040 00000000 SECT15 notype       Static       | $unwind$?violated@Scope@MilesCallbackGuard47@@QEBA_NXZ
+041 00000000 SECT16 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B01131B5, selection    5 (pick associative Section 0xD)
+043 00000000 SECT16 notype       Static       | $pdata$?violated@Scope@MilesCallbackGuard47@@QEBA_NXZ
+044 00000000 SECT17 notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 9CE4A440, selection    5 (pick associative Section 0xB)
+046 00000000 SECT17 notype       Static       | $unwind$?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ
+047 00000000 SECT18 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BFC7F5BE, selection    5 (pick associative Section 0xB)
+049 00000000 SECT18 notype       Static       | $pdata$?requireForwardAllowed@MilesCallbackGuard47@@YAXXZ
+04A 00000000 SECT19 notype       Static       | .xdata$x
+    Section length   1C, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+04C 00000000 SECT19 notype       External     | _TI1?AUReentryDenied@MilesCallbackGuard47@@
+04D 00000000 SECT1A notype       Static       | .xdata$x
+    Section length    C, #relocs    1, #linenums    0, checksum CCAA009E, selection    2 (pick any)
+04F 00000000 SECT1A notype       External     | _CTA1?AUReentryDenied@MilesCallbackGuard47@@
+050 00000000 SECT1B notype       Static       | .data$r
+    Section length   39, #relocs    1, #linenums    0, checksum 6DFE0680, selection    2 (pick any)
+052 00000000 SECT1B notype       External     | ??_R0?AUReentryDenied@MilesCallbackGuard47@@@8 (struct MilesCallbackGuard47::ReentryDenied `RTTI Type Descriptor')
+053 00000000 SECT1C notype       Static       | .xdata$x
+    Section length   24, #relocs    1, #linenums    0, checksum DFEEB434, selection    2 (pick any)
+055 00000000 SECT1C notype       External     | _CT??_R0?AUReentryDenied@MilesCallbackGuard47@@@81
+056 00000000 UNDEF  notype       External     | ??_7type_info@@6B@ (const type_info::`vftable')
+057 00000000 SECT1D notype       Static       | .rtc$IMZ
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+059 00000000 SECT1D notype       Static       | _RTC_InitBase.rtc$IMZ
+05A 00000000 SECT1E notype       Static       | .rtc$TMZ
+    Section length    8, #relocs    1, #linenums    0, checksum        0, selection    2 (pick any)
+05C 00000000 SECT1E notype       Static       | _RTC_Shutdown.rtc$TMZ
+05D 00000000 UNDEF  notype       External     | _tls_index
+
+String Table Size = 0x45B bytes
+
+  Summary
+
+          39 .data$r
+         A84 .debug$S
+          64 .debug$T
+          30 .drectve
+          3C .pdata
+           8 .rtc$IMZ
+           8 .rtc$TMZ
+         20C .text$mn
+           8 .tls$
+          28 .xdata
+          4C .xdata$x

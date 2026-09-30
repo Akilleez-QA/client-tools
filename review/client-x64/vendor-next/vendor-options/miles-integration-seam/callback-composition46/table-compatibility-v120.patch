@@ -1,0 +1,11 @@
+--- a/selected-file-services44/selected_services.cpp
++++ b/selected-file-services44/selected_services.cpp
+@@ -13,6 +13,8 @@
+     Table(ClientMiles::FileOpenCallback o, ClientMiles::FileCloseCallback c,
+           ClientMiles::FileSeekCallback s, ClientMiles::FileReadCallback r,
+           std::shared_ptr<void> pin):open(o),close(c),seek(s),read(r),lifetime(pin) {}
++private:
++    Table &operator=(const Table &);
+ };
+ static_assert(std::is_same<ClientMiles::FileHandle, uintptr_t>::value,
+               "local file values retain native pointer width");
