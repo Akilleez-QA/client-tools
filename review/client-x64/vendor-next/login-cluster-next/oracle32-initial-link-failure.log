@@ -1,0 +1,18 @@
+s(Archive::ReadIterator&)'; /tmp/swg-wire-j176j56u/4.o:LoginClusterStatus.cpp:(.text+0x120): first defined here
+/usr/i686-w64-mingw32/bin/ld: /tmp/swg-wire-j176j56u/26.o:LoginClusterStatus.cpp:(.text+0x220): multiple definition of `LoginClusterStatus::~LoginClusterStatus()'; /tmp/swg-wire-j176j56u/4.o:LoginClusterStatus.cpp:(.text+0x220): first defined here
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(eh_alloc.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(eh_exception.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(eh_personality.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(guard.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(new_op.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(vterminate.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(functexcept.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(bad_alloc.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(bad_array_new.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(bad_cast.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(bad_typeid.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(stdexcept.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(random.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+/usr/lib/gcc/i686-w64-mingw32/16.2.0/../../../../i686-w64-mingw32/lib/../lib/libstdc++.a(system_error.o): duplicate section `.rdata$_ZTSSt9exception[__ZTSSt9exception]' has different size
+collect2: error: ld returned 1 exit status
+PASS: time fields are 4 bytes on the wire

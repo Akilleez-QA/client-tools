@@ -1,0 +1,88 @@
+Build started 9/30/2026 8:04:40 AM.
+Project "Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Creating directory "C:\tcpclient-width-v1\Debug-x64\obj/".
+PrepareForBuild:
+  Creating directory "C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork.tlog\".
+InitializeBuildStatus:
+  Creating "C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:/SDKs/DXSDK\Include /I..\..\..\..\..\..\external\3rd\library\stlport453\stlport /I..\..\..\..\..\..\external\3rd\library\udplibrary /I..\..\..\..\..\..\external\ours\library\archive\include /I..\..\..\..\..\..\external\ours\library\fileInterface\include\public /I..\..\..\..\..\..\external\ours\library\unicode\include /I..\..\..\sharedCompression\include\public /I..\..\..\sharedDebug\include\public /I..\..\..\sharedFile\include\public /I..\..\..\sharedFoundation\include\public /I..\..\..\sharedFoundationTypes\include\public /I..\..\..\sharedLog\include\public /I..\..\..\sharedMath\include\public /I..\..\..\sharedMemoryBlockManager\include\public /I..\..\..\sharedMemoryManager\include\public /I..\..\..\sharedMessageDispatch\include\public /I..\..\..\sharedObject\include\public /I..\..\..\sharedRandom\include\public /I..\..\..\sharedSynchronization\include\public /I..\..\..\sharedTerrain\include\public /I..\..\..\sharedThread\include\public /I..\..\include\private /I..\..\include\public /I..\..\src\win32 /Zi /nologo /W4 /WX- /Od /Ob1 /D WIN32 /D _DEBUG /D _MBCS /D DEBUG_LEVEL=2 /D _CRT_SECURE_NO_DEPRECATE=1 /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Yc"sharedNetwork\FirstSharedNetwork.h" /Fp"C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork.pch" /Fo"C:\tcpclient-width-v1\Debug-x64\obj/" /Fd"C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork-compile.pdb" /Gd /TP /FC /errorReport:queue ..\..\src\win32\FirstSharedNetwork.cpp
+  FirstSharedNetwork.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:/SDKs/DXSDK\Include /I..\..\..\..\..\..\external\3rd\library\stlport453\stlport /I..\..\..\..\..\..\external\3rd\library\udplibrary /I..\..\..\..\..\..\external\ours\library\archive\include /I..\..\..\..\..\..\external\ours\library\fileInterface\include\public /I..\..\..\..\..\..\external\ours\library\unicode\include /I..\..\..\sharedCompression\include\public /I..\..\..\sharedDebug\include\public /I..\..\..\sharedFile\include\public /I..\..\..\sharedFoundation\include\public /I..\..\..\sharedFoundationTypes\include\public /I..\..\..\sharedLog\include\public /I..\..\..\sharedMath\include\public /I..\..\..\sharedMemoryBlockManager\include\public /I..\..\..\sharedMemoryManager\include\public /I..\..\..\sharedMessageDispatch\include\public /I..\..\..\sharedObject\include\public /I..\..\..\sharedRandom\include\public /I..\..\..\sharedSynchronization\include\public /I..\..\..\sharedTerrain\include\public /I..\..\..\sharedThread\include\public /I..\..\include\private /I..\..\include\public /I..\..\src\win32 /Zi /nologo /W4 /WX- /Od /Ob1 /D WIN32 /D _DEBUG /D _MBCS /D DEBUG_LEVEL=2 /D _CRT_SECURE_NO_DEPRECATE=1 /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"C:\tcpclient-width-v1\Debug-x64\obj/" /Fd"C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork-compile.pdb" /Gd /TP /FC /errorReport:queue ..\..\src\shared\BroadcastSock.cpp ..\..\src\shared\ConfigSharedNetwork.cpp ..\..\src\shared\Connection.cpp ..\..\src\shared\ConnectionHandler.cpp ..\..\src\shared\ManagerHandler.cpp ..\..\src\shared\NetworkHandler.cpp ..\..\src\shared\NetworkSetupData.cpp ..\..\src\shared\Service.cpp ..\..\src\shared\SetupSharedNetwork.cpp ..\..\src\shared\UdpLibraryMT\Events.cpp ..\..\src\shared\UdpLibraryMT\UdpConnectionHandlerMT.cpp ..\..\src\shared\UdpLibraryMT\UdpConnectionMT.cpp ..\..\src\shared\UdpLibraryMT\UdpLibraryMT.cpp ..\..\src\shared\UdpLibraryMT\UdpManagerHandlerMT.cpp ..\..\src\shared\UdpLibraryMT\UdpManagerMT.cpp ..\..\src\shared\UdpLibraryMT\UdpMiscMT.cpp ..\..\src\win32\Address.cpp ..\..\src\win32\NetworkGetHostName.cpp ..\..\src\win32\OverlappedTcp.cpp ..\..\src\win32\Sock.cpp ..\..\src\win32\TcpClient.cpp ..\..\src\win32\TcpServer.cpp ..\..\src\win32\UdpSock.cpp
+  UdpSock.cpp
+  TcpServer.cpp
+  TcpClient.cpp
+q:\repo\src\external\ours\library\archive\src\shared\archive.h(311): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  Sock.cpp
+  OverlappedTcp.cpp
+  NetworkGetHostName.cpp
+  Address.cpp
+  UdpMiscMT.cpp
+  UdpManagerMT.cpp
+  UdpManagerHandlerMT.cpp
+  UdpLibraryMT.cpp
+  UdpConnectionMT.cpp
+  UdpConnectionHandlerMT.cpp
+  Events.cpp
+  SetupSharedNetwork.cpp
+  Service.cpp
+  NetworkSetupData.cpp
+  NetworkHandler.cpp
+q:\repo\src\external\ours\library\archive\src\shared\archive.h(311): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  ManagerHandler.cpp
+  ConnectionHandler.cpp
+  Generating Code...
+  Compiling...
+  Connection.cpp
+q:\repo\src\external\ours\library\archive\src\shared\archive.h(311): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+q:\repo\src\engine\shared\library\sharednetwork\src\shared\connection.cpp(684): warning C4244: 'argument' : conversion from '__int64' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+q:\repo\src\engine\shared\library\sharednetwork\src\shared\connection.cpp(721): warning C4244: 'argument' : conversion from '__int64' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  ConfigSharedNetwork.cpp
+  BroadcastSock.cpp
+  Generating Code...
+Lib:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\tcpclient-width-v1\Debug-x64\sharedNetwork.lib" /NOLOGO /MACHINE:X64 "C:\tcpclient-width-v1\Debug-x64\obj/BroadcastSock.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/ConfigSharedNetwork.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/Connection.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/ConnectionHandler.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/ManagerHandler.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/NetworkHandler.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/NetworkSetupData.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/Service.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/SetupSharedNetwork.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/Events.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpConnectionHandlerMT.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpConnectionMT.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpLibraryMT.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpManagerHandlerMT.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpManagerMT.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpMiscMT.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/Address.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/FirstSharedNetwork.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/NetworkGetHostName.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/OverlappedTcp.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/Sock.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/TcpClient.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/TcpServer.obj"
+  "C:\tcpclient-width-v1\Debug-x64\obj/UdpSock.obj"
+  sharedNetwork.vcxproj -> C:\tcpclient-width-v1\Debug-x64/sharedNetwork.lib
+FinalizeBuildStatus:
+  Deleting file "C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork.tlog\unsuccessfulbuild".
+  Touching "C:\tcpclient-width-v1\Debug-x64\obj/sharedNetwork.tlog\sharedNetwork.lastbuildstate".
+Done Building Project "Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+"Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj" (Rebuild target) (1) ->
+(ClCompile target) -> 
+  q:\repo\src\external\ours\library\archive\src\shared\archive.h(311): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  q:\repo\src\external\ours\library\archive\src\shared\archive.h(311): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  q:\repo\src\external\ours\library\archive\src\shared\archive.h(311): warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  q:\repo\src\engine\shared\library\sharednetwork\src\shared\connection.cpp(684): warning C4244: 'argument' : conversion from '__int64' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+  q:\repo\src\engine\shared\library\sharednetwork\src\shared\connection.cpp(721): warning C4244: 'argument' : conversion from '__int64' to 'const unsigned int', possible loss of data [Q:\repo\src\engine\shared\library\sharedNetwork\build\win32\sharedNetwork.vcxproj]
+
+    5 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.17

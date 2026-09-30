@@ -27,3 +27,7 @@ The same native Win32 probe/original DLL creates a 22,050-Hz/16-bit/stereo drive
 Null output consumes buffers faster than real time: the sample reaches EOS about32 ms after start and the stream about112 ms. These numbers are evidence that this environment is unsuitable for timing acceptance, not a performance improvement. `wine-null-run.log`, `wine-version.txt`, `alsa-null.conf` and the source document the environment. The original MP3 decoded under Wine has exactly the same WAV SHA256 as native Windows,44ae67cc466456dd53f128339fff013e1337db90a316fe99a228a41bc9fae749, for this one input.
 
 This establishes that the original decoder/driver/sample/stream API can be exercised in a disposable process without a host audible endpoint. It does not implement an x64↔x86 helper protocol, test its blocking/file callback interactions, validate reverb or measure audible/live gameplay behavior.
+
+## Later clocked-route evidence
+
+The separate `../miles-realtime/RESULTS.md` establishes nonzero real-time capture through a private explicit Pulse/PipeWire sink and a bounded actual x64-controller/x86-host command experiment. It does not retroactively change the ALSA type-null results above. In the clocked route EOS arrives on another thread, so the null probe's main-thread callback observation must not be generalized. PCM varies even across unchanged direct runs; no equivalence tolerance or backend choice follows.

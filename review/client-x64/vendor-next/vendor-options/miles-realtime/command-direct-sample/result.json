@@ -1,0 +1,20 @@
+{
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "sink": "swg_miles_fa9c3b72a281",
+  "format": "s16le",
+  "rate": 22050,
+  "channels": 2,
+  "module": "536870916",
+  "sink_index": 16601,
+  "returncode": 0,
+  "probe_wall_seconds": 0.9470483869954478,
+  "capture_wall_seconds": 3.9558165430207737,
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true
+}

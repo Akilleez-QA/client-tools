@@ -1,0 +1,39 @@
+# Fork checkpoint — 2026-09-30
+
+Client `integration/client-x64-next` at `91dc05e8bebe0881d0540e74d4c53de909feb876`. Server compatibility changes remain on Akilleez-QA/src `integration/windows-shared-compat`. No upstream writes or PRs. Eventual upstream x64 destination requires finished acceptance and the user's explicit PR approval.
+
+## New committed work
+
+| Client commit | Change | Evidence and ceiling |
+| --- | --- | --- |
+|6776d2054|Native TrackIR provider selection and bounded registry path|Actual TU/layout checks in four configurations;80 path checks per configuration. No hardware/profile6001 acceptance.|
+|3550071ed|Bounded LoginClusterStatus fixtures and strict verdict handling|Parent59/59 Win32,66/66 Win64; stock56/56 legacy oracle. Includes multi-galaxy bytes, not a live login.|
+|8d9010900|ByteStream read/write arithmetic, growth and ownership|85 checks on each portable ABI and all four native configurations; parent wire59/66. Independent18-check small-buffer review. Server mirror7131fd38; outer-decoder preflight and rollback remain separate.|
+|10e684ba7|Reject renderer-dependency outputs without established ownership|12 tests on host and native Windows, no skips; no complete renderer rebuild claimed from this policy-only change.|
+|782aed355|TcpClient IOCP completion key at pointer width|SharedNetwork real project all4 builds; Windows high-key completion probe all4. Server mirror4e610ac9. Not a live client connection.|
+|78e1f907c|Scope x64 STLport packing diagnostic in Crypto PCH|Real crypto all4 builds; /WX positive4/4 and deliberately unbalanced later-header controls rejected4/4; before/after layouts unchanged4/4. Server guarded wrapper78ec0f03.|
+|8fe43cca9|Checked legacy StringStore length|Candidate real-library runtime10checks Win32 and12 x64, both configurations; unchecked-template control fails rejection. Synthetic limit view is never transferred.|
+|978a45d81|Explicit attached-message presence test|Same normal attached-queue runtime checks; no cryptographic algorithm change.|
+|91dc05e8b|Keep message count in public unsigned range|Ordinary queue lifetime checks pass; UINT_MAX completed-message limit source-reviewed, not billions of entries allocated. Per-message byte counter unchanged.|
+
+[CI at782aed355](https://github.com/Akilleez-QA/client-tools/actions/runs/36687745028) passed the wire/ByteStream/ownership workflow. [CI at91dc05e8b](https://github.com/Akilleez-QA/client-tools/actions/runs/36688620867) also passed; native full-client result remains pending. CI scope is its fixtures, not native game acceptance.
+
+## Native build progression
+
+Historical snapshot `integration-current` has Win32 Release0errors170warnings, Debug0errors219warnings, x64 Release24errors and Debug27errors. It excludes later repairs; do not apply those counts to current HEAD.
+
+Immutable `94a81438c` snapshot `integration-current-v2` is git-archive-derived with20533 tracked source files. Output-path evaluation passes132project/configuration audits. Release x64:1error3874warnings; Debug x64:1error3722warnings. Actual blocking roots are TcpClient's completion-key output type and crypto PCH packing diagnostics. Neither reached final SwgClient link. Logs repeat warnings in summaries; the warning census groups808compiler locations and does not count defects.
+
+Current91dc full build uses an audited commit-bound delta over the frozen private tree, retaining source hashes and earlier outputs/logs. It is incremental, not a clean rebuild. LCD scratch properties are excluded from that run. Native project/probe successes cannot predict the final executable's dependency closure.
+
+## Vendor decisions remain open
+
+Original Miles7.2a plays through a clocked private capture route. Actual x64 controller to identical x86 runtime host works for a single sample/stream command. Original-repeat and direct/controller captured PCM differ; no accepted tolerance, listener equivalence, production helper, callback RPC or TreeFile bridge exists. EOS on this route is a worker-thread event and is not device-drain time. [Full scope](miles-realtime/RESULTS.md).
+
+Genuine legacy Logitech x64 APIs and all-four wrapper links are established, with software layout evidence; hardware/manager behavior is not. TrackIR filename/layout/path checks are established, with provider/profile/device acceptance open. Bink remains a bounded codec/transport probe on a non-SWG sample without audio. Voice preserves the documented disabled baseline, with a saved-setting corner still tracked.
+
+## Active work and completion boundary
+
+The native build owns compiler/link diagnostics. Separate workers review raw decoder preflight, checked AutoArray/AutoList counts, crash formatting and UI allocation limits. Grok/Composer/Codex CLI findings are independently checked; agreement on shared source is not independent runtime evidence. New candidates do not enter this committed snapshot until reviewed and tested.
+
+Delivery state: committed, pushed, and tested within the scopes above. Outcome state: individual fixtures passed; full x64 client incomplete. Highest justified claim: these bounded width/ownership/build repairs have reproducible targeted evidence. Required runtime observation: full link/start, representative ground/space, mixed-width sessions, media and hardware fidelity. Agent controls further builds and available probes; missing native graphics/audio/hardware/services remain explicit test boundaries. Persistent native goal remains active.

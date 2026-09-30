@@ -16,7 +16,9 @@ Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): bro
 | [25f7fff28](https://github.com/Akilleez-QA/client-tools/commit/25f7fff28d24c91b932ba95df5a740081b5248e5) | Check Miles preference narrowing and retain diagnostic count width | Actual clientAudio project rebuilds with zero warnings/errors in all four configurations. Arithmetic boundary oracle is separate from vendor/runtime FATAL behavior. |
 | [94a81438c](https://github.com/Akilleez-QA/client-tools/commit/94a81438c4c442f21105a58047c82d34e04c9cb4) | Remove unused Mozilla build inputs for Debug/Release client | Win32 whole-executable comparison below; no feature restoration or new feature removal. |
 
-These commits are on `integration/client-x64-next`. TrackIR provider selection and external LCD SDK integration remain separate candidates. The next full x64 build uses a newly frozen snapshot; the matrix below retains its original scope.
+These commits and the later reviewed batch are on `integration/client-x64-next`. **Current recorded head: `91dc05e8b`.** The [latest checkpoint](vendor-options/CHECKPOINT-2026-09-30.md) lists TrackIR, LoginClusterStatus fixtures, ByteStream bounds, build-output ownership, TCP completion keys and four isolated crypto commits. External LCD SDK integration remains a separate candidate. The older matrix below retains its original scope.
+
+The next frozen source `94a81438c` reduced x64 blocking errors to one per configuration: Release TcpClient completion-key width, Debug crypto packing diagnostics. Those roots now have separately passing native project/probe results, and an audited incremental build of91dc is running. [Matrix](allocator-next/integration-current-v2/matrix-summary.json), [warning review](allocator-next/integration-current-v2/WARNING-REVIEW.md). Neither earlier matrix reached a complete x64 client link.
 
 ## Native full-build checkpoint
 
@@ -35,11 +37,11 @@ The separate browser omission proof then succeeded on Win32 Release and Debug. R
 
 ## Vendor experiments
 
-- [Miles](vendor-options/miles-options.md): original 7.2a and its actual plugin decode a real game MP3. FFmpeg/miniaudio produce different PCM despite matching frame count/alignment. Native playback lacks a VM output endpoint; Wine null-output completion is not real-time audio fidelity evidence.
+- [Miles](vendor-options/miles-options.md): original 7.2a and its actual plugin decode a real game MP3. FFmpeg/miniaudio produce different PCM despite matching frame count/alignment. Native playback lacks a VM output endpoint. A later isolated Wine/PipeWire route captures clocked original playback and a real x64-to-x86 single-command host, but repeat captures differ and establish no accepted fidelity tolerance. [Clocked results](vendor-options/miles-realtime/RESULTS.md).
 - [Bink](vendor-options/bink-probe/report.md): original 1.9c decodes a public non-SWG sample; an x64 process receives four nonblack frames through a verified pipe. All four differ from the fixed FFmpeg oracle. This sample has no audio. Game presentation/synchronization remain open.
 - [Vivox](vendor-options/vivox-options.md): original 52-entry API resolves and local object/XML lifetime checks pass on Win32. Voice is normally disabled; a saved-preference corner remains source-reachable. No voice service or remote account operation was run.
 - [Logitech](vendor-options/logitech-native-route.md): an official signed legacy package provides genuine low-level x64 APIs. All 16 unchanged wrapper translation units compile in four configurations; real wrapper executables link against the original SDK and actual SWG core/allocator libraries in all four. API layout comparisons also pass. Actual hardware/manager behavior is not established.
-- [TrackIR](vendor-options/trackir.md): official native provider naming and old/current SDK layout agree with a small candidate; actual TU compilation passes. Hardware and profile acceptance remain open.
+- [TrackIR](vendor-options/trackir.md): official native provider naming and old/current SDK layout agree with the committed bounded loader; actual TU compilation and80 path cases per configuration pass. Hardware and profile acceptance remain open.
 - [Other vendors and conditional reachability](vendor-options/secondary-vendors.md); [reviewer findings and corrections](vendor-options/review-reconciliation.md).
 
 ## Reproduction and limits

@@ -1,0 +1,6 @@
+  GLOBAL|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_vsps\Release\|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_vsps\Release\obj\|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_vsps\Release\Direct3d9_vsps.dll
+  LINK|..\..\..\..\..\..\compile\x64\Direct3d9_vsps\Release\gl07_r.dll|.\..\..\..\..\..\..\compile\x64\Direct3d9_vsps\Release/gl07_r.lib|.\..\..\..\..\..\..\compile\x64\Direct3d9_vsps\Release/gl07_r.pdb
+  LIB|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_vsps\Release\Direct3d9_vsps.dll
+  POST|if not exist "..\..\..\..\..\..\..\dev\x64\" mkdir "..\..\..\..\..\..\..\dev\x64"
+  if not exist "..\..\..\..\..\..\..\dev\x64\" exit /b 1
+  copy /Y "R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_vsps\Release\Direct3d9_vsps.dll" "..\..\..\..\..\..\..\dev\x64\gl07_r.dll"

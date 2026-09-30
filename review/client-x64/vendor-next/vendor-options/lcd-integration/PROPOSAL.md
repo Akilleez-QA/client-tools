@@ -23,3 +23,7 @@ This is a proposal for the parent's shared build-properties work, not a second c
 ## Evidence ceilings
 
 All 16 unchanged wrapper TUs compile on Win32/x64 Debug/Release. All 11 old low-level entry points link against the official matching-architecture SDK. New/old structure layouts match in 8 native probe runs. Complete wrapper/core link is being tested separately. No manager service, connected LCD, foreground arbitration, priority scheduling, button delivery or reconnect behavior has run. The SDK retains these APIs; API presence is not hardware acceptance. SDK 3.01 documents persistence ignored since 3.00, a manager-version difference that must be compared on both ABIs.
+
+## Candidate files for parent review
+
+`logitech-lcd.props` and `validate-logitech-lcd.py` are scratch files only. Import the props after existing executable item definitions (e.g. via the parent's x64 common props); its conditions limit action to x64 SwgClient. It prepends the external SDK's correct directory. The exact archive SHA gate rejects the x86 library or any changed provider before build/link; both positive x64 and negative x86 checks have run locally. Actual MSBuild import/evaluation and full executable resolution with this props file still need the build agent's isolated integration pass. This must not be claimed proven by the earlier direct wrapper link.

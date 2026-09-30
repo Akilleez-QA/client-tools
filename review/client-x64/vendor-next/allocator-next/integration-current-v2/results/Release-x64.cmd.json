@@ -1,0 +1,13 @@
+[
+  "C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe",
+  "R:\\repo\\src\\build\\win32\\swg.sln",
+  "/t:SwgClient",
+  "/p:Configuration=Release",
+  "/p:Platform=x64",
+  "/m:2",
+  "/v:normal",
+  "/p:DXSDK_DIR=C:/SDKs/DXSDK",
+  "/p:SwgJpegArchive=C:/allocator-next/jpegsrc.v6b.tar.gz",
+  "/p:SwgPythonExecutable=C:/ci-dpvs-review/python/python.exe",
+  "/nologo"
+]

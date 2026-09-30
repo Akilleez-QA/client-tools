@@ -1,0 +1,15 @@
+candidate32: verdict=0, expected=0; OK: 59/59 checks passed
+candidate64: verdict=0, expected=0; OK: 66/66 checks passed
+stock32 known absence: verdict=0, expected=0; OK: 56/56 checks passed (1 helper absent: ArchiveCount helper (checkout predates count checking) all=3 win64=1)
+stock32 current coverage rejects absence: verdict=1, expected=1; NOT OK: exit=0 runtime passes=55/55 problems=1 types=ok
+missing login check: verdict=1, expected=1; NOT OK: exit=0 runtime passes=64/65 problems=0 types=ok
+unknown absence: verdict=1, expected=1; NOT OK: exit=0 runtime passes=65/65 problems=1 types=ok
+malformed absence: verdict=1, expected=1; NOT OK: exit=0 runtime passes=65/65 problems=1 types=ok
+duplicate known absence: verdict=1, expected=1; NOT OK: exit=0 runtime passes=55/58 problems=2 types=ok
+duplicate skip: verdict=1, expected=1; NOT OK: exit=0 runtime passes=58/58 problems=1 types=ok
+missing skip: verdict=1, expected=1; NOT OK: exit=0 runtime passes=58/58 problems=1 types=ok
+spurious Win64 skip: verdict=1, expected=1; NOT OK: exit=0 runtime passes=65/65 problems=1 types=ok
+nonzero runtime exit: verdict=1, expected=1; NOT OK: exit=1 runtime passes=65/65 problems=0 types=ok
+explicit failure: verdict=1, expected=1; NOT OK: exit=0 runtime passes=65/65 problems=1 types=ok
+not run: verdict=1, expected=1; NOT OK: exit=0 runtime passes=65/65 problems=1 types=ok
+14/14 verdict cases passed (log replay only).

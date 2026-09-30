@@ -1,0 +1,18 @@
+{
+  "base_head": "d0fea5bc79fc0ee31cd38fdc9122dbb18574f3c0",
+  "delivery_state": "built and checked; uncommitted",
+  "scope": "tools/test-wire-compatibility only",
+  "files": {
+    "tools/test-wire-compatibility/README.md": "59598280cee5c268e46e516c045e27f6a7d104e87403234a9832cfaa8a5caa27",
+    "tools/test-wire-compatibility/fixtures.cpp": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+    "tools/test-wire-compatibility/login_cluster.cpp": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+    "tools/test-wire-compatibility/mission_glue.cpp": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+    "tools/test-wire-compatibility/run.py": "68e21d52b9acd60f3c3c3b71a1f7148e08506f9b6cdf9f3aeb63fa6ff15fa46b"
+  },
+  "patch": {
+    "path": "login-cluster-fixtures.patch",
+    "sha256": "4d2fb4b775ef342059ebfd9f31e8ca6d66ace6defa73ce699681b114f152a0d0"
+  },
+  "review_action": "Parent reviews and applies patch; no PR/upstream action authorized.",
+  "oracle": "949451032647e45e42c3aaef3f41b132c8af36e3 Win32"
+}

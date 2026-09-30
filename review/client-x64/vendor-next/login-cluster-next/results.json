@@ -1,0 +1,1030 @@
+{
+  "oracle32": {
+    "bits": 32,
+    "runner_exit": 0,
+    "runtime_exit": 0,
+    "runtime_passes": 55,
+    "failures": [],
+    "skips": [
+      "SKIP: time_t is 32-bit; no out-of-range timestamp exists (6 checks)"
+    ],
+    "absent": [
+      "ABSENT: ArchiveCount helper (checkout predates count checking) all=3 win64=1"
+    ],
+    "summary": "OK: 56/56 checks passed (1 helper absent: ArchiveCount helper (checkout predates count checking) all=3 win64=1)",
+    "compiled_TUs": [
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/wire_types.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "49a2e39004d0a3a379227339e5d54d1ad87489eae4e61795d948ddf8456d18d7",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "0a76c631cdb4287966d2f32b6ab6b0d2806f793bff5c236e62b967d981790f14",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "f8bb3fd46c69af0e359fa7627de525da44b6fbd195fa346fb10b12ab4e327973",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "bf2faa0711ca4f4ba6c17fd54ad72ddaa66550123f035d18eb6705e04f32d1de",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "985e06b580fc49d82c3b0e2a0225d83469d672a118e685781c5d9c506a6562a8",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fixtures.cpp",
+        "mode": "-c",
+        "sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/login_cluster.cpp",
+        "mode": "-c",
+        "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fatal.cpp",
+        "mode": "-c",
+        "sha256": "c88f2f7643af7ca70969f79ab188998f857dccd48b7d3a7fdc028b0da1171825",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/mission_glue.cpp",
+        "mode": "-c",
+        "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+        "mode": "-c",
+        "sha256": "cbacc979157fe03e001f1b16944a8da65030ba6b602ddc157b6d1d63eecbf121",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+        "mode": "-c",
+        "sha256": "4c8958c9746e4128b57c27f8ee823521bb2dad4b8e102e8037776cbc66a23215",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+        "mode": "-c",
+        "sha256": "71d57efb1aed088ac2a368fe05472dae79fc15b52f7081684995c3505fcda6fa",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+        "mode": "-c",
+        "sha256": "5277be38d2d5bb2088d423dfc40aa4162f1c807f4937d2cf3c05e18a3c5af309",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "02feb8a658c70ad64df1d6ea7f5f76a014e5ec04688a3977a34159c645ac35f2",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+        "mode": "-c",
+        "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+        "mode": "-c",
+        "sha256": "8cac765dee1fce6c601f3375ec5727aaaf3a07d21cb293e4bc6fbd9098e0dd0e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "aaf105b30b3d02cf81c1e6c4c538f97f3fc263d0c37e8b4f3573752067d69976",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+        "mode": "-c",
+        "sha256": "efcf46177933fafc2874115543e46f6b8557c2079aca0892b0712b04070f8d12",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+        "mode": "-c",
+        "sha256": "e21c109e8f8ebe2bb70e7fdeb11bcb940cc3d7b82b387c4d6b94b944a62c518b",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+        "mode": "-c",
+        "sha256": "1e03f1aec3457dab27e498babbd97748486675f2250a647d250b5dff0ce0e1a9",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+        "mode": "-c",
+        "sha256": "a4acb36019f8a1e3a9c10f87429f2e972cca26b1f72deb5c9bade72c749b469a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "25a89f573eb34e2644b64f30b0970f39d2e8449bf40fcfe1d073443f9249ad91",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/localization/src/shared/StringId.cpp",
+        "mode": "-c",
+        "sha256": "cbb39a88174c86b8467fd0da4f6a170600098a7af2c057672888f6d87b0efe6e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+        "mode": "-c",
+        "sha256": "d02cccade4387f8c6aca167353caadde566b6e3c833fd850dad33d01d0fa5a61",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "178b93b8179a45e8783f383a10049965343b3ded9118282385c0cd444cd73175",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "06a7bcd38c7ea5bd631f5f19645e468724d97a31df8343c201c6233de1651d99",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+        "mode": "-c",
+        "sha256": "f148bc334173a2c60fd82e9b06c2822eeb79df1aa186500c48b6af2423dd25b0",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "192274b72b666f9343128bd72ec0956340cd9acc7e7fac73b9a36ec2ccc1c7ac",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "d18f22eaa20838a0d79d3800a2fa79cebfa1626a5bfa946e87e92502042be128",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+        "mode": "-c",
+        "sha256": "0dfde1d3142b749f3b86cf4990044e298f2c579fc6ac904a170ad752f8dc6690",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-qq94jlx8/src/external/ours/library/unicode/src/shared/utf8.cpp",
+        "mode": "-c",
+        "sha256": "4eb56f7760ceeaf97bf5eee5cbd93f7083179af5672da947ccbcb56ec7bc36a1",
+        "exit": 0
+      }
+    ]
+  },
+  "candidate32": {
+    "bits": 32,
+    "runner_exit": 0,
+    "runtime_exit": 0,
+    "runtime_passes": 58,
+    "failures": [],
+    "skips": [
+      "SKIP: time_t is 32-bit; no out-of-range timestamp exists (6 checks)",
+      "SKIP: size_t is 32-bit; UINT32_MAX + 1 is not a size (1 check)"
+    ],
+    "absent": [],
+    "summary": "OK: 59/59 checks passed",
+    "compiled_TUs": [
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/wire_types.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "49a2e39004d0a3a379227339e5d54d1ad87489eae4e61795d948ddf8456d18d7",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "b0f8f57a288121b8e5e3c1fdbf3225bc46f8fbe92b8544444d19dabaf7c595be",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "975827363f28c4d002caf8b5c72996edb48729507147470d152d1831e21ce689",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "408e65fab977af62340f623f1b69991dacda59f877eb66dd5a0fd51db7710cc4",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "2d4233be08c084b1b9656b40a7e80ce4b75d6e533743ae19088b07e13ec366f8",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fixtures.cpp",
+        "mode": "-c",
+        "sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/login_cluster.cpp",
+        "mode": "-c",
+        "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fatal.cpp",
+        "mode": "-c",
+        "sha256": "c88f2f7643af7ca70969f79ab188998f857dccd48b7d3a7fdc028b0da1171825",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/mission_glue.cpp",
+        "mode": "-c",
+        "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/count_sites.cpp",
+        "mode": "-c",
+        "sha256": "e1aea41ab02d8742720563fc4a0607d501a10fa690bdf19489b864b3d683433a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+        "mode": "-c",
+        "sha256": "cbacc979157fe03e001f1b16944a8da65030ba6b602ddc157b6d1d63eecbf121",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+        "mode": "-c",
+        "sha256": "4c8958c9746e4128b57c27f8ee823521bb2dad4b8e102e8037776cbc66a23215",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+        "mode": "-c",
+        "sha256": "71d57efb1aed088ac2a368fe05472dae79fc15b52f7081684995c3505fcda6fa",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+        "mode": "-c",
+        "sha256": "5277be38d2d5bb2088d423dfc40aa4162f1c807f4937d2cf3c05e18a3c5af309",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "02feb8a658c70ad64df1d6ea7f5f76a014e5ec04688a3977a34159c645ac35f2",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+        "mode": "-c",
+        "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+        "mode": "-c",
+        "sha256": "8cac765dee1fce6c601f3375ec5727aaaf3a07d21cb293e4bc6fbd9098e0dd0e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "aaf105b30b3d02cf81c1e6c4c538f97f3fc263d0c37e8b4f3573752067d69976",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+        "mode": "-c",
+        "sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+        "mode": "-c",
+        "sha256": "f5fdbc9f0d7bb9681993ece34bd06a29492a98793188e9a11468773dfb025724",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+        "mode": "-c",
+        "sha256": "1e03f1aec3457dab27e498babbd97748486675f2250a647d250b5dff0ce0e1a9",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+        "mode": "-c",
+        "sha256": "a4acb36019f8a1e3a9c10f87429f2e972cca26b1f72deb5c9bade72c749b469a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "25a89f573eb34e2644b64f30b0970f39d2e8449bf40fcfe1d073443f9249ad91",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/localization/src/shared/StringId.cpp",
+        "mode": "-c",
+        "sha256": "cbb39a88174c86b8467fd0da4f6a170600098a7af2c057672888f6d87b0efe6e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+        "mode": "-c",
+        "sha256": "f62ea70238ebc0f9c6daa693cfe9259afa6a73e15015b09b50416060af9e4735",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "a6b2d602fb833a3b0eb453184071439d091db995301428ebbbf2ac77956a60df",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+        "mode": "-c",
+        "sha256": "f148bc334173a2c60fd82e9b06c2822eeb79df1aa186500c48b6af2423dd25b0",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "b04f796957b77ef2d53187f1e49f10a3a6daef8d62076e8695636cd6d56e49bf",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "aea5f227f069fea8f90d33d1e10e462965036d45458c6ed6c71330c62f702992",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+        "mode": "-c",
+        "sha256": "0dfde1d3142b749f3b86cf4990044e298f2c579fc6ac904a170ad752f8dc6690",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-0a51hu6q/src/external/ours/library/unicode/src/shared/utf8.cpp",
+        "mode": "-c",
+        "sha256": "4eb56f7760ceeaf97bf5eee5cbd93f7083179af5672da947ccbcb56ec7bc36a1",
+        "exit": 0
+      }
+    ]
+  },
+  "candidate64": {
+    "bits": 64,
+    "runner_exit": 0,
+    "runtime_exit": 0,
+    "runtime_passes": 65,
+    "failures": [],
+    "skips": [],
+    "absent": [],
+    "summary": "OK: 66/66 checks passed",
+    "compiled_TUs": [
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/wire_types.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "49a2e39004d0a3a379227339e5d54d1ad87489eae4e61795d948ddf8456d18d7",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "b0f8f57a288121b8e5e3c1fdbf3225bc46f8fbe92b8544444d19dabaf7c595be",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "975827363f28c4d002caf8b5c72996edb48729507147470d152d1831e21ce689",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "408e65fab977af62340f623f1b69991dacda59f877eb66dd5a0fd51db7710cc4",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "2d4233be08c084b1b9656b40a7e80ce4b75d6e533743ae19088b07e13ec366f8",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fixtures.cpp",
+        "mode": "-c",
+        "sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/login_cluster.cpp",
+        "mode": "-c",
+        "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fatal.cpp",
+        "mode": "-c",
+        "sha256": "c88f2f7643af7ca70969f79ab188998f857dccd48b7d3a7fdc028b0da1171825",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/mission_glue.cpp",
+        "mode": "-c",
+        "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/count_sites.cpp",
+        "mode": "-c",
+        "sha256": "e1aea41ab02d8742720563fc4a0607d501a10fa690bdf19489b864b3d683433a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+        "mode": "-c",
+        "sha256": "cbacc979157fe03e001f1b16944a8da65030ba6b602ddc157b6d1d63eecbf121",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+        "mode": "-c",
+        "sha256": "4c8958c9746e4128b57c27f8ee823521bb2dad4b8e102e8037776cbc66a23215",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+        "mode": "-c",
+        "sha256": "71d57efb1aed088ac2a368fe05472dae79fc15b52f7081684995c3505fcda6fa",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+        "mode": "-c",
+        "sha256": "5277be38d2d5bb2088d423dfc40aa4162f1c807f4937d2cf3c05e18a3c5af309",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "02feb8a658c70ad64df1d6ea7f5f76a014e5ec04688a3977a34159c645ac35f2",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+        "mode": "-c",
+        "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+        "mode": "-c",
+        "sha256": "8cac765dee1fce6c601f3375ec5727aaaf3a07d21cb293e4bc6fbd9098e0dd0e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "aaf105b30b3d02cf81c1e6c4c538f97f3fc263d0c37e8b4f3573752067d69976",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+        "mode": "-c",
+        "sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+        "mode": "-c",
+        "sha256": "f5fdbc9f0d7bb9681993ece34bd06a29492a98793188e9a11468773dfb025724",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+        "mode": "-c",
+        "sha256": "1e03f1aec3457dab27e498babbd97748486675f2250a647d250b5dff0ce0e1a9",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+        "mode": "-c",
+        "sha256": "a4acb36019f8a1e3a9c10f87429f2e972cca26b1f72deb5c9bade72c749b469a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "25a89f573eb34e2644b64f30b0970f39d2e8449bf40fcfe1d073443f9249ad91",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/localization/src/shared/StringId.cpp",
+        "mode": "-c",
+        "sha256": "cbb39a88174c86b8467fd0da4f6a170600098a7af2c057672888f6d87b0efe6e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+        "mode": "-c",
+        "sha256": "f62ea70238ebc0f9c6daa693cfe9259afa6a73e15015b09b50416060af9e4735",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "a6b2d602fb833a3b0eb453184071439d091db995301428ebbbf2ac77956a60df",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+        "mode": "-c",
+        "sha256": "f148bc334173a2c60fd82e9b06c2822eeb79df1aa186500c48b6af2423dd25b0",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "b04f796957b77ef2d53187f1e49f10a3a6daef8d62076e8695636cd6d56e49bf",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "aea5f227f069fea8f90d33d1e10e462965036d45458c6ed6c71330c62f702992",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+        "mode": "-c",
+        "sha256": "0dfde1d3142b749f3b86cf4990044e298f2c579fc6ac904a170ad752f8dc6690",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-arvgnysp/src/external/ours/library/unicode/src/shared/utf8.cpp",
+        "mode": "-c",
+        "sha256": "4eb56f7760ceeaf97bf5eee5cbd93f7083179af5672da947ccbcb56ec7bc36a1",
+        "exit": 0
+      }
+    ]
+  },
+  "wrong32": {
+    "bits": 32,
+    "runner_exit": 0,
+    "runtime_exit": 0,
+    "runtime_passes": 58,
+    "failures": [],
+    "skips": [
+      "SKIP: time_t is 32-bit; no out-of-range timestamp exists (6 checks)",
+      "SKIP: size_t is 32-bit; UINT32_MAX + 1 is not a size (1 check)"
+    ],
+    "absent": [],
+    "summary": "OK: 59/59 checks passed",
+    "compiled_TUs": [
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/wire_types.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "49a2e39004d0a3a379227339e5d54d1ad87489eae4e61795d948ddf8456d18d7",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "b0f8f57a288121b8e5e3c1fdbf3225bc46f8fbe92b8544444d19dabaf7c595be",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "975827363f28c4d002caf8b5c72996edb48729507147470d152d1831e21ce689",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "408e65fab977af62340f623f1b69991dacda59f877eb66dd5a0fd51db7710cc4",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "2d4233be08c084b1b9656b40a7e80ce4b75d6e533743ae19088b07e13ec366f8",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fixtures.cpp",
+        "mode": "-c",
+        "sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/login_cluster.cpp",
+        "mode": "-c",
+        "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fatal.cpp",
+        "mode": "-c",
+        "sha256": "c88f2f7643af7ca70969f79ab188998f857dccd48b7d3a7fdc028b0da1171825",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/mission_glue.cpp",
+        "mode": "-c",
+        "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/count_sites.cpp",
+        "mode": "-c",
+        "sha256": "e1aea41ab02d8742720563fc4a0607d501a10fa690bdf19489b864b3d683433a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+        "mode": "-c",
+        "sha256": "cbacc979157fe03e001f1b16944a8da65030ba6b602ddc157b6d1d63eecbf121",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+        "mode": "-c",
+        "sha256": "4c8958c9746e4128b57c27f8ee823521bb2dad4b8e102e8037776cbc66a23215",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+        "mode": "-c",
+        "sha256": "71d57efb1aed088ac2a368fe05472dae79fc15b52f7081684995c3505fcda6fa",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+        "mode": "-c",
+        "sha256": "5277be38d2d5bb2088d423dfc40aa4162f1c807f4937d2cf3c05e18a3c5af309",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "02feb8a658c70ad64df1d6ea7f5f76a014e5ec04688a3977a34159c645ac35f2",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+        "mode": "-c",
+        "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+        "mode": "-c",
+        "sha256": "8cac765dee1fce6c601f3375ec5727aaaf3a07d21cb293e4bc6fbd9098e0dd0e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "aaf105b30b3d02cf81c1e6c4c538f97f3fc263d0c37e8b4f3573752067d69976",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+        "mode": "-c",
+        "sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+        "mode": "-c",
+        "sha256": "f5fdbc9f0d7bb9681993ece34bd06a29492a98793188e9a11468773dfb025724",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+        "mode": "-c",
+        "sha256": "1e03f1aec3457dab27e498babbd97748486675f2250a647d250b5dff0ce0e1a9",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+        "mode": "-c",
+        "sha256": "a4acb36019f8a1e3a9c10f87429f2e972cca26b1f72deb5c9bade72c749b469a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "25a89f573eb34e2644b64f30b0970f39d2e8449bf40fcfe1d073443f9249ad91",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/localization/src/shared/StringId.cpp",
+        "mode": "-c",
+        "sha256": "cbb39a88174c86b8467fd0da4f6a170600098a7af2c057672888f6d87b0efe6e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+        "mode": "-c",
+        "sha256": "f62ea70238ebc0f9c6daa693cfe9259afa6a73e15015b09b50416060af9e4735",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "a6b2d602fb833a3b0eb453184071439d091db995301428ebbbf2ac77956a60df",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+        "mode": "-c",
+        "sha256": "f148bc334173a2c60fd82e9b06c2822eeb79df1aa186500c48b6af2423dd25b0",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "b04f796957b77ef2d53187f1e49f10a3a6daef8d62076e8695636cd6d56e49bf",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "aea5f227f069fea8f90d33d1e10e462965036d45458c6ed6c71330c62f702992",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+        "mode": "-c",
+        "sha256": "0dfde1d3142b749f3b86cf4990044e298f2c579fc6ac904a170ad752f8dc6690",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-7zt7idyk/src/external/ours/library/unicode/src/shared/utf8.cpp",
+        "mode": "-c",
+        "sha256": "4eb56f7760ceeaf97bf5eee5cbd93f7083179af5672da947ccbcb56ec7bc36a1",
+        "exit": 0
+      }
+    ]
+  },
+  "wrong64": {
+    "bits": 64,
+    "runner_exit": 1,
+    "runtime_exit": 1,
+    "runtime_passes": 62,
+    "failures": [
+      "FAIL: LoginClusterStatus first element encodes stock32 bytes",
+      "FAIL: LoginClusterStatus second element encodes stock32 bytes",
+      "FAIL: LoginClusterStatus two distinct galaxies encode stock32 bounded message bytes"
+    ],
+    "skips": [],
+    "absent": [],
+    "summary": "NOT OK: exit=1 runtime passes=62/65 problems=3 types=ok",
+    "compiled_TUs": [
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/wire_types.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "49a2e39004d0a3a379227339e5d54d1ad87489eae4e61795d948ddf8456d18d7",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "b0f8f57a288121b8e5e3c1fdbf3225bc46f8fbe92b8544444d19dabaf7c595be",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "975827363f28c4d002caf8b5c72996edb48729507147470d152d1831e21ce689",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "408e65fab977af62340f623f1b69991dacda59f877eb66dd5a0fd51db7710cc4",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+        "mode": "-fsyntax-only",
+        "sha256": "2d4233be08c084b1b9656b40a7e80ce4b75d6e533743ae19088b07e13ec366f8",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fixtures.cpp",
+        "mode": "-c",
+        "sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/login_cluster.cpp",
+        "mode": "-c",
+        "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/fatal.cpp",
+        "mode": "-c",
+        "sha256": "c88f2f7643af7ca70969f79ab188998f857dccd48b7d3a7fdc028b0da1171825",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/mission_glue.cpp",
+        "mode": "-c",
+        "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "exit": 0
+      },
+      {
+        "path": "/home/akilleez/Work/swg-source/client-login-wire-probe/tools/test-wire-compatibility/count_sites.cpp",
+        "mode": "-c",
+        "sha256": "e1aea41ab02d8742720563fc4a0607d501a10fa690bdf19489b864b3d683433a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+        "mode": "-c",
+        "sha256": "cbacc979157fe03e001f1b16944a8da65030ba6b602ddc157b6d1d63eecbf121",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/archive/src/shared/ByteStream.cpp",
+        "mode": "-c",
+        "sha256": "4c8958c9746e4128b57c27f8ee823521bb2dad4b8e102e8037776cbc66a23215",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+        "mode": "-c",
+        "sha256": "71d57efb1aed088ac2a368fe05472dae79fc15b52f7081684995c3505fcda6fa",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+        "mode": "-c",
+        "sha256": "5277be38d2d5bb2088d423dfc40aa4162f1c807f4937d2cf3c05e18a3c5af309",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "02feb8a658c70ad64df1d6ea7f5f76a014e5ec04688a3977a34159c645ac35f2",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+        "mode": "-c",
+        "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+        "mode": "-c",
+        "sha256": "8cac765dee1fce6c601f3375ec5727aaaf3a07d21cb293e4bc6fbd9098e0dd0e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "aaf105b30b3d02cf81c1e6c4c538f97f3fc263d0c37e8b4f3573752067d69976",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+        "mode": "-c",
+        "sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+        "mode": "-c",
+        "sha256": "f5fdbc9f0d7bb9681993ece34bd06a29492a98793188e9a11468773dfb025724",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+        "mode": "-c",
+        "sha256": "1e03f1aec3457dab27e498babbd97748486675f2250a647d250b5dff0ce0e1a9",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+        "mode": "-c",
+        "sha256": "a4acb36019f8a1e3a9c10f87429f2e972cca26b1f72deb5c9bade72c749b469a",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+        "mode": "-c",
+        "sha256": "25a89f573eb34e2644b64f30b0970f39d2e8449bf40fcfe1d073443f9249ad91",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/localization/src/shared/StringId.cpp",
+        "mode": "-c",
+        "sha256": "cbb39a88174c86b8467fd0da4f6a170600098a7af2c057672888f6d87b0efe6e",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+        "mode": "-c",
+        "sha256": "f62ea70238ebc0f9c6daa693cfe9259afa6a73e15015b09b50416060af9e4735",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "a6b2d602fb833a3b0eb453184071439d091db995301428ebbbf2ac77956a60df",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+        "mode": "-c",
+        "sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+        "mode": "-c",
+        "sha256": "f148bc334173a2c60fd82e9b06c2822eeb79df1aa186500c48b6af2423dd25b0",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "b04f796957b77ef2d53187f1e49f10a3a6daef8d62076e8695636cd6d56e49bf",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+        "mode": "-c",
+        "sha256": "aea5f227f069fea8f90d33d1e10e462965036d45458c6ed6c71330c62f702992",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+        "mode": "-c",
+        "sha256": "0dfde1d3142b749f3b86cf4990044e298f2c579fc6ac904a170ad752f8dc6690",
+        "exit": 0
+      },
+      {
+        "path": "/tmp/swg-wire-z02su346/src/external/ours/library/unicode/src/shared/utf8.cpp",
+        "mode": "-c",
+        "sha256": "4eb56f7760ceeaf97bf5eee5cbd93f7083179af5672da947ccbcb56ec7bc36a1",
+        "exit": 0
+      }
+    ]
+  }
+}

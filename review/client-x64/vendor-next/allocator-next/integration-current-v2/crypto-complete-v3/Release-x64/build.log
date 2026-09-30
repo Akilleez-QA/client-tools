@@ -1,0 +1,54 @@
+Build started 9/30/2026 8:06:59 AM.
+Project "Q:\repo\src\external\ours\library\crypto\build\win32\crypto.vcxproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Creating directory "C:\crypto-complete-v3\Release-x64\obj/".
+PrepareForBuild:
+  Creating directory "C:\crypto-complete-v3\Release-x64\obj/crypto.tlog\".
+InitializeBuildStatus:
+  Creating "C:\crypto-complete-v3\Release-x64\obj/crypto.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:/SDKs/DXSDK\Include /I..\..\..\..\..\..\external\3rd\library\stlport453\stlport /I..\..\src\shared\core /I..\..\src\shared\original /I..\..\src\shared\wrapper /I..\..\src\win32 /I..\..\include /Zi /nologo /W4 /WX- /O2 /Ob1 /Oi /Ot /Oy /D WIN32 /D NDEBUG /D _MBCS /D DEBUG_LEVEL=0 /D _CRT_SECURE_NO_DEPRECATE=1 /D _LIB /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Yc"FirstCrypto.h" /Fp"C:\crypto-complete-v3\Release-x64\obj/crypto.pch" /Fo"C:\crypto-complete-v3\Release-x64\obj/" /Fd"C:\crypto-complete-v3\Release-x64\obj/crypto-compile.pdb" /Gd /TP /FC /errorReport:queue ..\..\src\win32\FirstCrypto.cpp
+  FirstCrypto.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:/SDKs/DXSDK\Include /I..\..\..\..\..\..\external\3rd\library\stlport453\stlport /I..\..\src\shared\core /I..\..\src\shared\original /I..\..\src\shared\wrapper /I..\..\src\win32 /I..\..\include /Zi /nologo /W4 /WX- /O2 /Ob1 /Oi /Ot /Oy /D WIN32 /D NDEBUG /D _MBCS /D DEBUG_LEVEL=0 /D _CRT_SECURE_NO_DEPRECATE=1 /D _LIB /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"C:\crypto-complete-v3\Release-x64\obj/" /Fd"C:\crypto-complete-v3\Release-x64\obj/crypto-compile.pdb" /Gd /TP /FC /errorReport:queue ..\..\src\shared\original\cryptlib.cpp ..\..\src\shared\original\filters.cpp ..\..\src\shared\original\iterhash.cpp ..\..\src\shared\original\md5.cpp ..\..\src\shared\original\misc.cpp ..\..\src\shared\original\mqueue.cpp ..\..\src\shared\original\queue.cpp ..\..\src\shared\original\tftables.cpp ..\..\src\shared\original\twofish.cpp ..\..\src\shared\wrapper\Hash.cpp ..\..\src\shared\wrapper\MD5Hash.cpp ..\..\src\shared\wrapper\TwofishCrypt.cpp ..\..\src\shared\wrapper\TwofishDecryptor.cpp ..\..\src\shared\wrapper\TwofishEncryptor.cpp
+  cryptlib.cpp
+  filters.cpp
+  iterhash.cpp
+  md5.cpp
+  misc.cpp
+  mqueue.cpp
+  queue.cpp
+  tftables.cpp
+  twofish.cpp
+  Hash.cpp
+  MD5Hash.cpp
+  TwofishCrypt.cpp
+  TwofishDecryptor.cpp
+  TwofishEncryptor.cpp
+  Generating Code...
+Lib:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\crypto-complete-v3\Release-x64\crypto.lib" /NOLOGO /MACHINE:X64 "C:\crypto-complete-v3\Release-x64\obj/cryptlib.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/filters.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/iterhash.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/md5.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/misc.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/mqueue.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/queue.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/tftables.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/twofish.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/Hash.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/MD5Hash.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/TwofishCrypt.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/TwofishDecryptor.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/TwofishEncryptor.obj"
+  "C:\crypto-complete-v3\Release-x64\obj/FirstCrypto.obj"
+  crypto.vcxproj -> C:\crypto-complete-v3\Release-x64/crypto.lib
+FinalizeBuildStatus:
+  Deleting file "C:\crypto-complete-v3\Release-x64\obj/crypto.tlog\unsuccessfulbuild".
+  Touching "C:\crypto-complete-v3\Release-x64\obj/crypto.tlog\crypto.lastbuildstate".
+Done Building Project "Q:\repo\src\external\ours\library\crypto\build\win32\crypto.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.68

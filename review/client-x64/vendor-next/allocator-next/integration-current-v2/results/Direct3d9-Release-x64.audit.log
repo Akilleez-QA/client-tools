@@ -1,0 +1,6 @@
+  GLOBAL|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9\Release\|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9\Release\obj\|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9\Release\Direct3d9.dll
+  LINK|..\..\..\..\..\..\compile\x64\Direct3d9\Release\gl05_r.dll|.\..\..\..\..\..\..\compile\x64\Direct3d9\Release/gl05_r.lib|.\..\..\..\..\..\..\compile\x64\Direct3d9\Release/gl05_r.pdb
+  LIB|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9\Release\Direct3d9.dll
+  POST|if not exist "..\..\..\..\..\..\..\dev\x64\" mkdir "..\..\..\..\..\..\..\dev\x64"
+  if not exist "..\..\..\..\..\..\..\dev\x64\" exit /b 1
+  copy /Y "R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9\Release\Direct3d9.dll" "..\..\..\..\..\..\..\dev\x64\gl05_r.dll"

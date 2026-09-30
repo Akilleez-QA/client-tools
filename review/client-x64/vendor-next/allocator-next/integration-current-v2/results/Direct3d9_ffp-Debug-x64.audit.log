@@ -1,0 +1,6 @@
+  GLOBAL|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_ffp\Debug\|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_ffp\Debug\obj\|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_ffp\Debug\Direct3d9_ffp.dll
+  LINK|..\..\..\..\..\..\compile\x64\Direct3d9_ffp\Debug\gl06_d.dll|.\..\..\..\..\..\..\compile\x64\Direct3d9_ffp\Debug/gl06_d.lib|.\..\..\..\..\..\..\compile\x64\Direct3d9_ffp\Debug/gl06_d.pdb
+  LIB|R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_ffp\Debug\Direct3d9_ffp.dll
+  POST|if not exist "..\..\..\..\..\..\..\dev\x64\" mkdir "..\..\..\..\..\..\..\dev\x64"
+  if not exist "..\..\..\..\..\..\..\dev\x64\" exit /b 1
+  copy /Y "R:\repo\tools\configure-client-x64\..\..\src\compile\x64\Direct3d9_ffp\Debug\Direct3d9_ffp.dll" "..\..\..\..\..\..\..\dev\x64\gl06_d.dll"

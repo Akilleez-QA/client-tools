@@ -1,0 +1,28 @@
+[
+  {
+    "configuration": "Release",
+    "platform": "Win32",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 10 crypto checks; synthetic limit view never transferred\r\n"
+  },
+  {
+    "configuration": "Release",
+    "platform": "x64",
+    "compile": 0,
+    "run": 0,
+    "output": "PASS 12 crypto checks; synthetic limit view never transferred\r\n"
+  },
+  {
+    "configuration": "Debug",
+    "platform": "Win32",
+    "compile": 0,
+    "run": 0,
+    "output": "MM::remove 6576/7216=bytes 3/7=allocs\nPASS 10 crypto checks; synthetic limit view never transferred\r\n"
+  },
+  {
+    "configuration": "Debug",
+    "platform": "x64",
+    "compile": 2
+  }
+]

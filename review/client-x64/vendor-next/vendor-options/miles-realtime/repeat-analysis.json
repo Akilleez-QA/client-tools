@@ -1,0 +1,413 @@
+{
+  "runs": [
+    {
+      "defaults_before": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "sink": "swg_miles_205564f0250b",
+      "format": "s16le",
+      "rate": 22050,
+      "channels": 2,
+      "module": "536870916",
+      "sink_index": 15896,
+      "returncode": 0,
+      "probe_wall_seconds": 0.7301010549999774,
+      "capture_wall_seconds": 3.7386218439787626,
+      "defaults_after": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "defaults_unchanged": true,
+      "run": 2,
+      "bytes": 328104,
+      "pcm_seconds": 3.72,
+      "sha256": "1ee1e36df6a5d823d6c6790b1c3b9b0cb19e3877ca6248b37f14de39452ff0bd",
+      "nonzero_frames": 5361,
+      "first_nonzero_frame": 7255,
+      "last_nonzero_frame": 14834,
+      "events": [
+        {
+          "name": "entry",
+          "tick": 188500088,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "startup",
+          "tick": 188500127,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-start",
+          "tick": 188500127,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-end",
+          "tick": 188500128,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-start",
+          "tick": 188500203,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-eos",
+          "tick": 188500344,
+          "thread": 324,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "stream-start",
+          "tick": 188500360,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "stream-eos",
+          "tick": 188500617,
+          "thread": 324,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "shutdown",
+          "tick": 188500650,
+          "thread": 300,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        }
+      ],
+      "sample_eos_ms": 141,
+      "stream_eos_ms": 257
+    },
+    {
+      "defaults_before": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "sink": "swg_miles_0cab40001a4d",
+      "format": "s16le",
+      "rate": 22050,
+      "channels": 2,
+      "module": "536870916",
+      "sink_index": 15965,
+      "returncode": 0,
+      "probe_wall_seconds": 0.7241202759905718,
+      "capture_wall_seconds": 3.732736729987664,
+      "defaults_after": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "defaults_unchanged": true,
+      "run": 3,
+      "bytes": 326340,
+      "pcm_seconds": 3.7,
+      "sha256": "2ba15018046c5d64252155635c84bb91d2f61fd71a008717c7e776f3177103c2",
+      "nonzero_frames": 5357,
+      "first_nonzero_frame": 7020,
+      "last_nonzero_frame": 14595,
+      "events": [
+        {
+          "name": "entry",
+          "tick": 188577207,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "startup",
+          "tick": 188577245,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-start",
+          "tick": 188577245,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-end",
+          "tick": 188577245,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-start",
+          "tick": 188577320,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-eos",
+          "tick": 188577459,
+          "thread": 328,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "stream-start",
+          "tick": 188577475,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "stream-eos",
+          "tick": 188577732,
+          "thread": 328,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "shutdown",
+          "tick": 188577764,
+          "thread": 304,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        }
+      ],
+      "sample_eos_ms": 139,
+      "stream_eos_ms": 257
+    },
+    {
+      "defaults_before": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "sink": "swg_miles_134683bae930",
+      "format": "s16le",
+      "rate": 22050,
+      "channels": 2,
+      "module": "536870916",
+      "sink_index": 16029,
+      "returncode": 0,
+      "probe_wall_seconds": 0.7920904119964689,
+      "capture_wall_seconds": 3.8034053969895467,
+      "defaults_after": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "defaults_unchanged": true,
+      "run": 4,
+      "bytes": 333396,
+      "pcm_seconds": 3.78,
+      "sha256": "2b8040fe53ac7e7c51df42cc5d17f62487393dbccb823b8faf8148a6dc074bc8",
+      "nonzero_frames": 5473,
+      "first_nonzero_frame": 9254,
+      "last_nonzero_frame": 16947,
+      "events": [
+        {
+          "name": "entry",
+          "tick": 188581187,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "startup",
+          "tick": 188581318,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-start",
+          "tick": 188581318,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-end",
+          "tick": 188581318,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-start",
+          "tick": 188581398,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-eos",
+          "tick": 188581537,
+          "thread": 412,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "stream-start",
+          "tick": 188581555,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "stream-eos",
+          "tick": 188581796,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "shutdown",
+          "tick": 188581843,
+          "thread": 364,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        }
+      ],
+      "sample_eos_ms": 139,
+      "stream_eos_ms": 241
+    },
+    {
+      "defaults_before": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "sink": "swg_miles_e516202f4e7c",
+      "format": "s16le",
+      "rate": 22050,
+      "channels": 2,
+      "module": "536870916",
+      "sink_index": 16094,
+      "returncode": 0,
+      "probe_wall_seconds": 0.8552835939917713,
+      "capture_wall_seconds": 3.8636415599903557,
+      "defaults_after": {
+        "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+        "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+      },
+      "defaults_unchanged": true,
+      "run": 5,
+      "bytes": 336924,
+      "pcm_seconds": 3.82,
+      "sha256": "67f5098959e2e2000fc92724ce0348cdd931411df168de62fc9300b0953860dd",
+      "nonzero_frames": 5126,
+      "first_nonzero_frame": 9842,
+      "last_nonzero_frame": 17187,
+      "events": [
+        {
+          "name": "entry",
+          "tick": 188585198,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "startup",
+          "tick": 188585336,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-start",
+          "tick": 188585337,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "decode-end",
+          "tick": 188585337,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-start",
+          "tick": 188585422,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "sample-eos",
+          "tick": 188585561,
+          "thread": 496,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "stream-start",
+          "tick": 188585577,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        },
+        {
+          "name": "stream-eos",
+          "tick": 188585834,
+          "thread": 496,
+          "cw": "027f",
+          "mxcsr": "00001f80"
+        },
+        {
+          "name": "shutdown",
+          "tick": 188585858,
+          "thread": 448,
+          "cw": "027f",
+          "mxcsr": "00001fa0"
+        }
+      ],
+      "sample_eos_ms": 139,
+      "stream_eos_ms": 257
+    }
+  ],
+  "comparisons": [
+    {
+      "run": 3,
+      "reference": 2,
+      "lag_frames": -235,
+      "residual_offset": 0,
+      "compared_frames": 8820,
+      "differing_channel_samples": 8374,
+      "max_abs": 193,
+      "rms": 6.494014338005593
+    },
+    {
+      "run": 4,
+      "reference": 2,
+      "lag_frames": 1999,
+      "residual_offset": 0,
+      "compared_frames": 8820,
+      "differing_channel_samples": 8438,
+      "max_abs": 1354,
+      "rms": 75.00956477180918
+    },
+    {
+      "run": 5,
+      "reference": 2,
+      "lag_frames": 2565,
+      "residual_offset": -22,
+      "compared_frames": 8820,
+      "differing_channel_samples": 10570,
+      "max_abs": 2343,
+      "rms": 316.1624819076204
+    }
+  ],
+  "comparison_limit": "Integer-frame alignment only, first0.4s signal window; timing gaps, resampling phase and truncated tails not normalized. No acceptance tolerance."
+}

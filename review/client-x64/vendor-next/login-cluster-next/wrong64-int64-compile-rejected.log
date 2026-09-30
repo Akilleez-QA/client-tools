@@ -1,0 +1,41 @@
+rc/engine/shared/library/sharedNetworkMessages/include/public/../../src/shared/clientLoginServer/LoginClusterStatus.h:109:3: error: call to 'put' is ambiguous
+  109 |                 put(target,c.m_populationOnline);
+      |                 ^~~
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:220:13: note: candidate function
+  220 | inline void put(ByteStream & target, const double & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:227:13: note: candidate function
+  227 | inline void put(ByteStream & target, const float & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:234:13: note: candidate function
+  234 | inline void put(ByteStream & target, const unsigned long int & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:241:13: note: candidate function
+  241 | inline void put(ByteStream & target, const signed long int & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:248:13: note: candidate function
+  248 | inline void put(ByteStream & target, const unsigned int & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:255:13: note: candidate function
+  255 | inline void put(ByteStream & target, const signed int & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:262:13: note: candidate function
+  262 | inline void put(ByteStream & target, const unsigned short int & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:269:13: note: candidate function
+  269 | inline void put(ByteStream & target, const signed short int & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:276:13: note: candidate function
+  276 | inline void put(ByteStream & target, const unsigned char & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:283:13: note: candidate function
+  283 | inline void put(ByteStream & target, const signed char & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:290:13: note: candidate function
+  290 | inline void put(ByteStream & target, const char & source)
+      |             ^
+/tmp/swg-wire-8db_r5ue/src/external/ours/library/archive/include/Archive/../../src/shared/Archive.h:316:13: note: candidate function
+  316 | inline void put(ByteStream & target, const bool & source)
+      |             ^
+2 errors generated.
+PASS: time fields are 4 bytes on the wire
