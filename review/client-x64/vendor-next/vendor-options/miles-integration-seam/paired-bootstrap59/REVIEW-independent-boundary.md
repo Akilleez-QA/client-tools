@@ -1,0 +1,29 @@
+# Paired bootstrap59 source review
+
+One P2 integration-ordering defect requires correction before accepting the return/retention contract. No additional concrete runtime blocker was found in the inspected constructor transfer, both-pipe authentication or host partial-I/O loop. This is source-only review, not compilation, testing, paired execution or proof of native behavior. Candidate hashes were verified against source-manifest.json. No candidate source was changed.
+
+## P2 — admission is consumed before all result validation
+
+`candidate/backend-boundary24/pipe/LiveChannel.cpp:94–95` calls generic decodeReply and immediately calls runtime_->returned. That decoder (`startup-bridge23/reply.h:55`) validates frame correlation, allowed result fields and resource kind, but it has only the expected header, not original Call fields or selected proxy state. It cannot establish all of the public operation's result invariants.
+
+Concrete examples remain later in `ClientMilesPipe.cpp`: stream parent echo/stable alias/duplicate identity at435–443; nullable/aliased stream pair outputs at469; sample pair outputs at508–510; float pairs at550–552. For sample_ms_position(sample, null, &current), a success reply carrying a nonzero first result passes decodeReply but fails the later facade check. A mismatched stream parent echo has the same sequencing problem. These are existing intentional invalid-result checks, not hypothetical new API restrictions.
+
+By then Runtime::returned has posted the return observation. `client-runtime53/client_file_runtime.cpp:107–115` can complete/consume the command, and `session-file-admission34/coordinator.cpp:71` clears its resource pins/admission. The subsequent Session::rejectResult requests failure but cannot restore the consumed admission. Thus the documented53 precondition of fully validated return and retention of uncertain command state is not fulfilled by this composition. The current file-only source does not establish a resulting use-after-free: there is no EOS/sample callback integration here, the caller's bad pair output is rejected before storage is written, and ordinary facade calls are serial. The concrete defect is premature settlement/pin release on an invalid operation result.
+
+Smallest correction direction: before returned(), validate the successful reply against the actual Call fields already available in exchange. That covers target echo, requested output bits and aliased-pair equality without another registry. Proxy-dependent uniqueness/stable previously published alias checks still belong to the existing Session owner; give them a validation phase before completion, or stage the decoded reply until that owner validates it. Only then observe/join/consume the return. A rejection must mark failure while the original admission/pins are still retained. Do not merely duplicate a partial decoder check and leave the Session-only checks after consumption. Preserve this source identity and review a new revision before an execution gate.
+
+## Ownership/authentication observations
+
+Session::channel_ is a raw retained pointer, not an automatically destroyed unique_ptr. Constructor failure does not silently delete the adopted channel. Client Runtime::launch takes HANDLE& and invalidates it after successful thread launch; the caller closes raw only on the failed-launch path. LiveChannel publishes adopted immediately after launch. Its constructor-body catch terminates before member cleanup if a Runtime exists, and connectSession similarly retains/fails the adopted Runtime if Session construction fails. I do not report the previously suspected automatic channel-delete defect.
+
+LiveChannel checks both named-pipe client PIDs against its actual child before callback transfer. Host checks both server PIDs against the required parent and then validates the full32-character nonce in Hello. The shared derived session is not itself the authentication proof; those binding checks and full Hello are. Hello remains outside SDK admission. The review does not extend to hostile executable/path configuration supplied by the private composition root.
+
+LiveChannel publishes coordinator command state before Endpoint::send accepts the frame. It observes callback failure and child death while receiving the forward reply. Exact protocol48 install decoding uses retained request context; generic commands retain callback-zero validation. The defect above concerns the later request/proxy-dependent validation, not absence of publication or an entirely missing return join.
+
+Host nextCommand pumps before checking a ready frame. If a synchronous partial read leaves no pending read, it loops and pumps again; it waits only when a real read is pending. Replies call sent() before taking the next command, so there is no pending reply write that requires a second event in the idle reader. Endpoint's bounded per-pump progress is therefore not mistaken for whole-frame completion. No new partial-I/O deadlock was identified by source inspection. This is not runtime liveness evidence.
+
+## Known limits kept separate
+
+The dead statements after Session::~Session's std::terminate are an already-known source cleanup item before /WX compilation, not a newly discovered runtime path.59 inherits host50's known setter catch issue; future composition needs the58 counterpart. Neither is silently counted as a fresh finding here.
+
+Normal paired shutdown/worker join, lock semantics, callback TLS adoption, EOS and complete plain public failure containment are already explicit unfinished scope. Inherited Backend operation restrictions also remain; facade names do not imply this host executes every stream/borrowed operation. This review does not reclassify those documented omissions as new defects or approve operational adoption. Source review shares the model family and task framing with the author/root; it supplies no independent runtime corroboration.

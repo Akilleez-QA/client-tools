@@ -1,0 +1,98 @@
+{
+  "status": "source-only61; lexical inventory generated, no compiler/tests/runtime",
+  "parents": [
+    {
+      "path": "stream-proxy37/private-source-v1/backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "sha256": "f91a08fe2c6d6a132ecb513b8a4bcd14d527c00756fea0c4688dbfec4b27df05"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/backend-boundary24/pipe/Session.h",
+      "sha256": "e74fea70bb6f2c2705bc9b1cc59022645eb4fde3ea7ad5cc0aa7de5ffbcea0bd"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/backend-boundary24/ClientMiles.h",
+      "sha256": "4cdd6320bf28ade045d28b6ce643f8088cc8fa5ec675586fcb3f92239c443bbe"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/native-startup25/ClientMilesStartup.h",
+      "sha256": "fdee8b2afc7e906bcba0878bd2a03fca914d898b30d96eeaccf1876528047321"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/native-sample27/ClientMilesSample.h",
+      "sha256": "f26f9aa77247b32fe21025046efef511a3422836b3f45a6c7cee3905b339cfb3"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/native-playback28/ClientMilesPlayback.h",
+      "sha256": "e97181694f6e25fcc49f019607fdad15ee0e9a78be6b4f18d6aec5517001b833"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/native-stream28/ClientMilesStream.h",
+      "sha256": "412f331293a81e6aaf3e8b0e6c600b7f24443535cdab4ad46b04d02e0c274844"
+    },
+    {
+      "path": "plain-startup52/candidate/ClientMiles.h",
+      "sha256": "15bc15c5a0f14aee9862386cc31f7e9a9c798bf634a5cd84313f7edd1290f9e7"
+    }
+  ],
+  "external_authored_dependency_closure": [
+    {
+      "path": "client-runtime53/candidate/callback-reentry47/invocation_guard.cpp",
+      "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6"
+    },
+    {
+      "path": "client-runtime53/candidate/callback-reentry47/invocation_guard.h",
+      "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198"
+    },
+    {
+      "path": "plain-startup52/candidate/private/failure_boundary.cpp",
+      "sha256": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353"
+    },
+    {
+      "path": "plain-startup52/candidate/private/failure_boundary.h",
+      "sha256": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/backend-boundary24/pipe/Channel.h",
+      "sha256": "3b5af2ca31784ce3f9438ad87271963f309980fd6910a190e9ccf9cdc4d9739e"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/host-candidate/host_dispatch.h",
+      "sha256": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/protocol-candidate/miles_wire.h",
+      "sha256": "39b45fcf81e5186814f2a342ccca25369a1bab21c7da5164e82cb2ecb025be0a"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/protocol-candidate/pair_outputs.h",
+      "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/session-version22/session_version.h",
+      "sha256": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/startup-bridge23/reply.h",
+      "sha256": "5a95a70bc3622bb500057d77a37629fa82127d7fbafe9095abf09b1292e437b6"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/startup-metadata-v4/metadata.h",
+      "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/transport-candidate/codec.h",
+      "sha256": "d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0"
+    },
+    {
+      "path": "stream-proxy37/private-source-v1/transport-candidate/resource_registry.h",
+      "sha256": "148903889b0bd498f394dc05f3b50738e4924068d245430dfadb74544276509b"
+    }
+  ],
+  "native_sdk_inputs": [],
+  "parent57_manifest_sha256": "0349c895c1661fcb81f46b22821189f1fa56599ff538deb98b9013a00f813385",
+  "unchanged_from57": [
+    "candidate/ClientMiles.h",
+    "candidate/PipeCore.cpp",
+    "candidate/Session.h"
+  ]
+}

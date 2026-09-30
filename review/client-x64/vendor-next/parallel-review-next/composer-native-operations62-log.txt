@@ -1,0 +1,73 @@
+Review is limited to the pasted `plain-native60/candidate` wrapper (`ClientMiles.h` declarations for the 50-call subset, `plain_operations.cpp`, `native_calls60.h`, `native_calls60.cpp`, and the shown `failure_boundary` glue). Nine startup entrypoints, three callback registrars, and `set_file_callbacks` are out of scope as you specified. No SDK compile was performed; static asserts and `#include <Mss.h>` are treated as pending evidence, not as proof.
+
+## Scope limits (not clearance)
+
+- The native TU is gated on v120 x64 + `Mss.h`; none of the `static_assert` lines or enum constant parity checks are verified in this review.
+- Handle bridging uses `reinterpret_cast` between facade `DigitalDriver*` / `Sample*` / `OwnedStream*` and `::HDIGDRIVER` / `::HSAMPLE` / `::HSTREAM` with **no** authored assert that those typedefs are the same representation—only function signatures and `S32`/`U32`/`F32` scalars are asserted.
+- Vendor semantics (what `AIL_WAV_info` returns, whether failure is zero-only, partial `AILSOUNDINFO` fills, invalid handles) are not inferred.
+- Intentionally absent: implementations for `register_EOS_callback`, `register_stream_callback`, and (in this paste) `set_file_callbacks`, plus the nine unchanged startup functions.
+
+## 50 direct calls — argument order and signedness
+
+Within `native_calls60.cpp`, each of the 50 wrappers forwards parameters in the same order and with the same scalar widths as the matching `static_assert` on `&::AIL_*` in the same file (e.g. `set_named_sample_file`: `HSAMPLE`, `const char*`, `const void*`, `U32`, `S32`; `set_sample_3D_distances`: two `F32`, then `S32`; `stream_ms_position`: `S32*`, `S32*`). No authored permutation was found between `ClientMiles.h`, `native_calls60.h`, and the call sites.
+
+**Absent runtime evidence, not a located forwarding bug:** whether SDK handle typedefs are pointer-compatible with the facade opaque struct pointers is unproven until a real SDK build; the source relies on `reinterpret_cast`, not a typed bridge.
+
+## Failure containment
+
+- **Present (authored):** All 50 public operations in `plain_operations.cpp` go through `guarded`, which calls `requireFatalReporter()` then catches `std::exception` and `...` and routes to `fail` → `abort`. `WAV_info` additionally rejects null `result` at the facade with `InvalidArgument` before calling native code.
+- **By design, not wrapped:** Non-throwing SDK `void` entrypoints and integer/handle return values pass through unchanged; the header explicitly forbids fabricating null/zero/EOF on adapter failure. That is not missing `guarded` logic in `native_calls60.cpp` itself (that file does not throw).
+- **Gap — null output pointers:** `sample_ms_position`, `stream_ms_position`, `sample_volume_levels`, and `sample_reverb_levels` forward caller pointers with no null checks in either layer. The header does not require non-null for those parameters (unlike `WAV_info`’s `result`). That is **missing defensive containment in source** if a caller ever passes null; whether Audio always passes valid pointers is **not in this paste**.
+
+- **Gap — layering:** `ClientMilesNativeCalls60::WAV_info` writes `*result` when `status` is truthy and does not re-validate `result`. Only `ClientMiles::WAV_info` null-checks. A direct private call to `Native::WAV_info` with null `result` and nonzero `status` would be UB. That is a **source layering inconsistency**, not a defect on the documented public entry if native is only reached via `plain_operations`.
+
+## Accidental synthetic values
+
+- The 49 non-`WAV_info` wrappers return SDK values directly or void; no authored substitution of null handles, zero metrics, or fake errors on the native path.
+- **`WAV_info` projection** matches the header contract on failure: `*result` is not written when `status` is zero (`if (status) { ... *result = projected; }`).
+- On success, fields are copied from a stack `AILSOUNDINFO` into a stack `SampleInformation`; no vendor pointers are stored in `SampleInformation`. Zero-initialization of `projected` only runs on the success branch after a truthy `status`, not on failure.
+
+## `WAV_info` — concrete source-grounded concerns
+
+1. **Truthiness vs “ordinary failure” wording**  
+   Header: populate only on a **nonzero** native result; implementation uses `if (status)`. Any **nonzero** status populates, including hypothetical negative codes. That is **internally consistent with the word “nonzero”** but sharp if “ordinary failure” was meant to be “zero only.” Without SDK docs in the paste, treating negative nonzero as success-like fill is **contract ambiguity in authored text**, not proof of SDK behavior.
+
+2. **Projection vs SDK struct**  
+   Only seven fields are mapped (`format`, `bits`, `channels`, `data_len` → `dataLength`, `rate`, `samples`, `block_size` → `blockSize`). There is **no** `static_assert` on `AILSOUNDINFO` member types or names—only on `AIL_WAV_info`’s function type. A wrong member name or width would be a **compile-time failure when SDK is present**; from paste alone that is **pending SDK check**, not a confirmed typo.
+
+3. **`fileImage`**  
+   Passed through as `const void*` to `AIL_WAV_info`; matches the asserted prototype. No adapter-side validation of size or alignment.
+
+## Pointer / output lifetime
+
+- **`WAV_info`:** Caller-owned `SampleInformation*`; facade documents non-null; lifetime of filled content is caller storage—no adapter snapshot beyond the assignment. Consistent with “not vendor-pointer lifetime.”
+- **Getter out-params** (`int32_t*`, `float*`): Passed straight to `AIL_*`; no authored guarantee that SDK writes only when “successful”; no facade lifetime beyond the synchronous call. **Vendor write rules: absent evidence.**
+
+## Handle `reinterpret_cast`
+
+Every driver/sample/stream call uses `reinterpret_cast` to SDK handle types and back on returns (`allocate_sample_handle`, `open_stream`, `stream_sample_handle`). Authored policy says not to fabricate null; passthrough null handles is not fabrication. **Invalid-handle behavior is not contained** in this source—that would be SDK/runtime evidence, not shown here.
+
+## Enum / constant parity (native file)
+
+The long block of `ClientMiles::*` vs `SMP_*`, `AILFILETYPE_*`, `AIL_*_ERROR`, `ENVIRONMENT_*` `static_assert`s is authored parity for values used elsewhere; it does not add new runtime checks to the 50 calls. **SpeakerConfiguration / Preference** values in `ClientMiles.h` are **not** asserted in `native_calls60.cpp` (also not used in these 50 calls)—**scope gap**, not a defect in the 50 forwards.
+
+## Minor / non-functional
+
+- Include guard macro name `CLIENT_MILES_PLAIN_SURFACE51_H` vs `plain-native60` path is inconsistent naming only.
+- `failure_boundary.cpp`: reporter invoked inside `try/catch(...)` then `std::abort()`—consistent with “no escape from failure path”; assumes binding once before use (your stated assumption).
+
+## Summary table
+
+| Area | Finding |
+|------|--------|
+| 50 call arg order / S32/U32/F32 | Matches paired `static_assert`s in source; no inversion found |
+| Handle casts | Unverified equivalence; pending SDK compile |
+| Exception containment | `guarded` on all 50 facade entrypoints; native TU non-throwing |
+| SDK error returns | Intentionally passthrough; not synthetic |
+| `WAV_info` failure | `*result` preserved when `status == 0` |
+| `WAV_info` success rule | `if (status)` = any nonzero; contract edge in authored text |
+| Null `result` | Checked at facade only |
+| Null getter out-ptrs | Unchecked passthrough |
+| Callback / startup / file callbacks | Intentionally missing or out of scope |
+
+**No broad clearance:** correctness of handle representation, `AILSOUNDINFO` field mapping, enum parity asserts, and all `static_assert`s remain **unproven without the proprietary SDK build** you explicitly excluded. Within the supplied wrapper source, the main **actionable source issues** are optional null out-parameter containment (if you want parity with `WAV_info`), native-layer `WAV_info` null discipline for private callers, and the **nonzero-vs-failure** wording on `WAV_info` if you intend strict “success-only” population.

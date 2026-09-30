@@ -1,0 +1,477 @@
+--- stream-native38/private-source-v1/backend-boundary24/ClientMiles.h
++++ paired-bootstrap59/candidate/backend-boundary24/ClientMiles.h
+@@ -2,6 +2,7 @@
+ #define CLIENT_MILES_STARTUP_FACADE_H
+ 
+ #include <cstdint>
++#include "../native-file-callbacks35/ClientMilesFileCallbacks.h"
+ #include <stdexcept>
+ #include <string>
+ 
+--- stream-native38/private-source-v1/backend-boundary24/pipe/Channel.h
++++ paired-bootstrap59/candidate/backend-boundary24/pipe/Channel.h
+@@ -11,7 +11,8 @@
+     virtual ~Channel() {
+     }
+     virtual StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+-                                           MilesTransport::Bytes text) = 0;
++                                           MilesTransport::Bytes text,
++                                           const std::vector<MilesWire::Handle> &verifiedResources) = 0;
+     // Called only after a successful protocol close; concrete channel drains and
+     // verifies child exit here. Destruction must not manufacture successful close.
+     virtual void finish() = 0;
+--- callback-reentry47/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ paired-bootstrap59/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -110,15 +110,20 @@
+ } // namespace
+ 
+ namespace ClientMilesPipe {
+-Session::Session(std::unique_ptr<Channel> channel)
+-    : started(false), stopped(false), samples(new SampleState), channel_(std::move(channel)), closed_(false),
+-      faulted_(false) {
++Session::Session(Channel *channel, MilesClientRuntime53::Runtime &runtime,
++    std::shared_ptr<void> callbackCodeLifetime)
++    : started(false), stopped(false), samples(new SampleState), channel_(channel), closed_(false),
++      faulted_(false), runtime_(runtime), callbackCodeLifetime_(callbackCodeLifetime),
++      filesPrepared_(false), filesInstalled_(false) {
+     if (selectedSession || !channel_)
+         fail(ClientMiles::FailureReason::WrongState, "one Miles session must be selected");
+     selectedSession = this;
+ }
+ 
+ Session::~Session() {
++    // Temporary source-only invariant: no paired clean-close proof exists.
++    // Do not delete channel/child or pretend retained Runtime is cleanly stopped.
++    std::terminate();
+     // No implicit vendor calls, retry or success claim on abandonment. The
+     // concrete channel owns process termination if normal close was incomplete.
+     if (selectedSession == this)
+@@ -135,7 +140,7 @@
+ size_t Session::sampleProxyCount() const { return samples->proxies.size(); }
+ 
+ void Session::rejectResult() {
+-    faulted_ = true;
++    faulted_ = true;runtime_.fail();
+     fail(ClientMiles::FailureReason::BackendFailed, "invalid sample reply; outcome uncertain");
+ }
+ 
+@@ -160,13 +165,13 @@
+              "Miles session cannot issue another request");
+     StartupBridge::OwnedReply reply;
+     try {
+-        reply = channel_->call(opcode, fields, text);
++        reply = channel_->call(opcode, fields, text, verifiedResources(fields));
+     } catch (...) {
+-        faulted_ = true;
++        faulted_ = true;runtime_.fail();
+         fail(ClientMiles::FailureReason::BackendFailed, "Miles channel failed");
+     }
+     if (!StartupBridge::knownStatus(reply.result.transport_status)) {
+-        faulted_ = true;
++        faulted_ = true;runtime_.fail();
+         fail(ClientMiles::FailureReason::BackendFailed, "unknown Miles channel status");
+     }
+     // Known, validated operation refusals are distinguishable from an uncertain
+@@ -175,21 +180,42 @@
+     return reply;
+ }
+ 
++std::vector<MilesWire::Handle> Session::verifiedResources(const MilesWire::Call &fields) const {
++    std::vector<MilesWire::Handle> out;
++    const MilesWire::Handle values[]={fields.target,fields.resource};
++    for(unsigned n=0;n<2;++n){
++        const MilesWire::Handle &h=values[n];
++        if(!h.kind && !h.slot && !h.generation)continue;
++        const auto same=[&](const MilesWire::Handle &v){return h.kind==v.kind && h.slot==v.slot && h.generation==v.generation;};
++        bool found=driver && same(driver->wire);
++        for(auto i=samples->proxies.begin();i!=samples->proxies.end();++i)
++            if((*i)->live && same((*i)->wire))found=true;
++        for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
++            if((*i)->live && (same((*i)->wire) || ((*i)->borrowed.live && same((*i)->borrowed.wire))))found=true;
++        if(!found)fail(ClientMiles::FailureReason::InvalidDriver,"unowned forward resource");
++        if(out.empty() || !same(out.front()))out.push_back(h);
++    }
++    return out;
++}
++void Session::installFiles(ClientMiles::FileOpenCallback open,ClientMiles::FileCloseCallback close,
++    ClientMiles::FileSeekCallback seek,ClientMiles::FileReadCallback read){
++    MilesCallbackGuard47::requireForwardAllowed();requireRunning();
++    if(filesPrepared_ || !open || !close || !seek || !read || !callbackCodeLifetime_)
++        fail(ClientMiles::FailureReason::WrongState,"one nonnull retained file table required");
++    // Retain once, even on known install refusal: no automatic replacement/retry.
++    filesPrepared_=true;
++    if(!runtime_.prepare(1,open,close,seek,read,callbackCodeLifetime_)){
++        faulted_=true;runtime_.fail();fail(ClientMiles::FailureReason::BackendFailed,"file preparation failed");
++    }
++    MilesWire::Call fields={};fields.callback=1;
++    request(MilesWire::AIL_set_file_callbacks,fields);
++    filesInstalled_=true; // only exact validated success after causal settlement
++}
+ void Session::close() {
+     MilesCallbackGuard47::requireForwardAllowed();
+-    if (faulted_)
+-        fail(ClientMiles::FailureReason::BackendFailed, "cannot retry an uncertain Miles close");
+-    if (!stopped || started || closed_)
+-        fail(ClientMiles::FailureReason::WrongState, "Miles shutdown must precede close");
+-    request(MilesWire::SessionClose, MilesWire::Call());
+-    try {
+-        channel_->finish();
+-    } catch (...) {
+-        faulted_ = true;
+-        fail(ClientMiles::FailureReason::BackendFailed, "Miles channel teardown failed");
+-    }
+-    closed_ = true;
+-}
++    fail(ClientMiles::FailureReason::Unsupported,"paired normal shutdown proof is not implemented in candidate59");
++}
++
+ } // namespace ClientMilesPipe
+ 
+ namespace ClientMiles {
+@@ -646,3 +672,9 @@
+ // set_named_sample_file is deliberately not defined: native rebind and failed-bind
+ // input-lifetime rules plus actual sealed-upload/host ownership must be resolved.
+ } // namespace ClientMiles
++
++namespace ClientMiles {
++void set_file_callbacks(FileOpenCallback open,FileCloseCallback close,FileSeekCallback seek,FileReadCallback read){
++    ClientMilesPipe::Session::selected().installFiles(open,close,seek,read);
++}
++}
+--- stream-native38/private-source-v1/backend-boundary24/pipe/LiveChannel.cpp
++++ paired-bootstrap59/candidate/backend-boundary24/pipe/LiveChannel.cpp
+@@ -1,33 +1,15 @@
+ #include "LiveChannel.h"
+ #include "../../live-bridge-candidate/common.h"
++#include "../../callback-protocol48/file_protocol.h"
++#include <limits>
+ 
+ namespace {
+-std::string frameDigest(const std::vector<unsigned char> &frame) {
+-    HCRYPTPROV provider = 0;
+-    HCRYPTHASH hash = 0;
+-    require(CryptAcquireContextA(&provider, 0, 0, PROV_RSA_AES, CRYPT_VERIFYCONTEXT) != 0,
+-            "reply hash provider");
+-    require(CryptCreateHash(provider, CALG_SHA_256, 0, 0, &hash) != 0, "reply hash");
+-    require(CryptHashData(hash, &frame[0], static_cast<DWORD>(frame.size()), 0) != 0,
+-            "reply hash bytes");
+-    unsigned char digest[32];
+-    DWORD size = 32;
+-    require(CryptGetHashParam(hash, HP_HASHVAL, digest, &size, 0) != 0 && size == 32,
+-            "reply digest");
+-    CryptDestroyHash(hash);
+-    CryptReleaseContext(provider, 0);
+-    std::string text;
+-    const char hex[] = "0123456789abcdef";
+-    for (unsigned i = 0; i != 32; ++i) {
+-        text += hex[digest[i] >> 4];
+-        text += hex[digest[i] & 15];
+-    }
+-    return text;
+-}
+-
++uint64_t incarnation(const std::string &text){uint64_t value=0;for(unsigned i=0;i<16;++i)value=(value<<4)|static_cast<uint64_t>(text[i]<='9'?text[i]-'0':text[i]-'a'+10);return value?value:1;}
+ class LiveChannel : public ClientMilesPipe::Channel {
+   public:
+-    LiveChannel(const char *hostExecutable, const char *originalDll) : next_(0) {
++    LiveChannel(const char *hostExecutable,const char *originalDll,std::shared_ptr<void> enginePin,
++        MilesClientRuntime53::Runtime *&adopted) : runtime_(0),next_(0) {
++        try {
+         std::string random = nonce();
+         std::string base = "\\\\.\\pipe\\swg-facade24-" + random;
+         std::string commandName = base + "-cmd", callbackName = base + "-cb";
+@@ -53,63 +35,66 @@
+                     actual == child_.info.dwProcessId,
+                 "child callback PID binding");
+         command_.reset(new Endpoint(command.take(), 23));
+-        callback_.reset(new Endpoint(callback.take(), 29));
++        HANDLE raw=callback.take();
++        try {runtime_=MilesClientRuntime53::Runtime::launch(raw,incarnation(random),999,enginePin);}
++        catch(...){if(raw!=INVALID_HANDLE_VALUE)CloseHandle(raw);throw;}
++        adopted=runtime_; // outer catch must retain it even if Hello subsequently fails
++        require(runtime_->awaitReady(),"callback control owner ready");
+         StartupBridge::OwnedReply hello =
+             exchange(MilesWire::Hello, MilesWire::Call(),
+-                     MilesTransport::Bytes(random.data(), random.size()), MilesTransport::Bytes());
++                     MilesTransport::Bytes(random.data(), random.size()), MilesTransport::Bytes(),std::vector<MilesWire::Handle>());
+         require(hello.result.transport_status == StartupBridge::Success, "Hello accepted");
++        }catch(...){if(runtime_){runtime_->fail();std::terminate();}throw;}
+     }
+ 
+     StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+-                                   MilesTransport::Bytes text) override {
++                                   MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources) override {
+         // Known validated refusals reach the facade; only fixture probes compare
+         // an expected status. Do not inherit Client.call's default-success throw.
+-        return exchange(opcode, fields, MilesTransport::Bytes(), text);
++        return exchange(opcode, fields, MilesTransport::Bytes(), text,resources);
+     }
+ 
+-    void finish() override {
+-        drainSession(*command_, *callback_, true);
+-        require(WaitForSingleObject(child_.info.hProcess, 10000) == WAIT_OBJECT_0,
+-                "host exit wait");
+-        DWORD code = 99;
+-        require(GetExitCodeProcess(child_.info.hProcess, &code) && code == 0, "host clean exit");
+-        child_.close();
+-    }
++    void finish() override {throw std::runtime_error("paired clean shutdown is not implemented in59");}
+ 
+   private:
+     ChildProcess child_;
+-    std::unique_ptr<Endpoint> command_, callback_;
++    std::unique_ptr<Endpoint> command_;
++    MilesClientRuntime53::Runtime *runtime_;
+     uint64_t next_;
+ 
+-    StartupBridge::OwnedReply exchange(uint32_t opcode, const MilesWire::Call &fields,
+-                                       MilesTransport::Bytes payload, MilesTransport::Bytes text) {
+-        MilesWire::Header header = {};
+-        header.magic = MilesWire::Magic;
+-        header.version = MilesWire::Version;
+-        header.kind = MilesWire::Request;
+-        header.opcode = opcode;
+-        header.request = ++next_;
+-        header.lane = 1;
++    StartupBridge::OwnedReply exchange(uint32_t opcode,const MilesWire::Call &fields,
++        MilesTransport::Bytes payload,MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources){
++      try {
++        require(next_!=(std::numeric_limits<uint64_t>::max)(),"command ID exhausted");
++        MilesWire::Header header={};header.magic=MilesWire::Magic;header.version=MilesWire::Version;
++        header.kind=MilesWire::Request;header.opcode=opcode;header.request=++next_;header.lane=1;
+         std::vector<unsigned char> frame;
+-        require(MilesTransport::encodeCall(header, fields, payload, text, frame), "encode call");
+-        require(command_->send(bytes(frame)), "send call");
+-        frame = receive(*command_, callback_.get(), opcode == MilesWire::SessionClose);
+-        std::vector<unsigned char> unexpected;
+-        require(!callback_->takeFrame(unexpected), "no callback traffic");
++        require(MilesTransport::encodeCall(header,fields,payload,text,frame),"encode call");
++        if(opcode!=MilesWire::Hello)require(runtime_->publish(header.request,header.lane,resources),"publish before send");
++        require(command_->send(bytes(frame)),"command send");
++        ULONGLONG begin=GetTickCount64();
++        for(;;){
++            require(!runtime_->failed(),"callback owner failed");
++            require(WaitForSingleObject(child_.info.hProcess,0)==WAIT_TIMEOUT,"host died during command");
++            command_->pump();healthy(*command_);
++            if(command_->takeFrame(frame))break;
++            require(GetTickCount64()-begin<30000,"active command deadline");
++            HANDLE events[3];DWORD count=0;events[count++]=runtime_->failureEvent();
++            if(command_->readPending())events[count++]=command_->readEvent();
++            if(command_->writePending())events[count++]=command_->writeEvent();
++            DWORD result=WaitForMultipleObjects(count,events,FALSE,2);
++            require(result!=WAIT_FAILED,"command I/O wait");
++        }
+         StartupBridge::OwnedReply out;
+-        require(StartupBridge::decodeReply(bytes(frame), header, out), "typed reply/context");
+-        printf("reply request=%I64u opcode=%u status=%u bytes=%u sha256=%s return_bits=%u "
+-               "value3=%u null_mask=%u text_hex=",
+-               next_, opcode, out.result.transport_status, static_cast<unsigned>(frame.size()),
+-               frameDigest(frame).c_str(), out.result.return_bits, out.result.value[3],
+-               out.result.null_mask);
+-        if (out.text.empty())
+-            printf("-");
+-        else
+-            for (size_t i = 0; i != out.text.size(); ++i)
+-                printf("%02x", static_cast<unsigned>(out.text[i]));
+-        puts("");
++        if(opcode==MilesWire::AIL_set_file_callbacks){
++            MilesFileProtocol48::InstallRequest expected;expected.header=header;expected.registration=fields.callback;
++            MilesFileProtocol48::InstallStatus status;
++            require(MilesFileProtocol48::decodeInstallReply(bytes(frame),expected,status),"exact install reply");
++            MilesWire::Header decoded={};require(MilesTransport::decodeResult(bytes(frame),decoded,out.result),"install result projection");
++        }else require(StartupBridge::decodeReply(bytes(frame),header,out),"typed reply/context");
++        if(opcode!=MilesWire::Hello)require(runtime_->returned(header.request),"forward and callback ACK join");
+         return out;
++      }catch(...){runtime_->fail();throw;}
+     }
+     LiveChannel(const LiveChannel &);
+     LiveChannel &operator=(const LiveChannel &);
+@@ -117,7 +102,14 @@
+ } // namespace
+ 
+ namespace ClientMilesPipe {
+-std::unique_ptr<Channel> connect(const char *hostExecutable, const char *originalDll) {
+-    return std::unique_ptr<Channel>(new LiveChannel(hostExecutable, originalDll));
++Session *connectSession(const char *host,const char *dll,std::shared_ptr<void> enginePin,std::shared_ptr<void> callbackPin){
++    MilesClientRuntime53::Runtime *adopted=0;
++    try {
++        Channel *channel=new LiveChannel(host,dll,enginePin,adopted);
++        return new Session(channel,*adopted,callbackPin);
++    }catch(...){
++        if(adopted){adopted->fail();std::terminate();} // retained runtime; no clean-close claim
++        throw;
++    }
+ }
+-} // namespace ClientMilesPipe
++}
+--- stream-native38/private-source-v1/backend-boundary24/pipe/LiveChannel.h
++++ paired-bootstrap59/candidate/backend-boundary24/pipe/LiveChannel.h
+@@ -2,10 +2,13 @@
+ #define CLIENT_MILES_PRIVATE_LIVE_CHANNEL_H
+ #include "Channel.h"
+ #include <memory>
++#include "Session.h"
+ 
+ namespace ClientMilesPipe {
+ // Composition root only. Creates the existing private pipes/process and performs
+ // Hello. Public ClientMiles.h has no process configuration or bootstrap calls.
+-std::unique_ptr<Channel> connect(const char *hostExecutable, const char *originalDll);
++// Private root only. Runtime remains retained; Session destruction is terminal in59.
++Session *connectSession(const char *hostExecutable,const char *originalDll,
++    std::shared_ptr<void> engineLifetime,std::shared_ptr<void> callbackCodeLifetime);
+ } // namespace ClientMilesPipe
+ #endif
+--- stream-native38/private-source-v1/backend-boundary24/pipe/Session.h
++++ paired-bootstrap59/candidate/backend-boundary24/pipe/Session.h
+@@ -4,6 +4,7 @@
+ #include "../ClientMiles.h"
+ #include "Channel.h"
+ #include <memory>
++#include "../../client-runtime53/client_file_runtime.h"
+ 
+ namespace ClientMilesPipe {
+ struct SampleState;
+@@ -12,7 +13,8 @@
+ // close follows ClientMiles::shutdown and hides SessionClose from game callers.
+ class Session {
+   public:
+-    explicit Session(std::unique_ptr<Channel> channel);
++    Session(Channel *channel, MilesClientRuntime53::Runtime &,
++            std::shared_ptr<void> callbackCodeLifetime);
+     ~Session();
+     void close();
+ 
+@@ -24,6 +26,8 @@
+     void rejectResult(); // terminal uncertainty; no retry after an invalid sample result
+     void requireRunning() const;
+     void requireAvailable() const;
++    void installFiles(ClientMiles::FileOpenCallback, ClientMiles::FileCloseCallback,
++        ClientMiles::FileSeekCallback, ClientMiles::FileReadCallback);
+     bool started;
+     bool stopped;
+     std::unique_ptr<ClientMiles::DigitalDriver> driver;
+@@ -31,9 +35,13 @@
+     static Session &selected();
+ 
+   private:
+-    std::unique_ptr<Channel> channel_;
++    Channel *channel_; // retained private root; no automatic teardown in59
+     bool closed_;
+     bool faulted_;
++    MilesClientRuntime53::Runtime &runtime_; // retained by private root, never deleted here
++    std::shared_ptr<void> callbackCodeLifetime_;
++    bool filesPrepared_, filesInstalled_;
++    std::vector<MilesWire::Handle> verifiedResources(const MilesWire::Call &) const;
+     Session(const Session &);
+     Session &operator=(const Session &);
+ };
+--- stream-native38/private-source-v1/live-bridge-candidate/admission.h
++++ paired-bootstrap59/candidate/live-bridge-candidate/admission.h
+@@ -1,6 +1,6 @@
+ #ifndef LIVE_BRIDGE_ADMISSION_H
+ #define LIVE_BRIDGE_ADMISSION_H
+-#include "../coordinator-candidate/coordinator.h"
++#include "../session-file-admission34/coordinator.h"
+ namespace LiveBridge {
+ inline MilesCoordinator::Error admit(MilesCoordinator::Coordinator& owner,
+     uint64_t session, uint64_t ordinal, uint32_t opcode,
+--- /dev/null
++++ paired-bootstrap59/candidate/paired-bootstrap59/host.cpp
+@@ -0,0 +1,97 @@
++// Source-only paired composition. No operational build target or normal teardown.
++#include "../live-bridge-candidate/common.h"
++#include "../session-file-admission34/coordinator.h"
++#include "../startup-bridge23/backend.h"
++#include "../host-runtime50/host_file_runtime.h"
++#include <limits>
++#ifdef _WIN64
++#error Original Miles host requires Win32
++#endif
++namespace {
++uint64_t incarnation(const std::string &n){uint64_t value=0;for(unsigned i=0;i<16;++i)value=(value<<4)|static_cast<uint64_t>(n[i]<='9'?n[i]-'0':n[i]-'a'+10);return value?value:1;}
++bool nullHandle59(const MilesWire::Handle &h){return !h.kind&&!h.slot&&!h.generation;}
++std::vector<unsigned char> nextCommand(Endpoint &command){
++    for(;;){command.pump();healthy(command);std::vector<unsigned char> frame;
++        if(command.takeFrame(frame))return frame;
++        // No idle command deadline. Only pending events are waited; a fully
++        // synchronous partial pump immediately continues when there is no event.
++        if(command.readPending())require(WaitForSingleObject(command.readEvent(),INFINITE)==WAIT_OBJECT_0,"idle command wait");
++    }
++}
++void host(int argc,char **argv){
++    require(argc==7,"host arguments");
++    const std::string nonceText=argv[4];require(nonceText.size()==32,"nonce extent");
++    for(size_t n=0;n<nonceText.size();++n)require((nonceText[n]>='0'&&nonceText[n]<='9')||(nonceText[n]>='a'&&nonceText[n]<='f'),"nonce alphabet");
++    char *end=0;unsigned long expected=strtoul(argv[5],&end,10);require(expected && end && !*end,"parent PID");
++    HANDLE rawCommand=CreateFileA(argv[2],GENERIC_READ|GENERIC_WRITE,0,0,OPEN_EXISTING,FILE_FLAG_OVERLAPPED,0);
++    HANDLE rawCallback=CreateFileA(argv[3],GENERIC_READ|GENERIC_WRITE,0,0,OPEN_EXISTING,FILE_FLAG_OVERLAPPED,0);
++    require(rawCommand!=INVALID_HANDLE_VALUE && rawCallback!=INVALID_HANDLE_VALUE,"connected pipes");
++    ULONG pid=0;
++    require(GetNamedPipeServerProcessId(rawCommand,&pid)&&pid==expected,"command parent PID");
++    require(GetNamedPipeServerProcessId(rawCallback,&pid)&&pid==expected,"callback parent PID");
++    // Heap-retained owners prevent exception unwind from invoking emergency SDK
++    // shutdown or Endpoint cleanup after callbacks may have been adopted.
++    Endpoint *command=new Endpoint(rawCommand,17);
++    Backend *backend=new Backend(argv[6]);
++    MilesHostRuntime50::Runtime *callbacks=0;
++    const uint64_t session=incarnation(nonceText);
++    MilesCoordinator::Coordinator coordinator(session);
++    uint64_t last=0,ordinal=0;bool hello=false;
++    for(;;){
++        std::vector<unsigned char> frame=nextCommand(*command);
++        MilesWire::Header h={};MilesWire::Call c={};
++        require(MilesTransport::decodeCall(bytes(frame),h,c),"decode command");
++        require(last!=(std::numeric_limits<uint64_t>::max)() && h.request==last+1 &&
++            h.kind==MilesWire::Request && h.lane==1 && !h.lock_lease && !h.causal_request,"command correlation");
++        last=h.request;StartupBridge::OwnedReply out;std::vector<unsigned char> encoded;
++        if(!hello){
++            require(h.opcode==MilesWire::Hello && c.bytes.length==32 && !c.text.length &&
++                nullHandle59(c.target)&&nullHandle59(c.resource)&&!c.output_mask&&!c.callback&&!c.reserved,"hello shape");
++            for(unsigned i=0;i<8;++i)require(!c.value[i],"hello fields");
++            require(!memcmp(&frame[c.bytes.offset],nonceText.data(),32),"full nonce");hello=true;
++        }else{
++            // SessionClose is deliberately unavailable: no inferred clean shutdown.
++            require(h.opcode!=MilesWire::SessionClose,"paired teardown not implemented");
++            std::vector<MilesWire::Handle> resources;bool live=true;
++            const MilesWire::Handle handles[]={c.target,c.resource};
++            for(unsigned i=0;i<2;++i)if(!nullHandle59(handles[i])){
++                void *local=0;live=live&&backend->registry.resolve(handles[i],static_cast<MilesWire::ResourceKind>(handles[i].kind),local);
++                if(resources.empty() || handles[i].kind!=resources.front().kind || handles[i].slot!=resources.front().slot || handles[i].generation!=resources.front().generation)resources.push_back(handles[i]);
++            }
++            if(!live)out.result.transport_status=StartupBridge::InvalidResource;
++            else {
++                require(ordinal!=(std::numeric_limits<uint64_t>::max)(),"admission exhausted");
++                require(coordinator.admitGame(session,ordinal+1,h.lane,0,MilesCoordinator::Ordinary,resources)==MilesCoordinator::Ok,"host admission");++ordinal;
++                MilesHostContext::Origin origin={session,h.request,h.lane,h.lock_lease,ordinal};
++                if(h.opcode==MilesWire::AIL_set_file_callbacks){
++                    MilesFileProtocol48::InstallRequest request;
++                    require(MilesFileProtocol48::decodeInstall(bytes(frame),h,request),"exact install request");
++                    if(!callbacks){
++                        HANDLE transferred=rawCallback;rawCallback=INVALID_HANDLE_VALUE;
++                        callbacks=new MilesHostRuntime50::Runtime(transferred,session,request.registration,999,64);
++                    }
++                    encoded.resize(MilesFileProtocol48::InstallReplyBytes);size_t written=0;
++                    // installAdmitted owns Scope41; do not nest another scope.
++                    require(MilesHostRuntime50::installAdmitted(*callbacks,bytes(frame),h,origin,
++                        backend->started,backend->shutdown,encoded.data(),encoded.size(),written),"admitted installation");
++                    encoded.resize(written);
++                }else{
++                    MilesHostContext::Scope scope(origin);
++                    require(scope.result()==MilesHostContext::Entered,"admitted SDK origin");
++                    out=backend->execute(h,c,frame);
++                }
++                require(coordinator.completeAdmission(session,ordinal)==MilesCoordinator::Ok,"observed SDK return");
++            }
++        }
++        if(encoded.empty()){
++            MilesWire::Header reply=h;reply.kind=MilesWire::Reply;
++            require(MilesTransport::encodeResult(reply,out.result,MilesTransport::Bytes(),bytes(out.text),encoded),"result encoding");
++        }
++        require(command->send(bytes(encoded)),"command reply");sent(*command);
++    }
++}
++}
++int main(int argc,char **argv){
++    try {host(argc,argv);}catch(...){MilesHostRuntime50::fatal();}
++    MilesHostRuntime50::fatal();
++}

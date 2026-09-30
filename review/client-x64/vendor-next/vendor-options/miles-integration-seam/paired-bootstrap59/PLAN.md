@@ -1,0 +1,38 @@
+# Paired bootstrap59 — incomplete source candidate
+
+Actual bootstrap/code changes only. No compiler, tests, VM staging, SDK load, engine/vendor runtime, product edits or build target. This candidate is **ineligible for operational adoption** until TLS callback adaptation, lock semantics, complete public failure containment and paired normal teardown are implemented. No readiness flag waives those gaps.
+
+## Implemented private wiring
+
+- `backend-boundary24/pipe/LiveChannel.cpp` keeps the existing real ChildProcess/ServerPipe launch. Both child PID checks precede raw callback transfer. Runtime53 is launched before callback Endpoint I/O and receives the same nonce-derived session plus background lane999. It creates its own Endpoint; LiveChannel owns only command Endpoint. Hello remains outside SDK admission.
+- The new private `connectSession(host,dll,enginePin,callbackPin)` creates the actual LiveChannel, then the actual Session with that same retained Runtime. No public ClientMiles signature gets a runtime or pin. Session and channel are deliberately root-retained pointers in this partial lifetime model.
+- Session verifies command resources against its existing live driver/sample/stream/borrowed identities; no new registry. It passes those verified pins through the private Channel call. LiveChannel publishes before command send and records a fully validated return through Runtime before returning even a known refusal. The command receive loop watches callback failure and child death, pumps only command I/O and has an active30-second deadline.
+- Actual `ClientMiles::set_file_callbacks(four callbacks)` now calls Session::installFiles after47 reentry/running checks. It retains the real supplied table through runtime.prepare before installation send, refuses unsupported replacement/null tables, and uses registration1 for this one-table session. Prepared remains true on refusal; no retry/default fallback. Installed is set only after validated success and ACK settlement. It is not an operational-ready flag.
+- Only opcode28 uses protocol48 install reply validation. Other replies retain generic callback-zero validation. Mapper50 remains sole reverse/ACK registry;53's existing query selects replies without another table.
+- `paired-bootstrap59/host.cpp` is a real SDK host command loop, not Oracle30 or a scripted supplier. It strictly checks both parent PIDs, verifies full nonce, validates monotonic command identity, and resolves resource pins through Backend's existing genuine registry. Raw callback handle stays unoperated until installation request supplies registration, then transfers once to host50 Runtime. Installer routing precedes Backend's blanket callback rejection. installAdmitted owns its Scope41; other Backend calls get one scoped host admission. Command idle wait has no watchdog and no callback Endpoint.
+
+## Ownership transfer and failure points
+
+Before client Runtime launch succeeds, local ServerPipe/ChildProcess/command Endpoint owners can clean up failed construction; no callback runtime or file jobs exist yet. Runtime launch failure leaves raw handle with caller, which closes it. After launch returns, raw callback handle is invalidated and `adopted` is published to the root. A failure during ready/Hello requests failure and terminates **inside the constructor body**, before member teardown could imply clean callback cleanup. If Session construction later fails, the retained channel pointer is not deleted; root marks Runtime failed and terminates. No catch deletes Runtime.
+
+Session destructor is temporarily terminal before member cleanup. This is an invariant guard for the source slice, not final shutdown behavior or a substitute for ClientMiles::shutdown. Session::close and Channel::finish refuse normal close explicitly. Public shutdown still calls actual SDK shutdown through the existing path while callback Runtime remains alive; no success path then destroys the retained owner. A future paired-close implementation can replace these private restrictions without changing ClientMiles's public shape.
+
+Host Backend and command Endpoint are heap-retained. Any outer exception invokes host50's nonreturning fatal routine; it does not delete Backend and therefore cannot call its emergency AIL_shutdown destructor during unwind. Raw callback allocation/Runtime-construction failures are terminal with process ownership, not a cleanup success. Runtime50's own destructor is never called here. Its independently owned callback-I/O thread remains the only issuer and owner of that Endpoint.
+
+FileRecords, uncertain jobs and callback table pins remain retained after failure. Host process termination is not a client close/ACK. A command result settling is not vendor producer quiescence. Successful open records with no pending reverse requests are not discarded.
+
+## Uncomposed dependencies and acceptance blockers
+
+The original Audio callback once/TLS prologues cannot simply run on EngineFileWorker's already-installed TLS.29 common operations exist, but a reviewed engine-side typed selection/adoption change must bypass only the legacy prologue without silently ignoring the supplied table. This candidate does not change Audio, callbacks or threadInstall policy.
+
+The actual37/38/47 private facade source here still has its older public OwnedText/Failure/header shape. `plain-pipe57/GAP-MAP.md` was read;57 (and upcoming61) isolates core operations into ClientMilesPipeCore57 with guarded plain public wrappers. That namespace/header move is **not composed** into59 and must be overlaid deliberately, moving this installFiles implementation behind the same guarded public boundary. Do not compile/link57/61 alongside this old public facade object: symbols overlap.59 provides real bootstrap and private Session changes, not a finished engine STL boundary. No new opaque sample type was invented.
+
+Runtime53 exposes only Ordinary/zero-lease admission. Lock/unlock and paired shutdown cleanup transitions remain unresolved. SessionClose is explicitly refused by both sides. There is still no proof of producer termination/all files closed/all ACKs settled followed by real worker join and Endpoint drain. A root-retained failure object is not final teardown.
+
+Actual SDK callbacks before setter installation are not claimed client-routed. Host prepares/publishes its thunks before AIL_set_file_callbacks itself, permitting synchronous installation callbacks. Startup still precedes registration. No stream/SDK behavior is validated by this source assembly; inherited Backend policy restrictions remain unchanged. Tests/portable suppliers were excluded; actual engine worker implementation remains external via the plain EngineFileWorker header and real FileInvocationJob.
+
+## Exact source parents
+
+`provenance.json` records copied source paths/hashes: stream-native38 private closure for actual live channel/Backend, guarded47 facade, host-runtime50 candidate, client-runtime53 candidate (which includes50/46/48/47 production closure). There is one protocol3 tree and one34 coordinator tree; obsolete coordinator-candidate was removed and the existing admission helper points to34. Portable contract TUs, test TUs and scripted jobs were excluded. There is no copied SDK header; Mss.h remains a future pinned private build input.
+
+`candidate.patch` includes all new/changed source. `source-manifest.json` and `artifact-manifest.json` freeze this proposal. Static include-path inspection found all quoted local includes resolved (Mss.h intentionally external); no compilation or runtime verification is claimed. Parent source review is the next step.
