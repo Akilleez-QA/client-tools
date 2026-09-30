@@ -1,0 +1,65 @@
+The large finite gaps are legacy Win32 XMM lifetime bugs, not a bad x64 dot product. On the rigid cases that have a closed form, the x64 candidate matches that form and the Win32 reference does not. Debug and Release do not agree with each other on the Win32 side.
+
+## What the native files actually show
+
+`Debug-v3-comparison.json` and `Release-v3-comparison.json` are probe schema 2. `compare-ssemath-v2.py` labels argv1 `reference` and argv2 `candidate`, checks that mode, category, index, input CSR, and input fingerprint match, then splits value words from MXCSR words at offsets 5, 9, 13, 20, 27, 34, 41, 48, and 52. The exit code still fails the whole record if any of those words differ. The JSON does not name Win32 vs x64. The stable side is the candidate field: the same bits appear in both builds. The reference field changes with the build. That is what the inline-asm side must do if the compiler reuses XMM between `__asm` blocks, and what the x64 side must not do.
+
+Caller-shaped rigid, round-to-nearest, FTZ off, DAZ off:
+
+| Build | Records that differ | Value words | MXCSR words |
+|---|---|---|---|
+| Debug | 227 / 256 | 3294 | 0 |
+| Release | 256 / 256 | 3454 | 389 |
+
+The same 227 / 3294 / 0 split repeats for every Debug FTZ/DAZ copy of that group. Flush mode is not the cause. Bounded-finite is worse (Debug 942 / 1024, 15586 value words, 0 flag words). Rounding-mode groups stay in the same band, so this is not a rounding-control bug.
+
+Release record 0 of that rigid group differs only in the nine CSR words: reference `00001fa0`, candidate `00001f80`. Bit 5 is the sticky precision flag. The value words match. Scale is `weights[0] = 0`, so a correct multiply is an exact zero and cannot by itself raise precision.
+
+## Closed form, without trusting either binary
+
+Category 0 (`ssemath-probe-v2.cpp` lines 75–80) forces a signed axis permutation of determinant +1, a unit-axis normal, and `scale = weights[i % 8]`. Translation and position stay random; the normal does not. For every such `i`, the 3-lane normal is `(±scale, 0, 0)`.
+
+Debug and Release, rigid index 2 (`scale = 0x3e4ccccd` = 0.2f, permutation puts the +1 in lane 2 of row 0):
+
+- Candidate normal X, offset 17, is `3e4ccccd`. That is the scale. Skin-add normal X, offset 24, is `c0733333` = −3.8f, which is the probe’s initial −4 plus 0.2f.
+- Reference normal X is `00000000`. Skin-add normal X stays `c0800000` = −4 exactly, so the added row-0 term is +0.
+
+Index 1 (`scale = 0.1f`) is the same pair: candidate offset 17 is `3dcccccd`, offset 24 is `c079999a` (−4 + 0.1f); reference offset 17 is 0 and offset 24 stays −4. Those candidate bits are identical in the Release file. The reference position/rotate X words are not (`c4cc4743` vs `49c13166` at offset 6).
+
+Rotate Y and Z are absent from those diffs, so they matched. A smashed return ABI or a wrong `Vector` layout would not preserve Y and Z. Alias slots (offsets 31–33, 38–40) pick up extra components only after a bad position is written into the source normal. Both implementations do that write before the normal read (`SseMath.cpp` lines 138–146 then 156–158; legacy lines 483–491 then 520–522). That is sequential aliasing, not a second calling-convention bug.
+
+Index 3 is a different residue: position X is `4117072a` vs `4117072b` (1 ULP) while rotate X is `00000000` vs `4117072a`. One ULP is not the row-0 kill. It is still unseparated from x87 versus binary32 accumulation of the same products.
+
+## Confirmed defects
+
+The Win32 functions load the matrix into `xmm0`–`xmm2`, then run C++, then multiply through those registers. MSVC does not keep XMM live across that gap.
+
+- `rotateTranslateScale_l2p`: load at lines 300–302, C++ stores at 306–309, use at 329–331.
+- `rotateScale_l2p`: load at 372–374, then `sseVariable[0][3] = 0.0f` at line 381, use at 400–402. Materializing `0.0f` with `xorps xmm0, xmm0` clears the whole row. Debug rotate X is ±0 on indices 1–3 while Y and Z still match the candidate. That is only `xmm0` dying.
+- `skinPositionNormal_l2p` and the add variant: the normal half reuses `xmm0` and `xmm6` after the position store and the normal refill (legacy lines 483–509 and 580–606). Nothing reloads the row or the scale. Native skin-add normal X staying at the initial −4 is that dead register, in both Debug and Release.
+
+`movaps` at those loads needs 16-byte alignment. The probe aligns `Transform` (line 67) and `static_assert`s `sizeof(Transform)==48`, so this run did not fault and misalignment does not explain the numbers. `Transform.h` is not in the snapshot. The x64 path uses `_mm_loadu_ps` (`SseMath.cpp` lines 50–52), which is the safe read if a live object is only 4-byte aligned. That difference is untested here.
+
+The candidate’s arithmetic is the same contract as the asm comments and as `Transform::rotateTranslate_l2p` (`Transform.cpp` lines 595–603): per-lane `(src * row) * scale`, then a scalar left fold, 4 lanes with `w = 1` for position, 3 lanes for rotate and normal (`SseMath.cpp` lines 75–87, 102–114, 130–158). On these rigid normals it is bit-exact. It does not need a rewrite to explain the 227-record hole.
+
+## Hypotheses, not yet measured
+
+- Release-only `00001fa0` versus `00001f80` on exact zeros is a compiler SSE op in the Win32 function, not the `mulps` of zeros. Which instruction raises precision is unknown; there is no disassembly in the tree.
+- The 1 ULP family (rigid index 3 position X, and similar near-misses) is x87 80-bit adds on Win32 versus `addss` on x64. It can remain after the register bug is removed.
+- Debug’s 29 exact rigid matches are likely the 32 zero-scale rows, minus a few −0 versus +0 sums. The examples skip index 0 because it matched; the other 29 were not listed.
+- `vmovss` (zero upper lanes) versus merging `movss` would change which lanes die between Debug and Release. The two reference values for index 1 offset 6 already differ. The listing would settle the mask.
+- Exceptional and discarded-lane flag counts (Debug rigid-adjacent exceptional group: 351 MXCSR words) can also come from the unused lane still being multiplied, and from `_mm_set1_ps` versus `movss`/`shufps` NaN payloads. That is not the finite rigid failure.
+- Global `sseVariable` (legacy lines 216–217) is a reentrancy bug. The probe is single-threaded, so it is not this diff.
+
+These four `SseMath` entry points are not called from `SoftwareBlendSkeletalShaderPrimitive.cpp`. That file has its own 64-byte `PoseModelTransform` kernel. Do not use it as the oracle.
+
+## What to measure next
+
+1. Reload `xmm0`–`xmm2` and the scale in the same asm block as `mulps`, or move the Win32 bodies to MASM, and rerun probe v2. Expect rigid value diffs to fall to the 1 ULP set. If they do, leave the x64 formulas alone.
+2. Score both binaries against an in-process binary32 dot product, per component, for categories 0 and 1. The probe never does this, so a shared bug would have looked like a pass.
+3. Gate values and MXCSR separately. For Release record 0, record which instruction first sets bit 5.
+4. Recompile only the Win32 file `/arch:SSE2` and `/arch:AVX` and compare lane masks. That distinguishes merging `movss` from `vmovss`.
+5. After the reload experiment, list remaining 1 ULP words under `/fp:strict`. Those are the only candidate-side numeric question supported by this data.
+6. One `Transform` at address mod 16 = 4: Win32 `movaps` should fault, x64 `loadu` should return the dot product. That is a different defect from the 227.
+
+No source change is justified until measurement 1 says the x64 side still misses the independent dot product.

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Release-Win32",
+    "build": 0,
+    "source_sha256": "0c84df3b9902061fa3002211f145bcc5415636676c4a03cd03d0aa8e75f9216e",
+    "diagnostic_sha256": "8e7301610fc7586a3642f8ca3319166e70d1ca92c550f802eaa0001296e5b902",
+    "run": 0,
+    "output": "OWNER scalarCaller fn=27a0 owner=27a7\r\nOWNER noLeakCaller fn=23d0 owner=23d9\r\nOWNER arrayCaller fn=21e0 owner=21e7\r\nOWNER fileScalarCaller fn=2210 owner=221e\r\nOWNER fileArrayCaller fn=21f0 owner=21fe\r\n",
+    "okay": false
+  },
+  {
+    "name": "Release-x64",
+    "build": 0,
+    "source_sha256": "0c84df3b9902061fa3002211f145bcc5415636676c4a03cd03d0aa8e75f9216e",
+    "diagnostic_sha256": "8e7301610fc7586a3642f8ca3319166e70d1ca92c550f802eaa0001296e5b902",
+    "run": 0,
+    "output": "OWNER scalarCaller fn=1de0 owner=1dee\r\nOWNER noLeakCaller fn=1940 owner=194e\r\nOWNER arrayCaller fn=16d0 owner=16de\r\nOWNER fileScalarCaller fn=1720 owner=173a\r\nOWNER fileArrayCaller fn=16f0 owner=170a\r\n",
+    "okay": false
+  }
+]

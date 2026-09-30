@@ -1,0 +1,103 @@
+## Scope and evidence limits
+
+Review is from the frozen snapshot (`candidate.diff` + vendored sources + `ssemath-probe-v2.cpp` / `*-v3-comparison.json`). No binaries were run. The SSE comparison JSON is a **harness oracle** (stock `stock-SseMath.cpp` vs candidate `SseMath.cpp`), not in-game validation. Allocator, DebugHelp, FPU, skeletal paths, and UI fixes have **no** automated coverage in this bundle.
+
+---
+
+## P0 — SseMath x64 rewrite vs stated preservation
+
+Native comparison already fails the probe’s strict gate (`compare-ssemath-v2.py` exits non‑zero when `category<=1` differs).
+
+- **Debug** (`Debug-v3-comparison.json`): `caller-shaped-rigid` — 227/256 records differ on **value** words; **0** MXCSR word diffs in that group (masks match `0002ffff`).
+- **Release** (`Release-v3-comparison.json`): same group — **256/256** value diffs and **389** MXCSR word diffs (e.g. reference `0x00001fa0` vs candidate `0x00001f80` at record offsets 5/9 — sticky/flag lanes in the probe record).
+
+Candidate replaces naked x86 asm with intrinsics + scalar horizontal sums (`candidate.diff` ~1036–1223; `SseMath.cpp`). That is a **different numerical pipeline** from the asm reference, not a proof of bit-identical Win32 behavior on x64.
+
+**Discriminating tests:** Re-run probe on **both** Debug and Release; add explicit cases for `SseMath::prefetch`, `canDoSseMath()`, and any code path that relied on asm lane garbage (see normal path using `w=1` for normals in `skinPositionNormal_l2p`, lines ~1162–1177). Treat `Transform.cpp` `sse_xf_matrix_3x4` (~994–1015 in diff) as a separate golden-vector suite — not in the probe at all.
+
+---
+
+## P1 — Allocator owner width and caller chain
+
+**Contract change (intentional):** `MemoryManager::OwnerAddress` is `uint32` only for `_WIN32 && !_WIN64` (`MemoryManager.h` 36–40, 65); otherwise `uintptr_t`. `allocate` and `DllExport` stub signature updated (`MemoryManager.h` 65; `DllExport.cpp` 151; `MemoryManager.cpp` 1159).
+
+**x64 hooks** pass `reinterpret_cast<uintptr_t>(_ReturnAddress())` from `__declspec(noinline)` `operator new` / `dpvsAllocate` / `regexAllocate` (`OsNewDel.cpp` 21–46; `Direct3d9`/`Headless` `MemoryManagerHook.cpp` parallel; `RenderWorldServices.cpp` 42–48; `RegexServices.cpp` 18–21). This replaces the Win32 naked-asm path that passed a 32-bit owner in registers.
+
+**Risks**
+
+1. **External ABI:** Any x64 module still linked against `allocate(size_t, uint32, …)` will pass a 4-byte owner and corrupt the x64 stack. No test in snapshot validates export name decoration / `.def` / consumer TUs.
+2. **`_ReturnAddress()` vs stack walk owners:** Primary owner is the return address into the immediate caller of `operator new`, not necessarily the same PC `DebugHelp::getCallStack` records when `DO_TRACK>1` (`MemoryManager.cpp` 1260–1268). Symbol resolution can disagree between the two.
+3. **Tracking layout blind spot:** In this tree `DO_TRACK` is **0** on Windows (`MemoryManager.cpp` 50–58). All `m_owner[]` / multi-frame `getCallStack` → `setOwner` paths are **compiled out** for the typical Win client build. Width fixes (`uint64 owners[]`, `OwnerAddress m_owner[]`, `PRIxPTR` logging at 1197, 1759–1775) are unverified on the platform you care about unless you build with `PLATFORM_LINUX` or flip `DO_TRACK`.
+
+**Negative control:** Win32 keeps `uint32` owner + asm hooks (`#else` branches in diff). Good for 32-bit regression, not exercised here.
+
+**Tests:** Link a tiny DLL that calls `MemoryManager::allocate` with a known 8-byte owner; debug build with `DO_TRACK` forced to ≥2; compare logged owner to `lookupAddress` on both primary owner and `owners[i+OFFSET]`.
+
+---
+
+## P1 — DebugHelp: DLL boundary, locking, stack walk
+
+**DLL:** x64 loads `%SystemRoot%\System32\dbghelp.dll` (`DebugHelp.cpp` 393–401); Win32 keeps `dbghelp_6.3.17.0.dll` (402–403). Version/symbol behavior can diverge from the pinned legacy DLL — not characterized in JSON.
+
+**API width:** `getCallStack` / `lookupAddress` moved to `uint64` (`DebugHelp.h` 26–28; `CallStack.h` 43; `RenderWorld.cpp` 247). Format strings fixed to `%08I64X` / `%p` (`CallStack.cpp` 62–64; `Fatal.cpp` 789–799; `MemoryManager.cpp` 1420–1426). Removes Win32 truncation in logs; does not prove walk correctness.
+
+**Call graph / concurrency:** `ScopedDebugHelpLock` wraps `loadSymbolsForDll`, `getCallStack`, `lookupAddress`, `writeMiniDump` (`DebugHelp.cpp` 587–595, 499, 723, 732). **Behavior change:** old Win32 code held the critical section only around manual EIP/ESP capture, then walked **outside** the lock (diff ~648–660). New code holds the lock for `RtlCaptureContext`, the full `StackWalk64` loop, and symbol lookup — better for DbgHelp thread-safety, worse for latency and any latent re-entrancy (e.g. allocator logging under the same thread during a walk).
+
+**Walk semantics:** `stackWalk64(..., GetCurrentThread(), ...)` (560) vs historical `process` as thread handle on Win32 — appropriate for same-thread walks. x64 uses `RtlCaptureContext` inside `getCallStack` (526–527), so the top frames include `getCallStack`/`RtlCaptureContext` — expect offset shifts vs the old `GetEIP` snippet.
+
+**Tests:** Two-thread hammer: thread A in `getCallStack`, thread B in `lookupAddress`/`loadSymbolsForDll` (should not corrupt); one-thread nested `FATAL` during allocation logging; compare top N frames to a known `RaiseException` site with PDBs for **system** dbghelp.
+
+---
+
+## P2 — FPU API semantics (x64 vs x87)
+
+x64 reimplements control via **MXCSR** (`FloatingPointUnit.cpp` 34–48, 889–906): `getControlWord`/`setControlWord` mask to `CONTROL_MASK` (0xffc0); `setPrecision` is **API-gated off** on x64 (`FloatingPointUnit.h` 76–79).
+
+**Semantic gaps**
+
+- `E_precision` maps to `_MM_MASK_INEXACT` on x64 (42–43) vs x87 precision exception on Win32 — config `getFpuExceptionPrecision()` no longer means “80-bit stack precision loss.”
+- `install()` sets `precision = P_fixedByType` (863–864) while Win32 uses `P_24` — callers using `getPrecision()` for logic see a new enum value on x64 only.
+- `CollisionWorld::update` still wraps `setPrecision(P_64)` but only under `_M_IX86` (diff 454–465) — correct guard; **no x64 substitute** for “force 64-bit intermediate” physics behavior.
+
+**Coupling:** `fillHardX64` temporarily ORs MXCSR mask bits (`SoftwareBlendSkeletalShaderPrimitive.cpp` ~1661–1666) — same pattern as legacy asm (~1765) but independent of `FloatingPointUnit`; not in SSE probe.
+
+**Tests:** Matrix of `ConfigSharedFoundation` FPU exception flags on x64: confirm which exceptions actually unmask; collision regression suite on x64 without expecting `P_64` shim.
+
+---
+
+## P2 — Debug/Release includes and build hazards
+
+- **Includes:** `_M_X64` gates `xmmintrin.h` / `intrin.h` in `SseMath.h/cpp`, `Transform.cpp`, `SoftwareBlendSkeletalShaderPrimitive.cpp`, `Fatal.cpp`, hooks — Win32 asm paths remain in `#else` (e.g. `SseMath.cpp` 1227–1236). Release vs Debug divergence in comparison JSON suggests **optimization-sensitive** MXCSR sticky flags in Release — probe already separates configs; game builds need the same split.
+- **`DllExport.cpp`:** `MemoryManager::allocate` still uses `__asm int 3` (151–154) with no `_M_X64` guard — **will not compile** if this TU is built as x64. Signature was updated; breakpoint body was not.
+
+---
+
+## P3 — Callback / UI ABI fixes (lower risk, unproven)
+
+- `GroupObject` / `CreatureObject` callbacks: `size_t` → `uint32_t` index parameters (e.g. `GroupObject.h` 149–152; `CreatureObject.h` 578). Fixes possible x64 member-pointer signature mismatch **if** `AutoDelta*` callbacks use fixed 32-bit indices; wrong if the archive dispatches `size_t`. **Test:** compile-time `static_assert` on callback type from archive headers + one network delta replay.
+- `StatusWindow.cpp` `GetWindowLong` → `GetWindowLongPtr` (1578–1588) — standard x64 HWND userdata fix.
+- `CuiChatFormatter` / `CuiCombatManager` — `size_type` / `npos` typing; `Os.cpp` `RaiseException` `ULONG_PTR` count — warning/ABI hygiene.
+
+---
+
+## Snapshot sources not exercised by tests
+
+| Area | Files (manifest) | Probe / JSON |
+|------|------------------|--------------|
+| SSE math | `SseMath.cpp` (partial: 5 entry points only) | Yes |
+| SSE adjacent | `SseMath.h`, `Transform.cpp`, `SoftwareBlendSkeletalShaderPrimitive.cpp` | No |
+| Allocator | `MemoryManager.{h,cpp}`, `OsNewDel.cpp`, all `MemoryManagerHook.cpp` | No |
+| Debug stacks | `DebugHelp.{h,cpp}`, `CallStack*`, `Fatal.cpp`, `RenderWorld.cpp` | No |
+| FPU | `FloatingPointUnit.{h,cpp}`, `CollisionWorld.cpp` | No |
+| UI / regex / status | `RegexServices.cpp`, `StatusWindow.cpp`, Cui*, `GroupObject*`, `CreatureObject*` | No |
+| Export stub | `DllExport.cpp` | No |
+
+---
+
+## Suggested priority order for native work
+
+1. Decide whether SseMath x64 must match asm **bitwise** or only “game acceptable”; if bitwise, probe failure is blocking.
+2. Allocator: export ABI + `_ReturnAddress` owner vs stack owners with `DO_TRACK` enabled build.
+3. DebugHelp: threaded stress + system dbghelp symbol regression on a real client PDB layout.
+4. FPU: document/replace `E_precision` meaning on x64; optional skeletal MXCSR golden test.
+5. Confirm `DllExport.cpp` x64 compilation policy or add `__debugbreak()` stub parity with `Fatal.cpp` (807–811).

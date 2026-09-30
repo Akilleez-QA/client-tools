@@ -1,0 +1,70 @@
+{
+  "okay": true,
+  "records": [
+    {
+      "name": "scalarCaller",
+      "function_rva": "0x77f0",
+      "saved_owner_rva": "0x77fe",
+      "matching_calls": [
+        [
+          30713,
+          "call        ??2@YAPEAX_K@Z",
+          30718
+        ]
+      ],
+      "okay": true
+    },
+    {
+      "name": "noLeakCaller",
+      "function_rva": "0x7130",
+      "saved_owner_rva": "0x7140",
+      "matching_calls": [
+        [
+          28987,
+          "call        ??2@YAPEAX_KW4MemoryManagerNotALeak@@@Z",
+          28992
+        ]
+      ],
+      "okay": true
+    },
+    {
+      "name": "arrayCaller",
+      "function_rva": "0x6870",
+      "saved_owner_rva": "0x687e",
+      "matching_calls": [
+        [
+          26745,
+          "call        ??_U@YAPEAX_K@Z",
+          26750
+        ]
+      ],
+      "okay": true
+    },
+    {
+      "name": "fileScalarCaller",
+      "function_rva": "0x6960",
+      "saved_owner_rva": "0x697b",
+      "matching_calls": [
+        [
+          26998,
+          "call        ??2@YAPEAX_KPEBDH@Z",
+          27003
+        ]
+      ],
+      "okay": true
+    },
+    {
+      "name": "fileArrayCaller",
+      "function_rva": "0x6920",
+      "saved_owner_rva": "0x693b",
+      "matching_calls": [
+        [
+          26934,
+          "call        ??_U@YAPEAX_KPEBDH@Z",
+          26939
+        ]
+      ],
+      "okay": true
+    }
+  ]
+}

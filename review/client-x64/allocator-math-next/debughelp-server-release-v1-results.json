@@ -1,0 +1,18 @@
+[
+  {
+    "platform": "Win32",
+    "build": 0,
+    "source_sha256": "5dcaac034b3c520765d680181f022615736c21393b13c9acd1ff2c082a835e9d",
+    "run": 0,
+    "text": "frame[0]=0000000000261ec9\r\nframe[1]=00000000002625f4\r\nframe[2]=0000000000262876\r\nframe[3]=0000000000262896\r\nframe[4]=0000000000262949\r\nframe[5]=000000000026696a\r\nframe[6]=0000000076b2fcc9\r\nframe[7]=00000000772582ae\r\nframe[8]=000000007725827e\r\nframe[9]=0000000000000000\r\nframe[10]=0000000000000000\r\nframe[11]=0000000000000000\r\nlookup=1 error=0 file=c:\\allocator-next\\server-debughelp.cpp line=539\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=34\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=68\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=74\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=93\r\nlookup=1 error=0 file=f:\\dd\\vctools\\crt\\crtw32\\startup\\crt0.c line=255\r\nnonzero=9 own=6 source=4\r\ncaptures=257 failures=0\r\nPASS actual DebugHelp capture, address ranges, bounds, concurrent walking\r\n",
+    "exe_sha256": "bb3c709f8e627b66a919b5d26ac15068227817e85b5417e594d493207f7deda9"
+  },
+  {
+    "platform": "x64",
+    "build": 0,
+    "source_sha256": "5dcaac034b3c520765d680181f022615736c21393b13c9acd1ff2c082a835e9d",
+    "run": 0,
+    "text": "frame[0]=00007ff6c95912ef\r\nframe[1]=00007ff6c95919e4\r\nframe[2]=00007ff6c9591c79\r\nframe[3]=00007ff6c9591c99\r\nframe[4]=00007ff6c9591d6a\r\nframe[5]=00007ff6c9597820\r\nframe[6]=00007ff812877374\r\nframe[7]=00007ff812c5cc91\r\nframe[8]=0000000000000000\r\nframe[9]=0000000000000000\r\nframe[10]=0000000000000000\r\nframe[11]=0000000000000000\r\nlookup=1 error=0 file=c:\\allocator-next\\server-debughelp.cpp line=548\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=35\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=68\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=74\r\nlookup=1 error=0 file=c:\\allocator-next\\debughelp-probe.cpp line=93\r\nlookup=1 error=0 file=f:\\dd\\vctools\\crt\\crtw32\\startup\\crt0.c line=255\r\nnonzero=8 own=6 source=4\r\ncaptures=257 failures=0\r\nPASS actual DebugHelp capture, address ranges, bounds, concurrent walking\r\n",
+    "exe_sha256": "f9d2d78b77ca4a0feaed3f951119ea6a742640517b2d0cfedca5125d8d84d5f7"
+  }
+]

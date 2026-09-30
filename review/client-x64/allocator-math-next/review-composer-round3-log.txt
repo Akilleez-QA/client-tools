@@ -1,0 +1,99 @@
+## Coverage (round 3)
+
+Read `composer-round2-log.txt` and skipped its eight anchors (HMENU, UITableModel/D3D9 texture sort, SetupDll delay-load, `getOtherAdapterRects`, LeakFinder, PCRE win32 path, ShellExecute/WinMain) plus your standing list (DllExport/allocator, DebugHelp cache, SSE/FPU/memory owners, skeletal, collision, vendor SDKs).
+
+**Boundary:** `SwgClient` static closure + runtime `gl05_r` / `gl06_r` / `gl07_r` (`Graphics.cpp` → `GetApi`); spot-reads on `ShaderPrimitiveSorter`, `Direct3d9` video capture, `Headless`, `Production.h`, modified integration files. No MSBuild/link/map, no runtime test, no diff to baseline.
+
+---
+
+## New actionable leads (7)
+
+### 1. Shader implementation pointer narrowed to `int` sort key (EXE render path)
+
+| | |
+|---|---|
+| **Sites** | `ShaderEffect.h` **90–92**; `StaticShaderTemplate.cpp` **197–200**; `StaticShader.cpp` **90**, **294–296**; consumer `ShaderPrimitiveSorter.cpp` **493–498** |
+| **Chain** | `ShaderEffect::getShaderImplementationSortKey()` truncates `m_implementation` to `int` → copied into `StaticShader::m_shaderImplementationSortKey` at construction → every `getSortKeys_shaderImplementation_shaderTemplate_texture_vertexBuffer` pass reads it for batch/sort order. |
+| **Risk class** | Truncated identity → wrong sort (transparency/Z-fighting/flicker), not a direct dereference of the `int`. |
+| **Rival** | Legacy 32-bit identity hash; sort only needs loose ordering. |
+| **Discriminator** | x64 build with shaders/templates allocated above 4 GiB (or forced high VA); compare sort/batch behavior vs Win32 on the same scene; breakpoint at **498** and log full pointer vs `shaderImplementationSortKey`. |
+
+### 2. Static shader **template** address as `int` sort key (same sorter)
+
+| | |
+|---|---|
+| **Sites** | `StaticShader.cpp` **287–289**; `ShaderPrimitiveSorter.cpp` **496** |
+| **Chain** | `getShaderTemplateSortKey()` = `reinterpret_cast<int>(&getStaticShaderTemplate())` → `entry.shaderTemplateSortKey` in the same sort path as lead 1. |
+| **Rival** | Same as (1); templates are process-static so addresses might stay “low” in practice. |
+| **Discriminator** | Same as (1) at **496** for `shaderTemplateSortKey`; correlate with mis-sorted static shader batches. |
+
+### 3. D3D9 **static** VB COM pointer as `int` VB sort key (renderer DLL)
+
+| | |
+|---|---|
+| **Sites** | `Direct3d9_StaticVertexBufferData.cpp` **129–131**; `StaticVertexBuffer.cpp` **83**, **120**; `ShaderPrimitiveSetTemplate.cpp` **1232** → sorter **497** |
+| **Chain** | `getSortKey()` truncates `IDirect3DVertexBuffer9*` → cached on `StaticVertexBuffer` → `getVertexBufferSortKey()` in primitive sort. |
+| **Rival** | Round2 already flagged texture pointer sort at `Direct3d9_StaticShaderData.cpp` **388**; this is the **vertex-buffer** sibling on the same sort pipeline. |
+| **Discriminator** | Break **131** / **497** on x64 under heavy VB churn; watch duplicate/truncated keys when D3D pool addresses share high bits. |
+
+### 4. D3D9 **dynamic** VB global pointer as `int` sort key
+
+| | |
+|---|---|
+| **Sites** | `Direct3d9_DynamicVertexBufferData.cpp` **260–262**; `DynamicVertexBuffer.cpp` **84**; sorter **497** |
+| **Chain** | Shared `ms_d3dVertexBuffer` identity drives dynamic VB sort key for the same shader sort phase. |
+| **Rival** | Single shared D3D VB → constant key by design. |
+| **Discriminator** | Only matters if multiple dynamic VB paths or VB recreation changes pointer; compare keys across frames at **262**. |
+
+### 5. `setLights` — `stdvector<const Light*>::fwd` across EXE ↔ `gl05_r` (STLport ABI)
+
+| | |
+|---|---|
+| **Sites** | `Gl_dll.def` **173**; `Graphics.cpp` **1561–1564**; `Direct3d9.cpp` **3486–3493** → `Direct3d9_LightManager::setLights` |
+| **Chain** | EXE (`clientGraphics` static lib) passes vector **by const ref** through `ms_api->setLights` into renderer DLL every lighting update. |
+| **Rival** | Same STLport/`stdvector::fwd` settings as EXE if built from one tree (round2 **getOtherAdapterRects** is the same ABI class at **Gl_dll.def** **88** / `Graphics.cpp` **292**). |
+| **Discriminator** | Break **3493** on x64; validate `lightList.size()`, first element pointer, and heap corruption vs **3486** entry; compare with `dumpbin`/struct size of `std::vector` under project flags; multi-monitor path alone is insufficient—this fires in normal play. |
+
+### 6. Dev-only video capture: unchecked `memcpy` size vs locked surface
+
+| | |
+|---|---|
+| **Sites** | `Direct3d9.cpp` **4728–4741** (`getVideoBufferData`); caller `SwgVideoCapture.cpp` **613–614**; setup **567** (`createVideoBuffers(DstWidth, DstHeight)`). |
+| **Chain** | `pBuffer->MaxSize()` passed as `bufferSize` → `memcpy(buffer, d3dLockedRect.pBits, bufferSize)` with **no** check against `D3DLOCKED_RECT::Pitch * height` or dimensions stored at **4677–4701**. |
+| **Rival** | Encoder buffer sized to `DstWidth*DstHeight*4` in `SwgVideoCaptureProps` (**109–115**, **263–264**). |
+| **Discriminator** | Only if `PRODUCTION==0` (`Production.h` **13–17**, `SwgVideoCapture.cpp` **17**); reproduce dev video capture with encoder `MaxSize()` ≠ surface byte size; guard would clamp to `pitch * height`. |
+
+### 7. `Headless` renderer: `Gl_api` treated as `void*` array + x86 asm stub
+
+| | |
+|---|---|
+| **Sites** | `Headless.cpp` **43–47**, **65–72**, **89–92** |
+| **Chain** | `install()` fills `(sizeof(Gl_api)/sizeof(void*))` slots with `_defaultFunc_Void`; `DEFAULT_FUNC_TRUE` pokes `bool` returns via `int(**)()`; `_defaultFunc_Void` uses `__asm xor eax,eax` (32-bit inline asm). |
+| **Rival** | `Gl_api` members are all function-pointer-sized (`Gl_dll.def` **76–241**); Headless may be out of x64 SwgClient graph (client links `gl05_r`, not Headless). |
+| **Discriminator** | Confirm whether x64 targets build/load Headless; if yes, expect compile failure or wrong `bool` returns from stubbed `present`/`writeImage`; if no, downgrade to **headless-client-only** risk. |
+
+---
+
+## Not elevated (spot-checked)
+
+- **Os.cpp** **1536–1541** `launchBrowser` — same `ShellExecute`/`int` class as round2 WinMain; predicate `> 32` vs `< 32`.
+- **RenderWorld.cpp** **1081** — debug log only.
+- **CollisionUtils** **430–436** — x64 intrinsics path; asm only on 32-bit.
+- **DebugHelp** `FunctionTableCache` — on your known list.
+- **Hash-only / diagnostic `reinterpret_cast<int>(pointer)`** in CUI/skeletal warnings — not write paths.
+
+---
+
+## Verdict
+
+Within this boundary there are **additional** concrete leads beyond round2, mainly **EXE-side shader sort keys (1–2)**, **D3D9 VB sort keys (3–4)**, **`setLights` STLport DLL boundary (5)**, and **dev video `memcpy` (6)**. None are proven crashers without the discriminators above; (5) is the highest-impact **ABI** sibling to the already-tracked `getOtherAdapterRects` hook.
+
+---
+
+## Unsearched / shallow areas
+
+- Full `external/3rd` (Miles, Mozilla, Vivox, DPVS lib binaries, Bink bind table), `clientAudio`, `clientTerrain`, `sharedNetwork` wire layouts, all editor/tool apps, Vivox/Maya/TextureBuilder `SetWindowLong`/`DWORD` userdata patterns.
+- `Gl_api` slot-by-slot offsetof vs `Direct3d9.cpp` `ms_glApi` assignments (manual vtable audit).
+- x64 project matrix for **Headless** / **SwgHeadlessClient** (no `Headless*.vcxproj` found in this tree snapshot).
+- Link-time verification: PCRE/Miles/static `.a` arch, `dumpbin /exports` on EXE + `gl05_r` for delay-load/DllExport resolution.
+- Uncommitted diff line-by-line vs last known good for modified integration files (`CreatureObject`, `MemoryManager`, `CallStack`, etc.) — content reviewed only via spot grep, not full diff.

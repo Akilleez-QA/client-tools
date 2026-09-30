@@ -1,5 +1,7 @@
 # Integer assembly checkpoint — 2026-09-30
 
+**Later checkpoint:** [allocator, stack, FPU and math work at client 12bb88809](../allocator-math-next/RESULTS.md). The sections below describe the earlier integer batch and retain its original limits.
+
 Commits only; no PRs opened or edited for this batch. Client integration head: [ff3c1742f](https://github.com/Akilleez-QA/client-tools/commit/ff3c1742fe5e02b1a84b59afb72867a889776dcf). Server Windows counterpart: [3bb838a2](https://github.com/Akilleez-QA/src/commit/3bb838a2). These continue the [prior integration checkpoint](../next-build/RESULTS.md).
 
 ## Changes

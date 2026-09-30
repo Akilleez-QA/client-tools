@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Debug-Win32",
+    "build": 0,
+    "source_sha256": "0c84df3b9902061fa3002211f145bcc5415636676c4a03cd03d0aa8e75f9216e",
+    "diagnostic_sha256": "8e7301610fc7586a3642f8ca3319166e70d1ca92c550f802eaa0001296e5b902",
+    "run": 0,
+    "output": "OWNER scalarCaller fn=72f0 owner=72fb\r\nOWNER noLeakCaller fn=6d90 owner=6d9d\r\nOWNER arrayCaller fn=65c0 owner=65cb\r\nOWNER fileScalarCaller fn=6690 owner=66a2\r\nOWNER fileArrayCaller fn=6660 owner=6672\r\nMM::remove 2128/2256=bytes 2/3=allocs\n",
+    "okay": false
+  },
+  {
+    "name": "Debug-x64",
+    "build": 0,
+    "source_sha256": "0c84df3b9902061fa3002211f145bcc5415636676c4a03cd03d0aa8e75f9216e",
+    "diagnostic_sha256": "8e7301610fc7586a3642f8ca3319166e70d1ca92c550f802eaa0001296e5b902",
+    "run": 0,
+    "output": "OWNER scalarCaller fn=77f0 owner=77fe\r\nOWNER noLeakCaller fn=7130 owner=7140\r\nOWNER arrayCaller fn=6870 owner=687e\r\nOWNER fileScalarCaller fn=6960 owner=697b\r\nOWNER fileArrayCaller fn=6920 owner=693b\r\nMM::remove 2944/3072=bytes 3/4=allocs\n",
+    "okay": false
+  }
+]

@@ -1,0 +1,1126 @@
+{
+  "builds": [
+    {
+      "name": "Debug-Win32-candidate",
+      "config": "Debug",
+      "platform": "Win32",
+      "mode": "candidate",
+      "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "c05b220ef4e423a6a9b4cd5e9dfc26b2964b6bb973357b54414d9c5b03f196a5",
+      "fp": "precise",
+      "status": "recorded",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.exe",
+      "compile": 0,
+      "library_files": [
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\archive\\Debug\\archive.lib",
+          "sha256": "66cd69fccbb9bfee33d06944f6bd7b981f7153056fd0f778804d3c41b3347f27"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\fileInterface\\Debug\\fileInterface.lib",
+          "sha256": "0ff9f9916359ba6866ee40b973fa8e03f8046a6e5d2c53b792b4477f4fad3fa9"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localization\\Debug\\localization.lib",
+          "sha256": "c87e78579ddacda2ae4886d1c6dfe688ecca44158b373b6c51139bf42751214f"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localizationArchive\\Debug\\localizationArchive.lib",
+          "sha256": "b351a79e79ffad9a0e35ef159831e299cdee3c4fd8d30a0c13dfec8dc987b9ec"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCollision\\Debug\\sharedCollision.lib",
+          "sha256": "7128ecff84d1dcdeaf223f9759589add7e078d8e298d714cb3063609e68ae886"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCommandParser\\Debug\\sharedCommandParser.lib",
+          "sha256": "3cda547bf9804d70e22e9a2cd2d48284d3dbc4b2bd3e092e3a7036bfd3c74c28"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCompression\\Debug\\sharedCompression.lib",
+          "sha256": "10dccdaf38d69c86e5fa1f899db89c4c80541e35412f85847d18b5a0a913fe3a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedDebug\\Debug\\sharedDebug.lib",
+          "sha256": "560fe60e9aaa909737eaa1458e225f2397ca26c8a2481dc12016fc505c0c8563"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFile\\Debug\\sharedFile.lib",
+          "sha256": "6a22e0229f2d86ed75b6edde9c75bdac89b066bcafa981a75d1a7943b9f61e77"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFoundation\\Debug\\sharedFoundation.lib",
+          "sha256": "32ed8be2b7d416daff301c11df982f7fe8b618a738b9d2110892dedc28d07a7c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFractal\\Debug\\sharedFractal.lib",
+          "sha256": "fc1168e71e9ec1443b77595ae0a3ccd6bf51cc9bdb49a9faf60c00854e652b39"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedGame\\Debug\\sharedGame.lib",
+          "sha256": "abc7b985dd5bea70533a26ff76cf08dc8db1c10cc459c774091ea9d562c5a998"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedImage\\Debug\\sharedImage.lib",
+          "sha256": "c75b5c5f92513bda233d26e46dc1963c692ce0d9e4e7225ed4fafb563c2b3220"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedInputMap\\Debug\\sharedInputMap.lib",
+          "sha256": "e28461ee8c2078d1aee41c720e5a931e63827797e9b0b1b873198b95303dd6c3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedIoWin\\Debug\\sharedIoWin.lib",
+          "sha256": "d2b06f63b8e1aefc26d3b477aa0b77a3c9566660279ff0c38805a9a3dd3eb9e8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedLog\\Debug\\sharedLog.lib",
+          "sha256": "c5a7bacbee261cbd901c8a56716b8ce38086e4e488e57b6628ad393601fd1f96"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMath\\Debug\\sharedMath.lib",
+          "sha256": "e949661d89643ffa0bc62d509fb9ae8ccb060aaef828e1731820b2fa71aad125"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMemoryManager\\Debug\\sharedMemoryManager.lib",
+          "sha256": "d36969e29bcb02ea869916de4106c92ab199ee5dc310934efc51611a7dde2206"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMessageDispatch\\Debug\\sharedMessageDispatch.lib",
+          "sha256": "2dd3875d6185a239daa129a9ef49913c216bc546f4ddb3891661f216ee49445b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetwork\\Debug\\sharedNetwork.lib",
+          "sha256": "bece927bb382cb5a201c9b576f136661d80061acb336d7f602fe0af18379e185"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetworkMessages\\Debug\\sharedNetworkMessages.lib",
+          "sha256": "05e4a34554732c8d2a6cf54f1d0d1a9da29e1b41bebc9b0848dd4e9613f0e9b3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedObject\\Debug\\sharedObject.lib",
+          "sha256": "00c02eac8ced807f65f30cdce9ea8009336a1ea7e90719991cebf267674f67aa"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedPathfinding\\Debug\\sharedPathfinding.lib",
+          "sha256": "49b57e59221962a8eb64e5389e04cb7a5bac390631a15ba688cbfc5f669648da"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRandom\\Debug\\sharedRandom.lib",
+          "sha256": "c47ac0d6e139e0559e2b516ba9613b994c41a160975d53cd5e324ab1bf538a74"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRegex\\Debug\\sharedRegex.lib",
+          "sha256": "4c8a2f89479b075bd7e7be4482e2b5032d5a229f82f8da8329c11a49f9baaabb"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSkillSystem\\Debug\\sharedSkillSystem.lib",
+          "sha256": "c9c4d1ff147d9b99dcf948a18ff383f32bb76a0109d4e3c76801d02b791388a3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedStatusWindow\\Debug\\sharedStatusWindow.lib",
+          "sha256": "1d27a61664f5072d2771c2b650db4402630fcefc6d17e655213dcf246da2e6eb"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSwitcher\\Debug\\sharedSwitcher.lib",
+          "sha256": "1666feeda794b5619903d0e48401a30bbded7d9f3d49764024744dfaa5bbd97b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSynchronization\\Debug\\sharedSynchronization.lib",
+          "sha256": "2427844912be89e255535624ce60bebd819b9dadef85eb9ea11bbe73589aba35"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedTerrain\\Debug\\sharedTerrain.lib",
+          "sha256": "901aa96c9dd89fc44ff78f2e8ecc93ad9dc1ea27eb37b2cb6e9fa9e230efc3a4"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedThread\\Debug\\sharedThread.lib",
+          "sha256": "2f9f1dc906d9b08d3cf96d0052bc984429548b15162c33b65c07f486e9f145af"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedUtility\\Debug\\sharedUtility.lib",
+          "sha256": "4871b978af11149d94ad7e2035f77d69a7ee52a36619fbb6f561846074d83c60"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedXml\\Debug\\sharedXml.lib",
+          "sha256": "2da2cd5fa0d43464593c20eb59881ec592b4d30c416a7c730dea43bd96c260e7"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicode\\Debug\\unicode.lib",
+          "sha256": "f8001e53163cd3b534c1c9cab3b02c4464d7e136a30ffef1a224c34460190e4c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicodeArchive\\Debug\\unicodeArchive.lib",
+          "sha256": "5b80eec79bc080c77e7531971e23763d6d0e74f3366f29132ca30ad4a6ccb212"
+        },
+        {
+          "path": "C:\\stlport-full-next-win32-debug-v1\\stlport-v120-x86-Debug-full.lib",
+          "sha256": "6362540ab2ffcc412114ae55f7a5239f88a113db033d6c34c78147d9cc9208f9"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedMath/Debug/sharedMath.lib",
+          "sha256": "e949661d89643ffa0bc62d509fb9ae8ccb060aaef828e1731820b2fa71aad125"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedCollision/Debug/sharedCollision.lib",
+          "sha256": "7128ecff84d1dcdeaf223f9759589add7e078d8e298d714cb3063609e68ae886"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/unicodeArchive/Debug/unicodeArchive.lib",
+          "sha256": "5b80eec79bc080c77e7531971e23763d6d0e74f3366f29132ca30ad4a6ccb212"
+        },
+        {
+          "path": "C:/compile/win32/zlib/Debug/zlib.lib",
+          "sha256": "487833b41d1fc71efcbce895736116b521803cd68a8ed582ba313adba0c74e09"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/swgSharedUtility/Debug/swgSharedUtility.lib",
+          "sha256": "8b2aef68fdff4420537ccf881d88ab70fcfd607b36b004bb25fa5c34f6aa60f3"
+        }
+      ],
+      "link": 0,
+      "run": 0,
+      "records_sha256": "db636b68d4fc4cb60292845a42a1296f8288bbc1a41b503b9313fb5fa29f2955",
+      "records": 8192
+    },
+    {
+      "name": "Debug-Win32-stock",
+      "config": "Debug",
+      "platform": "Win32",
+      "mode": "stock",
+      "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "c05b220ef4e423a6a9b4cd5e9dfc26b2964b6bb973357b54414d9c5b03f196a5",
+      "fp": "precise",
+      "status": "recorded",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.exe",
+      "compile": 0,
+      "library_files": [
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\archive\\Debug\\archive.lib",
+          "sha256": "66cd69fccbb9bfee33d06944f6bd7b981f7153056fd0f778804d3c41b3347f27"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\fileInterface\\Debug\\fileInterface.lib",
+          "sha256": "0ff9f9916359ba6866ee40b973fa8e03f8046a6e5d2c53b792b4477f4fad3fa9"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localization\\Debug\\localization.lib",
+          "sha256": "c87e78579ddacda2ae4886d1c6dfe688ecca44158b373b6c51139bf42751214f"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localizationArchive\\Debug\\localizationArchive.lib",
+          "sha256": "b351a79e79ffad9a0e35ef159831e299cdee3c4fd8d30a0c13dfec8dc987b9ec"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCollision\\Debug\\sharedCollision.lib",
+          "sha256": "7128ecff84d1dcdeaf223f9759589add7e078d8e298d714cb3063609e68ae886"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCommandParser\\Debug\\sharedCommandParser.lib",
+          "sha256": "3cda547bf9804d70e22e9a2cd2d48284d3dbc4b2bd3e092e3a7036bfd3c74c28"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCompression\\Debug\\sharedCompression.lib",
+          "sha256": "10dccdaf38d69c86e5fa1f899db89c4c80541e35412f85847d18b5a0a913fe3a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedDebug\\Debug\\sharedDebug.lib",
+          "sha256": "560fe60e9aaa909737eaa1458e225f2397ca26c8a2481dc12016fc505c0c8563"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFile\\Debug\\sharedFile.lib",
+          "sha256": "6a22e0229f2d86ed75b6edde9c75bdac89b066bcafa981a75d1a7943b9f61e77"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFoundation\\Debug\\sharedFoundation.lib",
+          "sha256": "32ed8be2b7d416daff301c11df982f7fe8b618a738b9d2110892dedc28d07a7c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFractal\\Debug\\sharedFractal.lib",
+          "sha256": "fc1168e71e9ec1443b77595ae0a3ccd6bf51cc9bdb49a9faf60c00854e652b39"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedGame\\Debug\\sharedGame.lib",
+          "sha256": "abc7b985dd5bea70533a26ff76cf08dc8db1c10cc459c774091ea9d562c5a998"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedImage\\Debug\\sharedImage.lib",
+          "sha256": "c75b5c5f92513bda233d26e46dc1963c692ce0d9e4e7225ed4fafb563c2b3220"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedInputMap\\Debug\\sharedInputMap.lib",
+          "sha256": "e28461ee8c2078d1aee41c720e5a931e63827797e9b0b1b873198b95303dd6c3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedIoWin\\Debug\\sharedIoWin.lib",
+          "sha256": "d2b06f63b8e1aefc26d3b477aa0b77a3c9566660279ff0c38805a9a3dd3eb9e8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedLog\\Debug\\sharedLog.lib",
+          "sha256": "c5a7bacbee261cbd901c8a56716b8ce38086e4e488e57b6628ad393601fd1f96"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMath\\Debug\\sharedMath.lib",
+          "sha256": "e949661d89643ffa0bc62d509fb9ae8ccb060aaef828e1731820b2fa71aad125"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMemoryManager\\Debug\\sharedMemoryManager.lib",
+          "sha256": "d36969e29bcb02ea869916de4106c92ab199ee5dc310934efc51611a7dde2206"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMessageDispatch\\Debug\\sharedMessageDispatch.lib",
+          "sha256": "2dd3875d6185a239daa129a9ef49913c216bc546f4ddb3891661f216ee49445b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetwork\\Debug\\sharedNetwork.lib",
+          "sha256": "bece927bb382cb5a201c9b576f136661d80061acb336d7f602fe0af18379e185"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetworkMessages\\Debug\\sharedNetworkMessages.lib",
+          "sha256": "05e4a34554732c8d2a6cf54f1d0d1a9da29e1b41bebc9b0848dd4e9613f0e9b3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedObject\\Debug\\sharedObject.lib",
+          "sha256": "00c02eac8ced807f65f30cdce9ea8009336a1ea7e90719991cebf267674f67aa"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedPathfinding\\Debug\\sharedPathfinding.lib",
+          "sha256": "49b57e59221962a8eb64e5389e04cb7a5bac390631a15ba688cbfc5f669648da"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRandom\\Debug\\sharedRandom.lib",
+          "sha256": "c47ac0d6e139e0559e2b516ba9613b994c41a160975d53cd5e324ab1bf538a74"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRegex\\Debug\\sharedRegex.lib",
+          "sha256": "4c8a2f89479b075bd7e7be4482e2b5032d5a229f82f8da8329c11a49f9baaabb"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSkillSystem\\Debug\\sharedSkillSystem.lib",
+          "sha256": "c9c4d1ff147d9b99dcf948a18ff383f32bb76a0109d4e3c76801d02b791388a3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedStatusWindow\\Debug\\sharedStatusWindow.lib",
+          "sha256": "1d27a61664f5072d2771c2b650db4402630fcefc6d17e655213dcf246da2e6eb"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSwitcher\\Debug\\sharedSwitcher.lib",
+          "sha256": "1666feeda794b5619903d0e48401a30bbded7d9f3d49764024744dfaa5bbd97b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSynchronization\\Debug\\sharedSynchronization.lib",
+          "sha256": "2427844912be89e255535624ce60bebd819b9dadef85eb9ea11bbe73589aba35"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedTerrain\\Debug\\sharedTerrain.lib",
+          "sha256": "901aa96c9dd89fc44ff78f2e8ecc93ad9dc1ea27eb37b2cb6e9fa9e230efc3a4"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedThread\\Debug\\sharedThread.lib",
+          "sha256": "2f9f1dc906d9b08d3cf96d0052bc984429548b15162c33b65c07f486e9f145af"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedUtility\\Debug\\sharedUtility.lib",
+          "sha256": "4871b978af11149d94ad7e2035f77d69a7ee52a36619fbb6f561846074d83c60"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedXml\\Debug\\sharedXml.lib",
+          "sha256": "2da2cd5fa0d43464593c20eb59881ec592b4d30c416a7c730dea43bd96c260e7"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicode\\Debug\\unicode.lib",
+          "sha256": "f8001e53163cd3b534c1c9cab3b02c4464d7e136a30ffef1a224c34460190e4c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicodeArchive\\Debug\\unicodeArchive.lib",
+          "sha256": "5b80eec79bc080c77e7531971e23763d6d0e74f3366f29132ca30ad4a6ccb212"
+        },
+        {
+          "path": "C:\\stlport-full-next-win32-debug-v1\\stlport-v120-x86-Debug-full.lib",
+          "sha256": "6362540ab2ffcc412114ae55f7a5239f88a113db033d6c34c78147d9cc9208f9"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedMath/Debug/sharedMath.lib",
+          "sha256": "e949661d89643ffa0bc62d509fb9ae8ccb060aaef828e1731820b2fa71aad125"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedCollision/Debug/sharedCollision.lib",
+          "sha256": "7128ecff84d1dcdeaf223f9759589add7e078d8e298d714cb3063609e68ae886"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/unicodeArchive/Debug/unicodeArchive.lib",
+          "sha256": "5b80eec79bc080c77e7531971e23763d6d0e74f3366f29132ca30ad4a6ccb212"
+        },
+        {
+          "path": "C:/compile/win32/zlib/Debug/zlib.lib",
+          "sha256": "487833b41d1fc71efcbce895736116b521803cd68a8ed582ba313adba0c74e09"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/swgSharedUtility/Debug/swgSharedUtility.lib",
+          "sha256": "8b2aef68fdff4420537ccf881d88ab70fcfd607b36b004bb25fa5c34f6aa60f3"
+        }
+      ],
+      "link": 0,
+      "run": 0,
+      "records_sha256": "db636b68d4fc4cb60292845a42a1296f8288bbc1a41b503b9313fb5fa29f2955",
+      "records": 8192
+    },
+    {
+      "name": "Debug-x64-candidate",
+      "config": "Debug",
+      "platform": "x64",
+      "mode": "candidate",
+      "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "8e1225b6268ccc4481ded2c960838b1272bd2440f521a3f96eed1f9152733a1a",
+      "fp": "precise",
+      "status": "recorded",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe",
+      "compile": 0,
+      "library_files": [
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\archive\\Debug\\archive.lib",
+          "sha256": "45f7fbd52f4d01d7ccbd2644ef1d1f92553fa3688e42a7b5951166ae63a2679b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\fileInterface\\Debug\\fileInterface.lib",
+          "sha256": "d2883e7727aecf7b19f70b53d320f2034d69232d505dd9990b0a1c8c80a7960a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\localization\\Debug\\localization.lib",
+          "sha256": "09a06b05afcd5dfed0c4f76791308708e4a9f3a708f038003d44eff067e921ba"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\localizationArchive\\Debug\\localizationArchive.lib",
+          "sha256": "9cc7a1cf2cdaa8738cb601b8a30a4a8b46b57155845c7b3708b6af0627b5dbd0"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedCommandParser\\Debug\\sharedCommandParser.lib",
+          "sha256": "85088b55e9226199273901db9cc06280162e44e2639100ee7e348a83a23e7bef"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedCompression\\Debug\\sharedCompression.lib",
+          "sha256": "ced0c092b3ab7b66074adb8d821f1783cfa76d67adafae75c4eb8943ccd1a2e2"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedDebug\\Debug\\sharedDebug.lib",
+          "sha256": "3133bceaee65daab70d890e7f7ac772915a00fd66add16e9268214ba0f7c9186"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedFile\\Debug\\sharedFile.lib",
+          "sha256": "f39f320457ed017359d016a161cd82d1fedd87a46fd0bd92b1e6888ad1910f9d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedFoundation\\Debug\\sharedFoundation.lib",
+          "sha256": "ae409120a97836f433a96d5987e0d551f2cc2978ac18f92e5588581c7e8156de"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedFractal\\Debug\\sharedFractal.lib",
+          "sha256": "735f5413dd941df47b59a0c7ffeb001272400c66d5d675484658f0152b2c5ac8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedGame\\Debug\\sharedGame.lib",
+          "sha256": "73c2beb7870bf8c0bea2255f4d4d45c0989326498eb309e322b8d604392e8737"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedImage\\Debug\\sharedImage.lib",
+          "sha256": "8993cfcec4805c6fa264afdae3f0c6b79d9b421797ce37237447c4912fb580aa"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedInputMap\\Debug\\sharedInputMap.lib",
+          "sha256": "602aec142da58b62b9a2922959328eff04641dc35e8a983355fb188fcd62e765"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedIoWin\\Debug\\sharedIoWin.lib",
+          "sha256": "7665c5bf4ebfab8aaa53f0a20f2599d8e4ed8122b958ec3bc3d614e6178f4b14"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedLog\\Debug\\sharedLog.lib",
+          "sha256": "03bd28617e9de07afdcea63d76a4f9a5f263780334e70dc3bf6e99e8c6464621"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedMath\\Debug\\sharedMath.lib",
+          "sha256": "40a0baba15ed8cfc3626e3c78ddfef0ce046c3629fa0eb18fbc27b41f3abfd96"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedMemoryManager\\Debug\\sharedMemoryManager.lib",
+          "sha256": "820286815f7d3971ca46f5c247fe82d6e759a6b6602d7aa5807afd33e3c19a4f"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedMessageDispatch\\Debug\\sharedMessageDispatch.lib",
+          "sha256": "9f8f854f52bcb86167f7c14c4443e89b0f83ddc22af2137a74698726d7708313"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedNetworkMessages\\Debug\\sharedNetworkMessages.lib",
+          "sha256": "8296259acec2577950873b1376e9a38baa2d823d226a49a2be600ff6a88062ae"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedObject\\Debug\\sharedObject.lib",
+          "sha256": "14c6bcfc756e860fc04bc179b22789451db3f1be0e8452cda45cc1e97b4e9b93"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedPathfinding\\Debug\\sharedPathfinding.lib",
+          "sha256": "5a35005faf7c5ba0f8a766a3d783dc4c4abd21b19d0e8fa5e1187fcb68684ef1"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedRandom\\Debug\\sharedRandom.lib",
+          "sha256": "631f58569e2904aaec9b7306408b14c07e3902d93d7f17542ca8b004d3bbe334"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedRegex\\Debug\\sharedRegex.lib",
+          "sha256": "cf1a70217ae1faee599233facef8b931716f2693790b1d54ca93202edce7be51"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedSkillSystem\\Debug\\sharedSkillSystem.lib",
+          "sha256": "7241a2f6f0059f3be1f61616086a2b367399528bda01ffee483095cb5c1f6209"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedStatusWindow\\Debug\\sharedStatusWindow.lib",
+          "sha256": "3ac7490395009378a7353a4a023179573050751a618baf7aa8c02e9c3c4189a6"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedSwitcher\\Debug\\sharedSwitcher.lib",
+          "sha256": "6f6f970e9b9fafb5b7e4cc0d0c7605aa5c836c6758ba5f01d5a4106fd9419e29"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedSynchronization\\Debug\\sharedSynchronization.lib",
+          "sha256": "255abceeeb5e3f3a9a5b1244855f663337c5614d9a506567eb76709d0c644b6e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedTerrain\\Debug\\sharedTerrain.lib",
+          "sha256": "c6b5f79d9a23bf12e5391b0e76d01dc63c9e7b75c6bea5aa172a2403fb7b2876"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedThread\\Debug\\sharedThread.lib",
+          "sha256": "964e9963f0b24eab145bce02cdf2ba6b34dcb81c9619e7c3797d57081efedcdb"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedUtility\\Debug\\sharedUtility.lib",
+          "sha256": "a5e8605fd984b29780bd4e95c5920846940ad4282251c9dc7bae1a5561d7c126"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedXml\\Debug\\sharedXml.lib",
+          "sha256": "938ac139269b99618bc3ecf5dd7599dbe9c4eed919920672d9459fec9309d839"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\unicode\\Debug\\unicode.lib",
+          "sha256": "aed7b8f33f2e8a9c20e7e6c9b09e3019752c612fae10330e109e546ce1691c60"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\unicodeArchive\\Debug\\unicodeArchive.lib",
+          "sha256": "aa58a6d2bcc8a9431f328b29a7047340dceb584242c05a20a55f0c338bd121cc"
+        },
+        {
+          "path": "C:\\stlport-full-next-x64-debug-v1\\stlport-v120-amd64-Debug-full.lib",
+          "sha256": "48b3ed6816b2aef15dc3fabf255345daf73a8326dbe4028904a6bfc234582bae"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/sharedMath/Debug/sharedMath.lib",
+          "sha256": "40a0baba15ed8cfc3626e3c78ddfef0ce046c3629fa0eb18fbc27b41f3abfd96"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/sharedCollision/Debug/sharedCollision.lib",
+          "sha256": "8e51055a615a7a1f9153db515d62254382092f7ce23c8b31b80d4641700edd9c"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/unicodeArchive/Debug/unicodeArchive.lib",
+          "sha256": "aa58a6d2bcc8a9431f328b29a7047340dceb584242c05a20a55f0c338bd121cc"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/zlib/Debug/zlib.lib",
+          "sha256": "6f94b6589bda7d8d610d27cee412f6f59fca8b0d5f7145f474c3e701674108d6"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/swgSharedUtility/Debug/swgSharedUtility.lib",
+          "sha256": "9cbf39005b084c48a2697d6c6700a533bad0f8aa7a97057c9ec06cd643c0d3b0"
+        }
+      ],
+      "link": 0,
+      "run": 0,
+      "records_sha256": "dc31a8da6a2c34f6c526ff9def290dba59b54c61de6607766159a7cb73bd13da",
+      "records": 8192
+    },
+    {
+      "name": "Debug-x64-stock",
+      "config": "Debug",
+      "platform": "x64",
+      "mode": "stock",
+      "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "8e1225b6268ccc4481ded2c960838b1272bd2440f521a3f96eed1f9152733a1a",
+      "fp": "precise",
+      "status": "expected-stock-x64-rejection",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe",
+      "compile": 2
+    },
+    {
+      "name": "Release-Win32-candidate",
+      "config": "Release",
+      "platform": "Win32",
+      "mode": "candidate",
+      "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "0e1633fad0aede41c959ec5e6f37b154f5ffb022ad1ba69ccc6ad005f127235e",
+      "fp": "precise",
+      "status": "recorded",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.exe",
+      "compile": 0,
+      "library_files": [
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\archive\\Release\\archive.lib",
+          "sha256": "88618c084bfd6cbdf59f588659155b421a99c67b6e4df2a513ff6053af814af5"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\fileInterface\\Release\\fileInterface.lib",
+          "sha256": "63f5fba302b6d2b143504403384852cb19e158ecda816d8bbe17a6c11f3ba219"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localization\\Release\\localization.lib",
+          "sha256": "fb3dd663223b4c8f4d3412f3d255bb80eac0d9eb10378c5b19478a61a5221c39"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localizationArchive\\Release\\localizationArchive.lib",
+          "sha256": "17fca4cfc144d2a153659ea6be32bf7413bdc368440e3be9acb548907cefad72"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCollision\\Release\\sharedCollision.lib",
+          "sha256": "43eb3a5ef61024b3a80f49bbe6dda3b78529c28e36e290c81ec125f80445ee5c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCommandParser\\Release\\sharedCommandParser.lib",
+          "sha256": "74b257f48980f6bb73fcc218d1a95eaee89f2969ccfc5e4938faed2644a640e8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCompression\\Release\\sharedCompression.lib",
+          "sha256": "99096f37ff41eb8d50ab5dffc819be5290319a348ac2a88e95d0f4bcf3128c61"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedDebug\\Release\\sharedDebug.lib",
+          "sha256": "3a01f3e37adc236ebe52ac034fc9b9db2ca3350f7fdbd0cfaf89184a739b0ead"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFile\\Release\\sharedFile.lib",
+          "sha256": "627690d325cdafab9de6d78b68116d3bae214fcbb6d99cba4fc190f719c1b77d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFoundation\\Release\\sharedFoundation.lib",
+          "sha256": "9118d26c709d9ad5acfa46950b37edda3d1b4e9d893f987a707d2ef183040995"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFractal\\Release\\sharedFractal.lib",
+          "sha256": "1b4c9465fc475555bbcc09edfb07d15994429ffdb466427c93646f750dc8c23a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedGame\\Release\\sharedGame.lib",
+          "sha256": "c0defb5ca4cfcab030c6498e20ecab5713a55a6a834cfd97bc877d46d5c2fa54"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedImage\\Release\\sharedImage.lib",
+          "sha256": "f35220b52fbd061ae73427aa328b9b302e1d3a867be940240a55089981b27595"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedInputMap\\Release\\sharedInputMap.lib",
+          "sha256": "fdd18007b8b28e722f457c04cfed29b092b42133816ad0dc6cf2c9b49185662e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedIoWin\\Release\\sharedIoWin.lib",
+          "sha256": "45c7f78cd591dfb809d2bbef72f6e52ff3d4c7abe0a9ae8fd75533b8cf286700"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedLog\\Release\\sharedLog.lib",
+          "sha256": "61426929fbc87f5236cfaffe2e3b90f708643b374feb088af55bde1eac39d3b6"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMath\\Release\\sharedMath.lib",
+          "sha256": "9e14680defeea3ddcae40949f89c173058c41698877fc7aec4858c3f87a240e6"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMemoryManager\\Release\\sharedMemoryManager.lib",
+          "sha256": "6145954173ca227268987daa1a620f38ceef8ac50db0fedc4c46a3be5da98e8e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMessageDispatch\\Release\\sharedMessageDispatch.lib",
+          "sha256": "ca31d3736008b50c08ab6d06f303e9031f4ec882db0c766dd18707dc1752dd92"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetwork\\Release\\sharedNetwork.lib",
+          "sha256": "fbb8ea8c2cb982c9fc75a8eb9fafb9d5a6ee960f4122f62a86894615bf25529e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetworkMessages\\Release\\sharedNetworkMessages.lib",
+          "sha256": "e92c66b7f0ff08703bf97c4c6a60ef89e265a1f6c4e9051fd08fbfca2547a3d2"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedObject\\Release\\sharedObject.lib",
+          "sha256": "5e3563d357284cab346fab650a45d4637651d278614559b3514ba365e572a95c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedPathfinding\\Release\\sharedPathfinding.lib",
+          "sha256": "a2b33ca4a2e9fa5fe122dd015ddaa51f6e13fa541cad6da01197e061f8e834d7"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRandom\\Release\\sharedRandom.lib",
+          "sha256": "e87bd15b7d913c0a9844abe12db6b40f709e6ffa03c271fb774dba2ab459346a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRegex\\Release\\sharedRegex.lib",
+          "sha256": "cd6f070dc279055fec6ec48ad8f1242d2afb0dafaea6858ef18f890849107250"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSkillSystem\\Release\\sharedSkillSystem.lib",
+          "sha256": "127c337b1c27295d4fd21345aa7e3319f5e836e96ab1668de51d810bc2a8c8b3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedStatusWindow\\Release\\sharedStatusWindow.lib",
+          "sha256": "4507e2b033da6d71b0e46a612b1a6d66080a3b6c133636140d86b817f0728f7b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSwitcher\\Release\\sharedSwitcher.lib",
+          "sha256": "d9d76a904a5c78d1485b2c84662c29ac3b6a22a805696d2236c5ee33ec410e3d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSynchronization\\Release\\sharedSynchronization.lib",
+          "sha256": "17bd05a6149624c82f02e6797e48a67e0e76e054db7d3623908dc2778bfaeb74"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedTerrain\\Release\\sharedTerrain.lib",
+          "sha256": "db760bb361f5e9b3f08af5668eb670badfd96351aa2f79771b918bfbdb14177b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedThread\\Release\\sharedThread.lib",
+          "sha256": "293f142febe0794377b6041493c56091d630724a02c897765cdde10d0bd49528"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedUtility\\Release\\sharedUtility.lib",
+          "sha256": "5b6420f48a86c73ea65c001431edce490e5e8aa16dc846ca0b612df777e4c408"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedXml\\Release\\sharedXml.lib",
+          "sha256": "983651b3c6cc621737ee422c4fe0d31ba989948e1c4359a76e5f042219bb43cd"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicode\\Release\\unicode.lib",
+          "sha256": "95664039c9a58dbf012e55adf5c543cb4d836951eb2ec034fe9dba4fc42bbcc8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicodeArchive\\Release\\unicodeArchive.lib",
+          "sha256": "46cecedf4da08452ba372dd601f8f75e7056038973581d4c0340f5146ddd0b68"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\external\\3rd\\library\\stlport453\\lib\\win32\\stlport_vc71_static.lib",
+          "sha256": "d2b9a0b057594dda4c1843eeed27d9ff25ec5176c5e092b0edab5a07d1b019e8"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedMath/Release/sharedMath.lib",
+          "sha256": "9e14680defeea3ddcae40949f89c173058c41698877fc7aec4858c3f87a240e6"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedCollision/Release/sharedCollision.lib",
+          "sha256": "43eb3a5ef61024b3a80f49bbe6dda3b78529c28e36e290c81ec125f80445ee5c"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/unicodeArchive/Release/unicodeArchive.lib",
+          "sha256": "46cecedf4da08452ba372dd601f8f75e7056038973581d4c0340f5146ddd0b68"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/zlib/Release/zlib.lib",
+          "sha256": "0348e64a18b533ebc9e8f00465ee4f0635980584c34778c9e7ab80dacf0d8dcb"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/swgSharedUtility/Release/swgSharedUtility.lib",
+          "sha256": "51d548067469814ba0d1c75f4290df1bde6206e41a5fd32110233f241fc5480b"
+        }
+      ],
+      "link": 0,
+      "run": 0,
+      "records_sha256": "db636b68d4fc4cb60292845a42a1296f8288bbc1a41b503b9313fb5fa29f2955",
+      "records": 8192
+    },
+    {
+      "name": "Release-Win32-stock",
+      "config": "Release",
+      "platform": "Win32",
+      "mode": "stock",
+      "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "0e1633fad0aede41c959ec5e6f37b154f5ffb022ad1ba69ccc6ad005f127235e",
+      "fp": "precise",
+      "status": "recorded",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\cl.exe",
+      "compile": 0,
+      "library_files": [
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\archive\\Release\\archive.lib",
+          "sha256": "88618c084bfd6cbdf59f588659155b421a99c67b6e4df2a513ff6053af814af5"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\fileInterface\\Release\\fileInterface.lib",
+          "sha256": "63f5fba302b6d2b143504403384852cb19e158ecda816d8bbe17a6c11f3ba219"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localization\\Release\\localization.lib",
+          "sha256": "fb3dd663223b4c8f4d3412f3d255bb80eac0d9eb10378c5b19478a61a5221c39"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\localizationArchive\\Release\\localizationArchive.lib",
+          "sha256": "17fca4cfc144d2a153659ea6be32bf7413bdc368440e3be9acb548907cefad72"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCollision\\Release\\sharedCollision.lib",
+          "sha256": "43eb3a5ef61024b3a80f49bbe6dda3b78529c28e36e290c81ec125f80445ee5c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCommandParser\\Release\\sharedCommandParser.lib",
+          "sha256": "74b257f48980f6bb73fcc218d1a95eaee89f2969ccfc5e4938faed2644a640e8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedCompression\\Release\\sharedCompression.lib",
+          "sha256": "99096f37ff41eb8d50ab5dffc819be5290319a348ac2a88e95d0f4bcf3128c61"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedDebug\\Release\\sharedDebug.lib",
+          "sha256": "3a01f3e37adc236ebe52ac034fc9b9db2ca3350f7fdbd0cfaf89184a739b0ead"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFile\\Release\\sharedFile.lib",
+          "sha256": "627690d325cdafab9de6d78b68116d3bae214fcbb6d99cba4fc190f719c1b77d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFoundation\\Release\\sharedFoundation.lib",
+          "sha256": "9118d26c709d9ad5acfa46950b37edda3d1b4e9d893f987a707d2ef183040995"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedFractal\\Release\\sharedFractal.lib",
+          "sha256": "1b4c9465fc475555bbcc09edfb07d15994429ffdb466427c93646f750dc8c23a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedGame\\Release\\sharedGame.lib",
+          "sha256": "c0defb5ca4cfcab030c6498e20ecab5713a55a6a834cfd97bc877d46d5c2fa54"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedImage\\Release\\sharedImage.lib",
+          "sha256": "f35220b52fbd061ae73427aa328b9b302e1d3a867be940240a55089981b27595"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedInputMap\\Release\\sharedInputMap.lib",
+          "sha256": "fdd18007b8b28e722f457c04cfed29b092b42133816ad0dc6cf2c9b49185662e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedIoWin\\Release\\sharedIoWin.lib",
+          "sha256": "45c7f78cd591dfb809d2bbef72f6e52ff3d4c7abe0a9ae8fd75533b8cf286700"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedLog\\Release\\sharedLog.lib",
+          "sha256": "61426929fbc87f5236cfaffe2e3b90f708643b374feb088af55bde1eac39d3b6"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMath\\Release\\sharedMath.lib",
+          "sha256": "9e14680defeea3ddcae40949f89c173058c41698877fc7aec4858c3f87a240e6"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMemoryManager\\Release\\sharedMemoryManager.lib",
+          "sha256": "6145954173ca227268987daa1a620f38ceef8ac50db0fedc4c46a3be5da98e8e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedMessageDispatch\\Release\\sharedMessageDispatch.lib",
+          "sha256": "ca31d3736008b50c08ab6d06f303e9031f4ec882db0c766dd18707dc1752dd92"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetwork\\Release\\sharedNetwork.lib",
+          "sha256": "fbb8ea8c2cb982c9fc75a8eb9fafb9d5a6ee960f4122f62a86894615bf25529e"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedNetworkMessages\\Release\\sharedNetworkMessages.lib",
+          "sha256": "e92c66b7f0ff08703bf97c4c6a60ef89e265a1f6c4e9051fd08fbfca2547a3d2"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedObject\\Release\\sharedObject.lib",
+          "sha256": "5e3563d357284cab346fab650a45d4637651d278614559b3514ba365e572a95c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedPathfinding\\Release\\sharedPathfinding.lib",
+          "sha256": "a2b33ca4a2e9fa5fe122dd015ddaa51f6e13fa541cad6da01197e061f8e834d7"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRandom\\Release\\sharedRandom.lib",
+          "sha256": "e87bd15b7d913c0a9844abe12db6b40f709e6ffa03c271fb774dba2ab459346a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedRegex\\Release\\sharedRegex.lib",
+          "sha256": "cd6f070dc279055fec6ec48ad8f1242d2afb0dafaea6858ef18f890849107250"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSkillSystem\\Release\\sharedSkillSystem.lib",
+          "sha256": "127c337b1c27295d4fd21345aa7e3319f5e836e96ab1668de51d810bc2a8c8b3"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedStatusWindow\\Release\\sharedStatusWindow.lib",
+          "sha256": "4507e2b033da6d71b0e46a612b1a6d66080a3b6c133636140d86b817f0728f7b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSwitcher\\Release\\sharedSwitcher.lib",
+          "sha256": "d9d76a904a5c78d1485b2c84662c29ac3b6a22a805696d2236c5ee33ec410e3d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedSynchronization\\Release\\sharedSynchronization.lib",
+          "sha256": "17bd05a6149624c82f02e6797e48a67e0e76e054db7d3623908dc2778bfaeb74"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedTerrain\\Release\\sharedTerrain.lib",
+          "sha256": "db760bb361f5e9b3f08af5668eb670badfd96351aa2f79771b918bfbdb14177b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedThread\\Release\\sharedThread.lib",
+          "sha256": "293f142febe0794377b6041493c56091d630724a02c897765cdde10d0bd49528"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedUtility\\Release\\sharedUtility.lib",
+          "sha256": "5b6420f48a86c73ea65c001431edce490e5e8aa16dc846ca0b612df777e4c408"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\sharedXml\\Release\\sharedXml.lib",
+          "sha256": "983651b3c6cc621737ee422c4fe0d31ba989948e1c4359a76e5f042219bb43cd"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicode\\Release\\unicode.lib",
+          "sha256": "95664039c9a58dbf012e55adf5c543cb4d836951eb2ec034fe9dba4fc42bbcc8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\Win32\\unicodeArchive\\Release\\unicodeArchive.lib",
+          "sha256": "46cecedf4da08452ba372dd601f8f75e7056038973581d4c0340f5146ddd0b68"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\external\\3rd\\library\\stlport453\\lib\\win32\\stlport_vc71_static.lib",
+          "sha256": "d2b9a0b057594dda4c1843eeed27d9ff25ec5176c5e092b0edab5a07d1b019e8"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedMath/Release/sharedMath.lib",
+          "sha256": "9e14680defeea3ddcae40949f89c173058c41698877fc7aec4858c3f87a240e6"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/sharedCollision/Release/sharedCollision.lib",
+          "sha256": "43eb3a5ef61024b3a80f49bbe6dda3b78529c28e36e290c81ec125f80445ee5c"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/unicodeArchive/Release/unicodeArchive.lib",
+          "sha256": "46cecedf4da08452ba372dd601f8f75e7056038973581d4c0340f5146ddd0b68"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/zlib/Release/zlib.lib",
+          "sha256": "0348e64a18b533ebc9e8f00465ee4f0635980584c34778c9e7ab80dacf0d8dcb"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/Win32/swgSharedUtility/Release/swgSharedUtility.lib",
+          "sha256": "51d548067469814ba0d1c75f4290df1bde6206e41a5fd32110233f241fc5480b"
+        }
+      ],
+      "link": 0,
+      "run": 0,
+      "records_sha256": "db636b68d4fc4cb60292845a42a1296f8288bbc1a41b503b9313fb5fa29f2955",
+      "records": 8192
+    },
+    {
+      "name": "Release-x64-candidate",
+      "config": "Release",
+      "platform": "x64",
+      "mode": "candidate",
+      "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "919bbc86dcfe514940edc4a37d0632437ded5a7534eb49bcebea0e240dd00ff7",
+      "fp": "precise",
+      "status": "recorded",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe",
+      "compile": 0,
+      "library_files": [
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\archive\\Release\\archive.lib",
+          "sha256": "e274ca90d70a8ed04c0116a382216cdc748320231a6915c8d2af79a45775fddd"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\fileInterface\\Release\\fileInterface.lib",
+          "sha256": "08b57ca9ad544707a3eca672244e8e7f8eb03e20945f991ff24e65fe1cd57b78"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\localization\\Release\\localization.lib",
+          "sha256": "6f496187c23d44823b08ef140bd6e783f4ae3d1a2a551ab427b0059dbf98df7c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\localizationArchive\\Release\\localizationArchive.lib",
+          "sha256": "c7e61d29dd46cda7365a2e15fbba23022378d3559b0d8bafc4ab471c39bb6f38"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedCommandParser\\Release\\sharedCommandParser.lib",
+          "sha256": "9ea379c0a552df7932e2df253ec8f0289a8b9f1bca32f62b92f37c67fa662821"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedCompression\\Release\\sharedCompression.lib",
+          "sha256": "2556286543f0cb457af9ae89b0a7e6afad24cbf99122d4e8be6124ea0673945b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedDebug\\Release\\sharedDebug.lib",
+          "sha256": "4d915d7afe93a3665cead84e6a0cad351393ab5ac3ffb0365157e2206842a3ec"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedFile\\Release\\sharedFile.lib",
+          "sha256": "4b67902e2abf0bc8292e192c610a44a4ac42478641a53a466456c14029423493"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedFoundation\\Release\\sharedFoundation.lib",
+          "sha256": "ddd142f16dc0a174d44d30841ec9c53bd92fcd738b2cff10b163c52f03108eb8"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedFractal\\Release\\sharedFractal.lib",
+          "sha256": "5ae6bcaddb8d7372e9e99f6be91e52b7834926ccd3d92f2326707895074e79fe"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedGame\\Release\\sharedGame.lib",
+          "sha256": "f2b05b55f7a00ae3d42761df4ca0f1206a8765c31d4811e7618ebad7248c4939"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedImage\\Release\\sharedImage.lib",
+          "sha256": "2012c957822d8b38cf2516d7b4e913dbfd02233951800a494ebbd2d47d4243f0"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedInputMap\\Release\\sharedInputMap.lib",
+          "sha256": "22633e768c5eceb5920dab320557b5d08acc4bce00677c90b551b0a3a429e4f1"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedIoWin\\Release\\sharedIoWin.lib",
+          "sha256": "e432a4bf3ca204a298cee87e4eae6c45d3800819ec7ac9aad1d9430f8d9fb092"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedLog\\Release\\sharedLog.lib",
+          "sha256": "98b0bfd43e2c7c8e1123e090a9a7dee853b0ddf1cdee2f2e4286c81ab9722059"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedMath\\Release\\sharedMath.lib",
+          "sha256": "cbcb5cb2a6e7b2a776152b3dd5dc05004b14504098c1a6e2e0a4ee445d481790"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedMemoryManager\\Release\\sharedMemoryManager.lib",
+          "sha256": "079be25e9f2fe8c62853e1f5bd281b85486faf8b71ce5b6dd88275e3a58fef0c"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedMessageDispatch\\Release\\sharedMessageDispatch.lib",
+          "sha256": "3f885e3e9a2ff12213a5369d1baedf4bed27264ce7f942a41d5386fbe762181a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedNetworkMessages\\Release\\sharedNetworkMessages.lib",
+          "sha256": "ce1f70c66fa5c29b4b6bca8eec5d573822a9491e586e0abcc41d56463be9c27a"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedObject\\Release\\sharedObject.lib",
+          "sha256": "08898389ab181338b367dca1996a7b45bf47727423d1d4397e8f0fbbddf3b8dc"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedPathfinding\\Release\\sharedPathfinding.lib",
+          "sha256": "d4589e36daaa345d83a2590ff091e659548a0266f8336f9605f282a1c202b9ea"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedRandom\\Release\\sharedRandom.lib",
+          "sha256": "9acaa0a14ab53ad8747feff7a7062adbf59c05ca160f0e946d34542ae7d1b49f"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedRegex\\Release\\sharedRegex.lib",
+          "sha256": "9a4e5bf1dc3439e701d448048d1e3a7097977b85213712f5d1b2ae5259d0b56d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedSkillSystem\\Release\\sharedSkillSystem.lib",
+          "sha256": "8c784302d7c8f75a60f4ed32d21e9beba91dbba30b1096d65ff16c98d24fd143"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedStatusWindow\\Release\\sharedStatusWindow.lib",
+          "sha256": "fe390d65114cedf23bff755502f92e6d534ea27404f21d8c1e7b6259bbf90ee0"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedSwitcher\\Release\\sharedSwitcher.lib",
+          "sha256": "1bfea2f399ba003dacf5e6ec21046ebf5428d1fcd3cf82497a17a816f9d010db"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedSynchronization\\Release\\sharedSynchronization.lib",
+          "sha256": "2f2f1ed29e08b035bcd3ddc149d2c5e0f85f5ad3fb5c8dd88402720610c3e86b"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedTerrain\\Release\\sharedTerrain.lib",
+          "sha256": "3c6bdd51e18ec5d3bb99eaf372250825cbb508ee7b96aa91b49965d1351796ad"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedThread\\Release\\sharedThread.lib",
+          "sha256": "44cb482e3c44c3f7c34b1bce238266ac6ae74e1c2111b43b9a0763b3e5996282"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedUtility\\Release\\sharedUtility.lib",
+          "sha256": "c408679eaaad2a97fa64b3ca97cec9fed488f629df37a90f5b578ea612b23ddb"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\sharedXml\\Release\\sharedXml.lib",
+          "sha256": "3d47e756933d98cbf5aeafb16d054d9c8f85e745e70a7c5dc407336c1dd9d1fe"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\unicode\\Release\\unicode.lib",
+          "sha256": "ea9ee9679b29d4e6b2f266fa4eff10c76f758bd1d26c6ecae6486538fd3799c5"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\compile\\x64\\unicodeArchive\\Release\\unicodeArchive.lib",
+          "sha256": "0c5b166311fac02acbb06a01386d11c2e5398ac234312c36b2a86d7ced99a6d1"
+        },
+        {
+          "path": "C:\\stlport-full-next-v2\\stlport-v120-amd64-Release-full.lib",
+          "sha256": "45ab124918e221cfd1d662d8cee4b43564b980a78f0ea30df9bd88a47a896516"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/sharedMath/Release/sharedMath.lib",
+          "sha256": "cbcb5cb2a6e7b2a776152b3dd5dc05004b14504098c1a6e2e0a4ee445d481790"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/sharedCollision/Release/sharedCollision.lib",
+          "sha256": "af28cc205f0949cc465942c98eec851be957686c32bca65059550b817cd18750"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/unicodeArchive/Release/unicodeArchive.lib",
+          "sha256": "0c5b166311fac02acbb06a01386d11c2e5398ac234312c36b2a86d7ced99a6d1"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/zlib/Release/zlib.lib",
+          "sha256": "ddbc990f6982bcc64a9e0737ee1b33a4cf68a112eec5516d534a8f6229d647ee"
+        },
+        {
+          "path": "C:/client-next-build/src/compile/x64/swgSharedUtility/Release/swgSharedUtility.lib",
+          "sha256": "f28d2237082c1bb33523d16872fb9f872ae4d1cd28abc21bda285ef4dad12236"
+        }
+      ],
+      "link": 0,
+      "run": 0,
+      "records_sha256": "dc31a8da6a2c34f6c526ff9def290dba59b54c61de6607766159a7cb73bd13da",
+      "records": 8192
+    },
+    {
+      "name": "Release-x64-stock",
+      "config": "Release",
+      "platform": "x64",
+      "mode": "stock",
+      "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+      "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+      "audit_sha256": "919bbc86dcfe514940edc4a37d0632437ded5a7534eb49bcebea0e240dd00ff7",
+      "fp": "precise",
+      "status": "expected-stock-x64-rejection",
+      "tool": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe",
+      "compile": 2
+    }
+  ],
+  "comparisons": [
+    {
+      "config": "Debug",
+      "win32_records_unchanged": true,
+      "comparison_exit": 0,
+      "note": "Finite values/classification are the verdict; exceptional and hardware-unit flag differences remain data."
+    },
+    {
+      "config": "Release",
+      "win32_records_unchanged": true,
+      "comparison_exit": 0,
+      "note": "Finite values/classification are the verdict; exceptional and hardware-unit flag differences remain data."
+    }
+  ]
+}

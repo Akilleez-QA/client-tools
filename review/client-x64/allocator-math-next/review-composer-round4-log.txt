@@ -1,0 +1,140 @@
+# Round 4 — x64 port coverage (read-only)
+
+**Repo:** `/home/akilleez/Work/swg-source/client-build-next`  
+**Prior logs:** `/home/akilleez/Work/client-wire-validation/parallel-review-next` — not readable from this session (directory exists; no `round2`/`round3` report files found at expected paths). This round did **not** re-assert items you listed as already tracked (MM, DebugHelp, FPU/SSE, skeletal, compiler/vendor SDK, pcresort, Windows API/HMENU/ShellExecute) or re-file **pointer-derived `getSortKey()` / vertex-buffer sort keys** as correctness bugs.
+
+**Method:** Grep + targeted reads in `clientTerrain`, `clientGame` (`ClientWorld`, `GameNetwork` / `LoginConnection` / `ConnectionServerConnection` / `GameNetworkConnection`), `sharedNetwork` (`Connection`, `NetworkHandler`, Win32 TCP), `sharedRemoteDebugServer` / `RemoteDebug`, `clientUserInterface` (`CuiSettings` IFF persistence), plus cross-check against `tools/test-wire-compatibility/README.md` scope.
+
+---
+
+## New root causes (architecture-introduced, within boundary)
+
+**None.** (Explicitly empty — no fifth “sibling” inflated from sort-key / hash-order sites.)
+
+Within the requested boundary, nothing new met the bar: **producer→consumer path traced**, **no new evidence of pointer width on wire or in persisted layouts**, **no x64-only preprocessor branch that changes semantics** beyond already-ported patterns (e.g. `VeCritsec` `_M_X64` atomics, which is a fix, not a defect).
+
+---
+
+## Coverage notes (verification / debt, not new root causes)
+
+### 1. Client terrain (`clientTerrain`)
+
+- **Producer/consumer:** Procedural terrain LOD uses a dedicated request thread, `Mutex` + `Gate`, and `stdmultimap<int, ChunkRequestInfo>` for pending work — keys are **`int` priorities**, not pointers; chunk metadata is value-type (`x`, `z`, `size`, `priority`).
+
+```79:128:src/engine/client/library/clientTerrain/src/shared/appearance/ClientProceduralTerrainAppearance.h
+	class ChunkRequestInfo
+	{
+		// ...
+		ChunkRequestInfo (const int x, const int z, const int size, const int priority) :
+		// ...
+	};
+	typedef stdvector<ChunkRequestInfo>::fwd ChunkRequestInfoList;
+	typedef stdmultimap<int, ChunkRequestInfo>::fwd ChunkRequestInfoMap;
+```
+
+- **Lifetime:** Teardown waits on `m_requestThread` and clears maps (same design on Win32/x64; race paths are `DEBUG_FATAL`, not width-dependent).
+- **On-disk / binary cache:** `ClientProceduralTerrainAppearance_Cache` / `ShaderCache` are in-memory GPU/material paths; environment data loads via **IFF** (`EnvironmentBlockManager.cpp`), not pointer-sized structs written raw to disk.
+- **Excluded per your semantics:** D3D9 `getSortKey()` = `reinterpret_cast<int>(IDirect3DVertexBuffer9*)` (and terrain’s use of `getVertexBufferSortKey()`) — **preexisting batching order**, truncation/collision ≠ demonstrated correctness failure.
+
+### 2. Client world (`clientGame` / `ClientWorld`)
+
+- **Network → world:** `GameNetwork::addObject` → `ClientWorld::queueObject` → `World::queueObject` → `ObjectList`; spatial structures hold **`Object*`** in process memory only (`SphereTree<Object*, …>`). No serialization of pointers into saves or wire in this path.
+
+```325:330:src/engine/client/library/clientGame/src/shared/network/GameNetwork.cpp
+void GameNetwork::addObject(Object * object)
+{
+	DEBUG_FATAL(object->getObjectType() == 0, ("bad object type from network!\n"));
+	ClientWorld::queueObject(object);
+}
+```
+
+```349:355:src/engine/shared/library/sharedObject/src/shared/world/World.cpp
+void World::queueObject  (Object* object)
+{
+	DEBUG_FATAL (!object, ("World::queueObject - object is null"));
+	ms_queuedObjectList->addObject (object);
+}
+```
+
+- **Maps keyed by `Object*` / `const Shader*`** (e.g. `GroundEnvironment`, `ClientTerrainSorter`) — ordering is STL pointer order; not persisted; not claimed as port bugs here.
+
+### 3. Client network connection setup
+
+- **Login / CS / game path:** `LoginConnection::onConnectionOpened` sends `LoginClientId` via `GameNetworkConnection::send` → `message.pack` → `Connection::send` (UDP when `useTcp == false`, as in `GameNetwork::connectLoginServer`).
+
+```346:353:src/engine/client/library/clientGame/src/shared/network/GameNetwork.cpp
+void GameNetwork::connectLoginServer(const std::string & address, const unsigned short port)
+{
+	disconnectLoginServer();
+	NetworkSetupData setupData;
+	setupData.useTcp = false;
+	s_instance->m_loginServer = new LoginConnection(address, port, setupData);
+}
+```
+
+- **UDP callback chain:** `Connection` stores `this` in `UdpConnectionMT::SetPassThroughData`; `NetworkHandler::onConnect(void * callback, …)` recasts to `NetworkHandler*` — **in-process only**, full width on x64.
+
+```240:248:src/engine/shared/library/sharedNetwork/src/shared/NetworkHandler.cpp
+void NetworkHandler::onConnect(void * callback, UdpConnectionMT * connection)
+{
+	if(callback)
+	{
+		NetworkHandler * h = reinterpret_cast<NetworkHandler *>(callback);
+		if(connection)
+			h->onConnectionOpened(connection);
+	}
+}
+```
+
+- **Deferral:** `ConnectionServerConnection` copies `Archive::ByteStream` on deferral (byte buffers, not pointers) — same on both ABIs.
+- **Win32 TCP IOCP:** `TcpClient::update` uses `unsigned long` for `completionKey` while `TcpServer` uses `ULONG_PTR`; both paths pass **completion key 0** into `CreateIoCompletionPort` and dispatch via **`OVERLAPPED*` → `OverlappedTcp*`**, so this is not a demonstrated x64 truncation bug (falls under known Windows/network review, not a new root cause here).
+
+### 4. Remote pointers / callbacks
+
+- **RemoteDebug:** Variable types on the wire are **INT/FLOAT/CSTRING/BOOL**; server holds `void *m_memLoc` locally. `GameNetwork` installs `SharedRemoteDebugServer` for dev traffic — not part of live login/gameplay wire compatibility.
+- **MessageDispatch::Callback** connections (e.g. cluster UI) use **member-function + dummy pointer-to-message-type** for overload resolution — not storing HWND/pointers in messages.
+
+### 5. Binary-local persisted layouts
+
+- **UI settings (primary client-local IFF):** Window size/location and maps use **`read_int32` / `insertChunkData(static_cast<int32>(…))`** — intentionally fixed-width; safe for Win32↔x64 **file** interchange; not pointer dumps.
+
+```227:238:src/engine/client/library/clientUserInterface/src/shared/core/CuiSettings.cpp
+			if (iff.enterChunk (Tags::SIZE, true))
+			{
+				data.size.x = iff.read_int32 ();
+				data.size.y = iff.read_int32 ();
+```
+
+- **LoginClusterStatus:** Archive `get`/`put` on scalar fields (`uint32`, `uint16`, `int`, `bool`) — layout is message-defined, not `size_t`-on-wire.
+
+```82:100:src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.h
+	inline void get(ReadIterator & source, LoginClusterStatus_ClusterData &c)
+	{
+		get(source,c.m_clusterId);
+		get(source,c.m_connectionServerAddress);
+		// ... ints, bools, uint32s — no pointers
+```
+
+**Residual coverage debt (preexisting / documented, not a new x64 root cause):** `tools/test-wire-compatibility/README.md` states **`LoginClusterStatus` has no fixture yet** (along with other Archive call sites). That is a **test gap**, not evidence of an x64-only serializer break in this checkout.
+
+**Smallest discriminating test (if you extend coverage):** Add a `LoginClusterStatus` encode/decode fixture with literal legacy32 bytes (same style as the 40 existing fixtures) and run `run.py --bits 64`. Failure would implicate **Archive field width**, not terrain/world code.
+
+---
+
+## Preexisting vs architecture-introduced
+
+| Observation | Classification |
+|-------------|----------------|
+| `reinterpret_cast<int>(D3D VB pointer)` sort keys | **Preexisting**; sort stability only |
+| `std::map` with `Object*` / `Shader*` keys | **Preexisting** |
+| `static Archive::ReadIterator` in `Connection` / `GameNetworkConnection` receive | **Preexisting** reentrancy/style; not x64-specific without concurrent receive proof |
+| `VeCritsec` `_M_X64` branch | **Port adaptation** (correct) |
+| Missing `LoginClusterStatus` wire fixture | **Coverage debt** (documented); not shown as x64 regression in-tree |
+
+---
+
+## Bottom line
+
+Round 4 **does not add new root causes** in `clientTerrain`, `ClientWorld`, client connection setup, remote-debug callbacks, or IFF-based UI persistence beyond what prior rounds and your tracked list already cover. **Grep/read does not prove absence of in-game symptoms**; it only supports “no additional *source-level* x64 port defect identified in this slice.”
+
+If you can point to the exact round2/round3 log filenames under `parallel-review-next`, a follow-up pass can diff against them explicitly; those files were not available here.

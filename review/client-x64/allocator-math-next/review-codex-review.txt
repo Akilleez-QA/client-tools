@@ -1,0 +1,44 @@
+The source supports explicit x64 FPU semantics and full-width owner storage, but does **not** establish an end-to-end x64 export contract or unconditional thread-safe stack walking. I found these risks, ordered by impact.
+
+1. **The allocator export stub remains incompatible with an MSVC x64 build.**  
+   [DllExport.cpp:151](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/client/application/DllExport/src/win32/DllExport.cpp:151) adopts `OwnerAddress`, but its body still contains `__asm int 3` at line 153; numerous other stubs do likewise. Changing the signature alone does not produce a usable x64 export/import library through this translation unit.
+
+   **Evidence limit:** No project files or export-generation configuration are present, so I cannot establish whether x64 actually builds this target or uses another mechanism. This is a conditional build blocker, not evidence that a particular native build failed.
+
+   **Discriminating test:** Build the actual x64 export-generation target and both consuming application configurations. Inspect the resulting imports/exports and link a consumer against the generated library. For Win32, compare the decorated `MemoryManager::allocate` symbol with stock.
+
+2. **Stack-walk serialization excludes initialization and teardown.**  
+   [DebugHelp.cpp:525](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedDebug/src/win32/DebugHelp.cpp:525) correctly holds the new lock across context capture, walking, and callback-cache access. Lookup, symbol loading, and dump writing use the same lock.
+
+   However, `install()` publishes `library` at line 400 before initializing the critical section at line 449. `remove()` frees caches and unloads the DLL at lines 454–489 without acquiring that lock or draining users. A concurrent capture can enter an uninitialized/deleted critical section or use freed caches/function pointers. Additionally, `miniDumpWriteDump` is not cleared during removal, while `writeMiniDump()` checks that pointer rather than `library`.
+
+   **Evidence limit:** Safe startup-before-workers and shutdown-after-join ordering could exclude these failures; that lifecycle is absent from the snapshot. The stale dump pointer predates this patch.
+
+   **Discriminating test:** First stress simultaneous capture, lookup, and symbol loading after installation. Separately exercise the supported shutdown ordering with active workers and an external watchdog. If concurrent shutdown is forbidden, verify callers are joined before removal and that no subsequent dump request reaches this API.
+
+3. **Full-width addresses do not guarantee the intended caller sequence.**  
+   [MemoryManager.cpp:1262](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp:1262) retains `OFFSET = 3` and starts secondary owners at `owners[4]`. The x64 [OsNewDel.cpp:25](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedMemoryManager/src/win32/OsNewDel.cpp:25) removes the legacy `localAllocate` frame. Its return-call may also become a tail call; `noinline` does not guarantee a retained frame.
+
+   Owner zero is captured directly before entering `MemoryManager`, which is good. Secondary owners nevertheless depend on a different frame topology and may skip meaningful callers. DPVS and regex introduce another attribution distinction: their intrinsic captures the caller of their helper, potentially the service wrapper rather than the external allocating site.
+
+   **Discriminating test:** Use named, non-inlined caller chains in Debug and optimized Release, including actual shipping optimization settings. Exercise scalar, array, file/line, not-a-leak, DPVS, regex, and both application hooks. Compare raw PCs and symbolized owner order against known call sites, including code loaded above 4 GiB. Check `reallocate()` preserves owner zero and `own()` replaces ownership as intended.
+
+4. **“Win32 preserved” is valid for selected implementation branches, not the entire diagnostic ABI.**  
+   [DebugHelp.h:26](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedDebug/src/win32/DebugHelp.h:26) changes `getCallStack(uint32*)` to `getCallStack(uint64*)` and widens `lookupAddress` on **both** architectures. [CallStack.h:43](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedDebug/src/shared/CallStack.h:43) likewise changes object layout on Win32.
+
+   All visible callers use widened buffers, but omitted callers or prebuilt components may fail to compile/link or disagree about object layout. Preserving the allocator’s Win32 `uint32` typedef does not preserve these separate interfaces.
+
+   **Discriminating test:** Clean-build the complete Win32 dependency graph, including plugins and diagnostic consumers; compare relevant symbols/layouts wherever binary compatibility is required. Capture a known stack against stock to check frame ordering and output.
+
+5. **The FPU state model needs an explicit thread-ownership contract.**  
+   [FloatingPointUnit.cpp:20](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp:20) stores desired rounding, masks, and status globally, while MXCSR belongs to the executing thread. A setter on thread A changes global getters immediately but leaves thread B’s hardware unchanged until B calls `update()`. Concurrent setters/update also access unsynchronized shared state, including `updateNumber`.
+
+   This is inherited architecture, not a newly introduced race. It still prevents interpreting the x64 implementation as independently maintained per-thread FPU state.
+
+   **Discriminating test:** Coordinate two threads with different initial MXCSR values. Change rounding/masks on one, inspect hardware and getters on both, then call `update()` on the second. Either demonstrate the intended global-policy propagation or establish that only one designated thread may use these APIs.
+
+The FPU changes themselves are reasonably explicit. [FloatingPointUnit.h:65](/home/akilleez/Work/client-wire-validation/parallel-review-next/src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.h:65) documents architecture-specific control words; x64 removes `setPrecision()` and reports `P_fixedByType`. The implementation excludes sticky flags from `getControlWord()`, preserves them when setting control, and includes FTZ/DAZ in the managed control bits. Win32 retains the existing setter’s **old-state precision behavior** at `FloatingPointUnit.cpp:180`; preservation does not mean that behavior is correct.
+
+The minimum native FPU test should record x87 control and MXCSR before/after installation, all four rounding modes, each exception-mask toggle, raw control save/restore, and `update()`. Seed sticky flags and supported FTZ/DAZ combinations. Verify actual rounding using runtime operands and exception delivery in isolated tests. Compare Win32 precision transitions against stock, including the existing one-call lag. For SSE coupling only, verify hard-skinning restores the saved MXCSR on normal return and characterize enabled-exception exits.
+
+Finally, the supplied Debug/Release comparison reports concern the SseMath probe. [ssemath-probe-v2.cpp:65](/home/akilleez/Work/client-wire-validation/parallel-review-next/ssemath-probe-v2.cpp:65) sets MXCSR directly with all exception masks enabled; it does not exercise the FPU API, allocator/export chain, or concurrent stack walking. Those reports therefore provide **no direct native validation of these contracts**. I executed no candidate binaries, made no changes, and sent no external messages.

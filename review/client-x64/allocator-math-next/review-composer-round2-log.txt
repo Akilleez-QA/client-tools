@@ -1,0 +1,58 @@
+## Search coverage
+
+Read-only pass over `/home/akilleez/Work/swg-source/client-build-next`: `SwgClient` / `client-x64.props` / `configure-client-x64` docs; static libs in the `SwgClient` link line (`sharedFoundation`, `clientGraphics`, `ui`, `sharedDebug`, `sharedMath`, etc.); runtime renderer stack (`Graphics.cpp` → `gl0*_r.dll`, `Direct3d9*`, `DllExport`, `Headless`); grep for `reinterpret_cast<DWORD/UINT/int>(…*)`, `SetWindowLong`/`GWLP_USERDATA`, `delayimp`/`DelayLoadDLLs`, `_asm`/`__asm`, `GetProcAddress`, `_USE_32BIT_TIME_T`. Spot-read of modified-area files (`DebugHelp`, `RegexServices`, `OsNewDel`, `SseMath`, `CollisionUtils`, `UITableModel`, `SetupDll`).
+
+**Not in repo:** `candidate.diff`, `composer-log.txt` (parent may hold copies). **Authority:** current tree only.
+
+**Blind spots:** No MSBuild/link/map run; no disassembly review beyond prior `SseMath` work; `external/3rd` mostly skimmed (except `ui`); server/editor/tool apps not in `SwgClient` closure only where grep surfaced patterns; Vivox/Miles/Bink/Mozilla not re-audited per your list; uncommitted diffs not line-compared to baseline.
+
+---
+
+## Top new leads (max 8)
+
+**1. `Os.cpp` — HMENU passed as 32-bit menu ID**  
+Lines **841**, **858**, **874**: `InsertMenu` / `AppendMenu` with `MF_POPUP` use `reinterpret_cast<UINT>(newMenu)` where Win64 expects `UINT_PTR` for an `HMENU`.  
+**Relevance:** `sharedFoundation.lib` → `SwgClient_r.exe`; debug-key / SharedDebug popup menu construction (`Os` window proc path). **Check:** break on these lines on x64 and confirm submenu handles after `InsertMenu`.
+
+**2. `UITableModel.cpp` — pointer identity in `int` sort keys**  
+Lines **392**, **415**: `UIImageStyle*` / `UIWidget*` stored as `reinterpret_cast<int>(…) ` in `GetSortKeyAtInteger`.  
+**Relevance:** `ui.lib` → all CUI tables using image/widget sort keys. **Effect class:** truncated pointer identity → wrong sort order; crash only if a truncated value is later cast back to a pointer (not shown in this function). **Check:** sort a table column backed by widgets on x64.
+
+**3. `Direct3d9_StaticShaderData.cpp` — D3D texture pointer as `int` sort key**  
+Line **388**: `value = reinterpret_cast<int>((*m_texture)->getBaseTexture())`.  
+**Relevance:** `Direct3d9` / `Direct3d9_ffp` / `Direct3d9_vsps` DLLs loaded as `gl05_r.dll` etc. (not linked into EXE; built beside client). Shader-stage sort/dedup. Same truncation semantics as (2).
+
+**4. `Direct3d9` / `Headless` `SetupDll.cpp` — delay-load alias of `DllExport.dll`**  
+Lines **36–39** (`Direct3d9/src/shared/SetupDll.cpp`; identical in `Headless/src/shared/SetupDll.cpp`): `dliNotePreLoadLibrary` for `dllexport.dll` returns `GetModuleHandle(NULL)`.  
+**Relevance:** All three D3D9 renderer DLLs (`DelayLoadDLLs` in their `.vcxproj`); host is `SwgClient_r.exe` at runtime. **Check:** confirm delay-imported symbols resolve against the EXE export table on x64 (linker dump / `dumpbin /exports` on EXE + loaded `gl05_r.dll`), not only that `DllExport.dll` exists on disk.
+
+**5. `Direct3d9.cpp` vs `Gl_dll.def` — `getOtherAdapterRects` vtable type**  
+`Gl_dll.def` **88**: `void (*)(stdvector<RECT>::fwd &)`; implementation `Direct3d9.cpp` **143** / **4440**: `void(std::vector<RECT> &)`, assigned at **989** into `ms_glApi`.  
+**Relevance:** EXE (`clientGraphics` calls through `Gl_api`) ↔ renderer DLL boundary; also `Os::setGetOtherAdapterRectsHookFunction` (`Graphics.cpp` **292**). **Check:** MSVC must treat `stdvector<RECT>::fwd` and `std::vector<RECT>` as identical on x64 STLport settings (`/dumpbin` or forced call from multi-monitor setup).
+
+**6. `LeakFinder.h` — pointer hashing via 32-bit `unsigned long`**  
+Line **80**: `std::hash<unsigned long>()((unsigned long)p)` for `void*` keys.  
+**Relevance:** `sharedDebug.lib`; debug/reference-count leak tooling when enabled. **Effect:** hash collisions on x64, not stack corruption. **Check:** only if LeakFinder is active in x64 Debug.
+
+**7. `SwgClient.vcxproj` (Release|x64) — PCRE library path still `win32`**  
+Link **AdditionalLibraryDirectories** includes `external/3rd/library/pcre/4.1/win32/lib`; dependencies include `libpcre.a`.  
+**Relevance:** Direct `SwgClient` link (PCRE_STATIC in `swgClientUserInterface`). Separate from Miles/Mozilla but same class: **arch-mismatched static `.a`**. **Check:** `file` / `dumpbin /headers` on the `.a` actually linked for x64 Release.
+
+**8. `WinMain.cpp` — `ShellExecute` result through `int`**  
+Lines **86–90**: `HINSTANCE` → `reinterpret_cast<int>(result)` for `< 32` error test.  
+**Relevance:** `SwgClient` trial nag URL launch. MSDN pattern; comparison to 32 is usually still valid for errors. **Check:** log `result` as `UINT_PTR` on x64 if launch mis-fires (truncation affects **WARNING** format, not the branch predicate).
+
+---
+
+## Additional notes (not counted as top leads)
+
+- **`StatusWindow.cpp` 96/144:** `GWLP_USERDATA` + `LONG_PTR` — looks Win64-correct for SwgClient status window.  
+- **`RenderWorld.cpp` 1081:** pointer → `int` in debug log only.  
+- **`CallStackCollector.cpp` 131:** CRC32 buckets full `uint64` stacks — debug collision risk only.  
+- **Outside SwgClient closure:** editor `SetItemData(..., reinterpret_cast<DWORD>(ptr))` (e.g. `ConversationTreeView.cpp` **438**) — tools only unless those targets are built x64.
+
+---
+
+## Verdict
+
+Within searched boundaries there **are** additional concrete leads beyond your known list; the eight above are the highest-signal **new** file/line anchors tied to `SwgClient` or its runtime renderer DLLs. No claim that any single item necessarily crashes x64 without the checks noted—especially HMENU (1) and delay-load (4), which merit parent spot-check first.

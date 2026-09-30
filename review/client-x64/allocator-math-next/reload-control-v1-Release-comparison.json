@@ -1,0 +1,1655 @@
+{
+  "schema": 2,
+  "reference_mxcsr_mask": "0002ffff",
+  "candidate_mxcsr_mask": "0002ffff",
+  "groups": {
+    "round=0 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=0 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=0 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=0 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=0 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=1 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=1 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=1 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=1 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 46,
+      "differing_value_words": 106,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 46,
+        "rotate": 46
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=2 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=2 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=2 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=2 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=3 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 45,
+      "differing_value_words": 104,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 45,
+        "rotate": 45
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=3 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=3 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 44,
+      "differing_value_words": 102,
+      "differing_mxcsr_words": 0,
+      "functions": {
+        "rotateTranslate": 44,
+        "rotate": 44
+      },
+      "examples": [
+        {
+          "index": 12,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 12,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "words": [
+            {
+              "offset": 8,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            },
+            {
+              "offset": 12,
+              "reference": "7fc12345",
+              "candidate": "ffc54321"
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "words": [
+            {
+              "offset": 7,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            },
+            {
+              "offset": 11,
+              "reference": "ffc54321",
+              "candidate": "7fc12345"
+            }
+          ]
+        }
+      ]
+    },
+    "round=3 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    }
+  }
+}
