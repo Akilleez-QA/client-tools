@@ -1,0 +1,6 @@
+                 U ClientMiles::end_sample(ClientMiles::OwnedSample*)
+                 U ClientMiles::sample_ms_position(ClientMiles::OwnedSample*, int*, int*)
+                 U ClientMiles::release_sample_handle(ClientMiles::OwnedSample*)
+                 U ClientMiles::set_named_sample_file(ClientMiles::OwnedSample*, char const*, void const*, unsigned int, int)
+                 U ClientMiles::allocate_sample_handle(ClientMiles::DigitalDriver*)
+                 U __stack_chk_fail

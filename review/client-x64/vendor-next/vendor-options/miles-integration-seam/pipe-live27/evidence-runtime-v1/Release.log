@@ -1,0 +1,27 @@
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+reply request=1 opcode=4096 status=0 bytes=128 sha256=ef71e2da96c837c76cf5a738ed46873cd52d4a023f741ed495048510cddd68f0 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=2 opcode=4101 status=0 bytes=133 sha256=856937200827297c8bfcbf7215f5506299e43fae098b398cbb64541b1ab5129b return_bits=0 value3=0 null_mask=0 text_hex=372e326100
+reply request=3 opcode=34 status=0 bytes=135 sha256=dc47cf2301b9fe4452b6cd6e377b0321ef2078c58581f7a3a99dfcabffde64f4 return_bits=0 value3=0 null_mask=0 text_hex=6d696c65732f00
+reply request=4 opcode=56 status=0 bytes=128 sha256=047f4426f1501be417df4fcf505b6e810d501d90810ec86f2675fe1055340919 return_bits=1 value3=0 null_mask=0 text_hex=-
+reply request=5 opcode=14 status=0 bytes=128 sha256=955e60ab9f0190c12aea248cf14ee33f61cc1f051dc059bcc476884f16b69615 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=6 opcode=53 status=0 bytes=128 sha256=d61616426dbf235b98c4442d583a971c2c8813b6283f592eedd1f328b2db9ae4 return_bits=0 value3=2 null_mask=0 text_hex=-
+reply request=7 opcode=30 status=0 bytes=128 sha256=410af756a8d8e081740b73bb2af75b1d303961578754f34c365fe9731633ed4d return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=8 opcode=31 status=0 bytes=128 sha256=31c00b5a8cf9150b604264198db9c5e6316232bc2549f2344689296e0fe08ac1 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=9 opcode=29 status=0 bytes=128 sha256=28808d98bb0cad4cfba8a6b6e90194beac94260ce754f949d6765e3893665106 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=10 opcode=27 status=0 bytes=128 sha256=fe31db968e04335fd6d4e50c58c864cd8174395c29893022e9aa36d4364b863d return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=11 opcode=35 status=0 bytes=128 sha256=0744c8ddb836f9e9f71c2fc644110422277fc0eb2c97410e7972a799eb2bd91f return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=12 opcode=19 status=0 bytes=128 sha256=353fd499e13a2551772b62acb382f81edf546871e08446214c49e1936aafbda2 return_bits=2 value3=0 null_mask=0 text_hex=-
+reply request=13 opcode=35 status=0 bytes=128 sha256=b5c2e503a99bb7c86e23e9d3fa79b59b9b72746fd1d0d52a87e3b45c7902f999 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=14 opcode=19 status=0 bytes=128 sha256=db3b45fb30162ba6a94a328605ed9a72753cb00548d8110522c5e59b6c64775d return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=15 opcode=26 status=0 bytes=128 sha256=fca4aa0ab51b27e532db783d43c76f6f6506760d4978115eb935910e87142ed1 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=16 opcode=30 status=3 bytes=128 sha256=110db359775c75a7e0e537123bc825f24456ff143429508db17fcf7574df35fb return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=17 opcode=19 status=2 bytes=128 sha256=6f74532802bf43a465859d8da266a1bb3feea05bfee0220540a142bf6eb7e8b0 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=18 opcode=26 status=2 bytes=128 sha256=d0a9ae79808a779ed57f80db181dae7f338b85e36061c0804aa7e6c2d2b0a388 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=19 opcode=19 status=0 bytes=128 sha256=de8aa3b0692d52793db910cabd90001dd1af475ae1b799e3942a1a0cea4ce7ce return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=20 opcode=52 status=0 bytes=128 sha256=daa0ba070466ef62995fc658ef7613573339631a8fd9fa3981abf234986e07db return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=21 opcode=26 status=4097 bytes=128 sha256=f8dea93b372d3f55a2fefcb3b1bdf79a25bf90d95e1911bfcae3ee27768c8e17 return_bits=0 value3=0 null_mask=0 text_hex=-
+reply request=22 opcode=4109 status=0 bytes=128 sha256=ad230dc8cc35a02c7b29244018239d7a118bd52546575326157d234ccb96f591 return_bits=0 value3=0 null_mask=0 text_hex=-
+PASS pipe-live27 exact22; seven operations; no playback/callbacks

@@ -1,0 +1,49 @@
+loaded_dll=C:\live27-private\mss32.dll
+request=1 opcode=4096 admission=0 transport=0 vendor=0 text_bytes=0
+request=2 opcode=4101 admission=1 transport=0 vendor=0 text_bytes=5
+request=3 opcode=34 admission=2 transport=0 vendor=0 text_bytes=7
+vendor startup=1
+request=4 opcode=56 admission=3 transport=0 vendor=1 text_bytes=0
+original_room=0
+request=5 opcode=14 admission=4 transport=0 vendor=0 text_bytes=0
+request=6 opcode=53 admission=5 transport=0 vendor=0 text_bytes=0
+state request=7 field=position.x actual=bfa00000 expected=bfa00000
+state request=7 field=position.y actual=40200000 expected=40200000
+state request=7 field=position.z actual=c0700000 expected=c0700000
+request=7 opcode=30 admission=6 transport=0 vendor=0 text_bytes=0
+state request=8 field=velocity.x actual=3a83126f expected=3a83126f
+state request=8 field=velocity.y actual=bb03126f expected=bb03126f
+state request=8 field=velocity.z actual=3b449ba6 expected=3b449ba6
+request=8 opcode=31 admission=7 transport=0 vendor=0 text_bytes=0
+state request=9 field=face.x actual=3f800000 expected=3f800000
+state request=9 field=face.y actual=00000000 expected=00000000
+state request=9 field=face.z actual=00000000 expected=00000000
+state request=9 field=up.x actual=00000000 expected=00000000
+state request=9 field=up.y actual=3f800000 expected=3f800000
+state request=9 field=up.z actual=00000000 expected=00000000
+request=9 opcode=29 admission=8 transport=0 vendor=0 text_bytes=0
+state request=10 field=rolloff actual=3f000000 expected=3f000000
+request=10 opcode=27 admission=9 transport=0 vendor=0 text_bytes=0
+room request=11 actual=2 expected=2
+request=11 opcode=35 admission=10 transport=0 vendor=0 text_bytes=0
+room request=12 actual=2 expected=2
+request=12 opcode=19 admission=11 transport=0 vendor=2 text_bytes=0
+room request=13 actual=0 expected=0
+request=13 opcode=35 admission=12 transport=0 vendor=0 text_bytes=0
+room request=14 actual=0 expected=0
+request=14 opcode=19 admission=13 transport=0 vendor=0 text_bytes=0
+idle_serve_returned request=15
+request=15 opcode=26 admission=14 transport=0 vendor=0 text_bytes=0
+state request=16 field=position.x actual=bfa00000 expected=bfa00000
+state request=16 field=position.y actual=40200000 expected=40200000
+state request=16 field=position.z actual=c0700000 expected=c0700000
+request=16 opcode=30 admission=15 transport=3 vendor=0 text_bytes=0
+request=17 opcode=19 admission=15 transport=2 vendor=0 text_bytes=0
+request=18 opcode=26 admission=16 transport=2 vendor=0 text_bytes=0
+room request=19 actual=0 expected=0
+request=19 opcode=19 admission=17 transport=0 vendor=0 text_bytes=0
+vendor shutdown complete; retained directory bytes=6
+request=20 opcode=52 admission=18 transport=0 vendor=0 text_bytes=0
+request=21 opcode=26 admission=18 transport=4097 vendor=0 text_bytes=0
+request=22 opcode=4109 admission=19 transport=0 vendor=0 text_bytes=0
+PASS host27 ordered shutdown; retained directory bytes=6; no callback registrations

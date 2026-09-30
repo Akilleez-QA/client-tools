@@ -1,0 +1,10 @@
+                 U _GLOBAL_OFFSET_TABLE_
+                 U ClientAudioFileCallbacks::open(char const*)
+                 U ClientAudioFileCallbacks::read(ClientAudioFileCallbacks::LocalFileHandle, void*, unsigned int)
+                 U ClientAudioFileCallbacks::seek(ClientAudioFileCallbacks::LocalFileHandle, int, unsigned int)
+                 U ClientAudioFileCallbacks::close(ClientAudioFileCallbacks::LocalFileHandle)
+                 U __asan_init
+                 U __asan_register_globals
+                 U __asan_report_store8
+                 U __asan_unregister_globals
+                 U __asan_version_mismatch_check_v8

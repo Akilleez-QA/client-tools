@@ -1,0 +1,5 @@
+PASS native-shaped value mapping, owned bytes and valid local handle zero
+PASS post-open encode allocation failure retains ownership; exception stays unknown
+PASS strict request/reply validation and unchanged output on rejection
+PASS scripted cancel/stale/duplicate/late completion and retained execution pins
+PASS 157 assertions; scripted services only, no engine or vendor
