@@ -1,0 +1,43 @@
+{
+  "builder_sha256": "836cb81382f9a39c3fa72be819a0cf3617b81bf88555d5c4e0f410e77ebb8029",
+  "builds": [
+    {
+      "arch": "x86",
+      "config": "Debug",
+      "discovery_exit": 2,
+      "kind": "wire"
+    },
+    {
+      "arch": "x86",
+      "config": "Debug",
+      "discovery_exit": 2,
+      "kind": "host"
+    },
+    {
+      "arch": "amd64",
+      "config": "Debug",
+      "discovery_exit": 2,
+      "kind": "wire"
+    },
+    {
+      "arch": "x86",
+      "config": "Release",
+      "discovery_exit": 2,
+      "kind": "wire"
+    },
+    {
+      "arch": "x86",
+      "config": "Release",
+      "discovery_exit": 2,
+      "kind": "host"
+    },
+    {
+      "arch": "amd64",
+      "config": "Release",
+      "discovery_exit": 2,
+      "kind": "wire"
+    }
+  ],
+  "runtime_scope": "wire tests only; host PE not launched",
+  "schema": "startup-metadata-build-v1"
+}

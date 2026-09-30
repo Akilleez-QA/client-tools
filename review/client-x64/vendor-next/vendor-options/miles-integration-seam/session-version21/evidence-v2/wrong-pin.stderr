@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\session-version21\session-version21\run_native.py", line 12, in <module>
+    require(digest(receipt_path)==sys.argv[1],'receipt digest mismatch')
+  File "C:\session-version21\session-version21\run_native.py", line 9, in require
+    if not condition: raise RuntimeError(reason)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: receipt digest mismatch

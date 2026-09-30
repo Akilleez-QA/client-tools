@@ -14,6 +14,21 @@ Read the [bridge architecture proposal](vendor-options/miles-integration-seam/AR
 
 Native [startup preference observations](vendor-options/miles-runtime-preferences/RESULTS.md) found lock protection off and mutex protection on, with selected x87 precision preserved. No device or playback was involved; it is not a general callback or FPU-equivalence result.
 
+Latest bounded follow-ups:
+
+- [File-callback seam and native compile evidence](vendor-options/miles-integration-seam/reverse-file-seam20/COMPILE-PLAN.md): original callbacks remain unchanged; baseline and proposed full `Audio.cpp` each compile on Win32/x64 Debug/Release. [Maintainer follow-up](vendor-options/miles-integration-seam/reverse-file-seam20/REVIEW-maintainer21-followup.md) rates the dormant source seam 9/10. It is not a reverse-I/O implementation.
+- [Startup metadata revision4](vendor-options/miles-integration-seam/startup-metadata-v4/RESULTS.md): five caller-shaped genuine SDK operations, owned directory inputs and returned text, separate request/reply limits, cleanup controls and two-path discrimination. The [final blind review](vendor-options/miles-integration-seam/startup-metadata-v4/REVIEW-senior21-final.md) closes its three findings within their stated scope. Earlier [blind review](vendor-options/miles-integration-seam/startup-metadata-candidate/REVIEW-senior21.md) and [revision3 follow-up](vendor-options/miles-integration-seam/startup-metadata-v3/REVIEW-senior21-followup.md) preserve findings and imperfect earlier tests.
+- [Version-resource correction](vendor-options/miles-integration-seam/session-version22/RESULTS.md): reads the supplied held module directly, eliminating the basename lookup identified by the [earlier blind review](vendor-options/miles-integration-seam/session-version21/REVIEW-senior22.md). Native resource controls and file-backed x64 consumption pass; poisoned compile-time text does not replace the actual7.2a resource. The [fresh blind review](vendor-options/miles-integration-seam/session-version22/REVIEW-senior23.md) accepts the bounded correction and records two nonblocking test-attribution gaps. This is not live transport or game acceptance.
+- [Build/output receipt tools](vendor-options/miles-integration-seam/live-bridge-candidate/revision4-tools/README.md) bind fresh compile inputs and output hashes; they do not retroactively strengthen old runtime attribution.
+- [Teardown source/symbol discriminator](vendor-options/miles-engine-fixture/TEARDOWN-INDEPENDENT20.md) and an unexecuted original-context observer patch preserve the failed engine baseline. No allocator/teardown repair is claimed.
+- [Maintainability disposition](vendor-options/miles-integration-seam/MAINTAINABILITY-RESPONSE21.md) and [Composer/Grok reconciliation](vendor-options/miles-integration-seam/CLI-RECONCILIATION21.md) record costs, reviewer errors and open integration obligations.
+
+These experiments are not wired into the product. The actual x64 client still has the 60/61-import link failure above; successful component checks do not reduce that count by themselves.
+
+The [maintainer design review](vendor-options/miles-integration-seam/MAINTAINER-DESIGN23.md) identifies overlapping lifecycle owners, incompatible status meanings, repeated validation and unimplemented callback scheduling. These are integration work, not a claim that the tested components make a production backend.
+
+The [next bounded integration](vendor-options/miles-integration-seam/NEXT23.md) connects those components through the existing two-process path while retaining the no-adoption boundary.
+
 The remaining sections retain earlier commit/build history under their named snapshots. Use the [latest checkpoint](vendor-options/CHECKPOINT-2026-09-30.md) and current build above for present status.
 
 ## Earlier committed work and chronological evidence

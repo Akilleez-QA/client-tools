@@ -1,0 +1,3 @@
+# Supplemental retention oracle
+
+Use the frozen revision4 metadata source, without modifying its canonical39 portable checks or rerunning vendor code. Retain two small inputs and then two larger valid input allocations to exactly fill MaxFrameBytes logical retained bytes. All earlier returned pointers and copied contents must remain valid across insertions. A subsequent one-byte retain must return null, leave retainedBytes unchanged, and preserve all four existing payloads. This tests ordinary allocation and explicit budget rejection, not allocator-failure exception guarantees, RSS, vendor lifetime or concurrent mutation. Predicted15/15 independent checks.

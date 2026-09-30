@@ -1,0 +1,121 @@
+--- a/src/engine/client/library/clientAudio/src/win32/Audio.cpp
++++ b/src/engine/client/library/clientAudio/src/win32/Audio.cpp
+@@ -7,6 +7,7 @@
+ 
+ #include "clientAudio/FirstClientAudio.h"
+ #include "clientAudio/Audio.h"
++#include "clientAudio/ClientAudioFileCallbacks.h"
+ 
+ #include "clientAudio/AudioSampleInformation.h"
+ #include "clientAudio/ConfigClientAudio.h"
+@@ -4099,6 +4100,49 @@
+ }
+ 
+ //-----------------------------------------------------------------------------
++// Client-local entry points for a future admitted reverse-file request. Keep
++// the original callback bodies and their single AudioNamespace file map.
++static_assert(sizeof(U32) == sizeof(uint32_t) &&
++              !std::numeric_limits<U32>::is_signed, "file U32 contract");
++static_assert(sizeof(S32) == sizeof(int32_t) &&
++              std::numeric_limits<S32>::is_signed, "file S32 contract");
++static_assert(std::numeric_limits<UINTa>::digits ==
++              std::numeric_limits<uintptr_t>::digits &&
++              !std::numeric_limits<UINTa>::is_signed, "local file handle width");
++static_assert(sizeof(int) == 4 && sizeof(long) == 4,
++              "original Windows AbstractFile seek/read widths");
++static_assert(ClientAudioFileCallbacks::SeekBegin == AIL_FILE_SEEK_BEGIN &&
++              ClientAudioFileCallbacks::SeekCurrent == AIL_FILE_SEEK_CURRENT &&
++              ClientAudioFileCallbacks::SeekEnd == AIL_FILE_SEEK_END,
++              "file seek origin values");
++
++ClientAudioFileCallbacks::OpenResult ClientAudioFileCallbacks::open(char const *fileName)
++{
++	UINTa nativeHandle = 0;
++	OpenResult result;
++	result.callbackResult = static_cast<uint32_t>(fileOpenCallBack(fileName, &nativeHandle));
++	result.handle.value = static_cast<uintptr_t>(nativeHandle);
++	return result;
++}
++
++void ClientAudioFileCallbacks::close(LocalFileHandle const handle)
++{
++	fileCloseCallBack(static_cast<UINTa>(handle.value));
++}
++
++int32_t ClientAudioFileCallbacks::seek(LocalFileHandle const handle, int32_t const offset, uint32_t const origin)
++{
++	return static_cast<int32_t>(fileSeekCallBack(static_cast<UINTa>(handle.value),
++		static_cast<S32>(offset), static_cast<U32>(origin)));
++}
++
++uint32_t ClientAudioFileCallbacks::read(LocalFileHandle const handle, void *destination, uint32_t const requestedBytes)
++{
++	return static_cast<uint32_t>(fileReadCallBack(static_cast<UINTa>(handle.value),
++		destination, static_cast<U32>(requestedBytes)));
++}
++
++//-----------------------------------------------------------------------------
+ bool Audio::isRoomTypeSupported()
+ {
+ 	return (getRoomType() != RT_notSupported);
+--- /dev/null
++++ b/src/engine/client/library/clientAudio/src/win32/ClientAudioFileCallbacks.h
+@@ -0,0 +1,50 @@
++// Experimental client-local interface. Candidate only; not a wire structure.
++#ifndef INCLUDED_ClientAudioFileCallbacks_H
++#define INCLUDED_ClientAudioFileCallbacks_H
++
++#include <stdint.h>
++
++namespace ClientAudioFileCallbacks
++{
++
++// The original Audio.cpp map key, held only in this client process. Zero is a
++// valid key. This wrapper is intentionally not convertible to bool or void *.
++struct LocalFileHandle
++{
++	uintptr_t value;
++};
++
++struct OpenResult
++{
++	uint32_t callbackResult;
++	LocalFileHandle handle; // Usable iff callbackResult != 0, even when value == 0.
++};
++
++enum SeekOrigin
++{
++	SeekBegin = 0,
++	SeekCurrent = 1,
++	SeekEnd = 2
++};
++
++// These ordinary C++ calls execute synchronously on the calling client thread.
++// The coordinator must first establish engine/TLS lifetime, compatible thread
++// context, serialization with ALL original file callbacks, and operation pins.
++// This interface neither installs threads nor schedules callbacks. It must not
++// be registered as an SDK callback table or called by an arbitrary I/O reactor.
++//
++// fileName is the original NUL-terminated byte name, live through the call.
++// Read destination is caller-owned local storage of at least requestedBytes,
++// live through the call. No native pointer or LocalFileHandle goes on the wire.
++OpenResult open(char const *fileName);
++void close(LocalFileHandle handle); // Original callback alone closes/deletes.
++int32_t seek(LocalFileHandle handle, int32_t offset, uint32_t origin);
++uint32_t read(LocalFileHandle handle, void *destination, uint32_t requestedBytes);
++
++// seek returns the original signed result. read returns the original U32 bits,
++// including the original int-to-U32 conversion; it does not clamp or normalize.
++// Validation and transport failures belong outside this direct adapter.
++
++} // namespace ClientAudioFileCallbacks
++
++#endif
+--- /dev/null
++++ b/src/engine/client/library/clientAudio/include/public/clientAudio/ClientAudioFileCallbacks.h
+@@ -0,0 +1,5 @@
++#if defined(PLATFORM_WIN32)
++#include "../../src/win32/ClientAudioFileCallbacks.h"
++#else
++#error unsupported platform
++#endif

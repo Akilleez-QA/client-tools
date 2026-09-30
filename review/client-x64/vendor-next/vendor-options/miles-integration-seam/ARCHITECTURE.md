@@ -103,12 +103,13 @@ The x64 game gains its wider address space, but the original media host still ha
 
 | Gate | Present evidence | Required next observation |
 |---|---|---|
-| Wire and identity components | 449 codec/registry checks per native configuration; independent parent sanitizer reproduction | Framed requests and live vendor dispatch together, including partial I/O/cross-session rejection |
-| Buffer ownership mechanics | 41 checks per configuration and parent sanitizer reproduction | Actual bind/rebind/failure/release lifetime under original Miles |
-| Scalar dispatch | 39 genuine SDK-bound arms; rejection preflight only | Successful argument/results through real original vendor, not just compilation |
+| Wire and identity components | 449 codec/registry checks per native configuration; independent parent sanitizer reproduction; a genuine 21-request no-playback framed slice in Debug/Release | Reverse callbacks/I/O, cross-session rejection and combined live progress; the limited slice does not qualify the complete transport |
+| Buffer ownership mechanics | 41 checks per configuration and parent sanitizer reproduction; one genuine bind/release with storage retained through shutdown; extra stage copies removed and discriminated | Actual rebind/failure/release retirement under original Miles; no whole-process memory bound |
+| Scalar dispatch | 39 genuine SDK-bound arms; 13 scalar arms exercised in a separate no-playback host test, with L/R mutation discrimination | Remaining actual call shapes plus typed startup metadata, lifecycle and callback integration |
+| Startup metadata and version | Reviewed metadata v4:35 genuine checks per Debug/Release, hardcoded-path mutation fails; held-module SessionVersion22 native resource probes pass | Compose through live framed replies and actual session lifetime; no callback or full startup claim |
 | WAV metadata | 92/93 component checks; one genuine valid WAV now maps/roundtrips on native Win32/x64 | Wider actual supported formats; no arbitrary codec-safety claim |
 | Baseline engine lifecycle | Real two-sample playback/EOS, then teardown fault | Identify and correct the actual fixture/product defect; normal original teardown |
-| Coordinator behavior | Design and source observations | Real Audio/Sound2d + TreeFile, unsolicited callbacks, original lock scopes and shutdown |
+| Coordinator behavior | Pure state/lease checks and bounded real-pipe tests; 25 repair checks on admission, observed channel faults and suspended-child ownership | Real Audio/Sound2d + TreeFile, unsolicited callbacks, original lock scopes and a measured close frontier; errors first observed during cancellation remain unqualified |
 | Whole product | Win32 links; x64 final link stops at Miles | Complete implemented reachable surface, native startup, Bink and representative gameplay/media acceptance |
 
 The next load-bearing milestone is the same real Audio/Sound2d fixture on both sides of the seam, with a clean original baseline. Component tests and binary identity cannot substitute for that. Full client fidelity remains the user’s requirement; no finite probe result proves universal equivalence or authorizes relaxed timing/audio thresholds.

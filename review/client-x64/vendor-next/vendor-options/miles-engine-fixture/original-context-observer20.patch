@@ -1,0 +1,46 @@
+--- a/probe.cpp
++++ b/probe.cpp
+@@ -18,3 +18,42 @@
+ #endif
+ static volatile LONG completions;
+-static LONG CALLBACK traceException(EXCEPTION_POINTERS* e){if(e->ExceptionRecord->ExceptionCode==0xc0000005){printf("NATIVE_EXCEPTION code=%08lx address=%p base=%p\n",e->ExceptionRecord->ExceptionCode,e->ExceptionRecord->ExceptionAddress,GetModuleHandle(0));void* stack[32];USHORT count=CaptureStackBackTrace(0,32,stack,0);for(USHORT i=0;i<count;++i)printf("FRAME %p\n",stack[i]);}return EXCEPTION_CONTINUE_SEARCH;}
++static volatile LONG exceptionTraceActive;
++static void traceOriginalWord(const char *label,DWORD origin,unsigned index){
++ const unsigned offset=index*sizeof(DWORD);
++ if(origin>MAXDWORD-offset){printf("ORIGINAL_WORD label=%s offset=%u status=ADDRESS_OVERFLOW\n",label,offset);return;}
++ const DWORD address=origin+offset;
++ DWORD value=0;SIZE_T bytesRead=0;
++ SetLastError(ERROR_SUCCESS);
++ const BOOL ok=ReadProcessMemory(GetCurrentProcess(),reinterpret_cast<LPCVOID>(address),&value,sizeof(value),&bytesRead);
++ const DWORD error=ok?ERROR_SUCCESS:GetLastError();
++ if(ok&&bytesRead==sizeof(value))
++  printf("ORIGINAL_WORD label=%s offset=%u address=%08lx status=OK value=%08lx\n",label,offset,address,value);
++ else
++  printf("ORIGINAL_WORD label=%s offset=%u address=%08lx status=READ_FAILED api_ok=%d bytes=%lu error=%lu\n",label,offset,address,ok,static_cast<unsigned long>(bytesRead),error);
++}
++static LONG CALLBACK traceException(EXCEPTION_POINTERS* e){
++ if(e->ExceptionRecord->ExceptionCode!=0xc0000005)return EXCEPTION_CONTINUE_SEARCH;
++ // Bound diagnostic recursion; never handle or retry the original exception.
++ if(InterlockedCompareExchange(&exceptionTraceActive,1,0)!=0)return EXCEPTION_CONTINUE_SEARCH;
++ const EXCEPTION_RECORD &record=*e->ExceptionRecord;
++ const CONTEXT &context=*e->ContextRecord;
++ // These values come from the interrupted context, never this VEH's live stack.
++ const DWORD originalEsp=context.Esp;
++ const DWORD originalEsi=context.Esi;
++ const DWORD originalEax=context.Eax;
++ printf("NATIVE_EXCEPTION code=%08lx address=%p base=%p parameters=%lu\n",record.ExceptionCode,record.ExceptionAddress,GetModuleHandle(0),record.NumberParameters);
++ printf("ORIGINAL_CONTEXT flags=%08lx eip=%08lx esp=%08lx ebp=%08lx eax=%08lx ebx=%08lx ecx=%08lx edx=%08lx esi=%08lx edi=%08lx eflags=%08lx\n",context.ContextFlags,context.Eip,originalEsp,context.Ebp,originalEax,context.Ebx,context.Ecx,context.Edx,originalEsi,context.Edi,context.EFlags);
++ if(record.NumberParameters>=2)
++  printf("ORIGINAL_ACCESS operation=%lu address=%p\n",static_cast<unsigned long>(record.ExceptionInformation[0]),reinterpret_cast<void*>(record.ExceptionInformation[1]));
++ else
++  puts("ORIGINAL_ACCESS status=PARAMETERS_UNAVAILABLE");
++ // Raw words only: return-site interpretation requires this build's disassembly.
++ for(unsigned i=0;i<16;++i)traceOriginalWord("ESP",originalEsp,i);
++ // Candidate headers, NOT verified allocations. Every access is guarded by RPM.
++ // ESI/EAX have these meanings only at the retained free/coalescing instruction.
++ for(unsigned i=0;i<4;++i)traceOriginalWord("ESI_CANDIDATE_HEADER",originalEsi,i);
++ for(unsigned i=0;i<3;++i)traceOriginalWord("EAX_CANDIDATE_PREVIOUS",originalEax,i);
++ puts("ORIGINAL_CONTEXT_CAPTURE_END");
++ InterlockedExchange(&exceptionTraceActive,0);
++ return EXCEPTION_CONTINUE_SEARCH;
++}

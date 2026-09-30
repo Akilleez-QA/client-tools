@@ -1,0 +1,585 @@
+Audio.cpp
+Note: including file: C:\file-seam21\results\Debug-Win32-baseline\require-v120.h
+SEAM21 _MSC_FULL_VER=180040629
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/FirstClientAudio.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/shared/FirstClientAudio.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/FirstSharedFoundation.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundationTypes/include/public/sharedFoundationTypes/FoundationTypes.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundationtypes\include\public\sharedfoundationtypes\../../../src/shared/FoundationTypes.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundationtypes\src\shared\../win32/FoundationTypesWin32.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstPlatform.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/win32/FirstPlatform.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/WindowsWrapper.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/win32/WindowsWrapper.h
+Note: including file:         C:\Program Files (x86)\Windows Kits\8.1\include\um\windows.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\shared\winapifamily.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\shared\sdkddkver.h
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\excpt.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\sal.h
+Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\ConcurrencySal.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\vadefs.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdarg.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl_user_config.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_site_config.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/stlcomp.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/stl_msvc.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/vc_select_lib.h
+Note: including file:                C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/stl_select_lib.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/stl_confix.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/stdarg.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\shared\windef.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\minwindef.h
+Note: including file:            C:\Program Files (x86)\Windows Kits\8.1\include\shared\specstrings.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\specstrings_strict.h
+Note: including file:              C:\Program Files (x86)\Windows Kits\8.1\include\shared\specstrings_undef.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\driverspecs.h
+Note: including file:              c:\program files (x86)\windows kits\8.1\include\shared\sdv_driverspecs.h
+Note: including file:            C:\Program Files (x86)\Windows Kits\8.1\include\um\winnt.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\ctype.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:                C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/ctype.h
+Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\kernelspecs.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\basetsd.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\guiddef.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\string.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:                C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:                 C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/string.h
+Note: including file:                C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:                C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:                C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\pshpack4.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\poppack.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\pshpack4.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\poppack.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack4.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\pshpack4.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\pshpack2.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\poppack.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\pshpack2.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack2.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\poppack.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\pshpack8.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\poppack.h
+Note: including file:             c:\program files (x86)\windows kits\8.1\include\shared\poppack.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\apiset.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\string.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:                C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:               C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:             C:\Program Files (x86)\Windows Kits\8.1\include\shared\ktmtypes.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\winbase.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\apisetcconv.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\minwinbase.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\processenv.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\fileapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\debugapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\utilapiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\handleapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\errhandlingapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\fibersapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\namedpipeapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\profileapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\heapapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\ioapiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\synchapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\interlockedapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\processthreadsapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\sysinfoapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\memoryapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\threadpoollegacyapiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\threadpoolapiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\bemapiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\jobapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\wow64apiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\libloaderapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\securitybaseapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\namespaceapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\systemtopologyapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\processtopologyapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\securityappcontainer.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\realtimeapiset.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\winerror.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\timezoneapi.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\wingdi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack1.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack2.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack4.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack4.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\winuser.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdarg.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:              C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack2.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\tvout.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\winnls.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\datetimeapi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\stringapiset.h
+Note: including file:            C:\Program Files (x86)\Windows Kits\8.1\include\um\winnls.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\wincon.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\consoleapi.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\winver.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\verrsrc.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\winreg.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\reason.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\winnetwk.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\wnnc.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\shared\stralign.h
+Note: including file:          C:\Program Files (x86)\Windows Kits\8.1\include\um\imm.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\ime_cmodes.h
+Note: including file:         C:\Program Files (x86)\Windows Kits\8.1\include\shared\wtypes.h
+Note: including file:          c:\program files (x86)\windows kits\8.1\include\shared\rpc.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\rpcdce.h
+Note: including file:            C:\Program Files (x86)\Windows Kits\8.1\include\shared\rpcdcep.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\rpcnsi.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\rpcnterr.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\rpcasync.h
+Note: including file:          c:\program files (x86)\windows kits\8.1\include\shared\rpcndr.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\pshpack8.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\um\rpcnsip.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\rpcsal.h
+Note: including file:           C:\Program Files (x86)\Windows Kits\8.1\include\shared\poppack.h
+Note: including file:          c:\program files (x86)\windows kits\8.1\include\shared\wtypesbase.h
+Note: including file:           c:\program files (x86)\windows kits\8.1\include\shared\guiddef.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\win32\../../../../../../engine/shared/library/sharedFoundation/src/win32/PlatformGlue.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\time.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/time.h
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\wtime.inl
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\time.inl
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedMemoryManager/include/public/sharedMemoryManager/MemoryManager.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedmemorymanager\include\public\sharedmemorymanager\../../../src/shared/MemoryManager.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\shared\library\sharedmemorymanager\src\shared\../../../../../../engine/shared/library/sharedDebug/include/public/sharedDebug/DebugHelp.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\include\public\shareddebug\../../../src/win32/DebugHelp.h
+Note: including file:         c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\src\win32\../../../sharedFoundationTypes/include/public/sharedFoundationTypes/FoundationTypes.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\new
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cstddef
+Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cstddef
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\yvals.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\xkeycheck.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\use_ansi.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stddef.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/stddef.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/new
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\exception
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/exception
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\xstddef
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdlib.h
+Note: including file:             C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/stdlib.h
+Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:              C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\limits.h
+Note: including file:               C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\initializer_list
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\xtr1common
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\eh.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\malloc.h
+Note: including file:            C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\string.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\stdint.h
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\shared\library\sharedmemorymanager\src\shared\../../../../../../engine/shared/library/sharedMemoryManager/include/public/sharedMemoryManager/OsNewDel.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedmemorymanager\include\public\sharedmemorymanager\../../../src/win32/OsNewDel.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cfloat
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cfloat
+Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\float.h
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtwrn.h
+Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\math.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/math.h
+Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\string.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\ctype.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdarg.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/MacroFoundation.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/MacroFoundation.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Binary.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/Binary.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Fatal.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/Fatal.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/StlForwardDeclaration.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/StlForwardDeclaration.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Misc.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/Misc.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedDebug/include/public/sharedDebug/RemoteDebug.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\include\public\shareddebug\../../../src/shared/RemoteDebug.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedDebug/include/public/sharedDebug/Report.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\include\public\shareddebug\../../../src/shared/Report.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/FloatMath.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/FloatMath.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/SafeCast.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/SafeCast.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/FirstSharedDebug.h
+Note: including file:    C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\../../src/shared/FirstSharedDebug.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\shared\library\sharedMemoryManager\include\public\sharedMemoryManager/FirstSharedMemoryManager.h
+Note: including file:    C:\file-seam21\snapshot\src\engine\shared\library\sharedMemoryManager\include\public\../../src/shared/FirstSharedMemoryManager.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\shared\library\sharedFoundationTypes\include\public\sharedFoundationTypes/FoundationTypes.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/FirstSharedDebug.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\shared\library\sharedmemorymanager\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\miles\include\mss.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Audio.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SoundId.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SoundId.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/TemporaryCrcString.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/TemporaryCrcString.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/CrcString.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/CrcString.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/AudioSampleInformation.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/AudioSampleInformation.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\string
+Note: including file:    C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:    C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\memory
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_alloc.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cstdlib
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cstdlib
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdlib.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cstring
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cstring
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\string.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\using/cstring
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cstdio
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cstdio
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdio.h
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/stdio.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\swprintf.inl
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_threads.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_threads.c
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_construct.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_iterator_base.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/type_traits.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_tempbuf.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\climits
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/climits
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_uninitialized.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_algobase.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_pair.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_algobase.c
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_iterator.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_tempbuf.c
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_raw_storage_iter.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_auto_ptr.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cctype
+Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cctype
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\ctype.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string_fwd.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\iosfwd
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\cwchar
+Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/cwchar
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\wchar.h
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/wchar.h
+Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\crtdefs.h
+Note: including file:       C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_iosfwd.h
+Note: including file:        C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/char_traits.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_function.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_function_base.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_ctraits_fns.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string.c
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string_fwd.c
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_range_errors.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string_io.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string_io.c
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_string_hash.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_hash_fun.h
+Note: including file:    C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/ConfigClientAudio.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/ConfigClientAudio.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sample2d.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sample2d.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/CrcString.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sample3d.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sample3d.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/CrcString.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SampleStream.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SampleStream.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/CrcString.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SampleCacheEntry.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SampleCacheEntry.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SoundTemplateList.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SoundTemplateList.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/Tag.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sound3d.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sound3d.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sound2d.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sound2d.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sound2.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sound2.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SoundId.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SampleId.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SampleId.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Watcher.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/Watcher.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/Vector.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedmath\include\public\sharedmath\../../../src/shared/Vector.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/Object.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/object/Object.h
+Note: including file:         c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file:         c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Watcher.h
+Note: including file:         C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/Transform.h
+Note: including file:          c:\file-seam21\snapshot\src\engine\shared\library\sharedmath\include\public\sharedmath\../../../src/shared/Transform.h
+Note: including file:           C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/Vector.h
+Note: including file:         C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/Vector.h
+Note: including file:         c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/NetworkId.h
+Note: including file:          c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/NetworkId.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sound3dTemplate.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sound3dTemplate.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Sound2dTemplate.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/Sound2dTemplate.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SoundTemplate.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SoundTemplate.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/Audio.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/PersistentCrcString.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/PersistentCrcString.h
+Note: including file:         c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/CrcString.h
+Note: including file:     c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file: C:\file-seam21\snapshot\src\engine\client\library\clientAudio\include\public\clientAudio/SoundObject3d.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../src/win32/SoundObject3d.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/Vector.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/DataLint.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\../../src/shared/DataLint.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/DebugFlags.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\../../src/shared/DebugFlags.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\src\shared\CallStack.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/PerformanceTimer.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\../../src/win32/PerformanceTimer.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/Profiler.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\../../src/shared/Profiler.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\shareddebug\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Production.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/Production.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFile\include\public\sharedFile/FileNameUtils.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedFile\include\public\../../src/shared/FileNameUtils.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFile\include\public\sharedFile/Iff.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedFile\include\public\../../src/shared/Iff.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\sharedfile\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFile\include\public\sharedFile/TreeFile.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedFile\include\public\../../src/shared/TreeFile.h
+Note: including file:   C:\file-seam21\snapshot\src\external\ours\library\fileInterface\include\public\fileInterface/AbstractFile.h
+Note: including file:    C:\file-seam21\snapshot\src\external\ours\library\fileInterface\include\public\../../src/shared/AbstractFile.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFoundation\include\public\sharedFoundation/ConfigFile.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/ConfigFile.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFoundation\include\public\sharedFoundation/LessPointerComparator.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/LessPointerComparator.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFoundation\include\public\sharedFoundation/Os.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/win32/Os.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\ctime
+Note: including file:    C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:      C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\../include/ctime
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\time.h
+Note: including file:    C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:     C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFoundation\include\public\sharedFoundation/PerThreadData.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/win32/PerThreadData.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/ExitChain.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/ExitChain.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\shared\library\sharedDebug\include\public\sharedDebug/CallStack.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedFoundation\include\public\sharedFoundation/TemporaryCrcString.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/VectorArgb.h
+Note: including file:  C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\../../src/shared/VectorArgb.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/Appearance.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/appearance/Appearance.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/LabelHash.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\shared\library\sharedfoundation\include\public\sharedfoundation\../../../src/shared/LabelHash.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedMath/include/public/sharedMath/Vector.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedMath/include/public/sharedMath/Transform.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/CellProperty.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/portal/CellProperty.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\sharedMath/PackedArgb.h
+Note: including file:    C:\file-seam21\snapshot\src\engine\shared\library\sharedMath\include\public\../../src/shared/PackedArgb.h
+Note: including file:   C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/Container.h
+Note: including file:    c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/container/Container.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/SlotIdArchive.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/container/SlotIdArchive.h
+Note: including file:       C:\file-seam21\snapshot\src\external\ours\library\archive\include\Archive/Archive.h
+Note: including file:        c:\file-seam21\snapshot\src\external\ours\library\archive\include\archive\../../src/shared/Archive.h
+Note: including file:         c:\file-seam21\snapshot\src\external\ours\library\archive\src\shared\ArchiveCount.h
+Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\cstdint
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\limits
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_limits.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_limits.c
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stdexcept
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\exception
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:         c:\file-seam21\snapshot\src\external\ours\library\archive\src\shared\ByteStream.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\vector
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:             C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_vector.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_relops_cont.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_vector.c
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_bvector.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\map
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_map.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_tree.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_tree.c
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_relops_cont.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_relops_cont.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\deque
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_deque.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_deque.c
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:         C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\set
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:            C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_set.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_relops_cont.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_relops_cont.h
+Note: including file:          C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:           C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h
+Note: including file:       C:\file-seam21\snapshot\src\external\ours\library\archive\include\Archive/ByteStream.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/SlotId.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/container/SlotId.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/CachedNetworkId.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/object/CachedNetworkId.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/NetworkId.h
+Note: including file:       c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Watcher.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/Object.h
+Note: including file:     C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/Property.h
+Note: including file:      c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/property/Property.h
+Note: including file:       C:\file-seam21\snapshot\src\engine\shared\library\sharedObject\include\public\sharedObject/PropertyId.h
+Note: including file:        c:\file-seam21\snapshot\src\engine\shared\library\sharedobject\include\public\sharedobject\../../../src/shared/property/PropertyId.h
+Note: including file:         c:\file-seam21\snapshot\src\engine\client\library\clientaudio\src\win32\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/LabelHash.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedUtility\include\public\sharedUtility/DataTable.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedutility\include\public\sharedutility\../../../src/shared/DataTable.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\sharedutility\src\shared\../../../../../../engine/shared/library/sharedFoundation/include/public/sharedFoundation/Tag.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\sharedutility\src\shared\DataTableCell.h
+Note: including file:   c:\file-seam21\snapshot\src\engine\shared\library\sharedutility\src\shared\DataTableColumnType.h
+Note: including file: C:\file-seam21\snapshot\src\engine\shared\library\sharedUtility\include\public\sharedUtility/LocalMachineOptionManager.h
+Note: including file:  c:\file-seam21\snapshot\src\engine\shared\library\sharedutility\include\public\sharedutility\../../../src/shared/LocalMachineOptionManager.h
+Note: including file: C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE\inttypes.h
+Note: including file: C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\list
+Note: including file:  C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_prolog.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_prolog.h
+Note: including file:    C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_msvc_warnings_off.h
+Note: including file:  C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_list.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_list.c
+Note: including file:  C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_epilog.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\config/_epilog.h
+Note: including file:   C:\file-seam21\snapshot\src\external\3rd\library\stlport453\stlport\stl/_config_compat_post.h

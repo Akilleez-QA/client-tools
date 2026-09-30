@@ -1,0 +1,41 @@
+The adapter can be called from a reverse-IPC service only under two preconditions that this patch does not implement. Both are properties of the unchanged callback bodies.
+
+## 1. One non-overlapping owner of the callback state
+
+`fileOpenCallBack` inserts into `s_fileMap` and does `++s_nextFileHandle`. `fileCloseCallBack` finds the same map, then `close()`, `delete`, and `erase`. `fileSeekCallBack` and `fileReadCallBack` find that map and then `seek` / `tell` / `read` on the stored `AbstractFile*`. All four also do a shared read-modify-write of `once`. None of the four bodies takes a lock, and the wrappers call those bodies directly on whatever thread entered `ClientAudioFileCallbacks::{open,close,seek,read}`.
+
+That unsynchronized map, counter, file object, and `once` flag are an original single-caller assumption. The new defect is the second entry: the service can now enter while those `__stdcall` functions are also still registered, or from more than one service thread. The comments tell a coordinator to serialize “ALL original file callbacks,” but no coordinator exists in the patch.
+
+A plausible alternative is that the service replaces Miles registration and runs each call to completion before the next, on one thread. In that arrangement the original bodies behave as they did under a single Miles callback thread. Overlap is what the shown code cannot tolerate.
+
+Discriminator, from the source as written: there is no exclusion in these functions. Admit service calls only when the `__stdcall` callbacks are not also live and no second call is inside any of the four bodies. If either overlap exists, this source does not make the call safe. Do not assume a lock outside the snippet.
+
+## 2. The off-main install belongs to exactly one thread
+
+Each body starts with:
+
+```cpp
+if (once && !Os::isMainThread())
+{
+    once = false;
+    PerThreadData::threadInstall(false);
+}
+```
+
+`once` is process-wide. The first non-main entry installs `PerThreadData` on that calling thread and then clears the gate. Later non-main threads skip it. Main-thread calls skip it too.
+
+That one-shot gate is original. What the adapter adds is a caller that is not Miles’s callback thread unless the service is forced to be that thread. A service worker that is non-main and loses the race on `once` runs `TreeFile::open` and `AbstractFile::{seek,tell,read,close}` with this install skipped. A service worker that wins the race permanently spends the only install, so any other non-main callback thread never gets it.
+
+A plausible alternative is that every engine thread already has this TLS before the first file call, so the gate is only a fallback and spending `once` does not matter. Nothing in the supplied functions shows a prior install. The `!Os::isMainThread()` check shows the install is about the calling thread, not process startup.
+
+Discriminator, again without running: after any non-main entry, `once` is false, so a different non-main thread does not call `threadInstall`. A compatible service thread is therefore either the main thread, or the single non-main thread that still sees `once == true` on its first entry and remains the only non-main entrant afterward. A second non-main thread fails that test in the control flow itself.
+
+## What is established
+
+No ownership or thread contract is established. The wrappers do not check the thread, do not take `once`, and do not serialize the map. The header states the requirement and leaves it unmet.
+
+The smallest contract that matches these bodies: one client thread, for the process lifetime, runs every open, close, seek, and read to completion with no overlap and no nested re-entry, and the original function pointers are not also registered. If that thread is not the main thread, it is the thread that consumes `once` and calls `PerThreadData::threadInstall(false)`. `close` remains the only deleter of the `AbstractFile`. The name pointer and the read destination stay live only for that synchronous call. A returned handle is usable only when the open result is nonzero, and only until `close`. Seek origin has to be one of the three `AIL_FILE_SEEK_*` values; any other value hits the existing `FATAL` in `fileSeekCallBack`.
+
+A thread-pool reactor, or a map mutex with parallel `AbstractFile` use, is not supported here. `AbstractFile` thread-safety is not shown, and the file position lives inside the mapped object.
+
+The width `static_assert`s and `OpenResult` do not create that contract. Initial `s_nextFileHandle` is not in the snippet, so the patch’s claim that handle `0` is a successful key is not an original fact. The original success signal is the nonzero return, which the adapter keeps as `callbackResult`.

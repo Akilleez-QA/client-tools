@@ -1,0 +1,43 @@
+{
+  "scope": "Artifact/raw-log inspection only; no fresh vendor or engine execution",
+  "checks": [
+    {
+      "same_as_v3": "metadata.h",
+      "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8"
+    },
+    {
+      "same_as_v3": "metadata_wire.cpp",
+      "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2"
+    },
+    {
+      "same_as_v3": "metadata_host.cpp",
+      "sha256": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90"
+    },
+    {
+      "same_as_v3": "wire_test.cpp",
+      "sha256": "1afb947e7d35d35d5ae80e796988471ebf76943003e2ce678271e8270fcb59cd"
+    },
+    {
+      "same_as_v3": "cleanup.py",
+      "sha256": "671baab0c2711059b02b13141762e94e832848e990d865dd887fcdd52243dbfc"
+    },
+    {
+      "same_as_v3": "cleanup_test.py",
+      "sha256": "64108c1b1d2bc65489bf72aeb87ceb64f6ea6b0125cd7edb434aa53518239686"
+    },
+    {
+      "set": "positive",
+      "receipt_sha256": "215e8cd3e725f5d4d6c33978ebbdb710764e4e358607ebb2f49adabf1360f47b",
+      "builds": 6,
+      "raw_result": "35/35 both configs",
+      "runtime_PE_matches_receipt": true
+    },
+    {
+      "set": "hardcoded_path_mutation",
+      "receipt_sha256": "03a12d11b54dd3c0905edf1bdc7de1f55003a64b7aa6e7a1ecd13ba1dfe62dc5",
+      "builds": 2,
+      "raw_result": "34/35 both configs",
+      "runtime_PE_matches_receipt": true
+    }
+  ]
+}

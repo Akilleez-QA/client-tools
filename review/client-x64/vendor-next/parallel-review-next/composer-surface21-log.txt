@@ -1,0 +1,67 @@
+## Coverage snapshot
+
+| Layer | API map opcodes | Implemented in supplied TUs | Notes |
+|--------|-----------------|----------------------------|--------|
+| `host_dispatch.cpp` | 61 | **38** (`supports()` == `dispatchImpl` cases) | Vendor calls compile only on **x86 + MSVC 1800**; **no** `Resolver`, transport, or session in this file |
+| `metadata_host.cpp` | 61 | **5** (10, 33, 12, 34, 53) | Separate `MilesStartup::dispatch`; needs `validate()` + frame bytes for redist |
+| **Union** | 61 | **43** | **18 opcodes** have no case in either file |
+
+**Compile-only vs runtime:** Cases in `host_dispatch.cpp` are real `::AIL_*` forwards, but every path rejects non-zero `bytes`, `text`, `resource`, or `callback` (`InvalidFields`). So wire-shaped calls that match API-MAP for buffers, filenames, or callbacks never reach vendor code through this dispatcher. Runtime also depends on a live `Resolver` (declared in `host_dispatch.h`, not implemented here) and on routing startup opcodes to `metadata_host.cpp`.
+
+**Game callers** (`Audio.cpp`, `SoundObject3d.cpp`): both paths were readable. `SoundObject3d.cpp` only calls listener 3D setters (covered by host). `Audio.cpp` uses many APIs listed below as missing or split across metadata.
+
+---
+
+## Missing implementation families
+
+| Family | API opcodes (SDK) | Game use (Audio / listener) | Gap |
+|--------|-------------------|-----------------------------|-----|
+| **Session bootstrap / teardown** | 56 `startup`, 52 `shutdown`, 14 `open_digital_driver`, 34 `set_redist_directory`* | `install()` / `remove()` | Only *redist* in metadata; **no** `startup` / `open_digital_driver` / `shutdown` handlers in supplied code |
+| **Handle factory & retirement** | 3 `allocate_sample_handle`, 18 `release_sample_handle`, 15 `open_stream`, 4 `close_stream`, 59 `stream_sample_handle` | `createSampleId`, `releaseSampleId`, `stopSample` (streams), volume/rate on streams | **None** in host/metadata; borrowed-stream path in game depends on **59** |
+| **Sample/stream binding (buffers)** | 1 `WAV_info`, 9 `file_type`, 32 `set_named_sample_file`, 39 `set_sample_file` | `getSampleInformation`, `getSampleType`, 2D/3D `startSample`, `getSampleTime` | **None**; requires buffer resource + bytes/text (blocked by host field gate even if added) |
+| **I/O callbacks** | 28 `set_file_callbacks` | `install()` after `startup` | **None**; needs four registration tokens + reverse file I/O (`FileOpen`/`Read`/… control ops, not in these TUs) |
+| **EOS / stream callbacks** | 16 `register_EOS_callback`, 17 `register_stream_callback` | Non-infinite 2D/3D/stream playback | **None**; needs `callback` field + `EndOfSample`/`EndOfStream` / `CallbackAck` path |
+| **Admission / locking** | 13 `lock`, 61 `unlock` | `Audio::alter` → `lock`/`unLock` around `startSample` | **None**; API map ties these to lane/lease headers, not vendor-only stubs |
+| **Preferences (runtime)** | 10 `get_preference`, 33 `set_preference` | `install`, `setNormalPreMixBuffer` / `setLargePreMixBuffer` | In **metadata only**; must be wired beside host dispatch |
+| **Speaker query (partial)** | 53 `speaker_configuration` | `install()` with three null outs + `&s_speakers` | Metadata implements **fixed** null,null,null,&spec pattern only |
+| **Wire buffer/session control** | `miles_wire.h` `Control::` (Buffer*, File*, Hello, …) | Implicit for buffer/file/callback opcodes | **No** handlers in supplied sources |
+
+\*Opcode 34 is implemented in metadata, not host.
+
+---
+
+## Implemented opcodes (host) vs API map — substantiated semantics issues
+
+| Issue | Where | Defect |
+|--------|--------|--------|
+| **Wire field gate** | `dispatchImpl` preamble | Any API row needing `resource` Buffer, `text` path, or `callback` token returns **`InvalidFields`** before `switch`; buffer/file/callback families cannot work through this TU as written |
+| **`AIL_sample_reverb_levels` (23)** | host case | `resolve` mask is **OwnedSample only**; API row 23 says target **Sample**; game uses **borrowed** `AIL_stream_sample_handle` for **set** reverb on streams (host **set** allows Borrowed; **get** does not) |
+| **`AIL_set_sample_3D_*` / obstruction / occlusion** | host cases | **OwnedSample** only; consistent with current game (owned HSAMPLE for 3D), but stricter than API “Sample” wording for rows 36–38, 43–44 |
+| **`AIL_speaker_configuration` (53)** | metadata case | Ignores `output_mask`; always calls vendor with `(0,0,0,&spec)` and only fills `value[3]` — matches reviewed `Audio::install` call, not full mask contract in API-MAP |
+| **`AIL_get_timer_highest_delay` (11)** | host | Returns raw `AIL_get_timer_highest_delay()` in `return_bits` (no `bits()`); API says **U32** — likely fine if type width matches |
+| **`AIL_sample_status` (24)** | host | Assigns vendor return directly to `return_bits` (no `bits()`); API **U32** — same note as above |
+| **Dual entrypoints** | host vs metadata | Opcodes **10, 12, 33, 34, 53** are **not** in `host_dispatch::supports()`; client/transport must route them to `MilesStartup::dispatch` or they surface as **Unsupported** on host |
+| **Lifecycle** | `host_dispatch.h` comment | Explicit: **no** lifecycle/admission/worker policy in host; game **`AIL_lock`/`unlock`** around batch starts still need wire opcodes **13/61** elsewhere |
+
+---
+
+## Game-critical path vs current handlers (runtime)
+
+| Phase | Representative `AIL_*` in `Audio.cpp` | Covered? |
+|--------|----------------------------------------|----------|
+| Boot | `startup`, `set_redist_directory`, `set_file_callbacks`, `get_preference`, `open_digital_driver`, `last_error`, `speaker_configuration`, `set_3D_rolloff_factor` | **Partial** (metadata + host rolloff only) |
+| Per-frame | `get_timer_highest_delay`, `digital_*`, `serve`, listener 3D (`SoundObject3d`) | **Host** (except lock/unlock) |
+| Start sound | `allocate_sample_handle`, `open_stream`, `set_named_sample_file` / `set_sample_file`, callbacks, `start_*`, `stream_sample_handle` for stream volume | **Mostly missing** except `start_*` and many setters **after** handles exist |
+| Stop / teardown | `stop_sample`, `end_sample`, `close_stream`, `release_sample_handle`, `shutdown` | **Partial** (`stop`/`end` yes; **close_stream**, **release**, **shutdown** no) |
+
+Without the **factory**, **buffer bind**, **callback**, **lock**, and **stream borrow** families, a wire client cannot reproduce `Audio::install()` → `startSample()` → `alter()`/`serve()` even though **38** “steady state” opcodes are implemented in `host_dispatch.cpp`.
+
+---
+
+## Counts
+
+- **API map:** 61 opcodes  
+- **Host `supports()`:** 38  
+- **Metadata `switch`:** 5  
+- **No handler in supplied code:** **18** (1, 3, 4, 9, 13, 14, 15, 16, 17, 18, 28, 32, 39, 52, 56, 59, 61, plus routing assumption for the 5 metadata-only ops on the host path)  
+- **Plus** full **Control** plane for buffers, files, and events (required by API-MAP for several missing opcodes)

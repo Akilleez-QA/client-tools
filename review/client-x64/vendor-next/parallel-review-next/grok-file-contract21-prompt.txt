@@ -1,0 +1,294 @@
+Read-only focused concurrency/maintainability challenge. No tools or repository discovery needed: exact original client callback source and proposed adapter are provided below as source data. Do not run or modify anything. The goal is a faithful x64 client with original32-bit Miles, but this bridge is experimental. Identify the TWO most important concrete invariants required before the adapter can be called from a reverse-IPC service, with exact code mechanism, a plausible competing explanation, and a minimal safe discriminator. Distinguish introduced defect from original assumption. Do not invent missing artifacts, universal equivalence, or hidden lock behavior. Suggest the smallest ownership/thread contract that is actually compatible with these callbacks; if no contract is established, say so. Avoid a generic20-point checklist. No executable/vendor/allocator tests. Previous long Grok job timed out without a report; answer only from suppliedsource.
+
+ORIGINAL Audio.cpp lines3938-4100:
+```cpp
+3938: //-----------------------------------------------------------------------------
+3939: U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
+3940: {
+3941: 	if (once && !Os::isMainThread())
+3942: 	{
+3943: 		once = false;
+3944: 		PerThreadData::threadInstall(false);
+3945: 	}
+3946: 
+3947: 	AbstractFile *abstractFile = TreeFile::open(fileName, AbstractFile::PriorityAudioVideo, true);
+3948: 
+3949: 	if (abstractFile != NULL)
+3950: 	{
+3951: 		*fileHandle = s_nextFileHandle;
+3952: 		s_fileMap.insert(std::make_pair(s_nextFileHandle, abstractFile));
+3953: 		++s_nextFileHandle;
+3954: 
+3955: #ifdef _DEBUG
+3956: 		ms_handleNameMap.insert(std::make_pair(*fileHandle, fileName));
+3957: #endif
+3958: 	}
+3959: 	else
+3960: 	{
+3961: 		*fileHandle = NULL;
+3962: 	}
+3963: 
+3964: 	return (abstractFile != NULL);
+3965: }
+3966: 
+3967: //-----------------------------------------------------------------------------
+3968: void __stdcall fileCloseCallBack(UINTa const fileHandle)
+3969: {
+3970: 	if (once && !Os::isMainThread())
+3971: 	{
+3972: 		once = false;
+3973: 		PerThreadData::threadInstall(false);
+3974: 	}
+3975: 
+3976: 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
+3977: 
+3978: 	if (fileMapIter != s_fileMap.end())
+3979: 	{
+3980: 		AbstractFile *abstractFile = fileMapIter->second;
+3981: 
+3982: 		// Close the file
+3983: 
+3984: 		abstractFile->close();
+3985: 
+3986: 		// Delete the file pointer
+3987: 
+3988: 		delete abstractFile;
+3989: 
+3990: 		// Remove the file from the list
+3991: 
+3992: 		s_fileMap.erase(fileMapIter);
+3993: 
+3994: #ifdef _DEBUG
+3995: 		ms_fileCloseHandleSet.insert(fileHandle);
+3996: #endif
+3997: 	}
+3998: 	else
+3999: 	{
+4000: #ifdef _DEBUG
+4001: 		determineCallbackError("close", fileHandle);
+4002: #endif
+4003: 	}
+4004: }
+4005: 
+4006: //-----------------------------------------------------------------------------
+4007: S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)
+4008: {
+4009: 	if (once && !Os::isMainThread())
+4010: 	{
+4011: 		once = false;
+4012: 		PerThreadData::threadInstall(false);
+4013: 	}
+4014: 
+4015: 	int result = 0;
+4016: 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
+4017: 
+4018: 	if (fileMapIter != s_fileMap.end())
+4019: 	{
+4020: 		AbstractFile *abstractFile = fileMapIter->second;
+4021: 
+4022: 		switch (type)
+4023: 		{
+4024: 			case AIL_FILE_SEEK_BEGIN:   // Seek relative to the beginning of the file
+4025: 				{
+4026: 					abstractFile->seek(AbstractFile::SeekBegin, static_cast<long>(offset));
+4027: 				}
+4028: 				break;
+4029: 			case AIL_FILE_SEEK_CURRENT: // Seek relative to the current position of the file
+4030: 				{
+4031: 					abstractFile->seek(AbstractFile::SeekCurrent, static_cast<long>(offset));
+4032: 				}
+4033: 				break;
+4034: 			case AIL_FILE_SEEK_END:     // Seek relative to the end of the file
+4035: 				{
+4036: 					abstractFile->seek(AbstractFile::SeekEnd, static_cast<long>(offset));
+4037: 				}
+4038: 				break;
+4039: 			default:
+4040: 				{
+4041: 					FATAL(1, ("Unkown file seek callback type: %d", type));
+4042: 				}
+4043: 				break;
+4044: 		}
+4045: 
+4046: 		// Set the current file position
+4047: 
+4048: 		result = abstractFile->tell();
+4049: 	}
+4050: 	else
+4051: 	{
+4052: #ifdef _DEBUG
+4053: 		determineCallbackError("seek", fileHandle);
+4054: #endif
+4055: 	}
+4056: 
+4057: 	// Return the new absolute position of the file pointer (relative to the beginning of the file)
+4058: 
+4059: 	return result;
+4060: }
+4061: 
+4062: //-----------------------------------------------------------------------------
+4063: U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const bytes)
+4064: {
+4065: // miles crasher hack
+4066: #if 0
+4067: 	static bool trashMiles = false;
+4068: 
+4069: 	if(trashMiles)
+4070: 	{
+4071: 		buffer = (void *)0xdeadbeef;
+4072: 	}
+4073: #endif
+4074: // end miles crasher hack
+4075: 	if (once && !Os::isMainThread())
+4076: 	{
+4077: 		once = false;
+4078: 		PerThreadData::threadInstall(false);
+4079: 	}
+4080: 
+4081: 	int bytesRead = 0;
+4082: 
+4083: 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
+4084: 
+4085: 	if (fileMapIter != s_fileMap.end())
+4086: 	{
+4087: 		AbstractFile *abstractFile = fileMapIter->second;
+4088: 
+4089: 		bytesRead = abstractFile->read(buffer, bytes);
+4090: 	}
+4091: 	else
+4092: 	{
+4093: #ifdef _DEBUG
+4094: 		determineCallbackError("read", fileHandle);
+4095: #endif
+4096: 	}
+4097: 
+4098: 	return static_cast<U32>(bytesRead);
+4099: }
+4100: 
+```
+
+PROPOSED UNAPPLIED ADAPTER PATCH:
+```diff
+--- a/src/engine/client/library/clientAudio/src/win32/Audio.cpp
++++ b/src/engine/client/library/clientAudio/src/win32/Audio.cpp
+@@ -7,6 +7,7 @@
+ 
+ #include "clientAudio/FirstClientAudio.h"
+ #include "clientAudio/Audio.h"
++#include "clientAudio/ClientAudioFileCallbacks.h"
+ 
+ #include "clientAudio/AudioSampleInformation.h"
+ #include "clientAudio/ConfigClientAudio.h"
+@@ -4099,6 +4100,49 @@
+ }
+ 
+ //-----------------------------------------------------------------------------
++// Client-local entry points for a future admitted reverse-file request. Keep
++// the original callback bodies and their single AudioNamespace file map.
++static_assert(sizeof(U32) == sizeof(uint32_t) &&
++              !std::numeric_limits<U32>::is_signed, "file U32 contract");
++static_assert(sizeof(S32) == sizeof(int32_t) &&
++              std::numeric_limits<S32>::is_signed, "file S32 contract");
++static_assert(std::numeric_limits<UINTa>::digits ==
++              std::numeric_limits<uintptr_t>::digits &&
++              !std::numeric_limits<UINTa>::is_signed, "local file handle width");
++static_assert(sizeof(int) == 4 && sizeof(long) == 4,
++              "original Windows AbstractFile seek/read widths");
++static_assert(ClientAudioFileCallbacks::SeekBegin == AIL_FILE_SEEK_BEGIN &&
++              ClientAudioFileCallbacks::SeekCurrent == AIL_FILE_SEEK_CURRENT &&
++              ClientAudioFileCallbacks::SeekEnd == AIL_FILE_SEEK_END,
++              "file seek origin values");
++
++ClientAudioFileCallbacks::OpenResult ClientAudioFileCallbacks::open(char const *fileName)
++{
++	UINTa nativeHandle = 0;
++	OpenResult result;
++	result.callbackResult = static_cast<uint32_t>(fileOpenCallBack(fileName, &nativeHandle));
++	result.handle.value = static_cast<uintptr_t>(nativeHandle);
++	return result;
++}
++
++void ClientAudioFileCallbacks::close(LocalFileHandle const handle)
++{
++	fileCloseCallBack(static_cast<UINTa>(handle.value));
++}
++
++int32_t ClientAudioFileCallbacks::seek(LocalFileHandle const handle, int32_t const offset, uint32_t const origin)
++{
++	return static_cast<int32_t>(fileSeekCallBack(static_cast<UINTa>(handle.value),
++		static_cast<S32>(offset), static_cast<U32>(origin)));
++}
++
++uint32_t ClientAudioFileCallbacks::read(LocalFileHandle const handle, void *destination, uint32_t const requestedBytes)
++{
++	return static_cast<uint32_t>(fileReadCallBack(static_cast<UINTa>(handle.value),
++		destination, static_cast<U32>(requestedBytes)));
++}
++
++//-----------------------------------------------------------------------------
+ bool Audio::isRoomTypeSupported()
+ {
+ 	return (getRoomType() != RT_notSupported);
+--- /dev/null
++++ b/src/engine/client/library/clientAudio/src/win32/ClientAudioFileCallbacks.h
+@@ -0,0 +1,50 @@
++// Experimental client-local interface. Candidate only; not a wire structure.
++#ifndef INCLUDED_ClientAudioFileCallbacks_H
++#define INCLUDED_ClientAudioFileCallbacks_H
++
++#include <stdint.h>
++
++namespace ClientAudioFileCallbacks
++{
++
++// The original Audio.cpp map key, held only in this client process. Zero is a
++// valid key. This wrapper is intentionally not convertible to bool or void *.
++struct LocalFileHandle
++{
++	uintptr_t value;
++};
++
++struct OpenResult
++{
++	uint32_t callbackResult;
++	LocalFileHandle handle; // Usable iff callbackResult != 0, even when value == 0.
++};
++
++enum SeekOrigin
++{
++	SeekBegin = 0,
++	SeekCurrent = 1,
++	SeekEnd = 2
++};
++
++// These ordinary C++ calls execute synchronously on the calling client thread.
++// The coordinator must first establish engine/TLS lifetime, compatible thread
++// context, serialization with ALL original file callbacks, and operation pins.
++// This interface neither installs threads nor schedules callbacks. It must not
++// be registered as an SDK callback table or called by an arbitrary I/O reactor.
++//
++// fileName is the original NUL-terminated byte name, live through the call.
++// Read destination is caller-owned local storage of at least requestedBytes,
++// live through the call. No native pointer or LocalFileHandle goes on the wire.
++OpenResult open(char const *fileName);
++void close(LocalFileHandle handle); // Original callback alone closes/deletes.
++int32_t seek(LocalFileHandle handle, int32_t offset, uint32_t origin);
++uint32_t read(LocalFileHandle handle, void *destination, uint32_t requestedBytes);
++
++// seek returns the original signed result. read returns the original U32 bits,
++// including the original int-to-U32 conversion; it does not clamp or normalize.
++// Validation and transport failures belong outside this direct adapter.
++
++} // namespace ClientAudioFileCallbacks
++
++#endif
+--- /dev/null
++++ b/src/engine/client/library/clientAudio/include/public/clientAudio/ClientAudioFileCallbacks.h
+@@ -0,0 +1,5 @@
++#if defined(PLATFORM_WIN32)
++#include "../../src/win32/ClientAudioFileCallbacks.h"
++#else
++#error unsupported platform
++#endif
+
+```

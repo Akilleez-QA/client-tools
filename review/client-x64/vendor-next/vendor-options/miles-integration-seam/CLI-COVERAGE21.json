@@ -1,0 +1,35 @@
+{
+  "method": "Lexical supports/dispatch/API-map comparison only; not execution or link reachability",
+  "api_map": 61,
+  "host_supports": 39,
+  "host_cases": 39,
+  "sets_equal": true,
+  "metadata_cases": 5,
+  "union": 44,
+  "outside_two_dispatch_TUs": [
+    "AIL_WAV_info",
+    "AIL_allocate_sample_handle",
+    "AIL_close_stream",
+    "AIL_file_type",
+    "AIL_lock",
+    "AIL_open_digital_driver",
+    "AIL_open_stream",
+    "AIL_register_EOS_callback",
+    "AIL_register_stream_callback",
+    "AIL_release_sample_handle",
+    "AIL_set_file_callbacks",
+    "AIL_set_named_sample_file",
+    "AIL_set_sample_file",
+    "AIL_shutdown",
+    "AIL_startup",
+    "AIL_stream_sample_handle",
+    "AIL_unlock"
+  ],
+  "sha256": {
+    "host-candidate/host_dispatch.cpp": "4810fd0dcad43c769e077f3c2ad8d3ad9ebffec426920ff6f5e0063bd4103595",
+    "startup-metadata-candidate/metadata_host.cpp": "e1257ffa2a035b1b53d36e407225409d23ddb94663f35d8ed6b0a16353389f44",
+    "startup-metadata-candidate/metadata_wire.cpp": "0d30548423bde3cf8000f02c0a828dafe5cf0fa18717740af289b8ba457dd3e5",
+    "protocol-candidate/API-MAP.md": "0cdd00ae1686f95d7b9c40c533e432a81fa3083d32e800fd52b5fc3168773b2f",
+    "live-bridge-candidate/bridge.cpp": "0be5ddce1e246e621438b8bf6800158780615850c0921600f1070a903dd9aa20"
+  }
+}

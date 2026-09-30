@@ -1,0 +1,38 @@
+{
+  "receipt_sha256": "03a12d11b54dd3c0905edf1bdc7de1f55003a64b7aa6e7a1ecd13ba1dfe62dc5",
+  "defaults_before": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "sink_name": "swg_startup_0e90631a5e",
+  "runs": [
+    {
+      "config": "Debug",
+      "returncode": 1,
+      "exe_sha256": "44f319468a07511888146048f2f6db5a4be18b5b17bed616c0a4341eba118202",
+      "exact_count": true,
+      "cleanup": true,
+      "loaded_exact": true
+    },
+    {
+      "config": "Release",
+      "returncode": 1,
+      "exe_sha256": "9e3e709c493808b81dbc57ac40f273c8d75954f9477c4e0ad7f28a7bd955e830",
+      "exact_count": true,
+      "cleanup": true,
+      "loaded_exact": true
+    }
+  ],
+  "private_inputs": {
+    "dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+  },
+  "owned_module": "536870916",
+  "cleanup_errors": [],
+  "defaults_after": {
+    "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+    "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+  },
+  "defaults_unchanged": true,
+  "source_provenance": "pinned build receipt before/after inputs; no mutable post-run source hashing"
+}

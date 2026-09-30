@@ -1,0 +1,144 @@
+{
+  "scope": "experimental startup metadata, not a client backend or complete bridge",
+  "receipt_sha256": "8c188c5531f30f6a13e2f256e42707279ce485a62b5f75f22865e0ffbf8263d9",
+  "native_wire": [
+    {
+      "arch": "x86",
+      "config": "Debug",
+      "exit_code": 0,
+      "checks": 39
+    },
+    {
+      "arch": "amd64",
+      "config": "Debug",
+      "exit_code": 0,
+      "checks": 39
+    },
+    {
+      "arch": "x86",
+      "config": "Release",
+      "exit_code": 0,
+      "checks": 39
+    },
+    {
+      "arch": "amd64",
+      "config": "Release",
+      "exit_code": 0,
+      "checks": 39
+    }
+  ],
+  "genuine_positive": {
+    "receipt_sha256": "8c188c5531f30f6a13e2f256e42707279ce485a62b5f75f22865e0ffbf8263d9",
+    "defaults_before": {
+      "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+      "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+    },
+    "sink_name": "swg_startup_898d14cdeb",
+    "runs": [
+      {
+        "config": "Debug",
+        "returncode": 0,
+        "exe_sha256": "bf9fbb4b436022baa5fad3378784cbdf0841aa63e284d6dabed8a970cbf18385",
+        "exact_count": true,
+        "cleanup": true,
+        "loaded_exact": true
+      },
+      {
+        "config": "Release",
+        "returncode": 0,
+        "exe_sha256": "086130a8ef54f38c97389c4b95a8a7a680e06112cfdc64015fe1ed30be3df9a9",
+        "exact_count": true,
+        "cleanup": true,
+        "loaded_exact": true
+      }
+    ],
+    "private_inputs": {
+      "dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+      "wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+    },
+    "owned_module": "536870916",
+    "cleanup_errors": [],
+    "defaults_after": {
+      "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+      "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+    },
+    "defaults_unchanged": true,
+    "source_provenance": "pinned build receipt before/after inputs; no mutable post-run source hashing"
+  },
+  "wrong_path_mutation": {
+    "receipt_sha256": "90801dc2e5c09723119953f3b024309df258590c278685734a1d5b8befeee768",
+    "defaults_before": {
+      "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+      "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+    },
+    "sink_name": "swg_startup_000e35ebf1",
+    "runs": [
+      {
+        "config": "Debug",
+        "returncode": 1,
+        "exe_sha256": "6b1f3f312cc5cbacdbfdb310773c795068174f57b44148ab35ebbac0d1fc130d",
+        "exact_count": true,
+        "cleanup": true,
+        "loaded_exact": true
+      },
+      {
+        "config": "Release",
+        "returncode": 1,
+        "exe_sha256": "89b204c7f3e85d2e7a0f056d794e8a27546901adce2248c16d259320c72b5e95",
+        "exact_count": true,
+        "cleanup": true,
+        "loaded_exact": true
+      }
+    ],
+    "private_inputs": {
+      "dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+      "wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+    },
+    "owned_module": "536870916",
+    "cleanup_errors": [],
+    "defaults_after": {
+      "sink": "alsa_output.pci-0000_01_00.1.hdmi-stereo",
+      "source": "alsa_output.pci-0000_01_00.1.hdmi-stereo.monitor"
+    },
+    "defaults_unchanged": true,
+    "source_provenance": "pinned build receipt before/after inputs; no mutable post-run source hashing"
+  },
+  "python_controls": [
+    {
+      "command": [
+        "python",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/startup-metadata-v3/cleanup_test.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-O",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/startup-metadata-v3/run-private.py"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Optimized Python is prohibited before any runtime activity\n"
+    },
+    {
+      "command": [
+        "python",
+        "-O",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/startup-metadata-v3/run-mutation.py"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Optimized Python is prohibited before any runtime activity\n"
+    }
+  ],
+  "limits": [
+    "same-vendor Wine return-text oracle",
+    "no playback, callbacks, engine or production integration",
+    "no arbitrary directory-length SDK acceptance",
+    "retained logical bytes bounded, allocator capacity/RSS not measured",
+    "cleanup call banner proves call flow, not complete SDK resource destruction"
+  ]
+}

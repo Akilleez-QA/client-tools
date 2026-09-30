@@ -1,0 +1,59 @@
+{
+  "native": [
+    {
+      "arch": "x86",
+      "config": "Debug",
+      "exit_code": 0,
+      "run_exit": 0,
+      "output": {
+        "machine": 332,
+        "path": "C:\\startup-retention-supplement\\build\\x86-Debug-wire\\test.exe",
+        "sha256": "ad1001a03a69eee6c6e0bd3dee62755aa73e980cbf1dbf48e8bc31823b53f5eb"
+      },
+      "inputs_unchanged": true
+    },
+    {
+      "arch": "amd64",
+      "config": "Debug",
+      "exit_code": 0,
+      "run_exit": 0,
+      "output": {
+        "machine": 34404,
+        "path": "C:\\startup-retention-supplement\\build\\amd64-Debug-wire\\test.exe",
+        "sha256": "0546f4d16ef312d26e2147caba936028b228a94259c7b33c6841f45fdea5fef2"
+      },
+      "inputs_unchanged": true
+    },
+    {
+      "arch": "x86",
+      "config": "Release",
+      "exit_code": 0,
+      "run_exit": 0,
+      "output": {
+        "machine": 332,
+        "path": "C:\\startup-retention-supplement\\build\\x86-Release-wire\\test.exe",
+        "sha256": "59ee6a5d9e1ec56d41b6a759fe3d53fc539b8b13f70ee124d944428c81568d47"
+      },
+      "inputs_unchanged": true
+    },
+    {
+      "arch": "amd64",
+      "config": "Release",
+      "exit_code": 0,
+      "run_exit": 0,
+      "output": {
+        "machine": 34404,
+        "path": "C:\\startup-retention-supplement\\build\\amd64-Release-wire\\test.exe",
+        "sha256": "0ae72e19fa134d3f334d4dc102fbb9204df7c8d9ae08f7505eee658b3e2f0e5e"
+      },
+      "inputs_unchanged": true
+    }
+  ],
+  "native_receipt_sha256": "cdcb86d4920241202bb8ff1e448d3841f6c88265b3f0b90fa41fd1d754ea6ba4",
+  "host_sanitizers": {
+    "command": "g++ -std=c++11 -Wall -Wextra -Werror -fsanitize=address,undefined retention_test.cpp ../startup-metadata-v4/metadata_wire.cpp",
+    "exit_code": 0,
+    "stdout": "15/15 supplemental retention checks",
+    "scope": "host pure test, no vendor"
+  }
+}

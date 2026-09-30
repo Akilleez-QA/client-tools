@@ -1,0 +1,1 @@
+Native Python embedded runtime did not put the script directory on sys.path. The first attempt stopped at import receipt with ModuleNotFoundError before discovery or compilation. Entry points now explicitly add their own tools directory; no compile outputs existed for that attempt.

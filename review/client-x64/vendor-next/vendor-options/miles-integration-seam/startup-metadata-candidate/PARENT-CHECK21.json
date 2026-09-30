@@ -1,0 +1,37 @@
+{
+  "record_review": [
+    {
+      "packet": "evidence-v2",
+      "pin": "d7826e5c760214ebe251bd000b3b561ba610b21cf8780092e92bfeac7d45b016",
+      "build_records_checked": 6,
+      "runtime_records": 2,
+      "recorded_outcome": "pass"
+    },
+    {
+      "packet": "evidence-mutation-v1",
+      "pin": "1dc1db6fcdc560b17e38331c35d73c5a83a6c174c25fafc616219a34e95528ba",
+      "build_records_checked": 2,
+      "runtime_records": 2,
+      "recorded_outcome": "mutation failed as predicted"
+    }
+  ],
+  "fresh_pure_portable": {
+    "command": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/startup-metadata-candidate/wire_test.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/startup-metadata-candidate/metadata_wire.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp",
+      "-o",
+      "/tmp/metadata-parent21-fnqk0hqo/wire"
+    ],
+    "build_exit": 0,
+    "run_exit": 0,
+    "stdout": "30/30 metadata wire checks\n"
+  },
+  "first_parent_attempt": "Stopped before candidate execution: pathlib.PosixPath did not split Windows receipt paths. Used PureWindowsPath for recorded names. No source or expected outcome changed.",
+  "limits": "Parent reran only portable no-vendor program. Native/Wine observations assessed from pinned records, not freshly reproduced; reviewer findings remain open until v3."
+}

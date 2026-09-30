@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "case": "Debug-Win32-baseline",
+      "machine": "0x14c",
+      "source_sha256": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+      "headers": 370,
+      "exit_code": 0
+    },
+    {
+      "case": "Debug-Win32-candidate",
+      "machine": "0x14c",
+      "source_sha256": "e99b66dffd1224766b46d3ba7d64a9cc2a13b4595e7c28271322764c3bdb7563",
+      "headers": 372,
+      "exit_code": 0
+    },
+    {
+      "case": "Debug-x64-baseline",
+      "machine": "0x8664",
+      "source_sha256": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+      "headers": 370,
+      "exit_code": 0
+    },
+    {
+      "case": "Debug-x64-candidate",
+      "machine": "0x8664",
+      "source_sha256": "e99b66dffd1224766b46d3ba7d64a9cc2a13b4595e7c28271322764c3bdb7563",
+      "headers": 372,
+      "exit_code": 0
+    },
+    {
+      "case": "Release-Win32-baseline",
+      "machine": "0x14c",
+      "source_sha256": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+      "headers": 370,
+      "exit_code": 0
+    },
+    {
+      "case": "Release-Win32-candidate",
+      "machine": "0x14c",
+      "source_sha256": "e99b66dffd1224766b46d3ba7d64a9cc2a13b4595e7c28271322764c3bdb7563",
+      "headers": 372,
+      "exit_code": 0
+    },
+    {
+      "case": "Release-x64-baseline",
+      "machine": "0x8664",
+      "source_sha256": "c729174ada8104331702422879ecbfa4986a6c4bba49bc3d763ab62a2e401406",
+      "headers": 370,
+      "exit_code": 0
+    },
+    {
+      "case": "Release-x64-candidate",
+      "machine": "0x8664",
+      "source_sha256": "e99b66dffd1224766b46d3ba7d64a9cc2a13b4595e7c28271322764c3bdb7563",
+      "headers": 372,
+      "exit_code": 0
+    }
+  ],
+  "limits": "Parent checked native compile records and include manifests; did not run callbacks, link objects or reproduce native compilation. Patch is still unapplied to product."
+}
