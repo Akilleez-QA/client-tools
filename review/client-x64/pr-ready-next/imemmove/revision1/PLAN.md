@@ -1,0 +1,9 @@
+# imemmove qualification precommit
+
+Existing context establishes the goal: qualify the four-file prerequisite without altering production. Inspect the caller count/type boundary, execute only small valid buffers through the actual foundation header, preserve Win32 behavior, and discriminate the previous x64 overload problem by compile-only baseline. No nulls, negative lengths, faults, stubs, hidden header guards or engine initialization substitutes.
+
+Research 2026-09-30: Microsoft CRT memmove documentation (https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/memmove-wmemmove?view=msvc-170) establishes size_t and overlap behavior; Microsoft function-overloading and standard-conversions documentation establishes conversion/ambiguity rules, not a promise about v120. Native v120 compilation is the discriminator.
+
+Twenty distinct paths considered: caller census; helper type binding; CRT size_t binding; ptrdiff_t compile; forward overlap; backward overlap; disjoint copy; exact self-copy; zero-length valid pointers; return-pointer identity; whole-buffer oracle; stock Win32 runtime; stock x64 compile negative; Debug object compile; genuine Debug engine link; actual TCPQueue TU; actual Iff TU; actual Md5 TU; native full-client build; defer pending missing dependencies. Selected bounded header runtime/compile, census and feasible actual-TU checks; full engine runtime and invalid-input behavior are excluded.
+
+Prospective: candidate header builds on both ABIs; valid Release cases equal a snapshot-copy oracle and preserve return destination. Stock Win32 same calls/bytes pass; stock x64 compile fails overload selection before runtime. Debug object compile may pass while runtime needs real Fatal/engine dependencies; do not fake them. All failures nonzero, fresh output, immutable inputs/logs/hashes. Parent's subsequent independent review is the critic; no duplicate worker is spawned for this bounded lane.

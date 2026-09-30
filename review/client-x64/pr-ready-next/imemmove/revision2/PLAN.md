@@ -1,0 +1,5 @@
+# Expected-diagnostic gate precommit
+
+The prior native ambiguity observations are retained; the runner classifier was too permissive. Narrow only tooling: parse each MSVC error record, require exactly the real Misc.h delegation line and probe ptrdiff_t line to report C2668 naming memmove, and reject any other error or unparsed error record. Normalize Windows path spelling and relative components; do not accept another file with the same basename. Derive unique expected line anchors from the actual input files.
+
+Safe parser tests will cover expected records, missing records, unrelated C2668 with incidental memmove, mixed expected/unrelated errors, wrong location/line/function/code, unparsed fatal/link errors and a success exit with errors. No malformed program or provider execution is needed for these controls. Then rerun the unchanged eight native outcomes using the new runner and genuine frozen inputs in a private output directory. Scope remains valid buffers, Release runtime, Debug compile only, supplemental caller metadata unchanged. No production modifications or commit/push.

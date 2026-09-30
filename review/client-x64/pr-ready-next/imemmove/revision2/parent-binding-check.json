@@ -1,0 +1,54 @@
+{
+  "runner_sha256": "a617ca35eb6ee0eb08b73853c2ac79de97e1c49f88631a306861fddad7dc01e3",
+  "checks": "8 result identities and declared outcomes; both actual baseline error logs reclassified using the final parser",
+  "records": [
+    {
+      "result": "results/baseline-32-Debug/results.json",
+      "build_exit": 0,
+      "checks": null,
+      "expected_failure": false
+    },
+    {
+      "result": "results/baseline-32-Release/results.json",
+      "build_exit": 0,
+      "checks": 30,
+      "expected_failure": false
+    },
+    {
+      "result": "results/baseline-64-Debug/results.json",
+      "build_exit": 2,
+      "checks": null,
+      "expected_failure": true
+    },
+    {
+      "result": "results/baseline-64-Release/results.json",
+      "build_exit": 2,
+      "checks": null,
+      "expected_failure": true
+    },
+    {
+      "result": "results/candidate-32-Debug/results.json",
+      "build_exit": 0,
+      "checks": null,
+      "expected_failure": false
+    },
+    {
+      "result": "results/candidate-32-Release/results.json",
+      "build_exit": 0,
+      "checks": 30,
+      "expected_failure": false
+    },
+    {
+      "result": "results/candidate-64-Debug/results.json",
+      "build_exit": 0,
+      "checks": null,
+      "expected_failure": false
+    },
+    {
+      "result": "results/candidate-64-Release/results.json",
+      "build_exit": 0,
+      "checks": 30,
+      "expected_failure": false
+    }
+  ]
+}

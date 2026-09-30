@@ -9,9 +9,9 @@ Two fresh Astra agents received no conversation history or peer reports: one act
 | ByteOrder intrinsics | 26 added lines / 1 file | `110c7b4ba` | imemmove prerequisite |
 | Socket/IOCP widths | +9/−6 / 5 files | `23849687c` | imemmove prerequisite |
 | PCRE capture count | +1/−2 / 1 file | `1df8947d7` | master 94945103 |
-| imemmove prerequisite | +7/−7 / 4 files | `9eadbbbeb` | separate validation/review in progress |
+| imemmove prerequisite | +7/−7 / 4 files | `3b00af629` | master 94945103; reviewed separately |
 
-Test tools are separate from those production counts: 163, 363 and 172 lines respectively. No media bridge or build-configuration work is mixed into these three candidates. Exact bases, full hashes and compare links are in [candidates-v2.json](candidates-v2.json).
+Test tools are separate from those production counts: 163, 363 and 172 lines for the first three candidates, plus 176 for imemmove. No media bridge or build-configuration work is mixed into these three candidates. Exact bases, full hashes and compare links are in [candidates-v2.json](candidates-v2.json).
 
 ## What changed after the blind reviews
 
@@ -23,6 +23,8 @@ Test tools are separate from those production counts: 163, 363 and 172 lines res
 
 [Initial maintainer review](reviews/maintainer-round1.md) and [initial senior review](reviews/senior-round1.md) are preserved unchanged. Follow-up reports live beside them. Current maintainer ratings: ByteOrder 9.5 engineering/9 readiness, network 9.5/9.5, PCRE 9/9. Senior follow-up ratings: ByteOrder 9.5/9, network 9.3/9, PCRE 9.5/9. See the [review comparison](reviews/SUMMARY.md). Ratings are not merge approvals or a claim of perfection.
 
-Final head metadata now distinguishes the tested production commits from later commits containing byte-identical test tools. The imemmove prerequisite must receive its own review; passing dependent function/TU tests does not approve its other callers. Final upstream target/approval and full x64 client acceptance remain separate. No new PR, reviewer request, comment or upstream mutation has been made.
+Final head metadata now distinguishes the tested production commits from later commits containing byte-identical test tools. The imemmove prerequisite received its own two fresh blind reviews. Both scored it 9/8.5 initially, identified the expected-error classifier weakness, and raised engineering/readiness to 9.5/9.5 after the strict parser, 14 safe controls and fresh eight-case native matrix. These are separate dependency reviews; passing dependent function/TU tests alone did not approve its other callers. Final upstream target/approval and full x64 client acceptance remain separate. No new PR, reviewer request, comment or upstream mutation has been made.
 
-Use [ByteOrder PR draft](byteorder/PR-v2.md), [network PR draft](socket-widths/revision2/PR-v2.md) and [PCRE PR draft](pcre-count/revision2/PR-v2.md). Evidence is versioned; failed attempts remain visible. Raw evidence is a supplement to the small source/test diffs, not extra code proposed for the product.
+The four narrow production patches total 58 changed lines; the 874 test/tool lines are counted separately. This is a focused batch, not the complete x64 migration.
+
+Use [imemmove PR draft](imemmove/revision2/PR-v2.md), [ByteOrder PR draft](byteorder/PR-v2.md), [network PR draft](socket-widths/revision2/PR-v2.md) and [PCRE PR draft](pcre-count/revision2/PR-v2.md). Evidence is versioned; failed attempts remain visible. Raw evidence is a supplement to the small source/test diffs, not extra code proposed for the product.

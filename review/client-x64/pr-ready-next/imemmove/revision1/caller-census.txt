@@ -1,0 +1,10 @@
+src/engine/client/application/DebugWindow/src/win32/debugWindow.cpp:370:		memmove(text, text + width, width * (height - 1));
+src/engine/client/application/UiBuilder/ImportImageDialog.cpp:701:			memmove( RelPath, RelPath + 2, strlen( RelPath + 2 ) + 1 );
+src/engine/client/library/clientDirectInput/src/win32/DirectInput.cpp:1152:		memmove(m_eventData+inserts, m_eventData, m_eventCount*sizeof(*m_eventData));
+src/engine/client/library/clientGame/src/shared/HTTPpost/TCPQueue.cpp:138:            imemmove( vecptr->Buffer, vecptr->Buffer + copylen, vecptr->Size );
+src/engine/client/library/clientGame/src/shared/HTTPpost/TCPQueue.cpp:213:            imemmove( vecptr->Buffer + copylen, vecptr->Buffer, vecptr->Size );
+src/engine/shared/library/sharedFile/src/shared/Iff.cpp:621:		imemmove(data+offset+size, data+offset, lengthToEnd);
+src/engine/shared/library/sharedFile/src/shared/Iff.cpp:623:		imemmove(data+offset, data+offset-size, lengthToEnd+size);
+src/engine/shared/library/sharedFoundation/src/shared/Md5.cpp:119:			imemmove(m_buffer + m_bufferedBytes, byteData, bytesToCopy);
+src/engine/shared/library/sharedFoundation/src/shared/Misc.h:229:inline void *imemmove(void *destination, const void *source, int length)
+src/engine/shared/library/sharedFoundation/src/shared/Misc.h:233:	return memmove(destination, source, static_cast<size_t>(length));

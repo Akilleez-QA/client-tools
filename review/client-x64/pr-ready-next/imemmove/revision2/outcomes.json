@@ -1,0 +1,50 @@
+[
+  {
+    "case": "baseline-32-Debug",
+    "build_exit": 0,
+    "runtime_checks": null,
+    "expected_ambiguity": false
+  },
+  {
+    "case": "baseline-32-Release",
+    "build_exit": 0,
+    "runtime_checks": 30,
+    "expected_ambiguity": false
+  },
+  {
+    "case": "baseline-64-Debug",
+    "build_exit": 2,
+    "runtime_checks": null,
+    "expected_ambiguity": true
+  },
+  {
+    "case": "baseline-64-Release",
+    "build_exit": 2,
+    "runtime_checks": null,
+    "expected_ambiguity": true
+  },
+  {
+    "case": "candidate-32-Debug",
+    "build_exit": 0,
+    "runtime_checks": null,
+    "expected_ambiguity": false
+  },
+  {
+    "case": "candidate-32-Release",
+    "build_exit": 0,
+    "runtime_checks": 30,
+    "expected_ambiguity": false
+  },
+  {
+    "case": "candidate-64-Debug",
+    "build_exit": 0,
+    "runtime_checks": null,
+    "expected_ambiguity": false
+  },
+  {
+    "case": "candidate-64-Release",
+    "build_exit": 0,
+    "runtime_checks": 30,
+    "expected_ambiguity": false
+  }
+]
