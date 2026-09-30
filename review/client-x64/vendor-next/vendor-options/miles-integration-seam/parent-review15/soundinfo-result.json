@@ -1,0 +1,21 @@
+{
+  "command": [
+    "g++",
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/sound-info-codec.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/sound-info-tests.cpp",
+    "-o",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review15/soundinfo93"
+  ],
+  "run_exit": 0,
+  "output": "93/93 sound-info checks passed\n",
+  "inputs": {
+    "sound-info-codec.cpp": "39c08092a658627a2069066906e2a795708c4ea51e49f0c897936beec11e44c2",
+    "sound-info-tests.cpp": "397e7e33fb1d24dd6ab1d2454e41cb65330602cadbf185e28fe976bfbe046aad"
+  }
+}

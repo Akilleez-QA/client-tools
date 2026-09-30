@@ -2,9 +2,15 @@
 
 ## Current verified checkpoint
 
-Code head: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. [Actual four-configuration product build](../../allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md): Win32 Release/Debug zero errors; x64 Release/Debug final link fails only on60/61 Miles imports. No x64 executable launch or gameplay acceptance. [Real-engine audio baseline](miles-engine-fixture/RESULTS.md) plays/releases two samples but **fails teardown**. The original-Miles helper is still experimental, not an adopted production backend.
+Code head: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. [Actual four-configuration product build](../allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md): Win32 Release/Debug zero errors; x64 Release/Debug final link fails only on60/61 Miles imports. No x64 executable launch or gameplay acceptance. [Real-engine audio baseline](miles-engine-fixture/RESULTS.md) plays/releases two samples but **fails teardown**. The original-Miles helper is still experimental, not an adopted production backend.
 
 The sections below retain the chronological record; statements marked pending describe the named earlier snapshot and are superseded by later results.
+
+## Media design and component checkpoint
+
+The [architecture proposal](miles-integration-seam/ARCHITECTURE.md) now specifies one MediaSession authority, x64 game policy, original Miles/Bink in the x86 host, causal reverse I/O, unsolicited callbacks and explicit resource/shutdown rules. It is a design under review, not a production backend selection. The independent [Astra opening](../blind-astra-miles14/ASTRA-BLIND-REVIEW.md) and later architecture critique are preserved.
+
+New component evidence: codec/parent registry449perconfiguration; retained byte ownership41perconfiguration; WAV metadata92Win32/93x64 and one real original-DLL validWAV roundtrip. Parent sanitizer reproductions pass449/41. Host scalar subset remains39actual SDK imports with28 rejection-only preflight cases; session lifecycle14preflight cases nevercallvendor. No complete adapter is linked into the game. Native startup-only measurement finds preference18=0/44=1 and preserved selectedx87precision in three fresh processes; not a callback/device/gameplay proof.
 
 ## Initial checkpoint (historical)
 

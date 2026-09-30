@@ -1,0 +1,95 @@
+# Blind opening review — original Miles in an x86 helper
+
+Date: 2026-09-30. Reviewer: independent Astra subagent, one bounded source pass.
+
+**Decision:** Keep the route as a conditional candidate, not an adopted architecture or a completed x64 audio implementation. Keeping the original vendor implementation is a credible way to preserve decoding and mixing behavior without an available x64 SDK. The difficult discriminator is whether the original clientAudio policy, virtual-file callbacks, callback timing, and locking can survive a process boundary. The frozen probes do not yet answer that question. A Miles-only completion also cannot complete the client: Bink consumes the Miles driver directly, and Vivox is dynamically loaded.
+
+## Scope and provenance
+
+I was given the objective, SDK constraint, candidate strategy, source selection, immutable commit, and evidence paths. I did not read other reviewers' conclusions, RESULTS/PLAN/DECISIONS documents, or parent conversation history, and did not consult other agents. This is independent reasoning over a shared evidence family, not independent evidence collection or a fully unprimed architecture exercise.
+
+Source root **S** is `/home/akilleez/Work/swg-source/client-build-next`, verified HEAD `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. Frozen root **F** is `/home/akilleez/Work/client-wire-validation/blind-astra-miles14/input/vendor-options`. All 12 files matched the SHA-256 values in `/home/akilleez/Work/client-wire-validation/blind-astra-miles14/input-manifest.json`. Build evidence root **L** is `/home/akilleez/Work/client-wire-validation/allocator-next/integration-current-v2/current-head-v2-complete`; its `source-verified.json` records that HEAD and 20,552 checked tracked files. References below use these absolute-root aliases and exact source/log line numbers; ranges identify supporting passages.
+
+For brevity **Audio** means `S/src/engine/client/library/clientAudio/src/win32/Audio.cpp`; **Sound2d** is its neighboring `Sound2d.cpp`; **Host** is `F/miles-integration-seam/host-candidate/host_dispatch.cpp`; **Registry** is `F/miles-integration-seam/transport-candidate/resource_registry.h`; **Wire** is `F/miles-integration-seam/protocol-candidate/miles_wire.h`; **Live** is `F/miles-generation-live/probe.cpp`.
+
+Only source/log inspection and manifest hashing were performed. No product/probe binaries were executed, no fault was reproduced, no product sources or environment settings were changed, and no agents were spawned. This memo is the only authored output. Raw logs are observations of earlier runs, not new measurements by this reviewer.
+
+## What the evidence establishes
+
+- The codec explicitly serializes fields rather than transmitting native padding. Its call/result span validation requires contiguous, bounded payloads (`transport-candidate/codec.cpp:75–103,111–205`). That is a useful primitive. It is not an IPC scheduler, callback bridge, or session manager.
+- Registry resolution checks kind, generation, slot, and live state; exhausted generations become unusable rather than wrapping (`Registry:58–87`). Parent ownership, quiescence, and session binding are expressly caller responsibilities (`12–13`). Those omissions are documented scope, not a newly demonstrated registry defect.
+- Host forwards 39 scalar opcodes, using the original x86 ABI and v120 (`Host:4–5,14–54`). Its public contract explicitly assumes an initialized session and admitted lane/lock lease and disclaims lifecycle/worker policy (`host_dispatch.h:13–14`). These are compile-targeted components, not evidence of a running production adapter. The frozen packet contains no candidate compile receipt, so I do not independently certify even compilation of these exact files.
+- The live generation probe uses its own 24-byte request/40-byte reply protocol (`Live:8–11`), its own global one-slot generation check (`30–42`), and its own dispatch. It does **not** exercise the frozen codec, registry, or Host. Controlled sample log `423–424` reports one EOS, two creates/releases, 69 replies, and `oracle=1`; mutant log `423–424` reports one additional vendor/status call and `oracle=0`. This is valuable evidence that this narrow stale-generation oracle can detect its deliberately bypassed check. It is not a production-candidate end-to-end result.
+- Current full product logs record Win32 Debug and Release success (`L/Win32-Debug.log:935,969`; `Win32-Release.log:1219,1291`). x64 Release still fails with 60 unresolved externals (`x64-Release.log:1271 onward,1520`); Debug with 61 (`x64-Debug.log:37444`). A successful x64 compile/link of much of the tree is substantial progress but is not a runnable x64 client.
+
+## Findings and gates
+
+### 1. High — Bink and Miles share a native driver, so the proposed seam is not audio-isolated
+
+**Observed:** `S/src/game/client/application/SwgClient/src/win32/ClientMain.cpp:314` calls `VideoList::install(Audio::getMilesDigitalDriver())`. `S/src/engine/client/library/clientGraphics/src/shared/VideoList.cpp:61–63` forwards it into Bink. `.../src/Bink/BinkVideo.cpp:55,100–117` loads `binkw32.dll`, installs memory callbacks, and passes that driver to `BinkSoundUseMiles`. `BinkDLL.cpp:139,181–182` dynamically loads the module and binds decorated vendor functions. The video object directly reads vendor-owned fields such as Width, Height and FrameNum (`BinkVideo.cpp:442,449,470,502–504`), uses TreeFile IO (`26,370–375`), and copies pixels into graphics buffers (`605,645`).
+
+**Inference/scope:** A client-side token for a remote Miles driver cannot serve as a real same-address-space driver for original Bink. Completing Miles exports alone leaves this integration unresolved. Co-hosting original Bink and Miles is an attractive preservation hypothesis, but adds frame transfer, metadata snapshots, file IO, graphics-device lifecycle and A/V synchronization. Choosing a different Bink audio backend would also be a behavior change requiring evidence; it must not silently replace the existing path. No crash or audiovisual regression from a finished bridge is claimed.
+
+**Disconfirming test:** Demonstrate an x64 graphics-side Bink adapter and x86 vendor-side Bink+Miles using the original driver, playing a representative in-tree cutscene with original file callbacks, correct frames/audio, seek/skip/close, and device loss/restoration. Show driver identity resolves within the host and no wire token is passed to vendor code as a pointer. First confirm the reachable product call path in the target configuration; the cited startup path currently supplies it.
+
+### 2. High — callback delivery and lock ownership are the principal unresolved preservation contract
+
+**Observed:** Audio installs four virtual-file callbacks (`Audio:1293`), whose implementation accesses TreeFile, AbstractFile, a file map, and per-thread setup (`3939–4098`). EOS callbacks change sample state and call `sound->endOfSample()` (`4730–4785`). `Sound2d:849–873` expressly defers release until the next alter, increments loop state, invokes the game callback, and resets timers. Audio locks across a batch of starts (`2320–2337`). Its serve calls are conditional and throttled (`4943–4958`). Host excludes callback registration, file callbacks, lock/unlock, and lifecycle; its interface disclaims the admission/thread implementation.
+
+The live callback only records an event (`Live:23–26`); delivery is synthesized after a subsequent request (`48`). In `controlled-sample.log:34,300`, host main thread is 336 while EOS occurs on 356 with `active_id=0`. The next request carries that event (`23`). The direct control also delays external event reporting by the same execute helper (`Live:48,53`), so equality of those printed replies cannot establish equivalence to an actual game's immediate callback execution.
+
+**Inference/scope:** A synchronous client call can provoke a reverse file operation; a vendor worker can independently deliver EOS. A simplistic single blocking RPC loop could deadlock or change which alter iteration sees completion. A queue drained only on serve could also delay progress when serve is suppressed. These are architectural risks, not demonstrated bugs in an implementation that does not exist. Blindly permitting every nested call would also violate the source's callback restriction. Exact policy must follow reachable caller behavior and vendor constraints.
+
+**Disconfirming test:** Run unchanged clientAudio/Sound2d policy in x64 through a real bidirectional transport, with a TreeFile-backed stream and an owned sample starting under the original lock batch. Trace callback origin, dispatch lane, lock lease, request/causal IDs, engine callback thread, and alter epoch. Exercise file callbacks during an outstanding request, asynchronous EOS with no request outstanding, stop/close near EOS, and stale callback registration after handle reuse. Require progress and the original state-transition ordering without moving game policy into x86 or adding fabricated success returns. Compare with a clean original x86 engine baseline, not only the probe's own deferred-event control.
+
+### 3. High integration gate — supported sample operations reject the stream-owned sample kind required by the game
+
+**Observed:** Wire distinguishes OwnedSample from BorrowedSample (`11`). Host admits only OwnedSample for volume/reverb get/set and playback-rate get/set (`129–134,157–169,241–253,269–274`). The game passes `AIL_stream_sample_handle(stream)` into exactly these operations (`Audio:3211–3212,3260,3305,3334`). Host does not implement `AIL_stream_sample_handle` at all (`14–54`). Registry explicitly delegates borrowed-parent lifetime enforcement (`12–13`).
+
+**Inference/scope:** Straight composition of these components under their stated kind contract will reject those reachable stream operations. This is a precise future integration incompatibility, not a confirmed regression in a deployed adapter or a complaint that the scalar prototype failed to deliver advertised lifecycle functionality. Relabeling a borrowed sample as owned to bypass it would destroy the intended ownership distinction.
+
+**Disconfirming test:** Supply an actual stream-owned sample token to each required supported operation through a resolver that enforces the allowed mask. Prove these operations work while the stream is live, repeated queries preserve identity where required, close invalidates every borrowed token, and neither ordinary sample release nor stale tokens free/access the stream-owned resource. Admit borrowed samples only for APIs whose vendor/caller contract permits them.
+
+### 4. High evidence gate — the engine baseline does not establish clean lifecycle acceptance
+
+**Observed:** `F/miles-engine-fixture/probe.cpp:16–17` restricts the fixture to original Win32/v120. At `32–35` it plays two short samples, checks two completions and released state, then removes foundation before printing `REMOVED`. `run-v3/engine-baseline-1.log:33–34,54–55,114` records expected callbacks, sample progression, and `SUMMARY eos=2 released=1 sounds=0`. But `115–119` then records removal and access violation `c0000005`, with no `REMOVED` line.
+
+**Inference/scope:** Playback-state evidence remains useful; successful normal process shutdown has not been shown by this log. No allocator root cause is established here. It cannot validate an x64 bridge because it is a direct Win32 fixture. This is a baseline/evidence limitation, not proof that the process-boundary route caused a fault.
+
+**Disconfirming test:** Outside this review's no-execution constraint, produce a source-identified baseline with normal setup, expected state transitions, completed teardown and successful exit; explain any prerequisite baseline fix using source evidence. Then run the same engine-level fixture through the candidate. Do not hide the exception or skip teardown to obtain a green receipt.
+
+### 5. High integration gate — data ownership and session lifetime remain caller obligations
+
+**Observed:** Audio passes cached sample bytes into vendor setup (`2836,2925`), and buffered playback passes caller buffers (`5338,5358`). Wire describes chunked resources, seal and deferred retirement (`25–26`) but neither Host nor codec implements this resource lifecycle. Host rejects payload and secondary resource fields (`57`). Registry stores bare local pointers and explicitly does not free vendor memory (`12–18`); tokens contain no session identity (`Wire:12`). The codec carries lane, request and lock lease values but only performs envelope validation (`codec.cpp:48–73,135–158`).
+
+**Inference/scope:** Correct serialization does not establish the lifetime of data Miles retains, release order versus EOS, rejection of tokens from an old host session, or support for asset sizes above the per-frame limit. These are promised integration responsibilities, not evidence of current UAF, security exploit, or oversized-asset failure. Error-string lifetime, pointer-bearing outputs and preference widths also need caller-specific marshaling rather than automatic pointer casts.
+
+**Disconfirming test:** Attach one immutable transferred buffer to multiple live samples, release the client cache while playback remains active according to the original ownership contract, then close users in different orders. Verify retained bytes and exact release order. Include multi-frame assets, interrupted upload, reconnect with recycled slot/generation, and late EOS after session close. Show old-session traffic cannot resolve into a new session's resources.
+
+### 6. High completion gate — Miles link closure cannot stand in for full-client runtime closure
+
+**Observed:** The x64 failures cited above currently expose Miles. Separately `S/src/external/3rd/library/vivoxSharedWrapper/Vivox.cpp:209–234` dynamically loads `vivoxsdk.dll`, resolves functions at runtime and returns failure when loading fails. Bink is also dynamically bound. Such requirements need not appear as unresolved product link symbols.
+
+**Inference/scope:** Fixing the 60/61 unresolved symbols is a necessary product milestone, not evidence that videos, voice, or even a complete launch work. The absence of licensed x64 vendor SDKs is given task context; I have not audited installed binaries or licensing. Backend/service availability for voice is also unmeasured. No conclusion that voice must be removed is warranted.
+
+**Disconfirming test:** Complete a runtime dependency inventory from reachable dynamic loads, then demonstrate every required subsystem in the actual x64 process arrangement: videos and their audio, voice initialization and required service interactions, failure handling, and clean shutdown. Keep the original features in the acceptance list even if they are not on the immediate link failure list.
+
+## Architecture judgment and next work
+
+On Windows, x64 cannot load an x86 DLL for execution; cross-bitness IPC and correctly defined shared memory are supported. This establishes feasibility of a helper, not behavioral equivalence ([Microsoft process interoperability](https://learn.microsoft.com/en-us/windows/win32/winprog64/process-interoperability), [Microsoft IPC guidance](https://learn.microsoft.com/en-us/windows/win32/winprog64/interprocess-communication)).
+
+| Option | Assessment under the stated requirements |
+|---|---|
+| Original x86 vendor libraries behind explicit x64 adapters | Best currently evidenced preservation candidate because vendor decoding/mixing can remain original. Requires a coherent Bink/Miles arrangement and a separate Vivox plan. The 32-bit host remains address-space limited even though game policy is x64. |
+| Licensed compatible native x64 SDK or vendor-supported port | Would remove the process boundary but is unavailable by task premise; even a different native vendor version would require behavioral comparison. It is not a current execution plan. |
+| Replace Miles with another mixer/codec stack | A substantial reimplementation, with weaker evidence for exact codecs, spatialization, effects, timing and failure behavior. Cannot count as fidelity100% on API-name similarity. |
+| Move all clientAudio/game policy into x86 | May reduce callback crossings but expands the game/object/file dependency boundary and contradicts the current x64-policy strategy. It is not a substitute for satisfying that requirement. |
+| Rename libraries, adjust import names, or supply success stubs | Does not solve the ABI/runtime problem and fails the explicit preservation requirement. Reject. |
+
+The next useful discriminator is **one real engine-to-helper vertical slice**, not another detached scalar or generation demo. First establish the clean original lifecycle baseline. Then use the same clientAudio policy in x64 to play an owned sample and a TreeFile stream through the actual codec/registry/host, including lock admission, reverse IO, borrowed sample volume/rate access, EOS delivery and normal teardown. Specify the callback scheduler and host ownership graph before writing the rest of the API. Keep that slice explicitly incomplete until all reachable production calls work; it is a test instrument, not a shippable partial client.
+
+In parallel planning—not new agent work—settle the Bink ownership boundary before committing to a Miles-only architecture. Co-host original Bink and Miles is the first option I would investigate because the source already shares a native driver. Determine frame-transfer and audio-clock requirements from that path. Inventory Vivox runtime closure separately. These are concrete dependencies for reaching a complete client, not reasons to discard source/build progress.
+
+Strong reasons to reject this route would be evidence that required callback/lock semantics cannot be preserved while policy stays x64; measured RPC/IO/frame transfer costs that break playback or game timing with no semantics-preserving remedy; a Bink/Miles ownership arrangement that requires changing original audio behavior; or a required original runtime/service that cannot operate in the proposed host. If “native x64” means every process must be x64, the helper route fails by definition. Under the supplied main-game-x64 framing, it does not fail merely because the vendor host is x86.
+
+No bounded test can prove universal 100% equivalence across all assets, driver configurations, OS scheduling, long runtimes, failure interleavings and network service states. Keeping original DLL bytes preserves more implementation than replacement, but process topology changes scheduling, allocation pressure, addressability and error boundaries. Acceptance should retain the uncompromised feature requirement and report exactly which observable behaviors, inputs and timing distributions were compared; it must not promote finite test coverage to a mathematical guarantee. The frozen packet has no audio-output capture comparison, broad asset corpus, transport stress evidence, or complete x64 game run. I found no source fact that proves a helper is impossible, and no evidence yet that warrants declaring it fidelity-complete.

@@ -1,0 +1,34 @@
+[
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "if(Test-Path 'C:/miles-preflight-parent15'){throw 'exists'};New-Item -ItemType Directory 'C:/miles-preflight-parent15'"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review15/preflight-input.tar",
+    "builder@127.0.0.1:C:/miles-preflight-parent15/input.tar"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review15/native-preflight.py",
+    "builder@127.0.0.1:C:/miles-preflight-parent15/run.py"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "python 'C:/miles-preflight-parent15/run.py';exit $LASTEXITCODE"
+  ]
+]

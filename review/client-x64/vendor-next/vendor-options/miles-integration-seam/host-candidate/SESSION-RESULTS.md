@@ -1,0 +1,11 @@
+# Genuine session lifecycle candidate, not assembled
+
+Native v120 x86 Debug and Release /W4 /WX compile/link/run0. **14 preflight checks per configuration** pass; Mss32.dll remains unloaded. Both objects reference exactly six real SDK imports: startup, shutdown, open_digital_driver, close_digital_driver, allocate_sample_handle and release_sample_handle. close_digital_driver is actual Mss.h4269 cleanup support, not a new advertised wire opcode. No fake vendor functions.
+
+Text logs/results/import census and source hashes are in session-results. Inputs are preserved in session-input-v1.tar. Tests exercise only never-started and wrong-thread requests, including zeroed rejected output handles. Genuine startup, device creation, sample allocation, SDK error returns, rollback calls, release and shutdown effects were **not executed**.
+
+Source rules: dedicated registry plus driver-parent sample records; reserve record storage before vendor allocation; register and record before publishing handles. Null vendor handles produce Ok with a null handle; registry capacity refusal closes/releases the newly obtained actual resource and returns CapacityFailure. Registry allocation exceptions perform that rollback then propagate, distinct from genuine vendor failure. These paths are source/compile evidence, not runtime fault-injection proof.
+
+Shutdown traverses samples in reverse creation order, then drivers in reverse order, then calls AIL_shutdown. It requires external callback/dispatch quiescence. Destruction does not perform implicit vendor cleanup; caller must explicitly shut down. The one-process-global-session assumption is not enforced across separate instances. Both are outstanding central-coordinator obligations, not complete lifecycle safety.
+
+See COORDINATOR-ASSUMPTIONS.md: final architecture should have a single session/resource authority covering Miles and Bink device ownership, parent-child lifetime, retained buffers, causal reverse I/O and callback admission. The candidate's standalone bool preconditions must not become the final ownership design. Production dispatcher/registry/buffer components remain unchanged. No production shim, client launch, playback, commit or push.

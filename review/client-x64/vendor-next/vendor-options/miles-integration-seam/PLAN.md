@@ -1,5 +1,7 @@
 # Experimental original-Miles integration seam
 
+Current design is [ARCHITECTURE.md](ARCHITECTURE.md). The source audit below explains the seam; its original delivery paragraph is historical. Current candidates include the codec/registry, scalar dispatch, retained storage, WAV metadata and isolated lifecycle mechanisms. They are not a complete backend; the real engine baseline still fails teardown.
+
 2026-09-30. Read-only audit at client HEAD `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`.
 No production backend is selected. Main checkout is untouched. This plan builds
 on GAME-CONTRACT.md and the completed EOS discriminator, not a new options survey.
@@ -165,9 +167,9 @@ stream/plugin decoding, Bink audio/video sync and representative gameplay.
 No latency/audio tolerance is introduced here. Preserve differences and return
 them for assessment; do not optimize toward a predetermined “equivalent” label.
 
-## Current delivery and implementation boundary
+## Historical delivery boundary at the original audit
 
-No production/source shim was written from this audit. The first code delivered
+At the original audit, no production/source shim was written. The first code delivered
 is the reproducible source partition, not a claimed playback implementation.
 Creating a partial adapter before establishing the real fixture link closure
 would invite precisely the placeholder exports and copied-observer shortcuts

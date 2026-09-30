@@ -1,0 +1,2325 @@
+Reading additional input from stdin...
+2026-09-30T10:17:16.598567Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-09-30T10:17:16.598602Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.157.1
+--------
+workdir: /home/akilleez/Work/client-wire-validation
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a0f1d1-8a0d-74b3-9605-ce81392ae421
+--------
+user
+Read-only bounded independent review. No source changes, no executables or VM/Wine runs, no commits, pushes, PRs, or messages. Cite exact source and line, distinguish observations from hypotheses; report only useful actionable gaps and strongest disconfirming evidence. Current product at /home/akilleez/Work/swg-source/client-build-next HEAD49d0eeed4. Candidate root /home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam. Do not read other reviewers outputs. User requires original experience and fidelity; candidate components do NOT establish full client fidelity. Stop after one bounded source traversal and deliver findings even if empty. Independent implementation audit of current transport-candidate/codec.cpp, resource_registry.h, host-candidate/registry_resolver.h and host_dispatch.cpp; current449test component and39vendorarms. Seek unchecked spans, stale identity/parent-close holes, integer endian/signedness mismatches, output state on failure. Read source/tests, no run. New sound-info/retained_buffer files being developed concurrently are out of scope; focus immutable existing component paths and record hashes. Don't report preconditions explicitly not implemented as exploitable implementations, but track actual integration gaps. Provide minimally specified regressions for findings.
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll make one bounded, read-only pass through the four files and relevant tests, record file hashes, and report actionable gaps with exact lines, disconfirming evidence, and minimal regressions. I won’t read other reviewers’ outputs or the out-of-scope files.
+exec
+/usr/bin/bash -lc "pwd && rg --files -g AGENTS.md -g '*codec*' -g '*resource_registry*' -g '*registry_resolver*' -g '*host_dispatch*' -g '*test*' vendor-options/miles-integration-seam" in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+/home/akilleez/Work/client-wire-validation
+vendor-options/miles-integration-seam/transport-baseline-412-v3/tests.cpp
+vendor-options/miles-integration-seam/transport-baseline-412-v3/resource_registry.h
+vendor-options/miles-integration-seam/transport-baseline-412-v3/codec.h
+vendor-options/miles-integration-seam/transport-baseline-412-v3/codec.cpp
+vendor-options/miles-integration-seam/transport-candidate/resource_registry.h
+vendor-options/miles-integration-seam/transport-candidate/codec.h
+vendor-options/miles-integration-seam/transport-candidate/codec.cpp
+vendor-options/miles-integration-seam/transport-candidate/tests.cpp
+vendor-options/miles-integration-seam/host-candidate/host_dispatch.h
+vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp
+vendor-options/miles-integration-seam/host-candidate/retained_buffers_test.cpp
+vendor-options/miles-integration-seam/host-candidate/registry_resolver.h
+vendor-options/miles-integration-seam/host-candidate/history/v1/host_dispatch.cpp
+
+exec
+/usr/bin/bash -lc 'for p in /AGENTS.md /home/AGENTS.md /home/akilleez/AGENTS.md /home/akilleez/Work/AGENTS.md /home/akilleez/Work/client-wire-validation/AGENTS.md; do if test -f "$p"; then cat "$p"; fi; done
+rg --files vendor-options/miles-integration-seam/transport-candidate vendor-options/miles-integration-seam/host-candidate -g '"'"'!history/**'"'
+git -C /home/akilleez/Work/swg-source/client-build-next rev-parse HEAD" in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+# Main-rig local operating notes
+
+## Immediate cleanup handoff (2026-09-12)
+
+COMPLETED 2026-09-12: obsolete encrypted root and EFI partitions plus Boot0002 removed after proof gates passed. Cold NTFS partition unchanged. See the cleanup file for verification and the separate dirty-NTFS mount issue. Do not repeat deletion.
+
+After confirming this is the unencrypted Omarchy root, read and execute
+`/home/akilleez/OLD-ENCRYPTED-OMARCHY-CLEANUP.md`. This supersedes older notes
+that say to preserve the encrypted fallback; the user explicitly wants it
+removed without a backup.
+
+## Boot/shutdown branding compatibility (2026-09-12)
+
+The omarchy-settings package forcibly resets /etc/plymouth/plymouthd.conf on upgrades. This separate regression was confirmed and repaired. Preserve the standalone fieldops-black-ice Plymouth theme, /usr/local/sbin/refrigeration-boot-branding, its pacman hook, and the user post-update hook. Read /home/akilleez/.local/share/refrigeration-ai/boot-branding/README.md for evidence and checks. Login assets alone do not prove boot-image branding.
+
+## Shared desktop maintenance (2026-09-12)
+
+Main-rig runs its own FieldOps instance at `~/Work/field-ops` on localhost:4377 with an independent ledger. Both machines enable screensaver at 150 seconds and lock at 300 seconds. `fieldops-desktop-check` checks the reviewed customization boundary; its post-update hook repairs absent plugin links and reset bar selection while preserving newer releases. Do not replace whole upstream configs to fix a narrow regression.
+
+Tablet backups are pulled to `~/Backups/fieldops-tablet/restic` by the main-rig user timer `fieldops-tablet-backup.timer`. Passwords belong in Secret Service; encrypted recovery envelopes exist on both machines. Consult the latest restore receipt before claiming recovery is verified. `ssh fieldops` reaches the tablet over Tailscale. On tablet, `fieldops-platform` selects the older machine integration CLI; `fieldops` selects the active application. Keep these schemas distinct.
+
+Read `~/Work/omarchy-config-backup/maintenance/README.md` for repair sources, checks, backup restoration, and remaining Windows/physical acceptance work. Cold NTFS Windows repair and Linux normal read/write mount acceptance passed on 2026-09-12; receipts are in ~/Documents/system-audits/windows-return-20260912. Do not repeat repair or force-mount/clear a dirty flag. Never repeat the completed old-root deletion.
+
+## Windows migration completed (2026-09-12)
+
+The updated Windows handover was executed. Editable import: `~/Imported-Windows`;
+verified recovery base: `~/.local/share/windows-migration-20260912`.
+Final full SHA-256 read passed for 1,470,679 organized files / 660,719,745,766 bytes.
+Keep raw/offline-c/d-data recovery copies and original D: staging until acceptance;
+do not rerun the one-shot import scripts into existing destinations.
+Read `~/Imported-Windows/RETURN-TO-WINDOWS.md` for the C:-only reset readiness,
+exact disk identities, exclusions, stale Windows dependency/game links, and next steps.
+The shared return report is `D:\Windows-to-Linux-Migration-20260912\RETURN-TO-WINDOWS.md`.
+No Windows reset/repartitioning was performed. New Windows work after capture needs
+its own preservation before reset. Existing Linux SSH/Codex/configs were not merged.
+
+## Desktop computer control
+
+This Omarchy/Hyprland machine has persistent local computer-control tooling installed.
+
+- Inspect windows: `hyprctl clients -j`
+- Inspect pointer position: `hyprctl cursorpos`
+- Focus a known window: `hyprctl dispatch focuswindow address:<address-from-hyprctl>`
+- Full screenshot: `grim /tmp/desktop.png`
+- Window/region screenshot: `grim -g 'X,Y WIDTHxHEIGHT' /tmp/window.png`
+- Keyboard input: `wtype 'text'`; keys use `wtype -k Tab -k Return`
+- Mouse movement: `ydotool mousemove -x DX -y DY`
+- Left click: `ydotool click 0xC0`
+- Scroll: `ydotool mousemove --wheel -y <amount>`
+- Desktop input daemon: `systemctl --user status ydotool.service`
+
+`ydotool.service` is enabled and starts automatically. User `akilleez` is in the `input` group.
+
+### Display scaling caveat
+
+The Samsung monitor runs a Hyprland logical scale of 2. `grim` region output is two bitmap pixels per logical coordinate. Convert a point in a cropped screenshot back to the desktop with:
+
+`desktop_x = window_logical_x + screenshot_pixel_x / 2`
+
+`desktop_y = window_logical_y + screenshot_pixel_y / 2`
+
+Pointer acceleration makes large relative `ydotool` moves imprecise. Move in smaller increments and verify each result with `hyprctl cursorpos` before clicking.
+
+### Safe UI workflow
+
+1. Identify and focus the exact window by Hyprland address.
+2. Capture the window with `grim` and inspect it.
+3. Convert screenshot coordinates using the scale rule above.
+4. Move the pointer incrementally and verify with `hyprctl cursorpos`.
+5. Click or type.
+6. Capture again and verify the resulting UI state.
+
+Prefer supported application UI workflows over directly editing live application state. For Steam library management, open `steam://open/settings/storage`; do not edit `libraryfolders.vdf` while Steam is running.
+
+### Workspace isolation
+
+- Do not launch games, focus application windows, or inject desktop input on workspace 1 while doing background work.
+- Workspace 2 is the approved game/test workspace. Keep game and test windows there unless the user requests otherwise.
+- Moving a window silently to workspace 2 is not permission to switch the user's visible workspace or focus it. Avoid screen takeover; ask before an interactive UI operation if it cannot be completed without changing the visible workspace.
+- Leave the test game shut down after builds and deployments so the user can launch it through Steam with full performance.
+
+## Shared Steam storage
+
+- Hot/shared library: `/mnt/mods-and-games/SteamLibrary`
+- Cold/shared library: `/mnt/cold-steam/SteamLibrary`
+- Persistent UUID-based automounts are configured in `/etc/fstab`.
+- Keep Proton prefixes and shader caches on native Btrfs when practical; NTFS is primarily for game payloads.
+
+### Verified storage topology (2026-09-02)
+
+- `/home` and `/` are Btrfs on the encrypted `/dev/nvme2n1p4` mapping (`/dev/mapper/omarchy_root`). The filesystem is about 371 GiB and had about 196 GiB free when inspected.
+- `/mnt/cold-steam` is NTFS3 on `/dev/nvme2n1p2`; it is not Btrfs and does not support Btrfs reflinks.
+- `/mnt/mods-and-games` is NTFS3 on `/dev/nvme0n1p3`; it is also not a native/reflink-capable build target.
+- On `nvme2n1`, the physical order is cold NTFS (`p2`), EFI (`p3`), then encrypted Linux/Btrfs (`p4`). Shrinking cold NTFS does not create space adjacent to the Linux partition because EFI lies between them.
+- Do not attempt to extend the encrypted root by moving EFI/root partition boundaries during routine maintenance. If more native space is eventually required, prefer a separately mounted Btrfs development partition created from deliberately reclaimed space after an offline, backed-up resize.
+- The preferred capacity-expansion route is storage "musical chairs": preserve irreplaceable data from `/mnt/mods-and-games` on cold storage, discard redownloadable Steam payloads, then repurpose all of `nvme0` as a self-contained Omarchy boot disk with its own EFI partition and single-device LUKS/Btrfs root. Clone and prove the new boot disk before touching the old Linux partitions.
+- Moving games between Steam libraries must use Steam's Storage UI. Shrinking NTFS and changing partitions must be a separate offline, backed-up operation after Steam is stopped and the filesystem has been checked. Do not assume deleting files automatically shrinks the partition.
+- Do not add `nvme0` to the existing root as a second Btrfs device. A self-contained clone avoids making root depend on two physical disks. After Omarchy boots entirely from `nvme0`, the old Omarchy EFI and encrypted-root partitions on `nvme2` may be removed and the resulting adjacent space returned to the cold Windows/NTFS partition through a supported Windows resize workflow.
+- Verified boot ownership: Omarchy/Limine currently uses `/dev/nvme2n1p3`; Windows Boot Manager uses the independent EFI partition `/dev/nvme3n1p1`. Preserve both until the new `nvme0` Omarchy EFI and root have passed a controlled reboot test.
+
+### Empire at War development layout
+
+- Steam app ID: `32470`.
+- The current Empire at War installation and Workshop content were on the cold Steam library when inspected.
+- Preferred future layout: create a Steam library on the native `/home` Btrfs filesystem and move Empire at War and its Workshop data through Steam's Storage UI. Keep its Proton prefix and shader cache on Btrfs.
+- Keep AOTR source, build candidate, active test mod, and one verified rollback on the same native Btrfs filesystem so build copies can use reflinks and deployment can use same-filesystem atomic renames.
+- Do not move or delete the active mod, Workshop source, saves, or last verified rollback until the replacement artifact passes its manifest and runtime checks.
+
+### Build and backup space safeguards
+
+- Never stage or roll back a roughly 21 GiB AOTR tree across `/home` and an NTFS Steam mount using `mv`; that becomes a full copy/delete, is non-atomic, and previously contributed to filling the drive.
+- Do not retain active build, previous build, and rollback as three full independent trees. Retain one verified rollback and reconstructable source; use Btrfs reflinks for local candidates.
+- Before a build or deployment, verify mount device IDs, available space, game-process shutdown, source/build freshness, and a relative-path content manifest.
+- Build manifests must exclude themselves, use paths relative to the artifact root, and be verified both before and after deployment.
+- Candidate creation must complete and validate before the installed mod is touched. Prefer atomic same-filesystem directory exchange; retain the old verified deployment until the new installed artifact verifies.
+- As of the 2026-09-02 audit, approximately 62.7 GiB under the repository build area consisted of three generated ~20.9 GiB trees. Treat the obsolete previous build and redundant reconstructable build as cleanup candidates, but inspect and verify exact paths before deletion. Preserve at least one known-good rollback.
+
+## AOTR Living Galaxy recovery handoff
+
+## Omarchy disk migration checkpoint (2026-09-02)
+
+- The new standalone, intentionally unencrypted Omarchy disk passed its controlled reboot test on 2026-09-02.
+- NVMe kernel names changed across the reboot: the physical disk formerly observed as `nvme0` appeared as `nvme3` afterward. Never identify migration/reclamation targets by transient `/dev/nvmeXnY` names alone; resolve and verify model, serial, filesystem UUID, and PARTUUID immediately before any destructive action.
+- New EFI: `/dev/nvme0n1p1`, FAT32 UUID `56E4-4280`, PARTUUID `11b5e885-494d-4f67-8af3-440732d2c4ec`.
+- New root: `/dev/nvme0n1p2`, Btrfs UUID `4f3f0d25-9885-45ee-9bf7-a7450736cb3a`, label `OMARCHY_ROOT`, default subvolume `@`.
+- New swapfile: `/swap/swapfile`, 128 GiB, resume offset `25603954`.
+- UEFI entry `Boot0003 Omarchy NVMe0` points to `\\EFI\\limine\\limine_x64.efi` and was placed first in BootOrder. A fallback `EFI/BOOT/BOOTX64.EFI` also exists.
+- The new UKI was rebuilt with `root=UUID=4f3f0d25-9885-45ee-9bf7-a7450736cb3a`; it contains no `cryptdevice` argument. The new fstab resolves with zero errors.
+- New-root scrub completed over 223.93 GiB with zero errors.
+- Post-reboot proof passed: firmware used `Boot0003 Omarchy NVMe0`; `/`, `/home`, `/var/log`, and `/var/cache/pacman/pkg` resolve to Btrfs UUID `4f3f0d25-9885-45ee-9bf7-a7450736cb3a`; `/boot` resolves to FAT32 UUID `56E4-4280`; the 128 GiB swapfile is active; the kernel command line contains the new root UUID and no `cryptdevice`; Btrfs scrub reported zero errors; and no systemd units were failed.
+- Old encrypted Omarchy (LUKS UUID `ef1b102e-88b4-43e5-80ad-9bc79e10c8fc`) and old EFI (FAT32 UUID `9C1D-26F5`) remain intact as fallback. They are now eligible for reclamation only after resolving their current device names from these UUIDs and separately confirming the Windows EFI remains independent.
+- Preserved former-nvme0 non-Steam data is under `/mnt/cold-steam/nvme0-preserve-20260902`; Steam app manifests and the original GPT dump are stored there. A 530,769,920-byte `NTFS-NAME-EDGECASES.tar` preserves filenames the destination NTFS could not represent normally.
+- Post-boot proof commands: `findmnt -no SOURCE / /home /boot`, `lsblk -f`, `efibootmgr`, `swapon --show`, and `btrfs scrub status /`. Only after those pass may the old `nvme2n1p3`/`p4` partitions be reclaimed for Windows.
+
+### Project and runtime state
+
+- Repository: `/home/akilleez/aotr-living-galaxy`.
+- Target game: Steam app `32470`, STAR WARS Empire at War: Gold Pack / Forces of Corruption.
+- Target upstream mod: `/mnt/cold-steam/SteamLibrary/steamapps/workshop/content/32470/AOTR_LINUX_OPTIMIZED` at the time of the audit. Re-resolve this path after the Steam/storage migration.
+- The last user-tested save was `test2`. It tested the older deployed artifact, not the latest source changes.
+- The latest source changes were not built or deployed. Do not claim they were tested.
+- Keep the game shut down during build/deployment and let the user launch it through Steam on workspace 2.
+- Campaign initialization changes require a completely fresh Galactic Conquest. `test2` cannot validate planet ownership, starting forces, routes, or population capacity.
+
+### User-reported test results
+
+- Restored Hoth baseline and ordinary heroes spawned successfully in the tested build.
+- Only three planets appeared in an earlier campaign variant.
+- Population pressure prevented recruiting all custom heroes without selling units/building capacity structures; laboratory target is at least 500 displayed capacity.
+- Purchasable custom heroes had missing/transparent portraits.
+- Hoth-spawned custom heroes showed opaque gray/gold square portraits.
+- The post-battle casualty screen showed the blue missing-texture/frog image.
+- In the space battle only Gold, Dagger, and Peregrine survived. Blue, Blade, Tierfon, Sanctuary, Ecliptic, Shantipole, and Griffon were lost.
+- Ground combat was not meaningfully tested because the force died too quickly in space.
+
+### Confirmed UI asset causes and contract
+
+- The tested deployment contained only root `DATA/ART/TEXTURES/I_BUTTON_LGND_*.TGA` files. It lacked canonical `DATA/ART/TEXTURES/ICONS/CURRENT/` copies and every automatic `BIG_` casualty portrait.
+- Tested small icons were 50x50, 32-bit, descriptor `0x28` (top-origin), and fully opaque. This explains gray rectangular portraits.
+- Missing `BIG_<Icon_Name>` files definitively explain the casualty-screen fallback. The game binary contains the `big_%s` naming pattern.
+- Linux AOTR deliberately normalizes `ICONS/Current` to exact uppercase `ICONS/CURRENT`; use that spelling.
+- Required per hero: canonical 50x50 small TGA in `ICONS/CURRENT`, byte-identical defensive root copy, and `BIG_` companion in `ICONS/CURRENT` (prefer 100x50; permit known 100x54 convention).
+- Generate deterministic type-2, 32-bit, bottom-origin descriptor `0x08` TGAs with real transparency. Require transparent and visible pixels; reject fully opaque PNG masters/outputs. The current script's `-alpha set` is insufficient because all ten PNG masters are fully opaque.
+- No separate `Map_Icon_Name` or reinforcement portrait tag should be invented. AOTR hero UI surfaces derive from `Icon_Name` through the object graph. Tactical radar icons normally inherit the donor.
+- Texture hot reloading is disabled. Every art comparison requires a complete game-process exit and relaunch; changing saves is insufficient.
+- Root-versus-`CURRENT` precedence remains unproven. Keep duplicate small files byte-identical until a controlled red/green cold-start experiment establishes precedence.
+
+### Confirmed hero-graph defects
+
+- Working dual-presence contract: strategic `HeroCompany` owns identity and points to a valid space transport/team plus one or more ground actors. Company requires effective `DUMMY_GROUND_COMPANY`, dummy/named/category/population fields, and consistent icon.
+- Gold, Blue, Dagger, Peregrine, Blade, and Tierfon broadly use the Rogue-style company → fighter transport → squadron graph, but need explicit normalization.
+- Fighter transport leads and squad wrappers must use `Is_Named_Hero No`; the strategic HeroCompany owns hero identity. Current fighter leads incorrectly use `Yes`, which can create false/duplicate death bookkeeping.
+- Fighter squad wrappers need explicit `DUMMY_SPACE_FIGHTER_SQUADRON`, `Is_Dummy Yes`, hero/fighter role category, formation priority, population, same icon, leader/member invariants, and member count matching max squad size.
+- Fighter leaders need Rogue-style `REPLENISH_WINGMEN` while preserving the complete native class ability set. Do not replace inherited abilities with a partial block.
+- Ecliptic, Shantipole, and Griffon are tactical donor ships incorrectly used as strategic transports. Add explicit `SELECTABLE, TRANSPORT, DUMMY_STARSHIP` behavior and a proven landing variant while preserving donor SpaceBehavior, abilities, hardpoints, SFX, and death clone. Sanctuary already received this transport shell.
+- All custom companies currently inherit Gold's space population value of 3. Give every hero an explicit class-appropriate space population override.
+- Assign the hero icon explicitly to Sanctuary medic/engineer, Peregrine's second ground craft, and Griffon guards/medic. Validate icon consistency recursively across all named graph members.
+- Orphan parallel `*_Land` companies are not the ground forms used by the strategic HeroCompanies. Audit/remove or clearly isolate them rather than assuming they participate.
+
+### Confirmed combat and balance findings
+
+- Top-level `Tactical_Health` does not scale the targetable root hull hardpoint. The tested capital kill surfaces remained at donor values: Sanctuary 1700, Ecliptic 7500, Shantipole 3000, Griffon 6000.
+- Custom capital hull repair must use namespaced HardPoint variants cloning the exact donor targetable ROOT hull, retaining attachment bone/collision, and replace exactly that donor entry in an otherwise identical hardpoint list. Never leave both targetable roots.
+- HardPoint definitions cannot live in the GameObjectFiles-indexed space file. Put them in a dedicated namespaced hardpoint XML and append it exactly once to `HardPointDataFiles.xml`.
+- The current unbuilt source contains an experimental set of HardPoint objects incorrectly placed in `LGND_TEST_PACK_01_SPACE.xml`; move them. Its Shantipole hardpoint list also contains incorrect/non-donor names and must be rebuilt from the exact 27-entry donor list before use.
+- Preserve complete donor ability blocks. Partial `Unit_Abilities_Data` or `Abilities` overrides can erase donor actives, commander bonuses, or automatic repairs.
+- Fighter `Damage`, `Autoresolve_Health`, and `AI_Combat_Power` do not change tactical projectile DPS. Blue/Blade/Tierfon losses implicate identity/lifecycle, target role, body count, ordinary donor weapons, and lack of replenishment—not one universal health threshold.
+- Normalize graph/identity first, deploy corrected root hardpoints second, run a controlled battle, and only then tune stats.
+- Bounded targets from the 22-hero audit: fighter squads approximately 1440–2160 aggregate hull+shield, AI 600–950, autoresolve health 600–1000, damage 300–700, population 3–4. Capital effective defense should be roughly 1.25–1.6x its donor, not arbitrary multiples.
+- Current Shantipole source is overcorrected at roughly Home One durability and should be reduced to about 34–42k effective defense. Other provisional targets: Sanctuary 16–19k, Ecliptic 34–42k, Griffon 58–70k.
+
+### Campaign findings
+
+- `LGND_Hoth_Laboratory` varianting `Hoth_Web` is structurally valid, as are namespaced TradeRoute objects in the strategic GameObject file.
+- `Additional_Population_Capacity` is the correct engine-native field. Require at least 500 in validation; source used 1000, which still needs a fresh runtime check for any undocumented clamp.
+- Rebel campaign source initializes four planets and explicitly seeds the Hoth baseline, eight normal AOTR heroes, and four starting custom heroes.
+- Empire and Underworld companion campaign members list four planets but omit Allyen starting forces and can collapse to three. Normalize/seed Allyen in all members and validate all three, not only Rebel.
+- Six purchasable heroes have structurally sound unlock requirements. The user's workaround indicates population pressure rather than a hidden structure/planet prerequisite.
+- Validate route endpoints, home locations, every starting-force location/object, ownership, exact custom planet parent/capacity, acquisition lock state, and effective inherited recruitment requirements.
+
+### Build/deployment defects to fix before the next test
+
+- The installed mod and old build were identical but stale relative to authored campaign/strategic files.
+- Existing SHA manifest records temporary absolute `.stage-PID` paths and hashes itself, so it cannot verify an artifact.
+- Build does not verify the pinned upstream AOTR fingerprint. Deploy checks only for a build marker and does not reject authored changes made after build.
+- Replace with a relative manifest excluding itself, an authored-source digest in BUILD metadata, upstream fingerprint verification, candidate verification, installed verification, and a deployment receipt.
+- Build a complete candidate before touching the installed mod. Use same-filesystem atomic exchange/renames and retain one verified rollback. Never cross-filesystem `mv` a full AOTR tree.
+- After the storage migration, keep AOTR source, candidate, active deployment, and rollback on the new native Btrfs/Omarchy disk so candidates and rollbacks can use reflinks.
+
+### Required validator gates
+
+- Parse all XML and recursively resolve `Variant_Of_Existing_Type` across indexed files.
+- Enforce registry separation: normal objects in `GameObjectFiles.xml`; custom hardpoints in a dedicated file indexed by `HardPointDataFiles.xml`.
+- Enforce exact-once index entries, donor/reference closure, case-safe names, no duplicate direct object names, and exact donor hardpoint substitution.
+- Enforce the complete strategic → transport/squadron → ground graph, exactly one fighter identity owner, matching icons, valid landing/death clone, population, squad members/formation/replenishment, and preserved abilities.
+- Validate all three campaign members and the full Hoth/planet/population/acquisition contract.
+- Validate all 30 icon assets (ten root small, ten `CURRENT` small, ten `BIG_`) for path, case, dimensions, 32-bit descriptor, decoding, and nontrivial alpha.
+- Verify authored digest → build digest → deployed digest parity so source-only validation cannot bless a stale installation.
+
+### Minimal fresh-campaign QA sequence
+
+1. Static artifact gate: source fingerprint, XML/inheritance/reference closure, indexes, localization, art, manifest, and source/build/deploy digest parity.
+2. Fresh Week 1 save: exactly four planets, correct ownership, complete Hoth baseline, eight normal heroes, four starting custom heroes, and displayed cap at least 500.
+3. Recruit all six purchase heroes without selling units or constructing capacity buildings; confirm each appears exactly once and locks afterward.
+4. Controlled manual space battle from a named pre-battle save: inspect all ten reinforcement/command portraits, members, and abilities; all named roots should survive the modest fixed enemy force.
+5. Reload the same pre-battle save and autoresolve three times; record survivors and casualty portraits separately from tactical results.
+6. Controlled ground battle branch: inspect all ten ground reinforcement portraits, deployed forms, member counts, weapons/abilities, selection portraits, and retreat mapping.
+7. Reload fresh/all-ten/post-space/post-ground checkpoints, advance one week, and verify planet count, cap, ownership, unique heroes, locks, and portraits persist.
+8. Separate disposable casualty branch: kill one ordinary leaf and one named root to verify casualty portrait, strategic removal, lifetime lock, and identity semantics.
+vendor-options/miles-integration-seam/host-candidate/retained_buffers_test.cpp
+vendor-options/miles-integration-seam/host-candidate/retained_buffers.cpp
+vendor-options/miles-integration-seam/host-candidate/retained_buffers.h
+vendor-options/miles-integration-seam/host-candidate/REMAINING-LIFECYCLE.md
+vendor-options/miles-integration-seam/host-candidate/native-v3/manifest.json
+vendor-options/miles-integration-seam/host-candidate/native-v3/results.json
+vendor-options/miles-integration-seam/host-candidate/RESULTS.md
+vendor-options/miles-integration-seam/host-candidate/import-check.json
+vendor-options/miles-integration-seam/host-candidate/native-results.json
+vendor-options/miles-integration-seam/host-candidate/release-symbols.txt
+vendor-options/miles-integration-seam/host-candidate/debug-symbols.txt
+vendor-options/miles-integration-seam/host-candidate/compile.py
+vendor-options/miles-integration-seam/host-candidate/input.tar
+vendor-options/miles-integration-seam/host-candidate/SUPPORTED.md
+vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp
+vendor-options/miles-integration-seam/host-candidate/host_dispatch.h
+vendor-options/miles-integration-seam/host-candidate/PLAN.md
+vendor-options/miles-integration-seam/transport-candidate/BORROWED-RESULTS.md
+vendor-options/miles-integration-seam/host-candidate/native-v3/Release/symbols.txt
+vendor-options/miles-integration-seam/host-candidate/native-v3/Release/run.log
+vendor-options/miles-integration-seam/host-candidate/native-v3/Release/build.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v4/amd64-Release.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v4/amd64-Debug.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v4/x86-Release.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v4/x86-Debug.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v4/results.json
+vendor-options/miles-integration-seam/transport-candidate/resource_registry.h
+vendor-options/miles-integration-seam/transport-candidate/BORROWED-PLAN.md
+vendor-options/miles-integration-seam/transport-candidate/source-manifest.json
+vendor-options/miles-integration-seam/transport-candidate/native-results-v3/amd64-Release.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v3/amd64-Debug.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v3/x86-Release.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v3/x86-Debug.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v3/results.json
+vendor-options/miles-integration-seam/transport-candidate/RESULTS.md
+vendor-options/miles-integration-seam/host-candidate/input-v3.tar
+vendor-options/miles-integration-seam/host-candidate/compile-preflight-v3.py
+vendor-options/miles-integration-seam/host-candidate/PLAN-v3.md
+vendor-options/miles-integration-seam/host-candidate/native-v3/Debug/build.log
+vendor-options/miles-integration-seam/host-candidate/native-v3/Debug/run.log
+vendor-options/miles-integration-seam/host-candidate/native-v3/Debug/symbols.txt
+vendor-options/miles-integration-seam/transport-candidate/codec.h
+vendor-options/miles-integration-seam/transport-candidate/codec.cpp
+vendor-options/miles-integration-seam/transport-candidate/tests.cpp
+vendor-options/miles-integration-seam/host-candidate/input-v2.tar
+vendor-options/miles-integration-seam/host-candidate/preflight.cpp
+vendor-options/miles-integration-seam/host-candidate/registry_resolver.h
+vendor-options/miles-integration-seam/transport-candidate/native-results-v2/results.json
+vendor-options/miles-integration-seam/host-candidate/compile-preflight.py
+vendor-options/miles-integration-seam/transport-candidate/native-results-v2/amd64-Release.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v2/amd64-Debug.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v2/x86-Release.log
+vendor-options/miles-integration-seam/transport-candidate/native-results-v2/x86-Debug.log
+vendor-options/miles-integration-seam/transport-candidate/PLAN.md
+vendor-options/miles-integration-seam/transport-candidate/run-native.py
+vendor-options/miles-integration-seam/host-candidate/native-v2/input-source-hashes.json
+vendor-options/miles-integration-seam/host-candidate/native-v2/manifest.json
+vendor-options/miles-integration-seam/host-candidate/native-v2/results.json
+vendor-options/miles-integration-seam/host-candidate/history/v1/host_dispatch.cpp
+vendor-options/miles-integration-seam/host-candidate/native-v2/Release/run.log
+vendor-options/miles-integration-seam/host-candidate/native-v2/Release/build.log
+vendor-options/miles-integration-seam/host-candidate/native-v2/Release/symbols.txt
+vendor-options/miles-integration-seam/host-candidate/native-v2/Debug/run.log
+vendor-options/miles-integration-seam/host-candidate/native-v2/Debug/build.log
+vendor-options/miles-integration-seam/host-candidate/native-v2/Debug/symbols.txt
+vendor-options/miles-integration-seam/transport-candidate/host-results/mutation-v2.json
+vendor-options/miles-integration-seam/transport-candidate/host-results/generation-mutation-v2.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/sanitizer-v2.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/mutation.json
+vendor-options/miles-integration-seam/transport-candidate/host-results/generation-mutation.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/sanitizer.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/mutation-v3.json
+vendor-options/miles-integration-seam/transport-candidate/host-results/generation-mutation-v3.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/sanitizer-v3.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/borrowed-parent-live.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/borrowed-retire-children.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/sanitizer-v4.log
+vendor-options/miles-integration-seam/transport-candidate/host-results/borrowed-mutations.json
+49d0eeed4ddaa177d7a93ea396c37c3d9b9942da
+
+exec
+/usr/bin/bash -lc 'for p in vendor-options/AGENTS.md vendor-options/miles-integration-seam/AGENTS.md vendor-options/miles-integration-seam/transport-candidate/AGENTS.md vendor-options/miles-integration-seam/host-candidate/AGENTS.md; do if test -f "$p"; then cat "$p"; fi; done
+sha256sum vendor-options/miles-integration-seam/transport-candidate/{codec.cpp,codec.h,resource_registry.h,tests.cpp} vendor-options/miles-integration-seam/host-candidate/{registry_resolver.h,host_dispatch.cpp,host_dispatch.h}
+wc -l vendor-options/miles-integration-seam/transport-candidate/{codec.cpp,resource_registry.h,tests.cpp} vendor-options/miles-integration-seam/host-candidate/{registry_resolver.h,host_dispatch.cpp}' in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e  vendor-options/miles-integration-seam/transport-candidate/codec.cpp
+d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0  vendor-options/miles-integration-seam/transport-candidate/codec.h
+f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768  vendor-options/miles-integration-seam/transport-candidate/resource_registry.h
+a913db4f70acba9d2c611486a0431cab9c76749e7508f8c32ce5983989ad8eff  vendor-options/miles-integration-seam/transport-candidate/tests.cpp
+2b405ebf56ac51ecc81c8ac919809c5b0f16524c248fc1a932fbc2d7b8fd584a  vendor-options/miles-integration-seam/host-candidate/registry_resolver.h
+4810fd0dcad43c769e077f3c2ad8d3ad9ebffec426920ff6f5e0063bd4103595  vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp
+e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66  vendor-options/miles-integration-seam/host-candidate/host_dispatch.h
+  236 vendor-options/miles-integration-seam/transport-candidate/codec.cpp
+  143 vendor-options/miles-integration-seam/transport-candidate/resource_registry.h
+  210 vendor-options/miles-integration-seam/transport-candidate/tests.cpp
+   20 vendor-options/miles-integration-seam/host-candidate/registry_resolver.h
+  336 vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp
+  945 total
+
+exec
+/usr/bin/bash -lc 'nl -ba vendor-options/miles-integration-seam/transport-candidate/resource_registry.h
+nl -ba vendor-options/miles-integration-seam/host-candidate/registry_resolver.h
+nl -ba vendor-options/miles-integration-seam/host-candidate/host_dispatch.h' in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+     1	#ifndef MILES_TRANSPORT_REGISTRY_H
+     2	#define MILES_TRANSPORT_REGISTRY_H
+     3	#include "../protocol-candidate/miles_wire.h"
+     4	#include <stdexcept>
+     5	#include <vector>
+     6	namespace MilesTransport {
+     7	inline bool knownResource(uint32_t k) { return k >= MilesWire::Driver && k <= MilesWire::File; }
+     8	inline bool validHandle(const MilesWire::Handle &h) {
+     9	    return (h.kind == 0 && h.slot == 0 && h.generation == 0) ||
+    10	           (knownResource(h.kind) && h.slot && h.generation);
+    11	}
+    12	// Dispatch-thread owned. Vendor quiescence and session binding
+    13	// are required from the caller. No vendor memory is freed by this container.
+    14	class ResourceRegistry {
+    15	    struct Entry {
+    16	        uint32_t kind, generation, state;
+    17	        void *local;
+    18	        MilesWire::Handle parent;
+    19	        Entry() : kind(0), generation(1), state(0), local(0) {
+    20	            parent.kind = parent.slot = parent.generation = 0;
+    21	        }
+    22	    };
+    23	    std::vector<Entry> entries;
+    24	    uint32_t capacity, generationLimit;
+    25	    Entry *entry(const MilesWire::Handle &h) {
+    26	        if (!knownResource(h.kind) || !h.slot || h.slot > entries.size())
+    27	            return 0;
+    28	        Entry &e = entries[h.slot - 1];
+    29	        return e.kind == h.kind && e.generation == h.generation && (e.state == 1 || e.state == 2)
+    30	                   ? &e
+    31	                   : 0;
+    32	    }
+    33	
+    34	    bool insertEntry(MilesWire::ResourceKind kind, void *local, MilesWire::Handle &out) {
+    35	        if (!knownResource(kind) || !local)
+    36	            return false;
+    37	        size_t i = 0;
+    38	        for (; i < entries.size(); ++i)
+    39	            if (entries[i].state == 0)
+    40	                break;
+    41	        if (i == entries.size()) {
+    42	            if (i >= capacity)
+    43	                return false;
+    44	            entries.push_back(Entry());
+    45	        }
+    46	        Entry &e = entries[i];
+    47	        e.kind = kind;
+    48	        e.local = local;
+    49	        e.state = 1;
+    50	        MilesWire::Handle h = {static_cast<uint32_t>(kind), static_cast<uint32_t>(i + 1),
+    51	                               e.generation};
+    52	        out = h;
+    53	        return true;
+    54	    }
+    55	    static bool same(const MilesWire::Handle &a, const MilesWire::Handle &b) {
+    56	        return a.kind == b.kind && a.slot == b.slot && a.generation == b.generation;
+    57	    }
+    58	    void retireEntry(Entry &e) {
+    59	        e.local = 0;
+    60	        e.kind = 0;
+    61	        e.parent.kind = e.parent.slot = e.parent.generation = 0;
+    62	        if (e.generation == generationLimit)
+    63	            e.state = 3;
+    64	        else {
+    65	            ++e.generation;
+    66	            e.state = 0;
+    67	        }
+    68	    }
+    69	
+    70	  public:
+    71	    explicit ResourceRegistry(uint32_t maxSlots = 65536, uint32_t maxGeneration = UINT32_MAX)
+    72	        : capacity(maxSlots), generationLimit(maxGeneration) {
+    73	        if (!capacity || !generationLimit)
+    74	            throw std::invalid_argument("zero registry bound");
+    75	    }
+    76	    bool insert(MilesWire::ResourceKind kind, void *local, MilesWire::Handle &out) {
+    77	        if (kind == MilesWire::BorrowedSample)
+    78	            return false;
+    79	        return insertEntry(kind, local, out);
+    80	    }
+    81	    bool insertBorrowed(const MilesWire::Handle &parent, void *local, MilesWire::Handle &out) {
+    82	        void *stream = 0;
+    83	        if (!local || !resolve(parent, MilesWire::Stream, stream))
+    84	            return false;
+    85	        for (size_t i = 0; i < entries.size(); ++i) {
+    86	            const Entry &e = entries[i];
+    87	            if (e.state == 1 && e.kind == MilesWire::BorrowedSample && same(e.parent, parent)) {
+    88	                if (e.local != local)
+    89	                    return false; // never silently retarget an existing alias
+    90	                MilesWire::Handle h = {MilesWire::BorrowedSample, static_cast<uint32_t>(i + 1),
+    91	                                       e.generation};
+    92	                out = h;
+    93	                return true;
+    94	            }
+    95	        }
+    96	        MilesWire::Handle h;
+    97	        if (!insertEntry(MilesWire::BorrowedSample, local, h))
+    98	            return false;
+    99	        entries[h.slot - 1].parent = parent;
+   100	        out = h;
+   101	        return true;
+   102	    }
+   103	    bool resolve(const MilesWire::Handle &h, MilesWire::ResourceKind expected, void *&out) const {
+   104	        out = 0;
+   105	        if (!knownResource(expected) || h.kind != static_cast<uint32_t>(expected) || !h.slot ||
+   106	            h.slot > entries.size())
+   107	            return false;
+   108	        const Entry &e = entries[h.slot - 1];
+   109	        if (e.state != 1 || e.kind != h.kind || e.generation != h.generation || !e.local)
+   110	            return false;
+   111	        if (e.kind == MilesWire::BorrowedSample) {
+   112	            void *stream = 0;
+   113	            if (!resolve(e.parent, MilesWire::Stream, stream))
+   114	                return false;
+   115	        }
+   116	        out = e.local;
+   117	        return true;
+   118	    }
+   119	    bool beginClose(const MilesWire::Handle &h) {
+   120	        Entry *e = entry(h);
+   121	        if (!e || e->state != 1 || e->kind == MilesWire::BorrowedSample)
+   122	            return false;
+   123	        e->state = 2;
+   124	        return true;
+   125	    }
+   126	    bool retire(const MilesWire::Handle &h) {
+   127	        Entry *e = entry(h);
+   128	        if (!e || e->kind == MilesWire::BorrowedSample)
+   129	            return false;
+   130	        if (e->kind == MilesWire::Stream) {
+   131	            for (size_t i = 0; i < entries.size(); ++i) {
+   132	                Entry &alias = entries[i];
+   133	                if (alias.state == 1 && alias.kind == MilesWire::BorrowedSample &&
+   134	                    same(alias.parent, h))
+   135	                    retireEntry(alias);
+   136	            }
+   137	        }
+   138	        retireEntry(*e);
+   139	        return true;
+   140	    }
+   141	};
+   142	} // namespace MilesTransport
+   143	#endif
+     1	#ifndef MILES_HOST_REGISTRY_RESOLVER_H
+     2	#define MILES_HOST_REGISTRY_RESOLVER_H
+     3	#include "host_dispatch.h"
+     4	#include "../transport-candidate/resource_registry.h"
+     5	namespace MilesHost {
+     6	class RegistryResolver : public Resolver {
+     7	 MilesTransport::ResourceRegistry const &registry;
+     8	public:
+     9	 explicit RegistryResolver(MilesTransport::ResourceRegistry const &value):registry(value) {}
+    10	 bool resolve(MilesWire::Handle const &handle,uint32_t allowed,uintptr_t &native) {
+    11	  native=0;
+    12	  if(handle.kind!=MilesWire::Driver && handle.kind!=MilesWire::OwnedSample && handle.kind!=MilesWire::Stream && handle.kind!=MilesWire::BorrowedSample)return false;
+    13	  if(!(allowed & (1u<<handle.kind)))return false;
+    14	  void *local=0;
+    15	  if(!registry.resolve(handle,static_cast<MilesWire::ResourceKind>(handle.kind),local))return false;
+    16	  native=reinterpret_cast<uintptr_t>(local);return true;
+    17	 }
+    18	};
+    19	}
+    20	#endif
+     1	#ifndef EXPERIMENTAL_MILES_HOST_DISPATCH_H
+     2	#define EXPERIMENTAL_MILES_HOST_DISPATCH_H
+     3	#include "../protocol-candidate/miles_wire.h"
+     4	namespace MilesHost {
+     5	enum DispatchStatus { Complete=0, Unsupported=1, InvalidResource=2, InvalidFields=3 };
+     6	// Implemented by transport registry adapter; must validate kind, slot, generation,
+     7	// live state, and borrowed sample parent lifetime. Never dereference wire tokens.
+     8	struct Resolver {
+     9	 virtual ~Resolver() {}
+    10	 virtual bool resolve(MilesWire::Handle const &,uint32_t allowedKindMask,uintptr_t &native)=0;
+    11	};
+    12	bool supports(uint32_t opcode);
+    13	// Precondition: session initialized, lane+lock lease admission established.
+    14	// No lifecycle/admission implementation and no worker-thread policy here.
+    15	DispatchStatus dispatch(uint32_t opcode,MilesWire::Call const &,MilesWire::Result &,Resolver &);
+    16	}
+    17	#endif
+
+exec
+/usr/bin/bash -lc 'nl -ba vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp' in /home/akilleez/Work/client-wire-validation
+exec
+/usr/bin/bash -lc 'nl -ba vendor-options/miles-integration-seam/transport-candidate/codec.cpp
+nl -ba vendor-options/miles-integration-seam/transport-candidate/codec.h' in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+     1	#include "codec.h"
+     2	namespace MilesTransport {
+     3	namespace {
+     4	using namespace MilesWire;
+     5	struct Writer {
+     6	    std::vector<unsigned char> b;
+     7	    void put(uint64_t x, unsigned n) {
+     8	        for (unsigned i = 0; i < n; ++i) {
+     9	            b.push_back(static_cast<unsigned char>(x & 255));
+    10	            x >>= 8;
+    11	        }
+    12	    }
+    13	    void handle(const Handle &h) {
+    14	        put(h.kind, 4);
+    15	        put(h.slot, 4);
+    16	        put(h.generation, 4);
+    17	    }
+    18	    void span(const Span &s) {
+    19	        put(s.offset, 4);
+    20	        put(s.length, 4);
+    21	    }
+    22	    void payload(Bytes v) {
+    23	        if (v.size)
+    24	            b.insert(b.end(), v.data, v.data + v.size);
+    25	    }
+    26	};
+    27	struct Reader {
+    28	    const unsigned char *p;
+    29	    explicit Reader(Bytes b) : p(b.data) {}
+    30	    uint64_t get(unsigned n) {
+    31	        uint64_t x = 0;
+    32	        for (unsigned i = 0; i < n; ++i)
+    33	            x |= static_cast<uint64_t>(*p++) << (8 * i);
+    34	        return x;
+    35	    }
+    36	    uint32_t u() { return static_cast<uint32_t>(get(4)); }
+    37	    Handle handle() {
+    38	        Handle h = {u(), u(), u()};
+    39	        return h;
+    40	    }
+    41	    Span span() {
+    42	        Span s = {u(), u()};
+    43	        return s;
+    44	    }
+    45	};
+    46	bool opcode(uint32_t o) { return (o >= 1 && o <= 61) || (o >= Hello && o <= SessionClose); }
+    47	bool envelopeOpcode(uint32_t o) { return opcode(o) && o != EndOfSample && o != EndOfStream; }
+    48	bool header(const Header &h) {
+    49	    return h.magic == Magic && h.version == Version && opcode(h.opcode);
+    50	}
+    51	void putHeader(Writer &w, const Header &h) {
+    52	    w.put(h.magic, 4);
+    53	    w.put(h.version, 2);
+    54	    w.put(h.kind, 2);
+    55	    w.put(h.opcode, 4);
+    56	    w.put(h.bytes, 4);
+    57	    w.put(h.request, 8);
+    58	    w.put(h.causal_request, 8);
+    59	    w.put(h.lane, 8);
+    60	    w.put(h.lock_lease, 8);
+    61	}
+    62	Header getHeader(Reader &r) {
+    63	    Header h;
+    64	    h.magic = r.u();
+    65	    h.version = static_cast<uint16_t>(r.get(2));
+    66	    h.kind = static_cast<uint16_t>(r.get(2));
+    67	    h.opcode = r.u();
+    68	    h.bytes = r.u();
+    69	    h.request = r.get(8);
+    70	    h.causal_request = r.get(8);
+    71	    h.lane = r.get(8);
+    72	    h.lock_lease = r.get(8);
+    73	    return h;
+    74	}
+    75	bool input(Bytes b, size_t minimum) {
+    76	    return b.data && b.size >= minimum && b.size <= MaxFrameBytes;
+    77	}
+    78	bool plan(Header &h, size_t fixed, Bytes a, Bytes b, Span &sa, Span &sb) {
+    79	    if ((a.size && !a.data) || (b.size && !b.data) || a.size > MaxFrameBytes - fixed ||
+    80	        b.size > MaxFrameBytes - fixed - a.size)
+    81	        return false;
+    82	    sa.offset = a.size ? static_cast<uint32_t>(fixed) : 0;
+    83	    sa.length = static_cast<uint32_t>(a.size);
+    84	    sb.offset = b.size ? static_cast<uint32_t>(fixed + a.size) : 0;
+    85	    sb.length = static_cast<uint32_t>(b.size);
+    86	    h.bytes = static_cast<uint32_t>(fixed + a.size + b.size);
+    87	    return true;
+    88	}
+    89	bool spans(size_t total, size_t fixed, const Span &a, const Span &b) {
+    90	    const Span s[2] = {a, b};
+    91	    size_t cursor = fixed;
+    92	    for (unsigned i = 0; i < 2; ++i) {
+    93	        if (!s[i].length) {
+    94	            if (s[i].offset)
+    95	                return false;
+    96	            continue;
+    97	        }
+    98	        if (s[i].offset != cursor || s[i].length > total - cursor)
+    99	            return false;
+   100	        cursor += s[i].length;
+   101	    }
+   102	    return cursor == total;
+   103	}
+   104	bool eosValid(const Header &h, const Eos &e) {
+   105	    return h.kind == Event && e.reserved == 0 && validHandle(e.resource) && e.resource.slot &&
+   106	           ((h.opcode == EndOfSample &&
+   107	             (e.resource.kind == OwnedSample || e.resource.kind == BorrowedSample)) ||
+   108	            (h.opcode == EndOfStream && e.resource.kind == Stream));
+   109	}
+   110	} // namespace
+   111	bool encodeCall(Header h, const Call &c, Bytes a, Bytes b, std::vector<unsigned char> &out) {
+   112	    if (!header(h) || !envelopeOpcode(h.opcode) ||
+   113	        (h.kind != Request && h.kind != ReverseRequest) || c.reserved || !validHandle(c.target) ||
+   114	        !validHandle(c.resource))
+   115	        return false;
+   116	    Span sa, sb;
+   117	    if (!plan(h, 136, a, b, sa, sb))
+   118	        return false;
+   119	    Writer w;
+   120	    putHeader(w, h);
+   121	    w.handle(c.target);
+   122	    w.handle(c.resource);
+   123	    for (unsigned i = 0; i < 8; ++i)
+   124	        w.put(c.value[i], 4);
+   125	    w.span(sa);
+   126	    w.span(sb);
+   127	    w.put(c.output_mask, 4);
+   128	    w.put(0, 4);
+   129	    w.put(c.callback, 8);
+   130	    w.payload(a);
+   131	    w.payload(b);
+   132	    out.swap(w.b);
+   133	    return true;
+   134	}
+   135	bool decodeCall(Bytes b, Header &outH, Call &outC) {
+   136	    if (!input(b, 136))
+   137	        return false;
+   138	    Reader r(b);
+   139	    Header h = getHeader(r);
+   140	    if (!header(h) || !envelopeOpcode(h.opcode) || h.bytes != b.size ||
+   141	        (h.kind != Request && h.kind != ReverseRequest))
+   142	        return false;
+   143	    Call c;
+   144	    c.target = r.handle();
+   145	    c.resource = r.handle();
+   146	    for (unsigned i = 0; i < 8; ++i)
+   147	        c.value[i] = r.u();
+   148	    c.bytes = r.span();
+   149	    c.text = r.span();
+   150	    c.output_mask = r.u();
+   151	    c.reserved = r.u();
+   152	    c.callback = r.get(8);
+   153	    if (c.reserved || !validHandle(c.target) || !validHandle(c.resource) ||
+   154	        !spans(b.size, 136, c.bytes, c.text))
+   155	        return false;
+   156	    outH = h;
+   157	    outC = c;
+   158	    return true;
+   159	}
+   160	bool encodeResult(Header h, const Result &c, Bytes a, Bytes b, std::vector<unsigned char> &out) {
+   161	    if (!header(h) || !envelopeOpcode(h.opcode) || (h.kind != Reply && h.kind != ReverseReply) ||
+   162	        !validHandle(c.resource))
+   163	        return false;
+   164	    Span sa, sb;
+   165	    if (!plan(h, 128, a, b, sa, sb))
+   166	        return false;
+   167	    Writer w;
+   168	    putHeader(w, h);
+   169	    w.put(c.transport_status, 4);
+   170	    w.put(c.return_bits, 4);
+   171	    w.handle(c.resource);
+   172	    for (unsigned i = 0; i < 8; ++i)
+   173	        w.put(c.value[i], 4);
+   174	    w.span(sa);
+   175	    w.span(sb);
+   176	    w.put(c.null_mask, 4);
+   177	    w.put(c.callback, 8);
+   178	    w.payload(a);
+   179	    w.payload(b);
+   180	    out.swap(w.b);
+   181	    return true;
+   182	}
+   183	bool decodeResult(Bytes b, Header &outH, Result &outC) {
+   184	    if (!input(b, 128))
+   185	        return false;
+   186	    Reader r(b);
+   187	    Header h = getHeader(r);
+   188	    if (!header(h) || !envelopeOpcode(h.opcode) || h.bytes != b.size ||
+   189	        (h.kind != Reply && h.kind != ReverseReply))
+   190	        return false;
+   191	    Result c;
+   192	    c.transport_status = r.u();
+   193	    c.return_bits = r.u();
+   194	    c.resource = r.handle();
+   195	    for (unsigned i = 0; i < 8; ++i)
+   196	        c.value[i] = r.u();
+   197	    c.bytes = r.span();
+   198	    c.text = r.span();
+   199	    c.null_mask = r.u();
+   200	    c.callback = r.get(8);
+   201	    if (!validHandle(c.resource) || !spans(b.size, 128, c.bytes, c.text))
+   202	        return false;
+   203	    outH = h;
+   204	    outC = c;
+   205	    return true;
+   206	}
+   207	bool encodeEos(Header h, const Eos &e, std::vector<unsigned char> &out) {
+   208	    if (!header(h) || !eosValid(h, e))
+   209	        return false;
+   210	    h.bytes = 80;
+   211	    Writer w;
+   212	    putHeader(w, h);
+   213	    w.handle(e.resource);
+   214	    w.put(0, 4);
+   215	    w.put(e.registration, 8);
+   216	    w.put(e.event_sequence, 8);
+   217	    out.swap(w.b);
+   218	    return true;
+   219	}
+   220	bool decodeEos(Bytes b, Header &outH, Eos &outE) {
+   221	    if (!input(b, 80) || b.size != 80)
+   222	        return false;
+   223	    Reader r(b);
+   224	    Header h = getHeader(r);
+   225	    Eos e;
+   226	    e.resource = r.handle();
+   227	    e.reserved = r.u();
+   228	    e.registration = r.get(8);
+   229	    e.event_sequence = r.get(8);
+   230	    if (!header(h) || h.bytes != 80 || !eosValid(h, e))
+   231	        return false;
+   232	    outH = h;
+   233	    outE = e;
+   234	    return true;
+   235	}
+   236	} // namespace MilesTransport
+     1	#ifndef MILES_TRANSPORT_CODEC_H
+     2	#define MILES_TRANSPORT_CODEC_H
+     3	#include "resource_registry.h"
+     4	namespace MilesTransport {
+     5	struct Bytes {
+     6	    const unsigned char *data;
+     7	    size_t size;
+     8	    Bytes(const void *p = 0, size_t n = 0) : data(static_cast<const unsigned char *>(p)), size(n) {}
+     9	};
+    10	bool encodeCall(MilesWire::Header, const MilesWire::Call &, Bytes, Bytes,
+    11	                std::vector<unsigned char> &);
+    12	bool decodeCall(Bytes, MilesWire::Header &, MilesWire::Call &);
+    13	bool encodeResult(MilesWire::Header, const MilesWire::Result &, Bytes, Bytes,
+    14	                  std::vector<unsigned char> &);
+    15	bool decodeResult(Bytes, MilesWire::Header &, MilesWire::Result &);
+    16	bool encodeEos(MilesWire::Header, const MilesWire::Eos &, std::vector<unsigned char> &);
+    17	bool decodeEos(Bytes, MilesWire::Header &, MilesWire::Eos &);
+    18	} // namespace MilesTransport
+    19	#endif
+
+ succeeded in 0ms:
+     1	#include "host_dispatch.h"
+     2	#include "Mss.h"
+     3	#include <string.h>
+     4	#if !defined(_M_IX86) || _MSC_VER != 1800
+     5	#error This candidate targets the original x86 vendor ABI with v120.
+     6	#endif
+     7	namespace MilesHost {
+     8	namespace {
+     9	S32 s(uint32_t v){ S32 result; memcpy(&result,&v,4); return result; }
+    10	F32 f(uint32_t v){ F32 result; memcpy(&result,&v,4); return result; }
+    11	uint32_t bits(S32 v){uint32_t result;memcpy(&result,&v,4);return result;}
+    12	uint32_t floatBits(F32 v){uint32_t result;memcpy(&result,&v,4);return result;}
+    13	}
+    14	bool supports(uint32_t opcode){switch(opcode){
+    15	case MilesWire::AIL_start_sample:
+    16	case MilesWire::AIL_stop_sample:
+    17	case MilesWire::AIL_end_sample:
+    18	case MilesWire::AIL_start_stream:
+    19	case MilesWire::AIL_active_sample_count:
+    20	case MilesWire::AIL_digital_CPU_percent:
+    21	case MilesWire::AIL_digital_latency:
+    22	case MilesWire::AIL_room_type:
+    23	case MilesWire::AIL_sample_status:
+    24	case MilesWire::AIL_sample_position:
+    25	case MilesWire::AIL_sample_playback_rate:
+    26	case MilesWire::AIL_stream_status:
+    27	case MilesWire::AIL_sample_ms_position:
+    28	case MilesWire::AIL_stream_ms_position:
+    29	case MilesWire::AIL_sample_volume_levels:
+    30	case MilesWire::AIL_sample_reverb_levels:
+    31	case MilesWire::AIL_set_3D_rolloff_factor:
+    32	case MilesWire::AIL_set_room_type:
+    33	case MilesWire::AIL_set_listener_3D_position:
+    34	case MilesWire::AIL_set_listener_3D_velocity_vector:
+    35	case MilesWire::AIL_set_listener_3D_orientation:
+    36	case MilesWire::AIL_set_sample_3D_position:
+    37	case MilesWire::AIL_set_sample_3D_velocity_vector:
+    38	case MilesWire::AIL_set_sample_3D_distances:
+    39	case MilesWire::AIL_set_sample_obstruction:
+    40	case MilesWire::AIL_set_sample_occlusion:
+    41	case MilesWire::AIL_set_sample_volume_levels:
+    42	case MilesWire::AIL_set_sample_reverb_levels:
+    43	case MilesWire::AIL_set_sample_loop_count:
+    44	case MilesWire::AIL_set_sample_ms_position:
+    45	case MilesWire::AIL_set_sample_playback_rate:
+    46	case MilesWire::AIL_set_sample_position:
+    47	case MilesWire::AIL_set_sample_loop_block:
+    48	case MilesWire::AIL_set_stream_loop_block:
+    49	case MilesWire::AIL_set_stream_loop_count:
+    50	case MilesWire::AIL_set_stream_ms_position:
+    51	case MilesWire::AIL_file_error:
+    52	case MilesWire::AIL_get_timer_highest_delay:
+    53	case MilesWire::AIL_serve:
+    54	return true; default:return false;}}
+    55	static DispatchStatus dispatchImpl(uint32_t opcode,MilesWire::Call const &call,MilesWire::Result &out,Resolver &resolver){
+    56	 if(!supports(opcode))return Unsupported;
+    57	 if(call.reserved || call.callback || call.bytes.offset || call.bytes.length || call.text.offset || call.text.length || call.resource.kind || call.resource.slot || call.resource.generation)return InvalidFields;
+    58	 switch(opcode){
+    59	case MilesWire::AIL_start_sample: {
+    60	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    61	 if(call.output_mask & ~0u)return InvalidFields;
+    62	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+    63	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+    64	 ::AIL_start_sample(sample);
+    65	 return Complete; }
+    66	case MilesWire::AIL_stop_sample: {
+    67	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    68	 if(call.output_mask & ~0u)return InvalidFields;
+    69	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+    70	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+    71	 ::AIL_stop_sample(sample);
+    72	 return Complete; }
+    73	case MilesWire::AIL_end_sample: {
+    74	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    75	 if(call.output_mask & ~0u)return InvalidFields;
+    76	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+    77	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+    78	 ::AIL_end_sample(sample);
+    79	 return Complete; }
+    80	case MilesWire::AIL_start_stream: {
+    81	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    82	 if(call.output_mask & ~0u)return InvalidFields;
+    83	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+    84	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+    85	 ::AIL_start_stream(stream);
+    86	 return Complete; }
+    87	case MilesWire::AIL_active_sample_count: {
+    88	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    89	 if(call.output_mask & ~0u)return InvalidFields;
+    90	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+    91	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+    92	 out.return_bits=bits(::AIL_active_sample_count(driver));
+    93	 return Complete; }
+    94	case MilesWire::AIL_digital_CPU_percent: {
+    95	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    96	 if(call.output_mask & ~0u)return InvalidFields;
+    97	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+    98	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+    99	 out.return_bits=bits(::AIL_digital_CPU_percent(driver));
+   100	 return Complete; }
+   101	case MilesWire::AIL_digital_latency: {
+   102	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   103	 if(call.output_mask & ~0u)return InvalidFields;
+   104	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   105	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   106	 out.return_bits=bits(::AIL_digital_latency(driver));
+   107	 return Complete; }
+   108	case MilesWire::AIL_room_type: {
+   109	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   110	 if(call.output_mask & ~0u)return InvalidFields;
+   111	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   112	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   113	 out.return_bits=bits(::AIL_room_type(driver));
+   114	 return Complete; }
+   115	case MilesWire::AIL_sample_status: {
+   116	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   117	 if(call.output_mask & ~0u)return InvalidFields;
+   118	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   119	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   120	 out.return_bits=::AIL_sample_status(sample);
+   121	 return Complete; }
+   122	case MilesWire::AIL_sample_position: {
+   123	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   124	 if(call.output_mask & ~0u)return InvalidFields;
+   125	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   126	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   127	 out.return_bits=::AIL_sample_position(sample);
+   128	 return Complete; }
+   129	case MilesWire::AIL_sample_playback_rate: {
+   130	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   131	 if(call.output_mask & ~0u)return InvalidFields;
+   132	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   133	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   134	 out.return_bits=bits(::AIL_sample_playback_rate(sample));
+   135	 return Complete; }
+   136	case MilesWire::AIL_stream_status: {
+   137	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   138	 if(call.output_mask & ~0u)return InvalidFields;
+   139	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   140	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   141	 out.return_bits=bits(::AIL_stream_status(stream));
+   142	 return Complete; }
+   143	case MilesWire::AIL_sample_ms_position: {
+   144	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   145	 if(call.output_mask & ~3u)return InvalidFields;
+   146	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   147	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   148	 S32 a=0,b=0; ::AIL_sample_ms_position(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=bits(a); if(call.output_mask&2)out.value[1]=bits(b);
+   149	 return Complete; }
+   150	case MilesWire::AIL_stream_ms_position: {
+   151	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   152	 if(call.output_mask & ~3u)return InvalidFields;
+   153	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   154	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   155	 S32 a=0,b=0; ::AIL_stream_ms_position(stream,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=bits(a); if(call.output_mask&2)out.value[1]=bits(b);
+   156	 return Complete; }
+   157	case MilesWire::AIL_sample_volume_levels: {
+   158	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   159	 if(call.output_mask & ~3u)return InvalidFields;
+   160	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   161	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   162	 F32 a=0,b=0; ::AIL_sample_volume_levels(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=floatBits(a); if(call.output_mask&2)out.value[1]=floatBits(b);
+   163	 return Complete; }
+   164	case MilesWire::AIL_sample_reverb_levels: {
+   165	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   166	 if(call.output_mask & ~3u)return InvalidFields;
+   167	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   168	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   169	 F32 a=0,b=0; ::AIL_sample_reverb_levels(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=floatBits(a); if(call.output_mask&2)out.value[1]=floatBits(b);
+   170	 return Complete; }
+   171	case MilesWire::AIL_set_3D_rolloff_factor: {
+   172	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   173	 if(call.output_mask & ~0u)return InvalidFields;
+   174	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   175	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   176	 ::AIL_set_3D_rolloff_factor(driver,f(call.value[0]));
+   177	 return Complete; }
+   178	case MilesWire::AIL_set_room_type: {
+   179	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   180	 if(call.output_mask & ~0u)return InvalidFields;
+   181	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   182	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   183	 ::AIL_set_room_type(driver,s(call.value[0]));
+   184	 return Complete; }
+   185	case MilesWire::AIL_set_listener_3D_position: {
+   186	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   187	 if(call.output_mask & ~0u)return InvalidFields;
+   188	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   189	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   190	 ::AIL_set_listener_3D_position(driver,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   191	 return Complete; }
+   192	case MilesWire::AIL_set_listener_3D_velocity_vector: {
+   193	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   194	 if(call.output_mask & ~0u)return InvalidFields;
+   195	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   196	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   197	 ::AIL_set_listener_3D_velocity_vector(driver,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   198	 return Complete; }
+   199	case MilesWire::AIL_set_listener_3D_orientation: {
+   200	 for(unsigned i=6;i<8;++i)if(call.value[i])return InvalidFields;
+   201	 if(call.output_mask & ~0u)return InvalidFields;
+   202	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   203	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   204	 ::AIL_set_listener_3D_orientation(driver,f(call.value[0]),f(call.value[1]),f(call.value[2]),f(call.value[3]),f(call.value[4]),f(call.value[5]));
+   205	 return Complete; }
+   206	case MilesWire::AIL_set_sample_3D_position: {
+   207	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   208	 if(call.output_mask & ~0u)return InvalidFields;
+   209	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   210	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   211	 ::AIL_set_sample_3D_position(sample,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   212	 return Complete; }
+   213	case MilesWire::AIL_set_sample_3D_velocity_vector: {
+   214	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   215	 if(call.output_mask & ~0u)return InvalidFields;
+   216	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   217	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   218	 ::AIL_set_sample_3D_velocity_vector(sample,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   219	 return Complete; }
+   220	case MilesWire::AIL_set_sample_3D_distances: {
+   221	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   222	 if(call.output_mask & ~0u)return InvalidFields;
+   223	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   224	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   225	 ::AIL_set_sample_3D_distances(sample,f(call.value[0]),f(call.value[1]),s(call.value[2]));
+   226	 return Complete; }
+   227	case MilesWire::AIL_set_sample_obstruction: {
+   228	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   229	 if(call.output_mask & ~0u)return InvalidFields;
+   230	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   231	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   232	 ::AIL_set_sample_obstruction(sample,f(call.value[0]));
+   233	 return Complete; }
+   234	case MilesWire::AIL_set_sample_occlusion: {
+   235	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   236	 if(call.output_mask & ~0u)return InvalidFields;
+   237	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   238	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   239	 ::AIL_set_sample_occlusion(sample,f(call.value[0]));
+   240	 return Complete; }
+   241	case MilesWire::AIL_set_sample_volume_levels: {
+   242	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   243	 if(call.output_mask & ~0u)return InvalidFields;
+   244	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   245	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   246	 ::AIL_set_sample_volume_levels(sample,f(call.value[0]),f(call.value[1]));
+   247	 return Complete; }
+   248	case MilesWire::AIL_set_sample_reverb_levels: {
+   249	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   250	 if(call.output_mask & ~0u)return InvalidFields;
+   251	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   252	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   253	 ::AIL_set_sample_reverb_levels(sample,f(call.value[0]),f(call.value[1]));
+   254	 return Complete; }
+   255	case MilesWire::AIL_set_sample_loop_count: {
+   256	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   257	 if(call.output_mask & ~0u)return InvalidFields;
+   258	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   259	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   260	 ::AIL_set_sample_loop_count(sample,s(call.value[0]));
+   261	 return Complete; }
+   262	case MilesWire::AIL_set_sample_ms_position: {
+   263	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   264	 if(call.output_mask & ~0u)return InvalidFields;
+   265	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   266	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   267	 ::AIL_set_sample_ms_position(sample,s(call.value[0]));
+   268	 return Complete; }
+   269	case MilesWire::AIL_set_sample_playback_rate: {
+   270	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   271	 if(call.output_mask & ~0u)return InvalidFields;
+   272	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   273	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   274	 ::AIL_set_sample_playback_rate(sample,s(call.value[0]));
+   275	 return Complete; }
+   276	case MilesWire::AIL_set_sample_position: {
+   277	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   278	 if(call.output_mask & ~0u)return InvalidFields;
+   279	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   280	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   281	 ::AIL_set_sample_position(sample,call.value[0]);
+   282	 return Complete; }
+   283	case MilesWire::AIL_set_sample_loop_block: {
+   284	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   285	 if(call.output_mask & ~0u)return InvalidFields;
+   286	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   287	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   288	 ::AIL_set_sample_loop_block(sample,s(call.value[0]),s(call.value[1]));
+   289	 return Complete; }
+   290	case MilesWire::AIL_set_stream_loop_block: {
+   291	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   292	 if(call.output_mask & ~0u)return InvalidFields;
+   293	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   294	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   295	 ::AIL_set_stream_loop_block(stream,s(call.value[0]),s(call.value[1]));
+   296	 return Complete; }
+   297	case MilesWire::AIL_set_stream_loop_count: {
+   298	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   299	 if(call.output_mask & ~0u)return InvalidFields;
+   300	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   301	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   302	 ::AIL_set_stream_loop_count(stream,s(call.value[0]));
+   303	 return Complete; }
+   304	case MilesWire::AIL_set_stream_ms_position: {
+   305	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   306	 if(call.output_mask & ~0u)return InvalidFields;
+   307	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   308	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   309	 ::AIL_set_stream_ms_position(stream,s(call.value[0]));
+   310	 return Complete; }
+   311	case MilesWire::AIL_file_error: {
+   312	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   313	 if(call.output_mask & ~0u)return InvalidFields;
+   314	 if(call.target.kind || call.target.slot || call.target.generation)return InvalidResource;
+   315	 out.return_bits=bits(::AIL_file_error());
+   316	 return Complete; }
+   317	case MilesWire::AIL_get_timer_highest_delay: {
+   318	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   319	 if(call.output_mask & ~0u)return InvalidFields;
+   320	 if(call.target.kind || call.target.slot || call.target.generation)return InvalidResource;
+   321	 out.return_bits=::AIL_get_timer_highest_delay();
+   322	 return Complete; }
+   323	case MilesWire::AIL_serve: {
+   324	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   325	 if(call.output_mask & ~0u)return InvalidFields;
+   326	 if(call.target.kind || call.target.slot || call.target.generation)return InvalidResource;
+   327	 ::AIL_serve();
+   328	 return Complete; }
+   329	default:return Unsupported;}}
+   330	DispatchStatus dispatch(uint32_t opcode,MilesWire::Call const &call,MilesWire::Result &out,Resolver &resolver){
+   331	 memset(&out,0,sizeof(out));
+   332	 DispatchStatus const status=dispatchImpl(opcode,call,out,resolver);
+   333	 out.transport_status=static_cast<uint32_t>(status);
+   334	 return status;
+   335	}
+   336	}
+
+exec
+/usr/bin/bash -lc 'nl -ba vendor-options/miles-integration-seam/transport-candidate/tests.cpp
+nl -ba vendor-options/miles-integration-seam/host-candidate/preflight.cpp
+sha256sum vendor-options/miles-integration-seam/host-candidate/preflight.cpp' in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+     1	#include "codec.h"
+     2	#include <stdio.h>
+     3	#include <string.h>
+     4	using namespace MilesWire;
+     5	using namespace MilesTransport;
+     6	static int count = 0, failed = 0;
+     7	static void check(bool ok, int line, const char* expression) {
+     8	    ++count;
+     9	    if (!ok) { ++failed; printf("FAIL %d line %d: %s\n", count, line, expression); }
+    10	}
+    11	#define CHECK(x) check(!!(x), __LINE__, #x)
+    12	static Header head(uint16_t kind, uint32_t op) {
+    13	    Header h = {Magic, Version, kind, op, 0, 0x0807060504030201ULL, 0, 0, 0};
+    14	    return h;
+    15	}
+    16	int main() {
+    17	    Call c = {};
+    18	    c.target.kind = OwnedSample;
+    19	    c.target.slot = 3;
+    20	    c.target.generation = 2;
+    21	    c.value[0] = 0x80000001;
+    22	    c.callback = 0x8877665544332211ULL;
+    23	    unsigned char payload[] = {0xde, 0xad};
+    24	    unsigned char text[] = {0x78, 0};
+    25	    std::vector<unsigned char> b;
+    26	    CHECK(encodeCall(head(Request, AIL_sample_status), c, Bytes(payload, 2), Bytes(text, 2), b));
+    27	    // Independent literal expected offsets and little-endian bytes, not codec-generated.
+    28	    unsigned char golden[140] = {0x57, 0x4d, 0x53, 0x31, 1, 0, 1, 0, 24, 0, 0, 0,
+    29	                                 140,  0,    0,    0,    1, 2, 3, 4, 5,  6, 7, 8};
+    30	    golden[48] = 2;
+    31	    golden[52] = 3;
+    32	    golden[56] = 2;
+    33	    golden[72] = 1;
+    34	    golden[75] = 128;
+    35	    golden[104] = 136;
+    36	    golden[108] = 2;
+    37	    golden[112] = 138;
+    38	    golden[116] = 2;
+    39	    const unsigned char cb[] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88};
+    40	    memcpy(golden + 128, cb, 8);
+    41	    golden[136] = 0xde;
+    42	    golden[137] = 0xad;
+    43	    golden[138] = 0x78;
+    44	    CHECK(b.size() == sizeof(golden) && memcmp(&b[0], golden, sizeof(golden)) == 0);
+    45	    Header h = {};
+    46	    Call d = {};
+    47	    CHECK(decodeCall(Bytes(golden, sizeof(golden)), h, d));
+    48	    CHECK(d.value[0] == 0x80000001 && d.callback == c.callback &&
+    49	          h.request == 0x0807060504030201ULL);
+    50	    for (size_t n = 0; n < b.size(); ++n) {
+    51	        h.magic = 42;
+    52	        CHECK(!decodeCall(Bytes(&b[0], n), h, d) && h.magic == 42);
+    53	    }
+    54	    const size_t offsets[] = {0, 4, 6, 8, 12, 48, 52, 56, 104, 108, 112, 116, 124};
+    55	    for (size_t i = 0; i < sizeof(offsets) / sizeof(offsets[0]); ++i) {
+    56	        std::vector<unsigned char> x = b;
+    57	        x[offsets[i]] = (offsets[i] == 52 || offsets[i] == 56) ? 0 : 255;
+    58	        CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+    59	    }
+    60	    std::vector<unsigned char> x = b;
+    61	    x[104] = 138;
+    62	    x[112] = 136;
+    63	    CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+    64	    x = b;
+    65	    x.push_back(0);
+    66	    x[12] = 141;
+    67	    CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+    68	    CHECK(!encodeCall(head(Request, 1), c, Bytes(payload, SIZE_MAX), Bytes(), x));
+    69	    CHECK(!encodeCall(head(Request, 1), c, Bytes(0, 1), Bytes(), x));
+    70	    Result result = {};
+    71	    result.return_bits = 0x87654321;
+    72	    result.callback = c.callback;
+    73	    CHECK(encodeResult(head(Reply, 24), result, Bytes(), Bytes(), x));
+    74	    unsigned char gr[128] = {0x57, 0x4d, 0x53, 0x31, 1, 0, 2, 0, 24, 0, 0, 0,
+    75	                             128,  0,    0,    0,    1, 2, 3, 4, 5,  6, 7, 8};
+    76	    gr[52] = 0x21;
+    77	    gr[53] = 0x43;
+    78	    gr[54] = 0x65;
+    79	    gr[55] = 0x87;
+    80	    memcpy(gr + 120, cb, 8);
+    81	    CHECK(x.size() == 128 && memcmp(&x[0], gr, 128) == 0);
+    82	    Result rd = {};
+    83	    CHECK(decodeResult(Bytes(gr, 128), h, rd) && rd.return_bits == result.return_bits);
+    84	    for (size_t n = 0; n < 128; ++n)
+    85	        CHECK(!decodeResult(Bytes(gr, n), h, rd));
+    86	    Eos e = {};
+    87	    e.resource = c.target;
+    88	    e.registration = 7;
+    89	    e.event_sequence = 8;
+    90	    CHECK(encodeEos(head(Event, EndOfSample), e, x));
+    91	    unsigned char ge[80] = {0x57, 0x4d, 0x53, 0x31, 1, 0, 3, 0, 10, 16, 0, 0,
+    92	                            80,   0,    0,    0,    1, 2, 3, 4, 5,  6,  7, 8};
+    93	    ge[48] = 2;
+    94	    ge[52] = 3;
+    95	    ge[56] = 2;
+    96	    ge[64] = 7;
+    97	    ge[72] = 8;
+    98	    CHECK(x.size() == 80 && memcmp(&x[0], ge, 80) == 0);
+    99	    Eos ed = {};
+   100	    CHECK(decodeEos(Bytes(ge, 80), h, ed) && ed.event_sequence == 8);
+   101	    for (size_t n = 0; n < 80; ++n)
+   102	        CHECK(!decodeEos(Bytes(ge, n), h, ed));
+   103	    ge[60] = 1;
+   104	    CHECK(!decodeEos(Bytes(ge, 80), h, ed));
+   105	    // Exact maximum, one-byte excess, canonical empty spans and overlapping payloads.
+   106	    std::vector<unsigned char> maximum(MaxFrameBytes - 136, 0x5a);
+   107	    CHECK(encodeCall(head(Request, 1), c, Bytes(&maximum[0], maximum.size()), Bytes(), x));
+   108	    CHECK(x.size() == MaxFrameBytes && decodeCall(Bytes(&x[0], x.size()), h, d));
+   109	    CHECK(!encodeCall(head(Request, 1), c, Bytes(&maximum[0], maximum.size()), Bytes(text, 1), x));
+   110	    CHECK(encodeCall(head(ReverseRequest, FileRead), c, Bytes(), Bytes(), x));
+   111	    CHECK(decodeCall(Bytes(&x[0], x.size()), h, d));
+   112	    x[104] = 136;
+   113	    CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+   114	    x = b;
+   115	    x[112] = 137;
+   116	    CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+   117	    x = b;
+   118	    x[112] = 139;
+   119	    CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+   120	    x = b;
+   121	    memset(&x[108], 255, 4);
+   122	    CHECK(!decodeCall(Bytes(&x[0], x.size()), h, d));
+   123	    CHECK(!encodeCall(head(Request, EndOfSample), c, Bytes(), Bytes(), x));
+   124	    CHECK(!encodeResult(head(Reply, EndOfStream), result, Bytes(), Bytes(), x));
+   125	    CHECK(encodeResult(head(ReverseReply, FileRead), result, Bytes(payload, 2), Bytes(text, 2), x));
+   126	    CHECK(decodeResult(Bytes(&x[0], x.size()), h, rd) && rd.bytes.offset == 128 &&
+   127	          rd.text.offset == 130);
+   128	    x[100] = 1;
+   129	    CHECK(!decodeResult(Bytes(&x[0], x.size()), h, rd));
+   130	    Header sentinel = {};
+   131	    sentinel.magic = 77;
+   132	    Call unchanged = {};
+   133	    unchanged.callback = 99;
+   134	    CHECK(!decodeCall(Bytes(), sentinel, unchanged) && sentinel.magic == 77 &&
+   135	          unchanged.callback == 99);
+   136	    std::vector<unsigned char> unchangedBytes(1, 42);
+   137	    Call invalid = c;
+   138	    invalid.reserved = 1;
+   139	    CHECK(!encodeCall(head(Request, 1), invalid, Bytes(), Bytes(), unchangedBytes) &&
+   140	          unchangedBytes.size() == 1 && unchangedBytes[0] == 42);
+   141	    int a = 1, z = 2;
+   142	    void *p = 0;
+   143	    ResourceRegistry registry(1, 2);
+   144	    Handle one = {}, two = {};
+   145	    CHECK(!registry.insert(Driver, 0, one));
+   146	    CHECK(registry.insert(OwnedSample, &a, one));
+   147	    CHECK(registry.resolve(one, OwnedSample, p) && p == &a);
+   148	    CHECK(!registry.resolve(one, Driver, p) && p == 0);
+   149	    CHECK(!registry.insert(Stream, &z, two));
+   150	    CHECK(registry.beginClose(one));
+   151	    CHECK(!registry.resolve(one, OwnedSample, p));
+   152	    CHECK(!registry.beginClose(one));
+   153	    CHECK(registry.retire(one));
+   154	    CHECK(!registry.retire(one));
+   155	    CHECK(registry.insert(OwnedSample, &z, two));
+   156	    CHECK(two.slot == one.slot && two.generation == one.generation + 1);
+   157	    CHECK(!registry.resolve(one, OwnedSample, p));
+   158	    CHECK(registry.resolve(two, OwnedSample, p) && p == &z);
+   159	    CHECK(registry.retire(two));
+   160	    CHECK(!registry.insert(OwnedSample, &a, one));
+   161	    CHECK(!registry.resolve(two, OwnedSample, p));
+   162	    Handle nullHandle = {};
+   163	    CHECK(!registry.resolve(nullHandle, Null, p));
+   164	    ResourceRegistry files;
+   165	    int originalFileZero = 0;
+   166	    CHECK(files.insert(File, &originalFileZero, one));
+   167	    CHECK(files.resolve(one, File, p) && *static_cast<int *>(p) == 0);
+   168	    ResourceRegistry aliases(2,2);
+   169	    Handle stream={},alias={},again={},replacement={};
+   170	    CHECK(aliases.insert(Stream,&a,stream));
+   171	    CHECK(!aliases.insert(BorrowedSample,&z,alias));
+   172	    CHECK(!aliases.insertBorrowed(stream,0,alias));
+   173	    Handle forged=stream;forged.kind=Driver;
+   174	    CHECK(!aliases.insertBorrowed(forged,&z,alias));
+   175	    forged=stream;++forged.generation;
+   176	    CHECK(!aliases.insertBorrowed(forged,&z,alias));
+   177	    CHECK(aliases.insertBorrowed(stream,&z,alias));
+   178	    CHECK(aliases.resolve(alias,BorrowedSample,p)&&p==&z);
+   179	    CHECK(aliases.insertBorrowed(stream,&z,again));
+   180	    CHECK(again.slot==alias.slot&&again.generation==alias.generation);
+   181	    CHECK(!aliases.insertBorrowed(stream,&a,again));
+   182	    CHECK(aliases.resolve(alias,BorrowedSample,p)&&p==&z);
+   183	    CHECK(!aliases.retire(alias));CHECK(!aliases.beginClose(alias));
+   184	    CHECK(aliases.beginClose(stream));
+   185	    CHECK(!aliases.resolve(alias,BorrowedSample,p)&&p==0);
+   186	    CHECK(!aliases.insertBorrowed(stream,&z,again));
+   187	    CHECK(aliases.retire(stream));
+   188	    CHECK(!aliases.resolve(alias,BorrowedSample,p));
+   189	    CHECK(aliases.insert(Stream,&a,replacement));
+   190	    CHECK(replacement.slot==stream.slot&&replacement.generation!=stream.generation);
+   191	    CHECK(!aliases.insertBorrowed(stream,&z,again));
+   192	    CHECK(aliases.insertBorrowed(replacement,&z,again));
+   193	    CHECK(again.slot==alias.slot&&again.generation!=alias.generation);
+   194	    CHECK(!aliases.resolve(alias,BorrowedSample,p));
+   195	    CHECK(aliases.resolve(again,BorrowedSample,p)&&p==&z);
+   196	    CHECK(aliases.retire(replacement));
+   197	    CHECK(!aliases.resolve(again,BorrowedSample,p));
+   198	    CHECK(!aliases.insert(Stream,&a,replacement)); // both generation-ceiling slots exhausted
+   199	    ResourceRegistry multiple(4);Handle streamA={},streamB={},aliasA={},aliasB={};
+   200	    CHECK(multiple.insert(Stream,&a,streamA));CHECK(multiple.insert(Stream,&z,streamB));
+   201	    CHECK(multiple.insertBorrowed(streamA,&a,aliasA));
+   202	    CHECK(multiple.insertBorrowed(streamB,&a,aliasB));
+   203	    CHECK(aliasA.slot!=aliasB.slot);
+   204	    CHECK(multiple.retire(streamA));
+   205	    CHECK(!multiple.resolve(aliasA,BorrowedSample,p));
+   206	    CHECK(multiple.resolve(aliasB,BorrowedSample,p)&&p==&a);
+   207	    CHECK(multiple.insertBorrowed(streamB,&a,again)&&again.slot==aliasB.slot);
+   208	    printf("%d/%d checks passed\n", count - failed, count);
+   209	    return failed ? 1 : 0;
+   210	}
+     1	#include "registry_resolver.h"
+     2	#include <windows.h>
+     3	#include <stdio.h>
+     4	#include <string.h>
+     5	static int checks=0;
+     6	static bool check(uint32_t opcode,MilesWire::Call const &call,MilesHost::DispatchStatus expected,MilesHost::Resolver &resolver){
+     7	 MilesWire::Result result;memset(&result,0xa5,sizeof(result));
+     8	 MilesHost::DispatchStatus status=MilesHost::dispatch(opcode,call,result,resolver);
+     9	 if(status!=expected || result.transport_status!=static_cast<uint32_t>(expected))return false;
+    10	 ++checks;return true;
+    11	}
+    12	int main(){
+    13	 if(GetModuleHandleA("mss32.dll"))return 10;
+    14	 MilesTransport::ResourceRegistry registry;MilesHost::RegistryResolver resolver(registry);
+    15	 MilesWire::Call call={};
+    16	 if(!check(0xffffffffu,call,MilesHost::Unsupported,resolver))return 1;
+    17	 if(!check(MilesWire::AIL_lock,call,MilesHost::Unsupported,resolver))return 2;
+    18	 if(!check(MilesWire::AIL_sample_status,call,MilesHost::InvalidResource,resolver))return 3;
+    19	 call.target.kind=MilesWire::OwnedSample;call.target.slot=1;call.target.generation=1;
+    20	 if(!check(MilesWire::AIL_sample_status,call,MilesHost::InvalidResource,resolver))return 4;
+    21	 call.bytes.offset=1;
+    22	 if(!check(MilesWire::AIL_sample_status,call,MilesHost::InvalidFields,resolver))return 5;
+    23	 call.bytes.offset=0;call.text.offset=1;
+    24	 if(!check(MilesWire::AIL_sample_status,call,MilesHost::InvalidFields,resolver))return 6;
+    25	 call.text.offset=0;call.value[7]=1;
+    26	 if(!check(MilesWire::AIL_sample_status,call,MilesHost::InvalidFields,resolver))return 7;
+    27	 call.value[7]=0;call.output_mask=4;
+    28	 if(!check(MilesWire::AIL_sample_reverb_levels,call,MilesHost::InvalidFields,resolver))return 8;
+    29	 // Ordinary marker addresses are registry data only; never passed to the SDK.
+    30	 int streamMarker=0,sampleMarker=0;
+    31	 MilesWire::Handle stream={},alias={},sameAlias={};
+    32	 if(!registry.insert(MilesWire::Stream,&streamMarker,stream))return 20;++checks;
+    33	 if(!registry.insertBorrowed(stream,&sampleMarker,alias))return 21;++checks;
+    34	 if(!registry.insertBorrowed(stream,&sampleMarker,sameAlias) || memcmp(&alias,&sameAlias,sizeof(alias)))return 22;++checks;
+    35	 uintptr_t resolved=0;
+    36	 if(!resolver.resolve(alias,1u<<MilesWire::BorrowedSample,resolved) || resolved!=reinterpret_cast<uintptr_t>(&sampleMarker))return 23;++checks;
+    37	 if(resolver.resolve(alias,1u<<MilesWire::OwnedSample,resolved) || resolved)return 24;++checks;
+    38	 call=MilesWire::Call();call.target=alias;
+    39	 if(!check(MilesWire::AIL_start_sample,call,MilesHost::InvalidResource,resolver))return 25;
+    40	 const uint32_t borrowedOps[]={MilesWire::AIL_set_sample_volume_levels,MilesWire::AIL_set_sample_reverb_levels,MilesWire::AIL_set_sample_playback_rate,MilesWire::AIL_sample_volume_levels,MilesWire::AIL_sample_playback_rate};
+    41	 call.value[7]=1;
+    42	 for(unsigned i=0;i<5;++i)if(!check(borrowedOps[i],call,MilesHost::InvalidFields,resolver))return 26;
+    43	 if(!registry.beginClose(stream))return 27;++checks;
+    44	 if(resolver.resolve(alias,1u<<MilesWire::BorrowedSample,resolved) || resolved)return 28;++checks;
+    45	 call.value[7]=0;
+    46	 for(unsigned i=0;i<5;++i)if(!check(borrowedOps[i],call,MilesHost::InvalidResource,resolver))return 29;
+    47	 if(!registry.retire(stream))return 30;++checks;
+    48	 if(resolver.resolve(alias,1u<<MilesWire::BorrowedSample,resolved) || resolved)return 31;++checks;
+    49	 if(GetModuleHandleA("mss32.dll"))return 11;
+    50	 printf("PASS %d rejection/status checks; original vendor DLL not loaded\n",checks);return 0;
+    51	}
+d71b0aa2fb90aef45ef52e740af53ba96caef753b111326b56f36dadd8919c33  vendor-options/miles-integration-seam/host-candidate/preflight.cpp
+
+exec
+/usr/bin/bash -lc "nl -ba vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp | sed -n '1,180p'
+nl -ba vendor-options/miles-integration-seam/protocol-candidate/miles_wire.h
+rg --files /home/akilleez/Work/swg-source/client-build-next -g Mss.h -g mss.h" in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+     1	#include "host_dispatch.h"
+     2	#include "Mss.h"
+     3	#include <string.h>
+     4	#if !defined(_M_IX86) || _MSC_VER != 1800
+     5	#error This candidate targets the original x86 vendor ABI with v120.
+     6	#endif
+     7	namespace MilesHost {
+     8	namespace {
+     9	S32 s(uint32_t v){ S32 result; memcpy(&result,&v,4); return result; }
+    10	F32 f(uint32_t v){ F32 result; memcpy(&result,&v,4); return result; }
+    11	uint32_t bits(S32 v){uint32_t result;memcpy(&result,&v,4);return result;}
+    12	uint32_t floatBits(F32 v){uint32_t result;memcpy(&result,&v,4);return result;}
+    13	}
+    14	bool supports(uint32_t opcode){switch(opcode){
+    15	case MilesWire::AIL_start_sample:
+    16	case MilesWire::AIL_stop_sample:
+    17	case MilesWire::AIL_end_sample:
+    18	case MilesWire::AIL_start_stream:
+    19	case MilesWire::AIL_active_sample_count:
+    20	case MilesWire::AIL_digital_CPU_percent:
+    21	case MilesWire::AIL_digital_latency:
+    22	case MilesWire::AIL_room_type:
+    23	case MilesWire::AIL_sample_status:
+    24	case MilesWire::AIL_sample_position:
+    25	case MilesWire::AIL_sample_playback_rate:
+    26	case MilesWire::AIL_stream_status:
+    27	case MilesWire::AIL_sample_ms_position:
+    28	case MilesWire::AIL_stream_ms_position:
+    29	case MilesWire::AIL_sample_volume_levels:
+    30	case MilesWire::AIL_sample_reverb_levels:
+    31	case MilesWire::AIL_set_3D_rolloff_factor:
+    32	case MilesWire::AIL_set_room_type:
+    33	case MilesWire::AIL_set_listener_3D_position:
+    34	case MilesWire::AIL_set_listener_3D_velocity_vector:
+    35	case MilesWire::AIL_set_listener_3D_orientation:
+    36	case MilesWire::AIL_set_sample_3D_position:
+    37	case MilesWire::AIL_set_sample_3D_velocity_vector:
+    38	case MilesWire::AIL_set_sample_3D_distances:
+    39	case MilesWire::AIL_set_sample_obstruction:
+    40	case MilesWire::AIL_set_sample_occlusion:
+    41	case MilesWire::AIL_set_sample_volume_levels:
+    42	case MilesWire::AIL_set_sample_reverb_levels:
+    43	case MilesWire::AIL_set_sample_loop_count:
+    44	case MilesWire::AIL_set_sample_ms_position:
+    45	case MilesWire::AIL_set_sample_playback_rate:
+    46	case MilesWire::AIL_set_sample_position:
+    47	case MilesWire::AIL_set_sample_loop_block:
+    48	case MilesWire::AIL_set_stream_loop_block:
+    49	case MilesWire::AIL_set_stream_loop_count:
+    50	case MilesWire::AIL_set_stream_ms_position:
+    51	case MilesWire::AIL_file_error:
+    52	case MilesWire::AIL_get_timer_highest_delay:
+    53	case MilesWire::AIL_serve:
+    54	return true; default:return false;}}
+    55	static DispatchStatus dispatchImpl(uint32_t opcode,MilesWire::Call const &call,MilesWire::Result &out,Resolver &resolver){
+    56	 if(!supports(opcode))return Unsupported;
+    57	 if(call.reserved || call.callback || call.bytes.offset || call.bytes.length || call.text.offset || call.text.length || call.resource.kind || call.resource.slot || call.resource.generation)return InvalidFields;
+    58	 switch(opcode){
+    59	case MilesWire::AIL_start_sample: {
+    60	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    61	 if(call.output_mask & ~0u)return InvalidFields;
+    62	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+    63	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+    64	 ::AIL_start_sample(sample);
+    65	 return Complete; }
+    66	case MilesWire::AIL_stop_sample: {
+    67	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    68	 if(call.output_mask & ~0u)return InvalidFields;
+    69	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+    70	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+    71	 ::AIL_stop_sample(sample);
+    72	 return Complete; }
+    73	case MilesWire::AIL_end_sample: {
+    74	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    75	 if(call.output_mask & ~0u)return InvalidFields;
+    76	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+    77	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+    78	 ::AIL_end_sample(sample);
+    79	 return Complete; }
+    80	case MilesWire::AIL_start_stream: {
+    81	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    82	 if(call.output_mask & ~0u)return InvalidFields;
+    83	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+    84	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+    85	 ::AIL_start_stream(stream);
+    86	 return Complete; }
+    87	case MilesWire::AIL_active_sample_count: {
+    88	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    89	 if(call.output_mask & ~0u)return InvalidFields;
+    90	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+    91	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+    92	 out.return_bits=bits(::AIL_active_sample_count(driver));
+    93	 return Complete; }
+    94	case MilesWire::AIL_digital_CPU_percent: {
+    95	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+    96	 if(call.output_mask & ~0u)return InvalidFields;
+    97	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+    98	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+    99	 out.return_bits=bits(::AIL_digital_CPU_percent(driver));
+   100	 return Complete; }
+   101	case MilesWire::AIL_digital_latency: {
+   102	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   103	 if(call.output_mask & ~0u)return InvalidFields;
+   104	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   105	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   106	 out.return_bits=bits(::AIL_digital_latency(driver));
+   107	 return Complete; }
+   108	case MilesWire::AIL_room_type: {
+   109	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   110	 if(call.output_mask & ~0u)return InvalidFields;
+   111	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   112	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   113	 out.return_bits=bits(::AIL_room_type(driver));
+   114	 return Complete; }
+   115	case MilesWire::AIL_sample_status: {
+   116	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   117	 if(call.output_mask & ~0u)return InvalidFields;
+   118	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   119	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   120	 out.return_bits=::AIL_sample_status(sample);
+   121	 return Complete; }
+   122	case MilesWire::AIL_sample_position: {
+   123	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   124	 if(call.output_mask & ~0u)return InvalidFields;
+   125	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   126	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   127	 out.return_bits=::AIL_sample_position(sample);
+   128	 return Complete; }
+   129	case MilesWire::AIL_sample_playback_rate: {
+   130	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   131	 if(call.output_mask & ~0u)return InvalidFields;
+   132	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   133	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   134	 out.return_bits=bits(::AIL_sample_playback_rate(sample));
+   135	 return Complete; }
+   136	case MilesWire::AIL_stream_status: {
+   137	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   138	 if(call.output_mask & ~0u)return InvalidFields;
+   139	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   140	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   141	 out.return_bits=bits(::AIL_stream_status(stream));
+   142	 return Complete; }
+   143	case MilesWire::AIL_sample_ms_position: {
+   144	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   145	 if(call.output_mask & ~3u)return InvalidFields;
+   146	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   147	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   148	 S32 a=0,b=0; ::AIL_sample_ms_position(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=bits(a); if(call.output_mask&2)out.value[1]=bits(b);
+   149	 return Complete; }
+   150	case MilesWire::AIL_stream_ms_position: {
+   151	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   152	 if(call.output_mask & ~3u)return InvalidFields;
+   153	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   154	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   155	 S32 a=0,b=0; ::AIL_stream_ms_position(stream,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=bits(a); if(call.output_mask&2)out.value[1]=bits(b);
+   156	 return Complete; }
+   157	case MilesWire::AIL_sample_volume_levels: {
+   158	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   159	 if(call.output_mask & ~3u)return InvalidFields;
+   160	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   161	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   162	 F32 a=0,b=0; ::AIL_sample_volume_levels(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=floatBits(a); if(call.output_mask&2)out.value[1]=floatBits(b);
+   163	 return Complete; }
+   164	case MilesWire::AIL_sample_reverb_levels: {
+   165	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   166	 if(call.output_mask & ~3u)return InvalidFields;
+   167	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   168	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   169	 F32 a=0,b=0; ::AIL_sample_reverb_levels(sample,(call.output_mask&1)?&a:0,(call.output_mask&2)?&b:0); if(call.output_mask&1)out.value[0]=floatBits(a); if(call.output_mask&2)out.value[1]=floatBits(b);
+   170	 return Complete; }
+   171	case MilesWire::AIL_set_3D_rolloff_factor: {
+   172	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   173	 if(call.output_mask & ~0u)return InvalidFields;
+   174	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   175	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   176	 ::AIL_set_3D_rolloff_factor(driver,f(call.value[0]));
+   177	 return Complete; }
+   178	case MilesWire::AIL_set_room_type: {
+   179	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   180	 if(call.output_mask & ~0u)return InvalidFields;
+     1	// Experimental reviewed shape only. No transport or vendor implementation.
+     2	#ifndef EXPERIMENTAL_MILES_WIRE_H
+     3	#define EXPERIMENTAL_MILES_WIRE_H
+     4	#include <stdint.h>
+     5	#include <stddef.h>
+     6	namespace MilesWire {
+     7	// Encode/decode fields explicitly little-endian; these structs are schema/layout
+     8	// checks, NOT permission to send native padding or dereference received bytes.
+     9	enum { Magic=0x31534d57, Version=1, MaxFrameBytes=1048576 };
+    10	enum Kind { Request=1, Reply=2, Event=3, ReverseRequest=4, ReverseReply=5 };
+    11	enum ResourceKind { Null=0, Driver=1, OwnedSample=2, Stream=3, BorrowedSample=4, Buffer=5, File=6 };
+    12	struct Handle { uint32_t kind, slot, generation; }; // all zero is vendor null
+    13	struct Span { uint32_t offset, length; }; // offset from frame start; checked subtraction
+    14	struct Header { uint32_t magic; uint16_t version, kind; uint32_t opcode, bytes;
+    15	 uint64_t request, causal_request, lane, lock_lease; };
+    16	// value[] positions are defined in API-MAP.md; floats retain raw uint32 bits.
+    17	// Resource buffer transfers are explicit and chunked, no native input pointers.
+    18	struct Call { Handle target, resource; uint32_t value[8]; Span bytes, text;
+    19	 uint32_t output_mask, reserved; uint64_t callback; };
+    20	struct Result { uint32_t transport_status, return_bits; Handle resource;
+    21	 uint32_t value[8]; Span bytes, text; uint32_t null_mask; uint64_t callback; };
+    22	struct SoundInfo { int32_t format; uint32_t data_offset, data_length, rate;
+    23	 int32_t bits, channels; uint32_t channel_mask, samples, block_size, initial_offset, null_mask; };
+    24	struct Eos { Handle resource; uint32_t reserved; uint64_t registration, event_sequence; };
+    25	// BufferBegin value0=totalbytes; BufferChunk target=buffer,value0=offset,bytes=chunk;
+    26	// BufferSeal validates exact complete coverage; BufferRelease retires after users.
+    27	// SessionVersion is host-side MSS_version macro query, not a forwarded export.
+    28	enum Control { Hello=0x1000, BufferBegin, BufferChunk, BufferSeal, BufferRelease,
+    29	 SessionVersion, FileOpen, FileClose, FileSeek, FileRead, EndOfSample, EndOfStream,
+    30	 CallbackAck, SessionClose };
+    31	enum Opcode {
+    32	 AIL_WAV_info = 1,
+    33	 AIL_active_sample_count = 2,
+    34	 AIL_allocate_sample_handle = 3,
+    35	 AIL_close_stream = 4,
+    36	 AIL_digital_CPU_percent = 5,
+    37	 AIL_digital_latency = 6,
+    38	 AIL_end_sample = 7,
+    39	 AIL_file_error = 8,
+    40	 AIL_file_type = 9,
+    41	 AIL_get_preference = 10,
+    42	 AIL_get_timer_highest_delay = 11,
+    43	 AIL_last_error = 12,
+    44	 AIL_lock = 13,
+    45	 AIL_open_digital_driver = 14,
+    46	 AIL_open_stream = 15,
+    47	 AIL_register_EOS_callback = 16,
+    48	 AIL_register_stream_callback = 17,
+    49	 AIL_release_sample_handle = 18,
+    50	 AIL_room_type = 19,
+    51	 AIL_sample_ms_position = 20,
+    52	 AIL_sample_playback_rate = 21,
+    53	 AIL_sample_position = 22,
+    54	 AIL_sample_reverb_levels = 23,
+    55	 AIL_sample_status = 24,
+    56	 AIL_sample_volume_levels = 25,
+    57	 AIL_serve = 26,
+    58	 AIL_set_3D_rolloff_factor = 27,
+    59	 AIL_set_file_callbacks = 28,
+    60	 AIL_set_listener_3D_orientation = 29,
+    61	 AIL_set_listener_3D_position = 30,
+    62	 AIL_set_listener_3D_velocity_vector = 31,
+    63	 AIL_set_named_sample_file = 32,
+    64	 AIL_set_preference = 33,
+    65	 AIL_set_redist_directory = 34,
+    66	 AIL_set_room_type = 35,
+    67	 AIL_set_sample_3D_distances = 36,
+    68	 AIL_set_sample_3D_position = 37,
+    69	 AIL_set_sample_3D_velocity_vector = 38,
+    70	 AIL_set_sample_file = 39,
+    71	 AIL_set_sample_loop_block = 40,
+    72	 AIL_set_sample_loop_count = 41,
+    73	 AIL_set_sample_ms_position = 42,
+    74	 AIL_set_sample_obstruction = 43,
+    75	 AIL_set_sample_occlusion = 44,
+    76	 AIL_set_sample_playback_rate = 45,
+    77	 AIL_set_sample_position = 46,
+    78	 AIL_set_sample_reverb_levels = 47,
+    79	 AIL_set_sample_volume_levels = 48,
+    80	 AIL_set_stream_loop_block = 49,
+    81	 AIL_set_stream_loop_count = 50,
+    82	 AIL_set_stream_ms_position = 51,
+    83	 AIL_shutdown = 52,
+    84	 AIL_speaker_configuration = 53,
+    85	 AIL_start_sample = 54,
+    86	 AIL_start_stream = 55,
+    87	 AIL_startup = 56,
+    88	 AIL_stop_sample = 57,
+    89	 AIL_stream_ms_position = 58,
+    90	 AIL_stream_sample_handle = 59,
+    91	 AIL_stream_status = 60,
+    92	 AIL_unlock = 61
+    93	};
+    94	static_assert(sizeof(Handle)==12,"handle");
+    95	static_assert(sizeof(Header)==48 && offsetof(Header,request)==16,"header");
+    96	static_assert(sizeof(Call)==88 && offsetof(Call,callback)==80,"call");
+    97	static_assert(sizeof(Result)==80 && offsetof(Result,callback)==72,"result");
+    98	static_assert(sizeof(SoundInfo)==44,"soundinfo");
+    99	static_assert(sizeof(Eos)==32 && offsetof(Eos,registration)==16,"eos");
+   100	static_assert(sizeof(float)==4,"float storage");
+   101	}
+   102	#endif
+/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h
+/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles-7.2e/include/mss.h
+
+codex
+The codec’s span checks and the registry’s borrowed-parent close handling appear sound in this pass. The host preflight deliberately avoids vendor calls, so I’m checking its coverage separately from the dispatch implementation, especially signed arguments and failure outputs.
+exec
+/usr/bin/bash -lc "nl -ba vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp | sed -n '178,336p'
+nl -ba vendor-options/miles-integration-seam/protocol-candidate/API-MAP.md
+rg -n 'AIL_(digital_CPU_percent|digital_latency|room_type|stream_status|set_sample_ms_position|set_stream_ms_position|set_sample_loop_block|set_stream_loop_block|sample_ms_position|stream_ms_position|sample_reverb_levels|set_sample_3D_distances|active_sample_count|sample_playback_rate|get_timer_highest_delay)|typedef.*(S32|F32)' /home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h
+sha256sum vendor-options/miles-integration-seam/protocol-candidate/{miles_wire.h,API-MAP.md} /home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h" in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+   178	case MilesWire::AIL_set_room_type: {
+   179	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   180	 if(call.output_mask & ~0u)return InvalidFields;
+   181	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   182	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   183	 ::AIL_set_room_type(driver,s(call.value[0]));
+   184	 return Complete; }
+   185	case MilesWire::AIL_set_listener_3D_position: {
+   186	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   187	 if(call.output_mask & ~0u)return InvalidFields;
+   188	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   189	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   190	 ::AIL_set_listener_3D_position(driver,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   191	 return Complete; }
+   192	case MilesWire::AIL_set_listener_3D_velocity_vector: {
+   193	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   194	 if(call.output_mask & ~0u)return InvalidFields;
+   195	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   196	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   197	 ::AIL_set_listener_3D_velocity_vector(driver,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   198	 return Complete; }
+   199	case MilesWire::AIL_set_listener_3D_orientation: {
+   200	 for(unsigned i=6;i<8;++i)if(call.value[i])return InvalidFields;
+   201	 if(call.output_mask & ~0u)return InvalidFields;
+   202	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Driver,address) || !address)return InvalidResource;
+   203	 HDIGDRIVER driver=reinterpret_cast<HDIGDRIVER>(address);
+   204	 ::AIL_set_listener_3D_orientation(driver,f(call.value[0]),f(call.value[1]),f(call.value[2]),f(call.value[3]),f(call.value[4]),f(call.value[5]));
+   205	 return Complete; }
+   206	case MilesWire::AIL_set_sample_3D_position: {
+   207	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   208	 if(call.output_mask & ~0u)return InvalidFields;
+   209	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   210	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   211	 ::AIL_set_sample_3D_position(sample,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   212	 return Complete; }
+   213	case MilesWire::AIL_set_sample_3D_velocity_vector: {
+   214	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   215	 if(call.output_mask & ~0u)return InvalidFields;
+   216	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   217	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   218	 ::AIL_set_sample_3D_velocity_vector(sample,f(call.value[0]),f(call.value[1]),f(call.value[2]));
+   219	 return Complete; }
+   220	case MilesWire::AIL_set_sample_3D_distances: {
+   221	 for(unsigned i=3;i<8;++i)if(call.value[i])return InvalidFields;
+   222	 if(call.output_mask & ~0u)return InvalidFields;
+   223	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   224	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   225	 ::AIL_set_sample_3D_distances(sample,f(call.value[0]),f(call.value[1]),s(call.value[2]));
+   226	 return Complete; }
+   227	case MilesWire::AIL_set_sample_obstruction: {
+   228	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   229	 if(call.output_mask & ~0u)return InvalidFields;
+   230	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   231	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   232	 ::AIL_set_sample_obstruction(sample,f(call.value[0]));
+   233	 return Complete; }
+   234	case MilesWire::AIL_set_sample_occlusion: {
+   235	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   236	 if(call.output_mask & ~0u)return InvalidFields;
+   237	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   238	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   239	 ::AIL_set_sample_occlusion(sample,f(call.value[0]));
+   240	 return Complete; }
+   241	case MilesWire::AIL_set_sample_volume_levels: {
+   242	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   243	 if(call.output_mask & ~0u)return InvalidFields;
+   244	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   245	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   246	 ::AIL_set_sample_volume_levels(sample,f(call.value[0]),f(call.value[1]));
+   247	 return Complete; }
+   248	case MilesWire::AIL_set_sample_reverb_levels: {
+   249	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   250	 if(call.output_mask & ~0u)return InvalidFields;
+   251	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   252	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   253	 ::AIL_set_sample_reverb_levels(sample,f(call.value[0]),f(call.value[1]));
+   254	 return Complete; }
+   255	case MilesWire::AIL_set_sample_loop_count: {
+   256	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   257	 if(call.output_mask & ~0u)return InvalidFields;
+   258	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   259	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   260	 ::AIL_set_sample_loop_count(sample,s(call.value[0]));
+   261	 return Complete; }
+   262	case MilesWire::AIL_set_sample_ms_position: {
+   263	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   264	 if(call.output_mask & ~0u)return InvalidFields;
+   265	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   266	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   267	 ::AIL_set_sample_ms_position(sample,s(call.value[0]));
+   268	 return Complete; }
+   269	case MilesWire::AIL_set_sample_playback_rate: {
+   270	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   271	 if(call.output_mask & ~0u)return InvalidFields;
+   272	 uintptr_t address=0; if(!resolver.resolve(call.target,((1u<<MilesWire::OwnedSample)|(1u<<MilesWire::BorrowedSample)),address) || !address)return InvalidResource;
+   273	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   274	 ::AIL_set_sample_playback_rate(sample,s(call.value[0]));
+   275	 return Complete; }
+   276	case MilesWire::AIL_set_sample_position: {
+   277	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   278	 if(call.output_mask & ~0u)return InvalidFields;
+   279	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   280	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   281	 ::AIL_set_sample_position(sample,call.value[0]);
+   282	 return Complete; }
+   283	case MilesWire::AIL_set_sample_loop_block: {
+   284	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   285	 if(call.output_mask & ~0u)return InvalidFields;
+   286	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::OwnedSample,address) || !address)return InvalidResource;
+   287	 HSAMPLE sample=reinterpret_cast<HSAMPLE>(address);
+   288	 ::AIL_set_sample_loop_block(sample,s(call.value[0]),s(call.value[1]));
+   289	 return Complete; }
+   290	case MilesWire::AIL_set_stream_loop_block: {
+   291	 for(unsigned i=2;i<8;++i)if(call.value[i])return InvalidFields;
+   292	 if(call.output_mask & ~0u)return InvalidFields;
+   293	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   294	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   295	 ::AIL_set_stream_loop_block(stream,s(call.value[0]),s(call.value[1]));
+   296	 return Complete; }
+   297	case MilesWire::AIL_set_stream_loop_count: {
+   298	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   299	 if(call.output_mask & ~0u)return InvalidFields;
+   300	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   301	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   302	 ::AIL_set_stream_loop_count(stream,s(call.value[0]));
+   303	 return Complete; }
+   304	case MilesWire::AIL_set_stream_ms_position: {
+   305	 for(unsigned i=1;i<8;++i)if(call.value[i])return InvalidFields;
+   306	 if(call.output_mask & ~0u)return InvalidFields;
+   307	 uintptr_t address=0; if(!resolver.resolve(call.target,1u<<MilesWire::Stream,address) || !address)return InvalidResource;
+   308	 HSTREAM stream=reinterpret_cast<HSTREAM>(address);
+   309	 ::AIL_set_stream_ms_position(stream,s(call.value[0]));
+   310	 return Complete; }
+   311	case MilesWire::AIL_file_error: {
+   312	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   313	 if(call.output_mask & ~0u)return InvalidFields;
+   314	 if(call.target.kind || call.target.slot || call.target.generation)return InvalidResource;
+   315	 out.return_bits=bits(::AIL_file_error());
+   316	 return Complete; }
+   317	case MilesWire::AIL_get_timer_highest_delay: {
+   318	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   319	 if(call.output_mask & ~0u)return InvalidFields;
+   320	 if(call.target.kind || call.target.slot || call.target.generation)return InvalidResource;
+   321	 out.return_bits=::AIL_get_timer_highest_delay();
+   322	 return Complete; }
+   323	case MilesWire::AIL_serve: {
+   324	 for(unsigned i=0;i<8;++i)if(call.value[i])return InvalidFields;
+   325	 if(call.output_mask & ~0u)return InvalidFields;
+   326	 if(call.target.kind || call.target.slot || call.target.generation)return InvalidResource;
+   327	 ::AIL_serve();
+   328	 return Complete; }
+   329	default:return Unsupported;}}
+   330	DispatchStatus dispatch(uint32_t opcode,MilesWire::Call const &call,MilesWire::Result &out,Resolver &resolver){
+   331	 memset(&out,0,sizeof(out));
+   332	 DispatchStatus const status=dispatchImpl(opcode,call,out,resolver);
+   333	 out.transport_status=static_cast<uint32_t>(status);
+   334	 return status;
+   335	}
+   336	}
+     1	# Exact opcode map (experimental)
+     2	
+     3	No packed SDK structures or callable shim are supplied. Unused fields zero. Signed values use32-bit two's-complement bits; floats use their32-bit bit patterns. `Sample` accepts owned/borrowed kinds with API-specific lifetime checks. Transport errors are separate from all vendor values, including negative values/null handles. This table describes data representation, not implementation or proven semantic equivalence.
+     4	
+     5	| Opcode | SDK function | Request | Result |
+     6	|---:|---|---|---|
+     7	|1|`AIL_WAV_info`|resource sealed Buffer; mask bit0 info pointer present (required1 for reviewed Audio call)|S32 return + bytes SoundInfo on success; no host pointers|
+     8	|2|`AIL_active_sample_count`|target Driver|S32 return|
+     9	|3|`AIL_allocate_sample_handle`|target Driver|nullable OwnedSample handle|
+    10	|4|`AIL_close_stream`|target Stream|void; retire stream and borrowed aliases after vendor completion|
+    11	|5|`AIL_digital_CPU_percent`|target Driver|S32 return|
+    12	|6|`AIL_digital_latency`|target Driver|S32 return|
+    13	|7|`AIL_end_sample`|target Sample|void|
+    14	|8|`AIL_file_error`|none|S32 return|
+    15	|9|`AIL_file_type`|resource sealed Buffer; v0 U32 size <= buffer extent|S32 return|
+    16	|10|`AIL_get_preference`|v0 U32 preference ID|signed host32 return, sign-extend into client SINTa|
+    17	|11|`AIL_get_timer_highest_delay`|none|U32 return|
+    18	|12|`AIL_last_error`|none|copied nullable text|
+    19	|13|`AIL_lock`|header lane and current lease for nested acquisition|SDK void; protocol lease in v0/v1 low/high, no fake vendor return|
+    20	|14|`AIL_open_digital_driver`|v0 U32 frequency; v1 S32 bits; v2 S32 channels; v3 U32 flags|nullable Driver handle|
+    21	|15|`AIL_open_stream`|target Driver; text filename; v0 S32 stream_mem|nullable Stream handle|
+    22	|16|`AIL_register_EOS_callback`|target HSAMPLE (OwnedSample/BorrowedSample only); callback AILSAMPLECB registration token or0|previous callback token (never host trampoline address)|
+    23	|17|`AIL_register_stream_callback`|target HSTREAM (Stream only); callback AILSTREAMCB registration token or0|previous callback token (never host trampoline address)|
+    24	|18|`AIL_release_sample_handle`|target OwnedSample only|void; retire after callback quiescence|
+    25	|19|`AIL_room_type`|target Driver|S32 return|
+    26	|20|`AIL_sample_ms_position`|target Sample; mask bit0 total,bit1 current pointers|v0/v1 S32 total/current, only requested outputs|
+    27	|21|`AIL_sample_playback_rate`|target Sample|S32 return|
+    28	|22|`AIL_sample_position`|target Sample (owned or borrowed)|U32 return|
+    29	|23|`AIL_sample_reverb_levels`|target Sample; mask bits0 dry/1 wet|v0/v1 F32 dry/wet bits|
+    30	|24|`AIL_sample_status`|target Sample (owned or borrowed)|U32 return|
+    31	|25|`AIL_sample_volume_levels`|target Sample; mask bits0/1|v0/v1 F32 bits (left/right or dry/wet)|
+    32	|26|`AIL_serve`|none|void|
+    33	|27|`AIL_set_3D_rolloff_factor`|target Driver; v0 F32 bits|void|
+    34	|28|`AIL_set_file_callbacks`|v0..7 four uint64 callback-registration tokens (open,close,seek,read)|void|
+    35	|29|`AIL_set_listener_3D_orientation`|target Driver; v0..5 F32 face XYZ/up XYZ|void|
+    36	|30|`AIL_set_listener_3D_position`|target Driver; v0..2 F32 XYZ|void|
+    37	|31|`AIL_set_listener_3D_velocity_vector`|target Driver; v0..2 F32 XYZ|void|
+    38	|32|`AIL_set_named_sample_file`|target Sample; resource sealed Buffer; text suffix; v0 U32 file_size; v1 S32 block|S32 vendor return; retain buffer lifetime|
+    39	|33|`AIL_set_preference`|v0 U32 ID; v1 signed value checked to host S32|previous signed host32 value|
+    40	|34|`AIL_set_redist_directory`|text NUL-terminated exact byte path|copied nullable text|
+    41	|35|`AIL_set_room_type`|target Driver; v0 S32 room type|void|
+    42	|36|`AIL_set_sample_3D_distances`|target Sample; v0/1 F32 max/min; v2 S32 wet attenuation|void|
+    43	|37|`AIL_set_sample_3D_position`|target Sample; v0..2 F32 XYZ|void|
+    44	|38|`AIL_set_sample_3D_velocity_vector`|target Sample; v0..2 F32 XYZ|void|
+    45	|39|`AIL_set_sample_file`|target Sample; resource sealed Buffer with explicit adapter-known extent; v0 S32 block|S32 vendor return; retain buffer lifetime|
+    46	|40|`AIL_set_sample_loop_block`|target Sample; v0/1 S32 start/end offsets|void|
+    47	|41|`AIL_set_sample_loop_count`|target Sample; v0 S32|void|
+    48	|42|`AIL_set_sample_ms_position`|target Sample; v0 S32|void|
+    49	|43|`AIL_set_sample_obstruction`|target Sample; v0 F32 bits|void|
+    50	|44|`AIL_set_sample_occlusion`|target Sample; v0 F32 bits|void|
+    51	|45|`AIL_set_sample_playback_rate`|target Sample; v0 S32|void|
+    52	|46|`AIL_set_sample_position`|target Sample; v0 U32 bytes|void|
+    53	|47|`AIL_set_sample_reverb_levels`|target Sample; v0/1 F32 dry/wet|void|
+    54	|48|`AIL_set_sample_volume_levels`|target Sample; v0/1 F32 left/right or dry/wet|void|
+    55	|49|`AIL_set_stream_loop_block`|target Stream; v0/1 S32 start/end offsets|void|
+    56	|50|`AIL_set_stream_loop_count`|target Stream; v0 S32|void|
+    57	|51|`AIL_set_stream_ms_position`|target Stream; v0 S32|void|
+    58	|52|`AIL_shutdown`|none|void|
+    59	|53|`AIL_speaker_configuration`|target Driver; mask bits0 physical,1 logical,2 falloff,3 channels; bit4 vector result requested|v0/1 S32 channels,v2 F32 falloff,v3 S32 spec; nullable bytes vector array only with established count contract|
+    60	|54|`AIL_start_sample`|target Sample|void|
+    61	|55|`AIL_start_stream`|target Stream|void|
+    62	|56|`AIL_startup`|none|S32 return|
+    63	|57|`AIL_stop_sample`|target Sample|void|
+    64	|58|`AIL_stream_ms_position`|target Stream; mask bit0 total,bit1 current pointers|v0/v1 S32 total/current|
+    65	|59|`AIL_stream_sample_handle`|target Stream|stable nullable BorrowedSample tied to stream|
+    66	|60|`AIL_stream_status`|target Stream|S32 return|
+    67	|61|`AIL_unlock`|header owning lane and matching lease|SDK void; release admission only after actual unlock|
+    68	
+    69	Output masks preserve caller pointer presence; they are not evidence that every SDK pointer may legally be null. Native header types contain no nullability annotations. The reviewed WAV_info caller provides a valid info object; speaker_configuration explicitly passes three null outputs and one valid channel-spec output. Other getters must forward their actual presence pattern and never omit a required output to reduce traffic. Any unused result words stay protocol-zero, not invented SDK output values.
+    70	
+    71	Callback tokens are typed by registration opcode: EOS invokes void AILCALLBACK(HSAMPLE), stream invokes void AILCALLBACK(HSTREAM). Registration results return the previous function pointer identity via local token mapping, not a vendor scalar success code. File callbacks use open U32(MSS_FILE const*,UINTa*), close void(UINTa), seek S32(UINTa,S32,U32), read U32(UINTa,void*,U32). UINTa is pointer-sized locally; protocol File handles replace it with checked registry translation.
+1771:typedef S32 RIBRESULT;
+1869:typedef S32 (AILCALL FAR *PROVIDER_PROPERTY) (HPROPERTY        index,
+1973:typedef S32 ( AILCALL FAR * RIB_MAIN_FUNC) ( HPROVIDER provider_handle, U32 up_down );
+2027:typedef S32 ASIRESULT;
+2059:typedef S32 (AILCALLBACK FAR * AILASIFETCHCB) (UINTa     user,            // User value passed to ASI_open_stream()
+2117:typedef S32  (AILCALL FAR *ASI_STREAM_PROCESS) (HASISTREAM  stream,              // Handle of stream
+2153:typedef S32 (AILCALL FAR *ASI_STREAM_PROPERTY) (HASISTREAM stream,
+2209:typedef void (AILCALL FAR *MIXER_FLUSH)   (S32 FAR *dest,
+2273:typedef void (AILCALL FAR *MIXER_FLUSH)   (S32 FAR *dest,
+2367:typedef S32 HTIMER;                             // Handle to timer
+2513:typedef void (AILCALLBACK FAR* AILINCB)       (void const FAR *data, S32 len, UINTa user_data);
+2515:typedef void (AILCALLBACK FAR* AILTRACECB)    (C8 *text, S32 nest_depth);
+2521:typedef F32  (AILCALLBACK FAR* AILFALLOFFCB)  (HSAMPLE sample, F32 distance, F32 rolloff_factor, F32 min_dist, F32 max_dist);
+2523:typedef S32  (AILCALLBACK FAR* AILEVENTCB)    (HMDIDRIVER hmi,HSEQUENCE seq,S32 status,S32 data_1,S32 data_2);
+2525:typedef S32  (AILCALLBACK FAR* AILTIMBRECB)   (HMDIDRIVER hmi,S32 bank,S32 patch);
+2527:typedef S32  (AILCALLBACK FAR* AILPREFIXCB)   (HSEQUENCE seq,S32 log,S32 data);
+2529:typedef void (AILCALLBACK FAR* AILTRIGGERCB)  (HSEQUENCE seq,S32 log,S32 data);
+2531:typedef void (AILCALLBACK FAR* AILBEATCB)     (HMDIDRIVER hmi,HSEQUENCE seq,S32 beat,S32 measure);
+2535:typedef S32 (AILCALLBACK FAR *SS_STREAM_CB)   (HSAMPLE  S, S16 FAR *dest_mono_sample_buffer, S32 dest_buffer_size);
+3044:DXDEC  U32     AILCALL  AIL_get_timer_highest_delay   (void);
+4414:DXDEC  S32          AILCALL AIL_digital_CPU_percent   (HDIGDRIVER dig);
+4416:DXDEC  S32          AILCALL AIL_digital_latency       (HDIGDRIVER dig);
+4558:DXDEC  void         AILCALL AIL_set_sample_loop_block (HSAMPLE S,
+4568:DXDEC  S32          AILCALL AIL_sample_playback_rate  (HSAMPLE S);
+4584:DXDEC  void         AILCALL AIL_sample_reverb_levels  (HSAMPLE  S,
+4721:DXDEC  S32      AILCALL AIL_active_sample_count    (HDIGDRIVER dig);
+4749:DXDEC  void     AILCALL AIL_set_sample_ms_position (HSAMPLE    S, //)
+4752:DXDEC  void     AILCALL AIL_sample_ms_position     (HSAMPLE    S, //)
+5178:DXDEC void AILCALL AIL_set_stream_loop_block (HSTREAM S,
+5182:DXDEC S32 AILCALL AIL_stream_status(HSTREAM stream);
+5201:DXDEC  void     AILCALL AIL_set_stream_ms_position   (HSTREAM S,
+5204:DXDEC  void     AILCALL AIL_stream_ms_position     (HSTREAM    S, //)
+5231:typedef S32  (AILCALLBACK FAR*AIL_file_seek_callback)  (UINTa FileHandle,
+5250:typedef S32 (AILCALLBACK FAR*AIL_file_async_status_callback)  (void FAR* async,
+5548:typedef S32 (AILCALLBACK FAR* AILLENGTHYCB)(U32 state,UINTa user);
+5550:typedef S32 (AILCALLBACK FAR* AILCODECSETPROP)(char const FAR* property,void const FAR * value);
+5840:DXDEC  S32      AILCALL AIL_room_type                (HDIGDRIVER dig);
+5875:DXDEC void       AILCALL AIL_set_sample_3D_distances (HSAMPLE S,
+6026:typedef S32          (AILCALL FAR *FLT_POSTMIX_PROCESS) (HDRIVERSTATE driver, void FAR *output_buffer);
+6046:typedef S32          (AILCALL FAR * FLTSMP_SAMPLE_PROPERTY) (HSAMPLESTATE    state,
+6059:typedef S32 (AILCALL FAR * VFLT_ASSIGN_SAMPLE_VOICE) (HDRIVERSTATE driver,
+6065:typedef S32 (AILCALL FAR * VFLT_START_SAMPLE_VOICE) (HDRIVERSTATE driver,
+6074:typedef S32          (AILCALL FAR * VDRV_DRIVER_PROPERTY) (HDRIVERSTATE    driver,
+6081:typedef S32          (AILCALL FAR * VDRV_FORCE_UPDATE)     (HDRIVERSTATE driver);
+6089:typedef S32          (AILCALL FAR * VSMP_SAMPLE_PROPERTY) (HSAMPLE      S,
+8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9  vendor-options/miles-integration-seam/protocol-candidate/miles_wire.h
+7ab08d4188c891697cdf1b4507243e794c91f95bea1d996a7ea9e49f86d57972  vendor-options/miles-integration-seam/protocol-candidate/API-MAP.md
+966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e  /home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h
+
+exec
+/usr/bin/bash -lc "nl -ba /home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h | sed -n '4510,4600p;4745,4760p;5150,5210p;5830,5890p'
+sha256sum vendor-options/miles-integration-seam/transport-candidate/{codec.cpp,codec.h,resource_registry.h,tests.cpp} vendor-options/miles-integration-seam/host-candidate/{registry_resolver.h,host_dispatch.cpp,host_dispatch.h,preflight.cpp}" in /home/akilleez/Work/client-wire-validation
+ succeeded in 0ms:
+  4510	DXDEC  HPROVIDER    AILCALL AIL_digital_driver_processor
+  4511	                                                      (HDIGDRIVER  dig,
+  4512	                                                       DIGDRVSTAGE pipeline_stage);
+  4513	
+  4514	DXDEC  void         AILCALL AIL_set_sample_adpcm_block_size
+  4515	                                                     (HSAMPLE S,
+  4516	                                                     U32     blocksize);
+  4517	
+  4518	DXDEC  void         AILCALL AIL_set_sample_address    (HSAMPLE S,
+  4519	                                                     void const   FAR *start,
+  4520	                                                     U32     len);
+  4521	
+  4522	DXDEC  void         AILCALL AIL_start_sample          (HSAMPLE S);
+  4523	
+  4524	DXDEC  void         AILCALL AIL_stop_sample           (HSAMPLE S);
+  4525	
+  4526	DXDEC  void         AILCALL AIL_resume_sample         (HSAMPLE S);
+  4527	
+  4528	DXDEC  void         AILCALL AIL_end_sample            (HSAMPLE S);
+  4529	
+  4530	DXDEC  void         AILCALL AIL_set_sample_playback_rate
+  4531	                                                     (HSAMPLE S,
+  4532	                                                     S32     playback_rate);
+  4533	
+  4534	DXDEC  void         AILCALL AIL_set_sample_volume_pan (HSAMPLE S,
+  4535	                                                       F32     volume,
+  4536	                                                       F32     pan);
+  4537	
+  4538	DXDEC  void         AILCALL AIL_set_sample_volume_levels(HSAMPLE S,
+  4539	                                                         F32     left_level,
+  4540	                                                         F32     right_level);
+  4541	
+  4542	DXDEC  void         AILCALL AIL_set_sample_channel_levels (HSAMPLE        S,
+  4543	                                                           MSS_SPEAKER FAR const *source_speaker_indexes,
+  4544	                                                           MSS_SPEAKER FAR const *dest_speaker_indexes,
+  4545	                                                           F32 FAR         const *levels,
+  4546	                                                           S32                    n_levels);
+  4547	
+  4548	DXDEC  void         AILCALL AIL_set_sample_reverb_levels(HSAMPLE S,
+  4549	                                                         F32     dry_level,
+  4550	                                                         F32     wet_level);
+  4551	
+  4552	DXDEC  void         AILCALL AIL_set_sample_low_pass_cut_off(HSAMPLE S,
+  4553	                                                            F32     cut_off);
+  4554	
+  4555	DXDEC  void         AILCALL AIL_set_sample_loop_count (HSAMPLE S,
+  4556	                                                       S32     loop_count);
+  4557	
+  4558	DXDEC  void         AILCALL AIL_set_sample_loop_block (HSAMPLE S,
+  4559	                                                       S32     loop_start_offset,
+  4560	                                                       S32     loop_end_offset);
+  4561	
+  4562	DXDEC  S32          AILCALL AIL_sample_loop_block     (HSAMPLE S,
+  4563	                                                       S32    *loop_start_offset,
+  4564	                                                       S32    *loop_end_offset);
+  4565	
+  4566	DXDEC  U32          AILCALL AIL_sample_status         (HSAMPLE S);
+  4567	
+  4568	DXDEC  S32          AILCALL AIL_sample_playback_rate  (HSAMPLE S);
+  4569	
+  4570	DXDEC  void         AILCALL AIL_sample_volume_pan     (HSAMPLE S, F32 FAR* volume, F32 FAR* pan);
+  4571	
+  4572	DXDEC  S32          AILCALL AIL_sample_channel_count  (HSAMPLE S, U32 *mask);
+  4573	
+  4574	DXDEC  void         AILCALL AIL_sample_channel_levels (HSAMPLE                S,
+  4575	                                                       MSS_SPEAKER FAR const *source_speaker_indexes,
+  4576	                                                       MSS_SPEAKER FAR const *dest_speaker_indexes,
+  4577	                                                       F32 FAR               *levels,
+  4578	                                                       S32                    n_levels);
+  4579	
+  4580	DXDEC  void         AILCALL AIL_sample_volume_levels  (HSAMPLE  S,
+  4581	                                                       F32 FAR *left_level,
+  4582	                                                       F32 FAR *right_level);
+  4583	
+  4584	DXDEC  void         AILCALL AIL_sample_reverb_levels  (HSAMPLE  S,
+  4585	                                                       F32 FAR *dry_level,
+  4586	                                                       F32 FAR *wet_level);
+  4587	
+  4588	DXDEC  void         AILCALL AIL_sample_output_levels  (HSAMPLE                S,
+  4589	                                                       MSS_SPEAKER FAR const *source_speaker_indexes,
+  4590	                                                       MSS_SPEAKER FAR const *dest_speaker_indexes,
+  4591	                                                       F32 FAR               *levels,
+  4592	                                                       S32                    n_levels);
+  4593	
+  4594	DXDEC  F32          AILCALL AIL_sample_low_pass_cut_off(HSAMPLE S);
+  4595	
+  4596	DXDEC  S32          AILCALL AIL_sample_loop_count     (HSAMPLE S);
+  4597	
+  4598	DXDEC  void         AILCALL AIL_set_digital_master_volume_level
+  4599	                                                     (HDIGDRIVER dig,
+  4600	                                                      F32        master_volume);
+  4745	#endif 
+  4746	
+  4747	#endif
+  4748	
+  4749	DXDEC  void     AILCALL AIL_set_sample_ms_position (HSAMPLE    S, //)
+  4750	                                                    S32        milliseconds);
+  4751	
+  4752	DXDEC  void     AILCALL AIL_sample_ms_position     (HSAMPLE    S, //)
+  4753	                                                    S32 FAR *  total_milliseconds,
+  4754	                                                    S32 FAR *  current_milliseconds);
+  4755	
+  4756	//
+  4757	// Digital input services
+  4758	//
+  4759	
+  4760	#if defined(IS_WINDOWS) || defined (IS_MAC) || defined(IS_LINUX) || defined(IS_XBOX) || defined(IS_XENON)
+  5150	
+  5151	  SINTa user_data[8];   // Miscellaneous user data
+  5152	  void FAR* next;       // pointer to next stream
+  5153	
+  5154	#if defined(IS_WINDOWS) || defined(IS_MAC) || defined(IS_LINUX) || defined(IS_XBOX) || defined(IS_XENON) || defined(IS_PS2) || defined(IS_PS3) || defined(IS_WII)
+  5155	  S32 autostreaming;  // are we autostreaming this stream
+  5156	#endif
+  5157	
+  5158	  S32 docallback;     // set when it time to poll for a callback
+  5159	} MSTREAM_TYPE;
+  5160	
+  5161	
+  5162	DXDEC HSTREAM AILCALL AIL_open_stream(HDIGDRIVER dig, char const FAR * filename, S32 stream_mem);
+  5163	
+  5164	DXDEC void AILCALL AIL_close_stream(HSTREAM stream);
+  5165	
+  5166	DXDEC HSAMPLE  AILCALL AIL_stream_sample_handle(HSTREAM stream);
+  5167	
+  5168	DXDEC S32 AILCALL AIL_service_stream(HSTREAM stream, S32 fillup);
+  5169	
+  5170	DXDEC void AILCALL AIL_start_stream(HSTREAM stream);
+  5171	
+  5172	DXDEC void AILCALL AIL_pause_stream(HSTREAM stream, S32 onoff);
+  5173	
+  5174	DXDEC S32 AILCALL AIL_stream_loop_count(HSTREAM stream);
+  5175	
+  5176	DXDEC void AILCALL AIL_set_stream_loop_count(HSTREAM stream, S32 count);
+  5177	
+  5178	DXDEC void AILCALL AIL_set_stream_loop_block (HSTREAM S,
+  5179	                                              S32     loop_start_offset,
+  5180	                                              S32     loop_end_offset);
+  5181	
+  5182	DXDEC S32 AILCALL AIL_stream_status(HSTREAM stream);
+  5183	
+  5184	DXDEC void AILCALL AIL_set_stream_position(HSTREAM stream,S32 offset);
+  5185	
+  5186	DXDEC S32 AILCALL AIL_stream_position(HSTREAM stream);
+  5187	
+  5188	DXDEC void AILCALL AIL_stream_info(HSTREAM stream, S32 FAR* datarate, S32 FAR* sndtype, S32 FAR* length, S32 FAR* memory);
+  5189	
+  5190	DXDEC AILSTREAMCB AILCALL AIL_register_stream_callback(HSTREAM stream, AILSTREAMCB callback);
+  5191	
+  5192	DXDEC void AILCALL AIL_auto_service_stream(HSTREAM stream, S32 onoff);
+  5193	
+  5194	DXDEC void     AILCALL AIL_set_stream_user_data   (HSTREAM S,
+  5195	                                                   U32     index,
+  5196	                                                   SINTa   value);
+  5197	
+  5198	DXDEC SINTa    AILCALL AIL_stream_user_data       (HSTREAM S,
+  5199	                                                   U32     index);
+  5200	
+  5201	DXDEC  void     AILCALL AIL_set_stream_ms_position   (HSTREAM S,
+  5202	                                                      S32        milliseconds);
+  5203	
+  5204	DXDEC  void     AILCALL AIL_stream_ms_position     (HSTREAM    S, //)
+  5205	                                                    S32 FAR *  total_milliseconds,
+  5206	                                                    S32 FAR *  current_milliseconds);
+  5207	
+  5208	#ifdef ON_MAC_USE_FSS
+  5209	
+  5210	typedef MSS_STRUCT MSS_FILE
+  5830	//
+  5831	// Auxiliary 2D interface calls
+  5832	//
+  5833	
+  5834	DXDEC HDIGDRIVER AILCALL AIL_primary_digital_driver  (HDIGDRIVER new_primary);
+  5835	
+  5836	//
+  5837	// 3D-related calls
+  5838	//
+  5839	
+  5840	DXDEC  S32      AILCALL AIL_room_type                (HDIGDRIVER dig);
+  5841	
+  5842	DXDEC  void     AILCALL AIL_set_room_type            (HDIGDRIVER dig,
+  5843	                                                      S32        room_type);
+  5844	
+  5845	DXDEC  F32      AILCALL AIL_3D_rolloff_factor        (HDIGDRIVER dig);
+  5846	
+  5847	DXDEC  void     AILCALL AIL_set_3D_rolloff_factor    (HDIGDRIVER dig,
+  5848	                                                      F32       factor);
+  5849	
+  5850	DXDEC  F32      AILCALL AIL_3D_doppler_factor        (HDIGDRIVER dig);
+  5851	
+  5852	DXDEC  void     AILCALL AIL_set_3D_doppler_factor    (HDIGDRIVER dig,
+  5853	                                                      F32       factor);
+  5854	
+  5855	DXDEC  F32      AILCALL AIL_3D_distance_factor       (HDIGDRIVER dig);
+  5856	
+  5857	DXDEC  void     AILCALL AIL_set_3D_distance_factor   (HDIGDRIVER dig,
+  5858	                                                      F32       factor);
+  5859	
+  5860	DXDEC void       AILCALL AIL_set_sample_obstruction  (HSAMPLE S,
+  5861	                                                      F32     obstruction);
+  5862	
+  5863	DXDEC void       AILCALL AIL_set_sample_occlusion    (HSAMPLE S,
+  5864	                                                      F32     occlusion);
+  5865	
+  5866	DXDEC void       AILCALL AIL_set_sample_exclusion    (HSAMPLE S,
+  5867	                                                      F32     exclusion);
+  5868	
+  5869	DXDEC F32        AILCALL AIL_sample_obstruction      (HSAMPLE S);
+  5870	
+  5871	DXDEC F32        AILCALL AIL_sample_occlusion        (HSAMPLE S);
+  5872	
+  5873	DXDEC F32        AILCALL AIL_sample_exclusion        (HSAMPLE S);
+  5874	
+  5875	DXDEC void       AILCALL AIL_set_sample_3D_distances (HSAMPLE S,
+  5876	                                                      F32     max_dist,
+  5877	                                                      F32     min_dist,
+  5878	                                                      S32     auto_3D_wet_atten);
+  5879	
+  5880	
+  5881	DXDEC void       AILCALL AIL_sample_3D_distances     (HSAMPLE S,
+  5882	                                                      F32 FAR * max_dist,
+  5883	                                                      F32 FAR * min_dist,
+  5884	                                                      S32 FAR * auto_3D_wet_atten);
+  5885	
+  5886	DXDEC void       AILCALL AIL_set_sample_3D_cone        (HSAMPLE S,
+  5887	                                                        F32     inner_angle,
+  5888	                                                        F32     outer_angle,
+  5889	                                                        F32     outer_volume_level);
+  5890	
+15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e  vendor-options/miles-integration-seam/transport-candidate/codec.cpp
+d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0  vendor-options/miles-integration-seam/transport-candidate/codec.h
+f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768  vendor-options/miles-integration-seam/transport-candidate/resource_registry.h
+a913db4f70acba9d2c611486a0431cab9c76749e7508f8c32ce5983989ad8eff  vendor-options/miles-integration-seam/transport-candidate/tests.cpp
+2b405ebf56ac51ecc81c8ac919809c5b0f16524c248fc1a932fbc2d7b8fd584a  vendor-options/miles-integration-seam/host-candidate/registry_resolver.h
+4810fd0dcad43c769e077f3c2ad8d3ad9ebffec426920ff6f5e0063bd4103595  vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp
+e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66  vendor-options/miles-integration-seam/host-candidate/host_dispatch.h
+d71b0aa2fb90aef45ef52e740af53ba96caef753b111326b56f36dadd8919c33  vendor-options/miles-integration-seam/host-candidate/preflight.cpp
+
+codex
+No concrete implementation defect found in this bounded pass. Two actionable verification gaps remain; neither establishes a runtime failure.
+
+1. **Successful dispatch marshalling is untested by the inspected host preflight.** It exercises rejection paths and explicitly checks that the vendor DLL remains unloaded ([preflight.cpp:16](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/preflight.cpp:16), [preflight.cpp:49](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/preflight.cpp:49)). Thus it cannot detect wrong argument order, signed conversion, or output-pointer selection in the 39 vendor arms.
+   
+   **Minimal regression:** use ABI-compatible recording stubs to check each supported arm’s selected function and arguments; include `0xffffffff`/`0x80000000` signed words, unsigned high-bit positions, distinct float arguments, and getter masks 0–3. This would validate marshalling, not vendor behavior or client fidelity.
+   
+   **Strongest disconfirming evidence:** the implementation preserves signed/float representations through `memcpy` ([host_dispatch.cpp:9](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp:9)); inspected signed millisecond and loop-offset arguments match the SDK declarations ([Mss.h:4749](/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h:4749), [Mss.h:5178](/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h:5178)). No mismatch observed.
+
+2. **Host failure-output assertions check status only.** The helper poisons the result but verifies only the returned status and `transport_status` ([preflight.cpp:7](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/preflight.cpp:7)). Removing result clearing would therefore escape these assertions.
+   
+   **Minimal regression:** for `Unsupported`, `InvalidFields`, and `InvalidResource`, start with poisoned output and assert every result field except `transport_status` is zero.
+   
+   **Strongest disconfirming evidence:** dispatch currently clears the entire result before validation and then sets status ([host_dispatch.cpp:330](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp:330)). This is a test gap, not observed stale output.
+
+Other strongest disconfirming evidence:
+
+- Span validation enforces contiguous payloads, subtraction-based bounds, canonical empty spans, and exact frame consumption ([codec.cpp:89](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp:89)).
+- Borrowed resolution checks the parent’s live identity; stream retirement invalidates its aliases ([resource_registry.h:103](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h:103), [resource_registry.h:126](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h:126)). Tests cover parent closing, replacement generations, exhaustion, and independent parents ([tests.cpp:168](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/tests.cpp:168)).
+- Session/lane/lease admission and vendor quiescence are explicit caller requirements, not implemented protections; I did not classify their absence as exploitable implementations ([host_dispatch.h:13](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.h:13), [resource_registry.h:12](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h:12)).
+
+Product HEAD confirmed: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. SHA-256 values below were unchanged at the beginning and end of review; paths are relative to the candidate root:
+
+```text
+transport-candidate/codec.cpp
+15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e
+transport-candidate/resource_registry.h
+f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768
+host-candidate/registry_resolver.h
+2b405ebf56ac51ecc81c8ac919809c5b0f16524c248fc1a932fbc2d7b8fd584a
+host-candidate/host_dispatch.cpp
+4810fd0dcad43c769e077f3c2ad8d3ad9ebffec426920ff6f5e0063bd4103595
+transport-candidate/tests.cpp
+a913db4f70acba9d2c611486a0431cab9c76749e7508f8c32ce5983989ad8eff
+host-candidate/preflight.cpp
+d71b0aa2fb90aef45ef52e740af53ba96caef753b111326b56f36dadd8919c33
+```
+
+Source-only review completed; no tests or candidate executables ran, and the stated 449-check result was not independently verified. No changes, reviewer-output reads, or out-of-scope sound-info/retained-buffer file reads. These components do **not** establish original client experience or full fidelity.
+2026-09-30T10:18:52.247642Z  WARN codex_core::tasks: failed to flush rollout after emitting terminal turn event: thread 01a0f1d1-8a0d-74b3-9605-ce81392ae421 not found
+tokens used
+46,496
+No concrete implementation defect found in this bounded pass. Two actionable verification gaps remain; neither establishes a runtime failure.
+
+1. **Successful dispatch marshalling is untested by the inspected host preflight.** It exercises rejection paths and explicitly checks that the vendor DLL remains unloaded ([preflight.cpp:16](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/preflight.cpp:16), [preflight.cpp:49](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/preflight.cpp:49)). Thus it cannot detect wrong argument order, signed conversion, or output-pointer selection in the 39 vendor arms.
+   
+   **Minimal regression:** use ABI-compatible recording stubs to check each supported arm’s selected function and arguments; include `0xffffffff`/`0x80000000` signed words, unsigned high-bit positions, distinct float arguments, and getter masks 0–3. This would validate marshalling, not vendor behavior or client fidelity.
+   
+   **Strongest disconfirming evidence:** the implementation preserves signed/float representations through `memcpy` ([host_dispatch.cpp:9](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp:9)); inspected signed millisecond and loop-offset arguments match the SDK declarations ([Mss.h:4749](/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h:4749), [Mss.h:5178](/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h:5178)). No mismatch observed.
+
+2. **Host failure-output assertions check status only.** The helper poisons the result but verifies only the returned status and `transport_status` ([preflight.cpp:7](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/preflight.cpp:7)). Removing result clearing would therefore escape these assertions.
+   
+   **Minimal regression:** for `Unsupported`, `InvalidFields`, and `InvalidResource`, start with poisoned output and assert every result field except `transport_status` is zero.
+   
+   **Strongest disconfirming evidence:** dispatch currently clears the entire result before validation and then sets status ([host_dispatch.cpp:330](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.cpp:330)). This is a test gap, not observed stale output.
+
+Other strongest disconfirming evidence:
+
+- Span validation enforces contiguous payloads, subtraction-based bounds, canonical empty spans, and exact frame consumption ([codec.cpp:89](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp:89)).
+- Borrowed resolution checks the parent’s live identity; stream retirement invalidates its aliases ([resource_registry.h:103](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h:103), [resource_registry.h:126](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h:126)). Tests cover parent closing, replacement generations, exhaustion, and independent parents ([tests.cpp:168](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/tests.cpp:168)).
+- Session/lane/lease admission and vendor quiescence are explicit caller requirements, not implemented protections; I did not classify their absence as exploitable implementations ([host_dispatch.h:13](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/host_dispatch.h:13), [resource_registry.h:12](/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/resource_registry.h:12)).
+
+Product HEAD confirmed: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da`. SHA-256 values below were unchanged at the beginning and end of review; paths are relative to the candidate root:
+
+```text
+transport-candidate/codec.cpp
+15ab7134eb837fa7c36323d28423ecfa33e8fec69e8a03e4411bef924aade33e
+transport-candidate/resource_registry.h
+f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768
+host-candidate/registry_resolver.h
+2b405ebf56ac51ecc81c8ac919809c5b0f16524c248fc1a932fbc2d7b8fd584a
+host-candidate/host_dispatch.cpp
+4810fd0dcad43c769e077f3c2ad8d3ad9ebffec426920ff6f5e0063bd4103595
+transport-candidate/tests.cpp
+a913db4f70acba9d2c611486a0431cab9c76749e7508f8c32ce5983989ad8eff
+host-candidate/preflight.cpp
+d71b0aa2fb90aef45ef52e740af53ba96caef753b111326b56f36dadd8919c33
+```
+
+Source-only review completed; no tests or candidate executables ran, and the stated 449-check result was not independently verified. No changes, reviewer-output reads, or out-of-scope sound-info/retained-buffer file reads. These components do **not** establish original client experience or full fidelity.

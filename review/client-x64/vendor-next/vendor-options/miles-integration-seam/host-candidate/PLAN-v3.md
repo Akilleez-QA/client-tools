@@ -1,0 +1,3 @@
+# Borrowed sample preflight v3
+
+Before testing: extend only set_sample_volume_levels, set_sample_reverb_levels, set_sample_playback_rate, sample_volume_levels and sample_playback_rate. Typed parent-guarded BorrowedSample handles stay distinct from OwnedSample; all other sample operations retain owned-only masks. Compile real original SDK arms in v120 x86 Debug/Release. Resolve ordinary local marker addresses only in registry tests, never pass them to Miles. Dispatch only invalid-field, disallowed-kind or closed-parent requests, all of which must reject without loading the delay-loaded vendor DLL. Preserve v2 input snapshot/results. This proves preflight/lifetime binding, not valid vendor calls or fidelity.

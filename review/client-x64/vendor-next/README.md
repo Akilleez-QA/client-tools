@@ -4,7 +4,19 @@
 
 Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): browser and TCG are documented deprecated features, and normal voice controls are disabled. They must not become speculative restoration projects merely because old wrappers/binaries remain. Then read the [per-vendor options and decision gates](vendor-options/DECISIONS.md).
 
-## Committed on the working fork
+## Current status and bridge design
+
+Product branch `integration/client-x64-next` is at **49d0eeed4**. Actual source-audited incremental MSBuild results: Win32 Release/Debug link with zero errors; x64 Release/Debug reach the final linker and stop on **60/61 original Miles imports**. No x64 client has launched. [Current build evidence](allocator-next/integration-current-v2/current-head-v2-complete/RESULTS.md).
+
+Read the [bridge architecture proposal](vendor-options/miles-integration-seam/ARCHITECTURE.md): one MediaSession authority, original game audio policy in x64, original Miles and Bink together in x86, explicit callbacks/reverse I/O and resource lifetime. It is under review, not a production backend selection. [Independent Astra architecture opening](blind-astra-miles14/ARCHITECTURE-CRITIC.md) and [original blind review](blind-astra-miles14/ASTRA-BLIND-REVIEW.md) are preserved separately from subsequent nonblind work.
+
+[Candidate component evidence](vendor-options/miles-integration-seam/REVIEW-RECONCILIATION-15.md) includes codec/resource handling, retained bytes, scalar dispatch preflight, and WAV metadata. The original Miles DLL supplied one real WAV metadata result that roundtrips through native x64. These components are not a complete client backend. The [real Audio/Sound2d baseline still fails teardown](vendor-options/miles-engine-fixture/RESULTS.md), and actual callback coordination, Bink integration and representative fidelity remain open.
+
+Native [startup preference observations](vendor-options/miles-runtime-preferences/RESULTS.md) found lock protection off and mutex protection on, with selected x87 precision preserved. No device or playback was involved; it is not a general callback or FPU-equivalence result.
+
+The remaining sections retain earlier commit/build history under their named snapshots. Use the [latest checkpoint](vendor-options/CHECKPOINT-2026-09-30.md) and current build above for present status.
+
+## Earlier committed work and chronological evidence
 
 | Commit | Change | Bounded evidence |
 | --- | --- | --- |
@@ -16,7 +28,7 @@ Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): bro
 | [25f7fff28](https://github.com/Akilleez-QA/client-tools/commit/25f7fff28d24c91b932ba95df5a740081b5248e5) | Check Miles preference narrowing and retain diagnostic count width | Actual clientAudio project rebuilds with zero warnings/errors in all four configurations. Arithmetic boundary oracle is separate from vendor/runtime FATAL behavior. |
 | [94a81438c](https://github.com/Akilleez-QA/client-tools/commit/94a81438c4c442f21105a58047c82d34e04c9cb4) | Remove unused Mozilla build inputs for Debug/Release client | Win32 whole-executable comparison below; no feature restoration or new feature removal. |
 
-These commits and the later reviewed batch are on `integration/client-x64-next`. **Current recorded head: `085f77cc7`.** The [latest checkpoint](vendor-options/CHECKPOINT-2026-09-30.md) lists TrackIR, LoginClusterStatus fixtures, ByteStream bounds, build-output ownership, TCP completion keys and four isolated crypto commits. External LCD SDK integration remains a separate candidate. The older matrix below retains its original scope.
+These commits and the later reviewed batch are on `integration/client-x64-next`. **Head at this earlier checkpoint: `085f77cc7`.** The [latest checkpoint](vendor-options/CHECKPOINT-2026-09-30.md) lists TrackIR, LoginClusterStatus fixtures, ByteStream bounds, build-output ownership, TCP completion keys and four isolated crypto commits. External LCD SDK integration remains a separate candidate. The older matrix below retains its original scope.
 
 The next frozen source `94a81438c` reduced x64 blocking errors to one per configuration: Release TcpClient completion-key width, Debug crypto packing diagnostics. Those roots now have separately passing native project/probe results, and both audited incremental builds of91dc now reach the actual client linker. Each stops on the first wrong-architecture input: legacy x86 STLport. This is not a completed client link. [Matrix](allocator-next/integration-current-v2/matrix-summary.json), [warning review](allocator-next/integration-current-v2/WARNING-REVIEW.md). Neither earlier matrix reached a complete x64 client link.
 

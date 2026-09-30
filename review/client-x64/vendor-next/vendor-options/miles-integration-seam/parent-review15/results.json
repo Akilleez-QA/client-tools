@@ -1,0 +1,40 @@
+[
+  {
+    "name": "transport449",
+    "compile_exit": 0,
+    "command": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/codec.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/transport-candidate/tests.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review15/transport449"
+    ],
+    "run_exit": 0,
+    "output": "449/449 checks passed\n"
+  },
+  {
+    "name": "retained41",
+    "compile_exit": 0,
+    "command": [
+      "g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/retained_buffers.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-candidate/retained_buffers_test.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/parent-review15/retained41"
+    ],
+    "run_exit": 0,
+    "output": "PASS 41 ownership checks\n"
+  }
+]

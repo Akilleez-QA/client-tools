@@ -1,0 +1,5 @@
+FAIL 404 line 156: two.slot == one.slot && two.generation == one.generation + 1
+FAIL 405 line 157: !registry.resolve(one, OwnedSample, p)
+FAIL 408 line 160: !registry.insert(OwnedSample, &a, one)
+FAIL 409 line 161: !registry.resolve(two, OwnedSample, p)
+408/412 checks passed

@@ -1,0 +1,13 @@
+#< CLIXML
+STATE phase=entry tid=8216 cw=027f sw=0000 mx=00001f80
+STATE phase=before_load tid=8216 cw=037f sw=0000 mx=00001f80
+STATE phase=after_load tid=8216 cw=037f sw=0000 mx=00001f80
+DLL path=C:\miles-preference-observation-20260930\Mss32.dll mode=pc64
+STATE phase=after_startup tid=8216 cw=037f sw=0000 mx=00001f80
+STATE phase=after_preferences tid=8216 cw=037f sw=0000 mx=00001f80
+PREFERENCES lock=0 mutex=1 header_lock=0 header_mutex=1
+STATE phase=after_shutdown tid=8216 cw=037f sw=0000 mx=00001f80
+STATE phase=after_unload tid=8216 cw=037f sw=0000 mx=00001f80
+STATE phase=restored tid=8216 cw=027f sw=0000 mx=00001f80
+SUMMARY initialized=1 unloaded=1 defaults_match=1 no_driver_opened=1
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</I64><PR N="Record"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>

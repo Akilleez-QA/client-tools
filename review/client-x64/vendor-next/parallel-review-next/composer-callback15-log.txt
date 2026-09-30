@@ -1,0 +1,168 @@
+# Bounded review: Audio.cpp → Miles wire bridge (39-arm)
+
+**Scope:** Product `client-build-next` @ `49d0eeed4`, candidate `miles-integration-seam` (`API-MAP.md`, `host_dispatch.cpp`, `registry_resolver.h`). Read-only; one traversal. Candidate is explicitly not full client fidelity (`host-candidate/SUPPORTED.md`, `REMAINING-LIFECYCLE.md`).
+
+---
+
+## 1. Complete `Audio.cpp` Miles interaction map (product)
+
+Includes `SoundObject3d.cpp` listener calls (same driver handle as `s_digitalDevice2d`).
+
+| SDK API | Primary locations | Semantics the bridge must preserve |
+|--------|-------------------|-------------------------------------|
+| `AIL_set_redist_directory` | `Audio.cpp:1285` | Path string; return copied into `std::string` |
+| `AIL_startup` | `1289` | Before callbacks/driver |
+| `AIL_set_file_callbacks` | `1293` | TreeFile I/O: open/close/seek/read (`3939–4063+`) |
+| `AIL_get_preference` | `1297` | `DIG_MIXER_CHANNELS` → `s_maxDigitalMixerChannels` |
+| `AIL_open_digital_driver` | `1301`, `1307` | Nullable; stereo fallback; **same handle** for audio + Bink |
+| `AIL_last_error` | `1306`, `1313`, `2899`, `3004`, … | Sync diagnostic text after failures |
+| `AIL_set_3D_rolloff_factor` | `1324` | Driver + float |
+| `AIL_speaker_configuration` | `1326` | `NULL,NULL,NULL,&s_speakers` (only spec out) |
+| `AIL_shutdown` | `1437` | After game teardown (`remove()` nulls driver at `1430–1432` without explicit close) |
+| `getMilesDigitalDriver` / Bink | `1492–1494`, `ClientMain.cpp:314`, `BinkVideo.cpp:115–117` | `BinkSoundUseMiles(hMilesDigitalDriver)` — **in-process driver pointer** |
+| `AIL_get_timer_highest_delay` | `1943` | Timer stats |
+| `AIL_active_sample_count` | `681–683`, debug paths | Driver |
+| `AIL_open_stream` | `605` | Driver + **path string**, `stream_mem=0` |
+| `AIL_allocate_sample_handle` | `630`, `660`, `4437`, `5334`, `5354` | Owned samples |
+| `AIL_lock` / `AIL_unlock` | `2320–2337`, `4920–4928` | Span around **batch** `startSample()` |
+| `AIL_set_sample_3D_position` | `2461`, `2965` | Owned 3D samples |
+| `AIL_MSS_version` | `2469` | **Not** in 61-opcode map |
+| `AIL_file_type` | `2546` | Buffer + size |
+| `AIL_sample_status` / `AIL_stream_status` | `2706–2716` | Owned 2D/3D vs stream handle |
+| `AIL_set_named_sample_file` | `2836`, `4449`, `5338`, `5358` | Buffer + extension + size; cache retains `m_sampleRawData` (`1528–1529`) |
+| `AIL_set_sample_file` | `2925` | 3D raw cache buffer |
+| `AIL_set_sample_loop_*` | `2851`, `2865`, `2873`, `2947`, `2955`, `3041`, `3059`, `3067` | Owned / stream |
+| `AIL_register_EOS_callback` | `2878`, `2960` | `HSAMPLE` → `endOfSample2d/3dCallBack` (`4730–4768`) |
+| `AIL_register_stream_callback` | `3072` | `HSTREAM` → `endOfSampleStreamCallBack` (`4772–4789`) |
+| `AIL_start_sample` / `AIL_start_stream` | `2883`, `2992`, `3083`, `4387`, `4417`, buffered `5344`, `5364` | Playback start |
+| `AIL_set_sample_3D_*`, distances | `2966`, `2988` | 3D setup |
+| `AIL_set_sample_occlusion/obstruction` | `3129`, `3144` | 3D |
+| `AIL_set_sample_volume_levels` / `AIL_set_sample_reverb_levels` | `3173–3197`, `3211–3212`, buffered | 2D/3D **owned**; streams via **`AIL_stream_sample_handle`** |
+| `AIL_set_sample_playback_rate` | `3244–3260` | Same owned vs borrowed split |
+| `AIL_sample_volume_levels` / `AIL_sample_playback_rate` | `3287–3334` | GET; streams use borrowed handle |
+| `AIL_stop_sample` / `AIL_end_sample` | `3356–3362`, `4454–4455`, `5372–5383` | Owned only |
+| `AIL_close_stream` | `3367` | Stream teardown (not pause) |
+| `AIL_release_sample_handle` | `3394`, `3403`, `4455` | Owned; after quiescence |
+| `AIL_digital_CPU_percent` / `AIL_digital_latency` | `3526`, `3539` | Driver |
+| `AIL_WAV_info` | `3710` | Buffer + `SoundInfo` out |
+| `AIL_set_room_type` / `AIL_room_type` | `3788–3813`, `3826` | Driver |
+| `AIL_sample_reverb_levels` (GET) | `3928` | 3D owned only |
+| `AIL_stream_ms_position` / `AIL_sample_ms_position` | `4224+`, `4251+`, … | Both outputs used in practice |
+| `AIL_sample_position` | `4267`, `4314`, `4406` | 3D owned |
+| `AIL_set_sample_ms_position` / `AIL_set_stream_ms_position` | `4391`, `4421` | Seek |
+| `AIL_file_error` | `4547` | Global file error enum |
+| `AIL_serve` | `4958`, `5119`, `5126` | Main thread + `AbstractFile::setAudioServe` (`1366`) |
+| `AIL_set_preference` | `5118`, `5125` | `DIG_DS_MIX_FRAGMENT_CNT` |
+| `AIL_digital_configuration` | `5424` | Capture path |
+| `AIL_find_filter` / `AIL_open_filter` / … | `5439–5474` | **Non-production** `#if 0` block context at `45–47` — capture disabled at file top |
+
+Listener (`SoundObject3d.cpp:32–34`): `AIL_set_listener_3D_position/velocity/orientation` on `m_object` (= `HDIGDRIVER`, `Audio.cpp:1321`).
+
+---
+
+## 2. Candidate coverage vs product
+
+| Class | Opcodes | Status |
+|-------|---------|--------|
+| **39-arm** (`host_dispatch.cpp:14–53`) | Playback, 3D, room, listener, loop/seek on **already-bound** handles, `AIL_serve`, `AIL_file_error`, `AIL_get_timer_highest_delay` | Implemented; **no** `resource`/`text`/`bytes`/`callback` fields (`57`) |
+| **22 lifecycle / I/O** (`REMAINING-LIFECYCLE.md`) | startup→driver→allocate→file callbacks→EOS/stream CB→set_*_file→lock→shutdown, `stream_sample_handle`, preferences, errors, redist, speaker_config | **Unsupported** in host (`supports()` default) |
+| **Outside 61-map** | `AIL_MSS_version`, Bink (`BinkSoundUseMiles`), filter/capture | Product calls; no wire opcode |
+
+**Observation:** `SUPPORTED.md:3` says “All sample operations accept OwnedSample” but five ops also accept `BorrowedSample` in `host_dispatch.cpp` — doc drift, not a host bug.
+
+---
+
+## 3. Thirty-nine-arm: defects vs `API-MAP.md` (not “unsupported by design”)
+
+### 3.1 Protocol vs host: `BorrowedSample` on getters (real map defect; product does not hit it today)
+
+**Observation:** `API-MAP.md:22,24` document `AIL_sample_position` / `AIL_sample_status` for “owned **or** borrowed”. Host allows only `OwnedSample` (`host_dispatch.cpp:115–127`).
+
+**Disconfirming (for SWG today):** `Audio.cpp` never queries status/position on `AIL_stream_sample_handle`; streams use `AIL_stream_status` (`2716`) and stream ms APIs.
+
+**Discriminating test:** After real `open_stream` + `stream_sample_handle` (opcode 59), issue opcode **24** with `BorrowedSample` target while stream is playing; compare in-process `AIL_sample_status(borrowed)` vs wire host (expect `InvalidResource` on host, API map claims valid Sample target).
+
+### 3.2 Stream volume/rate/reverb: 39-arm ops depend on missing opcode 59 (end-to-end gap, not a bug inside an arm)
+
+**Observation:** Product never stores borrowed handles; it composes inline:
+
+```3211:3212:/home/akilleez/Work/swg-source/client-build-next/src/engine/client/library/clientAudio/src/win32/Audio.cpp
+		AIL_set_sample_volume_levels((AIL_stream_sample_handle(sampleStream.m_stream)), leftLevel, rightLevel);
+		AIL_set_sample_reverb_levels((AIL_stream_sample_handle(sampleStream.m_stream)), 1.0f, 0.0f);
+```
+
+Host implements opcodes **47–48**, **45**, **25**, **21** with `BorrowedSample` (`host_dispatch.cpp:244–253`, `132–134`, `160–162`) but **`AIL_stream_sample_handle` is unsupported** (`supports()` has no case).
+
+**Discriminating test:** Wire-only path: `open_stream` → `start_stream` → host `stream_sample_handle` → `set_sample_volume_levels` on alias; without 59, stream music volume path cannot be exercised (native baseline: hear stream fade with `setSampleVolume` on a stream sound).
+
+### 3.3 `RegistryResolver` does not add semantics beyond registry
+
+**Observation:** `registry_resolver.h:10–16` only checks `allowed` bitmask + `registry.resolve`. Parent-live rules for borrowed handles live in `resource_registry.h:111–115` (transport), not in resolver.
+
+**Hypothesis (unproven here):** Stale borrowed ID after parent close is rejected by registry — **supported by** `preflight.cpp:43–46` (compile-only markers).
+
+**Not a 39-arm opcode bug.**
+
+### 3.4 No defect found in 39-arm for Audio’s **owned** paths
+
+For 2D/3D owned samples, kind masks in `host_dispatch.cpp` match `Audio.cpp` (e.g. `AIL_sample_ms_position` owned-only at `146–148` matches `4251`, `4303`; stream uses opcode **58** at `150–155`).
+
+**Disconfirming:** Preflight explicitly rejects `AIL_start_sample` on `BorrowedSample` (`preflight.cpp:38–39`) — matches product (only owned starts).
+
+---
+
+## 4. Documented unsupported vs fidelity-blocking (product)
+
+These are **not** 39-arm implementation bugs; they are **missing bridge surface** required for original behavior:
+
+| Concern | Product evidence | Candidate |
+|--------|------------------|-----------|
+| **EOS / stream callbacks** | `2878`, `2960`, `3072` → game `endOfSample()` (`4730–4789`) | Opcodes **16–17** unsupported; no callback IPC in `dispatchImpl` |
+| **Lock epochs** | `2320–2337` around `startSample` | **13, 61** unsupported (`preflight.cpp:17`) |
+| **TreeFile / streams** | `1293`, `605`, `3947` (`TreeFile::open`) | **28, 15** unsupported; open may reenter callbacks (`REMAINING-LIFECYCLE.md:10`) |
+| **Sample buffer lifetime** | `set_named_sample_file` / `set_sample_file` with cache pointers | **32, 39** + retention (`API-MAP.md:38,45`) |
+| **Driver creation & Bink** | `1301`, `BinkVideo.cpp:117` | **14** unsupported; Bink needs **same process** `HDIGDRIVER` — OOP bridge does not transfer this pointer meaningfully |
+| **Init / teardown** | `1285–1326`, `1437` | **56, 52, 10–12, 33, 34, 53** unsupported |
+| **Handle lifecycle** | `allocate`/`release`/`close_stream` | **3, 18, 4** unsupported |
+
+**Strongest disconfirming evidence** that the 39-arm subset is insufficient for fidelity: `REMAINING-LIFECYCLE.md:20` (“resource-free 39-arm preflight does not validate any of these lifecycle transitions”); `SUPPORTED.md:3` (“no runtime acceptance”); Bink coupling is a raw driver pointer, not an abstract wire handle.
+
+---
+
+## 5. Semantics checklist (user-requested themes)
+
+| Theme | Product | Bridge state |
+|-------|---------|--------------|
+| **EOS registrations** | Per-sample/stream registration; callbacks scan maps by handle | Unsupported; token model in `API-MAP.md:16–17,71` not in host |
+| **Lock spans** | Single batch start under `AIL_lock` | Unsupported; no lane/lease (`API-MAP.md:19,67`) |
+| **TreeFile callbacks** | `fileOpenCallBack` → `TreeFile::open`; may run off main thread (`3939–3944`) | Unsupported; `UINTa` handles → wire `File` kind (`API-MAP.md:71`) |
+| **Borrowed sample lifetime** | Implicit via `AIL_stream_sample_handle`; parent stream `close_stream` `3367` | Transport plan (`BORROWED-PLAN.md`); host 39-arm **mutations** on borrowed only for 5 ops; **59** missing |
+| **Bink shared driver** | `Audio::getMilesDigitalDriver` → `VideoList::install` → `BinkSoundUseMiles` | Not an `AIL_*` opcode; **architectural** gap for split process |
+
+---
+
+## 6. Actionable gaps with one test each (real gaps only)
+
+1. **EOS fidelity** — Start looping 2D SFX with EOS callback; assert `Sound2d::endOfSample` fires without polling. **Fails** without opcodes 16–17 + callback delivery contract.
+
+2. **Lock + start batch** — Stress: queue 10 sounds, one `alter()`; under native, all start inside lock. **Wire:** interleave `AIL_serve` / volume sets between start opcodes without lock **13/61**; compare for dropouts/crashes (hypothesis: race; needs runtime).
+
+3. **Stream open + TreeFile** — Open music stream from `.eap`/tree path (`605`). **Fails** without 15+28 and reverse callback servicing.
+
+4. **Stream volume** — `setSampleVolume` on active stream (`3199–3212`). **Fails** wire path without **59** then 47/48.
+
+5. **Bink intro movie audio** — Play Bink with audio (`ClientMain.cpp:314`). **Fails** if Miles is host-only in another process (driver pointer semantics).
+
+6. **API map vs host on borrowed getters** — Opcode 24 + `BorrowedSample` (**§3.1**); fix map or host for protocol consistency.
+
+---
+
+## 7. What this review did **not** find
+
+- No evidence in `Audio.cpp` that **39-arm** mis-implements **owned** 2D/3D/stream control paths relative to current call patterns (kinds, masks, driver target).
+- No use of `AIL_sample_reverb_levels` GET on stream borrowed handles (so host’s Owned-only GET at `164–169` is sufficient for today’s product).
+- Filter/capture `AIL_*` at `5439+` is not production-enabled at `Audio.cpp:45–47`.
+
+---
+
+**Bottom line:** The 39-arm host is a compile-only control-plane slice. For SWG audio fidelity, the blocking work is the **22 unsupported opcodes** plus **Bink in-process driver sharing**, not fixing individual arms—except **API-MAP vs host** on borrowed `sample_status`/`sample_position`, and the **hard dependency** of stream UX on **`AIL_stream_sample_handle` (59)** while only its downstream mutators live in the 39-arm set.

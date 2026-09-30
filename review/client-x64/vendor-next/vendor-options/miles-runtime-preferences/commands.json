@@ -1,0 +1,44 @@
+[
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "if(Test-Path 'C:/miles-preference-observation-20260930'){throw 'scratch exists'}; New-Item -ItemType Directory 'C:/miles-preference-observation-20260930'"
+  ],
+  [
+    "scp",
+    "-q",
+    "-i",
+    "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+    "-P",
+    "2223",
+    "-o",
+    "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-runtime-preferences/probe.cpp",
+    "/home/akilleez/Work/client-wire-validation/vendor-options/miles-runtime-preferences/build.cmd",
+    "/home/akilleez/Work/swg-source-vm/client/SWGSource Client v3.0/Mss32.dll",
+    "builder@127.0.0.1:C:/miles-preference-observation-20260930/"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "Set-Location 'C:/miles-preference-observation-20260930'; cmd /c build.cmd; exit $LASTEXITCODE"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "Get-FileHash 'C:/miles-preference-observation-20260930/probe.cpp','C:/miles-preference-observation-20260930/probe.exe','C:/miles-preference-observation-20260930/Mss32.dll','C:/client-next-build/src/external/3rd/library/miles/include/Mss.h','C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/bin/cl.exe' | Format-List"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "Set-Location 'C:/miles-preference-observation-20260930'; ./probe.exe 'C:/miles-preference-observation-20260930/Mss32.dll' inherited; exit $LASTEXITCODE"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "Set-Location 'C:/miles-preference-observation-20260930'; ./probe.exe 'C:/miles-preference-observation-20260930/Mss32.dll' pc24; exit $LASTEXITCODE"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "Set-Location 'C:/miles-preference-observation-20260930'; ./probe.exe 'C:/miles-preference-observation-20260930/Mss32.dll' pc64; exit $LASTEXITCODE"
+  ],
+  [
+    "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+    "Remove-Item -Recurse -Force 'C:/miles-preference-observation-20260930'; Write-Output ('owned_scratch_exists='+(Test-Path 'C:/miles-preference-observation-20260930'))"
+  ]
+]

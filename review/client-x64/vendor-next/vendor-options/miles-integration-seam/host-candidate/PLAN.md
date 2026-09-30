@@ -1,0 +1,5 @@
+# Prospective scalar host component
+
+Compile-only x86 native v120 component, actual original Mss.h declarations/imports. No DLL calls, playback, device access, client shim/export library or product linkage. Supported opcodes are an explicit list implemented by switch; unknown/unimplemented returns Unsupported before vendor invocation. Resource handles must resolve kind/slot/generation via transport-owned live registry. Caller must establish initialized vendor session, lane/lease admission and correct call-state; this component cannot bypass those gates.
+
+First slice: real scalar setters/control and scalar/out-parameter getters, excluding startup/shutdown/resource creation, images/strings/callback registration, speaker pointer outputs, lock/unlock and preferences until their additional contracts are wired. Compile/link symbol inspection verifies actual vendor imports, not fake handlers. No runtime acceptance is claimed. Next gate: real transport registry/admission integration, original-header thunk checks and a bounded initialized original-vendor baseline before any exercised dispatch or additional lifecycle support.

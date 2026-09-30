@@ -1,0 +1,353 @@
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:0
+ALSA lib control.c:1575:(snd_ctl_open_noupdate) [error.control] Invalid CTL hw:1
+reply id=1 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949709516842 end=1949709517300 tid=300
+reply id=2 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949709517543 end=1949709517593 tid=300
+reply id=3 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949710018249 end=1949710018409 tid=300
+reply id=4 kind=0 result=0 slot=1 gen=1 event=0 status=4 total=-1 pos=-1 begin=1949710018563 end=1949710018596 tid=300
+reply id=5 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=104 begin=1949710018647 end=1949710018683 tid=300
+reply id=6 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949710519349 end=1949710519559 tid=300
+reply id=7 kind=0 result=0 slot=1 gen=1 event=0 status=4 total=-1 pos=-1 begin=1949710519793 end=1949710519832 tid=300
+reply id=8 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=161 begin=1949710519897 end=1949710519939 tid=300
+reply id=9 kind=1 result=0 slot=1 gen=1 event=16 status=-1 total=-1 pos=-1 begin=1949711020679 end=1949711020825 tid=300
+reply id=9 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949711020679 end=1949711021001 tid=300
+reply id=10 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949711021052 end=1949711021084 tid=300
+reply id=11 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949711021128 end=1949711021163 tid=300
+reply id=12 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949711521862 end=1949711522035 tid=300
+reply id=13 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949711522475 end=1949711522522 tid=300
+host main=300 frequency=10000000 loaded=C:\generation-private\Mss32.dll mode=sample
+audit phase=begin id=1 op=1 request_gen=1 current_gen=1 handle=00000000 lifetime=0 vendor=0 statuscalls=0 creates=0 releases=0 starts=0 qpc=1949709516848
+audit phase=end id=1 op=1 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=4 statuscalls=0 creates=1 releases=0 starts=0 qpc=1949709517277
+audit phase=begin id=2 op=2 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=4 statuscalls=0 creates=1 releases=0 starts=0 qpc=1949709517545
+audit phase=end id=2 op=2 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=5 statuscalls=0 creates=1 releases=0 starts=1 qpc=1949709517577
+audit phase=begin id=3 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=5 statuscalls=0 creates=1 releases=0 starts=1 qpc=1949710018254
+audit phase=end id=3 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=6 statuscalls=0 creates=1 releases=0 starts=1 qpc=1949710018385
+audit phase=begin id=4 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=6 statuscalls=0 creates=1 releases=0 starts=1 qpc=1949710018565
+audit phase=end id=4 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=7 statuscalls=1 creates=1 releases=0 starts=1 qpc=1949710018581
+audit phase=begin id=5 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=7 statuscalls=1 creates=1 releases=0 starts=1 qpc=1949710018650
+audit phase=end id=5 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=8 statuscalls=1 creates=1 releases=0 starts=1 qpc=1949710018669
+audit phase=begin id=6 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=8 statuscalls=1 creates=1 releases=0 starts=1 qpc=1949710519358
+audit phase=end id=6 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=9 statuscalls=1 creates=1 releases=0 starts=1 qpc=1949710519532
+audit phase=begin id=7 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=9 statuscalls=1 creates=1 releases=0 starts=1 qpc=1949710519796
+audit phase=end id=7 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=10 statuscalls=2 creates=1 releases=0 starts=1 qpc=1949710519814
+audit phase=begin id=8 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=10 statuscalls=2 creates=1 releases=0 starts=1 qpc=1949710519900
+audit phase=end id=8 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=11 statuscalls=2 creates=1 releases=0 starts=1 qpc=1949710519921
+audit phase=begin id=9 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=11 statuscalls=2 creates=1 releases=0 starts=1 qpc=1949711020684
+audit phase=end id=9 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=12 statuscalls=2 creates=1 releases=0 starts=1 qpc=1949711020801
+audit phase=begin id=10 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=12 statuscalls=2 creates=1 releases=0 starts=1 qpc=1949711021054
+audit phase=end id=10 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=13 statuscalls=3 creates=1 releases=0 starts=1 qpc=1949711021070
+audit phase=begin id=11 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=13 statuscalls=3 creates=1 releases=0 starts=1 qpc=1949711021132
+audit phase=end id=11 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=14 statuscalls=3 creates=1 releases=0 starts=1 qpc=1949711021149
+audit phase=begin id=12 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=14 statuscalls=3 creates=1 releases=0 starts=1 qpc=1949711521872
+audit phase=end id=12 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=15 statuscalls=3 creates=1 releases=0 starts=1 qpc=1949711522007
+audit phase=begin id=13 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=15 statuscalls=3 creates=1 releases=0 starts=1 qpc=1949711522480
+audit phase=end id=13 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=16 statuscalls=4 creates=1 releases=0 starts=1 qpc=1949711522505
+audit phase=breply id=14 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949711522576 end=1949711522764 tid=300
+reply id=15 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949712023559 end=1949712023783 tid=300
+reply id=16 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949712023974 end=1949712024016 tid=300
+reply id=17 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949712024080 end=1949712024125 tid=300
+reply id=18 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949712524873 end=1949712525059 tid=300
+reply id=19 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949712525298 end=1949712525331 tid=300
+reply id=20 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949712525386 end=1949712525424 tid=300
+reply id=21 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949713026375 end=1949713027402 tid=300
+reply id=22 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949713027740 end=1949713027783 tid=300
+reply id=23 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949713027848 end=1949713027896 tid=300
+reply id=24 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949713528629 end=1949713528866 tid=300
+reply id=25 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949713529178 end=1949713529222 tid=300
+reply id=26 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949713529288 end=1949713529337 tid=300
+egin id=14 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=16 statuscalls=4 creates=1 releases=0 starts=1 qpc=1949711522579
+audit phase=end id=14 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=17 statuscalls=4 creates=1 releases=0 starts=1 qpc=1949711522748
+audit phase=begin id=15 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=17 statuscalls=4 creates=1 releases=0 starts=1 qpc=1949712023571
+audit phase=end id=15 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=18 statuscalls=4 creates=1 releases=0 starts=1 qpc=1949712023755
+audit phase=begin id=16 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=18 statuscalls=4 creates=1 releases=0 starts=1 qpc=1949712023977
+audit phase=end id=16 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=19 statuscalls=5 creates=1 releases=0 starts=1 qpc=1949712023997
+audit phase=begin id=17 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=19 statuscalls=5 creates=1 releases=0 starts=1 qpc=1949712024083
+audit phase=end id=17 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=20 statuscalls=5 creates=1 releases=0 starts=1 qpc=1949712024107
+audit phase=begin id=18 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=20 statuscalls=5 creates=1 releases=0 starts=1 qpc=1949712524885
+audit phase=end id=18 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=21 statuscalls=5 creates=1 releases=0 starts=1 qpc=1949712525034
+audit phase=begin id=19 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=21 statuscalls=5 creates=1 releases=0 starts=1 qpc=1949712525302
+audit phase=end id=19 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=22 statuscalls=6 creates=1 releases=0 starts=1 qpc=1949712525317
+audit phase=begin id=20 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=22 statuscalls=6 creates=1 releases=0 starts=1 qpc=1949712525388
+audit phase=end id=20 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=23 statuscalls=6 creates=1 releases=0 starts=1 qpc=1949712525409
+audit phase=begin id=21 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=23 statuscalls=6 creates=1 releases=0 starts=1 qpc=1949713026388
+audit phase=end id=21 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=24 statuscalls=6 creates=1 releases=0 starts=1 qpc=1949713027369
+audit phase=begin id=22 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=24 statuscalls=6 creates=1 releases=0 starts=1 qpc=1949713027743
+audit phase=end id=22 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=25 statuscalls=7 creates=1 releases=0 starts=1 qpc=1949713027764
+audit phase=begin id=23 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=25 statuscalls=7 creates=1 releases=0 starts=1 qpc=1949713027852
+audit phase=end id=23 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=26 statuscalls=7 creates=1 releases=0 starts=1 qpc=1949713027877
+audit phase=begin id=24 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=26 statuscalls=7 creates=1 releases=0 starts=1 qpc=1949713528642
+audit phase=end id=24 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=27 statuscalls=7 creates=1 releases=0 starts=1 qpc=1949713528835
+audit phase=begin id=25 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=27 statuscalls=7 creates=1 releases=0 starts=1 qpc=1949713529181
+audit phase=end id=25 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=28 statuscalls=8 creates=1 releases=0 starts=1 qpc=1949713529202
+audit phase=begin id=26 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=28 statuscalls=8 creates=1 releases=0 starts=1 qpc=1949713529291
+audit phase=end id=26 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=29 statuscalls=8 creates=1 releases=0 starts=1 qpc=1949713529318
+audit phase=begin id=27 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetireply id=27 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949714030031 end=1949714030936 tid=300
+reply id=28 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949714031106 end=1949714031145 tid=300
+reply id=29 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949714031192 end=1949714031234 tid=300
+reply id=30 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949714531907 end=1949714532113 tid=300
+reply id=31 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949714532406 end=1949714532447 tid=300
+reply id=32 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949714532583 end=1949714532621 tid=300
+reply id=33 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949715033311 end=1949715033552 tid=300
+reply id=34 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949715033851 end=1949715033894 tid=300
+reply id=35 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949715033963 end=1949715034012 tid=300
+reply id=36 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949715534687 end=1949715534861 tid=300
+reply id=37 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949715535106 end=1949715535201 tid=300
+reply id=38 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949715535257 end=1949715535292 tid=300
+reply id=39 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949716036027 end=1949716036220 tid=300
+me=1 vendor=29 statuscalls=8 creates=1 releases=0 starts=1 qpc=1949714030044
+audit phase=end id=27 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=30 statuscalls=8 creates=1 releases=0 starts=1 qpc=1949714030882
+audit phase=begin id=28 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=30 statuscalls=8 creates=1 releases=0 starts=1 qpc=1949714031109
+audit phase=end id=28 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=31 statuscalls=9 creates=1 releases=0 starts=1 qpc=1949714031128
+audit phase=begin id=29 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=31 statuscalls=9 creates=1 releases=0 starts=1 qpc=1949714031195
+audit phase=end id=29 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=32 statuscalls=9 creates=1 releases=0 starts=1 qpc=1949714031216
+audit phase=begin id=30 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=32 statuscalls=9 creates=1 releases=0 starts=1 qpc=1949714531915
+audit phase=end id=30 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=33 statuscalls=9 creates=1 releases=0 starts=1 qpc=1949714532088
+audit phase=begin id=31 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=33 statuscalls=9 creates=1 releases=0 starts=1 qpc=1949714532409
+audit phase=end id=31 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=34 statuscalls=10 creates=1 releases=0 starts=1 qpc=1949714532431
+audit phase=begin id=32 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=34 statuscalls=10 creates=1 releases=0 starts=1 qpc=1949714532585
+audit phase=end id=32 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=35 statuscalls=10 creates=1 releases=0 starts=1 qpc=1949714532606
+audit phase=begin id=33 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=35 statuscalls=10 creates=1 releases=0 starts=1 qpc=1949715033321
+audit phase=end id=33 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=36 statuscalls=10 creates=1 releases=0 starts=1 qpc=1949715033522
+audit phase=begin id=34 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=36 statuscalls=10 creates=1 releases=0 starts=1 qpc=1949715033854
+audit phase=end id=34 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=37 statuscalls=11 creates=1 releases=0 starts=1 qpc=1949715033875
+audit phase=begin id=35 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=37 statuscalls=11 creates=1 releases=0 starts=1 qpc=1949715033966
+audit phase=end id=35 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=38 statuscalls=11 creates=1 releases=0 starts=1 qpc=1949715033993
+audit phase=begin id=36 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=38 statuscalls=11 creates=1 releases=0 starts=1 qpc=1949715534694
+audit phase=end id=36 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=39 statuscalls=11 creates=1 releases=0 starts=1 qpc=1949715534838
+audit phase=begin id=37 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=39 statuscalls=11 creates=1 releases=0 starts=1 qpc=1949715535170
+audit phase=end id=37 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=40 statuscalls=12 creates=1 releases=0 starts=1 qpc=1949715535186
+audit phase=begin id=38 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=40 statuscalls=12 creates=1 releases=0 starts=1 qpc=1949715535259
+audit phase=end id=38 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=41 statuscalls=12 creates=1 releases=0 starts=1 qpc=1949715535278
+audit phase=begin id=39 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=41 statuscalls=12 creates=1 releases=0 starts=1 qpc=1949716036036
+audit phase=end id=39 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=42 statuscalls=12 creates=1 releases=0 starts=1 qpc=1949716036188
+audit phase=begin id=40 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=42 statuscalls=12 creates=1 releases=reply id=40 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949716036526 end=1949716036731 tid=300
+reply id=41 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949716036940 end=1949716036981 tid=300
+reply id=42 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949716537568 end=1949716537769 tid=300
+reply id=43 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949716538036 end=1949716538087 tid=300
+reply id=44 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949716538159 end=1949716538208 tid=300
+reply id=45 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949717038922 end=1949717039156 tid=300
+reply id=46 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949717039431 end=1949717039466 tid=300
+reply id=47 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949717039522 end=1949717039561 tid=300
+reply id=48 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949717540223 end=1949717540399 tid=300
+reply id=49 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949717540616 end=1949717540654 tid=300
+reply id=50 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949717540708 end=1949717540746 tid=300
+reply id=51 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949718041388 end=1949718041560 tid=300
+reply id=52 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949718041805 end=1949718041850 tid=300
+0 starts=1 qpc=1949716036528
+audit phase=end id=40 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=43 statuscalls=13 creates=1 releases=0 starts=1 qpc=1949716036713
+audit phase=begin id=41 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=43 statuscalls=13 creates=1 releases=0 starts=1 qpc=1949716036942
+audit phase=end id=41 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=44 statuscalls=13 creates=1 releases=0 starts=1 qpc=1949716036964
+audit phase=begin id=42 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=44 statuscalls=13 creates=1 releases=0 starts=1 qpc=1949716537576
+audit phase=end id=42 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=45 statuscalls=13 creates=1 releases=0 starts=1 qpc=1949716537740
+audit phase=begin id=43 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=45 statuscalls=13 creates=1 releases=0 starts=1 qpc=1949716538040
+audit phase=end id=43 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=46 statuscalls=14 creates=1 releases=0 starts=1 qpc=1949716538064
+audit phase=begin id=44 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=46 statuscalls=14 creates=1 releases=0 starts=1 qpc=1949716538162
+audit phase=end id=44 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=47 statuscalls=14 creates=1 releases=0 starts=1 qpc=1949716538186
+audit phase=begin id=45 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=47 statuscalls=14 creates=1 releases=0 starts=1 qpc=1949717038931
+audit phase=end id=45 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=48 statuscalls=14 creates=1 releases=0 starts=1 qpc=1949717039131
+audit phase=begin id=46 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=48 statuscalls=14 creates=1 releases=0 starts=1 qpc=1949717039434
+audit phase=end id=46 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=49 statuscalls=15 creates=1 releases=0 starts=1 qpc=1949717039452
+audit phase=begin id=47 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=49 statuscalls=15 creates=1 releases=0 starts=1 qpc=1949717039525
+audit phase=end id=47 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=50 statuscalls=15 creates=1 releases=0 starts=1 qpc=1949717039547
+audit phase=begin id=48 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=50 statuscalls=15 creates=1 releases=0 starts=1 qpc=1949717540230
+audit phase=end id=48 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=51 statuscalls=15 creates=1 releases=0 starts=1 qpc=1949717540376
+audit phase=begin id=49 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=51 statuscalls=15 creates=1 releases=0 starts=1 qpc=1949717540620
+audit phase=end id=49 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=52 statuscalls=16 creates=1 releases=0 starts=1 qpc=1949717540638
+audit phase=begin id=50 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=52 statuscalls=16 creates=1 releases=0 starts=1 qpc=1949717540710
+audit phase=end id=50 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=53 statuscalls=16 creates=1 releases=0 starts=1 qpc=1949717540730
+audit phase=begin id=51 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=53 statuscalls=16 creates=1 releases=0 starts=1 qpc=1949718041397
+audit phase=end id=51 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=54 statuscalls=16 creates=1 releases=0 starts=1 qpc=1949718041537
+audit phase=begin id=52 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=54 statuscalls=16 creates=1 releases=0 starts=1 qpc=1949718041808
+audit phase=end id=52 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=55 statuscalls=17 creates=1 releases=0 starts=1 qpc=1949718041831
+audit phase=begin id=53 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=55 statuscalls=17 creates=1 releases=0 starts=1 qpc=1949718041916
+audit phasereply id=53 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949718041914 end=1949718042121 tid=300
+reply id=54 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949718542840 end=1949718543010 tid=300
+reply id=55 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949718543238 end=1949718543272 tid=300
+reply id=56 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949718543325 end=1949718543359 tid=300
+reply id=57 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949719044012 end=1949719044186 tid=300
+reply id=58 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949719044399 end=1949719044433 tid=300
+reply id=59 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949719044488 end=1949719044524 tid=300
+reply id=60 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949719545176 end=1949719545376 tid=300
+reply id=61 kind=0 result=0 slot=1 gen=1 event=0 status=2 total=-1 pos=-1 begin=1949719545656 end=1949719545701 tid=300
+reply id=62 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=204 pos=204 begin=1949719545770 end=1949719545816 tid=300
+reply id=63 kind=0 result=0 slot=1 gen=1 event=0 status=-1 total=-1 pos=-1 begin=1949719545870 end=1949719545931 tid=300
+reply id=64 kind=0 result=0 slot=1 gen=2 event=0 status=-1 total=-1 pos=-1 begin=1949719546059 end=1949719546187 tid=300
+reply id=65 kind=0 result=0 slot=1 gen=2 event=0 status=-1 total=-1 pos=-1 begin=1949719546341 end=1949719546870 tid=300
+=end id=53 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=56 statuscalls=17 creates=1 releases=0 starts=1 qpc=1949718041940
+audit phase=begin id=54 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=56 statuscalls=17 creates=1 releases=0 starts=1 qpc=1949718542848
+audit phase=end id=54 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=57 statuscalls=17 creates=1 releases=0 starts=1 qpc=1949718542987
+audit phase=begin id=55 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=57 statuscalls=17 creates=1 releases=0 starts=1 qpc=1949718543241
+audit phase=end id=55 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=58 statuscalls=18 creates=1 releases=0 starts=1 qpc=1949718543257
+audit phase=begin id=56 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=58 statuscalls=18 creates=1 releases=0 starts=1 qpc=1949718543327
+audit phase=end id=56 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=59 statuscalls=18 creates=1 releases=0 starts=1 qpc=1949718543346
+audit phase=begin id=57 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=59 statuscalls=18 creates=1 releases=0 starts=1 qpc=1949719044020
+audit phase=end id=57 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=60 statuscalls=18 creates=1 releases=0 starts=1 qpc=1949719044164
+audit phase=begin id=58 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=60 statuscalls=18 creates=1 releases=0 starts=1 qpc=1949719044401
+audit phase=end id=58 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=61 statuscalls=19 creates=1 releases=0 starts=1 qpc=1949719044418
+audit phase=begin id=59 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=61 statuscalls=19 creates=1 releases=0 starts=1 qpc=1949719044491
+audit phase=end id=59 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=62 statuscalls=19 creates=1 releases=0 starts=1 qpc=1949719044510
+audit phase=begin id=60 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=62 statuscalls=19 creates=1 releases=0 starts=1 qpc=1949719545184
+audit phase=end id=60 op=3 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=63 statuscalls=19 creates=1 releases=0 starts=1 qpc=1949719545345
+audit phase=begin id=61 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=63 statuscalls=19 creates=1 releases=0 starts=1 qpc=1949719545659
+audit phase=end id=61 op=4 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=64 statuscalls=20 creates=1 releases=0 starts=1 qpc=1949719545680
+audit phase=begin id=62 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=64 statuscalls=20 creates=1 releases=0 starts=1 qpc=1949719545773
+audit phase=end id=62 op=5 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=65 statuscalls=20 creates=1 releases=0 starts=1 qpc=1949719545797
+audit phase=begin id=63 op=6 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=65 statuscalls=20 creates=1 releases=0 starts=1 qpc=1949719545874
+audit phase=end id=63 op=6 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=66 statuscalls=20 creates=1 releases=0 starts=1 qpc=1949719545912
+audit phase=begin id=64 op=7 request_gen=1 current_gen=1 handle=00876DE0 lifetime=1 vendor=66 statuscalls=20 creates=1 releases=0 starts=1 qpc=1949719546062
+audit phase=end id=64 op=7 request_gen=1 current_gen=2 handle=00000000 lifetime=0 vendor=67 statuscalls=20 creates=1 releases=1 starts=1 qpc=1949719546166
+audit phase=begin id=65 op=1 request_gen=2 current_gen=2 handle=00000000 lifetime=0 vendor=67 statuscalls=20 creates=1 releases=1 starts=1 qpc=1949719546344
+audit phase=end id=65 op=1 request_gen=2 current_gen=2 handle=00876DE0 lifetime=2 vendor=71 statuscalls=20 creates=2 releases=1 starts=1 qpc=1949719546851
+audit phase=begin id=66 op=4 request_gen=1 current_gen=2 handle=00876DE0 lifetime=2 vendor=71 statuscalls=20 creates=2 releases=1 starts=1 qpc=1949719546929
+audit phase=end id=66 op=4 request_gen=1 current_gereply id=66 kind=0 result=1 slot=1 gen=2 event=0 status=-1 total=-1 pos=-1 begin=1949719546926 end=1949719547084 tid=300
+reply id=67 kind=0 result=0 slot=1 gen=2 event=0 status=2 total=-1 pos=-1 begin=1949719547172 end=1949719547215 tid=300
+reply id=68 kind=0 result=0 slot=1 gen=3 event=0 status=-1 total=-1 pos=-1 begin=1949719547272 end=1949719547353 tid=300
+reply id=69 kind=0 result=0 slot=1 gen=3 event=0 status=-1 total=-1 pos=-1 begin=1949719547409 end=1949719547449 tid=300
+n=2 handle=00876DE0 lifetime=2 vendor=71 statuscalls=20 creates=2 releases=1 starts=1 qpc=1949719546947
+audit phase=begin id=67 op=4 request_gen=2 current_gen=2 handle=00876DE0 lifetime=2 vendor=71 statuscalls=20 creates=2 releases=1 starts=1 qpc=1949719547176
+audit phase=end id=67 op=4 request_gen=2 current_gen=2 handle=00876DE0 lifetime=2 vendor=72 statuscalls=21 creates=2 releases=1 starts=1 qpc=1949719547196
+audit phase=begin id=68 op=7 request_gen=2 current_gen=2 handle=00876DE0 lifetime=2 vendor=72 statuscalls=21 creates=2 releases=1 starts=1 qpc=1949719547275
+audit phase=end id=68 op=7 request_gen=2 current_gen=3 handle=00000000 lifetime=0 vendor=73 statuscalls=21 creates=2 releases=2 starts=1 qpc=1949719547333
+audit phase=begin id=69 op=8 request_gen=3 current_gen=3 handle=00000000 lifetime=0 vendor=73 statuscalls=21 creates=2 releases=2 starts=1 qpc=1949719547413
+audit phase=end id=69 op=8 request_gen=3 current_gen=3 handle=00000000 lifetime=0 vendor=73 statuscalls=21 creates=2 releases=2 starts=1 qpc=1949719547431
+event seq=0 active_id=1 active_op=1 observed_last_id=1 observed_last_op=1 tid=300 eos=0 qpc=1949709516846 cw=027f sw=0120 mx=00001f80
+event seq=1 active_id=1 active_op=1 observed_last_id=1 observed_last_op=1 tid=300 eos=0 qpc=1949709517295 cw=027f sw=4020 mx=00001f80
+event seq=2 active_id=2 active_op=2 observed_last_id=2 observed_last_op=2 tid=300 eos=0 qpc=1949709517544 cw=027f sw=4020 mx=00001f80
+event seq=3 active_id=2 active_op=2 observed_last_id=2 observed_last_op=2 tid=300 eos=0 qpc=1949709517592 cw=027f sw=0020 mx=00001f80
+event seq=4 active_id=3 active_op=3 observed_last_id=3 observed_last_op=3 tid=300 eos=0 qpc=1949710018253 cw=027f sw=0020 mx=00001f80
+event seq=5 active_id=3 active_op=3 observed_last_id=3 observed_last_op=3 tid=300 eos=0 qpc=1949710018403 cw=027f sw=0020 mx=00001f80
+event seq=6 active_id=4 active_op=4 observed_last_id=4 observed_last_op=4 tid=300 eos=0 qpc=1949710018564 cw=027f sw=0020 mx=00001f80
+event seq=7 active_id=4 active_op=4 observed_last_id=4 observed_last_op=4 tid=300 eos=0 qpc=1949710018594 cw=027f sw=0020 mx=00001f80
+event seq=8 active_id=5 active_op=5 observed_last_id=5 observed_last_op=5 tid=300 eos=0 qpc=1949710018649 cw=027f sw=0020 mx=00001f80
+event seq=9 active_id=5 active_op=5 observed_last_id=5 observed_last_op=5 tid=300 eos=0 qpc=1949710018682 cw=027f sw=0020 mx=00001f80
+event seq=10 active_id=6 active_op=3 observed_last_id=6 observed_last_op=3 tid=300 eos=0 qpc=1949710519354 cw=027f sw=0020 mx=00001f80
+event seq=11 active_id=6 active_op=3 observed_last_id=6 observed_last_op=3 tid=300 eos=0 qpc=1949710519551 cw=027f sw=0020 mx=00001f80
+event seq=12 active_id=7 active_op=4 observed_last_id=7 observed_last_op=4 tid=300 eos=0 qpc=1949710519795 cw=027f sw=0020 mx=00001f80
+event seq=13 active_id=7 active_op=4 observed_last_id=7 observed_last_op=4 tid=300 eos=0 qpc=1949710519830 cw=027f sw=0020 mx=00001f80
+event seq=14 active_id=8 active_op=5 observed_last_id=8 observed_last_op=5 tid=300 eos=0 qpc=1949710519899 cw=027f sw=0020 mx=00001f80
+event seq=15 active_id=8 active_op=5 observed_last_id=8 observed_last_op=5 tid=300 eos=0 qpc=1949710519937 cw=027f sw=0220 mx=00001f80
+event seq=16 active_id=0 active_op=0 observed_last_id=8 observed_last_op=5 tid=320 eos=1 qpc=1949711020313 cw=027f sw=0020 mx=00001f80
+event seq=17 active_id=9 active_op=3 observed_last_id=9 observed_last_op=3 tid=300 eos=0 qpc=1949711020682 cw=027f sw=0220 mx=00001f80
+event seq=18 active_id=9 active_op=3 observed_last_id=9 observed_last_op=3 tid=300 eos=0 qpc=1949711020817 cw=027f sw=0220 mx=00001f80
+event seq=19 active_id=10 active_op=4 observed_last_id=10 observed_last_op=4 tid=300 eos=0 qpc=1949711021053 cw=027f sw=0220 mx=00001f80
+event seq=20 active_id=10 active_op=4 observed_last_id=10 observed_last_op=4 tid=300 eos=0 qpc=1949711021083 cw=027f sw=0220 mx=00001f80
+event seq=21 active_id=11 active_op=5 observed_last_id=11 observed_last_op=5 tid=300 eos=0 qpc=1949711021131 cw=027f sw=0220 mx=00001f80
+event seq=22 active_id=11 active_op=5 observed_last_id=11 observed_last_op=5 tid=300 eos=0 qpc=1949711021162 cw=027f sw=0220 mx=00001f80
+event seq=23 active_id=12 active_op=3 observed_last_id=12 observed_last_op=3 tid=300 eos=0 qpc=1949711521869 cw=027f sw=0220 mx=00001f80
+event seq=24 active_id=12 active_op=3 observed_last_id=12 observed_last_op=3 tid=300 eos=0 qpc=1949711522024 cw=027f sw=0220 mx=00001f80
+event seq=25 active_id=13 active_op=4 observed_last_id=13 observed_last_op=4 tid=300 eos=0 qpc=1949711522478 cw=027f sw=0220 mx=00001f80
+event seq=26 active_id=13 active_op=4 observed_last_id=13 observed_last_op=4 tid=300 eos=0 qpc=1949711522519 cw=027f sw=0220 mx=00001f80
+event seq=27 active_id=14 active_op=5 observed_last_id=14 observed_last_op=5 tid=300 eos=0 qpc=1949711522577 cw=027f sw=0220 mx=00001f80
+event seq=28 active_id=14 active_op=5 observed_last_id=14 observed_last_op=5 tid=300 eos=0 qpc=1949711522762 cw=027f sw=0220 mx=00001f80
+event seq=29 active_id=15 active_op=3 observed_last_id=15 observed_last_op=3 tid=300 eos=0 qpc=1949712023567 cw=027f sw=0220 mx=00001f80
+event seq=30 active_id=15 active_op=3 observed_last_id=15 observed_last_op=3 tid=300 eos=0 qpc=1949712023774 cw=027f sw=0220 mx=00001f80
+event seq=31 active_id=16 active_op=4 observed_last_id=16 observed_last_op=4 tid=300 eos=0 qpc=1949712023975 cw=027f sw=0220 mx=00001f80
+event seq=32 active_id=16 active_op=4 observed_last_id=16 observed_last_op=4 tid=300 eos=0 qpc=1949712024015 cw=027f sw=0220 mx=00001f80
+event seq=33 active_id=17 active_op=5 observed_last_id=17 observed_last_op=5 tid=300 eos=0 qpc=1949712024082 cw=027f sw=0220 mx=00001f80
+event seq=34 active_id=17 active_op=5 observed_last_id=17 observed_last_op=5 tid=300 eos=0 qpc=1949712024123 cw=027f sw=0220 mx=00001f80
+event seq=35 active_id=18 active_op=3 observed_last_id=18 observed_last_op=3 tid=300 eos=0 qpc=1949712524881 cw=027f sw=0220 mx=00001f80
+event seq=36 active_id=18 active_op=3 observed_last_id=18 observed_last_op=3 tid=300 eos=0 qpc=1949712525050 cw=027f sw=0220 mx=00001f80
+event seq=37 active_id=19 active_op=4 observed_last_id=19 observed_last_op=4 tid=300 eos=0 qpc=1949712525301 cw=027f sw=0220 mx=00001f80
+event seq=38 active_id=19 active_op=4 observed_last_id=19 observed_last_op=4 tid=300 eos=0 qpc=1949712525330 cw=027f sw=0220 mx=00001f80
+event seq=39 active_id=20 active_op=5 observed_last_id=20 observed_last_op=5 tid=300 eos=0 qpc=1949712525387 cw=027f sw=0220 mx=00001f80
+event seq=40 active_id=20 active_op=5 observed_last_id=20 observed_last_op=5 tid=300 eos=0 qpc=1949712525422 cw=027f sw=0220 mx=00001f80
+event seq=41 active_id=21 active_op=3 observed_last_id=21 observed_last_op=3 tid=300 eos=0 qpc=1949713026384 cw=027f sw=0220 mx=00001f80
+event seq=42 active_id=21 active_op=3 observed_last_id=21 observed_last_op=3 tid=300 eos=0 qpc=1949713027390 cw=027f sw=0220 mx=00001f80
+event seq=43 active_id=22 active_op=4 observed_last_id=22 observed_last_op=4 tid=300 eos=0 qpc=1949713027741 cw=027f sw=0220 mx=00001f80
+event seq=44 active_id=22 active_op=4 observed_last_id=22 observed_last_op=4 tid=300 eos=0 qpc=1949713027781 cw=027f sw=0220 mx=00001f80
+event seq=45 active_id=23 active_op=5 observed_last_id=23 observed_last_op=5 tid=300 eos=0 qpc=1949713027850 cw=027f sw=0220 mx=00001f80
+event seq=46 active_id=23 active_op=5 observed_last_id=23 observed_last_op=5 tid=300 eos=0 qpc=1949713027894 cw=027f sw=0220 mx=00001f80
+event seq=47 active_id=24 active_op=3 observed_last_id=24 observed_last_op=3 tid=300 eos=0 qpc=1949713528639 cw=027f sw=0220 mx=00001f80
+event seq=48 active_id=24 active_op=3 observed_last_id=24 observed_last_op=3 tid=300 eos=0 qpc=1949713528857 cw=027f sw=0220 mx=00001f80
+event seq=49 active_id=25 active_op=4 observed_last_id=25 observed_last_op=4 tid=300 eos=0 qpc=1949713529179 cw=027f sw=0220 mx=00001f80
+event seq=50 active_id=25 active_op=4 observed_last_id=25 observed_last_op=4 tid=300 eos=0 qpc=1949713529220 cw=027f sw=0220 mx=00001f80
+event seq=51 active_id=26 active_op=5 observed_last_id=26 observed_last_op=5 tid=300 eos=0 qpc=1949713529289 cw=027f sw=0220 mx=00001f80
+event seq=52 active_id=26 active_op=5 observed_last_id=26 observed_last_op=5 tid=300 eos=0 qpc=1949713529335 cw=027f sw=0220 mx=00001f80
+event seq=53 active_id=27 active_op=3 observed_last_id=27 observed_last_op=3 tid=300 eos=0 qpc=1949714030040 cw=027f sw=0220 mx=00001f80
+event seq=54 active_id=27 active_op=3 observed_last_id=27 observed_last_op=3 tid=300 eos=0 qpc=1949714030927 cw=027f sw=0220 mx=00001f80
+event seq=55 active_id=28 active_op=4 observed_last_id=28 observed_last_op=4 tid=300 eos=0 qpc=1949714031108 cw=027f sw=0220 mx=00001f80
+event seq=56 active_id=28 active_op=4 observed_last_id=28 observed_last_op=4 tid=300 eos=0 qpc=1949714031143 cw=027f sw=0220 mx=00001f80
+event seq=57 active_id=29 active_op=5 observed_last_id=29 observed_last_op=5 tid=300 eos=0 qpc=1949714031193 cw=027f sw=0220 mx=00001f80
+event seq=58 active_id=29 active_op=5 observed_last_id=29 observed_last_op=5 tid=300 eos=0 qpc=1949714031232 cw=027f sw=0220 mx=00001f80
+event seq=59 active_id=30 active_op=3 observed_last_id=30 observed_last_op=3 tid=300 eos=0 qpc=1949714531913 cw=027f sw=0220 mx=00001f80
+event seq=60 active_id=30 active_op=3 observed_last_id=30 observed_last_op=3 tid=300 eos=0 qpc=1949714532104 cw=027f sw=0220 mx=00001f80
+event seq=61 active_id=31 active_op=4 observed_last_id=31 observed_last_op=4 tid=300 eos=0 qpc=1949714532408 cw=027f sw=0220 mx=00001f80
+event seq=62 active_id=31 active_op=4 observed_last_id=31 observed_last_op=4 tid=300 eos=0 qpc=1949714532445 cw=027f sw=0220 mx=00001f80
+event seq=63 active_id=32 active_op=5 observed_last_id=32 observed_last_op=5 tid=300 eos=0 qpc=1949714532584 cw=027f sw=0220 mx=00001f80
+event seq=64 active_id=32 active_op=5 observed_last_id=32 observed_last_op=5 tid=300 eos=0 qpc=1949714532619 cw=027f sw=0220 mx=00001f80
+event seq=65 active_id=33 active_op=3 observed_last_id=33 observed_last_op=3 tid=300 eos=0 qpc=1949715033319 cw=027f sw=0220 mx=00001f80
+event seq=66 active_id=33 active_op=3 observed_last_id=33 observed_last_op=3 tid=300 eos=0 qpc=1949715033542 cw=027f sw=0220 mx=00001f80
+event seq=67 active_id=34 active_op=4 observed_last_id=34 observed_last_op=4 tid=300 eos=0 qpc=1949715033852 cw=027f sw=0220 mx=00001f80
+event seq=68 active_id=34 active_op=4 observed_last_id=34 observed_last_op=4 tid=300 eos=0 qpc=1949715033893 cw=027f sw=0220 mx=00001f80
+event seq=69 active_id=35 active_op=5 observed_last_id=35 observed_last_op=5 tid=300 eos=0 qpc=1949715033965 cw=027f sw=0220 mx=00001f80
+event seq=70 active_id=35 active_op=5 observed_last_id=35 observed_last_op=5 tid=300 eos=0 qpc=1949715034010 cw=027f sw=0220 mx=00001f80
+event seq=71 active_id=36 active_op=3 observed_last_id=36 observed_last_op=3 tid=300 eos=0 qpc=1949715534692 cw=027f sw=0220 mx=00001f80
+event seq=72 active_id=36 active_op=3 observed_last_id=36 observed_last_op=3 tid=300 eos=0 qpc=1949715534854 cw=027f sw=0220 mx=00001f80
+event seq=73 active_id=37 active_op=4 observed_last_id=37 observed_last_op=4 tid=300 eos=0 qpc=1949715535168 cw=027f sw=0220 mx=00001f80
+event seq=74 active_id=37 active_op=4 observed_last_id=37 observed_last_op=4 tid=300 eos=0 qpc=1949715535200 cw=027f sw=0220 mx=00001f80
+event seq=75 active_id=38 active_op=5 observed_last_id=38 observed_last_op=5 tid=300 eos=0 qpc=1949715535258 cw=027f sw=0220 mx=00001f80
+event seq=76 active_id=38 active_op=5 observed_last_id=38 observed_last_op=5 tid=300 eos=0 qpc=1949715535291 cw=027f sw=0220 mx=00001f80
+event seq=77 active_id=39 active_op=3 observed_last_id=39 observed_last_op=3 tid=300 eos=0 qpc=1949716036034 cw=027f sw=0220 mx=00001f80
+event seq=78 active_id=39 active_op=3 observed_last_id=39 observed_last_op=3 tid=300 eos=0 qpc=1949716036209 cw=027f sw=0220 mx=00001f80
+event seq=79 active_id=40 active_op=4 observed_last_id=40 observed_last_op=4 tid=300 eos=0 qpc=1949716036527 cw=027f sw=0220 mx=00001f80
+event seq=80 active_id=40 active_op=4 observed_last_id=40 observed_last_op=4 tid=300 eos=0 qpc=1949716036730 cw=027f sw=0220 mx=00001f80
+event seq=81 active_id=41 active_op=5 observed_last_id=41 observed_last_op=5 tid=300 eos=0 qpc=1949716036941 cw=027f sw=0220 mx=00001f80
+event seq=82 active_id=41 active_op=5 observed_last_id=41 observed_last_op=5 tid=300 eos=0 qpc=1949716036979 cw=027f sw=0220 mx=00001f80
+event seq=83 active_id=42 active_op=3 observed_last_id=42 observed_last_op=3 tid=300 eos=0 qpc=1949716537574 cw=027f sw=0220 mx=00001f80
+event seq=84 active_id=42 active_op=3 observed_last_id=42 observed_last_op=3 tid=300 eos=0 qpc=1949716537760 cw=027f sw=0220 mx=00001f80
+event seq=85 active_id=43 active_op=4 observed_last_id=43 observed_last_op=4 tid=300 eos=0 qpc=1949716538039 cw=027f sw=0220 mx=00001f80
+event seq=86 active_id=43 active_op=4 observed_last_id=43 observed_last_op=4 tid=300 eos=0 qpc=1949716538085 cw=027f sw=0220 mx=00001f80
+event seq=87 active_id=44 active_op=5 observed_last_id=44 observed_last_op=5 tid=300 eos=0 qpc=1949716538161 cw=027f sw=0220 mx=00001f80
+event seq=88 active_id=44 active_op=5 observed_last_id=44 observed_last_op=5 tid=300 eos=0 qpc=1949716538206 cw=027f sw=0220 mx=00001f80
+event seq=89 active_id=45 active_op=3 observed_last_id=45 observed_last_op=3 tid=300 eos=0 qpc=1949717038929 cw=027f sw=0220 mx=00001f80
+event seq=90 active_id=45 active_op=3 observed_last_id=45 observed_last_op=3 tid=300 eos=0 qpc=1949717039148 cw=027f sw=0220 mx=00001f80
+event seq=91 active_id=46 active_op=4 observed_last_id=46 observed_last_op=4 tid=300 eos=0 qpc=1949717039433 cw=027f sw=0220 mx=00001f80
+event seq=92 active_id=46 active_op=4 observed_last_id=46 observed_last_op=4 tid=300 eos=0 qpc=1949717039465 cw=027f sw=0220 mx=00001f80
+event seq=93 active_id=47 active_op=5 observed_last_id=47 observed_last_op=5 tid=300 eos=0 qpc=1949717039524 cw=027f sw=0220 mx=00001f80
+event seq=94 active_id=47 active_op=5 observed_last_id=47 observed_last_op=5 tid=300 eos=0 qpc=1949717039560 cw=027f sw=0220 mx=00001f80
+event seq=95 active_id=48 active_op=3 observed_last_id=48 observed_last_op=3 tid=300 eos=0 qpc=1949717540229 cw=027f sw=0220 mx=00001f80
+event seq=96 active_id=48 active_op=3 observed_last_id=48 observed_last_op=3 tid=300 eos=0 qpc=1949717540391 cw=027f sw=0220 mx=00001f80
+event seq=97 active_id=49 active_op=4 observed_last_id=49 observed_last_op=4 tid=300 eos=0 qpc=1949717540619 cw=027f sw=0220 mx=00001f80
+event seq=98 active_id=49 active_op=4 observed_last_id=49 observed_last_op=4 tid=300 eos=0 qpc=1949717540652 cw=027f sw=0220 mx=00001f80
+event seq=99 active_id=50 active_op=5 observed_last_id=50 observed_last_op=5 tid=300 eos=0 qpc=1949717540709 cw=027f sw=0220 mx=00001f80
+event seq=100 active_id=50 active_op=5 observed_last_id=50 observed_last_op=5 tid=300 eos=0 qpc=1949717540745 cw=027f sw=0220 mx=00001f80
+event seq=101 active_id=51 active_op=3 observed_last_id=51 observed_last_op=3 tid=300 eos=0 qpc=1949718041395 cw=027f sw=0220 mx=00001f80
+event seq=102 active_id=51 active_op=3 observed_last_id=51 observed_last_op=3 tid=300 eos=0 qpc=1949718041553 cw=027f sw=0220 mx=00001f80
+event seq=103 active_id=52 active_op=4 observed_last_id=52 observed_last_op=4 tid=300 eos=0 qpc=1949718041807 cw=027f sw=0220 mx=00001f80
+event seq=104 active_id=52 active_op=4 observed_last_id=52 observed_last_op=4 tid=300 eos=0 qpc=1949718041849 cw=027f sw=0220 mx=00001f80
+event seq=105 active_id=53 active_op=5 observed_last_id=53 observed_last_op=5 tid=300 eos=0 qpc=1949718041915 cw=027f sw=0220 mx=00001f80
+event seq=106 active_id=53 active_op=5 observed_last_id=53 observed_last_op=5 tid=300 eos=0 qpc=1949718042120 cw=027f sw=0220 mx=00001f80
+event seq=107 active_id=54 active_op=3 observed_last_id=54 observed_last_op=3 tid=300 eos=0 qpc=1949718542846 cw=027f sw=0220 mx=00001f80
+event seq=108 active_id=54 active_op=3 observed_last_id=54 observed_last_op=3 tid=300 eos=0 qpc=1949718543003 cw=027f sw=0220 mx=00001f80
+event seq=109 active_id=55 active_op=4 observed_last_id=55 observed_last_op=4 tid=300 eos=0 qpc=1949718543239 cw=027f sw=0220 mx=00001f80
+event seq=110 active_id=55 active_op=4 observed_last_id=55 observed_last_op=4 tid=300 eos=0 qpc=1949718543270 cw=027f sw=0220 mx=00001f80
+event seq=111 active_id=56 active_op=5 observed_last_id=56 observed_last_op=5 tid=300 eos=0 qpc=1949718543326 cw=027f sw=0220 mx=00001f80
+event seq=112 active_id=56 active_op=5 observed_last_id=56 observed_last_op=5 tid=300 eos=0 qpc=1949718543358 cw=027f sw=0220 mx=00001f80
+event seq=113 active_id=57 active_op=3 observed_last_id=57 observed_last_op=3 tid=300 eos=0 qpc=1949719044018 cw=027f sw=0220 mx=00001f80
+event seq=114 active_id=57 active_op=3 observed_last_id=57 observed_last_op=3 tid=300 eos=0 qpc=1949719044179 cw=027f sw=0220 mx=00001f80
+event seq=115 active_id=58 active_op=4 observed_last_id=58 observed_last_op=4 tid=300 eos=0 qpc=1949719044400 cw=027f sw=0220 mx=00001f80
+event seq=116 active_id=58 active_op=4 observed_last_id=58 observed_last_op=4 tid=300 eos=0 qpc=1949719044431 cw=027f sw=0220 mx=00001f80
+event seq=117 active_id=59 active_op=5 observed_last_id=59 observed_last_op=5 tid=300 eos=0 qpc=1949719044490 cw=027f sw=0220 mx=00001f80
+event seq=118 active_id=59 active_op=5 observed_last_id=59 observed_last_op=5 tid=300 eos=0 qpc=1949719044522 cw=027f sw=0220 mx=00001f80
+event seq=119 active_id=60 active_op=3 observed_last_id=60 observed_last_op=3 tid=300 eos=0 qpc=1949719545182 cw=027f sw=0220 mx=00001f80
+event seq=120 active_id=60 active_op=3 observed_last_id=60 observed_last_op=3 tid=300 eos=0 qpc=1949719545366 cw=027f sw=0220 mx=00001f80
+event seq=121 active_id=61 active_op=4 observed_last_id=61 observed_last_op=4 tid=300 eos=0 qpc=1949719545657 cw=027f sw=0220 mx=00001f80
+event seq=122 active_id=61 active_op=4 observed_last_id=61 observed_last_op=4 tid=300 eos=0 qpc=1949719545698 cw=027f sw=0220 mx=00001f80
+event seq=123 active_id=62 active_op=5 observed_last_id=62 observed_last_op=5 tid=300 eos=0 qpc=1949719545772 cw=027f sw=0220 mx=00001f80
+event seq=124 active_id=62 active_op=5 observed_last_id=62 observed_last_op=5 tid=300 eos=0 qpc=1949719545814 cw=027f sw=0220 mx=00001f80
+event seq=125 active_id=63 active_op=6 observed_last_id=63 observed_last_op=6 tid=300 eos=0 qpc=1949719545873 cw=027f sw=0220 mx=00001f80
+event seq=126 active_id=63 active_op=6 observed_last_id=63 observed_last_op=6 tid=300 eos=0 qpc=1949719545929 cw=027f sw=0220 mx=00001f80
+event seq=127 active_id=64 active_op=7 observed_last_id=64 observed_last_op=7 tid=300 eos=0 qpc=1949719546061 cw=027f sw=0220 mx=00001f80
+event seq=128 active_id=64 active_op=7 observed_last_id=64 observed_last_op=7 tid=300 eos=0 qpc=1949719546185 cw=027f sw=0220 mx=00001f80
+event seq=129 active_id=65 active_op=1 observed_last_id=65 observed_last_op=1 tid=300 eos=0 qpc=1949719546342 cw=027f sw=0220 mx=00001f80
+event seq=130 active_id=65 active_op=1 observed_last_id=65 observed_last_op=1 tid=300 eos=0 qpc=1949719546868 cw=027f sw=4020 mx=00001f80
+event seq=131 active_id=66 active_op=4 observed_last_id=66 observed_last_op=4 tid=300 eos=0 qpc=1949719546928 cw=027f sw=4020 mx=00001f80
+event seq=132 active_id=66 active_op=4 observed_last_id=66 observed_last_op=4 tid=300 eos=0 qpc=1949719547082 cw=027f sw=4020 mx=00001f80
+event seq=133 active_id=67 active_op=4 observed_last_id=67 observed_last_op=4 tid=300 eos=0 qpc=1949719547175 cw=027f sw=4020 mx=00001f80
+event seq=134 active_id=67 active_op=4 observed_last_id=67 observed_last_op=4 tid=300 eos=0 qpc=1949719547213 cw=027f sw=4020 mx=00001f80
+event seq=135 active_id=68 active_op=7 observed_last_id=68 observed_last_op=7 tid=300 eos=0 qpc=1949719547273 cw=027f sw=4020 mx=00001f80
+event seq=136 active_id=68 active_op=7 observed_last_id=68 observed_last_op=7 tid=300 eos=0 qpc=1949719547352 cw=027f sw=4020 mx=00001f80
+event seq=137 active_id=69 active_op=8 observed_last_id=69 observed_last_op=8 tid=300 eos=0 qpc=1949719547411 cw=027f sw=4020 mx=00001f80
+event seq=138 active_id=69 active_op=8 observed_last_id=69 observed_last_op=8 tid=300 eos=0 qpc=1949719547447 cw=027f sw=4020 mx=00001f80
+summary events=139 eos=1 ok=1 generation=3 creates=2 releases=2 starts=1 vendor=73 statuscalls=21 live=0 bypass=0

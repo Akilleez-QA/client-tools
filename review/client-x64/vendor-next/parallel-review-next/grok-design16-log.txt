@@ -1,0 +1,79 @@
+The proposal at `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da` is still a design. The real Win32 Audio/Sound2d baseline plays two samples, reaches end-of-sample, then fails teardown, so this seam is not a backend. Source reading below explains the callback contract. It is not a playback trace.
+
+## What already holds
+
+One owner per rule is the right shape. Game policy stays in the x64 `Audio` / `Sound2d` / `PlayerMusicManager` objects. Original Miles, its plugins, the real device, and Bink’s use of that device stay in one x86 process. The 61-function list is a coverage checklist. `SessionLifecycle`’s `callbacksQuiesced` argument is a caller guess, and a caller passing `true` does not prove quiescence. Coalescing, `SuspendThread`, and a second mixer are correctly excluded. Preference 18 and 44, and the preserved PC53/PC24/PC64 state, are startup measurements with no device. They do not describe playback or a device.
+
+## Lock depth does not bound callback depth
+
+`AIL_lock` and callback nesting are different counters. Treating lock recursion as a budget for callback frames is a false inference.
+
+The product takes the lock once, around the whole start batch:
+
+```2320:2337:src/engine/client/library/clientAudio/src/win32/Audio.cpp
+		Audio::lock();
+
+		QueuedSamplesToStartList::const_iterator iterQueuedSoundsToStartdList = s_queuedSamplesToStartList.begin();
+
+		for (; iterQueuedSoundsToStartdList != s_queuedSamplesToStartList.end(); ++iterQueuedSoundsToStartdList)
+		{
+			// ...
+				startSample(*sound);
+		}
+
+		Audio::unLock();
+```
+
+That depth stays 1 while `startSample` issues many Miles calls. It does not count the callbacks those calls may provoke.
+
+End-of-sample never takes the lock and never calls Miles. The body sets `m_endOfSample`, increments `m_currentLoop`, runs `m_callBack`, and clears the fade and sound timers. The comment in `Sound2d::endOfSample` defers sample release to the next `alter` because some Miles calls are illegal there. Stack shape is Miles, then `endOfSample2dCallBack` / `endOfSample3dCallBack` / `endOfSampleStreamCallBack`, then `Sound2d::endOfSample`, then maybe `PlayerMusicManagerNamespace::sampleFinished`. None of those frames is an `AIL_lock` frame.
+
+File callbacks are a second independent stack. `fileOpenCallBack`, `fileSeekCallBack`, and `fileReadCallBack` follow Miles’s own open/seek/read sequence, and they already branch on `!Os::isMainThread` and install per-thread data. One locked `AIL_open_stream` can sit under many of those frames.
+
+The game also calls `endOfSample()` itself when `Sound2d::startSample` fails to queue. That uses the same function with no Miles callback and no extra lock. Infinite looping is the opposite corner: `startSample` skips `AIL_register_EOS_callback`, and `updateTemplateVolume` detects the wrap from sample time because the callback will not come. Lock depth can be 1 while callback depth is 0.
+
+`AIL_lock` and `AIL_lock_mutex` are separate exports. Preference 18 (`AIL_LOCK_PROTECTION`) measured 0: the header’s “suspend the `AIL_startup` thread” path is off at that no-device startup, on every inherited precision mode that was probed. Preference 44 (`AIL_MUTEX_PROTECTION`) measured 1: the “mutex around each Miles call” preference is on at that same point. A mutex recursion count would count re-entrant Miles entries. The end-of-sample body does not call Miles, so it would not increment that count. Neither value is a nesting bound, and neither says what happens after a driver exists.
+
+The lock still has one real job. A call made inside the start region must keep that vendor scope across causal children of that call, so a nested file reply does not drop it early. Continuity of one scope is not a depth limit.
+
+## Three callback classes
+
+An active request is overlap. Causality is a host-stack fact.
+
+**Causal inline.** The host thread that entered a specific SDK call observes the callback on that call’s stack, before the call returns, and stamps that request id. TreeFile open/seek/read during `AIL_open_stream` is this class when, and only when, that stamp exists. The blocked command lane may answer those children, then finish the outer call. `Audio::alter(0)` inside `startMusic` / `nextFrame` is a real game call, not a transaction covering the frame.
+
+**Foreign, concurrent with a command.** A different vendor thread emits a callback while some command is in flight. The live request id is not a parent. End-of-sample for one sample while the main thread is inside another sample’s `startSample`, `AIL_serve`, or a stream open is this class. The command waiter must not run it.
+
+**Unsolicited.** No command is in flight. Same empty parent stamp. Original-runtime experiments already observed both this class and the foreign class. Stopping the design at “refuse a foreign parent” only filters a mis-stamp. It leaves both observed classes without a dispatch rule.
+
+Queued delivery is already the wrong completion for those classes. Experiments showed it moves observer epochs. The source says why that move matters, without re-proving the experiment. `sampleFinished` only sets `s_sampleFinished` and starts `s_sampleFinishedTime`. `PlayerMusicManager::alter` later consumes the flag, clears the other musicians’ callbacks, and calls `startMusic` or `nextFrame`, which call `Audio::alter(0)` in that same manager tick. Holding the flag until the command returns skips that tick and starts the 5-second / 20-second watchdog late. `Sound2d::alter` consumes `m_endOfSample` at entry and may `reset()`, release, and arm the next loop before volume and pitch. A late flag is a different loop generation. Replaying the flag after `alter` has cleared it advances the band twice.
+
+The callback body is the flag, the loop count, and the timer start. The band transition stays in `alter`. Pulling `startMusic` into the callback, or delaying `sampleFinished` until `alter`, both change that split. Synthetic `endOfSample()` from a failed queue stays in the x64 policy. It is not a Miles callback to transport.
+
+## Coordinator ownership
+
+One session coordinator owns three records. Wrappers do not grow their own lock or quiescence policy.
+
+| Record | Parent | Who may run it |
+|---|---|---|
+| Command | none | Game thread’s synchronous call |
+| Causal child | stamped only by the host thread inside that SDK call | The waiter for that command, before the command returns |
+| Foreign or unsolicited | empty, even when a command record is live | A client executor that is not that waiter, at arrival, against the registration generation captured on the host |
+
+The parent field is written at the host call boundary. The client never fills it in because a request happens to be active. Foreign and unsolicited records are applied immediately to that generation: the original body, if the `Sound2` / sample registration is still that generation. A retired generation is an explicit miss, not delivery onto the replacement object. This executor is not a thread pool, not one lane per vendor thread, and not the next `serve` or getter.
+
+`SessionLifecycle` stays mechanism code. Its boolean quiescence argument does not become this stamp.
+
+## The unresolved wait cycle
+
+The four progress tests never meet. “File I/O inside a locked start” and “end-of-sample while idle” can both pass while the real cycle is untested.
+
+**Cycle W.** The game thread is blocked in a command whose host side is inside Miles. That command still has causal file children, so the waiter has to keep answering them or the SDK call never returns. A foreign end-of-sample arrives for a registration whose map or `Sound2` the same stack is mutating: `startSample` inserts those maps under the lock, and `endOfSample2dCallBack` walks the map and writes `m_status` plus `Sound2d` fields. The original callback must run at that instant to keep the epoch. The structures it writes are the ones the waiter cannot leave. The game source has no mutex around those maps.
+
+Running the foreign body on the waiter makes it look causal and re-enters the map mid-update. Running it on another thread races that update. Queuing it until the command returns is the epoch change already observed. Suspending the game thread, coalescing into the next `alter`, or inventing a process-wide serializer are the three patches that do not belong in the design.
+
+There is a file-shaped form of the same cycle. A Miles thread that is not the thread inside `AIL_open_stream` can still be the thread blocked in `fileReadCallBack`. The original process calls `TreeFile` on that thread. If the seam’s only TreeFile lane is the blocked command waiter, the open and the read wait on each other. If the waiter adopts that read because the open is active, the parent stamp is forged. Foreign file replies need a TreeFile context that is not the blocked command stack, which is the split the `!Os::isMainThread` path already admits. That does not settle whether this DLL actually does so after a device exists.
+
+Until a trace shows a dispatch rule for cycle W, the coordinator records `{command id, causal children in service, foreign callback id, target generation, lease holder = command stack}` and that experiment stops. Absence from a queue remains no proof that Miles will not callback again. Close racing a callback stays required, and it is a different gate from W.
+
+Preference 44 = 1 must not be used to declare W impossible. It was measured after startup, without a device, with the incoming x87 precision left as it was. It does not say the mutex is held across `Sound2d` map writes, that it is the same object as `AIL_lock`, or that a driver and playback leave it on.

@@ -1,0 +1,71 @@
+The working tree was reviewed from `Audio.cpp`, `Sound2d.cpp`, the callback and lock comments in `Mss.h`, and `protocol-candidate/API-MAP.md`. `.git/HEAD` was not readable in this mode, so commit `49d0eeed4` was not confirmed. This is a contract, not an implementation, and it does not establish full client fidelity.
+
+## What the source actually fixes
+
+The client has one Miles lock region. `Audio::alter` calls `Audio::lock` / `Audio::unLock` only around the start-sound loop (`Audio.cpp:2320-2337`). Those wrappers are direct `AIL_lock` / `AIL_unlock` (`Audio.cpp:4920-4928`). Nothing in this library nests them.
+
+That batch is also the file-callback batch. `startSample` calls `createSampleId` (`Audio.cpp:2801`), and a large 2D sample calls `AIL_open_stream` there (`Audio.cpp:605`). So a locked start can be inside `AIL_open_stream` while Miles invokes `fileOpenCallBack`. The lock is not held for the rest of `alter`, and `Audio::serve` calls `AIL_serve` later with no lock (`Audio.cpp:4943-4958`).
+
+File callbacks are written for a non-main thread. Each of open/close/seek/read does `if (once && !Os::isMainThread()) PerThreadData::threadInstall(false)` (`Audio.cpp:3936-3945`, and the same pattern at `3970`, `4009`, `4075`). `once` is process-wide (`Audio.cpp:3936`). Only the first non-main callback thread is initialized. `s_nextFileHandle` starts at 0 (`Audio.cpp:123`) and failure stores `*fileHandle = NULL` (`Audio.cpp:3961`), so handle 0 is both the first success id and the failure value. The `U32` return is the discriminator (`Audio.cpp:3964`).
+
+EOS does not release. `endOfSample2dCallBack`, `endOfSample3dCallBack`, and `endOfSampleStreamCallBack` set `PS_done` and call `sound->endOfSample()` (`Audio.cpp:4730-4786`). `Sound2d::endOfSample` only sets `m_endOfSample`, increments the loop, and may call `m_callBack` (`Sound2d.cpp:845-864`). The comment says certain Miles calls are illegal here and release waits for the next alter (`Sound2d.cpp:849-851`). The same function also runs when queueing fails (`Sound2d.cpp:936`), which is not a Miles stack. Infinite single-sample loops do not register a stream callback (`Audio.cpp:3055-3072`); `Sound2d` polls time instead because those callbacks do not arrive (`Sound2d.cpp:591-592`).
+
+Stream stop is `AIL_close_stream` then `m_stream = NULL` (`Audio.cpp:3367-3368`). Map erasure is later in `releaseSampleId` (`Audio.cpp:3410-3413`). The EOS lookup is an unlocked pointer walk (`Audio.cpp:4772-4788`). There is no client quiescence barrier.
+
+Header facts, not DLL facts. Under `#if defined(IS_WINDOWS)`, `AIL_LOCK_PROTECTION` / `DEFAULT_ALP` is `NO` (“Don’t suspend foreground thread by default”) and `AIL_MUTEX_PROTECTION` / `DEFAULT_AMPR` is `YES` (“Lock each call into Miles with a mutex”) (`Mss.h:1597-1601`). `hAppThread` is commented as the `AIL_startup` thread, suspended by callback threads to imitate a DOS interrupt handler (`Mss.h:3824-3828`). `WIN32_TIMER_THREAD` and `WIN32_STREAM_THREAD` are property names only (`Mss.h:2662-2663`). `AIL_lock` / `AIL_unlock` themselves are bare declarations (`Mss.h:4178-4179`); `AIL_lock_mutex` is a separate API (`Mss.h:4183-4184`). `IS_WIN64` selects `MSS64.DLL` (`Mss.h:507-512`). The client never sets `AIL_LOCK_PROTECTION`. Those defaults are the Windows branch of this header, not an observation of the x86 vendor DLL.
+
+The API map does not define this dispatch. Opcode 13 carries a lane and a nested lease; opcode 61 releases admission only after unlock (`API-MAP.md:19`, `API-MAP.md:67`). Opcode 4 retires a stream after vendor completion; opcode 18 retires an owned sample after callback quiescence (`API-MAP.md:10`, `API-MAP.md:24`). Reverse file and EOS traffic is only a registration note (`API-MAP.md:71`). There is no causal request, no pump rule, and no close-versus-callback order.
+
+## Minimal contract
+
+Two lanes are in the slice. Lane C is the client main thread: `alter`, the lock pair, `Audio::serve`, TreeFile, and the bodies of the file and EOS callbacks. Lane V is the single x86 thread that called `AIL_startup` and the only thread that issues `AIL_*`. No per-request worker. A Miles timer or stream thread is not a third scheduled lane until a trace shows it invoking a callback.
+
+The only legal wait is nested and same-request. C sends one request R and, while waiting, runs reverse calls whose causal request is R. V, still inside that `AIL_*`, sends the reverse call and waits for C’s reply. C’s reply path is TreeFile or `Sound2d::endOfSample` and must not send another `AIL_*`. V must not hold a mutex that the reply needs. After the reply, V continues R and then returns. Depth is one because the source never nests `Audio::lock`.
+
+```
+IDLE
+  C dispatches one AIL_* as R
+  -> V_IN_R
+
+V_IN_R
+  Miles returns
+  -> IDLE, then C applies the result
+  Miles calls file or EOS on V's stack
+  -> REVERSE(R)
+  Miles calls with no in-flight R, or on a thread other than V
+  -> UNSOLICITED_STOP
+
+REVERSE(R)
+  C runs the callback to completion and sends no AIL_*
+  -> V_IN_R
+  callback sends AIL_*
+  -> REENTRY_STOP
+
+LOCK_BATCH
+  entered only by opcode 13 from IDLE on C, then the start loop
+  open_stream / start_* use V_IN_R and REVERSE(R) without waiting for unlock
+  opcode 61 only from C after the batch's last result, same lane, depth 1
+  -> IDLE
+```
+
+`UNSOLICITED_STOP` and `REENTRY_STOP` end the slice. They are not queued, deferred, or solved by suspending a thread.
+
+## Four schedules
+
+**1. Ordinary synchronous reentrancy.** C is in `AIL_serve` or `AIL_open_stream` on V. Miles calls `fileReadCallBack` on that same stack before the call returns. C’s wait runs the read and returns the byte count; only then does V finish R. Deadlock is C waiting for V while refusing to run the reverse call. Original code cannot deadlock this way because the callback is the callee. A proxy that blocks C until V returns, without nesting, is already not source-compatible.
+
+**2. Callback during the locked batch.** C has called `AIL_lock` and is inside `startSample` → `AIL_open_stream`. Miles calls `fileOpenCallBack` before open returns. C must run TreeFile on that reverse call before it sees the stream handle, then continue the batch, then `AIL_unlock`. Deadlock is V blocked in `AIL_lock`’s suspend of the only thread that can perform the open, or C holding a transport mutex across the wait that the open reply needs. The source places open inside the lock, so a faithful vendor has to finish that callback without an unlock first. Whether `AIL_lock` suspends `WIN32_STREAM_THREAD` is not in the header. If a trace shows the open callback on a thread `AIL_lock` has suspended, this client pattern is an original Miles deadlock, not something the seam can repair without changing lock order.
+
+**3. Callback with no request.** No `AIL_*` is in flight. A thread other than V calls `fileReadCallBack` or stream EOS. `causal_request` is 0. The nested pump never runs, because C is not waiting and V is not inside a call. This schedule stops. It is the schedule the `!Os::isMainThread()` install exists for, so a main-stack-only pump does not cover the client as written. Preserving it needs a second host forwarder that is not V, plus one stable non-main client thread that received `threadInstall(false)` before the first callback. The header names two background threads and the client initializes only the first non-main thread. Which callback uses which thread is not established, so that forwarder is outside this slice.
+
+**4. Stream close racing the callback.** C is in `stopSample`’s `AIL_close_stream`. The legal order is: every stream callback Miles makes before close returns is delivered with causal request equal to that close, `endOfSampleStreamCallBack` runs while the map entry still exists, then close’s result is delivered, then the client nulls `m_stream` and later erases the map. A callback that arrives after the client has been told close finished is `UNSOLICITED_STOP`. Delivering it into the erased map, or dropping it and still claiming original order, both invent a winner. Original code has no lock around that walk versus `erase`. `m_callBack` calling stop/close from inside EOS is `REENTRY_STOP`; the comment defers release to the next alter, when the state is `IDLE`.
+
+## When original concurrency cannot be established
+
+It cannot be established when a callback is not on the stack of the `AIL_*` that C is waiting for. That includes timer or stream thread I/O while C is between requests, EOS after close has already returned, and any `AIL_*` issued from `m_callBack` or from `Sound2d::endOfSample`. In-process, unsynchronized map walks are safe only if Miles’ mutex or suspend prevents those interleavings. `DEFAULT_AMPR` / `DEFAULT_ALP` and the `hAppThread` comment do not say that, and this client never sets the lock preference.
+
+It also cannot be established by moving file callbacks onto an arbitrary x64 receiver. `threadInstall(false)` runs once, on the first non-main thread only. A second Miles thread would have been uninitialized in the original process too. Matching that is not the same as knowing which vendor thread is the first one.
+
+The x64 header’s `MSS64.DLL` name is a different vendor identity from the x86 DLL. Compiling this header as x64 does not select the x86 vendor, and the Windows preference defaults remain contextual.
+
+The API map’s nested lease and “retire after callback quiescence” are stronger than this source. The falsifiable slice is one outstanding request, lock depth 1 around the start batch, reverse calls nested only under that request, and a hard stop on unsolicited, cross-thread, and post-close callbacks. Full original concurrency stays unproven until a trace shows where file and EOS callbacks actually run relative to `AIL_lock`, `AIL_open_stream`, `AIL_serve`, and `AIL_close_stream`.

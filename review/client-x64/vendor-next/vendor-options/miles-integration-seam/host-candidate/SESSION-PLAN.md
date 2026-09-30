@@ -1,0 +1,9 @@
+# Session lifecycle candidate precommit
+
+Parent reviewed scope before implementation: actual original SDK startup/shutdown, digital driver create/cleanup and owned sample allocation/release only. Internal x86 v120 candidate, no callable client exports. No actual vendor execution in this milestone. Delay-loaded genuine Mss32.lib must stay unloaded throughout preflight; only never-started and wrong-thread calls are run.
+
+Records reserve storage before vendor creation. Registry refusal rolls back actual new vendor resource and returns CapacityFailure, distinct from a genuine vendor null (Ok with null handle). Registry allocation exceptions roll back then propagate; published outputs remain null. No sample handle escapes before parent record and registry insertion succeed. Dedicated registry cannot be mutated externally. Samples carry driver identity; cleanup traverses owned samples before drivers in reverse creation order, then calls real shutdown.
+
+Exactly one SessionLifecycle may own the process-global runtime, with all calls on constructing control-dispatch thread. This is a coordinator precondition, not a process-wide singleton enforcement. Callback quiescence is an explicit coordinator attestation, not proven by a bool or this component. Explicit shutdown before destruction is mandatory; destructor never invokes SDK on an unknown thread. Parentage and valid lifecycle transition effects are source/compile evidence only until a real runtime fixture is approved.
+
+Expected preflight: all never-started requests reject without SDK loading; rejected output handles clear. A different ordinary Windows thread cannot run startup or driver creation. Do not exercise valid startup, resource creation, invalid vendor handles, callbacks, playback, devices, production code or VM mappings.

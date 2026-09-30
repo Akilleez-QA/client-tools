@@ -1,6 +1,6 @@
 # Exact opcode map (experimental)
 
-No packed SDK structures or callable shim are supplied. Unused fields zero. Signed values use32-bit two's-complement bits; floats use their32-bit bit patterns. `Sample` accepts owned/borrowed kinds with API-specific lifetime checks. Transport errors are separate from all vendor values, including negative values/null handles. This table describes data representation, not implementation or proven semantic equivalence.
+No packed SDK structures or callable shim are supplied. Unused fields zero. Signed values use32-bit two's-complement bits; floats use their32-bit bit patterns. `Sample` means OwnedSample unless a row explicitly permits BorrowedSample. Current caller coverage allows borrowed handles only for playback-rate get/set, volume get/set and reverb set; parent-stream lifetime checks still apply. Transport errors are separate from all vendor values, including negative values/null handles. This table describes data representation, not implementation or proven semantic equivalence.
 
 | Opcode | SDK function | Request | Result |
 |---:|---|---|---|
@@ -19,16 +19,16 @@ No packed SDK structures or callable shim are supplied. Unused fields zero. Sign
 |13|`AIL_lock`|header lane and current lease for nested acquisition|SDK void; protocol lease in v0/v1 low/high, no fake vendor return|
 |14|`AIL_open_digital_driver`|v0 U32 frequency; v1 S32 bits; v2 S32 channels; v3 U32 flags|nullable Driver handle|
 |15|`AIL_open_stream`|target Driver; text filename; v0 S32 stream_mem|nullable Stream handle|
-|16|`AIL_register_EOS_callback`|target HSAMPLE (OwnedSample/BorrowedSample only); callback AILSAMPLECB registration token or0|previous callback token (never host trampoline address)|
+|16|`AIL_register_EOS_callback`|target HSAMPLE (OwnedSample in current Audio callers); callback AILSAMPLECB registration token or0|previous callback token (never host trampoline address)|
 |17|`AIL_register_stream_callback`|target HSTREAM (Stream only); callback AILSTREAMCB registration token or0|previous callback token (never host trampoline address)|
 |18|`AIL_release_sample_handle`|target OwnedSample only|void; retire after callback quiescence|
 |19|`AIL_room_type`|target Driver|S32 return|
 |20|`AIL_sample_ms_position`|target Sample; mask bit0 total,bit1 current pointers|v0/v1 S32 total/current, only requested outputs|
-|21|`AIL_sample_playback_rate`|target Sample|S32 return|
-|22|`AIL_sample_position`|target Sample (owned or borrowed)|U32 return|
-|23|`AIL_sample_reverb_levels`|target Sample; mask bits0/1|v0/v1 F32 bits (left/right or dry/wet)|
-|24|`AIL_sample_status`|target Sample (owned or borrowed)|U32 return|
-|25|`AIL_sample_volume_levels`|target Sample; mask bits0/1|v0/v1 F32 bits (left/right or dry/wet)|
+|21|`AIL_sample_playback_rate`|target Sample (OwnedSample or BorrowedSample)|S32 return|
+|22|`AIL_sample_position`|target OwnedSample|U32 return|
+|23|`AIL_sample_reverb_levels`|target Sample; mask bits0 dry/1 wet|v0/v1 F32 dry/wet bits|
+|24|`AIL_sample_status`|target OwnedSample|U32 return|
+|25|`AIL_sample_volume_levels`|target Sample (OwnedSample or BorrowedSample); mask bits0/1|v0/v1 F32 bits (left/right or dry/wet)|
 |26|`AIL_serve`|none|void|
 |27|`AIL_set_3D_rolloff_factor`|target Driver; v0 F32 bits|void|
 |28|`AIL_set_file_callbacks`|v0..7 four uint64 callback-registration tokens (open,close,seek,read)|void|
@@ -48,10 +48,10 @@ No packed SDK structures or callable shim are supplied. Unused fields zero. Sign
 |42|`AIL_set_sample_ms_position`|target Sample; v0 S32|void|
 |43|`AIL_set_sample_obstruction`|target Sample; v0 F32 bits|void|
 |44|`AIL_set_sample_occlusion`|target Sample; v0 F32 bits|void|
-|45|`AIL_set_sample_playback_rate`|target Sample; v0 S32|void|
+|45|`AIL_set_sample_playback_rate`|target Sample (OwnedSample or BorrowedSample); v0 S32|void|
 |46|`AIL_set_sample_position`|target Sample; v0 U32 bytes|void|
-|47|`AIL_set_sample_reverb_levels`|target Sample; v0/1 F32 left/right or dry/wet|void|
-|48|`AIL_set_sample_volume_levels`|target Sample; v0/1 F32 left/right or dry/wet|void|
+|47|`AIL_set_sample_reverb_levels`|target Sample (OwnedSample or BorrowedSample); v0/1 F32 dry/wet|void|
+|48|`AIL_set_sample_volume_levels`|target Sample (OwnedSample or BorrowedSample); v0/1 F32 left/right or dry/wet|void|
 |49|`AIL_set_stream_loop_block`|target Stream; v0/1 S32 start/end offsets|void|
 |50|`AIL_set_stream_loop_count`|target Stream; v0 S32|void|
 |51|`AIL_set_stream_ms_position`|target Stream; v0 S32|void|

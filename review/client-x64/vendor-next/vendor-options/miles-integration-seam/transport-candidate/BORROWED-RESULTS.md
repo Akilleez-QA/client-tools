@@ -1,0 +1,11 @@
+# Borrowed stream-sample lifetime extension
+
+Native VS2013 v120 /W4 /WX: Win32 Debug, Win32 Release, x64 Debug, x64 Release all 449/449, zero compile warnings/errors. Host GCC ASan+UBSan 449/449. Source-bound native logs/manifests: native-results-v4. No vendor calls, product edits, game launch, commits or pushes.
+
+The 37 new checks establish registry-only parent lifetime. insertBorrowed(stream,local,out) requires a live exact Stream identity. Repeated same pointer/parent returns identical alias even when slots are full. A changed pointer for the same parent rejects without retargeting. Generic BorrowedSample insertion is forbidden. Parent close immediately invalidates alias resolve; parent retirement invalidates/advances child slots. Parent slot reuse cannot revive alias IDs. Direct alias beginClose/retire is rejected. Capacity, low generation ceiling/exhaustion and two-parent isolation are covered.
+
+Discrimination: removing parent-live validation fails the closing-parent lookup check (448/449). Omitting child retirement fails three reuse checks (446/449). Both mutated executables return1. Logs preserved in host-results/borrowed-*. Baseline 412-check source/result set remains ../transport-baseline-412-v3.
+
+This is a logical lifetime rule, not evidence of vendor callback completion. Host must finish actual vendor close/release and callback barriers before parent retirement. Session binding, admission ordering, synchronization, lock/reentrancy and actual SDK alias behavior remain unresolved. Different stream parents may carry distinct aliases for identical local pointer bits; this does not establish that Miles does so. Stable pointer change is rejected for caller handling, never assumed harmless. Registry performs no vendor free.
+
+Independent host-dispatch critic found no registry blocker: insertion retains no Entry reference across vector growth; retirement does not grow vector, so parent references remain valid; parent lookup recursion is exactly one Stream hop. If Miles legitimately changes a stream sample pointer, this candidate rejects rather than preserves that unmeasured behavior. No global HSAMPLE identity claim across parents. Historical boundary at registry delivery: host adapter was owned-only. Subsequent host v3 accepts aliases for exactly five source-confirmed operations; see ../host-candidate/RESULTS.md.

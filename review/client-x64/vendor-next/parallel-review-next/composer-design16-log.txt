@@ -1,0 +1,162 @@
+## Scope and epistemic line
+
+This is a **source/design** reconciliation only: `ARCHITECTURE.md`, `PLAN.md`, `protocol-candidate/*`, `transport-candidate/*`, `host-candidate/*`, and product `clientAudio` at the seam doc’s cited head `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da` (not re-verified with `git` here). Nothing below is runtime proof; component logs (449/449 codec, 41 retained checks, 28/39-arm preflights) are **compile/sanitizer evidence**, not Miles playback or callback fidelity.
+
+**Adoption status:** ARCHITECTURE explicitly marks the bridge as **not** a production backend. The **Win32 in-process “actual Audio” vertical fixture** (PLAN § smallest honest experiment) is still blocked on **teardown**; seam docs treat that as the load-bearing gate before seam integration—not something this review re-runs.
+
+---
+
+## Why the proposed bridge is coherent (vs patch stack)
+
+The design is intentionally narrow: **game policy stays x64**; **original Miles + plugins + device + Bink-on-same-driver stay x86**, connected by a typed protocol—not a fake x64 Miles, not a reimplemented mixer, not “whole clientAudio in x86” (rival audit in `audio-next/whole-subsystem-rival-audit.md`).
+
+**Five responsibilities** in ARCHITECTURE map cleanly to **existing candidate folders**, not to one binary:
+
+| Design owner | Current candidate material | Aligns? |
+|---|---|---|
+| Game adapter | Product `Audio.cpp` / `Sound2d` (unchanged); PLAN’s sized-buffer call-site seams | Partial—adapter code not in seam tree |
+| Session coordinator | **Design only**; `COORDINATOR-ASSUMPTIONS.md` | **Gap**—no pipe host/client, no admission FSM |
+| Codec/resource store | `transport-candidate/codec*`, `resource_registry.h`, `host-candidate/retained_buffers*` | Mechanics only |
+| x86 vendor backend | `host-candidate/host_dispatch.cpp`, `session_lifecycle.cpp` | Subset only |
+| File/video adapters | CONTRACT reverse-I/O rules; product TreeFile callbacks | **Gap**—no wired reverse path; Bink undescribed on wire |
+
+**Concrete improvements over ad-hoc RPC:**
+
+- **61-op inventory as coverage checklist**, not “emulate every export”—matches reachable `Audio.cpp`/`SoundObject3d.cpp` surface (`API-PARTITION.md` / `api-partition.json`).
+- **Separate `transport_status` vs vendor return**, output masks, signed/float bit patterns, explicit buffer extents for `set_sample_file` / `WAV_info`—addresses real cross-bitness seams PLAN documents.
+- **Borrowed stream sample** as first-class identity (five Audio call sites at ~3211–3334), with transport parent-lifetime tests (449)—not relabeling aliases as owned samples.
+- **Two callback classes** (causal reverse-I/O during `open_stream` vs unsolicited EOS)—forces progress rules ARCHITECTURE states are unsettled without engine trace.
+- **Bink co-hosted with real `HDIGDRIVER`**—matches product wiring `VideoList::install(Audio::getMilesDigitalDriver())` in `ClientMain.cpp`; marshaling a driver token to x64 for Bink would be a **design contradiction**, not a gap.
+
+**Elegance test:** ownership rules are written once in ARCHITECTURE/CONTRACT; candidates still **duplicate** “caller must quiesce / session bind” on registry, dispatch, and `SessionLifecycle`—that is the main **internal design debt** before integration.
+
+---
+
+## Responsibility audit: duplicate authority and bool quiescence
+
+**Duplicate ownership authorities (implementation risk, design warns against):**
+
+1. `MilesTransport::ResourceRegistry` — slot/generation, parent, CLOSING; **does not free vendor memory**.
+2. `SessionLifecycle` — private `records` + **its own** `registry`; driver/sample only (no streams, buffers, Bink).
+3. `host_dispatch::Resolver` — must bind to “transport-owned” registry (documented precondition; **no end-to-end assembly**).
+4. `retained_buffers` — immutable byte generations (conservative retention; ARCHITECTURE notes bound exhaustion risk).
+
+Until a **single session coordinator** injects one graph, wrappers can each enforce partial rules—a patch shape ARCHITECTURE rejects.
+
+**`callbacksQuiesced` pretending quiescence:**
+
+```70:91:host-candidate/session_lifecycle.cpp
+SessionLifecycle::Status SessionLifecycle::releaseSample(const MilesWire::Handle &sample,
+        bool callbacksQuiesced) {
+    ...
+    if(!callbacksQuiesced)return QuiescenceRequired;
+    ...
+}
+SessionLifecycle::Status SessionLifecycle::shutdown(bool callbacksQuiesced) {
+    ...
+    if(!callbacksQuiesced)return QuiescenceRequired;
+```
+
+A `true` argument is **only** “external coordinator proved it”; registry `beginClose` does not stop vendor threads. ARCHITECTURE and COORDINATOR-ASSUMPTIONS §3 are consistent; **SessionLifecycle is mechanism, not the final shutdown story**.
+
+**Product shutdown vs lifecycle candidate (possible fidelity tension, not yet measured):**
+
+```1419:1437:src/engine/client/library/clientAudio/src/win32/Audio.cpp
+	// Shutdown Miles
+	if (s_installed)
+	{
+		s_installed = false;
+		if (s_digitalDevice2d)
+		{
+			s_digitalDevice2d = 0;
+		}
+		AIL_shutdown();
+	}
+```
+
+`SessionLifecycle::shutdown` calls `AIL_close_digital_driver` per driver then `AIL_shutdown`. ARCHITECTURE § shutdown explicitly says **do not assume** explicit `AIL_close_digital_driver` equals the game path—so the candidate order is **hypothesis** until the baseline fixture proves teardown.
+
+---
+
+## Public ABI / header leaks (product + bridge)
+
+At cited product source, file callbacks already use **`UINTa`** (not `U32`), which is the documented x64 callback fix path in sibling `audio-next/RESULTS.md`—**on-tree at `Audio.cpp` lines 234–237**, not inferred from seam.
+
+Remaining leaks the bridge must not recreate:
+
+- **`AIL_MSS_version`** — macro / `LoadLibrary` + version resource, not wire opcode 1–61 (`CONTRACT.md`, `PLAN.md` §). Correct treatment: **session-scoped diagnostic version query** to x86 host, not “missing export #62.”
+- **`getMilesDigitalDriver()`** — raw `void*` to Miles driver for Bink; x64 shim must **not** pass that pointer into original Bink DLL.
+- **Miles headers on x64 client** — any continued direct `AIL_*` linkage on x64 fights the bridge; ARCHITECTURE gate table says x64 final link **stops at Miles** until shim exists.
+
+No SDL surface appeared in the seam tree; “public SDL/Miles ABI leaks” here means **game code still speaking Miles ABI types** until the typed adapter replaces direct calls.
+
+---
+
+## SUPPORTED.md / borrowed ops (correcting false “doc drift” narrative)
+
+Current `host-candidate/SUPPORTED.md` **explicitly** documents five borrowed-capable ops in the opening paragraph and lists them in the 39-op set. **`HOST-DISPATCH-REVIEW.md` (2026-09-30) still says borrowed is excluded**—that review is **stale relative to v3** (`RESULTS.md` § v3). The error is **review lag**, not SUPPORTED.md omitting borrowed ops.
+
+Implementation alignment: v3 `host_dispatch.cpp` uses `OwnedSample|BorrowedSample` masks on exactly those five arms; **`AIL_stream_sample_handle` is not in the 39 arms**, so stream paths still **cannot** be exercised end-to-end without the remaining 22 ops—despite `AIL_start_stream` being present.
+
+---
+
+## Gap map: public design → current components
+
+| Design surface | Spec / contract | Implementation today | Gap type |
+|---|---|---|---|
+| **Component calls** | 61 opcodes `API-MAP.md` | 39 arms `host_dispatch.cpp`; 22 in `REMAINING-LIFECYCLE.md` | **Implementation** |
+| **Reply codes** | `transport_status` ≠ vendor; poisoned-reply preflight | v2+ wrapper clears `Result`; parent-review15 enforces all reply bytes except status | **Implementation** (no live caller) |
+| **Resource parents** | Stream→borrowed sample; driver owns children | Transport registry + borrowed 449 tests; host lifecycle **samples only** | **Implementation** (+ partial **design→code** on lifecycle scope) |
+| **Buffers** | Seal/chunk/retain through vendor lifetime | `retained_buffers` + WAV codec tests; **no dispatch** for `set_*_file` / `WAV_info` | **Implementation** |
+| **Session identity** | Handshake, generation, stale-frame reject | `miles_wire.h` fields; registry “new instance = new namespace” | **Implementation** (no session process) |
+| **Shutdown** | Draining FSM, callback pins, Bink before driver death | `SessionLifecycle` + bool quiescence; product `remove()` path above | **Implementation**; baseline teardown **unresolved** |
+| **Callbacks** | Registration tokens, causal vs unsolicited, reverse I/O | Not in 39 arms; product EOS touches `Sound2d` maps in-process | **Implementation** + **open design** (affinity) |
+| **Bink** | Same-process real driver; frame transport to x64 renderer | `ClientMain` driver handoff only in product; **no Bink wire schema** | **Implementation** (CONTRACT acknowledges outside 61) |
+| **IPC transport** | Dual overlapped named pipes + reactor | **No pipe/reactor source** in seam | **Implementation** |
+| **x64 client shim** | Typed proxies, no Miles pointers on wire | **None** in seam | **Implementation** |
+| **Coordinator** | One authority for lane/lease/lock/callback admission | Assumptions doc only | **Implementation** |
+| **FPU / lock** | Measured caller context | Header comments + probe citations in docs; no engine trace artifact in tree | **Open design** until trace |
+| **AIL_MSS_version** | Host diagnostic macro op | Partitioned as `header_macro`; not in 61 wire table | **By design** (not oversight) |
+
+**Design contradiction vs gap:**
+
+- **Not a contradiction:** 39 compile-only ops + “no client linker exports” (`SUPPORTED.md`) vs PLAN “no placeholder exports”—SUPPORTED is an **honest partial host**, not the shipping shim.
+- **Contradiction if integrated naively:** `SessionLifecycle` driver close before `AIL_shutdown` vs product nulling `s_digitalDevice2d` without `AIL_close_digital_driver`—needs baseline measurement, not pick-one in source review.
+- **Contradiction if claimed:** Describing v3 as “full stream support” because `start_stream` is implemented—**without** `open_stream` / `stream_sample_handle` / close + TreeFile reverse path.
+
+---
+
+## Unresolved gates (from ARCHITECTURE table + code review)
+
+1. **Baseline engine lifecycle** — real two-sample/EOS then **clean teardown** on Win32 fixture; seam work explicitly **blocked** here.
+2. **Coordinator behavior** — unsolicited EOS, `AIL_lock` scopes vs `open_stream` reverse I/O, close races callbacks; **no dispatcher code**.
+3. **Wire + vendor together** — 449/registry/39-arm preflights **without** loaded Mss32 + successful dispatch through real vendor (RESULTS.md).
+4. **Buffer bind under real Miles** — retained 41 checks ≠ SDK retention rules for `set_sample_file` failures.
+5. **Callback thread contract** — DEFAULT_ALP=NO; preference 18 unobserved in product; **no SuspendThread substitute** (ARCHITECTURE).
+6. **Bink + whole client** — frame protocol, `VideoPlaybackManager::service()` cadence preserved on x64 policy side.
+7. **Whole product** — x64 link without x64 Miles; UINTa callbacks help compile, **not** audio backend.
+
+**Next load-bearing milestone** (ARCHITECTURE): same **real Audio/Sound2d fixture** on both sides of the seam with **fixed baseline teardown**—component identity tests cannot substitute.
+
+---
+
+## Concrete improvements to pursue (design-aligned, not patches)
+
+1. **Promote COORDINATOR-ASSUMPTIONS into one module** that owns registry + retained store + admission FSM; demote `SessionLifecycle` to a test helper or fold it in—eliminate parallel registries.
+2. **Implement transport shell** (dual channels + reactor) before expanding op count—ARCHITECTURE’s progress tests (locked start + reverse read, idle EOS, close race) need it.
+3. **Close the 22-op vertical slice** in order: startup → `set_file_callbacks` + reverse TreeFile → driver → open/close stream + borrowed alias → then EOS registration—matches REMAINING-LIFECYCLE table and product line refs.
+4. **Sized adapter at exact call sites** (`set_sample_file` / `WAV_info`) per CONTRACT—minimal product diff, not generic pointer marshaling.
+5. **Explicit `AIL_MSS_version` session diagnostic** on host; version string in debug UI must not use x64 `LoadLibrary(MSS64.DLL)`.
+6. **Reconcile shutdown** with measured fixture: either match product `AIL_shutdown`-only path or prove close_digital_driver is required—document as **evidence**, not candidate default.
+7. **Refresh HOST-DISPATCH-REVIEW** borrowed section to v3 reality to avoid false integration claims.
+
+---
+
+## Metadata verifiable from tree (head not re-run)
+
+- Seam pins product: `49d0eeed4ddaa177d7a93ea396c37c3d9b9942da` (`ARCHITECTURE.md`, `PLAN.md`).
+- `api-partition.json` records `Audio.cpp` hash `c729174a…` at partition generation—reconcile if product moved past 49d0.
+- Host dispatch v3: 39 SDK imports, 28 preflight checks, DLL unloaded (`RESULTS.md`, `parent-review15/preflight-native/results.json`).
+- `REVIEW-RECONCILIATION-15.md` records prior reviewer errors (SUPPORTED drift claim false; `AIL_MSS_version` / SessionVersion; stale NPClient64 claim on 49d0)—treat as **process audit**, not runtime evidence.
+
+No runtime, VM, Wine, commits, or messages were performed per your constraints.

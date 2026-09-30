@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "config": "Debug",
+      "arch": "x86",
+      "compile_exit": 0,
+      "run_exit": 0,
+      "command": [
+        "C:\\miles-sound-info-valid-v2\\x86-Debug\\test.exe",
+        "C:\\miles-sound-info-valid-v2\\sample.wav",
+        "C:\\miles-sound-info-valid-v2\\x86-Debug\\metadata.bin",
+        "C:\\miles-sound-info-valid-v2\\x86-Debug\\expected.txt",
+        "C:\\miles-sound-info-valid-v2\\Mss32.dll"
+      ],
+      "success": true,
+      "loaded_exact": true
+    },
+    {
+      "config": "Debug",
+      "arch": "amd64",
+      "compile_exit": 0,
+      "run_exit": 0,
+      "command": [
+        "C:\\miles-sound-info-valid-v2\\amd64-Debug\\test.exe",
+        "C:\\miles-sound-info-valid-v2\\sample.wav",
+        "C:\\miles-sound-info-valid-v2\\x86-Debug\\metadata.bin",
+        "C:\\miles-sound-info-valid-v2\\x86-Debug\\expected.txt",
+        "C:\\miles-sound-info-valid-v2\\Mss32.dll"
+      ],
+      "success": true
+    },
+    {
+      "config": "Release",
+      "arch": "x86",
+      "compile_exit": 0,
+      "run_exit": 0,
+      "command": [
+        "C:\\miles-sound-info-valid-v2\\x86-Release\\test.exe",
+        "C:\\miles-sound-info-valid-v2\\sample.wav",
+        "C:\\miles-sound-info-valid-v2\\x86-Release\\metadata.bin",
+        "C:\\miles-sound-info-valid-v2\\x86-Release\\expected.txt",
+        "C:\\miles-sound-info-valid-v2\\Mss32.dll"
+      ],
+      "success": true,
+      "loaded_exact": true
+    },
+    {
+      "config": "Release",
+      "arch": "amd64",
+      "compile_exit": 0,
+      "run_exit": 0,
+      "command": [
+        "C:\\miles-sound-info-valid-v2\\amd64-Release\\test.exe",
+        "C:\\miles-sound-info-valid-v2\\sample.wav",
+        "C:\\miles-sound-info-valid-v2\\x86-Release\\metadata.bin",
+        "C:\\miles-sound-info-valid-v2\\x86-Release\\expected.txt",
+        "C:\\miles-sound-info-valid-v2\\Mss32.dll"
+      ],
+      "success": true
+    }
+  ],
+  "private_inputs_sha256": {
+    "Mss32.dll": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+    "sample.wav": "ad880479382433a16f99e60d5d5248c30446a44ccc692bfaabb1d012c607a7a9"
+  },
+  "source_sha256": {
+    "transport-candidate\\codec.h": "d95094b974c053ac4b9e0da1e442c0d7ce5291b22339acc9eafb821e209e60c0",
+    "transport-candidate\\resource_registry.h": "f2a4131c73d831a0e407bd67eb1803ec1f8a72ccd0cf36e6af979cae3e8a3768",
+    "transport-candidate\\sound-info-codec.cpp": "39c08092a658627a2069066906e2a795708c4ea51e49f0c897936beec11e44c2",
+    "transport-candidate\\sound-info-codec.h": "d12fe9d590e53bcbb05b725a5a10bdf2d883e91eb59e7cdffc0dbc7e68f0d112",
+    "transport-candidate\\sound-info-run-vendor.py": "a8725a97f4400c26d2abb02442a5ca344e0d6cb21ac3277543a603ea6dbd0426",
+    "transport-candidate\\sound-info-vendor-test.cpp": "27a09d819c089c313768aa5947b21a6776cb91c33e6f57ce5da8cba507b9647c",
+    "protocol-candidate\\miles_wire.h": "8efe3915744250a6aebdc51caa712790f4930c2b32877e9425dcf79c191df0b9"
+  }
+}

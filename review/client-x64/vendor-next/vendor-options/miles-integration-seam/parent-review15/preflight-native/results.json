@@ -1,0 +1,30 @@
+[
+  {
+    "cfg": "Debug",
+    "variant": "actual",
+    "build_exit": 0,
+    "run_exit": 0,
+    "stdout": "PASS 28 rejection/status checks; original vendor DLL not loaded\r\n"
+  },
+  {
+    "cfg": "Debug",
+    "variant": "mutant",
+    "build_exit": 0,
+    "run_exit": 1,
+    "stdout": ""
+  },
+  {
+    "cfg": "Release",
+    "variant": "actual",
+    "build_exit": 0,
+    "run_exit": 0,
+    "stdout": "PASS 28 rejection/status checks; original vendor DLL not loaded\r\n"
+  },
+  {
+    "cfg": "Release",
+    "variant": "mutant",
+    "build_exit": 0,
+    "run_exit": 1,
+    "stdout": ""
+  }
+]

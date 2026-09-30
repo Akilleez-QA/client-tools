@@ -1,0 +1,202 @@
+{
+  "scope": "native Win32 startup/shutdown only; no driver/callback/playback",
+  "runs": [
+    {
+      "mode": "inherited",
+      "states": [
+        {
+          "phase": "entry",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "before_load",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_load",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_startup",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_preferences",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_shutdown",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_unload",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "restored",
+          "tid": "6200",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        }
+      ],
+      "lock": 0,
+      "mutex": 1,
+      "header_prediction_matched": true
+    },
+    {
+      "mode": "pc24",
+      "states": [
+        {
+          "phase": "entry",
+          "tid": "5744",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "before_load",
+          "tid": "5744",
+          "cw": "007f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_load",
+          "tid": "5744",
+          "cw": "007f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_startup",
+          "tid": "5744",
+          "cw": "007f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_preferences",
+          "tid": "5744",
+          "cw": "007f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_shutdown",
+          "tid": "5744",
+          "cw": "007f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_unload",
+          "tid": "5744",
+          "cw": "007f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "restored",
+          "tid": "5744",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        }
+      ],
+      "lock": 0,
+      "mutex": 1,
+      "header_prediction_matched": true
+    },
+    {
+      "mode": "pc64",
+      "states": [
+        {
+          "phase": "entry",
+          "tid": "8216",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "before_load",
+          "tid": "8216",
+          "cw": "037f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_load",
+          "tid": "8216",
+          "cw": "037f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_startup",
+          "tid": "8216",
+          "cw": "037f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_preferences",
+          "tid": "8216",
+          "cw": "037f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_shutdown",
+          "tid": "8216",
+          "cw": "037f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "after_unload",
+          "tid": "8216",
+          "cw": "037f",
+          "sw": "0000",
+          "mx": "00001f80"
+        },
+        {
+          "phase": "restored",
+          "tid": "8216",
+          "cw": "027f",
+          "sw": "0000",
+          "mx": "00001f80"
+        }
+      ],
+      "lock": 0,
+      "mutex": 1,
+      "header_prediction_matched": true
+    }
+  ],
+  "sha256": {
+    "probe.cpp": "1b6c2cda01e72f7b174167b63a5e1ac03801d1f5d173e84a04cfb68739bbab27",
+    "build.cmd": "a667a09776e654118ab833673f4d795791471866401c3abfece19db6e639fd2c",
+    "run-native.py": "e33ba03fbf45a20580ed68b04ea706e59aa1d9344db3552c4b02b5263d060c9d"
+  }
+}
