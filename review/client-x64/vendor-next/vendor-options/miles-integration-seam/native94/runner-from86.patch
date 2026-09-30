@@ -1,0 +1,72 @@
+--- native86/run-native86.py
++++ native94/run-native94.py
+@@ -4,9 +4,9 @@
+ import hashlib,json,os,re,shutil,struct,subprocess,sys
+ sys.path.insert(0,str(Path(__file__).resolve().parent/'inputs'))
+ from symbol_parser import undefined_symbols
+-if os.name!='nt' or sys.argv[1:]!=['--approved-28-objects']:
+- raise SystemExit('Windows and separately approved 28-object invocation required')
+-ROOT=Path('C:/native86');INPUT=ROOT/'inputs';OUT=ROOT/'results'
++if os.name!='nt' or sys.argv[1:]!=['--approved-7-objects']:
++ raise SystemExit('Windows and separately approved 7-object invocation required')
++ROOT=Path('C:/native94');INPUT=ROOT/'inputs';OUT=ROOT/'results'
+ REUSED=Path('C:/native-file-callbacks35');SNAPSHOT=REUSED/'snapshot'
+ SDK=SNAPSHOT/'src/external/3rd/library/miles/include/Mss.h'
+ VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')
+@@ -27,13 +27,13 @@
+ toolsets=json.loads((INPUT/'toolchain.json').read_text())
+ alltools={k:v for values in toolsets.values() for k,v in values.items()};verify(Path('.'),alltools)
+ units=json.loads((INPUT/'units.json').read_text())
+-if len(units)!=28 or sum(u['arch']=='x86' for u in units)!=14:raise RuntimeError('Wrong matrix')
++if len(units)!=7 or sum(u['arch']=='x86' for u in units)!=3:raise RuntimeError('Wrong matrix')
+ OUT.mkdir(exist_ok=False)
+-receipt={'expected_new_objects':28,'linked':False,'executed':False,'builds':[],
++receipt={'expected_new_objects':7,'linked':False,'executed':False,'builds':[],
+  'input_manifest':sha(ROOT/'input-manifest.json'),'reused35_manifest':sha(INPUT/'reused35-manifest.json'),
+  'reused35_count':len(reused),'tools_before':alltools,
+  'header_hash_timing':'system headers observed once per reached compilation; no before/after system header attestation',
+- 'scope':'changed-closure client14/host14 production objects; external engine worker implementation remains unlinked'}
++ 'scope':'version90 affected-closure client4/host3 production objects; external engine worker implementation remains unlinked'}
+ def save():(OUT/'results.json').write_text(json.dumps(receipt,indent=2)+'\n')
+ required={
+  'backend-boundary24/pipe/LiveChannel.cpp':['?validateReply@Session@ClientMilesPipe@@','?publish@Runtime@MilesClientRuntime53@@','?returned@Runtime@MilesClientRuntime53@@'],
+@@ -41,6 +41,8 @@
+  'file-executor33/FileInvocationJob.cpp':['?submit@EngineFileWorker@MilesFileExecutor30@@','?invokeOnAdmittedExecutor@Invocation@MilesFileChannel26@@'],
+  'host-runtime50/host_file_runtime.cpp':['?decodeRequest@MilesFileChannel26@@','?snapshot@MilesHostContext@@'],
+  'host-runtime50/host_sdk_callbacks.cpp':['?invoke@Runtime@MilesHostRuntime50@@'],
++ 'paired-bootstrap59/host.cpp':['?queryNativeVersion@MilesSessionVersion@@'],
++ 'backend-boundary24/pipe/PipeCore.cpp':['?validCapacity@MilesSessionVersion@@'],
+  'file-channel26/file_channel.cpp':['??0Scope@MilesCallbackGuard47@@']
+ }
+ try:
+@@ -106,6 +108,22 @@
+    if observed!=set(expected):raise RuntimeError('Guarded public delegate set differs')
+    for prefix in ['?requireFatalReporter@ClientMilesPrivate52@@','?fail@ClientMilesPrivate52@@','?requireForwardAllowed@MilesCallbackGuard47@@']:
+     if not any(x.startswith(prefix) for x in symbols):raise RuntimeError('Public guard dependency absent')
++  if u['source']=='backend-boundary24/pipe/ClientMilesPipe.cpp':
++   definitions=set()
++   for line in p.stdout.decode(errors='replace').splitlines():
++    if '|' not in line:continue
++    left,right=line.split('|',1)
++    if 'UNDEF' in left.split() or 'External' not in left.split():continue
++    token=right.strip().split()[0] if right.strip() else ''
++    match=re.match(r'^\?([^@]+)@ClientMiles@@',token)
++    if match:definitions.add(match.group(1))
++   if definitions!=set(expected) or len(definitions)!=54:raise RuntimeError('Exact 54 public definitions differ')
++   record['public_definitions']=sorted(definitions);record['core_delegates']=sorted(observed)
++  if u['source']=='session-version22/session_version_host.cpp':
++   expected_windows={'__imp__LoadLibraryA@4','__imp__LoadStringA@16','__imp__FreeLibrary@4'}
++   if not expected_windows.issubset(set(symbols)):raise RuntimeError('Actual native version Windows imports absent')
++   record['required_windows_imports']=sorted(expected_windows)
++  if any('queryCurrentDll' in x or 'MSS_versionOwned' in x for x in symbols):raise RuntimeError('Stale version dependency')
+   if any(not any(x.startswith(prefix) for x in symbols) for prefix in required.get(u['source'],[])):raise RuntimeError('Required real dependency absent')
+   if any('canonicalServices' in x for x in symbols):raise RuntimeError('Unexpected canonical service fallback')
+   record['status']='compiled';save()
+@@ -115,6 +133,6 @@
+   try:actual=verify(root,expected);receipt[label+'_unchanged']=True
+   except Exception as e:actual={'error':str(e)};receipt[label+'_unchanged']=False
+   (OUT/(label+'.json')).write_text(json.dumps(actual,indent=2)+'\n')
+- receipt['passed']=not receipt.get('failure') and all(receipt[k+'_unchanged'] for k in ['inputs_after','reused35_after','tools_after']) and len(receipt['builds'])==28 and all(x['status']=='compiled' for x in receipt['builds'])
++ receipt['passed']=not receipt.get('failure') and all(receipt[k+'_unchanged'] for k in ['inputs_after','reused35_after','tools_after']) and len(receipt['builds'])==7 and all(x['status']=='compiled' for x in receipt['builds'])
+  save()
+ sys.exit(0 if receipt['passed'] else 1)

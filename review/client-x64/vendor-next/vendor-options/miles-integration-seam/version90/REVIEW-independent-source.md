@@ -1,0 +1,31 @@
+# Independent source review — version90
+
+Reviewed manifest SHA-256 `dc5304ef7ff6d06e14026f7e25cae3910e150bcab776ca5645af58dcc39bd94f`. All 14 manifest entries match, including the ten production files; all ten provenance base hashes match frozen86. Read the full patch and affected call paths, actual public70/native wrapper, possessed Mss.h macro, codec, inherited LiveChannel validation/join, and saved probe84 observations. Public86 remains byte-identical70 (`952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc`); this overlay does not modify it. No build, test, VM, vendor/engine execution or production edit was performed.
+
+No concrete blocking source defect found within the explicitly bounded paired contract. This is source review and attribution of the existing probe experiment, not additional runtime evidence.
+
+## Capacity and write extent
+
+`PipeCore.cpp:359–371` preserves accepted positive int32 capacities in value[0]; null/nonpositive and above-budget calls fail before request or caller writes. `session_version.cpp` rejects the historical zero-capacity query and unrelated fields. CapacityLimit is 1,048,448: exactly MaxFrameBytes minus the actual codec's 128-byte result prefix, not the 136-byte call prefix. The accepted upper bound remains safely representable by the Windows int parameter. No 256 clamp remains in the selected implementation.
+
+`session_version_host.cpp:18–37` allocates sentinel-filled owned scratch, passes the exact capacity to LoadStringA, and encodes count+1 bytes only after nonnegative/below-capacity/terminal-NUL checks. Capacity1/count0 yields the observed one-byte zero result; an unwritten sentinel cannot masquerade as a successful empty result. Interior NUL bytes are retained rather than scanned away. `reply.h:95–102` accepts only a nonempty terminal-NUL bytes prefix for successful SessionVersion, rejecting text, null-mask and all unrelated result fields. Generic decoding also rejects version bytes on refusals and on other opcodes. Codec span/framing checks precede payload reads.
+
+The request-dependent check in `PipeCore.cpp:205–208` rejects a prefix exceeding the actual requested capacity. Inherited `LiveChannel.cpp:96–99` invokes that check before runtime.returned. Core then copies only the validated prefix. Thus oversized or malformed replies do not settle or modify the caller; known validated refusals settle, then propagate without copying. `host.cpp:88` now forwards owned bytes when re-encoding, closing the old text-only path. Successful decoding clears prior byte/text output via swaps; rejection leaves the decoder output unchanged.
+
+## Module and lifecycle fidelity limits
+
+The helper uses private MSSDLLNAME, LoadLibraryA, resource1, and FreeLibrary, matching the selected ANSI Windows macro sequence instead of substituting Backend::module. The low-module branch produces the native one-byte empty result and does not release a nonexistent acquired module. The RAII pin releases a real acquired module even on unsupported-count/terminator refusal. This does not establish that the actual Miles module/resource loads or returns any particular bytes.
+
+Saved probe84 covers 24 own-resource ASCII cases on its recorded Windows/ACP1252 environment: nonempty truncation, explicit empty, missing same bundle and missing bundle at capacities1/2/4/6/7/11. They support the chosen prefix rule in that environment. They do not prove arbitrary codepages, resource contents, capacities or vendor-module outcomes. Unsupported no-write/count forms fail terminally; they are not fabricated empty results.
+
+Pre-startup is available inside an established healthy Session: Core uses requireAvailable, and Backend's version branch checks shutdown without requiring started. Native70 requires neither a paired Session nor this upper capacity bound and has no corresponding stopped-session refusal. Those are acknowledged selected limitations, not whole-public-range equivalence. No normal teardown is provided. The extra LoadLibrary operation uses the host's loader context, as expected for this temporary host design; client-versus-host search context equivalence is not established by the probe.
+
+One allocation detail to keep explicit in future gate claims: only scratch is allocated before the resource API. makeReply, Backend decode and host re-encoding can allocate afterward. On failure the existing terminal path prevents a normal successful return/caller write; this is not an all-storage-preallocated implementation. I do not find a lost vendor resource here: the module pin has already been released and the operation is a resource query.
+
+## Discriminating prospective checks
+
+Use actual codec/reply/Core/Session validators with independently fixed expected bytes and explicitly named substituted channel dependencies. Test accepted capacities1,2,256,limit and reject0/negative/null/limit+1 without channel or output mutation. Return a short prefix into a larger patterned destination and check every untouched tail/guard byte; include empty `{0}` and interior-NUL prefixes. Exercise exact-limit payload separately from exact-limit capacity with a short actual prefix.
+
+Mutate framing/context, missing/final terminator, unrelated result fields, text-versus-bytes, refusal-with-bytes and a valid generic prefix larger than the request. Check failed decode preserves existing OwnedReply fields/vectors, and the request-dependent validator rejects over-capacity output. Also decode successful version then ordinary/refusal replies into the same OwnedReply to discriminate stale bytes. Actual LiveChannel ordering remains source-only unless a separately approved test executes it; do not claim a rewritten scripted sequence proves scheduling or ACK settlement.
+
+For any later separately approved host-helper seam test, discriminate low module, count0-written-NUL, count0-no-write, count equal to capacity, negative count and a normal short prefix; check exact capacity and one acquired-module release. Such a scripted API seam would validate branching only, not become new LoadString/vendor evidence. Native object compilation should use real private SDK headers for the now-SDK-dependent helper and inspect LoadLibraryA/LoadStringA/FreeLibrary references. No new AIL export is required by this helper.

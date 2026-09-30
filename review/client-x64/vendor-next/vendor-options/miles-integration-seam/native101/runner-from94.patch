@@ -1,0 +1,58 @@
+--- native94/run-native94.py
++++ native101/run-native101.py
+@@ -4,9 +4,9 @@
+ import hashlib,json,os,re,shutil,struct,subprocess,sys
+ sys.path.insert(0,str(Path(__file__).resolve().parent/'inputs'))
+ from symbol_parser import undefined_symbols
+-if os.name!='nt' or sys.argv[1:]!=['--approved-7-objects']:
+- raise SystemExit('Windows and separately approved 7-object invocation required')
+-ROOT=Path('C:/native94');INPUT=ROOT/'inputs';OUT=ROOT/'results'
++if os.name!='nt' or sys.argv[1:]!=['--approved-29-objects']:
++ raise SystemExit('Windows and separately approved 29-object invocation required')
++ROOT=Path('C:/native101');INPUT=ROOT/'inputs';OUT=ROOT/'results'
+ REUSED=Path('C:/native-file-callbacks35');SNAPSHOT=REUSED/'snapshot'
+ SDK=SNAPSHOT/'src/external/3rd/library/miles/include/Mss.h'
+ VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')
+@@ -27,13 +27,13 @@
+ toolsets=json.loads((INPUT/'toolchain.json').read_text())
+ alltools={k:v for values in toolsets.values() for k,v in values.items()};verify(Path('.'),alltools)
+ units=json.loads((INPUT/'units.json').read_text())
+-if len(units)!=7 or sum(u['arch']=='x86' for u in units)!=3:raise RuntimeError('Wrong matrix')
++if len(units)!=29 or sum(u['arch']=='x86' for u in units)!=15:raise RuntimeError('Wrong matrix')
+ OUT.mkdir(exist_ok=False)
+-receipt={'expected_new_objects':7,'linked':False,'executed':False,'builds':[],
++receipt={'expected_new_objects':29,'linked':False,'executed':False,'builds':[],
+  'input_manifest':sha(ROOT/'input-manifest.json'),'reused35_manifest':sha(INPUT/'reused35-manifest.json'),
+  'reused35_count':len(reused),'tools_before':alltools,
+  'header_hash_timing':'system headers observed once per reached compilation; no before/after system header attestation',
+- 'scope':'version90 affected-closure client4/host3 production objects; external engine worker implementation remains unlinked'}
++ 'scope':'composition99 affected-closure client14/host15 production objects; external engine worker implementation remains unlinked'}
+ def save():(OUT/'results.json').write_text(json.dumps(receipt,indent=2)+'\n')
+ required={
+  'backend-boundary24/pipe/LiveChannel.cpp':['?validateReply@Session@ClientMilesPipe@@','?publish@Runtime@MilesClientRuntime53@@','?returned@Runtime@MilesClientRuntime53@@'],
+@@ -41,7 +41,7 @@
+  'file-executor33/FileInvocationJob.cpp':['?submit@EngineFileWorker@MilesFileExecutor30@@','?invokeOnAdmittedExecutor@Invocation@MilesFileChannel26@@'],
+  'host-runtime50/host_file_runtime.cpp':['?decodeRequest@MilesFileChannel26@@','?snapshot@MilesHostContext@@'],
+  'host-runtime50/host_sdk_callbacks.cpp':['?invoke@Runtime@MilesHostRuntime50@@'],
+- 'paired-bootstrap59/host.cpp':['?queryNativeVersion@MilesSessionVersion@@'],
++ 'paired-bootstrap59/host.cpp':['?queryNativeVersion@MilesSessionVersion@@','??0BufferUpload@MilesHost@@','?append@BufferUpload@MilesHost@@','?seal@BufferUpload@MilesHost@@','?copySealed@BufferUpload@MilesHost@@'],
+  'backend-boundary24/pipe/PipeCore.cpp':['?validCapacity@MilesSessionVersion@@'],
+  'file-channel26/file_channel.cpp':['??0Scope@MilesCallbackGuard47@@']
+ }
+@@ -117,7 +117,7 @@
+     token=right.strip().split()[0] if right.strip() else ''
+     match=re.match(r'^\?([^@]+)@ClientMiles@@',token)
+     if match:definitions.add(match.group(1))
+-   if definitions!=set(expected) or len(definitions)!=54:raise RuntimeError('Exact 54 public definitions differ')
++   if definitions!=set(expected) or len(definitions)!=55:raise RuntimeError('Exact 55 public definitions differ')
+    record['public_definitions']=sorted(definitions);record['core_delegates']=sorted(observed)
+   if u['source']=='session-version22/session_version_host.cpp':
+    expected_windows={'__imp__LoadLibraryA@4','__imp__LoadStringA@16','__imp__FreeLibrary@4'}
+@@ -133,6 +133,6 @@
+   try:actual=verify(root,expected);receipt[label+'_unchanged']=True
+   except Exception as e:actual={'error':str(e)};receipt[label+'_unchanged']=False
+   (OUT/(label+'.json')).write_text(json.dumps(actual,indent=2)+'\n')
+- receipt['passed']=not receipt.get('failure') and all(receipt[k+'_unchanged'] for k in ['inputs_after','reused35_after','tools_after']) and len(receipt['builds'])==7 and all(x['status']=='compiled' for x in receipt['builds'])
++ receipt['passed']=not receipt.get('failure') and all(receipt[k+'_unchanged'] for k in ['inputs_after','reused35_after','tools_after']) and len(receipt['builds'])==29 and all(x['status']=='compiled' for x in receipt['builds'])
+  save()
+ sys.exit(0 if receipt['passed'] else 1)

@@ -1,0 +1,621 @@
+{
+  "base86_manifest": "5fc0e0d00ff6ddc6bacaf403df68b7e77a16acbe80e21e3fa5147e6b60a8f63c",
+  "version90_manifest": "dc5304ef7ff6d06e14026f7e25cae3910e150bcab776ca5645af58dcc39bd94f",
+  "upload93_manifest": "d3eb580229c1472f8b84a7954b2cb836dc093fb8bcc62ca4249ccd3d363b3548",
+  "shared_files_explicitly_merged": [
+    "backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "backend-boundary24/pipe/PipeCore.cpp",
+    "backend-boundary24/pipe/PipeCore.h",
+    "paired-bootstrap59/host.cpp",
+    "startup-bridge23/backend.h",
+    "startup-bridge23/reply.h"
+  ],
+  "resolutions": [
+    {
+      "path": "backend-boundary24/pipe/PipeCore.cpp",
+      "resolution": "Retain93 upload transaction and replace only old version method with exact90 implementation."
+    },
+    {
+      "path": "backend-boundary24/pipe/PipeCore.cpp",
+      "resolution": "Add exact90 capacity/prefix validation before93 Buffer phase checks; preserve inherited pre-settlement ordering."
+    },
+    {
+      "path": "backend-boundary24/pipe/PipeCore.h",
+      "resolution": "Keep93 file_type declaration plus90 version signature."
+    },
+    {
+      "path": "backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "resolution": "Keep both guarded delegates."
+    },
+    {
+      "path": "backend-boundary24/pipe/ClientMilesPipe.cpp",
+      "resolution": "Refresh current partial55 comment without changing historical predictions."
+    },
+    {
+      "path": "startup-bridge23/reply.h",
+      "resolution": "Preserve90 bytes decoder and93 signed classification scalar."
+    },
+    {
+      "path": "startup-bridge23/reply.h",
+      "resolution": "Add exact93 BufferBegin identity allowance alongside90 version-only byte allowance."
+    },
+    {
+      "path": "startup-bridge23/reply.h",
+      "resolution": "Retain93 mandatory nonnull/nonzero Buffer identity."
+    },
+    {
+      "path": "startup-bridge23/backend.h",
+      "resolution": "Retain93 executeUpload members/dispatch/policy; transplant exact90 native version branch."
+    },
+    {
+      "path": "startup-bridge23/backend.h",
+      "resolution": "Carry reviewed90 stale stream comment correction."
+    },
+    {
+      "path": "paired-bootstrap59/host.cpp",
+      "resolution": "Keep93 budget/terminal/install exclusion and90 owned-byte reply forwarding."
+    }
+  ],
+  "files": {
+    "backend-boundary24/ClientMiles.h": {
+      "sha256": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/ClientMiles.h": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc"
+      },
+      "disposition": "exact86"
+    },
+    "backend-boundary24/pipe/Channel.h": {
+      "sha256": "c746eb5b877c67e9181f3db5aaa57f1b502f1d84b50e04fa6e20df33a7c326dc",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/Channel.h": "a56ddd8a73363f9a0aa2bcd31f79d691314ac5048247eff1a5351bc03a696526",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/Channel.h": "c746eb5b877c67e9181f3db5aaa57f1b502f1d84b50e04fa6e20df33a7c326dc"
+      },
+      "disposition": "exact93"
+    },
+    "backend-boundary24/pipe/ClientMilesPipe.cpp": {
+      "sha256": "0a68789867e3d2f1216cd8e2b981aecb0d15a4d816cc844e2c377d306635a793",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": "7915eab190de35e75ced4bb597c439c793e27d9f67b691b914726adc1648a196",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": "606ad8690d7684a61bb6c4447e2d5d2ba0bf2627bf89522af0d807c443776fc2",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": "775995b805f9fde1cc0cd1b9c1e8cb66a54406087d978f2de67a1797cfb3626e"
+      },
+      "disposition": "explicit-merge"
+    },
+    "backend-boundary24/pipe/LiveChannel.cpp": {
+      "sha256": "03bad426c9a5a3c4007c52f7e66ed5c22039232e1e54fad3e450127850569843",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/LiveChannel.cpp": "7ad33739e74362d789313f35522c07301974f61d5374d51967955d732af32918",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/LiveChannel.cpp": "03bad426c9a5a3c4007c52f7e66ed5c22039232e1e54fad3e450127850569843"
+      },
+      "disposition": "exact93"
+    },
+    "backend-boundary24/pipe/LiveChannel.h": {
+      "sha256": "c33a9edab8f1b2ad834b6b3d696704bfd2404de1eaa7753435e735a9fb097225",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/LiveChannel.h": "b3dd77b8ccae3953f6e4025f2680047b72aee0288e4622abe3d881ced17951fc",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/LiveChannel.h": "c33a9edab8f1b2ad834b6b3d696704bfd2404de1eaa7753435e735a9fb097225"
+      },
+      "disposition": "exact93"
+    },
+    "backend-boundary24/pipe/PipeCore.cpp": {
+      "sha256": "d3fb51a914da28c256063c9782f6aaf786e7eb333048964d65e6ff823d88d8de",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/PipeCore.cpp": "e61e61b8ba4012238561c0ef4f78534e54e564a29b8af015b1fb7500fb8ee322",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/backend-boundary24/pipe/PipeCore.cpp": "4c94502b7afaaf75477465d0c4a0cf425b26cf587d7cce2562b08af9bb45d913",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/PipeCore.cpp": "df6eb916ff34498b84117245f912101cbdb54c5736a90740b620f3c34c16401b"
+      },
+      "disposition": "explicit-merge"
+    },
+    "backend-boundary24/pipe/PipeCore.h": {
+      "sha256": "493b0ec2ee0321f210845ca5256d69ddcdd2c718240c3d5db423b08b9cfcd79a",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/PipeCore.h": "ecab3236e10860f01fbd2d3204537229c90933faff2e082bea1e981ce88b20da",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/backend-boundary24/pipe/PipeCore.h": "f3c5bf2de9881f772baedbc9397621fee5a13187d5f7804c524badb1976236c5",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/PipeCore.h": "b1d2b77405c1c0affa184a0af01d0a55e77c575ad1b25f6f7f0c8193c74c4908"
+      },
+      "disposition": "explicit-merge"
+    },
+    "backend-boundary24/pipe/Session.h": {
+      "sha256": "9f5d8295b4f76a78cda2b3444c31d293fa5d652ad0bcbdb6f0d0d593df99f123",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/backend-boundary24/pipe/Session.h": "6d8432ec6b78c745d02ed0867f2413635e3d10441d5eb7453c2029baf0cf19ac",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/backend-boundary24/pipe/Session.h": "9f5d8295b4f76a78cda2b3444c31d293fa5d652ad0bcbdb6f0d0d593df99f123"
+      },
+      "disposition": "exact93"
+    },
+    "buffer-upload-candidate/buffer_upload.cpp": {
+      "sha256": "e36e074e1031f4df9366b865131e7575045a0d497c07219b576f3ce419fd9bd5",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/buffer-upload-candidate/buffer_upload.cpp": "e36e074e1031f4df9366b865131e7575045a0d497c07219b576f3ce419fd9bd5"
+      },
+      "disposition": "exact93"
+    },
+    "buffer-upload-candidate/buffer_upload.h": {
+      "sha256": "a3fef35e517a2f3a8d6bc96592f09876eca61ae8241686059160ca1a751d889e",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/buffer-upload-candidate/buffer_upload.h": "a3fef35e517a2f3a8d6bc96592f09876eca61ae8241686059160ca1a751d889e"
+      },
+      "disposition": "exact93"
+    },
+    "callback-control45/host_association_mapper.cpp": {
+      "sha256": "391191b3dee435f5eb1917710bf9d309efbb0d3de270c47901b2d6b1b182d29a",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-control45/host_association_mapper.cpp": "391191b3dee435f5eb1917710bf9d309efbb0d3de270c47901b2d6b1b182d29a"
+      },
+      "disposition": "exact86"
+    },
+    "callback-control45/host_association_mapper.h": {
+      "sha256": "fc7e3971fbe719644180a9082f5a0dbf70963cbccc6fdd3ae6e09f0505ba140f",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-control45/host_association_mapper.h": "fc7e3971fbe719644180a9082f5a0dbf70963cbccc6fdd3ae6e09f0505ba140f"
+      },
+      "disposition": "exact86"
+    },
+    "callback-protocol48/file_protocol.cpp": {
+      "sha256": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-protocol48/file_protocol.cpp": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e"
+      },
+      "disposition": "exact86"
+    },
+    "callback-protocol48/file_protocol.h": {
+      "sha256": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-protocol48/file_protocol.h": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf"
+      },
+      "disposition": "exact86"
+    },
+    "callback-reentry47/invocation_guard.cpp": {
+      "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-reentry47/invocation_guard.cpp": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6"
+      },
+      "disposition": "exact86"
+    },
+    "callback-reentry47/invocation_guard.h": {
+      "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/callback-reentry47/invocation_guard.h": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198"
+      },
+      "disposition": "exact86"
+    },
+    "client-runtime53/client_file_runtime.cpp": {
+      "sha256": "2d955c883dbe86578b19632a8182da1c3b9b5c04cbdbd2d1e5b43c05d0547e6a",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/client-runtime53/client_file_runtime.cpp": "2d955c883dbe86578b19632a8182da1c3b9b5c04cbdbd2d1e5b43c05d0547e6a"
+      },
+      "disposition": "exact86"
+    },
+    "client-runtime53/client_file_runtime.h": {
+      "sha256": "b2a872f2e40a99c93afa630778e97a601f5032d1aa80cd4eacc28666196016c6",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/client-runtime53/client_file_runtime.h": "b2a872f2e40a99c93afa630778e97a601f5032d1aa80cd4eacc28666196016c6"
+      },
+      "disposition": "exact86"
+    },
+    "file-channel26/file_channel.cpp": {
+      "sha256": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-channel26/file_channel.cpp": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e"
+      },
+      "disposition": "exact86"
+    },
+    "file-channel26/file_channel.h": {
+      "sha256": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-channel26/file_channel.h": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3"
+      },
+      "disposition": "exact86"
+    },
+    "file-executor33/EngineFileWorker.h": {
+      "sha256": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-executor33/EngineFileWorker.h": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4"
+      },
+      "disposition": "exact86"
+    },
+    "file-executor33/FileInvocationJob.cpp": {
+      "sha256": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-executor33/FileInvocationJob.cpp": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c"
+      },
+      "disposition": "exact86"
+    },
+    "file-executor33/FileInvocationJob.h": {
+      "sha256": "dc21ebece9ea39841cf2c63da2b2c0f81fff8e45456f99adea2b12ace0aa5471",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-executor33/FileInvocationJob.h": "dc21ebece9ea39841cf2c63da2b2c0f81fff8e45456f99adea2b12ace0aa5471"
+      },
+      "disposition": "exact86"
+    },
+    "file-owner36/session_file_owner.cpp": {
+      "sha256": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-owner36/session_file_owner.cpp": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e"
+      },
+      "disposition": "exact86"
+    },
+    "file-owner36/session_file_owner.h": {
+      "sha256": "314695ccac3ea1bb141b5a3bbc800de2e979bb6604cf21782f7dc26eda120356",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/file-owner36/session_file_owner.h": "314695ccac3ea1bb141b5a3bbc800de2e979bb6604cf21782f7dc26eda120356"
+      },
+      "disposition": "exact86"
+    },
+    "host-callback-context41/call_context.cpp": {
+      "sha256": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-callback-context41/call_context.cpp": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c"
+      },
+      "disposition": "exact86"
+    },
+    "host-callback-context41/call_context.h": {
+      "sha256": "6c1439efb94d2a1e2bd3d4977e04a23cfa96e357e81f3a81ef7d5985242b3244",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-callback-context41/call_context.h": "6c1439efb94d2a1e2bd3d4977e04a23cfa96e357e81f3a81ef7d5985242b3244"
+      },
+      "disposition": "exact86"
+    },
+    "host-candidate/host_dispatch.cpp": {
+      "sha256": "7210fa3b580b9f3df84c30e94eb95c2ed644f5726bbad30b6946296e237a9667",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-candidate/host_dispatch.cpp": "7210fa3b580b9f3df84c30e94eb95c2ed644f5726bbad30b6946296e237a9667"
+      },
+      "disposition": "exact86"
+    },
+    "host-candidate/host_dispatch.h": {
+      "sha256": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-candidate/host_dispatch.h": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66"
+      },
+      "disposition": "exact86"
+    },
+    "host-candidate/registry_resolver.h": {
+      "sha256": "825f78d913ae822545ac12c5621ef2d17ab422270de960339ab0590ecd8b8c2a",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-candidate/registry_resolver.h": "825f78d913ae822545ac12c5621ef2d17ab422270de960339ab0590ecd8b8c2a"
+      },
+      "disposition": "exact86"
+    },
+    "host-file-consumption49/file_tokens.cpp": {
+      "sha256": "113f97c2ef67a1d638c27c3a820fdd0d5a53759788355504e26ccb1b7ff2f1da",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/file_tokens.cpp": "113f97c2ef67a1d638c27c3a820fdd0d5a53759788355504e26ccb1b7ff2f1da"
+      },
+      "disposition": "exact86"
+    },
+    "host-file-consumption49/file_tokens.h": {
+      "sha256": "f0201fd36d5d28be662f2e6aab863b1844f6727fb567d893510e32a00027dd8a",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/file_tokens.h": "f0201fd36d5d28be662f2e6aab863b1844f6727fb567d893510e32a00027dd8a"
+      },
+      "disposition": "exact86"
+    },
+    "host-file-consumption49/reply_transaction.cpp": {
+      "sha256": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/reply_transaction.cpp": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db"
+      },
+      "disposition": "exact86"
+    },
+    "host-file-consumption49/reply_transaction.h": {
+      "sha256": "727ee26d55c9815721ebf304ffbc8a43fb9fe8a4608363eb4964c7f79c64c757",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-file-consumption49/reply_transaction.h": "727ee26d55c9815721ebf304ffbc8a43fb9fe8a4608363eb4964c7f79c64c757"
+      },
+      "disposition": "exact86"
+    },
+    "host-runtime50/host_file_runtime.cpp": {
+      "sha256": "eaf7952baa23307dc001866f03b0186eb6caa1d66cb45943196757e4d52c17f4",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_file_runtime.cpp": "eaf7952baa23307dc001866f03b0186eb6caa1d66cb45943196757e4d52c17f4"
+      },
+      "disposition": "exact86"
+    },
+    "host-runtime50/host_file_runtime.h": {
+      "sha256": "e880e92bc4b7d021c1796a690bf4c230bfd3efb7dcb0a26b223f9c269408cfd9",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_file_runtime.h": "e880e92bc4b7d021c1796a690bf4c230bfd3efb7dcb0a26b223f9c269408cfd9"
+      },
+      "disposition": "exact86"
+    },
+    "host-runtime50/host_install.cpp": {
+      "sha256": "2e8270f2f1f82cc322163d2a3cf098d21ffbe63657cf1bd97e07e5373a9916fc",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_install.cpp": "2e8270f2f1f82cc322163d2a3cf098d21ffbe63657cf1bd97e07e5373a9916fc"
+      },
+      "disposition": "exact86"
+    },
+    "host-runtime50/host_sdk_callbacks.cpp": {
+      "sha256": "32b2ac052e7f2126a3ed4048e2cee4b7f35dd3c0ba321462eee51b45af124118",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/host-runtime50/host_sdk_callbacks.cpp": "32b2ac052e7f2126a3ed4048e2cee4b7f35dd3c0ba321462eee51b45af124118"
+      },
+      "disposition": "exact86"
+    },
+    "image-upload93/upload_policy.h": {
+      "sha256": "4ed491723be8528455fb2f365eba2b2c01310f41f519cd36b8da1f7d39a01e61",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/image-upload93/upload_policy.h": "4ed491723be8528455fb2f365eba2b2c01310f41f519cd36b8da1f7d39a01e61"
+      },
+      "disposition": "exact93"
+    },
+    "live-bridge-candidate/admission.h": {
+      "sha256": "f495c57622d0f1d9b9a2a92fdb43a223bd9d06168a2d1c5725e843eaac89e5b0",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/live-bridge-candidate/admission.h": "f495c57622d0f1d9b9a2a92fdb43a223bd9d06168a2d1c5725e843eaac89e5b0"
+      },
+      "disposition": "exact86"
+    },
+    "live-bridge-candidate/common.h": {
+      "sha256": "2f314da264262c3a8077c890258f25436153f456ea98da08d074f152b894d601",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/live-bridge-candidate/common.h": "2f314da264262c3a8077c890258f25436153f456ea98da08d074f152b894d601"
+      },
+      "disposition": "exact86"
+    },
+    "native-file-callbacks35/ClientMilesFileCallbacks.h": {
+      "sha256": "ac6d98359848a50477892628c26c6685905c4c04b9028f10d59cf5d468b61465",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-file-callbacks35/ClientMilesFileCallbacks.h": "ac6d98359848a50477892628c26c6685905c4c04b9028f10d59cf5d468b61465"
+      },
+      "disposition": "exact86"
+    },
+    "native-playback28/ClientMilesPlayback.h": {
+      "sha256": "e97181694f6e25fcc49f019607fdad15ee0e9a78be6b4f18d6aec5517001b833",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-playback28/ClientMilesPlayback.h": "e97181694f6e25fcc49f019607fdad15ee0e9a78be6b4f18d6aec5517001b833"
+      },
+      "disposition": "exact86"
+    },
+    "native-playback28/native_playback28.cpp": {
+      "sha256": "ac40f32bafdbdac91b7abd816d716165c136fcb47533dad78f4a25cd31659523",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-playback28/native_playback28.cpp": "ac40f32bafdbdac91b7abd816d716165c136fcb47533dad78f4a25cd31659523"
+      },
+      "disposition": "exact86"
+    },
+    "native-sample27/ClientMilesSample.h": {
+      "sha256": "f26f9aa77247b32fe21025046efef511a3422836b3f45a6c7cee3905b339cfb3",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/ClientMilesSample.h": "f26f9aa77247b32fe21025046efef511a3422836b3f45a6c7cee3905b339cfb3"
+      },
+      "disposition": "exact86"
+    },
+    "native-sample27/native_sample27.cpp": {
+      "sha256": "d75624aedc9dc80cf79169bb45c8c019206d1f5bb0a8787a78950bef0d3a8304",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/native_sample27.cpp": "d75624aedc9dc80cf79169bb45c8c019206d1f5bb0a8787a78950bef0d3a8304"
+      },
+      "disposition": "exact86"
+    },
+    "native-sample27/sample_time.cpp": {
+      "sha256": "ce38cfe37ddfc892ead0eaa57aa29d67a99625c74b5a8f8354623b9f5edc7c55",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/sample_time.cpp": "ce38cfe37ddfc892ead0eaa57aa29d67a99625c74b5a8f8354623b9f5edc7c55"
+      },
+      "disposition": "exact86"
+    },
+    "native-sample27/sample_time.h": {
+      "sha256": "b80f0fddcf154795cae028fa4d05e73cde01c0fc03712512e9f71cdfae9a5e10",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-sample27/sample_time.h": "b80f0fddcf154795cae028fa4d05e73cde01c0fc03712512e9f71cdfae9a5e10"
+      },
+      "disposition": "exact86"
+    },
+    "native-startup25/ClientMilesStartup.h": {
+      "sha256": "fdee8b2afc7e906bcba0878bd2a03fca914d898b30d96eeaccf1876528047321",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-startup25/ClientMilesStartup.h": "fdee8b2afc7e906bcba0878bd2a03fca914d898b30d96eeaccf1876528047321"
+      },
+      "disposition": "exact86"
+    },
+    "native-stream28/ClientMilesStream.h": {
+      "sha256": "412f331293a81e6aaf3e8b0e6c600b7f24443535cdab4ad46b04d02e0c274844",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/ClientMilesStream.h": "412f331293a81e6aaf3e8b0e6c600b7f24443535cdab4ad46b04d02e0c274844"
+      },
+      "disposition": "exact86"
+    },
+    "native-stream28/native_stream28.cpp": {
+      "sha256": "a64b588edcbd6715c4a7f14efebdb1acbf8c7a678ac6701d24dd9f097850e1de",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/native_stream28.cpp": "a64b588edcbd6715c4a7f14efebdb1acbf8c7a678ac6701d24dd9f097850e1de"
+      },
+      "disposition": "exact86"
+    },
+    "native-stream28/stream_calls.cpp": {
+      "sha256": "8151cceb88114869ddba0b84dea98d1c60df43d19d231b1dc9fb8d3ad7afd661",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/stream_calls.cpp": "8151cceb88114869ddba0b84dea98d1c60df43d19d231b1dc9fb8d3ad7afd661"
+      },
+      "disposition": "exact86"
+    },
+    "native-stream28/stream_calls.h": {
+      "sha256": "f9321a58eb8e731d3da401dc982d99c4498dd4eb855ff19a46917a819e94ce57",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/native-stream28/stream_calls.h": "f9321a58eb8e731d3da401dc982d99c4498dd4eb855ff19a46917a819e94ce57"
+      },
+      "disposition": "exact86"
+    },
+    "paired-bootstrap59/host.cpp": {
+      "sha256": "d9c58fd29647e69e2a2242d1cf6768effe8cbbb7a8439889139caaef676e8bec",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/paired-bootstrap59/host.cpp": "aef8784202ef05e8f28828037352059cd719ea10253fd53340a6ebb89920e68e",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/paired-bootstrap59/host.cpp": "c8d8096b6877e30eb16480f26749080d7e0eb19dea28e03e9d59bec0b2990d94",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/paired-bootstrap59/host.cpp": "5490a61e09f18593d85b31eb3391ee1b76a23daf8ce028bbeffdaad7e3e299bd"
+      },
+      "disposition": "explicit-merge"
+    },
+    "pipe-transport-candidate/endpoint.cpp": {
+      "sha256": "c8ceb314bc9de684e14887c4687b2d48c50ccd5377294e4ce453d313778209b8",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/pipe-transport-candidate/endpoint.cpp": "c8ceb314bc9de684e14887c4687b2d48c50ccd5377294e4ce453d313778209b8"
+      },
+      "disposition": "exact86"
+    },
+    "pipe-transport-candidate/endpoint.h": {
+      "sha256": "51dfef9fbb4439d937cb5be44ab8bbffc69429a0b7b76c84f708d4a0d8fc04c5",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/pipe-transport-candidate/endpoint.h": "51dfef9fbb4439d937cb5be44ab8bbffc69429a0b7b76c84f708d4a0d8fc04c5"
+      },
+      "disposition": "exact86"
+    },
+    "plain-boundary52/failure_boundary.cpp": {
+      "sha256": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/plain-boundary52/failure_boundary.cpp": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353"
+      },
+      "disposition": "exact86"
+    },
+    "plain-boundary52/failure_boundary.h": {
+      "sha256": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/plain-boundary52/failure_boundary.h": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541"
+      },
+      "disposition": "exact86"
+    },
+    "protocol-candidate/miles_wire.h": {
+      "sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/protocol-candidate/miles_wire.h": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3"
+      },
+      "disposition": "exact86"
+    },
+    "protocol-candidate/pair_outputs.h": {
+      "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/protocol-candidate/pair_outputs.h": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484"
+      },
+      "disposition": "exact86"
+    },
+    "reverse-file-seam20/ClientAudioFileCallbacks.h": {
+      "sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0"
+      },
+      "disposition": "exact86"
+    },
+    "selected-file-services44/selected_services.cpp": {
+      "sha256": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/selected-file-services44/selected_services.cpp": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5"
+      },
+      "disposition": "exact86"
+    },
+    "selected-file-services44/selected_services.h": {
+      "sha256": "939e35bd5e612e2255146d40731258fbfb9455e383a90a615184461e86d63045",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/selected-file-services44/selected_services.h": "939e35bd5e612e2255146d40731258fbfb9455e383a90a615184461e86d63045"
+      },
+      "disposition": "exact86"
+    },
+    "session-file-admission34/coordinator.cpp": {
+      "sha256": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/session-file-admission34/coordinator.cpp": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534"
+      },
+      "disposition": "exact86"
+    },
+    "session-file-admission34/coordinator.h": {
+      "sha256": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/session-file-admission34/coordinator.h": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0"
+      },
+      "disposition": "exact86"
+    },
+    "session-version22/session_version.cpp": {
+      "sha256": "3ca508bf978f664a5bdf82609086a99f71c72272e139cadbaeef5295624bf8b2",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version.cpp": "eb92d358dfc983ebbfb09f44cff70ca30feaf8a8b5c3cffd85b4ffd47b0d084a",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/session-version22/session_version.cpp": "3ca508bf978f664a5bdf82609086a99f71c72272e139cadbaeef5295624bf8b2"
+      },
+      "disposition": "exact90"
+    },
+    "session-version22/session_version.h": {
+      "sha256": "c5c24e03307daa98e37712e19b0bc31e80b12562e21d0190bd453c91eb64702c",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version.h": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/session-version22/session_version.h": "c5c24e03307daa98e37712e19b0bc31e80b12562e21d0190bd453c91eb64702c"
+      },
+      "disposition": "exact90"
+    },
+    "session-version22/session_version_host.cpp": {
+      "sha256": "829bc1fdb17558f4e309c8a8de9ba5ff5559884302e8a4fe87d92c57ea952ce8",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version_host.cpp": "a0c4ab967526beb0c05b908a391fd771acf52efcdb6256c3de040c497c3fb8b7",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/session-version22/session_version_host.cpp": "829bc1fdb17558f4e309c8a8de9ba5ff5559884302e8a4fe87d92c57ea952ce8"
+      },
+      "disposition": "exact90"
+    },
+    "session-version22/session_version_host.h": {
+      "sha256": "66033cb9f6edd347566e04d3c6425667399c8858363c466e0d76abe02eeec01c",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/session-version22/session_version_host.h": "b4c7babfa10ad81a29e8e493e086c7144823436a6dcb580d0323cd54bb633e6f",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/session-version22/session_version_host.h": "66033cb9f6edd347566e04d3c6425667399c8858363c466e0d76abe02eeec01c"
+      },
+      "disposition": "exact90"
+    },
+    "startup-bridge23/backend.h": {
+      "sha256": "cb02bbbb644ac800883b0c82d7afa5abdca7b20a06d431dd139e0835627af489",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-bridge23/backend.h": "1614dd558ad523d458c19b744ef4fc1ca4b3ff526fb88ec9abc6d11a93e5391e",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/startup-bridge23/backend.h": "c28f8c8e87fd20c8f9156b6bd06173b3bd1df9811cd7c12e8fb74fa657d2c423",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/startup-bridge23/backend.h": "a19fc47f535db0586966448d998cde12c5552d571d2dcec4ce2785386058c814"
+      },
+      "disposition": "explicit-merge"
+    },
+    "startup-bridge23/reply.h": {
+      "sha256": "ff60944c6eb1b9825fa553fce5baec383de91c77cca88963bd36a7e2198881c6",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-bridge23/reply.h": "a5a687ea5dab7e7b000bc28feeb36d73c38fc3a87eb9cb98afcff2f5d8217a3e",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version90/candidate/startup-bridge23/reply.h": "d63e82c5ea5b61adcb34a61800f0b6b2d32255229d9253163d25d3fe446b94a2",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/startup-bridge23/reply.h": "f5bc4971063dbc179ae97c3bd0b8557b4004a5655f902f9ab15d5aff5003c26d"
+      },
+      "disposition": "explicit-merge"
+    },
+    "startup-metadata-v4/metadata.h": {
+      "sha256": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-metadata-v4/metadata.h": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8"
+      },
+      "disposition": "exact86"
+    },
+    "startup-metadata-v4/metadata_host.cpp": {
+      "sha256": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-metadata-v4/metadata_host.cpp": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90"
+      },
+      "disposition": "exact86"
+    },
+    "startup-metadata-v4/metadata_wire.cpp": {
+      "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/startup-metadata-v4/metadata_wire.cpp": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2"
+      },
+      "disposition": "exact86"
+    },
+    "transport-candidate/codec.cpp": {
+      "sha256": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/transport-candidate/codec.cpp": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679"
+      },
+      "disposition": "exact86"
+    },
+    "transport-candidate/codec.h": {
+      "sha256": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/transport-candidate/codec.h": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7"
+      },
+      "disposition": "exact86"
+    },
+    "transport-candidate/resource_registry.h": {
+      "sha256": "92ead699ce190ece5cdfa4895248a3d9cb6a05552a9504c49a02d0757c6d6549",
+      "origin_hashes": {
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/pipe-composition86/candidate/transport-candidate/resource_registry.h": "c98f53fffcb5c4a03e670efe25dc95be573b7e017ab14c4b0c27a3f3a97b2a3d",
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image-upload93/candidate/transport-candidate/resource_registry.h": "92ead699ce190ece5cdfa4895248a3d9cb6a05552a9504c49a02d0757c6d6549"
+      },
+      "disposition": "exact93"
+    }
+  }
+}

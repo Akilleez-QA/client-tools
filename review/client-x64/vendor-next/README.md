@@ -1,5 +1,7 @@
 # Client x64: vendor decisions and native checkpoint
 
+Current prototype checkpoint: [combined99/native101](vendor-options/miles-integration-seam/native101/NATIVE-RESULTS-v1.md) exposes55 of62 native-shaped calls;29 selected MSVC objects compile cleanly. [Version92](vendor-options/miles-integration-seam/version92/RESULTS-v1.md) passes559 portable assertions; [image98](vendor-options/miles-integration-seam/image98/RESULTS-v2.md) passes1,678. These are object and component results, not a linked/running client. Product remains49d0eeed4; EOS, image binding, Audio TLS and normal paired shutdown remain open. [Current replacement boundary](vendor-options/miles-integration-seam/CURRENT-MILES-STATUS.md) is the present status; older entries below retain their historical scope.
+
 2026-09-30. **The client is not finished.** The persistent goal is a polished x64 SWG Source client with the existing game experience preserved. Development and evidence stay on Akilleez-QA's forks. The user designated upstream `x64` as the eventual destination, but requires completion and explicit approval before any PR. No upstream changes or new PRs were made.
 
 Start with the [SWG Source baseline correction](vendor-options/BASELINE.md): browser and TCG are documented deprecated features, and normal voice controls are disabled. They must not become speculative restoration projects merely because old wrappers/binaries remain. Then read the [per-vendor options and decision gates](vendor-options/DECISIONS.md).

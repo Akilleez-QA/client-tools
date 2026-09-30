@@ -1,0 +1,383 @@
+--- native86/inputs/units.json
++++ native94/inputs/units.json
+@@ -39,179 +39,14 @@
+   },
+   {
+     "arch": "x86",
+-    "source": "host-runtime50/host_file_runtime.cpp",
+-    "name": "x86-host-runtime50-host_file_runtime",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "host-callback-context41/call_context.h",
+-      "host-file-consumption49/file_tokens.h",
+-      "host-file-consumption49/reply_transaction.h",
+-      "host-runtime50/host_file_runtime.h",
+-      "pipe-transport-candidate/endpoint.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "host-runtime50/host_sdk_callbacks.cpp",
+-    "name": "x86-host-runtime50-host_sdk_callbacks",
+-    "sdk": true,
+-    "exact_ail_names": [
+-      "AIL_set_file_callbacks"
+-    ],
+-    "quoted_headers": [
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "host-callback-context41/call_context.h",
+-      "host-file-consumption49/file_tokens.h",
+-      "host-file-consumption49/reply_transaction.h",
+-      "host-runtime50/host_file_runtime.h",
+-      "pipe-transport-candidate/endpoint.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "host-runtime50/host_install.cpp",
+-    "name": "x86-host-runtime50-host_install",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "host-callback-context41/call_context.h",
+-      "host-file-consumption49/file_tokens.h",
+-      "host-file-consumption49/reply_transaction.h",
+-      "host-runtime50/host_file_runtime.h",
+-      "pipe-transport-candidate/endpoint.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "host-file-consumption49/file_tokens.cpp",
+-    "name": "x86-host-file-consumption49-file_tokens",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "host-file-consumption49/file_tokens.h",
+-      "protocol-candidate/miles_wire.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "host-file-consumption49/reply_transaction.cpp",
+-    "name": "x86-host-file-consumption49-reply_transaction",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "host-file-consumption49/file_tokens.h",
+-      "host-file-consumption49/reply_transaction.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "startup-metadata-v4/metadata_host.cpp",
+-    "name": "x86-startup-metadata-v4-metadata_host",
+-    "sdk": true,
+-    "exact_ail_names": [
+-      "AIL_get_preference",
+-      "AIL_last_error",
+-      "AIL_set_preference",
+-      "AIL_set_redist_directory",
+-      "AIL_speaker_configuration"
+-    ],
+-    "quoted_headers": [
+-      "host-candidate/host_dispatch.h",
+-      "protocol-candidate/miles_wire.h",
+-      "startup-metadata-v4/metadata.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+     "source": "session-version22/session_version_host.cpp",
+     "name": "x86-session-version22-session_version_host",
+-    "sdk": false,
++    "sdk": true,
+     "exact_ail_names": [],
+     "quoted_headers": [
+       "protocol-candidate/miles_wire.h",
+       "session-version22/session_version.h",
+       "session-version22/session_version_host.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "transport-candidate/codec.cpp",
+-    "name": "x86-transport-candidate-codec",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "protocol-candidate/miles_wire.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "callback-protocol48/file_protocol.cpp",
+-    "name": "x86-callback-protocol48-file_protocol",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "pipe-transport-candidate/endpoint.cpp",
+-    "name": "x86-pipe-transport-candidate-endpoint",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "pipe-transport-candidate/endpoint.h",
+-      "protocol-candidate/miles_wire.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "startup-metadata-v4/metadata_wire.cpp",
+-    "name": "x86-startup-metadata-v4-metadata_wire",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "host-candidate/host_dispatch.h",
+-      "protocol-candidate/miles_wire.h",
+-      "startup-metadata-v4/metadata.h",
+       "transport-candidate/codec.h",
+       "transport-candidate/resource_registry.h"
+     ]
+@@ -225,21 +60,6 @@
+     "quoted_headers": [
+       "protocol-candidate/miles_wire.h",
+       "session-version22/session_version.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "x86",
+-    "source": "file-channel26/file_channel.cpp",
+-    "name": "x86-file-channel26-file_channel",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-reentry47/invocation_guard.h",
+-      "file-channel26/file_channel.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+       "transport-candidate/codec.h",
+       "transport-candidate/resource_registry.h"
+     ]
+@@ -327,156 +147,6 @@
+   },
+   {
+     "arch": "amd64",
+-    "source": "client-runtime53/client_file_runtime.cpp",
+-    "name": "amd64-client-runtime53-client_file_runtime",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "backend-boundary24/ClientMiles.h",
+-      "callback-control45/host_association_mapper.h",
+-      "callback-protocol48/file_protocol.h",
+-      "client-runtime53/client_file_runtime.h",
+-      "file-channel26/file_channel.h",
+-      "file-executor33/EngineFileWorker.h",
+-      "file-executor33/FileInvocationJob.h",
+-      "file-owner36/session_file_owner.h",
+-      "native-file-callbacks35/ClientMilesFileCallbacks.h",
+-      "pipe-transport-candidate/endpoint.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "selected-file-services44/selected_services.h",
+-      "session-file-admission34/coordinator.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "callback-control45/host_association_mapper.cpp",
+-    "name": "amd64-callback-control45-host_association_mapper",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-control45/host_association_mapper.h",
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "file-executor33/EngineFileWorker.h",
+-      "file-executor33/FileInvocationJob.h",
+-      "file-owner36/session_file_owner.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "session-file-admission34/coordinator.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "file-owner36/session_file_owner.cpp",
+-    "name": "amd64-file-owner36-session_file_owner",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "file-channel26/file_channel.h",
+-      "file-executor33/EngineFileWorker.h",
+-      "file-executor33/FileInvocationJob.h",
+-      "file-owner36/session_file_owner.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "session-file-admission34/coordinator.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "selected-file-services44/selected_services.cpp",
+-    "name": "amd64-selected-file-services44-selected_services",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "backend-boundary24/ClientMiles.h",
+-      "file-channel26/file_channel.h",
+-      "native-file-callbacks35/ClientMilesFileCallbacks.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "selected-file-services44/selected_services.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "file-executor33/FileInvocationJob.cpp",
+-    "name": "amd64-file-executor33-FileInvocationJob",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "file-channel26/file_channel.h",
+-      "file-executor33/EngineFileWorker.h",
+-      "file-executor33/FileInvocationJob.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "transport-candidate/codec.cpp",
+-    "name": "amd64-transport-candidate-codec",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "protocol-candidate/miles_wire.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "callback-protocol48/file_protocol.cpp",
+-    "name": "amd64-callback-protocol48-file_protocol",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-protocol48/file_protocol.h",
+-      "file-channel26/file_channel.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "pipe-transport-candidate/endpoint.cpp",
+-    "name": "amd64-pipe-transport-candidate-endpoint",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "pipe-transport-candidate/endpoint.h",
+-      "protocol-candidate/miles_wire.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "startup-metadata-v4/metadata_wire.cpp",
+-    "name": "amd64-startup-metadata-v4-metadata_wire",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "host-candidate/host_dispatch.h",
+-      "protocol-candidate/miles_wire.h",
+-      "startup-metadata-v4/metadata.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+-  },
+-  {
+-    "arch": "amd64",
+     "source": "session-version22/session_version.cpp",
+     "name": "amd64-session-version22-session_version",
+     "sdk": false,
+@@ -487,20 +157,5 @@
+       "transport-candidate/codec.h",
+       "transport-candidate/resource_registry.h"
+     ]
+-  },
+-  {
+-    "arch": "amd64",
+-    "source": "file-channel26/file_channel.cpp",
+-    "name": "amd64-file-channel26-file_channel",
+-    "sdk": false,
+-    "exact_ail_names": [],
+-    "quoted_headers": [
+-      "callback-reentry47/invocation_guard.h",
+-      "file-channel26/file_channel.h",
+-      "protocol-candidate/miles_wire.h",
+-      "reverse-file-seam20/ClientAudioFileCallbacks.h",
+-      "transport-candidate/codec.h",
+-      "transport-candidate/resource_registry.h"
+-    ]
+   }
+ ]

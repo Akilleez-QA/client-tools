@@ -1,0 +1,569 @@
+--- base86/backend-boundary24/pipe/Channel.h
++++ candidate/backend-boundary24/pipe/Channel.h
+@@ -12,7 +12,7 @@
+     virtual ~Channel() {
+     }
+     virtual StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+-                                           MilesTransport::Bytes text,
++                                           MilesTransport::Bytes payload, MilesTransport::Bytes text,
+                                            const std::vector<MilesWire::Handle> &verifiedResources,
+                                            const Session &replyOwner) = 0;
+     // Candidate64 refuses normal finish until paired shutdown proof exists.
+--- base86/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -23,6 +23,9 @@
+ // Only operations with an actual37 private definition are exported here.
+ // This remains a partial plain surface; see coverage.json for unresolved names.
+ namespace ClientMiles {
++int32_t file_type(const void *fileImage,uint32_t fileBytes) {
++    return guarded<int32_t>([=]() -> int32_t { return Core::file_type(fileImage,fileBytes); });
++}
+ const char *last_error() {
+     return guarded<const char *>([]() -> const char * { return Core::last_error(); });
+ }
+--- base86/backend-boundary24/pipe/LiveChannel.cpp
++++ candidate/backend-boundary24/pipe/LiveChannel.cpp
+@@ -2,14 +2,17 @@
+ #include "../../live-bridge-candidate/common.h"
+ #include "../../callback-protocol48/file_protocol.h"
+ #include <limits>
++#include "../../image-upload93/upload_policy.h"
+ 
+ namespace {
+ uint64_t incarnation(const std::string &text){uint64_t value=0;for(unsigned i=0;i<16;++i)value=(value<<4)|static_cast<uint64_t>(text[i]<='9'?text[i]-'0':text[i]-'a'+10);return value?value:1;}
+ class LiveChannel : public ClientMilesPipe::Channel {
+   public:
+     LiveChannel(const char *hostExecutable,const char *originalDll,std::shared_ptr<void> enginePin,
+-        MilesClientRuntime53::Runtime *&adopted) : runtime_(0),next_(0) {
++        MilesClientRuntime53::Runtime *&adopted, uint32_t uploadBudgetBytes) : runtime_(0),next_(0) {
+         try {
++        require(MilesImage93::validBudget(uploadBudgetBytes), "explicit upload byte budget");
++        char budget[16];sprintf_s(budget,"%lu",static_cast<unsigned long>(uploadBudgetBytes));
+         std::string random = nonce();
+         std::string base = "\\\\.\\pipe\\swg-facade24-" + random;
+         std::string commandName = base + "-cmd", callbackName = base + "-cb";
+@@ -20,7 +23,7 @@
+         char pid[32];
+         sprintf_s(pid, "%lu", GetCurrentProcessId());
+         std::string args = "\"" + std::string(hostExecutable) + "\" --host " + commandName + " " +
+-                           callbackName + " " + random + " " + pid + " \"" + originalDll + "\"";
++                           callbackName + " " + random + " " + pid + " \"" + originalDll + "\" " + budget;
+         std::vector<char> line(args.begin(), args.end());
+         line.push_back(0);
+         child_.create(hostExecutable, &line[0]);
+@@ -48,11 +51,11 @@
+     }
+ 
+     StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+-                                   MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources,
++                                   MilesTransport::Bytes payload, MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources,
+         const ClientMilesPipe::Session &replyOwner) override {
+         // Known validated refusals reach the facade; only fixture probes compare
+         // an expected status. Do not inherit Client.call's default-success throw.
+-        return exchange(opcode, fields, MilesTransport::Bytes(), text,resources,&replyOwner);
++        return exchange(opcode, fields, payload, text,resources,&replyOwner);
+     }
+ 
+     void finish() override {throw std::runtime_error("paired clean shutdown is not implemented in59");}
+@@ -107,11 +110,11 @@
+ } // namespace
+ 
+ namespace ClientMilesPipe {
+-Session *connectSession(const char *host,const char *dll,std::shared_ptr<void> enginePin,std::shared_ptr<void> callbackPin){
++Session *connectSession(const char *host,const char *dll,std::shared_ptr<void> enginePin,std::shared_ptr<void> callbackPin,uint32_t uploadBudgetBytes){
+     MilesClientRuntime53::Runtime *adopted=0;
+     try {
+-        Channel *channel=new LiveChannel(host,dll,enginePin,adopted);
+-        return new Session(channel,*adopted,callbackPin);
++        Channel *channel=new LiveChannel(host,dll,enginePin,adopted,uploadBudgetBytes);
++        return new Session(channel,*adopted,callbackPin,uploadBudgetBytes);
+     }catch(...){
+         if(adopted){adopted->fail();std::terminate();} // retained runtime; no clean-close claim
+         throw;
+--- base86/backend-boundary24/pipe/LiveChannel.h
++++ candidate/backend-boundary24/pipe/LiveChannel.h
+@@ -9,6 +9,7 @@
+ // Hello. Public ClientMiles.h has no process configuration or bootstrap calls.
+ // Private root only. Runtime remains retained; Session destruction is terminal in59.
+ Session *connectSession(const char *hostExecutable,const char *originalDll,
+-    std::shared_ptr<void> engineLifetime,std::shared_ptr<void> callbackCodeLifetime);
++    std::shared_ptr<void> engineLifetime,std::shared_ptr<void> callbackCodeLifetime,
++    uint32_t uploadBudgetBytes);
+ } // namespace ClientMilesPipe
+ #endif
+--- base86/backend-boundary24/pipe/PipeCore.cpp
++++ candidate/backend-boundary24/pipe/PipeCore.cpp
+@@ -4,6 +4,7 @@
+ #include <list>
+ #include <cstring>
+ #include <limits>
++#include "../../image-upload93/upload_policy.h"
+ 
+ namespace ClientMilesPipe {
+ struct DriverProxy {
+@@ -131,10 +132,13 @@
+ 
+ namespace ClientMilesPipe {
+ Session::Session(Channel *channel, MilesClientRuntime53::Runtime &runtime,
+-    std::shared_ptr<void> callbackCodeLifetime)
++    std::shared_ptr<void> callbackCodeLifetime, uint32_t uploadBudgetBytes)
+     : started(false), stopped(false), samples(new SampleState), channel_(channel), closed_(false),
+       faulted_(false), runtime_(runtime), callbackCodeLifetime_(callbackCodeLifetime),
+-      filesPrepared_(false), filesInstalled_(false) {
++      filesPrepared_(false), filesInstalled_(false), uploadBudgetBytes_(uploadBudgetBytes),
++      uploadPhase_(UploadIdle), uploadId_(), uploadBytes_(0) {
++    if (!MilesImage93::validBudget(uploadBudgetBytes_))
++        fail(ClientMilesPipeCore57::FailureReason::InputLimit,"explicit upload byte budget required");
+     if (selectedSession || !channel_)
+         fail(ClientMilesPipeCore57::FailureReason::WrongState, "one Miles session must be selected");
+     selectedSession = this;
+@@ -173,14 +177,14 @@
+ }
+ 
+ StartupBridge::OwnedReply Session::request(uint32_t opcode, const MilesWire::Call &fields,
+-                                           MilesTransport::Bytes text) {
++                                           MilesTransport::Bytes text, MilesTransport::Bytes payload) {
+     MilesCallbackGuard47::requireForwardAllowed();
+     if (faulted_ || closed_)
+         fail(ClientMilesPipeCore57::FailureReason::BackendFailed,
+              "Miles session cannot issue another request");
+     StartupBridge::OwnedReply reply;
+     try {
+-        reply = channel_->call(opcode, fields, text, verifiedResources(fields), *this);
++        reply = channel_->call(opcode, fields, payload, text, verifiedResources(fields), *this);
+     } catch (...) {
+         faulted_ = true;runtime_.fail();
+         fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "Miles channel failed");
+@@ -205,6 +209,20 @@
+     const auto same=[](const MilesWire::Handle &a,const MilesWire::Handle &b){
+         return a.kind==b.kind && a.slot==b.slot && a.generation==b.generation;
+     };
++    if(opcode==MilesWire::BufferBegin) {
++        if(uploadPhase_!=UploadBeginning || uploadId_.kind ||
++           r.resource.kind!=MilesWire::Buffer || !r.resource.slot || !r.resource.generation ||
++           fields.value[0]!=uploadBytes_)return false;
++    }
++    if(opcode==MilesWire::BufferChunk || opcode==MilesWire::BufferSeal ||
++       opcode==MilesWire::BufferRelease || opcode==MilesWire::AIL_file_type) {
++        const MilesWire::Handle &id=opcode==MilesWire::AIL_file_type ? fields.resource : fields.target;
++        if(!uploadId_.kind || !same(uploadId_,id))return false;
++        if((opcode==MilesWire::BufferChunk && uploadPhase_!=UploadChunks) ||
++           (opcode==MilesWire::BufferSeal && uploadPhase_!=UploadSealing) ||
++           (opcode==MilesWire::AIL_file_type && (uploadPhase_!=UploadClassifying || fields.value[0]!=uploadBytes_)) ||
++           (opcode==MilesWire::BufferRelease && uploadPhase_!=UploadReleasing))return false;
++    }
+     if(opcode==MilesWire::AIL_sample_ms_position || opcode==MilesWire::AIL_stream_ms_position ||
+        opcode==MilesWire::AIL_sample_volume_levels || opcode==MilesWire::AIL_sample_reverb_levels){
+         const uint32_t mask=fields.output_mask;
+@@ -243,7 +261,7 @@
+         const MilesWire::Handle &h=values[n];
+         if(!h.kind && !h.slot && !h.generation)continue;
+         const auto same=[&](const MilesWire::Handle &v){return h.kind==v.kind && h.slot==v.slot && h.generation==v.generation;};
+-        bool found=driver && same(driver->wire);
++        bool found=(uploadId_.kind && same(uploadId_)) || (driver && same(driver->wire));
+         for(auto i=samples->proxies.begin();i!=samples->proxies.end();++i)
+             if((*i)->live && same((*i)->wire))found=true;
+         for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
+@@ -252,6 +270,41 @@
+         if(out.empty() || !same(out.front()))out.push_back(h);
+     }
+     return out;
++}
++int32_t Session::classifyImage(const void *image,uint32_t count) {
++    MilesCallbackGuard47::requireForwardAllowed();requireRunning();
++    if(uploadPhase_!=UploadIdle)
++        fail(ClientMilesPipeCore57::FailureReason::WrongState,"one image transaction required");
++    if(!image || !count)
++        fail(ClientMilesPipeCore57::FailureReason::InvalidArgument,"nonnull positive image extent required in93");
++    if(!MilesImage93::allows(uploadBudgetBytes_,count))
++        fail(ClientMilesPipeCore57::FailureReason::InputLimit,"image exceeds private upload budget");
++    // Member state survives any uncertainty; no destructor RPC or implicit retry.
++    uploadBytes_=count;uploadPhase_=UploadBeginning;
++    try {
++        MilesWire::Call fields={};fields.value[0]=count;
++        const StartupBridge::OwnedReply begin=request(MilesWire::BufferBegin,fields);
++        uploadId_=begin.result.resource;
++        uploadPhase_=UploadChunks;
++        uint32_t offset=0;
++        while(offset<count) {
++            const uint32_t remaining=count-offset;
++            const uint32_t chunk=remaining>static_cast<uint32_t>(MilesImage93::ChunkBytes) ?
++                static_cast<uint32_t>(MilesImage93::ChunkBytes) : remaining;
++            fields=MilesWire::Call();fields.target=uploadId_;fields.value[0]=offset;
++            request(MilesWire::BufferChunk,fields,MilesTransport::Bytes(),
++                MilesTransport::Bytes(static_cast<const unsigned char *>(image)+offset,chunk));
++            offset+=chunk;
++        }
++        uploadPhase_=UploadSealing;fields=MilesWire::Call();fields.target=uploadId_;
++        request(MilesWire::BufferSeal,fields);
++        uploadPhase_=UploadClassifying;fields=MilesWire::Call();fields.resource=uploadId_;fields.value[0]=count;
++        const StartupBridge::OwnedReply classified=request(MilesWire::AIL_file_type,fields);
++        uploadPhase_=UploadReleasing;fields=MilesWire::Call();fields.target=uploadId_;
++        request(MilesWire::BufferRelease,fields);
++        uploadId_=MilesWire::Handle();uploadBytes_=0;uploadPhase_=UploadIdle;
++        return static_cast<int32_t>(MilesStartup::signedValue(classified.result.return_bits));
++    } catch(...) { faulted_=true;runtime_.fail();throw; }
+ }
+ void Session::installFiles(ClientMiles::FileOpenCallback open,ClientMiles::FileCloseCallback close,
+     ClientMiles::FileSeekCallback seek,ClientMiles::FileReadCallback read){
+@@ -275,6 +328,9 @@
+ } // namespace ClientMilesPipe
+ 
+ namespace ClientMilesPipeCore57 {
++int32_t file_type(const void *image,uint32_t bytes) {
++    return ClientMilesPipe::Session::selected().classifyImage(image,bytes);
++}
+ int32_t startup() {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     session.requireAvailable();
+--- base86/backend-boundary24/pipe/PipeCore.h
++++ candidate/backend-boundary24/pipe/PipeCore.h
+@@ -14,6 +14,8 @@
+ using ClientMiles::FileReadCallback;
+ 
+ 
++
++int32_t file_type(const void *fileImage, uint32_t fileBytes);
+ 
+ struct OwnedText {
+     bool isNull;
+--- base86/backend-boundary24/pipe/Session.h
++++ candidate/backend-boundary24/pipe/Session.h
+@@ -15,13 +15,14 @@
+ class Session {
+   public:
+     Session(Channel *channel, MilesClientRuntime53::Runtime &,
+-            std::shared_ptr<void> callbackCodeLifetime);
++            std::shared_ptr<void> callbackCodeLifetime, uint32_t uploadBudgetBytes);
+     ~Session();
+     void close();
+ 
+     // Private implementation operations, not an application backend interface.
+     StartupBridge::OwnedReply request(uint32_t opcode, const MilesWire::Call &fields,
+-                                      MilesTransport::Bytes text = MilesTransport::Bytes());
++                                      MilesTransport::Bytes text = MilesTransport::Bytes(),
++                                      MilesTransport::Bytes payload = MilesTransport::Bytes());
+     bool uncertain() const { return faulted_; }
+     size_t sampleProxyCount() const; // private composition/test observation
+     void rejectResult(); // terminal uncertainty; no retry after an invalid sample result
+@@ -32,6 +33,7 @@
+         const StartupBridge::OwnedReply &) const;
+     void installFiles(ClientMiles::FileOpenCallback, ClientMiles::FileCloseCallback,
+         ClientMiles::FileSeekCallback, ClientMiles::FileReadCallback);
++    int32_t classifyImage(const void *image, uint32_t bytes);
+     bool started;
+     bool stopped;
+     std::unique_ptr<DriverProxy> driver;
+@@ -49,6 +51,12 @@
+     MilesClientRuntime53::Runtime &runtime_; // retained by private root, never deleted here
+     std::shared_ptr<void> callbackCodeLifetime_;
+     bool filesPrepared_, filesInstalled_;
++    uint32_t uploadBudgetBytes_;
++    enum UploadPhase { UploadIdle, UploadBeginning, UploadChunks, UploadSealing,
++        UploadClassifying, UploadReleasing };
++    UploadPhase uploadPhase_;
++    MilesWire::Handle uploadId_;
++    uint32_t uploadBytes_;
+     std::vector<MilesWire::Handle> verifiedResources(const MilesWire::Call &) const;
+     Session(const Session &);
+     Session &operator=(const Session &);
+--- /dev/null
++++ candidate/buffer-upload-candidate/buffer_upload.cpp
+@@ -0,0 +1,27 @@
++#include "buffer_upload.h"
++#include <cstring>
++#include <stdexcept>
++namespace MilesHost {
++BufferUpload::BufferUpload(uint32_t declaredBytes,uint32_t authorizedLimit)
++    :filled(0),immutable(false) {
++    if(declaredBytes>authorizedLimit)throw std::out_of_range("upload exceeds authorized byte limit");
++    storage.resize(declaredBytes);
++}
++bool BufferUpload::append(uint32_t offset,const void *source,size_t count) {
++    if(immutable || offset!=filled || !source || !count || count>storage.size()-filled)return false;
++    std::memcpy(&storage[filled],source,count);
++    filled+=static_cast<uint32_t>(count); // Bounded by uint32 declared size above.
++    return true;
++}
++bool BufferUpload::seal() {
++    if(filled!=storage.size())return false;
++    immutable=true;
++    return true;
++}
++bool BufferUpload::copySealed(std::vector<unsigned char> &out) const {
++    if(!immutable)return false;
++    std::vector<unsigned char> copy(storage);
++    out.swap(copy);
++    return true;
++}
++}
+--- /dev/null
++++ candidate/buffer-upload-candidate/buffer_upload.h
+@@ -0,0 +1,26 @@
++#ifndef MILES_BUFFER_UPLOAD_CANDIDATE_H
++#define MILES_BUFFER_UPLOAD_CANDIDATE_H
++#include <stdint.h>
++#include <stddef.h>
++#include <vector>
++namespace MilesHost {
++// Dispatch-thread owned. Session reserves aggregate budget and owns registry entry.
++// Upload never lends a pointer to vendor code; publish an independent owned copy.
++class BufferUpload {
++public:
++    BufferUpload(uint32_t declaredBytes,uint32_t authorizedLimit);
++    bool append(uint32_t offset,const void *source,size_t count);
++    bool seal();
++    bool copySealed(std::vector<unsigned char> &out) const;
++    uint32_t received() const { return filled; }
++    uint32_t size() const { return static_cast<uint32_t>(storage.size()); }
++    bool sealed() const { return immutable; }
++private:
++    std::vector<unsigned char> storage;
++    uint32_t filled;
++    bool immutable;
++    BufferUpload(const BufferUpload &);
++    BufferUpload &operator=(const BufferUpload &);
++};
++}
++#endif
+--- /dev/null
++++ candidate/image-upload93/upload_policy.h
+@@ -0,0 +1,27 @@
++#ifndef MILES_PRIVATE_UPLOAD_POLICY93_H
++#define MILES_PRIVATE_UPLOAD_POLICY93_H
++#include "../protocol-candidate/miles_wire.h"
++namespace MilesImage93 {
++// Explicit bootstrap policy, not a native API limit. Two independent N-byte
++// owners: unchanged BufferUpload plus its sealed copy. Frames are separate.
++inline bool validBudget(uint32_t bytes) { return bytes >= 2; }
++inline bool allows(uint32_t budget, uint32_t imageBytes) {
++    return validBudget(budget) && imageBytes && imageBytes <= budget / 2 &&
++        imageBytes <= 0x7fffffffu; // original Win32 contiguous signed pointer extent
++}
++inline bool parseBudget(const char *text, uint32_t &out) {
++    if (!text || !*text) return false;
++    uint32_t value = 0;
++    for (const char *p = text; *p; ++p) {
++        if (*p < '0' || *p > '9') return false;
++        const uint32_t digit = static_cast<uint32_t>(*p - '0');
++        if (value > (UINT32_MAX - digit) / 10) return false;
++        value = value * 10 + digit;
++    }
++    if (!validBudget(value)) return false;
++    out = value;
++    return true;
++}
++enum { ChunkBytes = MilesWire::MaxFrameBytes - 136 };
++}
++#endif
+--- base86/paired-bootstrap59/host.cpp
++++ candidate/paired-bootstrap59/host.cpp
+@@ -19,7 +19,9 @@
+     }
+ }
+ void host(int argc,char **argv){
+-    require(argc==7,"host arguments");
++    require(argc==8,"host arguments");
++    uint32_t uploadBudgetBytes=0;
++    require(MilesImage93::parseBudget(argv[7],uploadBudgetBytes),"explicit upload byte budget");
+     const std::string nonceText=argv[4];require(nonceText.size()==32,"nonce extent");
+     for(size_t n=0;n<nonceText.size();++n)require((nonceText[n]>='0'&&nonceText[n]<='9')||(nonceText[n]>='a'&&nonceText[n]<='f'),"nonce alphabet");
+     char *end=0;unsigned long expected=strtoul(argv[5],&end,10);require(expected && end && !*end,"parent PID");
+@@ -32,7 +34,7 @@
+     // Heap-retained owners prevent exception unwind from invoking emergency SDK
+     // shutdown or Endpoint cleanup after callbacks may have been adopted.
+     Endpoint *command=new Endpoint(rawCommand,17);
+-    Backend *backend=new Backend(argv[6]);
++    Backend *backend=new Backend(argv[6],uploadBudgetBytes);
+     MilesHostRuntime50::Runtime *callbacks=0;
+     const uint64_t session=incarnation(nonceText);
+     MilesCoordinator::Coordinator coordinator(session);
+@@ -43,6 +45,7 @@
+         require(MilesTransport::decodeCall(bytes(frame),h,c),"decode command");
+         require(last!=(std::numeric_limits<uint64_t>::max)() && h.request==last+1 &&
+             h.kind==MilesWire::Request && h.lane==1 && !h.lock_lease && !h.causal_request,"command correlation");
++        require(!backend->uploadFailed(),"terminal image upload cannot resume");
+         last=h.request;StartupBridge::OwnedReply out;std::vector<unsigned char> encoded;
+         if(!hello){
+             require(h.opcode==MilesWire::Hello && c.bytes.length==32 && !c.text.length &&
+@@ -63,6 +66,8 @@
+                 require(ordinal!=(std::numeric_limits<uint64_t>::max)(),"admission exhausted");
+                 require(coordinator.admitGame(session,ordinal+1,h.lane,0,MilesCoordinator::Ordinary,resources)==MilesCoordinator::Ok,"host admission");++ordinal;
+                 MilesHostContext::Origin origin={session,h.request,h.lane,h.lock_lease,ordinal};
++                require(!backend->upload || h.opcode!=MilesWire::AIL_set_file_callbacks,
++                    "file installation during image transaction refused before SDK effect");
+                 if(h.opcode==MilesWire::AIL_set_file_callbacks){
+                     MilesFileProtocol48::InstallRequest request;
+                     require(MilesFileProtocol48::decodeInstall(bytes(frame),h,request),"exact install request");
+@@ -83,6 +88,7 @@
+                 require(coordinator.completeAdmission(session,ordinal)==MilesCoordinator::Ok,"observed SDK return");
+             }
+         }
++        backend->observeUploadRefusal(out.result.transport_status);
+         if(encoded.empty()){
+             MilesWire::Header reply=h;reply.kind=MilesWire::Reply;
+             require(MilesTransport::encodeResult(reply,out.result,MilesTransport::Bytes(),bytes(out.text),encoded),"result encoding");
+--- base86/startup-bridge23/backend.h
++++ candidate/startup-bridge23/backend.h
+@@ -4,6 +4,9 @@
+ #include "../session-version22/session_version_host.h"
+ #include "reply.h"
+ #include <Mss.h>
++#include "../buffer-upload-candidate/buffer_upload.h"
++#include "../image-upload93/upload_policy.h"
++#include <memory>
+ // Same single Backend owner as the exercised live candidate, narrowed to this
+ // startup/metadata/driver slice. No SessionLifecycle or fixture expectations.
+ struct Backend {
+@@ -17,12 +20,23 @@
+     MilesTransport::ResourceRegistry::Reservation streamReservation;
+     HSTREAM pendingStream;
+     bool streamOpenPending;
++    // One dispatch-thread upload owner; charged for upload + independent sealed copy.
++    uint32_t uploadBudgetBytes;
++    uint64_t uploadChargedBytes;
++    MilesTransport::ResourceRegistry::Reservation uploadReservation;
++    std::unique_ptr<MilesHost::BufferUpload> upload;
++    std::vector<unsigned char> sealedImage;
++    MilesWire::Handle uploadId;
++    bool uploadClassified, uploadTerminal, uploadNativePending;
+     bool started, shutdown;
+     unsigned metadataInvocations;
+-    explicit Backend(const char *expectedPath)
++    explicit Backend(const char *expectedPath, uint32_t imageBudgetBytes)
+         : resolver(registry), module(0), driver(0), pendingStream(0), streamOpenPending(false),
++          uploadBudgetBytes(imageBudgetBytes), uploadChargedBytes(0), uploadId(),
++          uploadClassified(false), uploadTerminal(false), uploadNativePending(false),
+           started(false), shutdown(false),
+           metadataInvocations(0) {
++        require(MilesImage93::validBudget(uploadBudgetBytes), "explicit upload byte budget");
+         driverId = MilesWire::Handle();
+         require(GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS,
+                                    reinterpret_cast<LPCSTR>(&::AIL_startup), &module) != 0,
+@@ -44,10 +58,94 @@
+         if (module)
+             FreeLibrary(module);
+     }
++    bool uploadFailed() const { return uploadTerminal || uploadNativePending; }
++    void observeUploadRefusal(uint32_t status) {
++        if (upload && status != StartupBridge::Success) uploadTerminal = true;
++    }
++    StartupBridge::OwnedReply executeUpload(uint32_t opcode, const MilesWire::Call &c,
++                                            const std::vector<unsigned char> &frame) {
++        using namespace StartupBridge;
++        OwnedReply out;out.result.transport_status=InvalidFields;
++        const bool begin=opcode==MilesWire::BufferBegin;
++        const bool chunk=opcode==MilesWire::BufferChunk;
++        const bool classify=opcode==MilesWire::AIL_file_type;
++        if(c.callback || c.reserved || c.output_mask || c.text.offset || c.text.length)return out;
++        for(unsigned i=(begin || chunk || classify) ? 1u : 0u;i<8;++i)
++            if(c.value[i])return out;
++        if(chunk) {
++            if(!c.bytes.length || c.bytes.length>static_cast<uint32_t>(MilesImage93::ChunkBytes) ||
++               c.bytes.offset>frame.size() || c.bytes.length>frame.size()-c.bytes.offset)return out;
++        } else if(c.bytes.offset || c.bytes.length)return out;
++        if(begin) {
++            if(!nullHandle(c.target) || !nullHandle(c.resource))return out;
++        } else if(classify) {
++            if(!nullHandle(c.target))return out;
++        } else if(!nullHandle(c.resource))return out;
++        if(!started || shutdown) {out.result.transport_status=LifecycleRefused;return out;}
++        if(begin) {
++            if(upload || uploadChargedBytes) {out.result.transport_status=LifecycleRefused;return out;}
++            const uint32_t size=c.value[0];
++            if(!MilesImage93::allows(uploadBudgetBytes,size) ||
++               static_cast<uint64_t>(size)>static_cast<uint64_t>(sealedImage.max_size())) {
++                out.result.transport_status=InputBudgetExceeded;return out;
++            }
++            // Existing registry reservation and budget charge precede allocation;
++            // Backend is heap-retained if allocation/publication/reply becomes uncertain.
++            require(registry.reserve(MilesWire::Buffer,MilesWire::Handle(),uploadReservation),
++                    "image registry capacity before allocation");
++            uploadChargedBytes=static_cast<uint64_t>(size)*2;
++            upload.reset(new MilesHost::BufferUpload(size,uploadBudgetBytes/2));
++            require(registry.publish(uploadReservation,upload.get(),uploadId),"publish image owner");
++            out.result.resource=uploadId;
++        } else {
++            const MilesWire::Handle &id=classify ? c.resource : c.target;
++            void *local=0;
++            if(!upload || id.kind!=uploadId.kind || id.slot!=uploadId.slot ||
++               id.generation!=uploadId.generation || !registry.resolve(id,MilesWire::Buffer,local) ||
++               local!=upload.get()) {out.result.transport_status=InvalidResource;return out;}
++            if(chunk) {
++                if(!upload->append(c.value[0],frame.data()+c.bytes.offset,c.bytes.length))return out;
++            } else if(opcode==MilesWire::BufferSeal) {
++                if(upload->sealed() || !upload->seal())return out;
++                require(upload->copySealed(sealedImage),"independent sealed image ownership");
++            } else if(classify) {
++                if(!upload->sealed() || uploadClassified || c.value[0]!=upload->size() ||
++                   sealedImage.size()!=upload->size())return out;
++                uploadNativePending=true;
++                const S32 value=::AIL_file_type(sealedImage.data(),c.value[0]);
++                // Native failure/unknown classification remains a native S32 result.
++                static_assert(sizeof(value)==sizeof(out.result.return_bits),"file type result width");
++                std::memcpy(&out.result.return_bits,&value,sizeof(value));
++                uploadClassified=true;uploadNativePending=false;
++            } else if(opcode==MilesWire::BufferRelease) {
++                // Also usable for a healthy partial upload. Never used as client
++                // recovery after refusal/uncertainty, which is terminal in93.
++                require(registry.beginClose(id),"close image identity");
++                require(registry.retire(id),"retire readonly image identity");
++                upload.reset();std::vector<unsigned char>().swap(sealedImage);
++                uploadId=MilesWire::Handle();uploadChargedBytes=0;uploadClassified=false;
++            } else return out;
++        }
++        out.result.transport_status=Success;return out;
++    }
+     StartupBridge::OwnedReply execute(const MilesWire::Header &h, const MilesWire::Call &c,
+                                       const std::vector<unsigned char> &frame) {
+         using namespace StartupBridge;
+         require(!streamOpenPending, "uncertain stream open cannot resume");
++        require(!uploadFailed(), "uncertain image operation cannot resume");
++        if(h.opcode==MilesWire::BufferBegin || h.opcode==MilesWire::BufferChunk ||
++           h.opcode==MilesWire::BufferSeal || h.opcode==MilesWire::BufferRelease ||
++           h.opcode==MilesWire::AIL_file_type) {
++            try {
++                OwnedReply result=executeUpload(h.opcode,c,frame);
++                observeUploadRefusal(result.result.transport_status);
++                return result;
++            } catch(...) { uploadTerminal=true;throw; }
++        }
++        if(upload) {
++            uploadTerminal=true;
++            OwnedReply refused;refused.result.transport_status=LifecycleRefused;return refused;
++        }
+         OwnedReply out;
+         out.result.transport_status = InvalidFields;
+         // Narrow native25 non-callback slice; reuse reviewed SDK dispatcher.
+--- base86/startup-bridge23/reply.h
++++ candidate/startup-bridge23/reply.h
+@@ -80,13 +80,15 @@
+                h.opcode == MilesWire::AIL_digital_CPU_percent ||
+                h.opcode == MilesWire::AIL_digital_latency ||
+                h.opcode == MilesWire::AIL_get_timer_highest_delay ||
+-               h.opcode == MilesWire::AIL_file_error);
++               h.opcode == MilesWire::AIL_file_error || h.opcode == MilesWire::AIL_file_type);
+     const bool sampleAllocation = ok && h.opcode == MilesWire::AIL_allocate_sample_handle;
+     const bool aliasOp=ok && h.opcode==MilesWire::AIL_stream_sample_handle;
+     const bool streamOpen=ok && h.opcode==MilesWire::AIL_open_stream;
+-    const bool resourceOp = ok && (h.opcode == MilesWire::AIL_open_digital_driver || sampleAllocation || streamOpen || aliasOp);
+-    const uint32_t expectedKind=static_cast<uint32_t>(aliasOp ? MilesWire::BorrowedSample : streamOpen ? MilesWire::Stream : sampleAllocation ? MilesWire::OwnedSample : MilesWire::Driver);
++    const bool bufferBegin=ok && h.opcode==MilesWire::BufferBegin;
++    const bool resourceOp = ok && (h.opcode == MilesWire::AIL_open_digital_driver || sampleAllocation || streamOpen || aliasOp || bufferBegin);
++    const uint32_t expectedKind=static_cast<uint32_t>(bufferBegin ? MilesWire::Buffer : aliasOp ? MilesWire::BorrowedSample : streamOpen ? MilesWire::Stream : sampleAllocation ? MilesWire::OwnedSample : MilesWire::Driver);
+     if ((!returnOp && r.return_bits) || (!resourceOp && !nullHandle(r.resource)))return false;
++    if (bufferBegin && (nullHandle(r.resource) || !r.resource.slot || !r.resource.generation))return false;
+     if (resourceOp && !nullHandle(r.resource) && r.resource.kind!=expectedKind)return false;
+     for (unsigned i = 0; i < 8; ++i)
+         if (!(valueOp && i == 3) && !(sampleTime && i < 2) && !(aliasOp && i < 3) && r.value[i])
+--- base86/transport-candidate/resource_registry.h
++++ candidate/transport-candidate/resource_registry.h
+@@ -99,7 +99,7 @@
+     // later cancel is safe and cannot affect a replacement generation.
+     bool reserve(MilesWire::ResourceKind kind, const MilesWire::Handle &parent,
+                  Reservation &token) {
+-        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample && kind != MilesWire::Stream && kind != MilesWire::File))
++        if (token.owner || (kind != MilesWire::Driver && kind != MilesWire::OwnedSample && kind != MilesWire::Stream && kind != MilesWire::File && kind != MilesWire::Buffer))
+             return false;
+         if (kind == MilesWire::OwnedSample || kind == MilesWire::Stream) {
+             void *driver = 0;

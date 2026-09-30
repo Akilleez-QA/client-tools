@@ -1,0 +1,56 @@
+{
+  "dll_sha256": "0785b5f2aa81e68c41778bea1aa92ed545e2392827d90745838af2b14f6954fe",
+  "image_base": "0x21100000",
+  "exports": {
+    "_AIL_end_sample@4": {
+      "ordinal": 56,
+      "rva": "0x153d0",
+      "va": "0x211153d0",
+      "forwarded": false
+    },
+    "_AIL_lock@0": {
+      "ordinal": 94,
+      "rva": "0x18a0",
+      "va": "0x211018a0",
+      "forwarded": false
+    },
+    "_AIL_lock_mutex@0": {
+      "ordinal": 96,
+      "rva": "0x18c0",
+      "va": "0x211018c0",
+      "forwarded": false
+    },
+    "_AIL_register_EOS_callback@8": {
+      "ordinal": 156,
+      "rva": "0x17930",
+      "va": "0x21117930",
+      "forwarded": false
+    },
+    "_AIL_register_stream_callback@8": {
+      "ordinal": 164,
+      "rva": "0x1c120",
+      "va": "0x2111c120",
+      "forwarded": false
+    },
+    "_AIL_unlock@0": {
+      "ordinal": 309,
+      "rva": "0x18b0",
+      "va": "0x211018b0",
+      "forwarded": false
+    },
+    "_AIL_unlock_mutex@0": {
+      "ordinal": 310,
+      "rva": "0x18d0",
+      "va": "0x211018d0",
+      "forwarded": false
+    }
+  },
+  "private_evidence_sha256": {
+    "headers.txt": "8b1b74c82bc0473734cdd9eed20b512e9f2776253dfd5a63c2f06957d39f21c1",
+    "sample-register.asm": "08dffe6896b170a5e14ac82ab8b3b5586e67862cec620752decbb8d7eb56f51a",
+    "stream-register.asm": "bf293ed522972f1eb6487219bbf9cf5d2511db10f865172709714f0d0d0c7961",
+    "locks.asm": "d2c7109d2acdba0af4dfdef67f80e56993689ba4e627efc0aba0d6e26924ac4f",
+    "full.asm": "46d5562a775108495058efe16fa1695d4a5763d3fe80a143bef68410394713a5",
+    "lock-internal.asm": "1421f50bb99aa745017614d3f54c27fb646ed86b94930392d5b58b3cd794f6b9"
+  }
+}

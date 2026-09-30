@@ -1,0 +1,129 @@
+# Blind review: version90 `MSS_version` portable adapter
+
+Review is limited to the supplied patch (`from86.patch`), `version92/tests.cpp`, and `version92/PLAN.md`. No runs, no other files, no vendor/native execution claims.
+
+---
+
+## Scope limits (what this review does **not** establish)
+
+1. **`Session::request` / LiveChannel ordering** — `MSS_version` copies after `session.request` with a comment that LiveChannel already validated the prefix. The patch does not show `request()`; tests use a `Supplier` that calls `decodeReply`, then `session.validateReply`, then bumps `settled` without LiveChannel or Runtime join. **Portable tests evidence the Supplier script, not production join order.** If `request()` can return an `OwnedReply` without `validateReply` on some path, `memcpy` has no local bound check.
+
+2. **Host path** — `queryNativeVersion`, `LoadLibraryA` / `ModulePin`, `backend.h` host branch, and `host.cpp` re-encoding are not exercised by `tests.cpp`. PLAN explicitly excludes module lifetime and host encoder execution from this runner.
+
+3. **`Public70` / `compat.h`** — PLAN notes public header unchanged and compat is not ABI proof; not in the diff.
+
+4. **Interior NUL policy vs legacy portable contract** — Whether interior NULs must be rejected is a **codebase contract** question (old `copyReply` vs new path), not a vendor claim.
+
+---
+
+## Capacity forwarding (concrete)
+
+**Aligned with stated intent (within patch + tests):**
+
+- Client rejects `destination == null`, `capacity <= 0`, and `!validCapacity(static_cast<uint32_t>(capacity))` before transport (`PipeCore.cpp` hunk).
+- Forwarding is `fields.value[0] = static_cast<uint32_t>(capacity)` with no clamp to 256.
+- `validCapacity`: `capacity > 0 && capacity <= CapacityLimit` where `CapacityLimit = MaxFrameBytes - 48 - 80`; tests pin `1048448` max and reject `1048449`.
+- Tests assert LE `value[0]` at offset 72, frame size 136, and round-trip through `MilesSessionVersion::validateQuery` — good **wire-level** capacity transfer evidence without struct layout assumptions.
+
+**Concerns:**
+
+| Issue | Source grounding |
+|--------|------------------|
+| **Pipe budget ≠ “native has no cap”** | Comment says budget is not a new native API restriction, but the **portable surface still hard-rejects** any `capacity > CapacityLimit`. That matches “explicit reply budget” scope, but it is a ** deliberate cap** on the adapter; callers within native range but above `CapacityLimit` get `InputLimit`, not unbounded positive capacity. |
+| **`MSS_version` does not re-check `reply.bytes.size() <= capacity` before `memcpy`** | Only `validateReply` (elsewhere) is relied on. No local guard in the shown `MSS_version` body. |
+| **`validateReply` SessionVersion checks are structural, not semantic** | After success: `validCapacity(fields.value[0])`, non-empty `reply.bytes`, `size <= fields.value[0]`, trailing `0`, empty `reply.text`. No check that size equals an expected native length; Supplier can return any prefix obeying those rules. Normal tests only cover scripted prefixes. |
+
+---
+
+## Reply ownership / decode path (concrete)
+
+**Intended split:** version payload lives in `OwnedReply.bytes`; `reply.text` must be empty for `SessionVersion` (`reply.h` version branch + `validateReply`).
+
+**Concerns:**
+
+1. **Interior NUL bytes allowed on the new path** — Removed from patch vs old `copyReply`:
+
+   - Old (removed): loop rejecting `!text[i]` before final byte.
+   - New `decodeReply`: only `prefix[r.bytes.length-1]==0`.
+   - New `validateReply`: only `reply.bytes.back()==0`.
+
+   `tests.cpp` **requires** acceptance for `inner[] = {'A',0,'B',0}` at capacity 11. That is an explicit **contract change** vs the removed `copyReply` rules. If “native-shaped” was meant to preserve the old portable non-interior-NUL rule, this is a **concrete mismatch** with the prior session-version module behavior in the same lineage—not inferred from Windows.
+
+2. **`decodeReply` no longer ties reply prefix length to the request’s `value[0]`** — Only `r.bytes.length > CapacityLimit` is checked on decode. Request-sized oversize relies on client `validateReply` (`size <= fields.value[0]`). Mutation mode `oversize` (3-byte prefix, capacity 2) is evidence **only** for that two-layer split under the Supplier ordering; not for LiveChannel.
+
+3. **Global gate change on `r.bytes.length`** — Top-level `decodeReply` no longer rejects all replies with `r.bytes.length` up front; non-version ops are gated later via `if (!versionOp && r.bytes.length) return false`. Effectively similar for shown branches, but **any future/omitted opcode path** that hits `decodeReply` without setting `versionOp` correctly could behave differently than from86. Worth noting as a **wider decode surface**, not cleared for the whole bridge.
+
+---
+
+## Destination nonmutation (concrete)
+
+**Strong in tests (for what they cover):**
+
+- `exercise`: buffer `capacity+16`, destination at `+8`, compare **entire** buffer to expected; prefix copied into expected at `+8`; guards `0xa5`.
+- Mutation modes: 18-byte destination, write at `+8`, capacity 2; assert all `0x67` unchanged on reject; `settled==0`, `uncertain()`, one `fail`, no second send.
+
+**Gaps / false-pass angles:**
+
+| Gap | Detail |
+|-----|--------|
+| **Mutation matrix is tiny** | One capacity (2), one prefix (`A`, NUL). Does not exercise oversize at max budget, interior NUL on reject paths, or partial writes. |
+| **Success path does not assert `reply.bytes.size() < capacity` cases beyond scripted set** | e.g. capacity 256 with 7-byte prefix is covered; not all boundary combinations. |
+| **Reject-before-write for invalid args** | Null dest, 0, -1, `1048449`: `supplier.calls` unchanged and guard bytes checked — good **pre-transport** nonmutation evidence. |
+| **Stopped session** | Second call rejected without extra supplier calls — good. |
+
+**On success, nonmutation beyond copied prefix** is exactly what the expected-buffer scheme tests (untouched `0xa5` tail within the capacity window). That does **not** prove the implementation never overwrites if `validateReply` were bypassed or wrong.
+
+---
+
+## Host-side sketch (source-only, no execution inference)
+
+Included for **internal consistency of the patch**, not vendor behavior:
+
+- `queryNativeVersion` validates query, allocates `scratch(capacity)`, calls `LoadStringA(..., capacity)`, rejects `count >= capacity` (variable cap vs old fixed 256).
+- Failure load path: `scratch[0]=0`, `written=1` → one-byte NUL prefix reply without calling `LoadStringA`.
+- `makeReply` requires `validCapacity(prefix.size)` and NUL at last prefix byte.
+
+Portable tests **do not** validate any of this; backend `require(queryNativeVersion...)` failure modes are outside the runner scope per PLAN.
+
+---
+
+## Test / PLAN false-pass hazards
+
+1. **`oracleFailed` + `rejects()`** — Invalid-arg tests require `!oracleFailed` after catching `Failure`; Supplier assertions set `oracleFailed` on mismatch. Reasonable guard against swallowed oracle failures on paths that never call Supplier.
+
+2. **`settled` vs `calls`** — Normal mode expects 10 settled calls; mutation expects 1 call, 0 settled. Validation failure throws before `++settled` in Supplier — consistent.
+
+3. **Scripted settlement** — `++settled` after validate is explicitly **not** Runtime join (PLAN). Passing all modes does **not** prove real channel settle ordering or that oversize cannot pass if validate were ever after copy.
+
+4. **Normal mode `!s.started`** — Version exercised before startup; scope-specific; not a mismatch by itself, but shows tests are not full session lifecycle proof.
+
+5. **256 in cap array** — PLAN: “scripted full-prefix case, not a capacity observed by84” — fine as test metadata; don’t treat as observed native capacity policy.
+
+---
+
+## `validateReply` on failed transport (context from patch hunk)
+
+For `SessionVersion`, the new checks run only after `transport_status == Success` (earlier lines return `true` on non-success). That pattern appears pre-existing in the surrounding function. **Not introduced by the SessionVersion block**, but it means owner validation does not inspect version bytes on non-success returns. Whether that is safe depends on code not shown; not cleared here.
+
+---
+
+## Summary table: mismatches / risk items
+
+| # | Severity (review) | Item |
+|---|-------------------|------|
+| 1 | Contract | Interior NUL allowed + tested; old `copyReply` forbade them. |
+| 2 | Assurance gap | No local `size <= capacity` before `memcpy`; depends on unpatch-shown `request` + comment. |
+| 3 | Scope | `CapacityLimit` rejects large positive capacities despite “no clamping” comment referring to not shrinking caller capacity within budget. |
+| 4 | Coverage | Host `queryNativeVersion` / module pin / shutdown `LifecycleRefused` untested by portable runner. |
+| 5 | Coverage | Mutation tests only capacity 2; max-budget oversize on wire only partially implied (fits budget, fails owner). |
+| 6 | Decode surface | Relaxed top-level `r.bytes.length` reject; version/non-version split relies on `versionOp` / later guard. |
+
+---
+
+## Verdict (narrow)
+
+The patch and tests give **credible source-level evidence** for: positive capacity forwarded in `value[0]` up to `1048448`, invalid/null/over-budget rejected before transport, bytes-channel replies with NUL-terminated prefix copied without clobbering guard/tail in scripted success cases, and several reply mutations leaving the caller buffer unchanged **when** Supplier runs decode → validate before return.
+
+This review does **not** grant clearance for: production `request`/LiveChannel ordering, host native resource behavior, ABI/public compat, full reply-field hygiene across all opcodes, or equivalence to the **removed** fixed-256 / no-interior-NUL portable contract.
+
+If you want the next pass to trace `Session::request` and LiveChannel for SessionVersion only, that requires those files in scope (Agent mode + sources), still without vendor inference.

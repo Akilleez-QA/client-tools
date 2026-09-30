@@ -1,0 +1,103 @@
+{
+  "changed_source_or_headers": [
+    "backend-boundary24/pipe/ClientMilesPipe.cpp",
+    "backend-boundary24/pipe/PipeCore.cpp",
+    "backend-boundary24/pipe/PipeCore.h",
+    "paired-bootstrap59/host.cpp",
+    "session-version22/session_version.cpp",
+    "session-version22/session_version.h",
+    "session-version22/session_version_host.cpp",
+    "session-version22/session_version_host.h",
+    "startup-bridge23/backend.h",
+    "startup-bridge23/reply.h"
+  ],
+  "selected": [
+    {
+      "unit": "x86-paired-bootstrap59-host",
+      "reasons": [
+        "paired-bootstrap59/host.cpp",
+        "session-version22/session_version.h",
+        "session-version22/session_version_host.h",
+        "startup-bridge23/backend.h",
+        "startup-bridge23/reply.h"
+      ]
+    },
+    {
+      "unit": "x86-session-version22-session_version_host",
+      "reasons": [
+        "session-version22/session_version.h",
+        "session-version22/session_version_host.cpp",
+        "session-version22/session_version_host.h"
+      ]
+    },
+    {
+      "unit": "x86-session-version22-session_version",
+      "reasons": [
+        "session-version22/session_version.cpp",
+        "session-version22/session_version.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-ClientMilesPipe",
+      "reasons": [
+        "backend-boundary24/pipe/ClientMilesPipe.cpp",
+        "backend-boundary24/pipe/PipeCore.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-PipeCore",
+      "reasons": [
+        "backend-boundary24/pipe/PipeCore.cpp",
+        "backend-boundary24/pipe/PipeCore.h",
+        "session-version22/session_version.h",
+        "startup-bridge23/reply.h"
+      ]
+    },
+    {
+      "unit": "amd64-pipe-LiveChannel",
+      "reasons": [
+        "backend-boundary24/pipe/PipeCore.h",
+        "session-version22/session_version.h",
+        "startup-bridge23/reply.h"
+      ]
+    },
+    {
+      "unit": "amd64-session-version22-session_version",
+      "reasons": [
+        "session-version22/session_version.cpp",
+        "session-version22/session_version.h"
+      ]
+    }
+  ],
+  "omitted_unchanged_units": [
+    "x86-host-runtime50-host_file_runtime",
+    "x86-host-runtime50-host_sdk_callbacks",
+    "x86-host-runtime50-host_install",
+    "x86-host-callback-context41-call_context",
+    "x86-host-file-consumption49-file_tokens",
+    "x86-host-file-consumption49-reply_transaction",
+    "x86-host-candidate-host_dispatch",
+    "x86-startup-metadata-v4-metadata_host",
+    "x86-transport-candidate-codec",
+    "x86-callback-protocol48-file_protocol",
+    "x86-session-file-admission34-coordinator",
+    "x86-pipe-transport-candidate-endpoint",
+    "x86-startup-metadata-v4-metadata_wire",
+    "x86-file-channel26-file_channel",
+    "x86-callback-reentry47-invocation_guard",
+    "amd64-plain-boundary52-failure_boundary",
+    "amd64-client-runtime53-client_file_runtime",
+    "amd64-callback-control45-host_association_mapper",
+    "amd64-file-owner36-session_file_owner",
+    "amd64-selected-file-services44-selected_services",
+    "amd64-file-executor33-FileInvocationJob",
+    "amd64-transport-candidate-codec",
+    "amd64-callback-protocol48-file_protocol",
+    "amd64-session-file-admission34-coordinator",
+    "amd64-pipe-transport-candidate-endpoint",
+    "amd64-startup-metadata-v4-metadata_wire",
+    "amd64-file-channel26-file_channel",
+    "amd64-callback-reentry47-invocation_guard"
+  ],
+  "basis": "All35 native77 unit identities/closures; native86 current28 exact import sets; independently rewalked composed local quoted headers for all35, identical edges; only new angle inclusion is private Mss.h in x86 version helper."
+}

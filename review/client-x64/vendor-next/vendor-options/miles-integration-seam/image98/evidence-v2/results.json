@@ -1,0 +1,123 @@
+{
+  "scope": "actual93 Core/Session, codec/reply, registry and BufferUpload; scripted Channel and Runtime; no host/SDK/Endpoint/ACK",
+  "start": 1790796481.581687,
+  "freeze_sha256": "9a8e2673fdb7d56edd32938d8ada35592d97e2c2e7438cdba99b75dfb092821d",
+  "compile": {
+    "command": [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-fno-omit-frame-pointer",
+      "-include",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/compat.h",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/tests.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/tree/transport-candidate/codec.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/tree/buffer-upload-candidate/buffer_upload.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/tree/session-version22/session_version.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/tree/startup-metadata-v4/metadata_wire.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/tree/callback-reentry47/invocation_guard.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/evidence-v2/image98-portable"
+    ],
+    "log": "build.log",
+    "exit_code": 0,
+    "start": 1790796481.5824847,
+    "end": 1790796483.9500685
+  },
+  "processes": [
+    {
+      "mode": "success",
+      "command": [
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/evidence-v2/image98-portable",
+        "success"
+      ],
+      "log": "success.log",
+      "exit_code": 0,
+      "start": 1790796483.9501157,
+      "end": 1790796483.9659204,
+      "markers": {
+        "PASS literal-signed-results-sequential-retirement": 1,
+        "PASS literal-cross-frame-reconstruction": 1
+      },
+      "assertions": 910
+    },
+    {
+      "mode": "budget",
+      "command": [
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/evidence-v2/image98-portable",
+        "budget"
+      ],
+      "log": "budget.log",
+      "exit_code": 0,
+      "start": 1790796483.9660652,
+      "end": 1790796483.9817746,
+      "markers": {
+        "PASS explicit-two-N-budget-restoration": 1
+      },
+      "assertions": 357
+    },
+    {
+      "mode": "malformed-begin",
+      "command": [
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/evidence-v2/image98-portable",
+        "malformed-begin"
+      ],
+      "log": "malformed-begin.log",
+      "exit_code": 0,
+      "start": 1790796483.9818807,
+      "end": 1790796483.9895465,
+      "markers": {
+        "PASS malformed-begin-terminal-no-classification-return": 1
+      },
+      "assertions": 47
+    },
+    {
+      "mode": "refused-release",
+      "command": [
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/evidence-v2/image98-portable",
+        "refused-release"
+      ],
+      "log": "refused-release.log",
+      "exit_code": 0,
+      "start": 1790796483.9896276,
+      "end": 1790796483.9972088,
+      "markers": {
+        "PASS refused-release-terminal-no-classification-return": 1
+      },
+      "assertions": 182
+    },
+    {
+      "mode": "malformed-release",
+      "command": [
+        "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/image98/evidence-v2/image98-portable",
+        "malformed-release"
+      ],
+      "log": "malformed-release.log",
+      "exit_code": 0,
+      "start": 1790796483.9972963,
+      "end": 1790796484.012903,
+      "markers": {
+        "PASS malformed-release-terminal-no-classification-return": 1
+      },
+      "assertions": 182
+    }
+  ],
+  "passed": true,
+  "sanitizer_environment": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "before_mismatches": [],
+  "scenario_count": 6,
+  "assertion_count": 1678,
+  "after_mismatches": [],
+  "freeze_changed": false,
+  "end": 1790796484.0134861
+}

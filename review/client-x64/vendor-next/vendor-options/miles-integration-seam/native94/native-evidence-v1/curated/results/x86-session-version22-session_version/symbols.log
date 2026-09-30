@@ -1,0 +1,60 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native94\results\x86-session-version22-session_version\x86-session-version22-session_version.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000191 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   C2, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   B4, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length  304, #relocs   10, #linenums    0, checksum 7950CD5C
+008 00000000 SECT4  notype       Static       | .text$mn
+    Section length   21, #relocs    0, #linenums    0, checksum  7EE8099, selection    2 (pick any)
+00A 00000000 SECT5  notype       Static       | .text$di
+    Section length    D, #relocs    0, #linenums    0, checksum A512431E, selection    2 (pick any)
+00C 00000000 SECT6  notype       Static       | .text$di
+    Section length    D, #relocs    0, #linenums    0, checksum A512431E, selection    2 (pick any)
+00E 00000000 SECT7  notype       Static       | .text$mn
+    Section length   27, #relocs    1, #linenums    0, checksum D2B43191, selection    2 (pick any)
+010 00000000 UNDEF  notype ()    External     | __hypot
+011 00000000 SECT7  notype ()    External     | _hypot
+012 00000000 SECT6  notype ()    Static       | ??__Epiecewise_construct@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'piecewise_construct''(void))
+013 00000000 SECT5  notype ()    Static       | ??__Eallocator_arg@std@@YAXXZ (void __cdecl std::`dynamic initializer for 'allocator_arg''(void))
+014 00000000 SECT4  notype ()    External     | ??0Bytes@MilesTransport@@QAE@PBXI@Z (public: __thiscall MilesTransport::Bytes::Bytes(void const *,unsigned int))
+015 00000000 UNDEF  notype ()    External     | ?decodeCall@MilesTransport@@YA_NUBytes@1@AAUHeader@MilesWire@@AAUCall@4@@Z (bool __cdecl MilesTransport::decodeCall(struct MilesTransport::Bytes,struct MilesWire::Header &,struct MilesWire::Call &))
+016 00000000 UNDEF  notype ()    External     | ?encodeResult@MilesTransport@@YA_NUHeader@MilesWire@@ABUResult@3@UBytes@1@2AAV?$vector@EV?$allocator@E@std@@@std@@@Z (bool __cdecl MilesTransport::encodeResult(struct MilesWire::Header,struct MilesWire::Result const &,struct MilesTransport::Bytes,struct MilesTransport::Bytes,class std::vector<unsigned char,class std::allocator<unsigned char> > &))
+017 00000000 SECT3  notype ()    External     | ?validCapacity@MilesSessionVersion@@YA_NI@Z (bool __cdecl MilesSessionVersion::validCapacity(unsigned int))
+018 00000030 SECT3  notype ()    External     | ?validateQuery@MilesSessionVersion@@YA_NUBytes@MilesTransport@@AAUHeader@MilesWire@@AAI@Z (bool __cdecl MilesSessionVersion::validateQuery(struct MilesTransport::Bytes,struct MilesWire::Header &,unsigned int &))
+019 00000170 SECT3  notype ()    External     | ?makeReply@MilesSessionVersion@@YA_NABUHeader@MilesWire@@UBytes@MilesTransport@@AAV?$vector@EV?$allocator@E@std@@@std@@@Z (bool __cdecl MilesSessionVersion::makeReply(struct MilesWire::Header const &,struct MilesTransport::Bytes,class std::vector<unsigned char,class std::allocator<unsigned char> > &))
+01A 00000250 SECT3  notype ()    External     | ?nullHandle@?A0x0e7853ae@MilesSessionVersion@@YA_NABUHandle@MilesWire@@@Z (bool __cdecl MilesSessionVersion::`anonymous namespace'::nullHandle(struct MilesWire::Handle const &))
+01B 00000290 SECT3  notype ()    External     | ?requestHeader@?A0x0e7853ae@MilesSessionVersion@@YA_NABUHeader@MilesWire@@@Z (bool __cdecl MilesSessionVersion::`anonymous namespace'::requestHeader(struct MilesWire::Header const &))
+01C 00000000 UNDEF  notype ()    External     | @__security_check_cookie@4
+01D 00000000 UNDEF  notype ()    External     | _memset
+01E 00000000 SECT8  notype       Static       | .bss
+    Section length    2, #relocs    0, #linenums    0, checksum        0
+020 00000001 SECT8  notype       Static       | _piecewise_construct
+021 00000000 SECT8  notype       Static       | _allocator_arg
+022 00000000 UNDEF  notype       External     | ___security_cookie
+023 00000000 UNDEF  notype       External     | __fltused
+024 00000000 SECT9  notype       Static       | .CRT$XCU
+    Section length    8, #relocs    2, #linenums    0, checksum        0
+026 00000000 SECT9  notype       Static       | _piecewise_construct$initializer$
+027 00000004 SECT9  notype       Static       | _allocator_arg$initializer$
+
+String Table Size = 0x35B bytes
+
+  Summary
+
+           8 .CRT$XCU
+           2 .bss
+          B4 .debug$S
+          C2 .drectve
+          1A .text$di
+         34C .text$mn

@@ -1,0 +1,7 @@
+# Parent native94 prospective review
+
+Read plan, exact source patch, local staging/collection driver, complete remote runner, affected-unit selection and deltas against86. All71 inputs hash-match; each selected candidate file matches exact90-over86. Public70 is unchanged. Input manifest a15036d2aa6e2f11a8a3fdf44241e48fc5510573778c64f8d6085a438f713de9. Runner c44a9fe2b2d10bc6906f323f1a855947e18fba6b118f6a28d55ad0941e981fed.
+
+Execute once: seven actual objects, Win323 and AMD644. New private SDK angle include is limited to real host helper, with actual Windows imports required. All client API54 names/Core delegates and guard references must appear in observed COFF symbols. No replacement SDK/test suppliers enter this gate. The fresh destination and compiler slot guard prevent overlap; tool/9536 snapshot and selected source identities are verified before/after. Actual system header reads are observed once per compilation only. Stop and retain first failure; no retries or semantic relaxation. Curate authored/text evidence only; environment snapshots, binary/archive transport and object bytes stay private.
+
+Passing proves selected object compilation/import shape only, not native version resource behavior, link, actual pipe delivery, fidelity, or normal shutdown. Source-only closure selection omits28 unchanged units with their prior evidence explicitly separate. Portable92 already passed its own declared substituted-channel tests; it is not a runtime proof for this gate.

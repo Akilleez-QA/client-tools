@@ -1,0 +1,22 @@
+[
+  "/usr/bin/clang++",
+  "-std=c++11",
+  "-Wall",
+  "-Wextra",
+  "-Wpedantic",
+  "-Werror",
+  "-O1",
+  "-g",
+  "-fsanitize=address,undefined",
+  "-fno-sanitize-recover=all",
+  "-fno-omit-frame-pointer",
+  "-include",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/compat.h",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/tests.cpp",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/tree/transport-candidate/codec.cpp",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/tree/session-version22/session_version.cpp",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/tree/startup-metadata-v4/metadata_wire.cpp",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/tree/callback-reentry47/invocation_guard.cpp",
+  "-o",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/version92/evidence-v1/tests"
+]
