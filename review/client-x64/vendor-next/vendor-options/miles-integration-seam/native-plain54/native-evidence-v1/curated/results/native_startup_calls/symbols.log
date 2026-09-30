@@ -1,0 +1,81 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native-plain54\results\native_startup_calls\native_startup_calls.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   EF, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   98, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .text$mn
+    Section length   6A, #relocs    4, #linenums    0, checksum CAF2D5F0, selection    1 (pick no duplicates)
+008 00000000 SECT4  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+00A 00000000 SECT5  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+00C 00000000 SECT6  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+00E 00000000 SECT7  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+010 00000000 SECT8  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+012 00000000 SECT9  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+014 00000000 SECTA  notype       Static       | .text$mn
+    Section length   2D, #relocs    1, #linenums    0, checksum 7B1E5260, selection    1 (pick no duplicates)
+016 00000000 SECTB  notype       Static       | .text$mn
+    Section length    7, #relocs    1, #linenums    0, checksum 9A0130A6, selection    1 (pick no duplicates)
+018 00000000 SECTB  notype ()    External     | ?startup@ClientMilesNativeCalls52@@YAHXZ (int __cdecl ClientMilesNativeCalls52::startup(void))
+019 00000000 SECT9  notype ()    External     | ?shutdown@ClientMilesNativeCalls52@@YAXXZ (void __cdecl ClientMilesNativeCalls52::shutdown(void))
+01A 00000000 SECT4  notype ()    External     | ?get_preference@ClientMilesNativeCalls52@@YA_JI@Z (__int64 __cdecl ClientMilesNativeCalls52::get_preference(unsigned int))
+01B 00000000 SECT7  notype ()    External     | ?set_preference@ClientMilesNativeCalls52@@YA_JI_J@Z (__int64 __cdecl ClientMilesNativeCalls52::set_preference(unsigned int,__int64))
+01C 00000000 SECT5  notype ()    External     | ?last_error@ClientMilesNativeCalls52@@YAPEBDXZ (char const * __cdecl ClientMilesNativeCalls52::last_error(void))
+01D 00000000 SECT8  notype ()    External     | ?set_redist_directory@ClientMilesNativeCalls52@@YAPEBDPEBD@Z (char const * __cdecl ClientMilesNativeCalls52::set_redist_directory(char const *))
+01E 00000000 SECT3  notype ()    External     | ?MSS_version@ClientMilesNativeCalls52@@YAXPEADH@Z (void __cdecl ClientMilesNativeCalls52::MSS_version(char *,int))
+01F 00000000 SECT6  notype ()    External     | ?open_digital_driver@ClientMilesNativeCalls52@@YAPEAUDigitalDriver@ClientMiles@@IHHI@Z (struct ClientMiles::DigitalDriver * __cdecl ClientMilesNativeCalls52::open_digital_driver(unsigned int,int,int,unsigned int))
+020 00000000 SECTA  notype ()    External     | ?speaker_configuration_spec@ClientMilesNativeCalls52@@YAHPEAUDigitalDriver@ClientMiles@@@Z (int __cdecl ClientMilesNativeCalls52::speaker_configuration_spec(struct ClientMiles::DigitalDriver *))
+021 00000000 UNDEF  notype       External     | __imp_FreeLibrary
+022 00000000 UNDEF  notype       External     | __imp_LoadStringA
+023 00000000 UNDEF  notype       External     | __imp_LoadLibraryA
+024 00000000 UNDEF  notype       External     | __imp_AIL_startup
+025 00000000 UNDEF  notype       External     | __imp_AIL_get_preference
+026 00000000 UNDEF  notype       External     | __imp_AIL_shutdown
+027 00000000 UNDEF  notype       External     | __imp_AIL_set_preference
+028 00000000 UNDEF  notype       External     | __imp_AIL_last_error
+029 00000000 UNDEF  notype       External     | __imp_AIL_open_digital_driver
+02A 00000000 UNDEF  notype       External     | __imp_AIL_set_redist_directory
+02B 00000000 UNDEF  notype       External     | __imp_AIL_speaker_configuration
+02C 00000000 SECT3  notype       Label        | $LN6
+02D 00000000 SECTA  notype       Label        | $LN4
+02E 00000000 SECTC  notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum ED4F81A7, selection    5 (pick associative Section 0x3)
+030 00000000 SECTC  notype       Static       | $unwind$?MSS_version@ClientMilesNativeCalls52@@YAXPEADH@Z
+031 00000000 SECTD  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 412BBC73, selection    5 (pick associative Section 0x3)
+033 00000000 SECTD  notype       Static       | $pdata$?MSS_version@ClientMilesNativeCalls52@@YAXPEADH@Z
+034 00000000 SECTE  notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum 37887F31, selection    5 (pick associative Section 0xA)
+036 00000000 SECTE  notype       Static       | $unwind$?speaker_configuration_spec@ClientMilesNativeCalls52@@YAHPEAUDigitalDriver@ClientMiles@@@Z
+037 00000000 SECTF  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 62737787, selection    5 (pick associative Section 0xA)
+039 00000000 SECTF  notype       Static       | $pdata$?speaker_configuration_spec@ClientMilesNativeCalls52@@YAHPEAUDigitalDriver@ClientMiles@@@Z
+03A 00000000 SECT10 notype       Static       | .rdata
+    Section length    A, #relocs    0, #linenums    0, checksum E0A1FAF7, selection    2 (pick any)
+03C 00000000 SECT10 notype       External     | ??_C@_09PMNEGNHO@MSS64?4DLL?$AA@ (`string')
+
+String Table Size = 0x466 bytes
+
+  Summary
+
+          98 .debug$S
+          EF .drectve
+          18 .pdata
+           A .rdata
+          C8 .text$mn
+          18 .xdata

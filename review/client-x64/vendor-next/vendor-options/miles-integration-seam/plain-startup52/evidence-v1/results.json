@@ -1,0 +1,560 @@
+[
+  {
+    "mode": "normal",
+    "scenarios": 7,
+    "checks": 258,
+    "returncode": 0
+  },
+  {
+    "mode": "missing-reporter",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED"
+    ]
+  },
+  {
+    "mode": "null-bind",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED"
+    ]
+  },
+  {
+    "mode": "duplicate-bind",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "REPORT:1"
+    ]
+  },
+  {
+    "mode": "null-redist",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "REPORT:2"
+    ]
+  },
+  {
+    "mode": "null-version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "REPORT:2"
+    ]
+  },
+  {
+    "mode": "zero-version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "REPORT:2"
+    ]
+  },
+  {
+    "mode": "negative-version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "REPORT:2"
+    ]
+  },
+  {
+    "mode": "1:0:startup",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:startup",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:0:shutdown",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:shutdown",
+      "REPORT:3",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "1:0:get_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:get_preference",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:0:set_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_preference",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:0:last_error",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:last_error",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:0:set_redist_directory",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_redist_directory",
+      "REPORT:3",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "1:0:MSS_version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:MSS_version",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:0:open_digital_driver",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:open_digital_driver",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:0:speaker_configuration_spec",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:speaker_configuration_spec",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:startup",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:startup",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:shutdown",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:shutdown",
+      "REPORT:3",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "1:1:get_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:get_preference",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:set_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_preference",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:last_error",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:last_error",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:set_redist_directory",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_redist_directory",
+      "REPORT:3",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "1:1:MSS_version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:MSS_version",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:open_digital_driver",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:open_digital_driver",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:1:speaker_configuration_spec",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:speaker_configuration_spec",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:startup",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:startup",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:shutdown",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:shutdown",
+      "REPORT:3",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "1:2:get_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:get_preference",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:set_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_preference",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:last_error",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:last_error",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:set_redist_directory",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_redist_directory",
+      "REPORT:3",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "1:2:MSS_version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:MSS_version",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:open_digital_driver",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:open_digital_driver",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "1:2:speaker_configuration_spec",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:speaker_configuration_spec",
+      "REPORT:3"
+    ]
+  },
+  {
+    "mode": "2:0:startup",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:startup",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:0:shutdown",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:shutdown",
+      "REPORT:4",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "2:0:get_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:get_preference",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:0:set_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_preference",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:0:last_error",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:last_error",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:0:set_redist_directory",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_redist_directory",
+      "REPORT:4",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "2:0:MSS_version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:MSS_version",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:0:open_digital_driver",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:open_digital_driver",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:0:speaker_configuration_spec",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:speaker_configuration_spec",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:startup",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:startup",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:shutdown",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:shutdown",
+      "REPORT:4",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "2:1:get_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:get_preference",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:set_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_preference",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:last_error",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:last_error",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:set_redist_directory",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_redist_directory",
+      "REPORT:4",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "2:1:MSS_version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:MSS_version",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:open_digital_driver",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:open_digital_driver",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:1:speaker_configuration_spec",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:speaker_configuration_spec",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:startup",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:startup",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:shutdown",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:shutdown",
+      "REPORT:4",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "2:2:get_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:get_preference",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:set_preference",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_preference",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:last_error",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:last_error",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:set_redist_directory",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:set_redist_directory",
+      "REPORT:4",
+      "RETAINED_AT_REPORT"
+    ]
+  },
+  {
+    "mode": "2:2:MSS_version",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:MSS_version",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:open_digital_driver",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:open_digital_driver",
+      "REPORT:4"
+    ]
+  },
+  {
+    "mode": "2:2:speaker_configuration_spec",
+    "returncode": -6,
+    "expected_lines": [
+      "CHILD_STARTED",
+      "NATIVE_THROW:speaker_configuration_spec",
+      "REPORT:4"
+    ]
+  }
+]

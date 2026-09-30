@@ -1,0 +1,47 @@
+{
+  "attribution": "parent re-read of same native58 experiment, not independent execution",
+  "passed": true,
+  "objects": [
+    {
+      "architecture": "x86",
+      "unit": "host-runtime",
+      "status": "compiled",
+      "exit_code": 0,
+      "coff_machine": "0x14c"
+    },
+    {
+      "architecture": "x86",
+      "unit": "host-thunks",
+      "status": "compiled",
+      "exit_code": 0,
+      "coff_machine": "0x14c"
+    },
+    {
+      "architecture": "x86",
+      "unit": "host-install",
+      "status": "compiled",
+      "exit_code": 0,
+      "coff_machine": "0x14c"
+    },
+    {
+      "architecture": "amd64",
+      "unit": "client-runtime",
+      "status": "compiled",
+      "exit_code": 0,
+      "coff_machine": "0x8664"
+    },
+    {
+      "architecture": "amd64",
+      "unit": "client-mapper",
+      "status": "compiled",
+      "exit_code": 0,
+      "coff_machine": "0x8664"
+    }
+  ],
+  "sdk_setter_import": "__imp__AIL_set_file_callbacks@16",
+  "raw_results_sha256": "e846d4d8fb72f08d0a8bdb2c5bfb73de60fcac06ae4fa8f82d7af1d06bb51db3",
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "linked": false,
+  "runtime_executed": false
+}

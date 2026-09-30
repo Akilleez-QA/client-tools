@@ -1,0 +1,98 @@
+Microsoft (R) COFF/PE Dumper Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\native-plain54\results\failure_boundary\failure_boundary.obj
+
+File Type: COFF OBJECT
+
+COFF SYMBOL TABLE
+000 00E19EB5 ABS    notype       Static       | @comp.id
+001 80000190 ABS    notype       Static       | @feat.00
+002 00000000 SECT1  notype       Static       | .drectve
+    Section length   C1, #relocs    0, #linenums    0, checksum        0
+004 00000000 SECT2  notype       Static       | .debug$S
+    Section length   90, #relocs    0, #linenums    0, checksum        0
+006 00000000 SECT3  notype       Static       | .bss
+    Section length    8, #relocs    0, #linenums    0, checksum        0
+008 00000000 SECT3  notype       External     | ?reporter@?A0xa20d36b9@ClientMilesPrivate52@@3P6AXIPEBD@ZEA (void (__cdecl* ClientMilesPrivate52::`anonymous namespace'::reporter)(unsigned int,char const *))
+009 00000000 SECT4  notype       Static       | .text$mn
+    Section length   31, #relocs    4, #linenums    0, checksum E49E9BF2, selection    1 (pick no duplicates)
+00B 00000000 SECT5  notype       Static       | .text$mn
+    Section length   22, #relocs    2, #linenums    0, checksum 64EA7B4B, selection    1 (pick no duplicates)
+00D 00000000 SECT6  notype       Static       | .text$x
+    Section length   1B, #relocs    1, #linenums    0, checksum E159E7C1, selection    5 (pick associative Section 0x5)
+00F 00000000 SECT7  notype       Static       | .text$mn
+    Section length   25, #relocs    3, #linenums    0, checksum  8404C2B, selection    1 (pick no duplicates)
+011 00000000 SECT4  notype ()    External     | ?bindFatalReporter@ClientMilesPrivate52@@YAXP6AXIPEBD@Z@Z (void __cdecl ClientMilesPrivate52::bindFatalReporter(void (__cdecl*)(unsigned int,char const *)))
+012 00000000 SECT7  notype ()    External     | ?requireFatalReporter@ClientMilesPrivate52@@YAXXZ (void __cdecl ClientMilesPrivate52::requireFatalReporter(void))
+013 00000000 SECT5  notype ()    External     | ?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z (void __cdecl ClientMilesPrivate52::fail(enum ClientMilesPrivate52::Fault,char const *))
+014 00000000 UNDEF  notype ()    External     | abort
+015 00000000 SECT6  notype ()    Static       | ?catch$0@?0??fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z@4HA (int `void __cdecl ClientMilesPrivate52::fail(enum fail::Fault,char const *)'::`1'::catch$0)
+016 00000000 UNDEF  notype ()    External     | __CxxFrameHandler3
+017 00000031 SECT4  notype       Label        | $LN5
+018 00000000 SECT4  notype       Label        | $LN7
+019 00000025 SECT7  notype       Label        | $LN4
+01A 00000000 SECT7  notype       Label        | $LN7
+01B 0000001C SECT5  notype       Label        | $LN8
+01C 00000022 SECT5  notype       Label        | $LN9
+01D 0000000D SECT6  notype ()    Static       | __catch$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z$0
+01E 00000000 SECT5  notype       Label        | $LN11
+01F 00000000 SECT8  notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum  FC539D1, selection    5 (pick associative Section 0x4)
+021 00000000 SECT8  notype       Static       | $unwind$?bindFatalReporter@ClientMilesPrivate52@@YAXP6AXIPEBD@Z@Z
+022 00000000 SECT9  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 496753E3, selection    5 (pick associative Section 0x4)
+024 00000000 SECT9  notype       Static       | $pdata$?bindFatalReporter@ClientMilesPrivate52@@YAXP6AXIPEBD@Z@Z
+025 00000000 SECTA  notype       Static       | .xdata
+    Section length    8, #relocs    0, #linenums    0, checksum  FC539D1, selection    5 (pick associative Section 0x7)
+027 00000000 SECTA  notype       Static       | $unwind$?requireFatalReporter@ClientMilesPrivate52@@YAXXZ
+028 00000000 SECTB  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum B1966C32, selection    5 (pick associative Section 0x7)
+02A 00000000 SECTB  notype       Static       | $pdata$?requireFatalReporter@ClientMilesPrivate52@@YAXXZ
+02B 00000000 SECTC  notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 51E3B7BC, selection    5 (pick associative Section 0x5)
+02D 00000000 SECTC  notype       Static       | $unwind$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+02E 00000000 SECTD  notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum BB53652B, selection    5 (pick associative Section 0x5)
+030 00000000 SECTD  notype       Static       | $pdata$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+031 00000000 SECTE  notype       Static       | .rdata
+    Section length   28, #relocs    3, #linenums    0, checksum 6D2E98F5, selection    5 (pick associative Section 0x5)
+033 00000000 SECTE  notype       Static       | $cppxdata$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+034 00000000 SECTF  notype       Static       | .xdata
+    Section length   10, #relocs    0, #linenums    0, checksum 8999943C, selection    5 (pick associative Section 0x5)
+036 00000000 SECTF  notype       Static       | $stateUnwindMap$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+037 00000000 SECT10 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum 570F4CF1, selection    5 (pick associative Section 0x5)
+039 00000000 SECT10 notype       Static       | $tryMap$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+03A 00000000 SECT11 notype       Static       | .xdata
+    Section length   14, #relocs    1, #linenums    0, checksum   677058, selection    5 (pick associative Section 0x5)
+03C 00000000 SECT11 notype       Static       | $handlerMap$0$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+03D 00000000 SECT12 notype       Static       | .xdata
+    Section length   20, #relocs    4, #linenums    0, checksum 808E9B16, selection    5 (pick associative Section 0x5)
+03F 00000000 SECT12 notype       Static       | $ip2state$?fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z
+040 00000000 SECT13 notype       Static       | .xdata
+    Section length   10, #relocs    2, #linenums    0, checksum 5840A276, selection    5 (pick associative Section 0x5)
+042 00000000 SECT13 notype       Static       | $unwind$?catch$0@?0??fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z@4HA
+043 00000000 SECT14 notype       Static       | .pdata
+    Section length    C, #relocs    3, #linenums    0, checksum 21D12D7D, selection    5 (pick associative Section 0x5)
+045 00000000 SECT14 notype       Static       | $pdata$?catch$0@?0??fail@ClientMilesPrivate52@@YAXW4Fault@1@PEBD@Z@4HA
+046 00000000 SECT15 notype       Static       | .rdata
+    Section length   3B, #relocs    0, #linenums    0, checksum D4A1DA2B, selection    2 (pick any)
+048 00000000 SECT15 notype       External     | ??_C@_0DL@ONJLEIHE@Miles?5fatal?5reporter?5must?5be?5bou@ (`string')
+049 00000000 SECT16 notype       Static       | .rdata
+    Section length   36, #relocs    0, #linenums    0, checksum 9A3A6002, selection    2 (pick any)
+04B 00000000 SECT16 notype       External     | ??_C@_0DG@FAGGPCAA@Miles?5fatal?5reporter?5was?5not?5bou@ (`string')
+
+String Table Size = 0x4FB bytes
+
+  Summary
+
+           8 .bss
+          90 .debug$S
+          C1 .drectve
+          30 .pdata
+          99 .rdata
+          78 .text$mn
+          1B .text$x
+          88 .xdata

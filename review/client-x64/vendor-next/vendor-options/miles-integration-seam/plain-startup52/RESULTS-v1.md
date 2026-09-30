@@ -1,0 +1,9 @@
+# Plain startup52 — first portable gate
+
+Passed seven normal scenarios (258 assertions) and 61 isolated negative scenarios on the first execution. The strict Clang C++11 build produced no output or diagnostics; ASan/UBSan were enabled. Every negative child returned SIGABRT with exactly its expected flushed markers and empty stderr. All frozen source/test inputs remained unchanged.
+
+Real public wrapper/snapshot/failure code was linked with explicitly scripted private native calls. Normal cases exercised pre-startup calls, independent text copies, retained setter inputs, null/empty distinction, self-alias copying, wide signed preferences, full driver arguments, precise caller-buffer writes, and two text lifecycles. Negative cases exercised precondition rejection before native entry and standard/nonstandard exceptions across nine functions with returning/throwing reporters. Core dumps were disabled. No engine, allocator-fault workload, SDK, vendor library or Windows runtime was executed.
+
+Original unrun test draft and its weaker missing-reporter oracle remain preserved. The parent identified and corrected that oracle before first execution. REVIEW-parent-pretest.md accurately records a Markdown-save path error during invocation; it is not falsely presented as a file that existed before the run. The prospective source/test manifests, FIRST-GATE.md and runner were already frozen.
+
+Raw evidence: evidence-v1/completion.json, results.json, command.json, normal.stdout, all negative stdout/stderr, and before/after input hashes. This is portable private-layer evidence, not vendor shutdown quiescence, real engine reporter behavior, allocation-fault handling, complete facade implementation or game fidelity. Native declarations and engine-header compilation are separately scoped in native-plain54.

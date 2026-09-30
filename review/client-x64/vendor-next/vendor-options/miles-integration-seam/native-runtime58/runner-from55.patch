@@ -1,0 +1,11 @@
+--- native-runtime55/run-native.py
++++ native-runtime58/run-native.py
+@@ -6,7 +6,7 @@
+ from symbol_parser import undefined_symbols,defined_symbols,has_required,no_miles_imports
+ if os.name!='nt' or sys.argv[1:]!=['--approved-five-objects']:
+     raise SystemExit('Windows and explicit approved five-object invocation required')
+-ROOT=Path('C:/native-runtime55');OUT=ROOT/'results'
++ROOT=Path('C:/native-runtime58');OUT=ROOT/'results'
+ VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')
+ UNITS={
+  'x86':[('host-runtime','host/host-runtime50/host_file_runtime.cpp'),

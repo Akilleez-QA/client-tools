@@ -1,0 +1,9 @@
+# Parent review before runtime58 object gate
+
+Native55 is validly failed: host runtime object compiled; SDK thunk failed C4702/C2220 at setter catch. Remaining three objects were unattempted. Parent independently read raw records and recorded55/parent-attribution.json. No ABI success is inferred for the failed thunk.
+
+Parent reviewed the complete setter-only production diff, all39 input hashes/provenance, full runner/local-driver deltas against55. Only setter source and fresh runner root path differ among input payloads. Flags, four callback catches, order and oracles unchanged. The source was deliberately repaired before freezing58; PLAN's inherited phrase 'No source is altered to make this gate pass' means no in-run mutation, not absence of this recorded repair.
+
+Microsoft documents this exact /EHsc plus extern-C unreachable-catch case: https://learn.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-4-c4702?view=msvc-170 (accessed2026-09-30). The change removes the redundant setter-only catch while each actual C++ callback boundary still catches exceptions. This does not claim containment of Windows hardware faults or an SDK which violates its C boundary.
+
+Approve one run-approved-native-v1.py --approved-five-objects invocation. Inputs70a555edcf098999e884e342c1b5f6b372e41e2904eedf054a3dc222eb5e6e2a; runner597c70ac6f356d0617b6d45bba0a3116d92595a3afd30843bcd2ec4f4acab9bc; localdriver02d87fb25ad7b7ebfab6b73f7b8403a1a9844a61ba2e7393e9964b9fd5a871b0. Predict five clean objects and exact SDK import/type/reference checks. Stop first failure; preserve all results; no retry/repair in this invocation. No link, DLL load, engine runtime, product edit or private SDK publication. A pass establishes only the stated object checks and reopens no rejected engine workload.

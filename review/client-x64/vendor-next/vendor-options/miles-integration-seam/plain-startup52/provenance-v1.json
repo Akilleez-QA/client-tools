@@ -1,0 +1,26 @@
+{
+  "scope": "uncompiled source-only nine-operation native startup subset",
+  "public_header": {
+    "source": "public-surface51/candidate/ClientMiles.h",
+    "manifest": "public-surface51/source-manifest-v2.json",
+    "sha256": "15bc15c5a0f14aee9862386cc31f7e9a9c798bf634a5cd84313f7edd1290f9e7",
+    "transformation": "byte-identical corrected51 v2"
+  },
+  "logic_parent": {
+    "source": "backend-boundary24/native/native_miles64.cpp",
+    "sha256": "11e1fe8e3fa87e71fed9457cfa017a29332e2cde1cbff9d2699e63ee0303feb9",
+    "transformation": "retain direct native values and retained-directory strategy; replace public OwnedText/Failure with private snapshots and catch/fatal boundary; restore actual macro writes"
+  },
+  "sdk_private_reference": {
+    "path": "/home/akilleez/Work/swg-source/client-build-next/src/external/3rd/library/miles/include/Mss.h",
+    "sha256": "966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e",
+    "contents_copied": false
+  },
+  "new_sources": [
+    "candidate/native/native_startup_calls.cpp",
+    "candidate/plain_startup.cpp",
+    "candidate/private/failure_boundary.cpp",
+    "candidate/private/failure_boundary.h",
+    "candidate/private/native_startup_calls.h"
+  ]
+}

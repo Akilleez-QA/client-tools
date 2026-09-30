@@ -1,0 +1,20 @@
+[
+  "/usr/bin/clang++",
+  "-std=c++11",
+  "-O1",
+  "-g",
+  "-Wall",
+  "-Wextra",
+  "-Wpedantic",
+  "-Werror",
+  "-fsanitize=address,undefined",
+  "-fno-sanitize-recover=all",
+  "-fno-omit-frame-pointer",
+  "-include",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/plain-startup52/portable-v1/native_compat.h",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/plain-startup52/candidate/plain_startup.cpp",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/plain-startup52/candidate/private/failure_boundary.cpp",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/plain-startup52/portable-v1/tests.cpp",
+  "-o",
+  "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/plain-startup52/evidence-v1/portable-tests"
+]

@@ -1,0 +1,13 @@
+--- host-runtime50/candidate/host-runtime50/host_sdk_callbacks.cpp
++++ host-runtime58/candidate/host-runtime50/host_sdk_callbacks.cpp
+@@ -49,8 +49,8 @@
+     // ambiguous failure remains process terminal; never withdraw this binding.
+     if(InterlockedCompareExchangePointer(reinterpret_cast<PVOID volatile *>(&published),
+                                         &binding,0)!=0)return false;
+-    try {::AIL_set_file_callbacks(&openFile,&closeFile,&seekFile,&readFile);}
+-    catch(...){fatal();}
++    // /EHsc treats this extern-C SDK call as nonthrowing; callback thunks retain their own catches.
++    ::AIL_set_file_callbacks(&openFile,&closeFile,&seekFile,&readFile);
+     return true;
+ }
+ }

@@ -1,0 +1,24 @@
+{
+  "scope": "Authored portable gate only; no compilation or execution. Source freeze separate and unchanged.",
+  "source_manifest_sha256": "d99a5ffdb5e52484ce7a7bbab786300ab2aaf177771f106035468f8e79c38f00",
+  "normal_scenarios": 7,
+  "negative_scenarios": 61,
+  "files": [
+    {
+      "path": "FIRST-GATE.md",
+      "sha256": "0a6d21efafb130b8120c2037fd604b4befbfbcf39e7b8bdebdafb13461d16c0c"
+    },
+    {
+      "path": "run-portable-v1.py",
+      "sha256": "ba4762cc94fe43b875673ff35ac8578f3929e153a5b1b85e6c32682c08f5c740"
+    },
+    {
+      "path": "portable-v1/native_compat.h",
+      "sha256": "476e178df7fa19f6cf4de6bb9e31dc78595d32a8a0f8e400134e575d5cfaceba"
+    },
+    {
+      "path": "portable-v1/tests.cpp",
+      "sha256": "02cdcc211a6d7d41eef6c4e7abc8292c2db15dd731c14f0bee2110bbc8567e7a"
+    }
+  ]
+}
