@@ -1,0 +1,9 @@
+# Native Miles-shaped API70: object gate passes
+
+The single reviewed gate compiled all twelve new VS2013 v120 AMD64 objects with zero compiler diagnostics. Nine are the actual public wrappers, private delegates and failure boundary; two check opposite public/SDK include orders; one uses the real engine header/STLport configuration. All26 authored inputs,9536 reused SDK/engine snapshot files and selected tools matched before/after. System headers were hashed when observed, not again after compilation. Raw staging Python tar-extraction warning is preserved and is not a compiler warning.
+
+All62 public functions now have a native source implementation. Three opaque handle types and both completion callback types are the selected SDK types, checked by compiler type assertions. Registration forwards the callback directly and returns the SDK's actual previous callback. No native callback registry, thunk or vendor structure body was introduced. The native objects carry the expected61 distinct SDK imports; MSS_version is the existing Windows resource macro rather than another SDK import. Public objects depend on private delegates, not SDK exports.
+
+This is source/declaration/object compatibility with the possessed SDK's Win64 declarations. There is no x64 Miles library here; no executable was linked, no callback ran, and no fidelity or shutdown claim follows. The private x86 pipe backend still needs its own implementation and runtime qualification against this interface. Native callbacks remain nonthrowing and caller-owned for their actual registration/quiescence lifetime. A different Miles SDK must be compiled and qualified again.
+
+Parent inspected the same raw result and symbols. Independent outcome review, when present, also reviews this experiment rather than reproducing it. Product remains49d0, unchanged. Root controls the next assembled pipe compile gate.

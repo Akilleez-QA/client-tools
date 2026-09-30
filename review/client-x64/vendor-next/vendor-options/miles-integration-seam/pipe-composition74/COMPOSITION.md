@@ -1,0 +1,15 @@
+# Composition74 — source snapshot, not operational adoption
+
+Base is reviewed71. The public header is exact70 (`952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc`). Driver/sample/stream remain private71 proxies; no SDK tag bodies are introduced and no71 file was overwritten by the older68 core.
+
+Applied only72's driver argument predicate removal and private declaration comment to71 PipeCore. Backend was byte-identical between68/71, so its exact72 revision is selected. Actual frequency, S32 bit depth/provider and flags now reach the existing SDK call; genuine null remains the caller's fallback trigger. One-driver/lifecycle checks and preference restrictions remain.73's registry header is copied exactly from its reviewed host58 origin (`f058c6abcf10d3b5365acb427b7f33d8debe31f4ca2d6c648472916e38960a8f`), restoring Reservation/reserve/publish rather than inventing a new registry.
+
+The71 independent review and73 ASSESSMENT were read. The old incompatible registry is absent from the selected tree. All consumers select the same replacement, including the client file owner. The selected guarded file_channel remains client53's version, preserving47 reentry rejection.
+
+One public wrapper TU routes45 exports into one64-derived Session/runtime/core. Its pure validator still runs before returned/join. No public setter or second registration table is added. The17 missing exports remain those in inherited68 coverage: MSS_version, WAV_info, active_sample_count, digital_CPU_percent, digital_latency, file_error, file_type, get_timer_highest_delay, last_error, lock, register_EOS_callback, register_stream_callback, set_file_callbacks, set_named_sample_file, set_redist_directory, set_sample_file, unlock. That inherited coverage's fixed driver restriction is superseded by72; its definition count remains applicable.
+
+Nine stream exports still lack successful selected Backend routes; five client borrowed controls remain rejected by the host's OwnedSample restriction. EOS identity dispatch, callback TLS adoption, locks, content binding, startup text functions and normal paired shutdown remain incomplete. Successful shutdown request is not callback/file-worker quiescence. Terminal Session destruction is an inherited invariant guard. No operational target or public-ready claim is made.
+
+The source partition now adds file_channel.cpp and invocation_guard.cpp to BOTH architectures: the actual host Runtime calls decodeRequest and that guarded TU requires47. This repairs a prior source-list omission without changing either implementation. The object plan is17 AMD64 client and18 x86 host objects, including actual host.cpp/Backend first. EngineFileWorker implementation remains an external engine dependency; this object gate does not link it or execute it. Excluded native facades/provenance files must never be globbed into this selection.
+
+from71.patch, provenance.json and selected-sources.json define the exact integration. Parents and product are untouched. No build, test, VM, link or runtime action was performed. The separately prepared native74 runner requires parent review and explicit authorization.

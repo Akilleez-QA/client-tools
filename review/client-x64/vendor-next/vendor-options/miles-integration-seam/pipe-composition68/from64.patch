@@ -1,0 +1,236 @@
+--- plain-pipe61/candidate/ClientMilesPipe.cpp
++++ pipe-composition68/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -1,7 +1,7 @@
+-#include "ClientMiles.h"
++#include "../ClientMiles.h"
+ #include "PipeCore.h"
+-#include "../../plain-startup52/candidate/private/failure_boundary.h"
+-#include "../../client-runtime53/candidate/callback-reentry47/invocation_guard.h"
++#include "../../plain-boundary52/failure_boundary.h"
++#include "../../callback-reentry47/invocation_guard.h"
+ #include <exception>
+ 
+ namespace {
+--- paired-bootstrap64/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ pipe-composition68/candidate/backend-boundary24/pipe/PipeCore.cpp
+@@ -1,10 +1,7 @@
+ #include "Session.h"
+ #include "../../callback-reentry47/invocation_guard.h"
+ #include "../../protocol-candidate/pair_outputs.h"
+-#include "../../native-playback28/ClientMilesPlayback.h"
+ #include <list>
+-#include "../../native-stream28/ClientMilesStream.h"
+-#include "../../native-startup25/ClientMilesStartup.h"
+ #include <cstring>
+ #include <limits>
+ 
+@@ -38,12 +35,12 @@
+ namespace {
+ ClientMilesPipe::Session *selectedSession = 0;
+ 
+-void fail(ClientMiles::FailureReason reason, const char *message) {
+-    throw ClientMiles::Failure(reason, message);
++void fail(ClientMilesPipeCore57::FailureReason reason, const char *message) {
++    throw ClientMilesPipeCore57::Failure(reason, message);
+ }
+ 
+ void checkStatus(uint32_t status) {
+-    using ClientMiles::FailureReason;
++    using ClientMilesPipeCore57::FailureReason;
+     switch (status) {
+     case StartupBridge::Success:
+         return;
+@@ -73,16 +70,16 @@
+     }
+ }
+ 
+-ClientMiles::OwnedText ownedText(const StartupBridge::OwnedReply &reply) {
+-    ClientMiles::OwnedText out;
++ClientMilesPipeCore57::OwnedText ownedText(const StartupBridge::OwnedReply &reply) {
++    ClientMilesPipeCore57::OwnedText out;
+     out.isNull = reply.result.null_mask == MilesStartup::TextNull;
+     if (!out.isNull) {
+         if (reply.text.empty() || reply.text.back() ||
+             std::memchr(&reply.text[0], 0, reply.text.size() - 1))
+-            fail(ClientMiles::FailureReason::BackendFailed, "invalid owned backend text");
++            fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "invalid owned backend text");
+         out.value.assign(reinterpret_cast<const char *>(&reply.text[0]), reply.text.size() - 1);
+     } else if (!reply.text.empty()) {
+-        fail(ClientMiles::FailureReason::BackendFailed, "null backend text contains bytes");
++        fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "null backend text contains bytes");
+     }
+     return out;
+ }
+@@ -98,7 +95,7 @@
+     session.requireRunning();
+     // Compare the opaque identity before inspecting any pointed-to bytes.
+     if (!driver || driver != session.driver.get() || driver->owner != &session)
+-        fail(ClientMiles::FailureReason::InvalidDriver, "driver does not belong to selected Miles session");
++        fail(ClientMilesPipeCore57::FailureReason::InvalidDriver, "driver does not belong to selected Miles session");
+     MilesWire::Call fields = {};
+     fields.target = driver->wire;
+     return fields;
+@@ -116,7 +113,7 @@
+       faulted_(false), runtime_(runtime), callbackCodeLifetime_(callbackCodeLifetime),
+       filesPrepared_(false), filesInstalled_(false) {
+     if (selectedSession || !channel_)
+-        fail(ClientMiles::FailureReason::WrongState, "one Miles session must be selected");
++        fail(ClientMilesPipeCore57::FailureReason::WrongState, "one Miles session must be selected");
+     selectedSession = this;
+ }
+ 
+@@ -128,7 +125,7 @@
+ Session &Session::selected() {
+     MilesCallbackGuard47::requireForwardAllowed();
+     if (!selectedSession)
+-        fail(ClientMiles::FailureReason::WrongState, "Miles implementation not selected");
++        fail(ClientMilesPipeCore57::FailureReason::WrongState, "Miles implementation not selected");
+     return *selectedSession;
+ }
+ 
+@@ -136,38 +133,38 @@
+ 
+ void Session::rejectResult() {
+     faulted_ = true;runtime_.fail();
+-    fail(ClientMiles::FailureReason::BackendFailed, "invalid sample reply; outcome uncertain");
++    fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "invalid sample reply; outcome uncertain");
+ }
+ 
+ void Session::requireAvailable() const {
+     if (faulted_)
+-        fail(ClientMiles::FailureReason::BackendFailed, "Miles session has an uncertain outcome");
++        fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "Miles session has an uncertain outcome");
+     if (stopped || closed_)
+-        fail(ClientMiles::FailureReason::WrongState, "Miles session already stopped");
++        fail(ClientMilesPipeCore57::FailureReason::WrongState, "Miles session already stopped");
+ }
+ 
+ void Session::requireRunning() const {
+     requireAvailable();
+     if (!started)
+-        fail(ClientMiles::FailureReason::WrongState, "Miles is not started");
++        fail(ClientMilesPipeCore57::FailureReason::WrongState, "Miles is not started");
+ }
+ 
+ StartupBridge::OwnedReply Session::request(uint32_t opcode, const MilesWire::Call &fields,
+                                            MilesTransport::Bytes text) {
+     MilesCallbackGuard47::requireForwardAllowed();
+     if (faulted_ || closed_)
+-        fail(ClientMiles::FailureReason::BackendFailed,
++        fail(ClientMilesPipeCore57::FailureReason::BackendFailed,
+              "Miles session cannot issue another request");
+     StartupBridge::OwnedReply reply;
+     try {
+         reply = channel_->call(opcode, fields, text, verifiedResources(fields), *this);
+     } catch (...) {
+         faulted_ = true;runtime_.fail();
+-        fail(ClientMiles::FailureReason::BackendFailed, "Miles channel failed");
++        fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "Miles channel failed");
+     }
+     if (!StartupBridge::knownStatus(reply.result.transport_status)) {
+         faulted_ = true;runtime_.fail();
+-        fail(ClientMiles::FailureReason::BackendFailed, "unknown Miles channel status");
++        fail(ClientMilesPipeCore57::FailureReason::BackendFailed, "unknown Miles channel status");
+     }
+     // Known, validated operation refusals are distinguishable from an uncertain
+     // transport outcome. They do not manufacture a successful SDK return value.
+@@ -228,7 +225,7 @@
+             if((*i)->live && same((*i)->wire))found=true;
+         for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
+             if((*i)->live && (same((*i)->wire) || ((*i)->borrowed.live && same((*i)->borrowed.wire))))found=true;
+-        if(!found)fail(ClientMiles::FailureReason::InvalidDriver,"unowned forward resource");
++        if(!found)fail(ClientMilesPipeCore57::FailureReason::InvalidDriver,"unowned forward resource");
+         if(out.empty() || !same(out.front()))out.push_back(h);
+     }
+     return out;
+@@ -237,11 +234,11 @@
+     ClientMiles::FileSeekCallback seek,ClientMiles::FileReadCallback read){
+     MilesCallbackGuard47::requireForwardAllowed();requireRunning();
+     if(filesPrepared_ || !open || !close || !seek || !read || !callbackCodeLifetime_)
+-        fail(ClientMiles::FailureReason::WrongState,"one nonnull retained file table required");
++        fail(ClientMilesPipeCore57::FailureReason::WrongState,"one nonnull retained file table required");
+     // Retain once, even on known install refusal: no automatic replacement/retry.
+     filesPrepared_=true;
+     if(!runtime_.prepare(1,open,close,seek,read,callbackCodeLifetime_)){
+-        faulted_=true;runtime_.fail();fail(ClientMiles::FailureReason::BackendFailed,"file preparation failed");
++        faulted_=true;runtime_.fail();fail(ClientMilesPipeCore57::FailureReason::BackendFailed,"file preparation failed");
+     }
+     MilesWire::Call fields={};fields.callback=1;
+     request(MilesWire::AIL_set_file_callbacks,fields);
+@@ -249,12 +246,12 @@
+ }
+ void Session::close() {
+     MilesCallbackGuard47::requireForwardAllowed();
+-    fail(ClientMiles::FailureReason::Unsupported,"paired normal shutdown proof is not implemented in candidate59");
++    fail(ClientMilesPipeCore57::FailureReason::Unsupported,"paired normal shutdown proof is not implemented in candidate59");
+ }
+ 
+ } // namespace ClientMilesPipe
+ 
+-namespace ClientMiles {
++namespace ClientMilesPipeCore57 {
+ int32_t startup() {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     session.requireAvailable();
+@@ -687,7 +684,7 @@
+ // input-lifetime rules plus actual sealed-upload/host ownership must be resolved.
+ } // namespace ClientMiles
+ 
+-namespace ClientMiles {
++namespace ClientMilesPipeCore57 {
+ void set_file_callbacks(FileOpenCallback open,FileCloseCallback close,FileSeekCallback seek,FileReadCallback read){
+     ClientMilesPipe::Session::selected().installFiles(open,close,seek,read);
+ }
+--- plain-pipe61/candidate/PipeCore.h
++++ pipe-composition68/candidate/backend-boundary24/pipe/PipeCore.h
+@@ -1,6 +1,6 @@
+ #ifndef CLIENT_MILES_PRIVATE_PIPE_CORE57_H
+ #define CLIENT_MILES_PRIVATE_PIPE_CORE57_H
+-#include "ClientMiles.h"
++#include "../ClientMiles.h"
+ #include <stdexcept>
+ #include <string>
+ // Private throwing implementation only. Never included by engine/game code.
+--- paired-bootstrap64/candidate/backend-boundary24/pipe/Session.h
++++ pipe-composition68/candidate/backend-boundary24/pipe/Session.h
+@@ -1,7 +1,7 @@
+ #ifndef CLIENT_MILES_PIPE_SESSION_H
+ #define CLIENT_MILES_PIPE_SESSION_H
+ 
+-#include "../ClientMiles.h"
++#include "PipeCore.h"
+ #include "Channel.h"
+ #include <memory>
+ #include "../../client-runtime53/client_file_runtime.h"
+--- paired-bootstrap64/candidate/native-file-callbacks35/ClientMilesFileCallbacks.h
++++ pipe-composition68/candidate/native-file-callbacks35/ClientMilesFileCallbacks.h
+@@ -1,26 +1,6 @@
+ #ifndef INCLUDED_ClientMilesFileCallbacks_H
+ #define INCLUDED_ClientMilesFileCallbacks_H
+-
+-// Plain engine-facing declarations: no SDK header, STL container or ownership.
+-#include <stdint.h>
+-#if !defined(_WIN32) || !defined(_MSC_VER)
+-#error This callback interface requires the Windows MSVC calling convention.
++// Compatibility include only: selected file services use the same plain types
++// as the public facade. This does not change callback TLS or installation policy.
++#include "../backend-boundary24/ClientMiles.h"
+ #endif
+-
+-namespace ClientMiles
+-{
+-// Local native-width value, never a wire handle; successful open may return zero.
+-typedef uintptr_t FileHandle;
+-typedef uint32_t (__stdcall *FileOpenCallback)(char const *filename, FileHandle *handle);
+-typedef void (__stdcall *FileCloseCallback)(FileHandle handle);
+-typedef int32_t (__stdcall *FileSeekCallback)(FileHandle handle, int32_t offset, uint32_t origin);
+-typedef uint32_t (__stdcall *FileReadCallback)(FileHandle handle, void *buffer, uint32_t bytes);
+-
+-// Ordinary C++ facade call; the private implementation uses SDK AILCALL.
+-// Direct backend forwards the four pointers without wrappers or thread changes.
+-// Caller owns callback code/state through vendor shutdown and proven quiescence.
+-// No registration token, TLS setup, lock, copy, or destruction is supplied here.
+-void set_file_callbacks(FileOpenCallback open, FileCloseCallback close,
+-                        FileSeekCallback seek, FileReadCallback read);
+-}
+-#endif

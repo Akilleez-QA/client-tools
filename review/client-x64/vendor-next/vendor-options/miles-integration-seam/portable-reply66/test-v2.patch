@@ -1,0 +1,27 @@
+--- unrun-v1/tests.cpp
++++ v2/tests.cpp
+@@ -62,8 +62,9 @@
+  const uint32_t ops[]={MilesWire::AIL_sample_ms_position,MilesWire::AIL_stream_ms_position,MilesWire::AIL_sample_volume_levels,MilesWire::AIL_sample_reverb_levels};
+  for(unsigned op:ops)for(uint32_t mask=0;mask<9;++mask){
+   MilesWire::Call c={};c.output_mask=mask;StartupBridge::OwnedReply r;
+-  checkPure(s,op,c,r,MilesWire::validPairMask(mask));
+-  if(!MilesWire::validPairMask(mask))continue;
++  const bool expectedMask=(mask==0 || mask==1 || mask==2 || mask==3 || mask==7);
++  checkPure(s,op,c,r,expectedMask);
++  if(!expectedMask)continue;
+   r.result.value[0]=(mask&1)?0x80000000u:0;r.result.value[1]=(mask&2)?((mask&4)?0x80000000u:17):0;checkPure(s,op,c,r,true);
+   if(!(mask&1)){r.result.value[0]=1;checkPure(s,op,c,r,false);r.result.value[0]=0;}
+   if(!(mask&2)){r.result.value[1]=1;checkPure(s,op,c,r,false);}
+@@ -81,7 +82,11 @@
+  parent.borrowed.live=false;r.result.resource=handle(MilesWire::BorrowedSample,5);other.borrowed.live=true;other.borrowed.wire=r.result.resource;checkPure(s,MilesWire::AIL_stream_sample_handle,c,r,false);other.borrowed.live=false;
+  std::puts("PASS actual proxy alias echo stability uniqueness and null transitions");
+  for(unsigned kind=0;kind<2;++kind){StartupBridge::OwnedReply allocation;MilesWire::Call input={};uint32_t op=kind?MilesWire::AIL_open_stream:MilesWire::AIL_allocate_sample_handle;
+-  checkPure(s,op,input,allocation,true);allocation.result.resource=kind?parent.wire:owned->wire;checkPure(s,op,input,allocation,false);allocation.result.resource.slot=20;checkPure(s,op,input,allocation,true);}
++  checkPure(s,op,input,allocation,true);allocation.result.resource=kind?parent.wire:owned->wire;checkPure(s,op,input,allocation,false);
++  if(kind)parent.live=false;else owned->live=false;
++  checkPure(s,op,input,allocation,true); // Existing unpublished reservation is not a live duplicate.
++  if(kind)parent.live=true;else owned->live=true;
++  allocation.result.resource.slot=20;checkPure(s,op,input,allocation,true);}
+  StartupBridge::OwnedReply driver;driver.result.resource=s.driver->wire;MilesWire::Call input={};checkPure(s,MilesWire::AIL_open_digital_driver,input,driver,false);
+  std::puts("PASS duplicate allocation identities refused without publication");
+  int32_t output=-9;

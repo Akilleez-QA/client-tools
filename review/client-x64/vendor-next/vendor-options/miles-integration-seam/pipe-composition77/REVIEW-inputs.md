@@ -1,0 +1,13 @@
+# Independent source review of75 and76 against74
+
+All one75/five76 production manifest entries recomputed without mismatch. Read both complete patches, their actual target files, actual host_dispatch branches and reply.h, plus the possessed pinned Mss.h declarations at3044/3903/4414/4416/4721. No compilation or execution. No blocking defect found within these changes.
+
+76's public declarations from exact70 match implementation: active sample count, CPU percent, latency and file error are S32/int32_t; timer delay is U32/uint32_t. Genuine x86 dispatch stores signed bits via memcpy; Core reconstructs through actual signedValue and a representable int32 conversion. Timer returns full U32 bits. All five public wrappers use the actual existing guarded boundary; three driver paths use driverCall and two global calls use a zero Call plus requireRunning. No SDK call or fake scalar result was introduced in the client.
+
+reply.h adds only five Success-gated scalar return opcodes. It still rejects nonzero return_bits on refusal/void operations, resources for diagnostics, all eight value slots, payload bytes, text/null-mask, callback and mismatched header context. A failure leaves OwnedReply unchanged because assignment/swap occurs only after all checks. Exact Session/LiveChannel validation-before-returned order is unchanged. This decoder does not itself validate request-dependent pair topology; Session still owns that check for actual pair operations.
+
+Backend routes76 diagnostics after the existing started/not-shutdown gate. Actual dispatch still validates fields and Driver resources for three calls, null target for timer/error, and preserves native result bits. This is the chosen running-session policy, not proof of equivalent native behavior before startup or after shutdown. No pointer-valued preferences are broadened.
+
+75 removes exactly the five operations whose dispatcher already accepts OwnedSample|BorrowedSample from the outer OwnedSample-only rejection: playback rate set/get, volume set/get, reverb set. Owned-only operations still encounter that guard. Added six stream-control cases pass through the same lifecycle and actual typed dispatcher; registry resolve checks stream or borrowed parent liveness. No synthetic stream is inserted. Stream open/close/alias publication remain absent, so these routes alone are not an operational stream lifecycle. Shared SDK types do not eliminate future EOS token/lifetime translation obligations.
+
+77 deliberately combines both Backend case edits on75's copy; other76 files copy exactly, and the public header remains byte-identical70.74's proxy identity conversion,72 driver forwarding and73 registry stay intact. No new native gate was authored; actual74 compiler outcome remains separate.

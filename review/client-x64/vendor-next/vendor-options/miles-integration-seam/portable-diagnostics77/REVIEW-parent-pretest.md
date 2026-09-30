@@ -1,0 +1,3 @@
+# Parent pretest77
+
+Root read actual test/decoder and runner, verified all15 frozen inputs, and reviewed the separate test review with production authorship disclosed. Literal signed expectations and generic-envelope-positive semantic negatives avoid the earlier66 self-derived pair-mask oracle error. Authorize exactly one actual decoder build/run under the proposed ASan/UBSan command. Five named groups, output preservation and full unsigned/signed boundary behavior are the scope; no public/Core/SDK or engine execution. Preserve any first failure with no retry. Portable compiler identity is not part of the input freeze and no toolchain attestation is claimed.

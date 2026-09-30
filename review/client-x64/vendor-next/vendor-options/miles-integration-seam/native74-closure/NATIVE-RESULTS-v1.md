@@ -1,0 +1,9 @@
+# Combined74 object gate:35/35 compiled
+
+The first and only reviewed matrix compiled all18 actual Win32 host and17 actual AMD64 client-side objects with zero compiler diagnostics. Every object has the requested COFF architecture. The gate reached the actual host.cpp/Backend, guarded public facade, private Core/Session, LiveChannel, client/host file runtimes and their selected codec/owner/protocol/guard dependencies. It verified exact local header selection and expected imports/delegates; all71 inputs,9536 reused snapshot entries and selected tools were unchanged before/after.
+
+This establishes that the chosen combined source graph compiles, including73's reservation registry and72's driver forwarding. It does not prove the provider fallback at runtime. The selected host now actually compiles file_channel and its reentry guard, repairing the former source-list omission. No fake vendor library, SDK source replacement or engine worker supplier was used.
+
+No linking or target execution occurred. Real EngineFileWorker remains an unresolved client dependency. Seventeen public operations are absent in74; stream lifecycle, selected callback installation/TLS, EOS, locks, payload/text paths and normal teardown remain incomplete.75/76 are separate proposed source repairs, not part of this result. A future real x86 host link can test dependency resolution, but neither it nor these objects proves fullclient startup or audio fidelity.
+
+Compiler/import/header logs and metadata are curated; object bytes/SDK remain private. System headers were hashed at observation time only; environment setup logs remain remote. The staging Python tar-extraction deprecation warning is preserved; it is not a compiler warning. Parent inspected the actual result; independent audit reviews the same experiment, not another run. Root controls next bounded tests.

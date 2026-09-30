@@ -1,0 +1,256 @@
+{
+  "manifest": "43d8ef6499493b5f374738c922584f49c7820a2229f89d025c4bb7c4111432ad",
+  "driver": "e693c3ee6b2355bcc66f2d269192d5abea422398e0a3aa6d092a1df8fd21d3bb",
+  "sha256": {
+    "inputs/candidate/backend-boundary24/ClientMiles.h": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc",
+    "inputs/candidate/backend-boundary24/pipe/Channel.h": "a56ddd8a73363f9a0aa2bcd31f79d691314ac5048247eff1a5351bc03a696526",
+    "inputs/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp": "4c86083346b7e1b6438e1a4ce0c3ef34c68233a85f6ce382f510b65eab1f19ae",
+    "inputs/candidate/backend-boundary24/pipe/LiveChannel.cpp": "7ad33739e74362d789313f35522c07301974f61d5374d51967955d732af32918",
+    "inputs/candidate/backend-boundary24/pipe/LiveChannel.h": "b3dd77b8ccae3953f6e4025f2680047b72aee0288e4622abe3d881ced17951fc",
+    "inputs/candidate/backend-boundary24/pipe/PipeCore.cpp": "b1269e8a176449080aa28bd1837fb619efca7dfc0dde7c76a7f16ae0d831fd82",
+    "inputs/candidate/backend-boundary24/pipe/PipeCore.h": "beff513a0f721207f6df7f7ac52a49f1f5709f31c3f8c3ecf8187d193ec7eb00",
+    "inputs/candidate/backend-boundary24/pipe/Session.h": "dd0c55f7fcc6db2774f701063c0be35130464390c4e62d6767bc9c5d0596feeb",
+    "inputs/candidate/callback-control45/host_association_mapper.cpp": "391191b3dee435f5eb1917710bf9d309efbb0d3de270c47901b2d6b1b182d29a",
+    "inputs/candidate/callback-control45/host_association_mapper.h": "fc7e3971fbe719644180a9082f5a0dbf70963cbccc6fdd3ae6e09f0505ba140f",
+    "inputs/candidate/callback-protocol48/file_protocol.cpp": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e",
+    "inputs/candidate/callback-protocol48/file_protocol.h": "b6720b1292edfd97bd43a5012cde707e343c7be2f367ca968b801b69ea078bbf",
+    "inputs/candidate/callback-reentry47/invocation_guard.cpp": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6",
+    "inputs/candidate/callback-reentry47/invocation_guard.h": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198",
+    "inputs/candidate/client-runtime53/client_file_runtime.cpp": "2d955c883dbe86578b19632a8182da1c3b9b5c04cbdbd2d1e5b43c05d0547e6a",
+    "inputs/candidate/client-runtime53/client_file_runtime.h": "b2a872f2e40a99c93afa630778e97a601f5032d1aa80cd4eacc28666196016c6",
+    "inputs/candidate/file-channel26/file_channel.cpp": "87556b08ce975f4bb799467debb1688a2cfd3a198455858e1d099f48fe37dc9e",
+    "inputs/candidate/file-channel26/file_channel.h": "19ab9ab897a3548757c0a46871bb6a24d2a255102b41851dd879b109cffb41d3",
+    "inputs/candidate/file-executor33/EngineFileWorker.h": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4",
+    "inputs/candidate/file-executor33/FileInvocationJob.cpp": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c",
+    "inputs/candidate/file-executor33/FileInvocationJob.h": "dc21ebece9ea39841cf2c63da2b2c0f81fff8e45456f99adea2b12ace0aa5471",
+    "inputs/candidate/file-owner36/session_file_owner.cpp": "7a4050915c9248d7f9e990fac8a650217dd4a5881c1c29c32fb3b1c6e8f0bd3e",
+    "inputs/candidate/file-owner36/session_file_owner.h": "314695ccac3ea1bb141b5a3bbc800de2e979bb6604cf21782f7dc26eda120356",
+    "inputs/candidate/host-callback-context41/call_context.cpp": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c",
+    "inputs/candidate/host-callback-context41/call_context.h": "6c1439efb94d2a1e2bd3d4977e04a23cfa96e357e81f3a81ef7d5985242b3244",
+    "inputs/candidate/host-candidate/host_dispatch.cpp": "7210fa3b580b9f3df84c30e94eb95c2ed644f5726bbad30b6946296e237a9667",
+    "inputs/candidate/host-candidate/host_dispatch.h": "e8b146c5f493d0a48c0a539494219b5a0e7a19405c9954ec32e84c1cda5b4a66",
+    "inputs/candidate/host-candidate/registry_resolver.h": "825f78d913ae822545ac12c5621ef2d17ab422270de960339ab0590ecd8b8c2a",
+    "inputs/candidate/host-file-consumption49/file_tokens.cpp": "113f97c2ef67a1d638c27c3a820fdd0d5a53759788355504e26ccb1b7ff2f1da",
+    "inputs/candidate/host-file-consumption49/file_tokens.h": "f0201fd36d5d28be662f2e6aab863b1844f6727fb567d893510e32a00027dd8a",
+    "inputs/candidate/host-file-consumption49/reply_transaction.cpp": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db",
+    "inputs/candidate/host-file-consumption49/reply_transaction.h": "727ee26d55c9815721ebf304ffbc8a43fb9fe8a4608363eb4964c7f79c64c757",
+    "inputs/candidate/host-runtime50/host_file_runtime.cpp": "eaf7952baa23307dc001866f03b0186eb6caa1d66cb45943196757e4d52c17f4",
+    "inputs/candidate/host-runtime50/host_file_runtime.h": "e880e92bc4b7d021c1796a690bf4c230bfd3efb7dcb0a26b223f9c269408cfd9",
+    "inputs/candidate/host-runtime50/host_install.cpp": "2e8270f2f1f82cc322163d2a3cf098d21ffbe63657cf1bd97e07e5373a9916fc",
+    "inputs/candidate/host-runtime50/host_sdk_callbacks.cpp": "32b2ac052e7f2126a3ed4048e2cee4b7f35dd3c0ba321462eee51b45af124118",
+    "inputs/candidate/live-bridge-candidate/common.h": "2f314da264262c3a8077c890258f25436153f456ea98da08d074f152b894d601",
+    "inputs/candidate/native-file-callbacks35/ClientMilesFileCallbacks.h": "ac6d98359848a50477892628c26c6685905c4c04b9028f10d59cf5d468b61465",
+    "inputs/candidate/paired-bootstrap59/host.cpp": "aef8784202ef05e8f28828037352059cd719ea10253fd53340a6ebb89920e68e",
+    "inputs/candidate/pipe-transport-candidate/endpoint.cpp": "c8ceb314bc9de684e14887c4687b2d48c50ccd5377294e4ce453d313778209b8",
+    "inputs/candidate/pipe-transport-candidate/endpoint.h": "51dfef9fbb4439d937cb5be44ab8bbffc69429a0b7b76c84f708d4a0d8fc04c5",
+    "inputs/candidate/plain-boundary52/failure_boundary.cpp": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353",
+    "inputs/candidate/plain-boundary52/failure_boundary.h": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541",
+    "inputs/candidate/protocol-candidate/miles_wire.h": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3",
+    "inputs/candidate/protocol-candidate/pair_outputs.h": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484",
+    "inputs/candidate/reverse-file-seam20/ClientAudioFileCallbacks.h": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+    "inputs/candidate/selected-file-services44/selected_services.cpp": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5",
+    "inputs/candidate/selected-file-services44/selected_services.h": "939e35bd5e612e2255146d40731258fbfb9455e383a90a615184461e86d63045",
+    "inputs/candidate/session-file-admission34/coordinator.cpp": "d82d1bb25714bffaa21cd4b1b0ed1de121dd44fbf827122c5db3c60fe9f6c534",
+    "inputs/candidate/session-file-admission34/coordinator.h": "a26728f6447b4e489db8b605828807c4832b340a39d27a1fe157e6858ff28dc0",
+    "inputs/candidate/session-version22/session_version.cpp": "eb92d358dfc983ebbfb09f44cff70ca30feaf8a8b5c3cffd85b4ffd47b0d084a",
+    "inputs/candidate/session-version22/session_version.h": "7ff1060690a7e66cd8098e4b10d8eb4ec81211e08cc8ef981dce9bef275a1550",
+    "inputs/candidate/session-version22/session_version_host.cpp": "a0c4ab967526beb0c05b908a391fd771acf52efcdb6256c3de040c497c3fb8b7",
+    "inputs/candidate/session-version22/session_version_host.h": "b4c7babfa10ad81a29e8e493e086c7144823436a6dcb580d0323cd54bb633e6f",
+    "inputs/candidate/startup-bridge23/backend.h": "f00860bca3ec2893cd64bf2ad0bc6b63a2e24c6a75e4bccf35659ae8aad773f2",
+    "inputs/candidate/startup-bridge23/reply.h": "a5a687ea5dab7e7b000bc28feeb36d73c38fc3a87eb9cb98afcff2f5d8217a3e",
+    "inputs/candidate/startup-metadata-v4/metadata.h": "b9c8bbfb3cff6afbe85db418fa32428d1d649308bdaef1fa78bb0eb4ca40f1e8",
+    "inputs/candidate/startup-metadata-v4/metadata_host.cpp": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90",
+    "inputs/candidate/startup-metadata-v4/metadata_wire.cpp": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2",
+    "inputs/candidate/transport-candidate/codec.cpp": "31246fe40eb88e84738f957a6315d44e23443843cd022047a46046a6826e7679",
+    "inputs/candidate/transport-candidate/codec.h": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7",
+    "inputs/candidate/transport-candidate/resource_registry.h": "f058c6abcf10d3b5365acb427b7f33d8debe31f4ca2d6c648472916e38960a8f",
+    "inputs/composition77-manifest.json": "1370b5c65a26ef342f22b30b9014d091d4f647423d3191431cfafbbe9a76ea6c",
+    "inputs/public-delegates.json": "30c2b0e4cefe48c8b58db2446b0d77efe24f0ad44e802f0c22e319f2417f7aee",
+    "inputs/require-amd64.h": "8a35019e03a713e0ff178da7916a0e890a2f4ecd4225fc02dbc10c83f4963ea0",
+    "inputs/require-x86.h": "4ba4823166780a01d01df5eb1074ff28fb4ab428002d86bffd84cb971221ac13",
+    "inputs/reused35-manifest.json": "13a7272cdf84d617ea82f70481da686ea4abefc8e198e77e9f3d501f6fc9538a",
+    "inputs/symbol_parser.py": "6b3e25e41826ee110ae031e9ac44354811c27b9d1569ebf7a57b599b29b5980b",
+    "inputs/toolchain.json": "ee2dea4f36c2aa531c7985c9f245ff5d309adcc6cb59426a076ab10bfdd171c0",
+    "inputs/units.json": "2ffd60cbd2b547ac1fa38e1c8a5563df65db4dbe4c934bdd3397869ed7eaaf82",
+    "run-native77.py": "e693c3ee6b2355bcc66f2d269192d5abea422398e0a3aa6d092a1df8fd21d3bb"
+  },
+  "input_mismatches": [],
+  "system_header_post_hashing_performed": false,
+  "objects_rechecked": {
+    "results\\amd64-callback-control45-host_association_mapper\\amd64-callback-control45-host_association_mapper.obj": {
+      "sha256": "66821d5331b54223ff64c77e50ad541cd4f5ce68056afe3da833327ec8602124",
+      "bytes": 164736,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-callback-protocol48-file_protocol\\amd64-callback-protocol48-file_protocol.obj": {
+      "sha256": "88be6c4ebcd9e0233e27600ec3db6f20445d190b54c838b28cbfbcee712c0656",
+      "bytes": 89768,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-callback-reentry47-invocation_guard\\amd64-callback-reentry47-invocation_guard.obj": {
+      "sha256": "c78a6388db175d2692a6f5d5ab1368156d11f00f10981fb91f8f52bea1f03dfe",
+      "bytes": 3287,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-client-runtime53-client_file_runtime\\amd64-client-runtime53-client_file_runtime.obj": {
+      "sha256": "de2cbb14ef1455cf5ffd471cc069e001060ea956303628655a9bb7c68c7fb406",
+      "bytes": 292910,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-file-channel26-file_channel\\amd64-file-channel26-file_channel.obj": {
+      "sha256": "e4ea60364af6fdda20da259a2a9f71ac87f062255080a40b37f48fbd172e48e5",
+      "bytes": 219861,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-file-executor33-FileInvocationJob\\amd64-file-executor33-FileInvocationJob.obj": {
+      "sha256": "dbac176a60afb1f3823f63248282764e8baf878298ebeae60bc9827d6100e347",
+      "bytes": 167356,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-file-owner36-session_file_owner\\amd64-file-owner36-session_file_owner.obj": {
+      "sha256": "4fa25713040804b1a016a7ffa7398087da4bd57ad02bf3a325d970178786e8cf",
+      "bytes": 439684,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-pipe-ClientMilesPipe\\amd64-pipe-ClientMilesPipe.obj": {
+      "sha256": "20a6933210f495066ee2aff066096b08f1001c7356ae0f3e7f96c87478b1822e",
+      "bytes": 343606,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-pipe-LiveChannel\\amd64-pipe-LiveChannel.obj": {
+      "sha256": "d3209f9d99e84cdd682999085ee1107921d364bd9b7a76e3122ff9a5bd3ecac7",
+      "bytes": 409226,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-pipe-PipeCore\\amd64-pipe-PipeCore.obj": {
+      "sha256": "71146628a6b9d9569be110a10a23275980094dbbab7d8d5c9b694401bf06f330",
+      "bytes": 760049,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-pipe-transport-candidate-endpoint\\amd64-pipe-transport-candidate-endpoint.obj": {
+      "sha256": "cfb844ff9660043a7dd4d0eec8c9805cc4409ce06c2eaeab02a00ba6e90aa683",
+      "bytes": 108884,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-plain-boundary52-failure_boundary\\amd64-plain-boundary52-failure_boundary.obj": {
+      "sha256": "79a2c3e55b09223eeca56931dd4f27f45e34a1dacd9ecd14070d66b0854f537f",
+      "bytes": 3702,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-selected-file-services44-selected_services\\amd64-selected-file-services44-selected_services.obj": {
+      "sha256": "bb7e93f8876ed3d2987d74442ecdcf4a38c517f186ca01a606a1ce30cd5e3df3",
+      "bytes": 123230,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-session-file-admission34-coordinator\\amd64-session-file-admission34-coordinator.obj": {
+      "sha256": "83c0063566b0b0ca95b2fbc34c37b675c82a867cdbab62f72a07fd392c6daaf1",
+      "bytes": 666383,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-session-version22-session_version\\amd64-session-version22-session_version.obj": {
+      "sha256": "85ed0ec0d7355efe42e80fed51bf363b1da74c3fb52fa11c97aeba2dddcad5e8",
+      "bytes": 8376,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-startup-metadata-v4-metadata_wire\\amd64-startup-metadata-v4-metadata_wire.obj": {
+      "sha256": "4a36dcc3c8ff6c2afbea451ac06ab8eb1700cd2d3c8d297d2681a50ce0643d35",
+      "bytes": 137483,
+      "coff_machine": "0x8664"
+    },
+    "results\\amd64-transport-candidate-codec\\amd64-transport-candidate-codec.obj": {
+      "sha256": "131ebfa7cc23162861153eda24c8be0a9e42bc71893d3be7d64f585a2db314bb",
+      "bytes": 142875,
+      "coff_machine": "0x8664"
+    },
+    "results\\x86-callback-protocol48-file_protocol\\x86-callback-protocol48-file_protocol.obj": {
+      "sha256": "4273a467924445fd3b5484f09ef3113fcdb409ef8ebbb11b12a3cb5459a00e66",
+      "bytes": 45387,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-callback-reentry47-invocation_guard\\x86-callback-reentry47-invocation_guard.obj": {
+      "sha256": "8eb1951d3eee982d7edb5b536c1bb71bd30161d0be8734debb99a95b7af109e4",
+      "bytes": 2426,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-file-channel26-file_channel\\x86-file-channel26-file_channel.obj": {
+      "sha256": "a81668570243ddc483cc09d852882f9c3bf95bc5f5aa3f25f639e73360a8780d",
+      "bytes": 106786,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-callback-context41-call_context\\x86-host-callback-context41-call_context.obj": {
+      "sha256": "02d6b79db3c067c3ba5e91a59158d3faa89ee6fe69bbbbaf0677836609da3ff5",
+      "bytes": 1675,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-candidate-host_dispatch\\x86-host-candidate-host_dispatch.obj": {
+      "sha256": "5565c5b45acc496c1b17aa3fa2a9f56fca3e3642f253cf60c08c18bb0fcbe8b5",
+      "bytes": 15858,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-file-consumption49-file_tokens\\x86-host-file-consumption49-file_tokens.obj": {
+      "sha256": "a77c1e4055315e87e73f9f63679220510a8d68b5ab9b4b9f6952ecc833a88b1e",
+      "bytes": 55161,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-file-consumption49-reply_transaction\\x86-host-file-consumption49-reply_transaction.obj": {
+      "sha256": "87b8911dbcad1aa18b620c974ea86e442073f86bd754ecd2fa0b64ddd31ebca7",
+      "bytes": 61460,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-runtime50-host_file_runtime\\x86-host-runtime50-host_file_runtime.obj": {
+      "sha256": "4fdc2eb1649d367deadcb367001ef4daf69f469ea1dc9a34db26d0f7f486140e",
+      "bytes": 62285,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-runtime50-host_install\\x86-host-runtime50-host_install.obj": {
+      "sha256": "198151d6701f9796b4d3d0c1ae6b7b1a9ae9fdb7f7bc9be2e3942807386fa49d",
+      "bytes": 42203,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-host-runtime50-host_sdk_callbacks\\x86-host-runtime50-host_sdk_callbacks.obj": {
+      "sha256": "3c0a17a4ed182d08c8306acbaea9bf026220a0275eaac4f6a61d5945a7ae5eb4",
+      "bytes": 43867,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-paired-bootstrap59-host\\x86-paired-bootstrap59-host.obj": {
+      "sha256": "154c2591f671a71e9aa6305cb613597e21b6d1b7171c5a36ca06d3f15c432452",
+      "bytes": 310422,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-pipe-transport-candidate-endpoint\\x86-pipe-transport-candidate-endpoint.obj": {
+      "sha256": "b6c16c772ce1f4d7e5e06978a9e53f4dcdab8aedc690ae9453f842dea0d314d9",
+      "bytes": 54570,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-session-file-admission34-coordinator\\x86-session-file-admission34-coordinator.obj": {
+      "sha256": "25673121ff03561fef6ec1921fa9c5f1971783166955e865dc0999d9d4783b79",
+      "bytes": 316075,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-session-version22-session_version\\x86-session-version22-session_version.obj": {
+      "sha256": "82f21628073ba9d575e511dd1225c00a6de4c9640a660d24bad3eb753a0f0d76",
+      "bytes": 4778,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-session-version22-session_version_host\\x86-session-version22-session_version_host.obj": {
+      "sha256": "5495463bb46b3a33f8676dd4602f32f2238dbad426f0d478dc5361d761d8fb2b",
+      "bytes": 2359,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-startup-metadata-v4-metadata_host\\x86-startup-metadata-v4-metadata_host.obj": {
+      "sha256": "d5521989977d3aeccaaa721718e320c8fe33dc67fca762edc3e1eca64f59cb58",
+      "bytes": 13630,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-startup-metadata-v4-metadata_wire\\x86-startup-metadata-v4-metadata_wire.obj": {
+      "sha256": "070487fb01319712fdb8f6eab3f18a6aa43c78ef90ea6ecc89178635891c07b7",
+      "bytes": 65351,
+      "coff_machine": "0x14c"
+    },
+    "results\\x86-transport-candidate-codec\\x86-transport-candidate-codec.obj": {
+      "sha256": "374bb85dc329113541b6f8fe02585416142e12846e772b78d40947c1b5d9dde1",
+      "bytes": 66328,
+      "coff_machine": "0x14c"
+    }
+  }
+}

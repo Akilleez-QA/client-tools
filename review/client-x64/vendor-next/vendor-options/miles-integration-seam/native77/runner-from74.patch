@@ -1,0 +1,11 @@
+--- native74-closure/run-native74.py
++++ native77/run-native77.py
+@@ -6,7 +6,7 @@
+ from symbol_parser import undefined_symbols
+ if os.name!='nt' or sys.argv[1:]!=['--approved-35-objects']:
+  raise SystemExit('Windows and separately approved 35-object invocation required')
+-ROOT=Path('C:/native74-closure');INPUT=ROOT/'inputs';OUT=ROOT/'results'
++ROOT=Path('C:/native77');INPUT=ROOT/'inputs';OUT=ROOT/'results'
+ REUSED=Path('C:/native-file-callbacks35');SNAPSHOT=REUSED/'snapshot'
+ SDK=SNAPSHOT/'src/external/3rd/library/miles/include/Mss.h'
+ VCVARS=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat')

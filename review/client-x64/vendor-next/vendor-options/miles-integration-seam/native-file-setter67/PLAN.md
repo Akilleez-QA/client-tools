@@ -1,0 +1,11 @@
+# Native direct file setter67 — prospective two-object gate
+
+Preparation only, pending parent source/runner review. No staging, VM call, compilation or execution. Compile ONLY plain67's new plain_file_setter.cpp and native/native_file_setter67.cpp on actual v120 AMD64; do not rebuild unchanged52/60 functions or synthetic probes.
+
+The public object must define ClientMiles::set_file_callbacks, reference exactly the corresponding ClientMilesNativeFile67 delegate plus52 requireFatalReporter/fail, and have zero AIL imports. The native object must compile consolidated51/SDK exact callback-type assertions, define the typed private delegate, and have exactly one AIL import: __imp_AIL_set_file_callbacks. No EOS/stream registration imports or callback function-pointer casts are allowed. Existing35 receipt is prior type evidence, not a substitute for compiling the actual consolidated header here.
+
+Reuse checked62 modern flags byte-for-byte (/MT /O2 /Ob0 /c /W4 /WX /EHsc /Y- /showIncludes /DWIN32 /D_WIN32_WINNT=0x0601), its verified54-derived v120 AMD64 tool hashes, forced compiler/architecture/8-byte-pointer guard, and possessed private SDK header identity966e1e81046851295079e9709f9f358286c823e4403ec6b0ca972b5059725e6e. COFF0x8664 required. Actual includes must match selected plain/private headers; SDK only on native TU, no engine/STLport/snapshot leakage. SDK is not in curated downloads.
+
+11 frozen inputs. Actual source67 manifest7dc11287ce7656cb5b02dfb610ffd25ad1723e89354b4344d36c192a0ddae334; all nine60 production files remain unchanged outside this two-object scope. IDENTITIES.json records exact input/runner/driver hashes. No test supplier or library is supplied.
+
+After separate explicit approval only: python3 native-file-setter67/run-approved-native-v1.py --approved-two-objects. Require fresh local evidence and C:/native-file-setter67; verify clean product and inputs/tools; refuse occupied compiler slot; execute once, stop first failure, preserve raw commands/diagnostics/include/symbol evidence, no repair/retry. Inputs/tools checked before/after. System headers are single-time include observations. Objects/PDB/SDK stay private. No SDK loading, linking or runtime; no scheduling/quiescence or fully implemented EOS claim.

@@ -1,0 +1,16 @@
+# Registry73 minimal repair and prospective native coverage
+
+Author-only overlay: candidate/transport-candidate/resource_registry.h, exact host-runtime58 existing file. registry73.patch is the complete delta from68; source-manifest.json/provenance.json pin origin and replacement. ASSESSMENT.md records the contradiction, consumers, retained contracts, and shared source collision audit. No VM/compiler/test/product/Git activity.68/71/72 preserved.
+
+This is a coverage proposal, not an executable/authorized gate. A fresh combined tree must first resolve71+72 hunks and apply73; parent then reviews its exact manifest and runner. Retain pinned actual v120/toolchain and private possessed SDK provenance, strict /c /W4 /WX /EHsc, no warning suppression, no library/stub/link/runtime, stop first failure and preserve logs. Actual includes must show73 registry SHA on every affected object. No historical receipt is substituted for compiling the combined selected source.
+
+First discriminating coverage must include actual paired-bootstrap59/host.cpp on Win32. It includes live common, Backend, and host file runtime; it compiles the actual Backend constructor/execute body with genuine Mss.h. Do not replace this anchor with an empty registry include or fake Backend. Require real Reservation paths in parsed code, actual AIL imports, Win32 COFF, and record all undefined dependencies. No host invocation occurs.
+
+Direct and behavioral users additionally need:
+
+- host-file-consumption49/file_tokens.cpp, reply_transaction.cpp, host-runtime50/{host_file_runtime.cpp,host_install.cpp,host_sdk_callbacks.cpp}: Win32 actual host paths. These retain the production header chain and SDK assertions.
+- file-owner36/session_file_owner.cpp, file-executor33/FileInvocationJob.cpp, callback-control45/host_association_mapper.cpp, client-runtime53/client_file_runtime.cpp, selected-file-services44/selected_services.cpp, backend-boundary24/pipe/{LiveChannel.cpp,PipeCore.cpp}: AMD64 actual client units. FileInvocationJob requires its real engine-header declarations and existing dependency policy; no test job supplier or real engine allocator execution.
+- Shared transitive units on each architecture actually selected by the paired build: callback-protocol48/file_protocol.cpp, file-channel26/file_channel.cpp, pipe-transport-candidate/endpoint.cpp, transport-candidate/codec.cpp, session-version22/session_version.cpp, startup-metadata-v4/metadata_wire.cpp. Include client53's reentry guard implementation as a compile dependency where Invocation references it; do not replace the guarded source with host58's older copy.
+- Host-only session-version22/session_version_host.cpp and startup-metadata-v4/metadata_host.cpp on Win32.
+
+header-consumers.json is the precise source-discovered21-TU transitive closure. It is not yet an exact approved object count: shared dual-architecture placement and required adjacent non-registry TUs must be pinned by the paired build owner. A narrow Backend + file_tokens + owner + codec first gate could discriminate this mismatch, but must not be described as a full rebuild of all affected inline-header users. Operational linkage/normal shutdown and unrelated72 forwarding validation remain separate.

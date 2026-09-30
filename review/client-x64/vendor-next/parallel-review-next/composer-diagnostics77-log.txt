@@ -1,0 +1,142 @@
+# Blind source review: scalar diagnostics + stream-control routing
+
+Scope is limited to the patches and full files you pasted (`reply.h`, `host_dispatch.cpp`, `portable-diagnostics77/tests.cpp`). No backend integration tests, no `MilesStartup::signedValue` definition, no full `backend.h` switch bodies, no vendor ABI proof. Findings below are concrete mismatches and test gaps, not a sign-off on runtime fidelity.
+
+---
+
+## 1. Scalar reply validation (`reply.h`)
+
+**What the decoder does for all five opcodes**
+
+In `pipe-composition77` `decodeReply`, the five diagnostics are folded into `returnOp` with the same shape as `AIL_room_type`, `AIL_sample_playback_rate`, etc.:
+
+- Success: any `return_bits` allowed; `resource` must be null; all `value[0..7]` must be zero; no `text` / `null_mask` / `bytes` / `callback`.
+- Non-success: `returnOp` is false, so non-zero `return_bits` is rejected (`(!returnOp && r.return_bits)`).
+
+`portable-diagnostics77/tests.cpp` exercises that (`scalars`, `shapes`, `statuses`, `contexts`). **If those five were missing from `returnOp`, or were misclassified as `sampleTime` / `valueOp`, the portable suite would fail** for successful replies with non-zero `return_bits` or forbidden side fields.
+
+**What the decoder does *not* enforce**
+
+- No distinction between “signed scalar” vs “unsigned scalar” opcodes at decode time: all five are plain `return_bits` carriers. **Semantic typing is only downstream** (`PipeCore.cpp`, host `bits()` vs raw assignment).
+- No `requireRunning` / lifecycle rules (not in `decodeReply`).
+
+**Asymmetry vs neighbor ops (authored client pipe only)**
+
+From `diagnostics76` `PipeCore.cpp`:
+
+| RPC | `requireRunning()` | Reconstruction |
+|-----|----------------------|----------------|
+| `active_sample_count`, `digital_CPU_percent`, `digital_latency` | **No** | `signedValue` → `int32_t` |
+| `file_error`, `get_timer_highest_delay` | **Yes** | signed vs raw `return_bits` |
+| `room_type` (neighbor) | No (existing) | `signedValue` |
+
+That split is visible in source only; **portable tests do not cover `PipeCore` lifecycle gating**. A wrong `requireRunning` placement would not be caught by `tests.cpp`.
+
+---
+
+## 2. Signed reconstruction (wire → API)
+
+**Host encoding (authored `host_dispatch.cpp`)**
+
+- Driver diagnostics + `file_error`: `out.return_bits = bits(::AIL_…())` with `bits(S32)` via `memcpy` — preserves two’s-complement in `return_bits`.
+- `get_timer_highest_delay`: `out.return_bits = ::AIL_get_timer_highest_delay()` **without** `bits()`.
+
+For a native `U32` timer return, skipping `bits()` is consistent; for anything that would need the same `S32` bit pattern treatment, host and the four signed paths would diverge. You asked for no vendor assumptions — **authored host code alone does not prove the timer path matches the stated unsigned32 contract under all ABI edges**; it only shows a deliberate difference from the four `bits()` paths.
+
+**Client decoding (`PipeCore.cpp` patch)**
+
+- Four signed exports: `static_cast<int32_t>(MilesStartup::signedValue(...return_bits))`.
+- Timer: `return ...result.return_bits` as `uint32_t` (no `signedValue`).
+
+That matches the stated native contract **in the pipe layer as written**.
+
+**Portable tests vs pipe contract**
+
+`scalars()` checks:
+
+- Timer: `out.result.return_bits` equals wire pattern (unsigned).
+- Others: `MilesStartup::signedValue(out.result.return_bits)` and `static_cast<int32_t>(…)` match `signedExpected[]` for `0, 1, 0x7fffffff, 0x80000000, 0xffffffff`.
+
+So tests validate **`signedValue` on decoded bits**, not that **`PipeCore` calls `signedValue` vs raw read**.
+
+**Tests could still pass if `PipeCore` broke the contract**, for example:
+
+- Timer routed through `signedValue` then exposed as `uint32_t` (many patterns still match `scalars()`’s uint check for the five wire words, but high-bit semantics as unsigned API would be wrong in general — **the test loop does not assert the timer path avoids `signedValue` in `PipeCore`**).
+- Signed RPCs used `(int32_t)return_bits` without `signedValue` **if** `signedValue` is bit-identity on all 32-bit patterns (unknown without its definition; **not in supplied source**).
+
+**Neighbor inconsistency on host (context, not introduced by scalar patch)**
+
+`AIL_sample_status` / `AIL_sample_position` use raw `out.return_bits = ::AIL_…()` while other signed scalars use `bits()`. Diagnostics follow the `bits()` pattern. Not part of the five new RPCs, but shows **return_bits encoding is opcode-specific on the host**; decoder treats all `returnOp` alike.
+
+---
+
+## 3. Stream borrowed-kind admission (`controls75` + `host_dispatch.cpp`)
+
+**Comment vs `backend.h` diff**
+
+`controls75` comment says the real dispatcher validates **OwnedSample | BorrowedSample** for **“these five controls”** and lists playback + volume + **both** reverb cases in the fall-through block. The diff **removes** from the upper block:
+
+- `AIL_set_sample_playback_rate`, `AIL_sample_playback_rate`
+- `AIL_set_sample_volume_levels`, `AIL_sample_volume_levels`
+- `AIL_set_sample_reverb_levels`
+
+but **leaves** `case MilesWire::AIL_sample_reverb_levels:` **in the upper block** (still immediately above the removed lines in the “before” context).
+
+So relative to the comment’s “five controls” story, **`AIL_sample_reverb_levels` (getter) did not move** to the shared / real-dispatcher path; only **`AIL_set_sample_reverb_levels`** moved with the other four set/get pairs.
+
+**`host_dispatch.cpp` (supplied in full)**
+
+| Opcode | `resolve` kind mask |
+|--------|---------------------|
+| `AIL_sample_playback_rate` | Owned \| Borrowed |
+| `AIL_set_sample_playback_rate` | Owned \| Borrowed |
+| `AIL_sample_volume_levels` | Owned \| Borrowed |
+| `AIL_set_sample_volume_levels` | Owned \| Borrowed |
+| `AIL_set_sample_reverb_levels` | Owned \| Borrowed |
+| **`AIL_sample_reverb_levels`** | **OwnedSample only** |
+
+Concrete mistake: **borrowed/stream-alias admission is implemented for reverb set and for playback/volume get/set, but not for `AIL_sample_reverb_levels` get** — on the host dispatcher that is the implementation you pasted. If `backend.h`’s upper path still handles `AIL_sample_reverb_levels` with a stricter mask, **client routing and host resolver would align on denying borrowed for that one getter**, while the comment claims all five share borrowed admission.
+
+**Six stream routes in the same fall-through hunk**
+
+`AIL_start_stream`, `AIL_set_stream_loop_count`, `AIL_set_stream_loop_block`, `AIL_stream_status`, `AIL_set_stream_ms_position`, `AIL_stream_ms_position` are added beside the sample-control cases. In `host_dispatch.cpp`, those resolve **`Stream` only** (not borrowed sample). That is consistent with stream handles, not with the “five sample controls” comment — the comment’s “live stream parent via resolver” refers to **borrowed sample handles**, not `Stream` kind.
+
+**Reply validation for streams**
+
+`reply.h` already classifies `AIL_stream_status` as `returnOp` and `AIL_stream_ms_position` as `sampleTime` (`value[0]`, `value[1]`). Scalar patch does not change that. **No supplied test file exercises stream opcodes or borrowed resolve masks.**
+
+---
+
+## 4. Could authored tests pass if contracts broke?
+
+| Failure mode | `portable-diagnostics77/tests.cpp` |
+|--------------|-------------------------------------|
+| Five opcodes missing from `returnOp` / wrong shape | **Would fail** (`scalars`, `shapes`, `statuses`) |
+| Timer vs signed mis-tagged **only in `reply.h`** | **Would fail** if non-`returnOp` rules reject valid success frames |
+| Timer vs signed wrong **in `PipeCore`** | **Would likely still pass** (decoder + `signedValue` helper only) |
+| Wrong `requireRunning` on diagnostics | **Not tested** |
+| `backend.h` leaves `sample_reverb_levels` on Owned-only path | **Not tested** |
+| Host `sample_reverb_levels` Owned-only vs borrowed stream alias | **Not tested** |
+| Stream six routes / resolver masks | **Not tested** |
+| Host `bits()` vs raw timer / driver diagnostics vs real runtime | **Not tested** (no host dispatch tests in paste) |
+
+`unchangedNeighbors()` only guards `AIL_sample_ms_position` and `AIL_last_error` — not stream status or borrowed sample ops.
+
+---
+
+## 5. Other source-grounded notes (narrow)
+
+- **`diagnostics76` `backend.h`**: five scalars added to the same opcode list as `AIL_serve` / `AIL_room_type` (startup-bridge allowlist). No test material for that switch.
+- **Public pipe surface**: thin `guarded` forwards + `PipeCore` request paths; **no new validation beyond existing `session.request` + `decodeReply` on the bridge**.
+- **Runtime fidelity**: explicitly out of scope for this paste; host cases call `::AIL_*` directly with no authored assertions on return types beyond `bits()` usage patterns.
+
+---
+
+## Scope limits (explicit)
+
+- No proof that `MilesStartup::signedValue` matches vendor `S32` semantics for driver diagnostics.
+- No full `backend.h` control flow for the upper vs fall-through arms — only the diff showing **`AIL_sample_reverb_levels` not relocated**.
+- No tests linking encode → host `dispatch` → decode → `PipeCore` exports.
+- Stream open/alias/publication remain absent per comment; not reviewed beyond the six routed opcodes.
+
+**Bottom line:** The portable decoder tests give **reasonable coverage that the five diagnostics are accepted as `returnOp` scalar replies** and that error replies clear `return_bits`. They do **not** protect **PipeCore signed vs unsigned reconstruction**, **lifecycle gating**, or **borrowed-sample admission**; the clearest authored defect in the paste is **`AIL_sample_reverb_levels` getter still Owned-only on host (and still in the restricted `backend.h` arm per diff) while the adjacent comment and sibling opcodes claim Owned | Borrowed for all five sample/stream-alias controls.**

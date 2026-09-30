@@ -1,0 +1,98 @@
+[
+  {
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "$ErrorActionPreference='Stop'; if(Test-Path C:/host-link78){throw 'Destination exists'}; if(Get-Process link -ErrorAction SilentlyContinue){throw 'Linker already active'}; New-Item -ItemType Directory C:/host-link78"
+    ],
+    "exit": 0,
+    "log": "01-create.log"
+  },
+  {
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-link78/run-host-link78.py",
+      "builder@127.0.0.1:C:/host-link78/run-host-link78.py"
+    ],
+    "exit": 0,
+    "log": "02-upload-run-host-link78.py.log"
+  },
+  {
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-link78/pins.json",
+      "builder@127.0.0.1:C:/host-link78/pins.json"
+    ],
+    "exit": 0,
+    "log": "02-upload-pins.json.log"
+  },
+  {
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-link78/evidence-v1/collect.py",
+      "builder@127.0.0.1:C:/host-link78/collect.py"
+    ],
+    "exit": 0,
+    "log": "02-upload-collector.log"
+  },
+  {
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "$ErrorActionPreference='Stop'; if((Get-FileHash 'C:/host-link78/run-host-link78.py' -Algorithm SHA256).Hash.ToLower() -ne 'c732083ad24e8902a2bfc2e7fc64bb13df64c51ce9760b000d9876e44d4fb139'){throw 'authored identity mismatch'}; if((Get-FileHash 'C:/host-link78/pins.json' -Algorithm SHA256).Hash.ToLower() -ne 'fb1ec8493637f173fba0e5878050a6b886534d5645a57e23533d803105fce63e'){throw 'authored identity mismatch'}"
+    ],
+    "exit": 0,
+    "log": "03-verify.log"
+  },
+  {
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "& C:/ci-dpvs-review/python/python.exe C:/host-link78/run-host-link78.py --approved-host-link-only; exit $LASTEXITCODE"
+    ],
+    "exit": 1,
+    "log": "04-link-once.log"
+  },
+  {
+    "argv": [
+      "/home/akilleez/Work/swg-source-vm/winbuild/winps.sh",
+      "& C:/ci-dpvs-review/python/python.exe C:/host-link78/collect.py; exit $LASTEXITCODE"
+    ],
+    "exit": 0,
+    "log": "05-collect.log"
+  },
+  {
+    "argv": [
+      "scp",
+      "-q",
+      "-i",
+      "/home/akilleez/Work/swg-source-vm/winbuild/ssh/id_ed25519",
+      "-P",
+      "2223",
+      "-o",
+      "UserKnownHostsFile=/home/akilleez/Work/swg-source-vm/winbuild/ssh/known_hosts",
+      "builder@127.0.0.1:C:/host-link78/curated-evidence.zip",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/host-link78/evidence-v1/curated-evidence.zip"
+    ],
+    "exit": 0,
+    "log": "06-download.log"
+  }
+]

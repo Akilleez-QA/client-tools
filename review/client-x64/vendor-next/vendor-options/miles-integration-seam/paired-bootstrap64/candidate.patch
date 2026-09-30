@@ -1,0 +1,255 @@
+--- paired-bootstrap59/candidate/backend-boundary24/pipe/Channel.h
++++ paired-bootstrap64/candidate/backend-boundary24/pipe/Channel.h
+@@ -4,6 +4,7 @@
+ #include "../../startup-bridge23/reply.h"
+ 
+ namespace ClientMilesPipe {
++class Session;
+ // Private adapter seam. Production calls use the existing framed client;
+ // scripted implementations live only in tests. No game-facing header includes it.
+ class Channel {
+@@ -12,9 +13,9 @@
+     }
+     virtual StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+                                            MilesTransport::Bytes text,
+-                                           const std::vector<MilesWire::Handle> &verifiedResources) = 0;
+-    // Called only after a successful protocol close; concrete channel drains and
+-    // verifies child exit here. Destruction must not manufacture successful close.
++                                           const std::vector<MilesWire::Handle> &verifiedResources,
++                                           const Session &replyOwner) = 0;
++    // Candidate64 refuses normal finish until paired shutdown proof exists.
+     virtual void finish() = 0;
+ };
+ } // namespace ClientMilesPipe
+--- paired-bootstrap59/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ paired-bootstrap64/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -121,13 +121,8 @@
+ }
+ 
+ Session::~Session() {
+-    // Temporary source-only invariant: no paired clean-close proof exists.
+-    // Do not delete channel/child or pretend retained Runtime is cleanly stopped.
++    // Temporary invariant guard, not final shutdown policy or implicit cleanup.
+     std::terminate();
+-    // No implicit vendor calls, retry or success claim on abandonment. The
+-    // concrete channel owns process termination if normal close was incomplete.
+-    if (selectedSession == this)
+-        selectedSession = 0;
+ }
+ 
+ Session &Session::selected() {
+@@ -165,7 +160,7 @@
+              "Miles session cannot issue another request");
+     StartupBridge::OwnedReply reply;
+     try {
+-        reply = channel_->call(opcode, fields, text, verifiedResources(fields));
++        reply = channel_->call(opcode, fields, text, verifiedResources(fields), *this);
+     } catch (...) {
+         faulted_ = true;runtime_.fail();
+         fail(ClientMiles::FailureReason::BackendFailed, "Miles channel failed");
+@@ -180,6 +175,47 @@
+     return reply;
+ }
+ 
++bool Session::validateReply(uint32_t opcode,const MilesWire::Call &fields,
++    const StartupBridge::OwnedReply &reply) const {
++    const MilesWire::Result &r=reply.result;
++    // Wire decoder has already validated refusal shape/status. A known refusal
++    // is still an observed return, and must settle before request() propagates it.
++    if(!StartupBridge::knownStatus(r.transport_status))return false;
++    if(r.transport_status!=StartupBridge::Success)return true;
++    const auto same=[](const MilesWire::Handle &a,const MilesWire::Handle &b){
++        return a.kind==b.kind && a.slot==b.slot && a.generation==b.generation;
++    };
++    if(opcode==MilesWire::AIL_sample_ms_position || opcode==MilesWire::AIL_stream_ms_position ||
++       opcode==MilesWire::AIL_sample_volume_levels || opcode==MilesWire::AIL_sample_reverb_levels){
++        const uint32_t mask=fields.output_mask;
++        if(!MilesWire::validPairMask(mask) || (!(mask&1u)&&r.value[0]) ||
++           (!(mask&2u)&&r.value[1]) || ((mask&4u)&&r.value[0]!=r.value[1]))return false;
++    }
++    if(opcode==MilesWire::AIL_speaker_configuration &&
++       ((fields.output_mask&~8u) || (!(fields.output_mask&8u)&&r.value[3])))return false;
++    if(opcode==MilesWire::AIL_open_digital_driver && !StartupBridge::nullHandle(r.resource) && driver)return false;
++    if(opcode==MilesWire::AIL_allocate_sample_handle && !StartupBridge::nullHandle(r.resource)){
++        for(auto i=samples->proxies.begin();i!=samples->proxies.end();++i)
++            if((*i)->live && same((*i)->wire,r.resource))return false;
++    }
++    if(opcode==MilesWire::AIL_open_stream && !StartupBridge::nullHandle(r.resource)){
++        for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
++            if((*i)->live && same((*i)->wire,r.resource))return false;
++    }
++    if(opcode==MilesWire::AIL_stream_sample_handle){
++        const MilesWire::Handle echo={r.value[0],r.value[1],r.value[2]};
++        if(!same(echo,fields.target))return false;
++        const ClientMiles::OwnedStream *parent=0;
++        for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
++            if((*i)->live && same((*i)->wire,fields.target))parent=i->get();
++        if(!parent)return false;
++        if(StartupBridge::nullHandle(r.resource))return !parent->borrowed.live;
++        if(parent->borrowed.live && !same(parent->borrowed.wire,r.resource))return false;
++        for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
++            if(i->get()!=parent && (*i)->borrowed.live && same((*i)->borrowed.wire,r.resource))return false;
++    }
++    return true;
++}
+ std::vector<MilesWire::Handle> Session::verifiedResources(const MilesWire::Call &fields) const {
+     std::vector<MilesWire::Handle> out;
+     const MilesWire::Handle values[]={fields.target,fields.resource};
+@@ -320,7 +356,7 @@
+     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_speaker_configuration, fields);
+     return static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[3]));
+ }
+-// File callback registration is deliberately absent: no pipe implementation.
++// File callback registration is composed below; TLS/public-boundary adoption remains gated.
+ void set_listener_3D_position(HDIGDRIVER driver, float x, float y, float z) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = driverCall(session, driver);
+@@ -394,9 +430,6 @@
+         if (stream==i->get() && (*i)->live) return **i;
+     fail(FailureReason::InvalidArgument,"stream is not live in selected Session");
+     throw std::logic_error("unreachable");
+-}
+-static bool sameIdentity(const MilesWire::Handle &a,const MilesWire::Handle &b) {
+-    return a.kind==b.kind && a.slot==b.slot && a.generation==b.generation;
+ }
+ HSTREAM open_stream(HDIGDRIVER driver,const char *filename,int32_t streamMem) {
+     ClientMilesPipe::Session &session=ClientMilesPipe::Session::selected();
+@@ -412,9 +445,6 @@
+     try { reply=session.request(MilesWire::AIL_open_stream,fields,MilesTransport::Bytes(filename,size)); }
+     catch (...) { if (!session.uncertain())session.samples->streams.pop_back();throw; }
+     if (StartupBridge::nullHandle(reply.result.resource)) {session.samples->streams.pop_back();return 0;}
+-    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
+-         i!=session.samples->streams.end(); ++i)
+-        if (i->get()!=stream && (*i)->live && sameIdentity((*i)->wire,reply.result.resource))session.rejectResult();
+     stream->wire=reply.result.resource;stream->live=true;return stream;
+ }
+ static MilesWire::Call streamCall(ClientMilesPipe::Session &session,HSTREAM stream) {
+@@ -431,16 +461,8 @@
+     ClientMilesPipe::Session &session=ClientMilesPipe::Session::selected();
+     OwnedStream &parent=liveStream(session,stream);
+     const StartupBridge::OwnedReply reply=session.request(MilesWire::AIL_stream_sample_handle,streamCall(session,stream));
+-    const MilesWire::Handle echo={reply.result.value[0],reply.result.value[1],reply.result.value[2]};
+-    if (!sameIdentity(echo,parent.wire))session.rejectResult();
+-    if (StartupBridge::nullHandle(reply.result.resource)) {
+-        if (parent.borrowed.live)session.rejectResult();
+-        return 0;
+-    }
+-    if (parent.borrowed.live && !sameIdentity(parent.borrowed.wire,reply.result.resource))session.rejectResult();
+-    for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
+-         i!=session.samples->streams.end(); ++i)
+-        if (i->get()!=stream && (*i)->borrowed.live && sameIdentity((*i)->borrowed.wire,reply.result.resource))session.rejectResult();
++    // Exact echo, stable alias and uniqueness were checked before return join.
++    if (StartupBridge::nullHandle(reply.result.resource))return 0;
+     parent.borrowed.wire=reply.result.resource;parent.borrowed.live=true;return &parent.borrowed;
+ }
+ void start_stream(HSTREAM stream) {
+@@ -466,8 +488,6 @@
+     ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();MilesWire::Call c=streamCall(s,stream);
+     c.output_mask=MilesWire::pairMask(total,current);
+     const StartupBridge::OwnedReply reply=s.request(MilesWire::AIL_stream_ms_position,c);
+-    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]) ||
+-        ((c.output_mask&4u) && reply.result.value[0]!=reply.result.value[1]))s.rejectResult();
+     const int32_t a=static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[0]));
+     const int32_t b=static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[1]));
+     if(total)*total=a;
+@@ -504,10 +524,7 @@
+     fields.target = ownedSample(session, sample).wire;
+     fields.output_mask = MilesWire::pairMask(total, current);
+     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_sample_ms_position, fields);
+-    // Decoder knows the opcode; only this layer knows which outputs were requested.
+-    if ((!total && reply.result.value[0]) || (!current && reply.result.value[1]) ||
+-        ((fields.output_mask & 4u) && reply.result.value[0] != reply.result.value[1]))
+-        session.rejectResult();
++    // Request topology was validated before admission settlement.
+     const int32_t a = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[0]));
+     const int32_t b = static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[1]));
+     if (total) *total = a;
+@@ -547,9 +564,6 @@
+     MilesWire::Call fields = sampleCall(session, sample, opcode==MilesWire::AIL_sample_volume_levels);
+     fields.output_mask = MilesWire::pairMask(first, second);
+     const StartupBridge::OwnedReply reply = session.request(opcode, fields);
+-    if ((!first && reply.result.value[0]) || (!second && reply.result.value[1]) ||
+-        ((fields.output_mask & 4u) && reply.result.value[0] != reply.result.value[1]))
+-        session.rejectResult();
+     float a, b;
+     std::memcpy(&a, &reply.result.value[0], sizeof a);
+     std::memcpy(&b, &reply.result.value[1], sizeof b);
+--- paired-bootstrap59/candidate/backend-boundary24/pipe/LiveChannel.cpp
++++ paired-bootstrap64/candidate/backend-boundary24/pipe/LiveChannel.cpp
+@@ -42,16 +42,17 @@
+         require(runtime_->awaitReady(),"callback control owner ready");
+         StartupBridge::OwnedReply hello =
+             exchange(MilesWire::Hello, MilesWire::Call(),
+-                     MilesTransport::Bytes(random.data(), random.size()), MilesTransport::Bytes(),std::vector<MilesWire::Handle>());
++                     MilesTransport::Bytes(random.data(), random.size()), MilesTransport::Bytes(),std::vector<MilesWire::Handle>(),0);
+         require(hello.result.transport_status == StartupBridge::Success, "Hello accepted");
+         }catch(...){if(runtime_){runtime_->fail();std::terminate();}throw;}
+     }
+ 
+     StartupBridge::OwnedReply call(uint32_t opcode, const MilesWire::Call &fields,
+-                                   MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources) override {
++                                   MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources,
++        const ClientMilesPipe::Session &replyOwner) override {
+         // Known validated refusals reach the facade; only fixture probes compare
+         // an expected status. Do not inherit Client.call's default-success throw.
+-        return exchange(opcode, fields, MilesTransport::Bytes(), text,resources);
++        return exchange(opcode, fields, MilesTransport::Bytes(), text,resources,&replyOwner);
+     }
+ 
+     void finish() override {throw std::runtime_error("paired clean shutdown is not implemented in59");}
+@@ -63,7 +64,8 @@
+     uint64_t next_;
+ 
+     StartupBridge::OwnedReply exchange(uint32_t opcode,const MilesWire::Call &fields,
+-        MilesTransport::Bytes payload,MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources){
++        MilesTransport::Bytes payload,MilesTransport::Bytes text,const std::vector<MilesWire::Handle> &resources,
++        const ClientMilesPipe::Session *replyOwner){
+       try {
+         require(next_!=(std::numeric_limits<uint64_t>::max)(),"command ID exhausted");
+         MilesWire::Header header={};header.magic=MilesWire::Magic;header.version=MilesWire::Version;
+@@ -92,7 +94,10 @@
+             require(MilesFileProtocol48::decodeInstallReply(bytes(frame),expected,status),"exact install reply");
+             MilesWire::Header decoded={};require(MilesTransport::decodeResult(bytes(frame),decoded,out.result),"install result projection");
+         }else require(StartupBridge::decodeReply(bytes(frame),header,out),"typed reply/context");
+-        if(opcode!=MilesWire::Hello)require(runtime_->returned(header.request),"forward and callback ACK join");
++        if(opcode!=MilesWire::Hello){
++            require(replyOwner && replyOwner->validateReply(opcode,fields,out),"request and owner reply validation before settlement");
++            require(runtime_->returned(header.request),"forward and callback ACK join");
++        }
+         return out;
+       }catch(...){runtime_->fail();throw;}
+     }
+--- paired-bootstrap59/candidate/backend-boundary24/pipe/Session.h
++++ paired-bootstrap64/candidate/backend-boundary24/pipe/Session.h
+@@ -10,7 +10,7 @@
+ struct SampleState;
+ // Composition-root-only owner; not included by game policy. Bootstrap/Hello
+ // occurs in the concrete channel before selecting this sole session. Explicit
+-// close follows ClientMiles::shutdown and hides SessionClose from game callers.
++// normal close remains unavailable pending paired shutdown proof; no public protocol API.
+ class Session {
+   public:
+     Session(Channel *channel, MilesClientRuntime53::Runtime &,
+@@ -26,6 +26,9 @@
+     void rejectResult(); // terminal uncertainty; no retry after an invalid sample result
+     void requireRunning() const;
+     void requireAvailable() const;
++    // Pure owner/request checks after wire decoding, before admission settlement.
++    bool validateReply(uint32_t opcode,const MilesWire::Call &,
++        const StartupBridge::OwnedReply &) const;
+     void installFiles(ClientMiles::FileOpenCallback, ClientMiles::FileCloseCallback,
+         ClientMiles::FileSeekCallback, ClientMiles::FileReadCallback);
+     bool started;
+--- paired-bootstrap59/candidate/host-runtime50/host_sdk_callbacks.cpp
++++ paired-bootstrap64/candidate/host-runtime50/host_sdk_callbacks.cpp
+@@ -49,8 +49,8 @@
+     // ambiguous failure remains process terminal; never withdraw this binding.
+     if(InterlockedCompareExchangePointer(reinterpret_cast<PVOID volatile *>(&published),
+                                         &binding,0)!=0)return false;
+-    try {::AIL_set_file_callbacks(&openFile,&closeFile,&seekFile,&readFile);}
+-    catch(...){fatal();}
++    // /EHsc treats this extern-C SDK call as nonthrowing; callback thunks retain their own catches.
++    ::AIL_set_file_callbacks(&openFile,&closeFile,&seekFile,&readFile);
+     return true;
+ }
+ }

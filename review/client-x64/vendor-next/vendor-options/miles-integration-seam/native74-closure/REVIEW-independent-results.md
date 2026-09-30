@@ -1,0 +1,5 @@
+# Independent observed74 result
+
+Read-only local evidence audit, no rerun/VM/Git. ZIP SHA ad5cdda652fa56b4afa3b60ea716b8ac96c28909f56cb3fcbfd6cbf65553456b agrees with the supplied identity. All35 records report compiled, exit0 and no diagnostics:18 x86 COFF0x14c and17 AMD64 COFF0x8664. Independently parsed raw symbol logs equal recorded symbol sets; AIL name sets equal the frozen per-unit expectations. Each collected object hash/machine agrees with its build record. All frozen local inputs equal the manifest and collected after hashes; embedded manifest is byte-identical. Records report unchanged inputs, reused35 and tools, no link and no execution.
+
+This supports the reviewed actual composed object gate, including host.cpp/Backend and the selected client Core/Session, without substituting prior component results. Binary objects remain remote; this audit checks recorded object observations, not local binary objects. Runtime, linkage, missing exports and engine adoption remain unproven. Proposed host-link78 separately pins exactly the18 observed x86 object identities for possible symbol resolution only.

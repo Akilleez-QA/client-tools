@@ -1,0 +1,3 @@
+# Parent pretest77
+
+Root read75/76 patches, combined77 review and native runner differences against actual74. Verified all71 frozen inputs. The only remote-runner change is fresh root; actual selected source carries five changed files and exact50 public-delegate expectations. Authorize one fresh35-object build after the portable decoder gate passes, without old object reuse, link or execution. Same source/header/tool/oracle scope and stop-first-failure rules as74; no full backend/client or fidelity claim. Prior production authorship of the separate reviewer is disclosed. Product49d0 remains untouched.

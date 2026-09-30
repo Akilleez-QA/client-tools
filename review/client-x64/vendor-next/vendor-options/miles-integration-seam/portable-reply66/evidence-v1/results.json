@@ -1,0 +1,49 @@
+{
+  "scope": "actual64 validator/types/core plus scripted Channel and unavailable Runtime substitute; no OS/engine/SDK runtime",
+  "start": 1790791694.6006358,
+  "commands": [
+    [
+      "/usr/bin/python3",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/source_oracle.py"
+    ],
+    [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-fno-omit-frame-pointer",
+      "-include",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/native35_compat.h",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/tests.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/tree/transport-candidate/codec.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/tree/session-version22/session_version.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/tree/startup-metadata-v4/metadata_wire.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/tree/session-file-admission34/coordinator.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/tree/callback-reentry47/invocation_guard.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/evidence-v1/portable-reply66"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-reply66/evidence-v1/portable-reply66"
+    ]
+  ],
+  "oracle_exit": 0,
+  "compile_exit": 0,
+  "run_exit": 0,
+  "markers": {
+    "PASS real validator pair topology and bit preservation": 1,
+    "PASS actual proxy alias echo stability uniqueness and null transitions": 1,
+    "PASS duplicate allocation identities refused without publication": 1,
+    "PASS actual facade writes after scripted coordinator ACK join and refusal observation": 1,
+    "PASS malformed pair retains actual coordinator admission and callback pins": 1
+  },
+  "changed": [],
+  "end": 1790791696.9417272,
+  "passed": true
+}

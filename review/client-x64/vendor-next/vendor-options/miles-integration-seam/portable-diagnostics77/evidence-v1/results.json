@@ -1,0 +1,40 @@
+{
+  "scope": "actual77 reply decoder, codec, signed conversion and version dependency; no substitutions, SDK or runtime owner",
+  "start": 1790793233.7296758,
+  "commands": [
+    [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-fno-omit-frame-pointer",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-diagnostics77/tests.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-diagnostics77/tree/transport-candidate/codec.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-diagnostics77/tree/session-version22/session_version.cpp",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-diagnostics77/tree/startup-metadata-v4/metadata_wire.cpp",
+      "-o",
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-diagnostics77/evidence-v1/portable-diagnostics77"
+    ],
+    [
+      "/home/akilleez/Work/client-wire-validation/vendor-options/miles-integration-seam/portable-diagnostics77/evidence-v1/portable-diagnostics77"
+    ]
+  ],
+  "compile_exit": 0,
+  "run_exit": 0,
+  "markers": {
+    "PASS scalar-bits": 1,
+    "PASS diagnostic-shapes": 1,
+    "PASS exact-context": 1,
+    "PASS refusal-and-allowlist": 1,
+    "PASS unchanged-neighbors": 1
+  },
+  "changed": [],
+  "end": 1790793235.0114155,
+  "passed": true
+}

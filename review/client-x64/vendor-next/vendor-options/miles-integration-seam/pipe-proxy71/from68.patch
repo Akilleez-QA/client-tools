@@ -1,0 +1,307 @@
+--- pipe-composition68/candidate/backend-boundary24/ClientMiles.h
++++ pipe-proxy71/candidate/backend-boundary24/ClientMiles.h
+@@ -1,25 +1,26 @@
+-#ifndef CLIENT_MILES_PLAIN_SURFACE51_H
+-#define CLIENT_MILES_PLAIN_SURFACE51_H
++#ifndef CLIENT_MILES_PLAIN_SURFACE70_H
++#define CLIENT_MILES_PLAIN_SURFACE70_H
+ 
+ // Source-only proposal for the game/private-adapter boundary.
+-// No SDK declarations, standard-library objects, or transport ownership cross it.
++// Selected Windows SDK opaque tag names only; no vendor bodies or SDK includes.
++// This nominal-type revision requires a consistent rebuild and one backend.
+ #include <stdint.h>
+ #if !defined(_WIN32) || !defined(_MSC_VER)
+ #error This candidate declares Windows MSVC callback calling conventions.
+ #endif
+ 
++// Deliberate selected-SDK coupling, including its reserved global tag names.
++struct _DIG_DRIVER;
++struct _SAMPLE;
++struct _STREAM;
+ namespace ClientMiles {
+-struct DigitalDriver;
+-struct Sample;
+-struct OwnedStream;
+-typedef DigitalDriver *HDIGDRIVER;
+-typedef Sample *HSAMPLE;
+-typedef OwnedStream *HSTREAM;
++typedef ::_DIG_DRIVER *HDIGDRIVER;
++typedef ::_SAMPLE *HSAMPLE;
++typedef ::_STREAM *HSTREAM;
+ typedef uintptr_t FileHandle;
+ 
+ // Native-shaped local callbacks. FileHandle may be zero on successful open.
+-// Sample/stream identities use this facade's opaque types; see required private
+-// typed callback bridging in PROPOSAL.md, not function-pointer reinterpret casts.
++// Exact native sample/stream callback types; callers keep callbacks nonthrowing.
+ typedef uint32_t (__stdcall *FileOpenCallback)(const char *, FileHandle *);
+ typedef void (__stdcall *FileCloseCallback)(FileHandle);
+ typedef int32_t (__stdcall *FileSeekCallback)(FileHandle, int32_t, uint32_t);
+@@ -145,7 +146,7 @@
+ int32_t sample_playback_rate(HSAMPLE);
+ 
+ // Callback code/state must outlive the native callback registration and actual
+-// producer quiescence. Return the prior facade callback; null is not a wire ID.
++// producer quiescence. Return the actual prior native callback; null is not a wire ID.
+ SampleCallback register_EOS_callback(HSAMPLE, SampleCallback);
+ StreamCallback register_stream_callback(HSTREAM, StreamCallback);
+ 
+--- pipe-composition68/candidate/backend-boundary24/pipe/PipeCore.cpp
++++ pipe-proxy71/candidate/backend-boundary24/pipe/PipeCore.cpp
+@@ -5,34 +5,49 @@
+ #include <cstring>
+ #include <limits>
+ 
+-namespace ClientMiles {
+-struct DigitalDriver {
++namespace ClientMilesPipe {
++struct DriverProxy {
+     MilesWire::Handle wire;
+     const ClientMilesPipe::Session *owner;
+ };
+-struct Sample {
++struct SampleProxy {
+     MilesWire::Handle wire;
+     bool live;
+-    Sample() : wire(), live(false) {}
++    SampleProxy() : wire(), live(false) {}
+ };
+-struct OwnedStream {
++struct StreamProxy {
+     MilesWire::Handle wire;
+-    Sample borrowed;
++    SampleProxy borrowed;
+     bool live;
+-    OwnedStream() : wire(), live(false) {}
++    StreamProxy() : wire(), live(false) {}
+ };
+-} // namespace ClientMiles
++} // namespace ClientMilesPipe
+ 
+ namespace ClientMilesPipe {
+ struct SampleState {
+-    typedef std::list<std::unique_ptr<ClientMiles::Sample> > Proxies;
++    typedef std::list<std::unique_ptr<ClientMilesPipe::SampleProxy> > Proxies;
+     Proxies proxies;
+-    typedef std::list<std::unique_ptr<ClientMiles::OwnedStream> > Streams;
++    typedef std::list<std::unique_ptr<ClientMilesPipe::StreamProxy> > Streams;
+     Streams streams;
+ };
+ }
+ 
+ namespace {
++using ClientMilesPipe::DriverProxy;
++using ClientMilesPipe::SampleProxy;
++using ClientMilesPipe::StreamProxy;
++// Tokens are opaque object-pointer representations only. Never dereference or
++// cast a caller token back to a proxy. Lookup compares freshly generated tokens
++// from the existing authoritative rows, then uses only the matched row pointer.
++ClientMiles::HDIGDRIVER driverToken(DriverProxy *row) {
++    return reinterpret_cast<ClientMiles::HDIGDRIVER>(row);
++}
++ClientMiles::HSAMPLE sampleToken(SampleProxy *row) {
++    return reinterpret_cast<ClientMiles::HSAMPLE>(row);
++}
++ClientMiles::HSTREAM streamToken(StreamProxy *row) {
++    return reinterpret_cast<ClientMiles::HSTREAM>(row);
++}
+ ClientMilesPipe::Session *selectedSession = 0;
+ 
+ void fail(ClientMilesPipeCore57::FailureReason reason, const char *message) {
+@@ -94,10 +109,11 @@
+ MilesWire::Call driverCall(ClientMilesPipe::Session &session, ClientMiles::HDIGDRIVER driver) {
+     session.requireRunning();
+     // Compare the opaque identity before inspecting any pointed-to bytes.
+-    if (!driver || driver != session.driver.get() || driver->owner != &session)
++    DriverProxy *const selected = session.driver.get();
++    if (!driver || !selected || driver != driverToken(selected) || selected->owner != &session)
+         fail(ClientMilesPipeCore57::FailureReason::InvalidDriver, "driver does not belong to selected Miles session");
+     MilesWire::Call fields = {};
+-    fields.target = driver->wire;
++    fields.target = selected->wire;
+     return fields;
+ }
+ 
+@@ -202,7 +218,7 @@
+     if(opcode==MilesWire::AIL_stream_sample_handle){
+         const MilesWire::Handle echo={r.value[0],r.value[1],r.value[2]};
+         if(!same(echo,fields.target))return false;
+-        const ClientMiles::OwnedStream *parent=0;
++        const ClientMilesPipe::StreamProxy *parent=0;
+         for(auto i=samples->streams.begin();i!=samples->streams.end();++i)
+             if((*i)->live && same((*i)->wire,fields.target))parent=i->get();
+         if(!parent)return false;
+@@ -331,24 +347,25 @@
+     fields.value[2] = static_cast<uint32_t>(channels);
+     fields.value[3] = flags;
+     // Obtain caller-visible storage before the side-effecting vendor request.
+-    std::unique_ptr<DigitalDriver> driver(new DigitalDriver);
++    std::unique_ptr<DriverProxy> driver(new DriverProxy);
+     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_open_digital_driver, fields);
+     if (StartupBridge::nullHandle(reply.result.resource))
+         return 0;
+     driver->wire = reply.result.resource;
+     driver->owner = &session;
+     session.driver = std::move(driver);
+-    return session.driver.get();
++    return driverToken(session.driver.get());
+ }
+ 
+ int32_t speaker_configuration_spec(HDIGDRIVER driver) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     session.requireRunning();
+-    // Compare identity before dereferencing an opaque caller-provided pointer.
+-    if (!driver || driver != session.driver.get() || driver->owner != &session)
++    // Compare the token, then inspect only the trusted selected private row.
++    DriverProxy *const selected = session.driver.get();
++    if (!driver || !selected || driver != driverToken(selected) || selected->owner != &session)
+         fail(FailureReason::InvalidDriver, "driver does not belong to selected Miles session");
+     MilesWire::Call fields = {};
+-    fields.target = driver->wire;
++    fields.target = selected->wire;
+     fields.output_mask = 8;
+     StartupBridge::OwnedReply reply = session.request(MilesWire::AIL_speaker_configuration, fields);
+     return static_cast<int32_t>(MilesStartup::signedValue(reply.result.value[3]));
+@@ -397,34 +414,34 @@
+     session.request(MilesWire::AIL_set_room_type, fields);
+ }
+ // Private helper compares identity without dereferencing caller-provided pointers.
+-static Sample &ownedSample(ClientMilesPipe::Session &session, HSAMPLE sample) {
++static SampleProxy &ownedSample(ClientMilesPipe::Session &session, HSAMPLE sample) {
+     session.requireRunning();
+     for (ClientMilesPipe::SampleState::Proxies::iterator i=session.samples->proxies.begin();
+          i!=session.samples->proxies.end(); ++i) {
+-        Sample *candidate = i->get();
+-        if (sample == candidate && candidate->live && candidate->wire.kind == MilesWire::OwnedSample) return *candidate;
++        SampleProxy *candidate = i->get();
++        if (sample == sampleToken(candidate) && candidate->live && candidate->wire.kind == MilesWire::OwnedSample) return *candidate;
+     }
+     fail(FailureReason::InvalidArgument, "sample is not live in this selected Session");
+     throw std::logic_error("unreachable");
+ }
+ 
+-static Sample &controlSample(ClientMilesPipe::Session &session, HSAMPLE sample, bool borrowed) {
++static SampleProxy &controlSample(ClientMilesPipe::Session &session, HSAMPLE sample, bool borrowed) {
+     session.requireRunning();
+     if (borrowed) {
+         for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
+              i!=session.samples->streams.end(); ++i) {
+-            OwnedStream &parent=**i;
+-            if (sample==&parent.borrowed && parent.live && parent.borrowed.live &&
++            StreamProxy &parent=**i;
++            if (sample==sampleToken(&parent.borrowed) && parent.live && parent.borrowed.live &&
+                 parent.borrowed.wire.kind==MilesWire::BorrowedSample) return parent.borrowed;
+         }
+     }
+     return ownedSample(session,sample);
+ }
+-static OwnedStream &liveStream(ClientMilesPipe::Session &session,HSTREAM stream) {
++static StreamProxy &liveStream(ClientMilesPipe::Session &session,HSTREAM stream) {
+     session.requireRunning();
+     for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
+          i!=session.samples->streams.end(); ++i)
+-        if (stream==i->get() && (*i)->live) return **i;
++        if (stream==streamToken(i->get()) && (*i)->live) return **i;
+     fail(FailureReason::InvalidArgument,"stream is not live in selected Session");
+     throw std::logic_error("unreachable");
+ }
+@@ -435,14 +452,14 @@
+     const size_t size=std::strlen(filename)+1;
+     if (size>MilesWire::MaxFrameBytes-136u) fail(FailureReason::InputLimit,"stream filename exceeds frame capacity");
+     fields.value[0]=static_cast<uint32_t>(streamMem);
+-    std::unique_ptr<OwnedStream> local(new OwnedStream);
+-    OwnedStream *stream=local.get();
++    std::unique_ptr<StreamProxy> local(new StreamProxy);
++    StreamProxy *stream=local.get();
+     session.samples->streams.push_back(std::move(local));
+     StartupBridge::OwnedReply reply;
+     try { reply=session.request(MilesWire::AIL_open_stream,fields,MilesTransport::Bytes(filename,size)); }
+     catch (...) { if (!session.uncertain())session.samples->streams.pop_back();throw; }
+     if (StartupBridge::nullHandle(reply.result.resource)) {session.samples->streams.pop_back();return 0;}
+-    stream->wire=reply.result.resource;stream->live=true;return stream;
++    stream->wire=reply.result.resource;stream->live=true;return streamToken(stream);
+ }
+ static MilesWire::Call streamCall(ClientMilesPipe::Session &session,HSTREAM stream) {
+     MilesWire::Call fields={};fields.target=liveStream(session,stream).wire;return fields;
+@@ -452,15 +469,15 @@
+     session.request(MilesWire::AIL_close_stream,streamCall(session,stream));
+     for (ClientMilesPipe::SampleState::Streams::iterator i=session.samples->streams.begin();
+          i!=session.samples->streams.end(); ++i)
+-        if (i->get()==stream) {session.samples->streams.erase(i);break;}
++        if (streamToken(i->get())==stream) {session.samples->streams.erase(i);break;}
+ }
+ HSAMPLE stream_sample_handle(HSTREAM stream) {
+     ClientMilesPipe::Session &session=ClientMilesPipe::Session::selected();
+-    OwnedStream &parent=liveStream(session,stream);
++    StreamProxy &parent=liveStream(session,stream);
+     const StartupBridge::OwnedReply reply=session.request(MilesWire::AIL_stream_sample_handle,streamCall(session,stream));
+     // Exact echo, stable alias and uniqueness were checked before return join.
+     if (StartupBridge::nullHandle(reply.result.resource))return 0;
+-    parent.borrowed.wire=reply.result.resource;parent.borrowed.live=true;return &parent.borrowed;
++    parent.borrowed.wire=reply.result.resource;parent.borrowed.live=true;return sampleToken(&parent.borrowed);
+ }
+ void start_stream(HSTREAM stream) {
+     ClientMilesPipe::Session &s=ClientMilesPipe::Session::selected();s.request(MilesWire::AIL_start_stream,streamCall(s,stream));
+@@ -495,8 +512,8 @@
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     MilesWire::Call fields = driverCall(session, driver);
+     // Both proxy allocation and container publication precede remote side effects.
+-    std::unique_ptr<Sample> local(new Sample);
+-    Sample *sample = local.get();
++    std::unique_ptr<SampleProxy> local(new SampleProxy);
++    SampleProxy *sample = local.get();
+     session.samples->proxies.push_back(std::move(local));
+     StartupBridge::OwnedReply reply;
+     try {
+@@ -512,7 +529,7 @@
+     }
+     sample->wire = reply.result.resource;
+     sample->live = true;
+-    return sample;
++    return sampleToken(sample);
+ }
+ 
+ void sample_ms_position(HSAMPLE sample, int32_t *total, int32_t *current) {
+@@ -537,7 +554,7 @@
+ 
+ void release_sample_handle(HSAMPLE sample) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+-    Sample &owned = ownedSample(session, sample);
++    SampleProxy &owned = ownedSample(session, sample);
+     MilesWire::Call fields = {};
+     fields.target = owned.wire;
+     session.request(MilesWire::AIL_release_sample_handle, fields);
+--- pipe-composition68/candidate/backend-boundary24/pipe/PipeCore.h
++++ pipe-proxy71/candidate/backend-boundary24/pipe/PipeCore.h
+@@ -5,11 +5,8 @@
+ #include <string>
+ // Private throwing implementation only. Never included by engine/game code.
+ namespace ClientMilesPipeCore57 {
+-using ClientMiles::DigitalDriver;
+ using ClientMiles::HDIGDRIVER;
+-using ClientMiles::Sample;
+ using ClientMiles::HSAMPLE;
+-using ClientMiles::OwnedStream;
+ using ClientMiles::HSTREAM;
+ using ClientMiles::FileOpenCallback;
+ using ClientMiles::FileCloseCallback;
+--- pipe-composition68/candidate/backend-boundary24/pipe/Session.h
++++ pipe-proxy71/candidate/backend-boundary24/pipe/Session.h
+@@ -7,6 +7,7 @@
+ #include "../../client-runtime53/client_file_runtime.h"
+ 
+ namespace ClientMilesPipe {
++struct DriverProxy;
+ struct SampleState;
+ // Composition-root-only owner; not included by game policy. Bootstrap/Hello
+ // occurs in the concrete channel before selecting this sole session. Explicit
+@@ -33,7 +34,7 @@
+         ClientMiles::FileSeekCallback, ClientMiles::FileReadCallback);
+     bool started;
+     bool stopped;
+-    std::unique_ptr<ClientMiles::DigitalDriver> driver;
++    std::unique_ptr<DriverProxy> driver;
+     std::unique_ptr<SampleState> samples;
+     static Session &selected();
+ 

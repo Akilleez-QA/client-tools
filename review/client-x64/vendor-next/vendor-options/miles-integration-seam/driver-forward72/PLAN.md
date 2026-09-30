@@ -1,0 +1,13 @@
+# Driver-forward72: preserve Audio provider selection
+
+Source-only three-file overlay against composition68 freeze `419d01b1a1839eedce5e204bc9ffd1f4b8024fe4cabc891ac68a3614e374162f`. Apply the listed files over that parent, not over mutable71 proxy renames. No public type/API, protocol byte, registry or pointer-valued preference change. No compilation or execution authorized or performed.
+
+Actual product `src/engine/client/library/clientAudio/src/win32/Audio.cpp:912–934` maps the saved provider name to system configuration, headphones, stereo, discrete4/5.1/6.1/7.1/8.1 or Dolby Surround. At1301 Audio passes getFrequency(), getBits(), that selected spec and flags0 to the SDK. Only a genuine null triggers the separate stereo call at1307. The old pipe's non-stereo refusal instead becomes a fatal private failure before Audio can evaluate its null fallback.
+
+The patch removes the fixed22050/16/stereo/zero-flags predicate in both actual private core and host Backend. Core still requires a running Session and no existing driver, allocates local proxy storage before the request, writes all four native-width scalars into the existing Call, and returns null only for a validated null resource. No local provider fallback is added. Host retains started/not-shutdown and single-driver guards, scalar field-count/unused-field validation, and the existing reserve-before-SDK/publish-after-nonnull order. U32 frequency/flags pass directly; bits/channels are reconstructed through existing signedValue into genuine SDK S32, avoiding implementation-defined unsigned narrowing. Vendor result remains the actual result. Pointer-width preference restrictions remain untouched.
+
+The private declaration comment is updated to stop promising the old fixture argument restriction. All other68 limitations remain, including public file installation, missing text/lock/EOS/image APIs, actual stream routing, TLS adaptation and normal paired teardown. This does not make Audio adoption or paired runtime operational.
+
+**Inherited host blocker:** selected68 resource_registry.h lacks Backend's existing Reservation/reserve/publish API. This was reported in68 REVIEW-independent-boundary.md.72 preserves that intended preallocation path; it does not replace it with post-effect insertion or invent a second registry. A reviewed correct registry closure is required before any host compilation or portable execution of Backend. Even null-reservation cancellation semantics must be checked in that chosen real implementation, rather than assumed from the currently missing API.
+
+Files and parent/candidate hashes are in provenance.json; from68.patch is the complete source delta. The production checkout and frozen parents are untouched.

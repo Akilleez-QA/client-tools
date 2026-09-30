@@ -1,0 +1,163 @@
+# Assessment: SDK-tag alias vs distinct facade opaque types
+
+Scope: only the supplied `ClientMiles.h` (surface51) and `native_calls60.cpp`, plus your stated facts (existing wrapper uses facade `DigitalDriver`/`Sample`/`OwnedStream`; SDK globals are incomplete `_DIG_DRIVER` / `_SAMPLE` / `_STREAM`; rival aliases public handles to those tags and uses `std::is_same` in the private native TU for direct callback registration). No SDK bodies, no runtime claims, no tools.
+
+---
+
+## 1. Callback replacement timing ambiguity
+
+**What the language problem is**
+
+`ClientMiles.h` defines callbacks as:
+
+```c
+typedef void (__stdcall *SampleCallback)(HSAMPLE);
+typedef void (__stdcall *StreamCallback)(HSTREAM);
+```
+
+with `HSAMPLE` = `ClientMiles::Sample*` and `HSTREAM` = `ClientMiles::OwnedStream*`. Those are **different function types** from any SDK callback whose parameter is `::_SAMPLE*` or `::_STREAM*`, even when every handle is one machine word. C++ does not treat “pointer to unrelated incomplete struct” parameters as interchangeable for function types; identity of size is irrelevant.
+
+An adapter that cannot pass the user’s function pointer to the SDK without a lie therefore tends to:
+
+- register an **adapter-owned** stub whose type matches the SDK, and  
+- keep the user’s `SampleCallback`/`StreamCallback` in a side table.
+
+Then `register_*_callback`’s “return the prior callback” is ambiguous in **engineering** terms: prior **user** callback vs prior **registered** address (stub) vs SDK-exposed prior—unless the implementation documents one convention and sticks to it. That ambiguity is **adapter-created**; it is not solved by the public header alone.
+
+**What the rival changes (native path only, if identity is real)**
+
+If public handles and callback typedefs are **the same types** as `::HDIGDRIVER` / `::HSAMPLE` / `::HSTREAM` and the SDK’s callback typedefs, and the native TU implements registration as a direct forward (no stub in the registration slot), then:
+
+- the value stored in the SDK slot can be the user’s pointer (type-checked), and  
+- the returned “prior” can be the SDK’s prior in the **same** type, without a facade↔trampoline translation layer.
+
+That **does** remove **adapter-created** replacement/return identity ambiguity on the **selected native** implementation, **provided** you do not still register a different function pointer than the one returned semantics imply.
+
+**What it does not remove (from authored source only)**
+
+`ClientMiles.h` still states:
+
+> Callback code/state must outlive the native callback registration and actual producer quiescence.
+
+and for the return value:
+
+> Return the prior facade callback; null is not a wire ID.
+
+So:
+
+- **Lifetime / quiescence** obligations are explicit in the facade contract; tag aliasing does not relax them and does not tell you when the SDK stops calling.
+- **Null semantics** (“not a wire ID”) remain a **facade/pipe** convention; aliasing does not merge null with any IPC encoding.
+- **Pipe / proxy-row** path (you: token is identity only, separate rows, no vendor dereference): direct SDK registration and exact SDK prior return apply to the **native** binding. A pipe still needs its own dispatch unless the process never mixes models—and you require one implementation per process. Callback timing ambiguity on the **pipe** side is **not** removed by public tag aliases.
+- Supplied `native_calls60.cpp` does **not** show `register_EOS_callback`, `register_stream_callback`, or `set_file_callbacks`; no source here proves the native60 line actually adopts direct registration vs `reinterpret_cast` stubs.
+
+**Verdict (narrow):** Rival can remove **type-forced trampoline + “what is prior?”** ambiguity on **native**, if `is_same` passes and registration is a transparent forward. It does **not** clear quiescence requirements, pipe semantics, or any SDK scheduling behavior (not in source).
+
+---
+
+## 2. SDK lifecycle obligations that still bind (source-grounded)
+
+From the header API and comments only:
+
+| Area | Obligation |
+|------|------------|
+| Handles | Call graph implies pairing: `allocate_sample_handle` / `release_sample_handle`, `open_stream` / `close_stream`, driver from `open_digital_driver` (not shown in snippet) used across many APIs. Rival makes native handles **SDK pointer values** if types match; you still must not use handles after the matching release/close/shutdown surface (no extra lifetime promise is written). |
+| Callbacks | Outlive registration **and** “actual producer quiescence” (author text). |
+| Strings | `last_error`, `set_redist_directory`: valid until next call to the **same** function or completed `shutdown`; not vendor-pointer lifetime. |
+| Implementation | One private implementation for entire startup lifetime; no mixed native/pipe handles. |
+| Pipe | Public token = identity in lookup only; not deleted/dereferenced as vendor type; proxy rows owned privately—lifecycle is row/table ownership, not typedef choice. |
+| Failures | Adapter must not fabricate null/zero/EOF for failures; no exceptions into engine TUs. |
+
+Tag aliasing does **not** transfer ownership of pipe proxy state to the SDK and does **not** make `OwnedStream` naming vs `_STREAM` an extra release API—naming in surface51 is facade vocabulary; rival must align `HSTREAM` with SDK or falsify identity.
+
+---
+
+## 3. Declaration, ODR, calling convention, reserved tags, platform
+
+**ODR / incomplete types**
+
+Compatible forward declarations of the **same** class-key and name in namespace as the SDK’s complete type are the normal MSVC pattern. **Falsified** if SDK uses a different key (e.g. typedef to non-struct), different namespace, or different spelling than the three facts you possess.
+
+**Reserved identifiers (concrete C++ concern)**
+
+Names in the global namespace beginning with `_` followed by an uppercase letter are **reserved to the implementation** ([reserved.names]). `_DIG_DRIVER`, `_SAMPLE`, `_STREAM` fit that pattern. Vendor headers may use them; **re-declaring them in a game-facing `ClientMiles.h`** couples every engine TU to implementation-reserved spellings. That is a real boundary defect compared to surface51’s `DigitalDriver` / `Sample` / `OwnedStream`, which stay in `namespace ClientMiles` and avoid those tags.
+
+**Distinct facade tags (surface51)**
+
+Separate incomplete types maximize encapsulation and avoid reserved global tags in public headers. Cost: non-`is_same` callbacks and handle parameters → private bridging or `reinterpret_cast` on handles (as in supplied `native_calls60.cpp`).
+
+**Calling convention**
+
+Public callbacks are `__stdcall`. Native TU asserts `AILCALL` on **AIL API** entry points, not on EOS/stream callback typedefs. Rival **requires** additional asserts, e.g. `std::is_same<ClientMiles::SampleCallback, /* SDK EOS callback type */>`. If SDK uses `AILCALL` and it is not identical to `__stdcall` on the target ABI, direct registration is ill-typed even when handles match.
+
+**`reinterpret_cast` (current native60)**
+
+Handle forwarding uses `reinterpret_cast` between `ClientMiles::*` and `::*` SDK typedefs. That is a deliberate private-TU escape hatch; it does **not** extend to callbacks in surface51’s comment (“not function-pointer reinterpret casts”). Rival’s point is to replace that for **callbacks** (and optionally handles) with `is_same`.
+
+**Platform**
+
+`ClientMiles.h` already `#error`s off non-`_WIN32` / non-`_MSC_VER`. Native60 requires `_WIN64` and `_MSC_VER == 1800`. Public SDK-tag coupling tightens the boundary to “same SDK declaration environment as the assert TU.”
+
+**Leakage risk**
+
+If engine code includes `ClientMiles.h` and handles are literally `::_SAMPLE*`, temptation grows to include `Mss.h` or cast handles in game TUs—surface51’s separate structs are a stronger **semantic** firewall (still not a security boundary).
+
+---
+
+## 4. Minimal compile test to falsify identity
+
+Single TU, same constraints as `native_calls60.cpp` (`#include <Mss.h>`, MSVC 1800, x64):
+
+```cpp
+#include "ClientMiles.h"  // rival revision: aliases to ::HDIGDRIVER etc.
+#include <Mss.h>
+#include <type_traits>
+
+static_assert(std::is_same<ClientMiles::HDIGDRIVER, ::HDIGDRIVER>::value, "HDIGDRIVER");
+static_assert(std::is_same<ClientMiles::HSAMPLE,     ::HSAMPLE>::value,     "HSAMPLE");
+static_assert(std::is_same<ClientMiles::HSTREAM,     ::HSTREAM>::value,     "HSTREAM");
+
+// Callbacks: use the SDK registration API’s parameter/return types (names not in supplied source).
+// Example shape only—replace with decltype from the real AIL_register_* declaration:
+// static_assert(std::is_same<ClientMiles::SampleCallback,
+//   /* decltype second arg or return of AIL_register_EOS_callback */>::value, "EOS cb");
+// static_assert(std::is_same<ClientMiles::StreamCallback, ...>::value, "stream cb");
+```
+
+Any failed `static_assert` falsifies “direct registration without callback cast.” Optional handle falsifier for **current** surface51 vs SDK (should fail today):
+
+```cpp
+static_assert(std::is_same<ClientMiles::HSAMPLE, ::HSAMPLE>::value, "facade vs SDK sample handle");
+```
+
+Supplied native60 already shows the pattern for API signatures but **omits** handle and callback `is_same`; those are the gaps rival must fill.
+
+---
+
+## 5. Simpler legitimate boundary?
+
+| Criterion | surface51 (supplied header) | Rival (SDK tag alias) |
+|-----------|----------------------------|------------------------|
+| Public C++ hygiene | Better: no reserved `_TAG` in game TUs | Worse: reserved global tags in public API |
+| Native callbacks | Must bridge; header forbids callback `reinterpret_cast` | Best **if** all `is_same` pass: forward registration + true prior type |
+| Native handles | `reinterpret_cast` in private TU (shown) | Can drop casts when `is_same` holds |
+| Pipe | Same token/row story either way | Does not simplify pipe callbacks |
+| Proof burden | Localized private TU + trampolines/table | Entire identity hinges on compile-time equality with `Mss.h` |
+
+**Recommendation (source-only, no clearance):**
+
+- For **engine-facing** boundary: **surface51’s distinct incomplete structs** are the simpler **legitimate** C++ surface—fewer reserved-name and SDK-coupling issues, explicit that callbacks are facade-typed.
+- For **native-only** minimizing adapter logic **specifically for EOS/stream callbacks**: rival tag alias is the **type-correct** way to avoid stub/registry **if** the falsifier TU passes—including callback `AILCALL` vs `__stdcall`, not just handles.
+
+A hybrid “public facade structs + private `is_same` only inside native TU after `typedef` to SDK types” is **not** what rival proposes; rival puts SDK spellings in public headers. That trade is the core design choice.
+
+---
+
+## 6. Scope limits (explicit)
+
+- No supplied implementation of `register_EOS_callback` / `register_stream_callback` / file callbacks / startup/shutdown—cannot verify native60 or rival actually forwards or still trampolines.
+- No SDK callback typedef names or registration function declarations in the paste—callback `is_same` tests are mandatory but not fillable from supplied lines alone.
+- No claim that matching types implies correct runtime behavior, thread context, or re-entrancy.
+- Pipe path: proxy identity model unchanged; rival does not eliminate pipe-side callback dispatch or quiescence reasoning.
+- `WAV_info` / `SampleInformation` vs `AILSOUNDINFO` remains a **projection** in native60; unrelated to handle alias.
+
+**Bottom line:** Rival can eliminate **adapter-forced** callback pointer substitution and “prior means which pointer?” on **native**, **only after** compile-time identity is proven and registration is a true forward. It does not remove documented callback/quiescence contract, pipe/wire null semantics, file-callback bridging, or reserved-identifier / public-SDK-coupling costs. Supplied surface51 + native60 still embody the facade + `reinterpret_cast` handle approach; supplied native60 does not yet prove handle or callback identity for the rival.

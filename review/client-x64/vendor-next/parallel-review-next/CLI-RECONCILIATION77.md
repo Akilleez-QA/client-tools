@@ -1,0 +1,9 @@
+# Composer77 spot-check and reconciliation
+
+Composer2.5 completed a bounded source review of75/76 patches,77 decoder/dispatcher and authored portable tests. It correctly notes that the portable suite covers decoder shape and the signed-value helper, not public/Core/Backend execution, actual lifecycle gating or vendor output. Those limits were predeclared and remain open.
+
+Two alleged source defects do not survive inspection of the actual77 source. PipeCore.cpp:109–110 driverCall invokes requireRunning, so the three driver diagnostic delegates inherit the same lifecycle check. Backend's comment at68–74 names exactly five borrowed-compatible controls: rate set/get, volume set/get and reverb SET. The public header at140–146 declares precisely that subset; reverb GET is separately owned-only at138. The comment does not promise borrowed support for a sixth operation. No change was made for either false positive. This is a scoped original-Audio surface, not an exhaustive statement about all possible native Miles callers.
+
+The reviewer also suggests routing timer bits through signedValue then converting to uint32 would generally change high-bit values. That is not a valid discriminator here: converting the corresponding signed value back to uint32 restores the bit pattern modulo2^32. Current code simply returns the original U32 and does not take that detour. Direct SDK declarations/type assertions and exact actual source remain the reference. Full public/Core runtime coverage is still required; source review and object compilation do not replace it.
+
+Prompt, supplied-input identities and raw response are preserved. Parent read actual driverCall, header, Backend and signedValue definitions; a separate source spot-check was requested. Findings are judged against the code, not accepted because a model returned them. No claim of full bridge correctness or audio fidelity follows.

@@ -1,0 +1,46 @@
+--- pipe-composition68/candidate/backend-boundary24/pipe/PipeCore.cpp
++++ driver-forward72/candidate/backend-boundary24/pipe/PipeCore.cpp
+@@ -323,8 +323,8 @@
+ HDIGDRIVER open_digital_driver(uint32_t frequency, int32_t bits, int32_t channels, uint32_t flags) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     session.requireRunning();
+-    if (session.driver || frequency != 22050 || bits != 16 || channels != 2 || flags)
+-        fail(FailureReason::InvalidArgument, "unsupported digital driver request");
++    if (session.driver)
++        fail(FailureReason::InvalidArgument, "digital driver already open");
+     MilesWire::Call fields = {};
+     fields.value[0] = frequency;
+     fields.value[1] = static_cast<uint32_t>(bits);
+--- pipe-composition68/candidate/backend-boundary24/pipe/PipeCore.h
++++ driver-forward72/candidate/backend-boundary24/pipe/PipeCore.h
+@@ -68,8 +68,8 @@
+ // differently: no speaker-position pointer or other outputs are promised.
+ int32_t speaker_configuration_spec(HDIGDRIVER driver);
+ 
+-// The current pipe implementation supports get1/get42, set42=16/64 and a single
+-// 22050/16/stereo/zero-flags driver. Unsupported requests fail before encoding.
++// The current pipe implementation supports get1/get42 and set42=16/64.
++// Driver arguments retain their native scalar widths; only one live driver is owned.
+ // Preference width follows the native pointer width; the pipe checks narrowing.
+ // Driver identities are opaque, local to the selected implementation and valid
+ // only through that startup lifetime. Typed EOS delivery remains unimplemented.
+--- pipe-composition68/candidate/startup-bridge23/backend.h
++++ driver-forward72/candidate/startup-bridge23/backend.h
+@@ -201,12 +201,15 @@
+         if (!started || shutdown)
+             return out;
+         if (h.opcode == MilesWire::AIL_open_digital_driver) {
+-            if (driver || c.value[0] != 22050 || c.value[1] != 16 || c.value[2] != 2 || c.value[3])
++            if (driver)
+                 return out;
+             MilesTransport::ResourceRegistry::Reservation reservation;
+             require(registry.reserve(MilesWire::Driver, MilesWire::Handle(), reservation),
+                     "driver tracking capacity before vendor open");
+-            driver = ::AIL_open_digital_driver(22050, 16, MSS_MC_STEREO, 0);
++            // Decode signed fields without implementation-defined U32-to-S32 narrowing.
++            const S32 bits = static_cast<S32>(MilesStartup::signedValue(c.value[1]));
++            const S32 channels = static_cast<S32>(MilesStartup::signedValue(c.value[2]));
++            driver = ::AIL_open_digital_driver(c.value[0], bits, channels, c.value[3]);
+             if (driver)
+                 require(registry.publish(reservation, driver, driverId),
+                         "publish reserved driver identity");

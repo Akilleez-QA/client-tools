@@ -1,0 +1,822 @@
+{
+  "method": "Inherited68 lexical inventory;71 does not add/remove functions. Header aliases changed to exact70 SDK tags. No candidate/scanner/compiler/test execution in71.",
+  "declared_count": 62,
+  "defined_count": 45,
+  "unresolved": [
+    "MSS_version",
+    "WAV_info",
+    "active_sample_count",
+    "digital_CPU_percent",
+    "digital_latency",
+    "file_error",
+    "file_type",
+    "get_timer_highest_delay",
+    "last_error",
+    "lock",
+    "register_EOS_callback",
+    "register_stream_callback",
+    "set_file_callbacks",
+    "set_named_sample_file",
+    "set_redist_directory",
+    "set_sample_file",
+    "unlock"
+  ],
+  "unexpected_exports": [],
+  "operations": [
+    {
+      "name": "startup",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": []
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "shutdown",
+      "public_signature": {
+        "return": "void",
+        "parameters": []
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "get_preference",
+      "public_signature": {
+        "return": "intptr_t",
+        "parameters": [
+          "uint32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_preference",
+      "public_signature": {
+        "return": "intptr_t",
+        "parameters": [
+          "uint32_t",
+          "intptr_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "last_error",
+      "public_signature": {
+        "return": "const char *",
+        "parameters": []
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "set_redist_directory",
+      "public_signature": {
+        "return": "const char *",
+        "parameters": [
+          "const char *"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "MSS_version",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "char *",
+          "int32_t"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "open_digital_driver",
+      "public_signature": {
+        "return": "HDIGDRIVER",
+        "parameters": [
+          "uint32_t",
+          "int32_t",
+          "int32_t",
+          "uint32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "speaker_configuration_spec",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HDIGDRIVER"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_file_callbacks",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "FileOpenCallback",
+          "FileCloseCallback",
+          "FileSeekCallback",
+          "FileReadCallback"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "set_listener_3D_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HDIGDRIVER",
+          "float",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_listener_3D_velocity_vector",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HDIGDRIVER",
+          "float",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_listener_3D_orientation",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HDIGDRIVER",
+          "float",
+          "float",
+          "float",
+          "float",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_3D_rolloff_factor",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HDIGDRIVER",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "serve",
+      "public_signature": {
+        "return": "void",
+        "parameters": []
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "lock",
+      "public_signature": {
+        "return": "void",
+        "parameters": []
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "unlock",
+      "public_signature": {
+        "return": "void",
+        "parameters": []
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "room_type",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HDIGDRIVER"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_room_type",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HDIGDRIVER",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "digital_CPU_percent",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HDIGDRIVER"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "digital_latency",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HDIGDRIVER"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "get_timer_highest_delay",
+      "public_signature": {
+        "return": "uint32_t",
+        "parameters": []
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "active_sample_count",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HDIGDRIVER"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "allocate_sample_handle",
+      "public_signature": {
+        "return": "HSAMPLE",
+        "parameters": [
+          "HDIGDRIVER"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_named_sample_file",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HSAMPLE",
+          "const char *",
+          "const void *",
+          "uint32_t",
+          "int32_t"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "set_sample_file",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HSAMPLE",
+          "const void *",
+          "int32_t"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "release_sample_handle",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "start_sample",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "stop_sample",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "end_sample",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "sample_status",
+      "public_signature": {
+        "return": "uint32_t",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "sample_ms_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "int32_t *",
+          "int32_t *"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_ms_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "uint32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "sample_position",
+      "public_signature": {
+        "return": "uint32_t",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_loop_count",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_loop_block",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "int32_t",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_3D_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_3D_velocity_vector",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_3D_distances",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float",
+          "float",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_occlusion",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_obstruction",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "sample_reverb_levels",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float *",
+          "float *"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_volume_levels",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "sample_volume_levels",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float *",
+          "float *"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_reverb_levels",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "float",
+          "float"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_sample_playback_rate",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSAMPLE",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "sample_playback_rate",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HSAMPLE"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "register_EOS_callback",
+      "public_signature": {
+        "return": "SampleCallback",
+        "parameters": [
+          "HSAMPLE",
+          "SampleCallback"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "register_stream_callback",
+      "public_signature": {
+        "return": "StreamCallback",
+        "parameters": [
+          "HSTREAM",
+          "StreamCallback"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "open_stream",
+      "public_signature": {
+        "return": "HSTREAM",
+        "parameters": [
+          "HDIGDRIVER",
+          "const char *",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "close_stream",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSTREAM"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "stream_sample_handle",
+      "public_signature": {
+        "return": "HSAMPLE",
+        "parameters": [
+          "HSTREAM"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "start_stream",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSTREAM"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_stream_loop_count",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSTREAM",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_stream_loop_block",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSTREAM",
+          "int32_t",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "stream_status",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "HSTREAM"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "set_stream_ms_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSTREAM",
+          "int32_t"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "stream_ms_position",
+      "public_signature": {
+        "return": "void",
+        "parameters": [
+          "HSTREAM",
+          "int32_t *",
+          "int32_t *"
+        ]
+      },
+      "exported": true,
+      "lexical_signature_equal": true,
+      "real_core_definition_lexically_equal": true
+    },
+    {
+      "name": "file_type",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "const void *",
+          "uint32_t"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "file_error",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": []
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    },
+    {
+      "name": "WAV_info",
+      "public_signature": {
+        "return": "int32_t",
+        "parameters": [
+          "const void *",
+          "SampleInformation *"
+        ]
+      },
+      "exported": false,
+      "lexical_signature_equal": null,
+      "real_core_definition_lexically_equal": null
+    }
+  ]
+}

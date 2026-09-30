@@ -1,0 +1,33 @@
+{
+  "method": "transitive existing relative quoted includes, source-only; system/angle and build macro effects not inferred",
+  "baseline": "pipe-proxy71/candidate",
+  "registry_affected_translation_units": [
+    "backend-boundary24/pipe/LiveChannel.cpp",
+    "backend-boundary24/pipe/PipeCore.cpp",
+    "callback-control45/host_association_mapper.cpp",
+    "callback-protocol48/file_protocol.cpp",
+    "client-runtime53/client_file_runtime.cpp",
+    "file-channel26/file_channel.cpp",
+    "file-executor33/FileInvocationJob.cpp",
+    "file-owner36/session_file_owner.cpp",
+    "host-file-consumption49/file_tokens.cpp",
+    "host-file-consumption49/reply_transaction.cpp",
+    "host-runtime50/host_file_runtime.cpp",
+    "host-runtime50/host_install.cpp",
+    "host-runtime50/host_sdk_callbacks.cpp",
+    "paired-bootstrap59/host.cpp",
+    "pipe-transport-candidate/endpoint.cpp",
+    "selected-file-services44/selected_services.cpp",
+    "session-version22/session_version.cpp",
+    "session-version22/session_version_host.cpp",
+    "startup-metadata-v4/metadata_host.cpp",
+    "startup-metadata-v4/metadata_wire.cpp",
+    "transport-candidate/codec.cpp"
+  ],
+  "count": 21,
+  "direct_includers": [
+    "host-candidate/registry_resolver.h",
+    "host-file-consumption49/file_tokens.h",
+    "transport-candidate/codec.h"
+  ]
+}

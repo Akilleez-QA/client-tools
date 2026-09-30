@@ -1,0 +1,131 @@
+--- pipe-composition74/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
++++ pipe-composition77/candidate/backend-boundary24/pipe/ClientMilesPipe.cpp
+@@ -55,6 +55,21 @@
+ }
+ void serve() {
+     guarded<void>([=]() -> void { Core::serve(); });
++}
++int32_t active_sample_count(HDIGDRIVER driver) {
++    return guarded<int32_t>([=]() -> int32_t { return Core::active_sample_count(driver); });
++}
++int32_t digital_CPU_percent(HDIGDRIVER driver) {
++    return guarded<int32_t>([=]() -> int32_t { return Core::digital_CPU_percent(driver); });
++}
++int32_t digital_latency(HDIGDRIVER driver) {
++    return guarded<int32_t>([=]() -> int32_t { return Core::digital_latency(driver); });
++}
++uint32_t get_timer_highest_delay() {
++    return guarded<uint32_t>([=]() -> uint32_t { return Core::get_timer_highest_delay(); });
++}
++int32_t file_error() {
++    return guarded<int32_t>([=]() -> int32_t { return Core::file_error(); });
+ }
+ int32_t room_type(HDIGDRIVER driver) {
+     return guarded<int32_t>([=]() -> int32_t { return Core::room_type(driver); });
+--- pipe-composition74/candidate/backend-boundary24/pipe/PipeCore.cpp
++++ pipe-composition77/candidate/backend-boundary24/pipe/PipeCore.cpp
+@@ -402,6 +402,28 @@
+     session.requireRunning();
+     session.request(MilesWire::AIL_serve, MilesWire::Call());
+ }
++int32_t active_sample_count(HDIGDRIVER driver) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    return static_cast<int32_t>(MilesStartup::signedValue(session.request(MilesWire::AIL_active_sample_count, driverCall(session, driver)).result.return_bits));
++}
++int32_t digital_CPU_percent(HDIGDRIVER driver) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    return static_cast<int32_t>(MilesStartup::signedValue(session.request(MilesWire::AIL_digital_CPU_percent, driverCall(session, driver)).result.return_bits));
++}
++int32_t digital_latency(HDIGDRIVER driver) {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    return static_cast<int32_t>(MilesStartup::signedValue(session.request(MilesWire::AIL_digital_latency, driverCall(session, driver)).result.return_bits));
++}
++uint32_t get_timer_highest_delay() {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    session.requireRunning();
++    return session.request(MilesWire::AIL_get_timer_highest_delay, MilesWire::Call()).result.return_bits;
++}
++int32_t file_error() {
++    ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
++    session.requireRunning();
++    return static_cast<int32_t>(MilesStartup::signedValue(session.request(MilesWire::AIL_file_error, MilesWire::Call()).result.return_bits));
++}
+ int32_t room_type(HDIGDRIVER driver) {
+     ClientMilesPipe::Session &session = ClientMilesPipe::Session::selected();
+     return static_cast<int32_t>(MilesStartup::signedValue(
+--- pipe-composition74/candidate/backend-boundary24/pipe/PipeCore.h
++++ pipe-composition77/candidate/backend-boundary24/pipe/PipeCore.h
+@@ -79,6 +79,11 @@
+                                  float upX, float upY, float upZ);
+ void set_3D_rolloff_factor(HDIGDRIVER driver, float factor);
+ void serve();
++int32_t active_sample_count(HDIGDRIVER driver);
++int32_t digital_CPU_percent(HDIGDRIVER driver);
++int32_t digital_latency(HDIGDRIVER driver);
++uint32_t get_timer_highest_delay();
++int32_t file_error();
+ int32_t room_type(HDIGDRIVER driver);
+ void set_room_type(HDIGDRIVER driver, int32_t room);
+ 
+--- pipe-composition74/candidate/startup-bridge23/backend.h
++++ pipe-composition77/candidate/startup-bridge23/backend.h
+@@ -54,11 +54,6 @@
+         case MilesWire::AIL_set_sample_ms_position:
+         case MilesWire::AIL_set_sample_position:
+         case MilesWire::AIL_sample_position:
+-        case MilesWire::AIL_set_sample_playback_rate:
+-        case MilesWire::AIL_sample_playback_rate:
+-        case MilesWire::AIL_set_sample_volume_levels:
+-        case MilesWire::AIL_sample_volume_levels:
+-        case MilesWire::AIL_set_sample_reverb_levels:
+         case MilesWire::AIL_sample_reverb_levels:
+         case MilesWire::AIL_set_sample_3D_position:
+         case MilesWire::AIL_set_sample_3D_velocity_vector:
+@@ -70,12 +65,31 @@
+                 return out;
+             }
+             // fall through to the shared lifecycle and real SDK dispatcher
++        // The real dispatcher validates OwnedSample | BorrowedSample for exactly
++        // these five controls, including a live stream parent via the resolver.
++        case MilesWire::AIL_set_sample_playback_rate:
++        case MilesWire::AIL_sample_playback_rate:
++        case MilesWire::AIL_set_sample_volume_levels:
++        case MilesWire::AIL_sample_volume_levels:
++        case MilesWire::AIL_set_sample_reverb_levels:
++        // Existing stream controls only; open/close/alias publication remain absent.
++        case MilesWire::AIL_start_stream:
++        case MilesWire::AIL_set_stream_loop_count:
++        case MilesWire::AIL_set_stream_loop_block:
++        case MilesWire::AIL_stream_status:
++        case MilesWire::AIL_set_stream_ms_position:
++        case MilesWire::AIL_stream_ms_position:
+         case MilesWire::AIL_sample_ms_position:
+         case MilesWire::AIL_end_sample:
+         case MilesWire::AIL_set_listener_3D_position:
+         case MilesWire::AIL_set_listener_3D_velocity_vector:
+         case MilesWire::AIL_set_listener_3D_orientation:
+         case MilesWire::AIL_set_3D_rolloff_factor:
++        case MilesWire::AIL_active_sample_count:
++        case MilesWire::AIL_digital_CPU_percent:
++        case MilesWire::AIL_digital_latency:
++        case MilesWire::AIL_get_timer_highest_delay:
++        case MilesWire::AIL_file_error:
+         case MilesWire::AIL_serve:
+         case MilesWire::AIL_room_type:
+         case MilesWire::AIL_set_room_type:
+--- pipe-composition74/candidate/startup-bridge23/reply.h
++++ pipe-composition77/candidate/startup-bridge23/reply.h
+@@ -75,7 +75,12 @@
+         ok && (h.opcode == MilesWire::AIL_startup || h.opcode == MilesWire::AIL_get_preference ||
+                h.opcode == MilesWire::AIL_set_preference || h.opcode == MilesWire::AIL_room_type ||
+                h.opcode == MilesWire::AIL_sample_status || h.opcode == MilesWire::AIL_sample_position ||
+-               h.opcode == MilesWire::AIL_sample_playback_rate || h.opcode == MilesWire::AIL_stream_status);
++               h.opcode == MilesWire::AIL_sample_playback_rate || h.opcode == MilesWire::AIL_stream_status ||
++               h.opcode == MilesWire::AIL_active_sample_count ||
++               h.opcode == MilesWire::AIL_digital_CPU_percent ||
++               h.opcode == MilesWire::AIL_digital_latency ||
++               h.opcode == MilesWire::AIL_get_timer_highest_delay ||
++               h.opcode == MilesWire::AIL_file_error);
+     const bool sampleAllocation = ok && h.opcode == MilesWire::AIL_allocate_sample_handle;
+     const bool aliasOp=ok && h.opcode==MilesWire::AIL_stream_sample_handle;
+     const bool streamOpen=ok && h.opcode==MilesWire::AIL_open_stream;

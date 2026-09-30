@@ -1,0 +1,460 @@
+Blind design challenge, source-only. Existing Windows v120 x64 native wrapper has facade opaque pointer types DigitalDriver/Sample/OwnedStream and callbacks using them. SDK handles instead point to global incomplete tags _DIG_DRIVER/_SAMPLE/_STREAM; identical size does not make callback function types equal. Rival proposal: public header forward-declares those same three SDK tags and aliases facade handle names to their pointers, then exact is_same asserts in private native TU allow direct SDK callback registration and exact prior callback return, without a new native mapping/trampoline registry. Temporary pipe still owns existing separate private proxy rows; public opaque token is used only as identity in lookup, never dereferenced/deleted as vendor type. No vendor tag bodies defined by the pipe. One implementation selected for process, no mixed native/pipe handles or hot swap. Assess whether this removes the adapter-created callback replacement timing ambiguity, what real SDK lifecycle obligations remain, declaration/ODR/calling-convention/reserved-tag/platform risks, and a minimal compile test that could falsify identity. Do not invent SDK timing or claim runtime fidelity. No SDK header bodies supplied; only three tag-name facts from locally possessed header. Recommend the simpler legitimate boundary if justified; cite concrete language concerns rather than demanding unrelated SDK runtime before checking types.
+Use only supplied authored source; do not run tools, change files, consult other reviews, or infer vendor behavior. Return concrete source-grounded concerns and scope limits; no broad clearance.
+
+FILE public-surface51/candidate/ClientMiles.h
+#ifndef CLIENT_MILES_PLAIN_SURFACE51_H
+#define CLIENT_MILES_PLAIN_SURFACE51_H
+
+// Source-only proposal for the game/private-adapter boundary.
+// No SDK declarations, standard-library objects, or transport ownership cross it.
+#include <stdint.h>
+#if !defined(_WIN32) || !defined(_MSC_VER)
+#error This candidate declares Windows MSVC callback calling conventions.
+#endif
+
+namespace ClientMiles {
+struct DigitalDriver;
+struct Sample;
+struct OwnedStream;
+typedef DigitalDriver *HDIGDRIVER;
+typedef Sample *HSAMPLE;
+typedef OwnedStream *HSTREAM;
+typedef uintptr_t FileHandle;
+
+// Native-shaped local callbacks. FileHandle may be zero on successful open.
+// Sample/stream identities use this facade's opaque types; see required private
+// typed callback bridging in PROPOSAL.md, not function-pointer reinterpret casts.
+typedef uint32_t (__stdcall *FileOpenCallback)(const char *, FileHandle *);
+typedef void (__stdcall *FileCloseCallback)(FileHandle);
+typedef int32_t (__stdcall *FileSeekCallback)(FileHandle, int32_t, uint32_t);
+typedef uint32_t (__stdcall *FileReadCallback)(FileHandle, void *, uint32_t);
+typedef void (__stdcall *SampleCallback)(HSAMPLE);
+typedef void (__stdcall *StreamCallback)(HSTREAM);
+
+// Only scalar values consumed by the reviewed Audio source. Private delegates
+// must assert these values against their selected SDK before adoption.
+enum Preference {
+    MixerChannels = 1,
+    MixFragmentCount = 42
+};
+enum SpeakerConfiguration {
+    StereoSpeakerConfiguration = 2,
+    SystemSpeakerConfiguration = 0x10,
+    HeadphoneSpeakerConfiguration = 0x20,
+    DolbySurroundSpeakerConfiguration = 0x30,
+    Discrete40SpeakerConfiguration = 0x50,
+    Discrete51SpeakerConfiguration = 0x60,
+    Discrete61SpeakerConfiguration = 0x70,
+    Discrete71SpeakerConfiguration = 0x80,
+    Discrete81SpeakerConfiguration = 0x90
+};
+enum SampleState {
+    SampleDone = 0x0002,
+    SamplePlaying = 0x0004
+};
+enum FileType {
+    FileUnknown = 0, FilePcmWav = 1, FileAdpcmWav = 2, FileOtherWav = 3,
+    FileVoc = 4, FileMidi = 5, FileXmidi = 6, FileXmidiDls = 7,
+    FileXmidiMls = 8, FileDls = 9, FileMls = 10, FileMpegLayer1 = 11,
+    FileMpegLayer2 = 12, FileMpegLayer3 = 13, FileOtherAsiWav = 14
+};
+enum FileSeekOrigin {
+    FileSeekBegin = 0, FileSeekCurrent = 1, FileSeekEnd = 2
+};
+enum FileError {
+    FileNoError = 0, FileIoError = 1, FileOutOfMemory = 2, FileNotFound = 3,
+    FileCannotWrite = 4, FileCannotRead = 5, FileDiskFull = 6
+};
+enum RoomType {
+    RoomGeneric = 0, RoomPaddedCell = 1, RoomNormal = 2, RoomBathroom = 3,
+    RoomLivingRoom = 4, RoomStoneRoom = 5, RoomAuditorium = 6,
+    RoomConcertHall = 7, RoomCave = 8, RoomArena = 9, RoomHangar = 10,
+    RoomCarpetedHallway = 11, RoomHallway = 12, RoomStoneCorridor = 13,
+    RoomAlley = 14, RoomForest = 15, RoomCity = 16, RoomMountains = 17,
+    RoomQuarry = 18, RoomPlain = 19, RoomParkingLot = 20,
+    RoomSewerPipe = 21, RoomUnderwater = 22, RoomDrugged = 23,
+    RoomDizzy = 24, RoomPsychotic = 25
+};
+
+// Native values remain values. Private adapter failures must not fabricate null,
+// zero, EOF or empty text, and must not throw modern-STL exceptions into engine TUs.
+// One private implementation is selected for the entire startup lifetime.
+int32_t startup();
+void shutdown();
+intptr_t get_preference(uint32_t number);
+intptr_t set_preference(uint32_t number, intptr_t value);
+
+// Proposed adapter-owned snapshots, not vendor-pointer lifetime promises.
+// Null remains null; empty remains a nonnull empty string. A nonnull pointer is
+// valid until the next call to this SAME function or completed shutdown. Copy it
+// before that point; synchronize concurrent consumers/calls as required by that
+// lifetime. Callers neither write nor free it. Two functions have separate storage.
+const char *last_error();
+const char *set_redist_directory(const char *directory);
+
+// Explicit source adaptation of the Windows resource-query macro, not an SDK
+// export. destination must cover capacity positive bytes; Audio uses 256.
+// The direct implementation invokes the actual selected SDK macro. No fabricated
+// scalar status, nonempty guarantee, or extra success/failure interpretation.
+void MSS_version(char *destination, int32_t capacity);
+
+HDIGDRIVER open_digital_driver(uint32_t frequency, int32_t bits, int32_t channels, uint32_t flags);
+// Only the speaker-spec output consumed by Audio, retaining the current adaptation.
+int32_t speaker_configuration_spec(HDIGDRIVER driver);
+void set_file_callbacks(FileOpenCallback, FileCloseCallback, FileSeekCallback, FileReadCallback);
+void set_listener_3D_position(HDIGDRIVER, float x, float y, float z);
+void set_listener_3D_velocity_vector(HDIGDRIVER, float x, float y, float z);
+void set_listener_3D_orientation(HDIGDRIVER, float faceX, float faceY, float faceZ,
+                               float upX, float upY, float upZ);
+void set_3D_rolloff_factor(HDIGDRIVER, float factor);
+void serve();
+void lock();
+void unlock();
+int32_t room_type(HDIGDRIVER);
+void set_room_type(HDIGDRIVER, int32_t room);
+int32_t digital_CPU_percent(HDIGDRIVER);
+int32_t digital_latency(HDIGDRIVER);
+uint32_t get_timer_highest_delay();
+// Debug/diagnostic use in the reviewed Audio source; not an inferred release path.
+int32_t active_sample_count(HDIGDRIVER);
+
+HSAMPLE allocate_sample_handle(HDIGDRIVER);
+int32_t set_named_sample_file(HSAMPLE, const char *suffix,
+                              const void *fileImage, uint32_t fileBytes, int32_t block);
+int32_t set_sample_file(HSAMPLE, const void *fileImage, int32_t block);
+void release_sample_handle(HSAMPLE);
+void start_sample(HSAMPLE);
+void stop_sample(HSAMPLE);
+void end_sample(HSAMPLE);
+uint32_t sample_status(HSAMPLE);
+void sample_ms_position(HSAMPLE, int32_t *totalMilliseconds, int32_t *currentMilliseconds);
+void set_sample_ms_position(HSAMPLE, int32_t milliseconds);
+void set_sample_position(HSAMPLE, uint32_t byteOffset);
+uint32_t sample_position(HSAMPLE);
+void set_sample_loop_count(HSAMPLE, int32_t count);
+void set_sample_loop_block(HSAMPLE, int32_t startByte, int32_t endByte);
+void set_sample_3D_position(HSAMPLE, float x, float y, float z);
+void set_sample_3D_velocity_vector(HSAMPLE, float xPerMs, float yPerMs, float zPerMs);
+void set_sample_3D_distances(HSAMPLE, float maximum, float minimum, int32_t autoWetAttenuation);
+void set_sample_occlusion(HSAMPLE, float value);
+void set_sample_obstruction(HSAMPLE, float value);
+void sample_reverb_levels(HSAMPLE, float *dry, float *wet);
+
+// The same five names accept an owned sample or a borrowed sample from a live
+// stream. Other sample operations above require owned samples in this subset.
+void set_sample_volume_levels(HSAMPLE, float left, float right);
+void sample_volume_levels(HSAMPLE, float *left, float *right);
+void set_sample_reverb_levels(HSAMPLE, float dry, float wet);
+void set_sample_playback_rate(HSAMPLE, int32_t rate);
+int32_t sample_playback_rate(HSAMPLE);
+
+// Callback code/state must outlive the native callback registration and actual
+// producer quiescence. Return the prior facade callback; null is not a wire ID.
+SampleCallback register_EOS_callback(HSAMPLE, SampleCallback);
+StreamCallback register_stream_callback(HSTREAM, StreamCallback);
+
+HSTREAM open_stream(HDIGDRIVER, const char *filename, int32_t streamMem);
+void close_stream(HSTREAM);
+HSAMPLE stream_sample_handle(HSTREAM);
+void start_stream(HSTREAM);
+void set_stream_loop_count(HSTREAM, int32_t count);
+void set_stream_loop_block(HSTREAM, int32_t startOffset, int32_t endOffset);
+int32_t stream_status(HSTREAM);
+void set_stream_ms_position(HSTREAM, int32_t milliseconds);
+void stream_ms_position(HSTREAM, int32_t *totalMilliseconds, int32_t *currentMilliseconds);
+
+int32_t file_type(const void *fileImage, uint32_t fileBytes);
+// Defined in an otherwise uncalled Audio helper; no runtime liveness claimed.
+int32_t file_error();
+
+// Deliberate projection of only the metadata Audio reads. This is not the SDK
+// structure or a wire layout; no vendor pointers, offsets or ownership escape.
+struct SampleInformation {
+    int32_t format, bits, channels;
+    uint32_t dataLength, rate, samples, blockSize;
+};
+// result is nonnull. Native return bits are preserved; populate these fields only
+// on a nonzero native result, leaving result unchanged on ordinary failure.
+int32_t WAV_info(const void *fileImage, SampleInformation *result);
+
+// Sample/file-image ownership, units and nullable getter outputs remain as in
+// the reviewed38 surface. No callback scheduling or allocation policy is added.
+} // namespace ClientMiles
+#endif
+
+FILE plain-native60/candidate/native/native_calls60.cpp
+#include "../private/native_calls60.h"
+#include <Mss.h>
+#include <type_traits>
+#if !defined(_WIN64) || _MSC_VER != 1800
+#error Actual possessed v120 x64 SDK declarations required; no native library is supplied.
+#endif
+static_assert(std::is_same<int32_t,S32>::value,"native signed scalar");
+static_assert(std::is_same<uint32_t,U32>::value,"native unsigned scalar");
+static_assert(std::is_same<float,F32>::value,"native float");
+static_assert(std::is_same<decltype(&::AIL_set_listener_3D_position), void (AILCALL *)(::HDIGDRIVER, F32, F32, F32)>::value,"actual set_listener_3D_position declaration");
+static_assert(std::is_same<decltype(&::AIL_set_listener_3D_velocity_vector), void (AILCALL *)(::HDIGDRIVER, F32, F32, F32)>::value,"actual set_listener_3D_velocity_vector declaration");
+static_assert(std::is_same<decltype(&::AIL_set_listener_3D_orientation), void (AILCALL *)(::HDIGDRIVER, F32, F32, F32, F32, F32, F32)>::value,"actual set_listener_3D_orientation declaration");
+static_assert(std::is_same<decltype(&::AIL_set_3D_rolloff_factor), void (AILCALL *)(::HDIGDRIVER, F32)>::value,"actual set_3D_rolloff_factor declaration");
+static_assert(std::is_same<decltype(&::AIL_serve), void (AILCALL *)()>::value,"actual serve declaration");
+static_assert(std::is_same<decltype(&::AIL_lock), void (AILCALL *)()>::value,"actual lock declaration");
+static_assert(std::is_same<decltype(&::AIL_unlock), void (AILCALL *)()>::value,"actual unlock declaration");
+static_assert(std::is_same<decltype(&::AIL_room_type), S32 (AILCALL *)(::HDIGDRIVER)>::value,"actual room_type declaration");
+static_assert(std::is_same<decltype(&::AIL_set_room_type), void (AILCALL *)(::HDIGDRIVER, S32)>::value,"actual set_room_type declaration");
+static_assert(std::is_same<decltype(&::AIL_digital_CPU_percent), S32 (AILCALL *)(::HDIGDRIVER)>::value,"actual digital_CPU_percent declaration");
+static_assert(std::is_same<decltype(&::AIL_digital_latency), S32 (AILCALL *)(::HDIGDRIVER)>::value,"actual digital_latency declaration");
+static_assert(std::is_same<decltype(&::AIL_get_timer_highest_delay), U32 (AILCALL *)()>::value,"actual get_timer_highest_delay declaration");
+static_assert(std::is_same<decltype(&::AIL_active_sample_count), S32 (AILCALL *)(::HDIGDRIVER)>::value,"actual active_sample_count declaration");
+static_assert(std::is_same<decltype(&::AIL_allocate_sample_handle), ::HSAMPLE (AILCALL *)(::HDIGDRIVER)>::value,"actual allocate_sample_handle declaration");
+static_assert(std::is_same<decltype(&::AIL_set_named_sample_file), S32 (AILCALL *)(::HSAMPLE, const char *, const void *, U32, S32)>::value,"actual set_named_sample_file declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_file), S32 (AILCALL *)(::HSAMPLE, const void *, S32)>::value,"actual set_sample_file declaration");
+static_assert(std::is_same<decltype(&::AIL_release_sample_handle), void (AILCALL *)(::HSAMPLE)>::value,"actual release_sample_handle declaration");
+static_assert(std::is_same<decltype(&::AIL_start_sample), void (AILCALL *)(::HSAMPLE)>::value,"actual start_sample declaration");
+static_assert(std::is_same<decltype(&::AIL_stop_sample), void (AILCALL *)(::HSAMPLE)>::value,"actual stop_sample declaration");
+static_assert(std::is_same<decltype(&::AIL_end_sample), void (AILCALL *)(::HSAMPLE)>::value,"actual end_sample declaration");
+static_assert(std::is_same<decltype(&::AIL_sample_status), U32 (AILCALL *)(::HSAMPLE)>::value,"actual sample_status declaration");
+static_assert(std::is_same<decltype(&::AIL_sample_ms_position), void (AILCALL *)(::HSAMPLE, S32 *, S32 *)>::value,"actual sample_ms_position declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_ms_position), void (AILCALL *)(::HSAMPLE, S32)>::value,"actual set_sample_ms_position declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_position), void (AILCALL *)(::HSAMPLE, U32)>::value,"actual set_sample_position declaration");
+static_assert(std::is_same<decltype(&::AIL_sample_position), U32 (AILCALL *)(::HSAMPLE)>::value,"actual sample_position declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_loop_count), void (AILCALL *)(::HSAMPLE, S32)>::value,"actual set_sample_loop_count declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_loop_block), void (AILCALL *)(::HSAMPLE, S32, S32)>::value,"actual set_sample_loop_block declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_3D_position), void (AILCALL *)(::HSAMPLE, F32, F32, F32)>::value,"actual set_sample_3D_position declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_3D_velocity_vector), void (AILCALL *)(::HSAMPLE, F32, F32, F32)>::value,"actual set_sample_3D_velocity_vector declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_3D_distances), void (AILCALL *)(::HSAMPLE, F32, F32, S32)>::value,"actual set_sample_3D_distances declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_occlusion), void (AILCALL *)(::HSAMPLE, F32)>::value,"actual set_sample_occlusion declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_obstruction), void (AILCALL *)(::HSAMPLE, F32)>::value,"actual set_sample_obstruction declaration");
+static_assert(std::is_same<decltype(&::AIL_sample_reverb_levels), void (AILCALL *)(::HSAMPLE, F32 *, F32 *)>::value,"actual sample_reverb_levels declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_volume_levels), void (AILCALL *)(::HSAMPLE, F32, F32)>::value,"actual set_sample_volume_levels declaration");
+static_assert(std::is_same<decltype(&::AIL_sample_volume_levels), void (AILCALL *)(::HSAMPLE, F32 *, F32 *)>::value,"actual sample_volume_levels declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_reverb_levels), void (AILCALL *)(::HSAMPLE, F32, F32)>::value,"actual set_sample_reverb_levels declaration");
+static_assert(std::is_same<decltype(&::AIL_set_sample_playback_rate), void (AILCALL *)(::HSAMPLE, S32)>::value,"actual set_sample_playback_rate declaration");
+static_assert(std::is_same<decltype(&::AIL_sample_playback_rate), S32 (AILCALL *)(::HSAMPLE)>::value,"actual sample_playback_rate declaration");
+static_assert(std::is_same<decltype(&::AIL_open_stream), ::HSTREAM (AILCALL *)(::HDIGDRIVER, const char *, S32)>::value,"actual open_stream declaration");
+static_assert(std::is_same<decltype(&::AIL_close_stream), void (AILCALL *)(::HSTREAM)>::value,"actual close_stream declaration");
+static_assert(std::is_same<decltype(&::AIL_stream_sample_handle), ::HSAMPLE (AILCALL *)(::HSTREAM)>::value,"actual stream_sample_handle declaration");
+static_assert(std::is_same<decltype(&::AIL_start_stream), void (AILCALL *)(::HSTREAM)>::value,"actual start_stream declaration");
+static_assert(std::is_same<decltype(&::AIL_set_stream_loop_count), void (AILCALL *)(::HSTREAM, S32)>::value,"actual set_stream_loop_count declaration");
+static_assert(std::is_same<decltype(&::AIL_set_stream_loop_block), void (AILCALL *)(::HSTREAM, S32, S32)>::value,"actual set_stream_loop_block declaration");
+static_assert(std::is_same<decltype(&::AIL_stream_status), S32 (AILCALL *)(::HSTREAM)>::value,"actual stream_status declaration");
+static_assert(std::is_same<decltype(&::AIL_set_stream_ms_position), void (AILCALL *)(::HSTREAM, S32)>::value,"actual set_stream_ms_position declaration");
+static_assert(std::is_same<decltype(&::AIL_stream_ms_position), void (AILCALL *)(::HSTREAM, S32 *, S32 *)>::value,"actual stream_ms_position declaration");
+static_assert(std::is_same<decltype(&::AIL_file_type), S32 (AILCALL *)(const void *, U32)>::value,"actual file_type declaration");
+static_assert(std::is_same<decltype(&::AIL_file_error), S32 (AILCALL *)()>::value,"actual file_error declaration");
+static_assert(std::is_same<decltype(&::AIL_WAV_info), S32 (AILCALL *)(void const *, AILSOUNDINFO *)>::value,"actual WAV_info declaration");
+
+static_assert(static_cast<int32_t>(ClientMiles::SampleDone)==static_cast<int32_t>(SMP_DONE),"SampleDone SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::SamplePlaying)==static_cast<int32_t>(SMP_PLAYING),"SamplePlaying SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileSeekBegin)==static_cast<int32_t>(AIL_FILE_SEEK_BEGIN),"FileSeekBegin SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileSeekCurrent)==static_cast<int32_t>(AIL_FILE_SEEK_CURRENT),"FileSeekCurrent SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileSeekEnd)==static_cast<int32_t>(AIL_FILE_SEEK_END),"FileSeekEnd SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileUnknown)==static_cast<int32_t>(AILFILETYPE_UNKNOWN),"FileUnknown SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FilePcmWav)==static_cast<int32_t>(AILFILETYPE_PCM_WAV),"FilePcmWav SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileAdpcmWav)==static_cast<int32_t>(AILFILETYPE_ADPCM_WAV),"FileAdpcmWav SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileOtherWav)==static_cast<int32_t>(AILFILETYPE_OTHER_WAV),"FileOtherWav SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileVoc)==static_cast<int32_t>(AILFILETYPE_VOC),"FileVoc SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileMidi)==static_cast<int32_t>(AILFILETYPE_MIDI),"FileMidi SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileXmidi)==static_cast<int32_t>(AILFILETYPE_XMIDI),"FileXmidi SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileXmidiDls)==static_cast<int32_t>(AILFILETYPE_XMIDI_DLS),"FileXmidiDls SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileXmidiMls)==static_cast<int32_t>(AILFILETYPE_XMIDI_MLS),"FileXmidiMls SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileDls)==static_cast<int32_t>(AILFILETYPE_DLS),"FileDls SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileMls)==static_cast<int32_t>(AILFILETYPE_MLS),"FileMls SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileMpegLayer1)==static_cast<int32_t>(AILFILETYPE_MPEG_L1_AUDIO),"FileMpegLayer1 SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileMpegLayer2)==static_cast<int32_t>(AILFILETYPE_MPEG_L2_AUDIO),"FileMpegLayer2 SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileMpegLayer3)==static_cast<int32_t>(AILFILETYPE_MPEG_L3_AUDIO),"FileMpegLayer3 SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileOtherAsiWav)==static_cast<int32_t>(AILFILETYPE_OTHER_ASI_WAV),"FileOtherAsiWav SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileNoError)==static_cast<int32_t>(AIL_NO_ERROR),"FileNoError SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileIoError)==static_cast<int32_t>(AIL_IO_ERROR),"FileIoError SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileOutOfMemory)==static_cast<int32_t>(AIL_OUT_OF_MEMORY),"FileOutOfMemory SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileNotFound)==static_cast<int32_t>(AIL_FILE_NOT_FOUND),"FileNotFound SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileCannotWrite)==static_cast<int32_t>(AIL_CANT_WRITE_FILE),"FileCannotWrite SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileCannotRead)==static_cast<int32_t>(AIL_CANT_READ_FILE),"FileCannotRead SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::FileDiskFull)==static_cast<int32_t>(AIL_DISK_FULL),"FileDiskFull SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomGeneric)==static_cast<int32_t>(ENVIRONMENT_GENERIC),"RoomGeneric SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomPaddedCell)==static_cast<int32_t>(ENVIRONMENT_PADDEDCELL),"RoomPaddedCell SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomNormal)==static_cast<int32_t>(ENVIRONMENT_ROOM),"RoomNormal SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomBathroom)==static_cast<int32_t>(ENVIRONMENT_BATHROOM),"RoomBathroom SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomLivingRoom)==static_cast<int32_t>(ENVIRONMENT_LIVINGROOM),"RoomLivingRoom SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomStoneRoom)==static_cast<int32_t>(ENVIRONMENT_STONEROOM),"RoomStoneRoom SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomAuditorium)==static_cast<int32_t>(ENVIRONMENT_AUDITORIUM),"RoomAuditorium SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomConcertHall)==static_cast<int32_t>(ENVIRONMENT_CONCERTHALL),"RoomConcertHall SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomCave)==static_cast<int32_t>(ENVIRONMENT_CAVE),"RoomCave SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomArena)==static_cast<int32_t>(ENVIRONMENT_ARENA),"RoomArena SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomHangar)==static_cast<int32_t>(ENVIRONMENT_HANGAR),"RoomHangar SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomCarpetedHallway)==static_cast<int32_t>(ENVIRONMENT_CARPETEDHALLWAY),"RoomCarpetedHallway SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomHallway)==static_cast<int32_t>(ENVIRONMENT_HALLWAY),"RoomHallway SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomStoneCorridor)==static_cast<int32_t>(ENVIRONMENT_STONECORRIDOR),"RoomStoneCorridor SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomAlley)==static_cast<int32_t>(ENVIRONMENT_ALLEY),"RoomAlley SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomForest)==static_cast<int32_t>(ENVIRONMENT_FOREST),"RoomForest SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomCity)==static_cast<int32_t>(ENVIRONMENT_CITY),"RoomCity SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomMountains)==static_cast<int32_t>(ENVIRONMENT_MOUNTAINS),"RoomMountains SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomQuarry)==static_cast<int32_t>(ENVIRONMENT_QUARRY),"RoomQuarry SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomPlain)==static_cast<int32_t>(ENVIRONMENT_PLAIN),"RoomPlain SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomParkingLot)==static_cast<int32_t>(ENVIRONMENT_PARKINGLOT),"RoomParkingLot SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomSewerPipe)==static_cast<int32_t>(ENVIRONMENT_SEWERPIPE),"RoomSewerPipe SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomUnderwater)==static_cast<int32_t>(ENVIRONMENT_UNDERWATER),"RoomUnderwater SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomDrugged)==static_cast<int32_t>(ENVIRONMENT_DRUGGED),"RoomDrugged SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomDizzy)==static_cast<int32_t>(ENVIRONMENT_DIZZY),"RoomDizzy SDK value");
+static_assert(static_cast<int32_t>(ClientMiles::RoomPsychotic)==static_cast<int32_t>(ENVIRONMENT_PSYCHOTIC),"RoomPsychotic SDK value");
+
+namespace ClientMilesNativeCalls60 {
+void set_listener_3D_position(HDIGDRIVER handle, float x, float y, float z) {
+    return ::AIL_set_listener_3D_position(reinterpret_cast<::HDIGDRIVER>(handle), x, y, z);
+}
+void set_listener_3D_velocity_vector(HDIGDRIVER handle, float x, float y, float z) {
+    return ::AIL_set_listener_3D_velocity_vector(reinterpret_cast<::HDIGDRIVER>(handle), x, y, z);
+}
+void set_listener_3D_orientation(HDIGDRIVER handle, float faceX, float faceY, float faceZ, float upX, float upY, float upZ) {
+    return ::AIL_set_listener_3D_orientation(reinterpret_cast<::HDIGDRIVER>(handle), faceX, faceY, faceZ, upX, upY, upZ);
+}
+void set_3D_rolloff_factor(HDIGDRIVER handle, float factor) {
+    return ::AIL_set_3D_rolloff_factor(reinterpret_cast<::HDIGDRIVER>(handle), factor);
+}
+void serve() {
+    return ::AIL_serve();
+}
+void lock() {
+    return ::AIL_lock();
+}
+void unlock() {
+    return ::AIL_unlock();
+}
+int32_t room_type(HDIGDRIVER handle) {
+    return ::AIL_room_type(reinterpret_cast<::HDIGDRIVER>(handle));
+}
+void set_room_type(HDIGDRIVER handle, int32_t room) {
+    return ::AIL_set_room_type(reinterpret_cast<::HDIGDRIVER>(handle), room);
+}
+int32_t digital_CPU_percent(HDIGDRIVER handle) {
+    return ::AIL_digital_CPU_percent(reinterpret_cast<::HDIGDRIVER>(handle));
+}
+int32_t digital_latency(HDIGDRIVER handle) {
+    return ::AIL_digital_latency(reinterpret_cast<::HDIGDRIVER>(handle));
+}
+uint32_t get_timer_highest_delay() {
+    return ::AIL_get_timer_highest_delay();
+}
+int32_t active_sample_count(HDIGDRIVER handle) {
+    return ::AIL_active_sample_count(reinterpret_cast<::HDIGDRIVER>(handle));
+}
+HSAMPLE allocate_sample_handle(HDIGDRIVER handle) {
+    return reinterpret_cast<HSAMPLE>(::AIL_allocate_sample_handle(reinterpret_cast<::HDIGDRIVER>(handle)));
+}
+int32_t set_named_sample_file(HSAMPLE handle, const char * suffix, const void * fileImage, uint32_t fileBytes, int32_t block) {
+    return ::AIL_set_named_sample_file(reinterpret_cast<::HSAMPLE>(handle), suffix, fileImage, fileBytes, block);
+}
+int32_t set_sample_file(HSAMPLE handle, const void * fileImage, int32_t block) {
+    return ::AIL_set_sample_file(reinterpret_cast<::HSAMPLE>(handle), fileImage, block);
+}
+void release_sample_handle(HSAMPLE handle) {
+    return ::AIL_release_sample_handle(reinterpret_cast<::HSAMPLE>(handle));
+}
+void start_sample(HSAMPLE handle) {
+    return ::AIL_start_sample(reinterpret_cast<::HSAMPLE>(handle));
+}
+void stop_sample(HSAMPLE handle) {
+    return ::AIL_stop_sample(reinterpret_cast<::HSAMPLE>(handle));
+}
+void end_sample(HSAMPLE handle) {
+    return ::AIL_end_sample(reinterpret_cast<::HSAMPLE>(handle));
+}
+uint32_t sample_status(HSAMPLE handle) {
+    return ::AIL_sample_status(reinterpret_cast<::HSAMPLE>(handle));
+}
+void sample_ms_position(HSAMPLE handle, int32_t * totalMilliseconds, int32_t * currentMilliseconds) {
+    return ::AIL_sample_ms_position(reinterpret_cast<::HSAMPLE>(handle), totalMilliseconds, currentMilliseconds);
+}
+void set_sample_ms_position(HSAMPLE handle, int32_t milliseconds) {
+    return ::AIL_set_sample_ms_position(reinterpret_cast<::HSAMPLE>(handle), milliseconds);
+}
+void set_sample_position(HSAMPLE handle, uint32_t byteOffset) {
+    return ::AIL_set_sample_position(reinterpret_cast<::HSAMPLE>(handle), byteOffset);
+}
+uint32_t sample_position(HSAMPLE handle) {
+    return ::AIL_sample_position(reinterpret_cast<::HSAMPLE>(handle));
+}
+void set_sample_loop_count(HSAMPLE handle, int32_t count) {
+    return ::AIL_set_sample_loop_count(reinterpret_cast<::HSAMPLE>(handle), count);
+}
+void set_sample_loop_block(HSAMPLE handle, int32_t startByte, int32_t endByte) {
+    return ::AIL_set_sample_loop_block(reinterpret_cast<::HSAMPLE>(handle), startByte, endByte);
+}
+void set_sample_3D_position(HSAMPLE handle, float x, float y, float z) {
+    return ::AIL_set_sample_3D_position(reinterpret_cast<::HSAMPLE>(handle), x, y, z);
+}
+void set_sample_3D_velocity_vector(HSAMPLE handle, float xPerMs, float yPerMs, float zPerMs) {
+    return ::AIL_set_sample_3D_velocity_vector(reinterpret_cast<::HSAMPLE>(handle), xPerMs, yPerMs, zPerMs);
+}
+void set_sample_3D_distances(HSAMPLE handle, float maximum, float minimum, int32_t autoWetAttenuation) {
+    return ::AIL_set_sample_3D_distances(reinterpret_cast<::HSAMPLE>(handle), maximum, minimum, autoWetAttenuation);
+}
+void set_sample_occlusion(HSAMPLE handle, float value) {
+    return ::AIL_set_sample_occlusion(reinterpret_cast<::HSAMPLE>(handle), value);
+}
+void set_sample_obstruction(HSAMPLE handle, float value) {
+    return ::AIL_set_sample_obstruction(reinterpret_cast<::HSAMPLE>(handle), value);
+}
+void sample_reverb_levels(HSAMPLE handle, float * dry, float * wet) {
+    return ::AIL_sample_reverb_levels(reinterpret_cast<::HSAMPLE>(handle), dry, wet);
+}
+void set_sample_volume_levels(HSAMPLE handle, float left, float right) {
+    return ::AIL_set_sample_volume_levels(reinterpret_cast<::HSAMPLE>(handle), left, right);
+}
+void sample_volume_levels(HSAMPLE handle, float * left, float * right) {
+    return ::AIL_sample_volume_levels(reinterpret_cast<::HSAMPLE>(handle), left, right);
+}
+void set_sample_reverb_levels(HSAMPLE handle, float dry, float wet) {
+    return ::AIL_set_sample_reverb_levels(reinterpret_cast<::HSAMPLE>(handle), dry, wet);
+}
+void set_sample_playback_rate(HSAMPLE handle, int32_t rate) {
+    return ::AIL_set_sample_playback_rate(reinterpret_cast<::HSAMPLE>(handle), rate);
+}
+int32_t sample_playback_rate(HSAMPLE handle) {
+    return ::AIL_sample_playback_rate(reinterpret_cast<::HSAMPLE>(handle));
+}
+HSTREAM open_stream(HDIGDRIVER handle, const char * filename, int32_t streamMem) {
+    return reinterpret_cast<HSTREAM>(::AIL_open_stream(reinterpret_cast<::HDIGDRIVER>(handle), filename, streamMem));
+}
+void close_stream(HSTREAM handle) {
+    return ::AIL_close_stream(reinterpret_cast<::HSTREAM>(handle));
+}
+HSAMPLE stream_sample_handle(HSTREAM handle) {
+    return reinterpret_cast<HSAMPLE>(::AIL_stream_sample_handle(reinterpret_cast<::HSTREAM>(handle)));
+}
+void start_stream(HSTREAM handle) {
+    return ::AIL_start_stream(reinterpret_cast<::HSTREAM>(handle));
+}
+void set_stream_loop_count(HSTREAM handle, int32_t count) {
+    return ::AIL_set_stream_loop_count(reinterpret_cast<::HSTREAM>(handle), count);
+}
+void set_stream_loop_block(HSTREAM handle, int32_t startOffset, int32_t endOffset) {
+    return ::AIL_set_stream_loop_block(reinterpret_cast<::HSTREAM>(handle), startOffset, endOffset);
+}
+int32_t stream_status(HSTREAM handle) {
+    return ::AIL_stream_status(reinterpret_cast<::HSTREAM>(handle));
+}
+void set_stream_ms_position(HSTREAM handle, int32_t milliseconds) {
+    return ::AIL_set_stream_ms_position(reinterpret_cast<::HSTREAM>(handle), milliseconds);
+}
+void stream_ms_position(HSTREAM handle, int32_t * totalMilliseconds, int32_t * currentMilliseconds) {
+    return ::AIL_stream_ms_position(reinterpret_cast<::HSTREAM>(handle), totalMilliseconds, currentMilliseconds);
+}
+int32_t file_type(const void * fileImage, uint32_t fileBytes) {
+    return ::AIL_file_type(fileImage, fileBytes);
+}
+int32_t file_error() {
+    return ::AIL_file_error();
+}
+int32_t WAV_info(const void * fileImage, SampleInformation * result) {
+    AILSOUNDINFO info={};
+    const S32 status=::AIL_WAV_info(fileImage,&info);
+    if(status) {
+        SampleInformation projected={};
+        projected.format=info.format;projected.bits=info.bits;projected.channels=info.channels;
+        projected.dataLength=info.data_len;projected.rate=info.rate;
+        projected.samples=info.samples;projected.blockSize=info.block_size;
+        *result=projected;
+    }
+    return status;
+}
+}

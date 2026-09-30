@@ -1,0 +1,35 @@
+--- pipe-composition74/candidate/startup-bridge23/backend.h
++++ stream-controls75/candidate/startup-bridge23/backend.h
+@@ -54,11 +54,6 @@
+         case MilesWire::AIL_set_sample_ms_position:
+         case MilesWire::AIL_set_sample_position:
+         case MilesWire::AIL_sample_position:
+-        case MilesWire::AIL_set_sample_playback_rate:
+-        case MilesWire::AIL_sample_playback_rate:
+-        case MilesWire::AIL_set_sample_volume_levels:
+-        case MilesWire::AIL_sample_volume_levels:
+-        case MilesWire::AIL_set_sample_reverb_levels:
+         case MilesWire::AIL_sample_reverb_levels:
+         case MilesWire::AIL_set_sample_3D_position:
+         case MilesWire::AIL_set_sample_3D_velocity_vector:
+@@ -70,6 +65,20 @@
+                 return out;
+             }
+             // fall through to the shared lifecycle and real SDK dispatcher
++        // The real dispatcher validates OwnedSample | BorrowedSample for exactly
++        // these five controls, including a live stream parent via the resolver.
++        case MilesWire::AIL_set_sample_playback_rate:
++        case MilesWire::AIL_sample_playback_rate:
++        case MilesWire::AIL_set_sample_volume_levels:
++        case MilesWire::AIL_sample_volume_levels:
++        case MilesWire::AIL_set_sample_reverb_levels:
++        // Existing stream controls only; open/close/alias publication remain absent.
++        case MilesWire::AIL_start_stream:
++        case MilesWire::AIL_set_stream_loop_count:
++        case MilesWire::AIL_set_stream_loop_block:
++        case MilesWire::AIL_stream_status:
++        case MilesWire::AIL_set_stream_ms_position:
++        case MilesWire::AIL_stream_ms_position:
+         case MilesWire::AIL_sample_ms_position:
+         case MilesWire::AIL_end_sample:
+         case MilesWire::AIL_set_listener_3D_position:
