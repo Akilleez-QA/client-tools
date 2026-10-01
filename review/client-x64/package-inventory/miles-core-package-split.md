@@ -1,6 +1,6 @@
 # Miles core: proposed foundational split
 
-Client scope only; the server counterpart map is a separate queued task. This addendum replaces only the oversized `miles-session-core` grouping. It is a static packaging proposal, not seven newly reviewed or qualified branches.
+Client scope only; the server counterpart map is a separate queued task. This addendum replaces only the oversized `miles-session-core` grouping. The original static proposal is preserved below. Steps 1–7 are now reviewed fork drafts [#5–11](https://github.com/Akilleez-QA/client-tools/pulls); exact current heads, dependencies and evidence limits are in the [review index](../REVIEW-INDEX.md). This is packaging completion for these foundations, not new runtime qualification.
 
 Authoritative final implementation: `eca74ffa5741f608a1417944b2e2602868936517`; base: `949451032647e45e42c3aaef3f41b132c8af36e3`. Reuse core blobs at `d1c5903de35586dc8cfb0939a5da1756cca43179`, plus the independent host-runtime lifetime repair `b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72`. Final accounting remains **91 production files, +8,593/-0**. The initial foundations contain **8526 lines**; later game/Bink deltas restore the exact final blobs recorded in the JSON. Supplemental Audio/build/workflow hunks keep their existing parent-map accounting.
 

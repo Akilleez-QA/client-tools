@@ -32,7 +32,9 @@ The first Miles foundation source branches are published as fork drafts [#5](htt
 
 Miles foundations 4–6 are published as fork drafts [#8](https://github.com/Akilleez-QA/client-tools/pull/8), [#9](https://github.com/Akilleez-QA/client-tools/pull/9) and [#10](https://github.com/Akilleez-QA/client-tools/pull/10): [client callbacks/admission](pr-ready-next/miles-client-callbacks/RESULTS.md), [host runtime](pr-ready-next/miles-host-runtime/RESULTS.md) and [pipe/session composition](pr-ready-next/miles-pipe-session/RESULTS.md). They remain dormant until the later build/Audio handoff. The separate [native Audio width/diagnostic prerequisite](pr-ready-next/audio-native-contract/RESULTS.md) is submitted upstream as [#31](https://github.com/SWG-Source/client-tools/pull/31), directly on maintained master (+28/−24 in one source file).
 
-The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) is prepared at `afe844818e86b24313a9e940d4723a02f7262ae8`, above the joint Miles-foundation/native-Audio base. Six files, +564/−40; source review found no blocker. Its README identifies external build prerequisites and keeps historical results separate.
+The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) is published as [fork draft #11](https://github.com/Akilleez-QA/client-tools/pull/11) at `afe844818e86b24313a9e940d4723a02f7262ae8`, above the joint Miles-foundation/native-Audio base. Six files, +564/−40; source review found no blocker. Its README identifies external build prerequisites and keeps historical results separate.
+
+The reviewed [client FPU controls](pr-ready-next/client-fpu-controls/RESULTS.md) apply on master; the matching [server FPU controls](pr-ready-next/server-fpu-controls/RESULTS.md) are stacked above server #38 for CI. Each changes three source files, +55/−2, retaining the historical Win32 setter behavior.
 
 ## Earlier candidate packages and dependency drafts
 

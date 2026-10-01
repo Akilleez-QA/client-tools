@@ -62,7 +62,7 @@ There are 34 aggregate accounting units: 9 submitted upstream, 3 prepared fork d
 
 The checked-size/minimum-node subset of `allocator-sizes` is now [fork draft #4](https://github.com/Akilleez-QA/client-tools/pull/4), head `1f8f341aab958ac13f04b070bb6575be0af36091`. Its two commits are +70/−29 in GitHub’s diff, one file. The aggregate remains in the remaining column because statistics, pointer diagnostics and null-reallocation have separate pending packages.
 
-Miles foundations 1–3 are now fork drafts [#5](https://github.com/Akilleez-QA/client-tools/pull/5), [#6](https://github.com/Akilleez-QA/client-tools/pull/6) and [#7](https://github.com/Akilleez-QA/client-tools/pull/7). Foundations 4–6 and the build/Audio handoff remain pending; the aggregate stays remaining until that closure is prepared. The two comment-only documentation corrections add two lines relative to the historical foundation snapshot; the frozen maintained-client accounting above is unchanged.
+Miles foundations 1–3 are now fork drafts [#5](https://github.com/Akilleez-QA/client-tools/pull/5), [#6](https://github.com/Akilleez-QA/client-tools/pull/6) and [#7](https://github.com/Akilleez-QA/client-tools/pull/7). Foundations 4–6 and the build/Audio handoff are now fork drafts [#8](https://github.com/Akilleez-QA/client-tools/pull/8), [#9](https://github.com/Akilleez-QA/client-tools/pull/9), [#10](https://github.com/Akilleez-QA/client-tools/pull/10) and [#11](https://github.com/Akilleez-QA/client-tools/pull/11). Later game/Bink hunks remain in the final aggregate accounting. The two comment-only documentation corrections add two lines relative to the historical foundation snapshot; the frozen maintained-client accounting above is unchanged.
 
 ## Concrete next branches
 
@@ -76,7 +76,7 @@ These recipes preserve original patch order. The address/stack recipe is now pre
 
 **Allocator:** submitted layout/order PR29 → complete owner/stack/hook ABI → checked sizes/statistics/minimum free representation/realloc metadata. The owner layer includes fatal and export-template breakpoint prerequisites. Its DbgHelp, allocation wrappers, header/API and renderer/DllExport hooks travel together. The later layer retains original commit ordering and all statistics consumers; it is not an isolated typedef substitution. Existing fault limits remain intact.
 
-**Math:** FPU declarations/implementation and CollisionWorld policy precede SSE helper/affine/collision kernels, followed by hard-skinning integration. Keep the historical numerical limits attached to the existing observations; no universal bit identity or new physics acceptance is inferred.
+**Math correction after source inspection:** FPU declarations/implementation and CollisionWorld policy are independent of the SSE helper/affine/collision kernels. Both packages apply independently on master; hard-skinning remains later integration. Keep the historical numerical limits attached to the existing observations; no universal bit identity or new physics acceptance is inferred.
 
 **Build:** compose submitted Release link cleanup and DPVS configuration, apply the generated x64 closure, then real-provider build ownership/imports, obsolete inputs cleanup, strict final-link/stack policy, and opt-in media development selection. The provider package has reviewable renderer, LCD, STLport/Vivox and PCRE/XML subcommits. It does not redistribute provider binaries or SDK bodies.
 
@@ -387,3 +387,7 @@ Current scope/status: `CLIENT-X64-GOAL.md`, `CURRENT-STATUS.md`; prior package n
 Existing published/prepared sources were compared to the frozen implementation. Most are exact; wire storage files, Os.cpp and MemoryManager.cpp contain explicitly assigned later components. PCRE differs only in trailing newline preservation. No differences were converted into fresh test-pass claims.
 
 The map checks Git/path/hash accounting only. No builds, test execution, product changes, source-tree copies, public writes, or new broad acceptance requests were made. A new package must describe inherited integrated observations at their actual input identities; this inventory does not manufacture exact-branch results.
+
+## Publication update
+
+Native Audio is upstream [#31](https://github.com/SWG-Source/client-tools/pull/31). All seven core Miles foundation/handoff packages are fork drafts #5–11. Earlier aggregate-state counts above are the frozen inventory snapshot, not a live submission counter. Source totals remain unchanged. FPU/math package preparation supersedes the earlier combined math recipe: no FPU source prerequisite exists for those kernels.

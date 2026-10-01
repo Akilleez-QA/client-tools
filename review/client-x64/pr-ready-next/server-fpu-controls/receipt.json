@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "prepared_date": "2026-10-01",
+  "purpose": "Paired FPU-control source-only PR preparation with historical evidence identity",
+  "packages": [
+    {
+      "id": "client-fpu-controls",
+      "repository": "https://github.com/Akilleez-QA/client-tools",
+      "worktree": "/home/akilleez/Work/swg-source/client-pr-next-byteorder",
+      "branch": "review-ready/client-fpu-controls",
+      "base_ref": "master",
+      "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+      "head": "16dbf07a4e6696fa1ebc133b567619643b76c3ce",
+      "merge_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+      "original_commit": "1c90143692936b20721a452fdb72819d018adef3",
+      "original_url": "https://github.com/Akilleez-QA/client-tools/commit/1c90143692936b20721a452fdb72819d018adef3",
+      "original_patch_id": "f61e741c5de41ece4cce4aef9c5c33f9e6692cd8",
+      "packaged_patch_id": "f61e741c5de41ece4cce4aef9c5c33f9e6692cd8",
+      "patch_identity": true,
+      "authoritative_source_head": "eca74ffa5741f608a1417944b2e2602868936517",
+      "source_prerequisites": [],
+      "coupled_files": "FloatingPointUnit.cpp, FloatingPointUnit.h and both CollisionWorld precision guards form one API/caller change.",
+      "counts": {
+        "production_source": {
+          "files": 3,
+          "additions": 55,
+          "deletions": 2
+        },
+        "tests_build_tooling_docs_sdks_assets": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        }
+      },
+      "files": [
+        {
+          "path": "src/engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp",
+          "category": "production_source",
+          "additions": 2,
+          "deletions": 2,
+          "base_blob": "5e5471cffd9c3d604f2f94243900da06fba482c0",
+          "original_parent_blob": "5e5471cffd9c3d604f2f94243900da06fba482c0",
+          "base_identical_to_original_parent": true,
+          "head_blob": "e5a2c68b72636a8141a432bc81fcefe817639ba0",
+          "original_blob": "e5a2c68b72636a8141a432bc81fcefe817639ba0",
+          "authoritative_blob": "e5a2c68b72636a8141a432bc81fcefe817639ba0",
+          "original_source_identity": true,
+          "maintained_source_identity": true,
+          "sha256": "902e4fb96722ea27b27483d2ea8091a328283b2385017f94682e095f940458ff",
+          "evidence_limit": "No independent header/CollisionWorld digest in the FPU probe JSONs. Exact source and patch provenance retained."
+        },
+        {
+          "path": "src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp",
+          "category": "production_source",
+          "additions": 45,
+          "deletions": 0,
+          "base_blob": "f303e0eb704475ab46929d5f72de84379074aa19",
+          "original_parent_blob": "f303e0eb704475ab46929d5f72de84379074aa19",
+          "base_identical_to_original_parent": true,
+          "head_blob": "3a82f3de958afec5d78909b2c07fe40d6c886eea",
+          "original_blob": "3a82f3de958afec5d78909b2c07fe40d6c886eea",
+          "authoritative_blob": "3a82f3de958afec5d78909b2c07fe40d6c886eea",
+          "original_source_identity": true,
+          "maintained_source_identity": true,
+          "sha256": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+          "historical_probe_sha256": [
+            "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9"
+          ],
+          "historical_probe_identity": true
+        },
+        {
+          "path": "src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.h",
+          "category": "production_source",
+          "additions": 8,
+          "deletions": 0,
+          "base_blob": "9cda070dd4a561366b9ce3278e6edc92bb202314",
+          "original_parent_blob": "9cda070dd4a561366b9ce3278e6edc92bb202314",
+          "base_identical_to_original_parent": true,
+          "head_blob": "cfb7b7aba548385f185c00b3f30456bc493f5cb6",
+          "original_blob": "cfb7b7aba548385f185c00b3f30456bc493f5cb6",
+          "authoritative_blob": "cfb7b7aba548385f185c00b3f30456bc493f5cb6",
+          "original_source_identity": true,
+          "maintained_source_identity": true,
+          "sha256": "b82c677dbebb31a28fa114bd63ec5eb6ca6231e334fe61b82488b3f777221c53",
+          "evidence_limit": "No independent header/CollisionWorld digest in the FPU probe JSONs. Exact source and patch provenance retained."
+        }
+      ],
+      "unchanged_dependency_identity": {
+        "path": "src/engine/shared/library/sharedFoundation/src/win32/ConfigSharedFoundation.cpp",
+        "sha256": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+        "recorded_client_sha256": [
+          "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04"
+        ],
+        "recorded_client_identity": true
+      },
+      "preserved_math_branch": {
+        "branch": "review-ready/client-math-kernels",
+        "head": "3c8c9099dc8962f411f9045dc7e915d21bcff31a"
+      },
+      "caller_inventory": [
+        "16dbf07a4e6696fa1ebc133b567619643b76c3ce:src/engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp:480:\tFloatingPointUnit::setPrecision(FloatingPointUnit::P_64);",
+        "16dbf07a4e6696fa1ebc133b567619643b76c3ce:src/engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp:521:\tFloatingPointUnit::setPrecision(oldPrecision);",
+        "16dbf07a4e6696fa1ebc133b567619643b76c3ce:src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp:176:void FloatingPointUnit::setPrecision(Precision newPrecision)"
+      ],
+      "clean_worktree": true,
+      "diff_check": "passed",
+      "cherry_pick_conflicts": false,
+      "new_builds_or_tests": false,
+      "remote_mutations": false,
+      "ready_for_bounded_review": true,
+      "publication_state": "local_only"
+    },
+    {
+      "id": "server-fpu-controls",
+      "repository": "https://github.com/Akilleez-QA/src",
+      "worktree": "/home/akilleez/Work/swg-source/server-pr-build-workflow",
+      "branch": "review-ready/server-fpu-controls",
+      "base_ref": "master",
+      "base": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+      "head": "e4b02d6681ffa87df81d077ddb7f41a0c371faae",
+      "merge_base": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+      "original_commit": "cc361630e09eea6a5ae031fe86907930c9ea39dd",
+      "original_url": "https://github.com/Akilleez-QA/src/commit/cc361630e09eea6a5ae031fe86907930c9ea39dd",
+      "original_patch_id": "a3d81e52ecfa082a7c97290916d1918f71428570",
+      "packaged_patch_id": "a3d81e52ecfa082a7c97290916d1918f71428570",
+      "patch_identity": true,
+      "authoritative_source_head": "731d85cc10326f5f2d656b4b66f09c5feab30635",
+      "source_prerequisites": [],
+      "coupled_files": "FloatingPointUnit.cpp, FloatingPointUnit.h and both CollisionWorld precision guards form one API/caller change.",
+      "counts": {
+        "production_source": {
+          "files": 3,
+          "additions": 55,
+          "deletions": 2
+        },
+        "tests_build_tooling_docs_sdks_assets": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        }
+      },
+      "files": [
+        {
+          "path": "engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp",
+          "category": "production_source",
+          "additions": 2,
+          "deletions": 2,
+          "base_blob": "71a06f8674c1cc07b47fe615b9f691d3811158e7",
+          "original_parent_blob": "e6973d1b70d7ffff5f38d79ace8717e3da676d35",
+          "base_identical_to_original_parent": false,
+          "head_blob": "8fe458a367004cf969c0077f809d5f6a0b0929d6",
+          "original_blob": "080c72d1b8f00ff66206976193d22e919a5e8def",
+          "authoritative_blob": "080c72d1b8f00ff66206976193d22e919a5e8def",
+          "original_source_identity": false,
+          "maintained_source_identity": false,
+          "sha256": "b748519bc8f81822bab4a27387c41ddf17cf261b0caf57406ea2dd533761ee43",
+          "evidence_limit": "No independent header/CollisionWorld digest in the FPU probe JSONs. Exact source and patch provenance retained.",
+          "baseline_difference": {
+            "location": "CollisionWorld::addObject debug-logging block near line 1128",
+            "before_patch_id": "f9d7d4469cdae9254f3fa586cb850fcb74fe2d7f",
+            "after_patch_id": "f9d7d4469cdae9254f3fa586cb850fcb74fe2d7f",
+            "unchanged_by_packaging": true,
+            "disposition": "Master logging retained; integration logging change excluded. Only original two precision guards added."
+          }
+        },
+        {
+          "path": "engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp",
+          "category": "production_source",
+          "additions": 45,
+          "deletions": 0,
+          "base_blob": "f303e0eb704475ab46929d5f72de84379074aa19",
+          "original_parent_blob": "f303e0eb704475ab46929d5f72de84379074aa19",
+          "base_identical_to_original_parent": true,
+          "head_blob": "3a82f3de958afec5d78909b2c07fe40d6c886eea",
+          "original_blob": "3a82f3de958afec5d78909b2c07fe40d6c886eea",
+          "authoritative_blob": "3a82f3de958afec5d78909b2c07fe40d6c886eea",
+          "original_source_identity": true,
+          "maintained_source_identity": true,
+          "sha256": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+          "historical_probe_sha256": [
+            "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9"
+          ],
+          "historical_probe_identity": true
+        },
+        {
+          "path": "engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.h",
+          "category": "production_source",
+          "additions": 8,
+          "deletions": 0,
+          "base_blob": "9cda070dd4a561366b9ce3278e6edc92bb202314",
+          "original_parent_blob": "9cda070dd4a561366b9ce3278e6edc92bb202314",
+          "base_identical_to_original_parent": true,
+          "head_blob": "cfb7b7aba548385f185c00b3f30456bc493f5cb6",
+          "original_blob": "cfb7b7aba548385f185c00b3f30456bc493f5cb6",
+          "authoritative_blob": "cfb7b7aba548385f185c00b3f30456bc493f5cb6",
+          "original_source_identity": true,
+          "maintained_source_identity": true,
+          "sha256": "b82c677dbebb31a28fa114bd63ec5eb6ca6231e334fe61b82488b3f777221c53",
+          "evidence_limit": "No independent header/CollisionWorld digest in the FPU probe JSONs. Exact source and patch provenance retained."
+        }
+      ],
+      "unchanged_dependency_identity": {
+        "path": "engine/shared/library/sharedFoundation/src/win32/ConfigSharedFoundation.cpp",
+        "sha256": "f392926efcec36d64687b8d3ba3ba2fa37391590e9ef1e839356b9f317113752",
+        "recorded_client_sha256": [
+          "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04"
+        ],
+        "recorded_client_identity": false
+      },
+      "preserved_math_branch": {
+        "branch": "review-ready/server-sse-math",
+        "head": "274d3a6dbcd7b3195db4266ac4b753ee2a6b3a89"
+      },
+      "caller_inventory": [
+        "e4b02d6681ffa87df81d077ddb7f41a0c371faae:engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp:477:\tFloatingPointUnit::setPrecision(FloatingPointUnit::P_64);",
+        "e4b02d6681ffa87df81d077ddb7f41a0c371faae:engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp:517:\tFloatingPointUnit::setPrecision(oldPrecision);",
+        "e4b02d6681ffa87df81d077ddb7f41a0c371faae:engine/shared/library/sharedFoundation/src/linux/FloatingPointUnit.cpp:130:void FloatingPointUnit::setPrecision(Precision newPrecision)",
+        "e4b02d6681ffa87df81d077ddb7f41a0c371faae:engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp:176:void FloatingPointUnit::setPrecision(Precision newPrecision)"
+      ],
+      "clean_worktree": true,
+      "diff_check": "passed",
+      "cherry_pick_conflicts": false,
+      "new_builds_or_tests": false,
+      "remote_mutations": false,
+      "ready_for_bounded_review": true,
+      "publication_state": "local_only"
+    }
+  ],
+  "evidence_ref": "4849c510c4983fd00a0515bc309a133090ffb7ab",
+  "evidence": [
+    {
+      "path": "review/client-x64/allocator-math-next/fpu-next-debug-v3-results.json",
+      "sha256": "916aca63db6650db12a548e46d155d858ece63edf5497429211f9379c51d6e60",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/fpu-next-debug-v3-results.json",
+      "observations": [
+        {
+          "name": "Debug-Win32-candidate",
+          "okay": true,
+          "run_exit": 0,
+          "checks": 46,
+          "failures": 0,
+          "expected": 46,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 37
+        },
+        {
+          "name": "Debug-Win32-precision-api",
+          "okay": true,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-precision-unavailable.cpp": "4388c2409a09fc336a65023e2faa9235f4ceb6d31294a9e83c6e144e00fa73c7"
+          },
+          "library_count": 0
+        },
+        {
+          "name": "Debug-Win32-stock",
+          "okay": true,
+          "run_exit": 0,
+          "checks": 46,
+          "failures": 0,
+          "expected": 46,
+          "source_sha256": {
+            "stock-FloatingPointUnit.cpp": "4e29fcf16b68eec318787ce6fcb20528dc41d4df9fa7ad2dcdd78c6ff5b966c3",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 37
+        },
+        {
+          "name": "Debug-x64-candidate",
+          "okay": true,
+          "run_exit": 0,
+          "checks": 67,
+          "failures": 0,
+          "expected": 67,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 36
+        },
+        {
+          "name": "Debug-x64-precision-api",
+          "okay": true,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-precision-unavailable.cpp": "4388c2409a09fc336a65023e2faa9235f4ceb6d31294a9e83c6e144e00fa73c7"
+          },
+          "library_count": 0
+        },
+        {
+          "name": "Debug-x64-stock",
+          "okay": true,
+          "source_sha256": {
+            "stock-FloatingPointUnit.cpp": "4e29fcf16b68eec318787ce6fcb20528dc41d4df9fa7ad2dcdd78c6ff5b966c3",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 0
+        },
+        {
+          "name": "Debug-x64-noop",
+          "okay": true,
+          "run_exit": 1,
+          "checks": 67,
+          "failures": 21,
+          "expected": 67,
+          "source_sha256": {
+            "noop.cpp": "02f9461fd088b70c68e34de939146619ea0e74aa7f99386823c16b2272bf643a",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 36
+        }
+      ]
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/fpu-next-v5-results.json",
+      "sha256": "b63398f19f1a7c8b6546796856024a3ea5c80bb70faf3df4c5fde2ed64a6cab9",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/fpu-next-v5-results.json",
+      "observations": [
+        {
+          "name": "Release-Win32-candidate",
+          "okay": true,
+          "run_exit": 0,
+          "checks": 46,
+          "failures": 0,
+          "expected": 46,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 35
+        },
+        {
+          "name": "Release-Win32-precision-api",
+          "okay": true,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-precision-unavailable.cpp": "4388c2409a09fc336a65023e2faa9235f4ceb6d31294a9e83c6e144e00fa73c7"
+          },
+          "library_count": 0
+        },
+        {
+          "name": "Release-Win32-stock",
+          "okay": true,
+          "run_exit": 0,
+          "checks": 46,
+          "failures": 0,
+          "expected": 46,
+          "source_sha256": {
+            "stock-FloatingPointUnit.cpp": "4e29fcf16b68eec318787ce6fcb20528dc41d4df9fa7ad2dcdd78c6ff5b966c3",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 35
+        },
+        {
+          "name": "Release-x64-candidate",
+          "okay": true,
+          "run_exit": 0,
+          "checks": 67,
+          "failures": 0,
+          "expected": 67,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 31
+        },
+        {
+          "name": "Release-x64-precision-api",
+          "okay": true,
+          "source_sha256": {
+            "FloatingPointUnit.cpp": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-precision-unavailable.cpp": "4388c2409a09fc336a65023e2faa9235f4ceb6d31294a9e83c6e144e00fa73c7"
+          },
+          "library_count": 0
+        },
+        {
+          "name": "Release-x64-stock",
+          "okay": true,
+          "source_sha256": {
+            "stock-FloatingPointUnit.cpp": "4e29fcf16b68eec318787ce6fcb20528dc41d4df9fa7ad2dcdd78c6ff5b966c3",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 0
+        },
+        {
+          "name": "Release-x64-noop",
+          "okay": true,
+          "run_exit": 1,
+          "checks": 67,
+          "failures": 21,
+          "expected": 67,
+          "source_sha256": {
+            "noop.cpp": "02f9461fd088b70c68e34de939146619ea0e74aa7f99386823c16b2272bf643a",
+            "ConfigSharedFoundation.cpp": "6c2a7828810e1c9d07950438e046b8f8335e0b44fdaa782257c03d3fb2c8de04",
+            "fpu-probe.cpp": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18"
+          },
+          "library_count": 31
+        }
+      ]
+    }
+  ],
+  "counterpart_identity": [
+    {
+      "client_path": "src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp",
+      "server_path": "engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.cpp",
+      "whole_file_identity": true,
+      "client_sha256": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9",
+      "server_sha256": "0e14894d2e987d1ecdb91b6ad5eb7b223f71a1eb2b8b07f77f2e33c05aa475e9"
+    },
+    {
+      "client_path": "src/engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.h",
+      "server_path": "engine/shared/library/sharedFoundation/src/win32/FloatingPointUnit.h",
+      "whole_file_identity": true,
+      "client_sha256": "b82c677dbebb31a28fa114bd63ec5eb6ca6231e334fe61b82488b3f777221c53",
+      "server_sha256": "b82c677dbebb31a28fa114bd63ec5eb6ca6231e334fe61b82488b3f777221c53"
+    },
+    {
+      "client_path": "src/engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp",
+      "server_path": "engine/shared/library/sharedCollision/src/shared/core/CollisionWorld.cpp",
+      "whole_file_identity": false,
+      "client_sha256": "902e4fb96722ea27b27483d2ea8091a328283b2385017f94682e095f940458ff",
+      "server_sha256": "b748519bc8f81822bab4a27387c41ddf17cf261b0caf57406ea2dd533761ee43"
+    }
+  ],
+  "existing_local_probe_identity": [
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/allocator-next/fpu-probe.cpp",
+      "sha256": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18",
+      "historical_sha256": "9f48b0945fba20b59aae469a1155070d34094e1745ab4d06339161d0edecfe18",
+      "identity": true
+    },
+    {
+      "path": "/home/akilleez/Work/client-wire-validation/allocator-next/fpu-precision-unavailable.cpp",
+      "sha256": "4388c2409a09fc336a65023e2faa9235f4ceb6d31294a9e83c6e144e00fa73c7",
+      "historical_sha256": "4388c2409a09fc336a65023e2faa9235f4ceb6d31294a9e83c6e144e00fa73c7",
+      "identity": true
+    }
+  ],
+  "existing_runner_review": {
+    "path": "/home/akilleez/Work/client-wire-validation/allocator-next/run-fpu.py",
+    "sha256": "9a3b6f780e96bcb7c69442f465d4aab3a18b5122979c99ecd79114441abc7b2a",
+    "executed_during_packaging": false,
+    "compiler": "native MSVC v120",
+    "floating_point_option": "/fp:strict",
+    "oracle": "original stock implementation using current public headers",
+    "precision_api": "Win32 compile succeeds; x64 requires missing-setPrecision C2039 diagnostic",
+    "stock_x64": "assembly rejection independently required",
+    "noop_control": "must execute and exit 1 with behavior failures; compile/link failure does not pass the control"
+  },
+  "claim_limits": [
+    "No new isolated branch build/test or cloud CI claim.",
+    "Client production FPU and ConfigSharedFoundation source hashes match recorded probes; no separate header or CollisionWorld hash was recorded.",
+    "Server FPU source is byte-identical to client, but ConfigSharedFoundation and library closure differ; not exact server qualification.",
+    "Fixture uses zero-initialized config globals without ConfigSharedFoundation::install; configured exception startup is untested.",
+    "Exception masks are inspected without executing exceptional arithmetic while unmasked; trap delivery untested.",
+    "CollisionWorld precision guards are packaged but not executed by FPU probes.",
+    "Win32 old-state precision setter retained intentionally; changing it would require separate DPVS PC64 reassessment.",
+    "Saved control words are architecture-specific; process-global saved policy and thread behavior are not redesigned.",
+    "No physics, Direct3D, gameplay or universal x87/SSE numerical-equivalence claim."
+  ],
+  "blockers": []
+}

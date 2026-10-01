@@ -1076,9 +1076,7 @@
       "title": "x64 SSE arithmetic, affine transform and collision square root",
       "status": "remaining",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
-      "prerequisites": [
-        "fpu-controls"
-      ],
+      "prerequisites": [],
       "origin_commits": [
         {
           "sha": "8cdd61ed5b373c4766d107cdad31925309bec21b",
@@ -1115,7 +1113,8 @@
         "src/engine/shared/library/sharedMath/src/win32/SseMath.cpp",
         "src/engine/shared/library/sharedMath/src/win32/SseMath.h"
       ],
-      "build_files": []
+      "build_files": [],
+      "source_prerequisite_correction": "Actual source inspection: FPU control API is independent. Historical probe math scope remains separate from FPU startup policy."
     },
     {
       "id": "skeletal-kernel",
@@ -1319,7 +1318,7 @@
     {
       "id": "audio-native-contract",
       "title": "Miles callback/preference widths and diagnostic strings",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -1336,9 +1335,9 @@
           "subject": "audio: pass character buffers to speaker diagnostics"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-audio-native-contract",
+      "branch_head": "0699bd3d9b08998cb731d6ac7655681f3d003e6d",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/31",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Extract only native callback handles, preference narrowing and std::string c_str diagnostics from mixed Audio.cpp. The original three commits can be applied in order; the last was authored after facade integration, so context may need manual selection.",
       "exclusive_production_accounting": {
@@ -1667,7 +1666,7 @@
       "branch_head": null,
       "pull_request": null,
       "assembly_method": "Superseded by six source foundations plus build/Audio handoff in miles-core-package-split.json; retain this aggregate only for whole-diff accounting.",
-      "boundary": "Six dormant source foundations preserve contracts and ownership before build/Audio handoff. Step 7 requires the actual build/evidence closure; source review can start before it. Exact pre-Bink blobs and later deltas are in miles-core-package-split.json. Game backend selection stays in the later integration package.",
+      "boundary": "Foundations 1\u20136 and core build/Audio handoff are fork drafts #5\u201311. Later game/Bink deltas on these files remain; final whole-file accounting does not measure completed hunk coverage.",
       "exclusive_production_accounting": {
         "files": 91,
         "additions": 8593,
@@ -1886,6 +1885,36 @@
           "base": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
           "head": "9ef7a2c7dd99f8cdb7d351ee80704628aa53aa70",
           "scope": "Dormant source foundation; complete source closure and build entrypoints follow."
+        }
+      ],
+      "foundation_submissions": [
+        {
+          "step": 1,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/5"
+        },
+        {
+          "step": 2,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/6"
+        },
+        {
+          "step": 3,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/7"
+        },
+        {
+          "step": 4,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/8"
+        },
+        {
+          "step": 5,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/9"
+        },
+        {
+          "step": 6,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/10"
+        },
+        {
+          "step": 7,
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/11"
         }
       ]
     },
@@ -11674,7 +11703,8 @@
     "source": "GitHub PR creation receipts and verified head/base/counts",
     "http": "client upstream PR30 at 003f8757c7c1386e33c997be7d5bf5b8109669d4",
     "allocator_address": "client fork draft PR3 at fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c, base PR29",
-    "server_network": "Separate server inventory: fork draft PR1 at 9d44e3a1, joint PR37/38 base 09932a32. No client dependency inferred."
+    "server_network": "Separate server inventory: fork draft PR1 at 9d44e3a1, joint PR37/38 base 09932a32. No client dependency inferred.",
+    "foundations_1_through_7": "Fork drafts5\u201311 published; native Audio upstream31. Frozen accounting unchanged."
   },
   "remaining_claim_limits": [
     "No product tests, builds, runtime, cherry-pick attempts, or public writes performed for this map. Git/hash/path accounting is inspection only.",
