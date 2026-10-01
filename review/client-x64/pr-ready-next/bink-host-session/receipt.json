@@ -1,0 +1,335 @@
+{
+  "package": "bink-host-session",
+  "branch": "review-ready/client-bink-host-session",
+  "base": "78428d8c3f63048bccca579421f170a627be8fda",
+  "head": "16942c5fc6724f33e7633985c5fc5b0bc9be5103",
+  "commit_count": 5,
+  "count_algorithm": "git diff --diff-algorithm=myers",
+  "counts": {
+    "documentation": {
+      "files": 1,
+      "additions": 28,
+      "deletions": 1
+    },
+    "build": {
+      "files": 2,
+      "additions": 14,
+      "deletions": 2
+    },
+    "production": {
+      "files": 20,
+      "additions": 1274,
+      "deletions": 21
+    },
+    "tests": {
+      "files": 4,
+      "additions": 300,
+      "deletions": 0
+    }
+  },
+  "files": [
+    {
+      "path": "tools/miles-bridge/README.md",
+      "kind": "documentation",
+      "additions": 28,
+      "deletions": 1,
+      "head_blob": "3fc1bcf07ebebf4b3e3eea8e37bda9843f16eccb",
+      "sha256": "a6a0dab2cfee41e37482be8f2c8c62cff66c105ba57547b770ebddddaea88063"
+    },
+    {
+      "path": "tools/miles-bridge/build.py",
+      "kind": "build",
+      "additions": 7,
+      "deletions": 0,
+      "head_blob": "efcb0d787e7dc9c993f23de62f45bf02676a1db8",
+      "sha256": "de7aa7f8f632be32d3918f8f4711b3f7685ffff0524cff54eeef707b1bc7a07f"
+    },
+    {
+      "path": "tools/miles-bridge/sources.json",
+      "kind": "build",
+      "additions": 7,
+      "deletions": 2,
+      "head_blob": "83b645d27bbc9cdfd93b8a799b45ce2580a2419e",
+      "sha256": "53d355b0ea97afa2101644929216aaea8ca04320dbe9f993c06ea73843f29fbc"
+    },
+    {
+      "path": "tools/miles-bridge/src/admission/coordinator.cpp",
+      "kind": "production",
+      "additions": 1,
+      "deletions": 1,
+      "head_blob": "dba7f427268dc032e2ff7cc4c7aa58a71e3bfa60",
+      "sha256": "5fe292e59a3782a6e4e5308fe32d08b40920a6faa3ffd2f3c362831def56614e"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/ClientBink.h",
+      "kind": "production",
+      "additions": 30,
+      "deletions": 0,
+      "head_blob": "fa327225e9d4a26d670278210cb2a14b13b179f4",
+      "sha256": "b9cd59a7c9dc2357c94eeb5bbd1199175401f564e071f73204c17b5e0123db17"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/ClientBinkPipe.cpp",
+      "kind": "production",
+      "additions": 137,
+      "deletions": 0,
+      "head_blob": "42926f85c208981d6ef4607d8f1c0381f7735f00",
+      "sha256": "bd6aa5e25bca590d633d89664cc488c9d38abd1e3ab114b3efaa1ebe57d1005e"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "kind": "production",
+      "additions": 9,
+      "deletions": 3,
+      "head_blob": "776430393a0c879c8cb33ce5e0fdd6a48065da5e",
+      "sha256": "d477003b5f7bd9b59cc0ead55ce40fffbc9011dcdc1017a66b63807b6f188691"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/Session.h",
+      "kind": "production",
+      "additions": 4,
+      "deletions": 0,
+      "head_blob": "b352cbf3b8a97825689735147171dc179756d600",
+      "sha256": "0d61b56d6f2dd8fa015f9f2227868f54dd1d0c2d2780bfb6105348a25507fd08"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/VideoState.cpp",
+      "kind": "production",
+      "additions": 36,
+      "deletions": 0,
+      "head_blob": "b8263ccb0364048bdde9675bae25fa8ad35baf3e",
+      "sha256": "a0bc1213458f2f308824d5feca6f7900efa3c4080fd7172f57650b1baa013f92"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/VideoState.h",
+      "kind": "production",
+      "additions": 25,
+      "deletions": 0,
+      "head_blob": "47989e73b5d892a18cd93405e5cee0f60628abf3",
+      "sha256": "19055e1e7363ca71cd1942dc434ef4a6c914f38879fed1e0f515205b298f6354"
+    },
+    {
+      "path": "tools/miles-bridge/src/backend/backend.h",
+      "kind": "production",
+      "additions": 8,
+      "deletions": 1,
+      "head_blob": "9817640913585fc095d367a137396002a6e74b09",
+      "sha256": "a168c0130ea222092264995e2897a1fc92aa0bef7418d3512523a9ae9fd7039c"
+    },
+    {
+      "path": "tools/miles-bridge/src/backend/reply.h",
+      "kind": "production",
+      "additions": 9,
+      "deletions": 0,
+      "head_blob": "88cf84bf29efdecf986e2a4e80e87b830bc66f84",
+      "sha256": "aa5b0e06b702b0bd07e2578506b3b920d236eb41458303187fd9ad4b766b4a6a"
+    },
+    {
+      "path": "tools/miles-bridge/src/bink/bink_protocol.h",
+      "kind": "production",
+      "additions": 106,
+      "deletions": 0,
+      "head_blob": "ade222856a9511351d6019beae240a5d05c29303",
+      "sha256": "8a4c1d882a132276d0e9ad9c98f5d8c69403139d8c79374a0501ed5c962cc051"
+    },
+    {
+      "path": "tools/miles-bridge/src/host-bink/bink_file_io.cpp",
+      "kind": "production",
+      "additions": 479,
+      "deletions": 0,
+      "head_blob": "7fcef3ef3d89edfaad27eec031d98d99e3d7dffa",
+      "sha256": "65ae171a02d5cfc0c557994bd486d6cba5a4a94e6e23791fc757e786c9df1841"
+    },
+    {
+      "path": "tools/miles-bridge/src/host-bink/bink_file_io.h",
+      "kind": "production",
+      "additions": 12,
+      "deletions": 0,
+      "head_blob": "1f83d60db5e71fe162fdc3924679bb2a1bdbb138",
+      "sha256": "160eb91eb005d7dfbcc824baf4512c31b2598066051ad5e29feeeedbf25b01ec"
+    },
+    {
+      "path": "tools/miles-bridge/src/host-bink/bink_owner.cpp",
+      "kind": "production",
+      "additions": 149,
+      "deletions": 0,
+      "head_blob": "16b42292c50542843172cbdb04b6b206d1996249",
+      "sha256": "4587872402e85f3fe8cfbc255d632542c11a69512339cc0c3bda645aff693e0b"
+    },
+    {
+      "path": "tools/miles-bridge/src/host-bink/bink_owner.h",
+      "kind": "production",
+      "additions": 73,
+      "deletions": 0,
+      "head_blob": "4b2a502fdb531fedb6dfd308b529c34b5cc686ef",
+      "sha256": "37a8cc1bb0fe1662a0a3aae418ec084065774540f29a97356a96a96b0fdd0b35"
+    },
+    {
+      "path": "tools/miles-bridge/src/host-bink/bink_service.cpp",
+      "kind": "production",
+      "additions": 135,
+      "deletions": 0,
+      "head_blob": "ad094a578634390b20e92a35ab1c9bd22545e539",
+      "sha256": "b4fcdd60c8c8a8fc2e48653465731342dd893c92323a74ae9fb0887f103e8f6a"
+    },
+    {
+      "path": "tools/miles-bridge/src/host-bink/bink_service.h",
+      "kind": "production",
+      "additions": 31,
+      "deletions": 0,
+      "head_blob": "5e6dc9acaf2a479d0a27511cf661926a051d50fe",
+      "sha256": "a35d603ee0d341491bf7762c6601ac739c8921432e353632cc366c3cbcd209d9"
+    },
+    {
+      "path": "tools/miles-bridge/src/host/host.cpp",
+      "kind": "production",
+      "additions": 7,
+      "deletions": 1,
+      "head_blob": "4f25609bb261de47636979d0569a49b5227e9445",
+      "sha256": "72435812e291142de80d9c8738bca2d91c82734b0a958f0d51f5b6fe1e8f5725"
+    },
+    {
+      "path": "tools/miles-bridge/src/protocol/miles_wire.h",
+      "kind": "production",
+      "additions": 9,
+      "deletions": 3,
+      "head_blob": "9e9680e176f408dccd37933c889207a33e3e8b3d",
+      "sha256": "0310b0491dae7320c8532807f69762866bb074d7d48b5bb8a4b0c6d87cdd5f88"
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/codec.cpp",
+      "kind": "production",
+      "additions": 7,
+      "deletions": 5,
+      "head_blob": "3f304bc2b3d46e16de0566685c24359d4d7e4eb5",
+      "sha256": "7fbc7fdf228f7f2ee833dcf83dcdc444998c57c04a74c5ad7647b7cd16b1178c"
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/resource_registry.h",
+      "kind": "production",
+      "additions": 7,
+      "deletions": 7,
+      "head_blob": "2365fc603c0c9b66bec32349038d18ae093020a7",
+      "sha256": "80d0460ad55ee12e25ad5f5bde0662a8bafae2d313637298797eddbb4d6d3d08"
+    },
+    {
+      "path": "tools/miles-bridge/tests/bink-replay.md",
+      "kind": "tests",
+      "additions": 46,
+      "deletions": 0,
+      "head_blob": "95c9a31d9e96e71512d224ec95ce76cd82cc470d",
+      "sha256": "8efaff44d92bbd81169a139a02ccf896d331944a2320a3e0cbedb9e02b4146d3"
+    },
+    {
+      "path": "tools/miles-bridge/tests/bink_protocol.cpp",
+      "kind": "tests",
+      "additions": 145,
+      "deletions": 0,
+      "head_blob": "a8a83ace5a626825ad9f96033f1fc769d5b2f848",
+      "sha256": "bd26fc66ffef88959c50a9f3bdfc1b7427cfbeb97a3fee1acd0e3785ef4653d0"
+    },
+    {
+      "path": "tools/miles-bridge/tests/video_admission.cpp",
+      "kind": "tests",
+      "additions": 58,
+      "deletions": 0,
+      "head_blob": "783fbca117ca5afc0290820610429a48bdbd4c7d",
+      "sha256": "ddb32c2438e19084878d0939713c078725703337dde37ae6ae02e9e040f5f433"
+    },
+    {
+      "path": "tools/miles-bridge/tests/video_reply.cpp",
+      "kind": "tests",
+      "additions": 51,
+      "deletions": 0,
+      "head_blob": "e05410ba0c30d366fef01ee6f0594738315f8625",
+      "sha256": "aabd441fcb8fb9c874b90f56ab6f7c71305f0857198d0a9692c5539a27cc12ac"
+    }
+  ],
+  "original_extractions": [
+    {
+      "original": "3636d63fe3f2f29e83aec9754045cc2b9c630570",
+      "candidate": "d8b48d6603f74777d92f277214edb76518c59c1f",
+      "paths": [
+        "tools/miles-bridge/build.py",
+        "tools/miles-bridge/sources.json",
+        "tools/miles-bridge/src/host-bink/bink_file_io.cpp",
+        "tools/miles-bridge/src/host-bink/bink_file_io.h",
+        "tools/miles-bridge/src/host-bink/bink_owner.cpp",
+        "tools/miles-bridge/src/host-bink/bink_owner.h"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+      "candidate": "ba9b904185852ce8bdff21236bc30d06ab67cd40",
+      "paths": [
+        "tools/miles-bridge/sources.json",
+        "tools/miles-bridge/src/api/ClientBink.h",
+        "tools/miles-bridge/src/api/pipe/ClientBinkPipe.cpp",
+        "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "tools/miles-bridge/src/api/pipe/Session.h",
+        "tools/miles-bridge/src/api/pipe/VideoState.cpp",
+        "tools/miles-bridge/src/api/pipe/VideoState.h",
+        "tools/miles-bridge/src/backend/backend.h",
+        "tools/miles-bridge/src/backend/reply.h",
+        "tools/miles-bridge/src/bink/bink_protocol.h",
+        "tools/miles-bridge/src/host-bink/bink_owner.cpp",
+        "tools/miles-bridge/src/host-bink/bink_owner.h",
+        "tools/miles-bridge/src/host-bink/bink_service.cpp",
+        "tools/miles-bridge/src/host-bink/bink_service.h",
+        "tools/miles-bridge/src/host/host.cpp",
+        "tools/miles-bridge/src/protocol/miles_wire.h",
+        "tools/miles-bridge/src/wire/codec.cpp",
+        "tools/miles-bridge/src/wire/resource_registry.h",
+        "tools/miles-bridge/tests/bink_protocol.cpp",
+        "tools/miles-bridge/tests/video_reply.cpp"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "a904e489b4fed43b52751b1cab373e82a4e40976",
+      "candidate": "c3839b4fa73aba186ddb3adfc0cbf7a3f5889f68",
+      "paths": [
+        "tools/miles-bridge/src/admission/coordinator.cpp",
+        "tools/miles-bridge/tests/video_admission.cpp"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "da9c56054b70761b983b4b367fd4479ac344e8e6",
+      "candidate": "a5e20ba3fe9dd6213424c7896dea8ccabdb2f066",
+      "paths": [
+        "tools/miles-bridge/src/host-bink/bink_owner.cpp",
+        "tools/miles-bridge/src/host-bink/bink_owner.h",
+        "tools/miles-bridge/tests/bink-replay.md"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    }
+  ],
+  "packaging_checks": [
+    "all selected added/removed lines match original commits",
+    "git diff --check passed"
+  ],
+  "limits": [
+    "No new build, tests or runtime execution.",
+    "Historical integrated evidence is not an exact-base split-branch build result.",
+    "Historical README and absent workflow hunks excluded; concise README adapted separately.",
+    "Inherited foundation comment polish remains; no claim of globally identical historical files.",
+    "No SDK binaries or private vendor code added."
+  ],
+  "dependency_refs": {
+    "build_audio": "afe844818e86b24313a9e940d4723a02f7262ae8",
+    "native_providers_and_link": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+    "file_manifest": "514498397a9ead2518ab11d5894a785ef877b82d",
+    "joint_prerequisite": "6b94c184f4659da10cf067e7495d8655da6959ed"
+  },
+  "composition_limits": [
+    "Obsolete browser/capture build inputs are not yet included.",
+    "Other enumerated full-client x64 source packages remain required for a full game build.",
+    "Release build selection and Bink renderer integration are deferred."
+  ]
+}

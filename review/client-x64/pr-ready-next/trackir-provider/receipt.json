@@ -1,0 +1,128 @@
+{
+  "branch": "review-ready/client-trackir-provider",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "12e1a62160f83827ad345ddf8fb8a53299b5060a",
+  "original": "6776d2054410e7bb3b986161070b34280cf4b682",
+  "source_path": "src/engine/client/library/clientGame/src/shared/core/ClientHeadTracking.cpp",
+  "candidate_blob": "f8323d4bb7104029265a18870302f9a14c31f74b",
+  "candidate_sha256": "c39fcd9fe11d465e14fa3ad950955b3e20847c9322a5fafc7c770927a3d8f214",
+  "full_source_matches_original_candidate": false,
+  "original_changed_lines_exact": false,
+  "numstat": "14\t4\tsrc/engine/client/library/clientGame/src/shared/core/ClientHeadTracking.cpp",
+  "tools": 0,
+  "new_build_test_runtime": true,
+  "conflicts": false,
+  "original_candidate_head": "07a73c30fd7e2bca2f0755ef5cb0a46eb250ce6f",
+  "original_candidate_blob": "8c4e898ef75b4522c66516f2978cd07f8a1b9f29",
+  "original_candidate_sha256": "95778fa3a4e2bb2c6ebd8c8932e6dc01bbc760bb20a4561fe64330229d13552c",
+  "original_candidate_full_source_identity": true,
+  "review_correction": {
+    "commit": "12e1a62160f83827ad345ddf8fb8a53299b5060a",
+    "parent": "07a73c30fd7e2bca2f0755ef5cb0a46eb250ce6f",
+    "numstat": "4\t3\tsrc/engine/client/library/clientGame/src/shared/core/ClientHeadTracking.cpp",
+    "scope": [
+      "Pass B+1 registry bytes for B maximum path characters; retain length guard.",
+      "Release opened registry key after either success or guard rejection."
+    ],
+    "no_other_source_changes": true,
+    "original_candidate_preserved": true,
+    "original_review_report": "client-trackir-provider-independent-review.md",
+    "parent_review_pending": false
+  },
+  "native_registry_contract_check": {
+    "directory": "/home/akilleez/Work/client-wire-validation/pr-submissions/trackir-registry-boundary",
+    "remote_output": "C:/trackir-registry-boundary-20261001T101053Z-7e4ddf57",
+    "prospective_input_sha256": {
+      "probe.cpp": "430274d2512331761dee92381e7d5e8557cb02f9eaab1a5ceb901b12e980c9f6",
+      "run-native.py": "37513772ca4122aae980c9306f9f4b020863b131769e172712e3f56f20d58e5f",
+      "run-id.json": "886b94962458e2cd750c70089d7c92f1cee15e0eceaf6c762c1cf2705fb6d15c",
+      "prospective-contract.json": "ce0b021e5a25e9cbb44ed4fdcd5fb98244ffe9c7d2dd9f5b30ccf05f55cd6741"
+    },
+    "results": [
+      {
+        "platform": "Win32",
+        "cases": 16,
+        "queries": 32,
+        "failures": 0,
+        "old_fitting_terminated_control_rejections": 2,
+        "candidate_fitting_terminated_acceptances": 2,
+        "candidate_unterminated_overlength_guard_rejections": 2,
+        "cleanup": {
+          "close": 0,
+          "delete": 0,
+          "reopen": 2,
+          "key_absent": true
+        },
+        "probe_sha256": "430274d2512331761dee92381e7d5e8557cb02f9eaab1a5ceb901b12e980c9f6",
+        "contract_sha256": "ce0b021e5a25e9cbb44ed4fdcd5fb98244ffe9c7d2dd9f5b30ccf05f55cd6741",
+        "exe_sha256": "00e13349fd55f9fcd4e08e29718379090476064d4575c98063c0bdfcb6a6dfae",
+        "machine": 332
+      },
+      {
+        "platform": "x64",
+        "cases": 16,
+        "queries": 32,
+        "failures": 0,
+        "old_fitting_terminated_control_rejections": 2,
+        "candidate_fitting_terminated_acceptances": 2,
+        "candidate_unterminated_overlength_guard_rejections": 2,
+        "cleanup": {
+          "close": 0,
+          "delete": 0,
+          "reopen": 2,
+          "key_absent": true
+        },
+        "probe_sha256": "430274d2512331761dee92381e7d5e8557cb02f9eaab1a5ceb901b12e980c9f6",
+        "contract_sha256": "ce0b021e5a25e9cbb44ed4fdcd5fb98244ffe9c7d2dd9f5b30ccf05f55cd6741",
+        "exe_sha256": "e512247e995a3b54a16dc0bcec154fb192605838e6dd62245deba0af6b68496d",
+        "machine": 34404
+      }
+    ],
+    "scope": "Actual RegSetValueExA/RegQueryValueExA with REG_SZ on one uniquely owned temporary HKCU key per ABI. Extracted registry byte-capacity and append contract only; ClientHeadTracking, RegistryKey, DLL provider and hardware are not executed.",
+    "actual_apis": [
+      "RegCreateKeyExA",
+      "RegSetValueExA",
+      "RegQueryValueExA",
+      "RegCloseKey",
+      "RegDeleteKeyA",
+      "RegOpenKeyExA"
+    ],
+    "registry_effects": "Only one uniquely named newly-created HKCU Software leaf per ABI; created-new disposition required, then deleted and absence confirmed. No preexisting/user setting key touched.",
+    "production_tu_recompiled": false,
+    "production_loader_or_registrykey_executed": false,
+    "provider_or_hardware_executed": false,
+    "initial_transport_failure": "Oversized single encoded SSH exec request rejected before execution; output absent confirmed. Same predeclared inputs copied separately and executed once per ABI. Original failure log retained.",
+    "runner_status_correction": {
+      "executed_runner": "run-native-executed.py",
+      "executed_runner_sha256": "37513772ca4122aae980c9306f9f4b020863b131769e172712e3f56f20d58e5f",
+      "preexecution_manifest_alias": "Original run-native.py entry still binds the preserved executed bytes.",
+      "reproduction_runner": "run-native.py",
+      "reproduction_runner_sha256": "bc5971b3161e682700bdb559ca9697e41c8ad5a846e85021be809a11bc174b2d",
+      "local_validator_controls": "runner-status-controls.json",
+      "local_validator_controls_sha256": "71b92ccd5c71f54d25b023c3d8c929a306186998a69a283d9fb9093764cfd3b6",
+      "local_controls_passed": 10,
+      "native_rerun": false,
+      "limit": "Executed runner Python exit did not propagate child failures. Raw native compile/run exits, PE machines, exact case verdicts and cleanup were independently checked and pass. Current runner enforces them for reproduction."
+    },
+    "portable_text_packet": {
+      "path": "/home/akilleez/Work/client-wire-validation/pr-submissions/trackir-registry-boundary/curated-text-evidence.zip",
+      "sha256": "83e5e95d4d8005c996065f0faf45c0b6dc8e70c39e01c221d3ed1409b0bf9151",
+      "file_count": 21,
+      "contains": "Probe/contract/runner versions and metadata, raw native text commands/logs, preserved transport failure; no executable, library, SDK header or provider."
+    }
+  },
+  "historical_evidence_limit": "Four v2 native TU compile/preprocess records match the preserved original candidate SHA. The final correction has only the separate extracted registry-contract check, not a fresh production-TU compile or loader/provider execution.",
+  "claim_limits": [
+    "Original 80-case append-only probe remains preserved and did not cover RegQueryValueEx byte capacity.",
+    "Native registry probe exercises real WinAPI with extracted caller/helper contract, not production ClientHeadTracking/RegistryKey TUs.",
+    "Opened production RegistryKey deletion move is source-reviewed; the fixture separately closes/deletes its own WinAPI key.",
+    "Oversized registry data still reaches existing RegistryKey FATAL behavior in production; probe records ERROR_MORE_DATA rather than triggering that FATAL.",
+    "No provider DLL, profile acceptance, hardware, game, or full build claim."
+  ],
+  "clean_worktree": true,
+  "diff_check_exit": 0,
+  "remote_mutation": "Only authorized temporary native test outputs and owned temporary registry leaves, fully cleaned; no Git remote mutation/publication.",
+  "draft_sha256": "fe5e836a8a5b45fa04081d36c8b43851510926329369a75c22b0e45bb8d31a4b",
+  "publication_state": "source correction reviewed; publication pending",
+  "git_remote_mutations": false
+}

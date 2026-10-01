@@ -1,0 +1,33 @@
+{
+  "branch": "review-ready/server-native-stack",
+  "base": "6b998f6fc281a88a50a710d7ae6afd55814b1946",
+  "head": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+  "commits": [
+    {
+      "original": "742878485cfded30843d7160ba85de48d0e43333",
+      "candidate": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+      "exact_changed_lines": true
+    }
+  ],
+  "files": [
+    {
+      "path": "engine/shared/library/sharedDebug/src/win32/DebugHelp.cpp",
+      "additions": 49,
+      "deletions": 5,
+      "sha256": "5dcaac034b3c520765d680181f022615736c21393b13c9acd1ff2c082a835e9d",
+      "blob": "2614cfbeb9548bc869c25c7bdeb5090f9d4d9f00",
+      "matches_maintained_server": true
+    }
+  ],
+  "production_files": 1,
+  "production_additions": 49,
+  "production_deletions": 5,
+  "tests_build_docs_added": 0,
+  "conflicts": false,
+  "new_build_test_runtime": false,
+  "remote_mutation": false,
+  "historical_server_tu_sha256": "5dcaac034b3c520765d680181f022615736c21393b13c9acd1ff2c082a835e9d",
+  "historical_server_tu_match": true,
+  "historical_link_dependencies": "client native v120 closure, not complete server",
+  "dependency_and_evidence_note": "Selected PR35 instead of workflow38 because master still has uint32 DebugHelp APIs and caller buffers. Candidate exactly matches maintained server and historical server TU hash; historical linking used client native v120 dependencies, not complete server libraries."
+}

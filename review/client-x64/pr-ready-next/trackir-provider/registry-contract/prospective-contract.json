@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "written_before_execution": true,
+  "run_id": "20261001T101053Z-7e4ddf57",
+  "remote_output": "C:/trackir-registry-boundary-20261001T101053Z-7e4ddf57",
+  "scope": "Actual RegSetValueExA/RegQueryValueExA with REG_SZ on one uniquely owned temporary HKCU key per ABI. Extracted registry byte-capacity and append contract only; ClientHeadTracking, RegistryKey, DLL provider and hardware are not executed.",
+  "architectures": [
+    "Win32",
+    "x64"
+  ],
+  "configuration": "native v120 /MT /O2 /W4 /WX",
+  "cases_per_abi": 16,
+  "queries_per_abi": 32,
+  "cases": [
+    {
+      "case": 0,
+      "dll": "NPClient.dll",
+      "path_characters": 1,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 2,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 1,
+      "dll": "NPClient.dll",
+      "path_characters": 497,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 498,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 2,
+      "dll": "NPClient.dll",
+      "path_characters": 498,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 499,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "query_too_small",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 3,
+      "dll": "NPClient.dll",
+      "path_characters": 499,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 500,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "query_too_small",
+      "candidate_expected": "query_too_small"
+    },
+    {
+      "case": 4,
+      "dll": "NPClient.dll",
+      "path_characters": 1,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 1,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 5,
+      "dll": "NPClient.dll",
+      "path_characters": 497,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 497,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 6,
+      "dll": "NPClient.dll",
+      "path_characters": 498,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 498,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 7,
+      "dll": "NPClient.dll",
+      "path_characters": 499,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 499,
+      "maximum_path_characters": 498,
+      "old_read_capacity": 498,
+      "candidate_read_capacity": 499,
+      "old_expected": "query_too_small",
+      "candidate_expected": "read_then_reject"
+    },
+    {
+      "case": 8,
+      "dll": "NPClient64.dll",
+      "path_characters": 1,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 2,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 9,
+      "dll": "NPClient64.dll",
+      "path_characters": 495,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 496,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 10,
+      "dll": "NPClient64.dll",
+      "path_characters": 496,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 497,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "query_too_small",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 11,
+      "dll": "NPClient64.dll",
+      "path_characters": 497,
+      "nul_terminated_registry_value": true,
+      "registry_bytes": 498,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "query_too_small",
+      "candidate_expected": "query_too_small"
+    },
+    {
+      "case": 12,
+      "dll": "NPClient64.dll",
+      "path_characters": 1,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 1,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 13,
+      "dll": "NPClient64.dll",
+      "path_characters": 495,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 495,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 14,
+      "dll": "NPClient64.dll",
+      "path_characters": 496,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 496,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "read_and_append",
+      "candidate_expected": "read_and_append"
+    },
+    {
+      "case": 15,
+      "dll": "NPClient64.dll",
+      "path_characters": 497,
+      "nul_terminated_registry_value": false,
+      "registry_bytes": 497,
+      "maximum_path_characters": 496,
+      "old_read_capacity": 496,
+      "candidate_read_capacity": 497,
+      "old_expected": "query_too_small",
+      "candidate_expected": "read_then_reject"
+    }
+  ],
+  "acceptance": [
+    "Every RegSetValueExA succeeds. Every query reports the predeclared result, byte count and REG_SZ type.",
+    "Both old-capacity terminated-B queries must return ERROR_MORE_DATA; both candidate equivalents must succeed and append exactly within the buffer.",
+    "Candidate unterminated B+1 must read successfully and reject before append; terminated B+1 remains ERROR_MORE_DATA.",
+    "Successful appends preserve the prefix and exact separator/DLL/NUL. Nonappend paths must not append a DLL. Outer guard bytes remain intact.",
+    "Exactly 16 case records and 32 query records per ABI, with zero candidate-contract failures.",
+    "Created key disposition must be REG_CREATED_NEW_KEY; never write/delete a preexisting key. Close/delete the owned key and confirm absence before pass.",
+    "Original 80-case append evidence remains unchanged; retain any compile/run or cleanup failure without tuning acceptance."
+  ],
+  "limits": [
+    "Not a production RegistryKey/ClientHeadTracking TU test or provider/hardware test.",
+    "ERROR_MORE_DATA is recorded rather than calling the production FATAL; existing oversized-registry policy remains unchanged.",
+    "RegQueryValueEx may modify bytes on ERROR_MORE_DATA; only outer sentinels and declared query outcome are assessed for that path."
+  ]
+}

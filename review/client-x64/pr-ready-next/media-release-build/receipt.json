@@ -1,0 +1,81 @@
+{
+  "package": "media-release-build",
+  "branch": "review-ready/client-media-release-build",
+  "base": "abe067bcc70fffd397ff4de531943400c38a7caa",
+  "head": "91d70a54b60082303a88df3f12bc7e6e13e166a4",
+  "commit_count": 2,
+  "count_algorithm": "git diff --diff-algorithm=myers",
+  "counts": {
+    "build": {
+      "files": 3,
+      "additions": 30,
+      "deletions": 19
+    },
+    "documentation": {
+      "files": 1,
+      "additions": 27,
+      "deletions": 9
+    }
+  },
+  "files": [
+    {
+      "path": "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+      "kind": "build",
+      "additions": 1,
+      "deletions": 1,
+      "base_blob": "0a3a5578f3c29cc9543e184bd4810f1d1ddaf97b",
+      "head_blob": "65d2d003073303580c762b15402330b8189be52d",
+      "sha256": "c68cbe0f0240103aa4112d34f1fbbeebbd24c4ba34444c02d7fc7762b120f00b"
+    },
+    {
+      "path": "tools/miles-bridge/README.md",
+      "kind": "documentation",
+      "additions": 27,
+      "deletions": 9,
+      "base_blob": "f30d449d4ddd78bbe4a907c62b4cb52d6c92d57f",
+      "head_blob": "b7d213dffa0f68d08d4e7712536e204ccf45f792",
+      "sha256": "9906aebf4b356a2bbd96db855727fb460464396301c0697d15f388ff01baa9e4"
+    },
+    {
+      "path": "tools/miles-bridge/build.py",
+      "kind": "build",
+      "additions": 24,
+      "deletions": 14,
+      "base_blob": "efcb0d787e7dc9c993f23de62f45bf02676a1db8",
+      "head_blob": "3e00616087d577b46e7c8987d8566927f42f0188",
+      "sha256": "376e21560ceca72acee6910649a692e4be9fbf6e51a91894def7af178148ff1b"
+    },
+    {
+      "path": "tools/miles-bridge/client-miles-dev.props",
+      "kind": "build",
+      "additions": 5,
+      "deletions": 4,
+      "base_blob": "65645c7cedecb59907132e5bc1a7607e81773834",
+      "head_blob": "d30636e7f7968e10104f2e4d32df09deff8afb60",
+      "sha256": "4fc97acd00500f4319d3e6be8e1a124db642823522df666ee1176c19d5076960"
+    }
+  ],
+  "original_extractions": [
+    {
+      "original": "33efad160379912308171fbbb0e3cab54eddd523",
+      "candidate": "61eaf1bd14317dabf415c92fe6e0e554cbc4f339",
+      "paths": [
+        "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+        "tools/miles-bridge/build.py",
+        "tools/miles-bridge/client-miles-dev.props"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    }
+  ],
+  "packaging_checks": [
+    "selected added/removed source/build lines match original commits",
+    "git diff --check passed"
+  ],
+  "limits": [
+    "No new tests/build/runtime execution.",
+    "Historical integrated results are not exact-base split-branch build results.",
+    "No private SDK/provider/assets added.",
+    "Bink game historical README replaced by concise current-package documentation."
+  ]
+}

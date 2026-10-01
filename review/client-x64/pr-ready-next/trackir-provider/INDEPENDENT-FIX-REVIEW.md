@@ -1,0 +1,13 @@
+# Independent review — TrackIR registry boundary correction
+
+The prior P2 capacity/cleanup finding is resolved by 12e1a62160f83827ad345ddf8fb8a53299b5060a relative to 07a73c30fd7e2bca2f0755ef5cb0a46eb250ce6f. No additional blocker found in this narrow correction.
+
+The maximum appendable path remains B=512−DLL-length−2 (498 for NPClient.dll, 496 for NPClient64.dll). Passing B+1 registry bytes now accepts the existing terminator of a fitting B-character REG_SZ. The unchanged strlen<=B guard rejects newly readable unterminated B+1-character values before append. RegistryKey's explicit dest[valueSize]=0 remains inside the real 512-byte allocation at these capacities. Moving the key deletion outside the successful-read/length block releases the opened object on ordinary false-return or guard-rejection paths; this is not exception-safe cleanup or a redesign of existing fatal query failures.
+
+The prospective contract, probe and original runner hashes match the recorded preexecution hashes. Raw records report compile_exit=0 and run_exit=0 for both actual native v120 ABIs, with the expected x86/x64 machine values. Each ABI has 16 cases and 32 queries, zero probe failures, two old terminated-B ERROR_MORE_DATA controls, two corresponding candidate acceptances, and two candidate unterminated-B+1 read-then-reject outcomes. Terminated B+1 remains ERROR_MORE_DATA. The probe checks prefix/suffix/NUL on successful appends, nonmutation by rejected appends and outer sentinels. Raw logs agree with the assessed summary; owned-key close/delete succeed and reopening returns ERROR_FILE_NOT_FOUND.
+
+This exercises actual RegSetValueExA/RegQueryValueExA and the extracted capacity/append contract. It does not execute production RegistryKey, ClientHeadTracking, the moved object deletion, provider loading or hardware. The deletion correction is source-reviewed. ERROR_MORE_DATA is recorded rather than triggering the production FATAL, so oversized-registry failure recovery is not established. The earlier 80-case append evidence remains a separate result.
+
+The original Python runner can finish with process status zero despite recorded compilation or run failures. That is a reproduction/automation weakness already identified by the parent; consumers must assess per-ABI records, not that outer exit code. It does not invalidate these records, which explicitly contain successful compilation, successful execution, complete corpus logs and cleanup. No claim that a failing runner control was executed is made.
+
+One read-only review pass; only this report was written. No new test execution, production edits, remote actions or descendants.

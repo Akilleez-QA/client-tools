@@ -1,0 +1,239 @@
+{
+  "package": "miles-game-selection",
+  "branch": "review-ready/client-miles-game-selection",
+  "base": "6b94c184f4659da10cf067e7495d8655da6959ed",
+  "head": "78428d8c3f63048bccca579421f170a627be8fda",
+  "commit_count": 7,
+  "count_algorithm": "git diff --diff-algorithm=myers",
+  "counts": {
+    "production": {
+      "files": 9,
+      "additions": 195,
+      "deletions": 22
+    },
+    "build": {
+      "files": 5,
+      "additions": 270,
+      "deletions": 6
+    },
+    "documentation": {
+      "files": 1,
+      "additions": 28,
+      "deletions": 5
+    }
+  },
+  "files": [
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+      "kind": "production",
+      "additions": 81,
+      "deletions": 15,
+      "head_blob": "f1213a4bfb349d5a4beed9db01fccad607d56f52",
+      "sha256": "ac7b37522c3682f2bb7bf8ec1c5fb7a723894f192e9417a97ceaae829ecb7cfb"
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/SetupClientAudio.cpp",
+      "kind": "production",
+      "additions": 10,
+      "deletions": 0,
+      "head_blob": "c6d56024d9b9ef3624d9cff9af9236e4815aaafc",
+      "sha256": "bdc20b2f3051be11e184f1ecfe99169dc2c6a51b0140162498b6d0245336510c"
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/SoundObject3d.cpp",
+      "kind": "production",
+      "additions": 4,
+      "deletions": 0,
+      "head_blob": "ae66b098d8647692bd6f7f215b8839f5fecae5cb",
+      "sha256": "84f5e226155378a5cee2a1f38760d6b6b084fa9ff58cd915b7f051c41ad17de7"
+    },
+    {
+      "path": "tools/configure-client-x64/client-x64.props",
+      "kind": "build",
+      "additions": 1,
+      "deletions": 0,
+      "head_blob": "7e0a53ab34b55302e54c8f8b2e9b1372842e562a",
+      "sha256": "c67f8a6cdb7d6b1a8fc60470cd197dd5a0919caa64ea55797a04ff6088a14cd5"
+    },
+    {
+      "path": "tools/miles-bridge/README.md",
+      "kind": "documentation",
+      "additions": 28,
+      "deletions": 5,
+      "head_blob": "42b0a04411d2934869d247c83bafff2b0913c9a0",
+      "sha256": "a914cff061c73412fc6d90cf2ed89401daf0b90c263b27f57f146a4030d0b1de"
+    },
+    {
+      "path": "tools/miles-bridge/build.py",
+      "kind": "build",
+      "additions": 6,
+      "deletions": 5,
+      "head_blob": "b1f72ec58f967aa5f7edc3bec360179a5b2f514a",
+      "sha256": "e7126e23c2edbc3c9f0026827e30dc055bc602587eebd39a3050c0869e5a3b6e"
+    },
+    {
+      "path": "tools/miles-bridge/client-miles-dev.props",
+      "kind": "build",
+      "additions": 32,
+      "deletions": 0,
+      "head_blob": "0b9e4713cc1ea054102d47310308c9129aca7e19",
+      "sha256": "0e818f96ad183fcf3470bc3a6df0cdcf8dae7691c20e85214a72adb56116ada6"
+    },
+    {
+      "path": "tools/miles-bridge/link-client-dev.py",
+      "kind": "build",
+      "additions": 229,
+      "deletions": 0,
+      "head_blob": "ed6ce3258770154ab448ab7e34a74ee3402189f7",
+      "sha256": "7de5cc45820d26e06c0fba82e58957f4184e36e729890675c7ea263ddab711ca"
+    },
+    {
+      "path": "tools/miles-bridge/sources.json",
+      "kind": "build",
+      "additions": 2,
+      "deletions": 1,
+      "head_blob": "7c35c182cc42604b095a75c382e1a8f37cc09077",
+      "sha256": "2eeb33093ba910b0d0520fd925827b58c1947d4f407829455be8548fdf2d729f"
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "kind": "production",
+      "additions": 10,
+      "deletions": 3,
+      "head_blob": "3b272c4644a9805b1e8e5c79e9469e4c1f408617",
+      "sha256": "53e1dd70ad189afa43a2869c1fb986aa2222f7dc2d4735d306afa4da2d289aa3"
+    },
+    {
+      "path": "tools/miles-bridge/src/backend/backend.h",
+      "kind": "production",
+      "additions": 13,
+      "deletions": 1,
+      "head_blob": "4467d34b9a992e94b77bfcf2b8448842f410c34d",
+      "sha256": "1099d1797867053c1b55cb667ea7d2fb3caf2b466029b59da905385240aae321"
+    },
+    {
+      "path": "tools/miles-bridge/src/bootstrap/common.h",
+      "kind": "production",
+      "additions": 2,
+      "deletions": 1,
+      "head_blob": "a3fcf0f3b0036fba2a130c92c3be5da900150788",
+      "sha256": "224cf716e43457bd0a9bc5a41d57647451e7e27aafbd99d210e3504f5e395f3b"
+    },
+    {
+      "path": "tools/miles-bridge/src/dev/AudioBootstrap.cpp",
+      "kind": "production",
+      "additions": 52,
+      "deletions": 0,
+      "head_blob": "6b5b7396d8ef572b52283cb58f67093a0897439e",
+      "sha256": "e3db7b38d1bfd52f2c71e2095ef5b01e11ec8141b5ffd79f26ccd9925afb2176"
+    },
+    {
+      "path": "tools/miles-bridge/src/dev/AudioBootstrap.h",
+      "kind": "production",
+      "additions": 14,
+      "deletions": 0,
+      "head_blob": "75d916d50e12cc7ab299606d474fe6f6cd32aa20",
+      "sha256": "8e47da9b58cbba170fc29241aa7ad00d6387649456d1952f2a537172e1314400"
+    },
+    {
+      "path": "tools/miles-bridge/src/host/host.cpp",
+      "kind": "production",
+      "additions": 9,
+      "deletions": 2,
+      "head_blob": "6c868c2bccd84cc21c958c06ac820c355a6e750f",
+      "sha256": "ada4616f6ff35b9a3541d45216d6b8a64aefd369b638addfdc1c8d86fd62cfc1"
+    }
+  ],
+  "original_extractions": [
+    {
+      "original": "b41abddac0a53aed10f621d5b8bfda664d2d12a6",
+      "candidate": "fe2955db7d428f61d5c87fbe9fcefe275de8255f",
+      "paths": [
+        "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+        "src/engine/client/library/clientAudio/src/win32/SoundObject3d.cpp",
+        "tools/miles-bridge/build.py",
+        "tools/miles-bridge/link-client-dev.py",
+        "tools/miles-bridge/sources.json",
+        "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "tools/miles-bridge/src/dev/AudioBootstrap.cpp",
+        "tools/miles-bridge/src/dev/AudioBootstrap.h"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "967076aae9a7d27695fc1be2241f3d57366cf7ac",
+      "candidate": "e5d1e71da4cfcdb6648c1b840e0889ea112b913e",
+      "paths": [
+        "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+        "src/engine/client/library/clientAudio/src/win32/SetupClientAudio.cpp",
+        "tools/miles-bridge/build.py",
+        "tools/miles-bridge/link-client-dev.py"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "0458501d2f9145f59dbf59997dfeaa7bf60795dc",
+      "candidate": "b3a9537e0406e50d18086992963073f3100cb083",
+      "paths": [
+        "tools/configure-client-x64/client-x64.props",
+        "tools/miles-bridge/client-miles-dev.props"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "36ddb906781217abb296f9319c48a65384ba93ca",
+      "candidate": "3384916408b8f63a9488ca85168a444defc320fb",
+      "paths": [
+        "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "tools/miles-bridge/src/backend/backend.h",
+        "tools/miles-bridge/src/host/host.cpp"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "e36c7f67a2e90609e5944ac65bad76ecbb32dd24",
+      "candidate": "4fad5ca2524061e1c271e4bcd904abd8048db547",
+      "paths": [
+        "tools/miles-bridge/src/bootstrap/common.h"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "a68ceb4280ca59af5317f3ad5c6de8a3e0a87314",
+      "candidate": "14fd51c134389834514aa6aadc7130678dc8608d",
+      "paths": [
+        "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "tools/miles-bridge/src/host/host.cpp"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    }
+  ],
+  "packaging_checks": [
+    "all selected added/removed lines match original commits",
+    "git diff --check passed"
+  ],
+  "limits": [
+    "No new build, tests or runtime execution.",
+    "Historical integrated evidence is not an exact-base split-branch build result.",
+    "Historical README and absent workflow hunks excluded; concise README adapted separately.",
+    "Inherited foundation comment polish remains; no claim of globally identical historical files.",
+    "No SDK binaries or private vendor code added."
+  ],
+  "dependency_refs": {
+    "build_audio": "afe844818e86b24313a9e940d4723a02f7262ae8",
+    "native_providers_and_link": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+    "file_manifest": "514498397a9ead2518ab11d5894a785ef877b82d",
+    "joint_prerequisite": "6b94c184f4659da10cf067e7495d8655da6959ed"
+  },
+  "composition_limits": [
+    "Obsolete browser/capture build inputs are not yet included.",
+    "Other enumerated full-client x64 source packages remain required for a full game build.",
+    "Release build selection and Bink renderer integration are deferred."
+  ]
+}

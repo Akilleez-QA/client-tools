@@ -1,0 +1,89 @@
+{
+  "package": "obsolete-client-inputs",
+  "branch": "review-ready/client-obsolete-client-inputs",
+  "base": "5b558625c0c42a7d2b1dcce67fb80e0200f53850",
+  "head": "f5c3f278516900cd9b7655eb2d5cacd803dbd2fa",
+  "commit_count": 3,
+  "count_algorithm": "git diff --diff-algorithm=myers",
+  "counts": {
+    "build": {
+      "files": 2,
+      "additions": 5,
+      "deletions": 6
+    },
+    "production": {
+      "files": 1,
+      "additions": 0,
+      "deletions": 5
+    }
+  },
+  "files": [
+    {
+      "path": "src/build/win32/swg.sln",
+      "kind": "build",
+      "additions": 0,
+      "deletions": 1,
+      "base_blob": "63612ef5eb97c1afb6aae22e0faab1a55f388cf6",
+      "head_blob": "e3441a38acbe132d86c3859ee00d347998eba8cc",
+      "sha256": "38449e1ddbfb9ec56690fdccd1789ec9cba3796898c9fb97eac157426cd3b0ed"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/src/shared/core/CuiIoWin.cpp",
+      "kind": "production",
+      "additions": 0,
+      "deletions": 5,
+      "base_blob": "b56b33d741f46c69488ccff00dee041799012f26",
+      "head_blob": "366015da4402321efe0d80ddc06a03fa3d408b99",
+      "sha256": "e331b21582c88c282e1fb8fb6c8a01a67ec04145307e7b41f189b77f24ce662c"
+    },
+    {
+      "path": "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj",
+      "kind": "build",
+      "additions": 5,
+      "deletions": 5,
+      "base_blob": "8782f27b66da2386eadd644fe017ecbc535397a7",
+      "head_blob": "096abbdfaca456acead3f442aa7146af958cad1d",
+      "sha256": "11ea66ef8312de94cd444150938ca08a950be52a6e7afba353faf7b515bd30ac"
+    }
+  ],
+  "original_extractions": [
+    {
+      "original": "94a81438c4c442f21105a58047c82d34e04c9cb4",
+      "candidate": "9c09ef2758af951324b5455b36549072e3af8244",
+      "paths": [
+        "src/build/win32/swg.sln",
+        "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "d36090a8cec01785b25bcb9608473a8b1b770c18",
+      "candidate": "93de7156aa2c8598b7525d31f2cf03d598b551d3",
+      "paths": [
+        "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "4d4d03aac3329ae56d16fbe564c6da844af7d1ab",
+      "candidate": "f5c3f278516900cd9b7655eb2d5cacd803dbd2fa",
+      "paths": [
+        "src/engine/client/library/clientUserInterface/src/shared/core/CuiIoWin.cpp"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    }
+  ],
+  "packaging_checks": [
+    "selected added/removed source/build lines match original commits",
+    "git diff --check passed"
+  ],
+  "limits": [
+    "No new tests/build/runtime execution.",
+    "Historical integrated results are not exact-base split-branch build results.",
+    "No private SDK/provider/assets added.",
+    "Bink game historical README replaced by concise current-package documentation."
+  ]
+}

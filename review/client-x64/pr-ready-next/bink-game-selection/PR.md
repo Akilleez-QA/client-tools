@@ -1,0 +1,9 @@
+# Select the original Bink host through the development video adapter
+
+Extract the existing texture resource/draw implementation into internal VideoBlit, then select PipeBinkVideo through VideoList only for the opt-in Debug-x64 development game. Preserve the texture-lock copy boundary, supported formats and frame scheduling. Ordinary builds continue using direct Bink.
+
+Build clientGraphics and clientAudio with the same development property before SwgClient. Explicit isolated archive paths prevent fallback to stale direct-provider objects. This depends on Bink host/session `16942c5fc6724f33e7633985c5fc5b0bc9be5103`, including its Miles and native-provider prerequisites; their changes are outside this diff.
+
+Two unchanged source/build patches plus one documentation commit: 6 production files +474/-215; 2 build files +11/-4; README +26/-6 (Myers). Original [blitter extraction](https://github.com/Akilleez-QA/client-tools/commit/81cee3f524d6268c5d507d981655f69233b10ffd) records Win32 Release graphics compilation with no warnings/errors. Original [game selection](https://github.com/Akilleez-QA/client-tools/commit/afacd961f7dd0d70e518d835b3581d261f3f62b1) records Debug-x64 graphics compilation (26 existing warnings), ordinary Release-Win32 graphics compilation, and a zero-warning/error development game link. Those results belong to their integrated snapshots, not this split branch.
+
+Packaging verified identical selected added/removed lines and clean whitespace; no build or runtime was repeated. The inherited host retains the later per-open IO repair. The genuine original Bink/Miles providers and full-client source/build prerequisites remain required. No SDK binaries/media are included, and this package claims no pixel, waveform or timing equivalence. Release opt-in support is the next separate package.

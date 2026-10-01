@@ -1,0 +1,145 @@
+{
+  "package": "bink-game-selection",
+  "branch": "review-ready/client-bink-game-selection",
+  "base": "16942c5fc6724f33e7633985c5fc5b0bc9be5103",
+  "head": "abe067bcc70fffd397ff4de531943400c38a7caa",
+  "commit_count": 3,
+  "count_algorithm": "git diff --diff-algorithm=myers",
+  "counts": {
+    "build": {
+      "files": 2,
+      "additions": 11,
+      "deletions": 4
+    },
+    "production": {
+      "files": 6,
+      "additions": 474,
+      "deletions": 215
+    },
+    "documentation": {
+      "files": 1,
+      "additions": 26,
+      "deletions": 6
+    }
+  },
+  "files": [
+    {
+      "path": "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+      "kind": "build",
+      "additions": 6,
+      "deletions": 0,
+      "base_blob": "0452689df082ab15033bee6fcd471af827a85a18",
+      "head_blob": "0a3a5578f3c29cc9543e184bd4810f1d1ddaf97b",
+      "sha256": "e353971b2f04ae2dbb028a4d04678579dcadad1333591683c5354968e9ac639a"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/Bink/BinkVideo.cpp",
+      "kind": "production",
+      "additions": 12,
+      "deletions": 215,
+      "base_blob": "4bf91da81069674af0f683163accc338cb255fe8",
+      "head_blob": "ce9d361a3a871bec55cca5aa623858f543da3472",
+      "sha256": "f9bd79d398893f4348d04b599141bf95875fb697bf165ffbabe4fb539ff1760b"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/Bink/PipeBinkVideo.cpp",
+      "kind": "production",
+      "additions": 168,
+      "deletions": 0,
+      "base_blob": null,
+      "head_blob": "e2fbc726d222fef4e483570cce23aa3a476166a9",
+      "sha256": "b67b26f644b1449b2669b73771b3809b3902ec8be80fbad86ffa83ab00cd1f94"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/Bink/PipeBinkVideo.h",
+      "kind": "production",
+      "additions": 51,
+      "deletions": 0,
+      "base_blob": null,
+      "head_blob": "47efc7cd9cb04b34f1d94be6ce16ac9208b74771",
+      "sha256": "69d9022a5a65bf1f4f157e48ed239a865ce6a2b3f308ac70c16acc21bd02ed15"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/Bink/VideoBlit.cpp",
+      "kind": "production",
+      "additions": 215,
+      "deletions": 0,
+      "base_blob": null,
+      "head_blob": "3e46a7e79370329d352be118c37d0cc1e2b4ac3b",
+      "sha256": "d1c36be90adc0d3bd769689e67611bd0c034d5b3ef63b78242d400cb492ebae6"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/Bink/VideoBlit.h",
+      "kind": "production",
+      "additions": 12,
+      "deletions": 0,
+      "base_blob": null,
+      "head_blob": "eb25151dd14c4e495b51b60ffb544843c33ca5ad",
+      "sha256": "e9ce6754085f00dbbc44ccccdc3cf808ad7a93025397622347c57021bae6a901"
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/src/shared/VideoList.cpp",
+      "kind": "production",
+      "additions": 16,
+      "deletions": 0,
+      "base_blob": "fb262bee9b5510f42c91c5104227f70f8a7d6cfb",
+      "head_blob": "e6561abc00f1d5ee2e539b213bc4cf531a807297",
+      "sha256": "80d8d8be6df53a1b190af4759b4fcf26c5b82fcb342370970e4fd80d61c21e79"
+    },
+    {
+      "path": "tools/miles-bridge/README.md",
+      "kind": "documentation",
+      "additions": 26,
+      "deletions": 6,
+      "base_blob": "3fc1bcf07ebebf4b3e3eea8e37bda9843f16eccb",
+      "head_blob": "f30d449d4ddd78bbe4a907c62b4cb52d6c92d57f",
+      "sha256": "86e024a9a7794d276aac90ed0c62d5c11ddf6bc04e6a9bf10a233df8e2a2f701"
+    },
+    {
+      "path": "tools/miles-bridge/client-miles-dev.props",
+      "kind": "build",
+      "additions": 5,
+      "deletions": 4,
+      "base_blob": "0b9e4713cc1ea054102d47310308c9129aca7e19",
+      "head_blob": "65645c7cedecb59907132e5bc1a7607e81773834",
+      "sha256": "f1344563b4982ba5b43b2d8c7385422c559281ea7565ee3e39eea8d7f257e0f4"
+    }
+  ],
+  "original_extractions": [
+    {
+      "original": "81cee3f524d6268c5d507d981655f69233b10ffd",
+      "candidate": "ae54d9f0ac1735297a7fa843ea78fd0497b870cd",
+      "paths": [
+        "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+        "src/engine/client/library/clientGraphics/src/Bink/BinkVideo.cpp",
+        "src/engine/client/library/clientGraphics/src/Bink/VideoBlit.cpp",
+        "src/engine/client/library/clientGraphics/src/Bink/VideoBlit.h"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    },
+    {
+      "original": "afacd961f7dd0d70e518d835b3581d261f3f62b1",
+      "candidate": "03faeeab1460acc48e95f9d471f97bba5e9f4d54",
+      "paths": [
+        "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+        "src/engine/client/library/clientGraphics/src/Bink/PipeBinkVideo.cpp",
+        "src/engine/client/library/clientGraphics/src/Bink/PipeBinkVideo.h",
+        "src/engine/client/library/clientGraphics/src/shared/VideoList.cpp",
+        "tools/miles-bridge/client-miles-dev.props"
+      ],
+      "patch_applied_unchanged": true,
+      "added_removed_lines_match_original": true
+    }
+  ],
+  "packaging_checks": [
+    "selected added/removed source/build lines match original commits",
+    "git diff --check passed"
+  ],
+  "limits": [
+    "No new tests/build/runtime execution.",
+    "Historical integrated results are not exact-base split-branch build results.",
+    "No private SDK/provider/assets added.",
+    "Bink game historical README replaced by concise current-package documentation."
+  ]
+}

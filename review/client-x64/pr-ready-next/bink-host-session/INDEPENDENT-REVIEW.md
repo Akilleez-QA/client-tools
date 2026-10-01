@@ -1,0 +1,11 @@
+# Independent review — Bink host and paired session
+
+No introduced blocker found in one bounded pass over 78428d8c3f63048bccca579421f170a627be8fda to 16942c5fc6724f33e7633985c5fc5b0bc9be5103. All receipt file hashes and four selected original added/removed sequences match independently. The admission and per-open IO repairs are both included; the separately rewritten README is identified accurately.
+
+The genuine decoder remains local to an x86 owner with matching declared Bink 1.9c ABI and exports; the DLL is loaded from an absolute helper-adjacent path. No native decoder pointer is sent to the x64 client. Videos have driver-parented generation identities, validated admission and client ownership checks. The host reserves identity before native open, retires it only after genuine close, and reapplies consumed IO callbacks/buffer settings before every open, including failed attempts. The reverse TreeFile adapter preserves short-read termination and bounds transport chunks; its signed-32-bit seek limit is explicit. This is not a general decoder or large-file compatibility guarantee.
+
+Pixel copies validate dimensions, format, byte budget, exact offsets and reply lengths; private client storage is fully received before touching the caller's buffer. The host admits only chunk requests during active transfer. Both client and host require Bink shutdown before Miles shutdown; live videos prevent that stop. Runtime/module and callback roots remain process-owned, with terminal failure on uncertain ownership. The code does not claim a counter alone proves native producer quiescence.
+
+Reviewed PR/receipt and current scoped README preserve the protocol-v4 endpoint requirement, genuine private SDK/DLL requirement, lack of new branch CI/build/runtime, and full-client prerequisite limits. Portable protocol/reply/admission tests are included without being represented as decoder execution. The game renderer and replay procedure require a later package; historical integrated playback/close observations do not qualify this source split, arbitrary provider versions or audiovisual fidelity. No SDK binaries, vendor header bodies or movie assets were added.
+
+Only this report was written; no tests, builds, runtime, source edits, remote actions or descendants. Public URL reachability was not checked.

@@ -1,0 +1,86 @@
+{
+  "scope": "Local pure metadata validator controls over saved records; no native compiler, probe or registry execution.",
+  "runner_sha256": "bc5971b3161e682700bdb559ca9697e41c8ad5a846e85021be809a11bc174b2d",
+  "cases": [
+    {
+      "case": "saved successful records",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "problems": []
+    },
+    {
+      "case": "missing architecture row",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Expected exactly two architecture records"
+      ]
+    },
+    {
+      "case": "failed compile",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: incorrect or missing compile_exit"
+      ]
+    },
+    {
+      "case": "failed run",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: incorrect or missing run_exit"
+      ]
+    },
+    {
+      "case": "wrong PE machine",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: incorrect or missing machine"
+      ]
+    },
+    {
+      "case": "wrong source identity",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: incorrect or missing source_sha256"
+      ]
+    },
+    {
+      "case": "missing verdict",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: missing, duplicate or failed required verdict"
+      ]
+    },
+    {
+      "case": "missing cleanup",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: missing successful cleanup record"
+      ]
+    },
+    {
+      "case": "missing query",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: incorrect corpus count"
+      ]
+    },
+    {
+      "case": "duplicate architecture",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "problems": [
+        "Win32: expected exactly one record",
+        "x64: expected exactly one record"
+      ]
+    }
+  ],
+  "passed": true
+}

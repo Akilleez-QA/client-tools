@@ -1,0 +1,90 @@
+{
+  "branch": "review-ready/server-archive-storage",
+  "base": "6b998f6fc281a88a50a710d7ae6afd55814b1946",
+  "head": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+  "commits": [
+    {
+      "original": "28f43f686d4ac81338a4b097d2f1726ae20e8f38",
+      "candidate": "297453b8da535dbc2236ea3bbffb6412ff6760db",
+      "exact_changed_lines": true
+    },
+    {
+      "original": "7131fd38806b53774cb25ae68fcf5c55789c85fd",
+      "candidate": "6b013a5e1e46f3a558e52cb05fcd7003bed1e69d",
+      "exact_changed_lines": true
+    },
+    {
+      "original": "5474d3d0920ef33f8fef7d0acdda490c8c40c453",
+      "candidate": "e5a12544437d412404dda2fc1acef5e2f6fca880",
+      "exact_changed_lines": true
+    },
+    {
+      "original": "2648217a654cfa5e7beb3f95498cb8f534d043ea",
+      "candidate": "5f1044c2b615aa552351eb81d8980cbd626169c5",
+      "exact_changed_lines": true
+    },
+    {
+      "original": "c6cdbe85d301aecd5e3e443e246baf3dbb84e8f3",
+      "candidate": "5a1266e14cd45a70560f353e35b624a43025df9e",
+      "exact_changed_lines": true
+    },
+    {
+      "original": "731d85cc10326f5f2d656b4b66f09c5feab30635",
+      "candidate": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+      "exact_changed_lines": true
+    }
+  ],
+  "files": [
+    {
+      "path": "external/ours/library/archive/src/shared/Archive.h",
+      "additions": 12,
+      "deletions": 6,
+      "sha256": "d56b68487237157d0817e5dae5d8ada5b53b821528788e979c664f8938935bb6",
+      "blob": "7cb11b6c89508cf01a0bd8896fc6fce2d7d17d6b",
+      "matches_maintained_server": true
+    },
+    {
+      "path": "external/ours/library/archive/src/shared/AutoByteStream.h",
+      "additions": 2,
+      "deletions": 2,
+      "sha256": "eef6c52b5e3a9609604bf05f4200480334ec9fd9cff16c68e1f53afdf2cb6e1a",
+      "blob": "05ba0f5a0759405b608048c57d55f2b17194bbf1",
+      "matches_maintained_server": true
+    },
+    {
+      "path": "external/ours/library/archive/src/shared/ByteStream.cpp",
+      "additions": 62,
+      "deletions": 66,
+      "sha256": "5effabf686db18c87afe758e23c8a954e39e59d89c508813be570f90184c7845",
+      "blob": "281e4c2c0d0bfad6e5e985b0daf5365ee33ac81a",
+      "matches_maintained_server": true
+    },
+    {
+      "path": "external/ours/library/archive/src/shared/ByteStream.h",
+      "additions": 22,
+      "deletions": 18,
+      "sha256": "d2247ab7e4c67fc7f126245cac80c60832cb4c9bfad6390f14543a3afda52a8a",
+      "blob": "af2b1061d28ff5876729115683db276be97a129c",
+      "matches_maintained_server": true
+    },
+    {
+      "path": "external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+      "additions": 18,
+      "deletions": 8,
+      "sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+      "blob": "0d6b261601a9771a64899e0365169adc8b8713d3",
+      "matches_maintained_server": true
+    }
+  ],
+  "production_files": 5,
+  "production_additions": 116,
+  "production_deletions": 100,
+  "tests_build_docs_added": 0,
+  "conflicts": false,
+  "new_build_test_runtime": false,
+  "remote_mutation": false,
+  "historical_bytestream_unique_ptr_source_sha256": "5effabf686db18c87afe758e23c8a954e39e59d89c508813be570f90184c7845",
+  "historical_bytestream_source_match": true,
+  "historical_standard_library": "libstdc++; not full libc++ server",
+  "dependency_and_evidence_note": "PR35 preserves fixed-width wire APIs, checked-count helpers and C++17. All five final files match maintained server; ByteStream.cpp also matches historical unique_ptr result hash. Linux evidence uses libstdc++, not complete libc++ server. Six units include the mandatory final ownership follow-up."
+}

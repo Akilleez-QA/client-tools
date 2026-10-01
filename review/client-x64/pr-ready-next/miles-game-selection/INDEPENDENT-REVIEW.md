@@ -1,0 +1,11 @@
+# Independent review — Miles development game selection
+
+No introduced blocker found in one bounded pass over 6b94c184f4659da10cf067e7495d8655da6959ed to 78428d8c3f63048bccca579421f170a627be8fda. All receipt file hashes and six selected original added/removed sequences match independently. The separate README rewrite is appropriately disclosed rather than called an unchanged historical file.
+
+Activation requires the explicit ClientMilesDevelopment property; the existing x64-only import then enforces Debug/x64/v120. Selected clientAudio and SwgClient outputs are isolated and the link uses an explicit Audio archive plus required pipe/worker paths. Ordinary direct-Miles callback registration and Win32 selection remain outside the development guard. The separate receipt-checked relink validates added artifact hashes/COFF architecture and refuses /FORCE; it reuses existing engine archives and does not prove their complete current source identity.
+
+Audio startup installs admitted callbacks only after composing the paired session. Module references protect code, while comments correctly require the caller to retain engine globals. Removal handles successful startup followed by driver initialization failure, joins paired callback workers before clearing callback-dependent state, and delays sample-cache deletion until template consumers release their paths. The setup owner performs final cache cleanup. Terminal connection/close failures retain uncertain roots instead of claiming safe cleanup. Absolute-path normalization is a path comparison, not a DLL hash or authenticity check.
+
+Reviewed PR/receipt and scoped README explicitly list the joint Miles build/Audio, native-provider/link-policy and FileManifest prerequisites. Remaining x64 source fixes and obsolete browser/capture build inputs are disclosed as full-client composition requirements. No fresh integrated build, Release selection, CI result, callback fidelity or game/audio acceptance is inferred from historical checkpoint observations. No SDK binaries or vendor implementation were added.
+
+Only this report was written; no tests, builds, runtime, source edits, remote actions or descendants. Public URL reachability was not checked.
