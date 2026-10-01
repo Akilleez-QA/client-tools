@@ -1152,7 +1152,7 @@
     {
       "id": "archive-storage",
       "title": "ByteStream bounds and decoder/count preflights",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "wire-contract"
@@ -1179,9 +1179,9 @@
           "subject": "archive: bound Unicode payload bytes before publishing its count"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-archive-storage",
+      "branch_head": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/13",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "One storage/decoder package over the wire contract. Preserve ByteStream ownership/position changes and Unicode preflight together; Archive.h/UnicodeArchive.cpp contain already submitted wire hunks.",
       "exclusive_production_accounting": {

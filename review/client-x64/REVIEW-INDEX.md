@@ -42,6 +42,8 @@ The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) 
 
 [Client UI/tag/mesh #35](https://github.com/SWG-Source/client-tools/pull/35) applies directly on master: six commits, seven production files, +19/−11. [Source identities, bounded historical checks and independent review](pr-ready-next/ui-native-widths/RESULTS.md). Tag conversion and skeletal debug bounds are separate non-UI consumers in the same native-width package.
 
+[Archive storage fork draft #13](https://github.com/Akilleez-QA/client-tools/pull/13) is stacked above wire PR23: five source files, +117/−100. [Description, source identities and historical native/portable records](pr-ready-next/archive-storage/RESULTS.md). Bounds and ownership changes do not promise aggregate rollback or allocation-fault acceptance.
+
 ## Earlier candidate packages and dependency drafts
 
 Candidate source and diff links below pin immutable fork commits. `M` means upstream master `949451032647e45e42c3aaef3f41b132c8af36e3`; `S` means submitted imemmove PR #25 at `a7954b5e78274ab3a9eb558fa10186697ff5e848`; `P` means the earlier imemmove production prerequisite `9eadbbbebd515a0fffad2133300703dff68bd7ef`. Counts are production `src/` additions/deletions against the stated base; test tooling and evidence are separate.

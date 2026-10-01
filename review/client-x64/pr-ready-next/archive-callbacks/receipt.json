@@ -1,0 +1,35 @@
+{
+  "branch": "review-ready/client-archive-callbacks",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "e26bdd9b2fa64d0ef46e6af9aab328deb18c29a5",
+  "original": "966365f945cd928dd4d0426b674f5a8563cc9fc4",
+  "original_changed_lines_exact": true,
+  "numstat": "1\t1\tsrc/engine/client/library/clientGame/src/shared/object/CreatureObject.cpp\n2\t1\tsrc/engine/client/library/clientGame/src/shared/object/CreatureObject.h\n4\t4\tsrc/engine/client/library/clientGame/src/shared/object/GroupObject.cpp\n5\t4\tsrc/engine/client/library/clientGame/src/shared/object/GroupObject.h",
+  "files": [
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/CreatureObject.cpp",
+      "blob": "edc563f53855f70d5a1eb1043fd0389a6bdff686",
+      "sha256": "1b1d816f23cff948a9aab78e515f6ae8a4bf5082ff6f164e4c51c60905b162af"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/CreatureObject.h",
+      "blob": "c377acefce894def99db749b073a2cce804c6bd2",
+      "sha256": "937c99c6df8bb2d1aef72b1108d65f0c332191c0803a9afe8cb503ed93b7c65a"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/GroupObject.cpp",
+      "blob": "9995760d555ebf85092478097b189daee298d876",
+      "sha256": "aa99f40dff0731b0fac8d871c82de6ed96c594692bb6a388a70dd7edd2049cd9"
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/object/GroupObject.h",
+      "blob": "c7c849921d17830d3fe7e869990b61ae549eadb0",
+      "sha256": "7eb265baafa510afe4c0b65dcfe735f3bfc086fba8a0146c60c4437229ea075a"
+    }
+  ],
+  "tool_files": 0,
+  "new_build_test_runtime": false,
+  "conflicts": false,
+  "dependency": "None: master AutoDeltaVector callback signatures already use unsigned int, which matches uint32_t on intended Windows MSVC targets. Wire serialization patch is not required.",
+  "limits": "Existing integrated evidence only; no exact master-package rebuild or isolated runtime claim."
+}
