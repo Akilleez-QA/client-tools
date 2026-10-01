@@ -1,0 +1,56 @@
+name: ByteOrder real translation-unit regression
+
+on:
+  push:
+    branches: [review-ready/client-byteorder]
+  pull_request:
+    paths:
+      - .github/workflows/byteorder.yml
+      - tools/test-byteorder/**
+      - src/engine/shared/library/sharedFoundation/**
+      - src/engine/shared/library/sharedFoundationTypes/**
+      - src/engine/shared/library/sharedMemoryManager/**
+      - src/engine/shared/library/sharedDebug/**
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check classifier and export exact upstream control
+        shell: pwsh
+        run: |
+          python tools/test-byteorder/test_diagnostics.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -c "import os,pathlib,subprocess; pathlib.Path(os.environ['RUNNER_TEMP'],'original-ByteOrder.cpp').write_bytes(subprocess.check_output(['git','show','949451032647e45e42c3aaef3f41b132c8af36e3:src/engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp']))"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Run ten-case matrix with hosted MSVC
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+          $vs = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (-not $vs) { throw 'MSVC installation not found' }
+          $vcvars = Join-Path $vs 'VC/Auxiliary/Build/vcvarsall.bat'
+          if (-not (Test-Path $vcvars)) { throw 'vcvarsall not found' }
+          python tools/test-byteorder/run.py --vcvars "$vcvars" --baseline "$env:RUNNER_TEMP/original-ByteOrder.cpp" --out "$env:RUNNER_TEMP/byteorder"
+          exit $LASTEXITCODE
+      - name: Preserve text evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: byteorder-windows
+          path: |
+            ${{ runner.temp }}/byteorder/*/*.log
+            ${{ runner.temp }}/byteorder/*/*.cmd
+            ${{ runner.temp }}/byteorder/*/*.rsp
+            ${{ runner.temp }}/byteorder/input-sha256.json
+            ${{ runner.temp }}/byteorder/results.json
+            ${{ runner.temp }}/byteorder/summary.json
+          if-no-files-found: warn

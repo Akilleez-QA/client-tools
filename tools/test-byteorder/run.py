@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import struct
 import subprocess
@@ -10,6 +11,27 @@ import subprocess
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def assembly_failure(output, source):
+    """Accept only diagnostics from the pinned original assembly body."""
+    allowed = {16: {'C2485'}, 18: {'C4235'},
+               20: {'C2065', 'C2146', 'C2143', 'C3481', 'C2059'},
+               28: {'C4235'},
+               30: {'C2065', 'C2146', 'C2143', 'C3481', 'C2059', 'C1903'}}
+    diagnostics = []
+    for line in output.decode(errors='replace').splitlines():
+        if not re.search(r'\b(?:fatal\s+)?error\b|not recognized|cannot find', line, re.I):
+            continue
+        match = re.match(r'^(.*?)\((\d+)(?:,\d+)?\)\s*:\s*(?:fatal )?error (C\d+):', line)
+        if not match:
+            return False
+        path, number, code = match.groups()
+        if (os.path.normcase(os.path.abspath(path)) != os.path.normcase(os.path.abspath(source))
+                or code not in allowed.get(int(number), set())):
+            return False
+        diagnostics.append(code)
+    return 'C2485' in diagnostics and 'C4235' in diagnostics
 
 
 def build_case(directory, source, probe, includes, vcvars, arch, config, mode):
@@ -35,7 +57,7 @@ def build_case(directory, source, probe, includes, vcvars, arch, config, mode):
                source_sha256=digest(source), passed=False)
     if mode == 'baseline' and arch == 'amd64':
         # An unrelated missing-header/error is NOT a successful negative control.
-        row['passed'] = build.returncode != 0 and (b'C2485' in build.stdout or b'C4235' in build.stdout)
+        row['passed'] = build.returncode != 0 and assembly_failure(build.stdout, source)
     elif build.returncode == 0:
         binding = (directory / 'probe.map').read_text(errors='replace')
         row['production_symbols_bound'] = all(any('?' + symbol + '@@' in line and

@@ -1,9 +1,9 @@
-#if _MSC_VER != 1800
-#error This evidence requires VS2013 v120
+#if !defined(_MSC_VER) || _MSC_VER < 1800
+#error This test requires MSVC 2013 or newer
 #endif
+#include <stdio.h>
 #include "sharedFoundation/FirstSharedFoundation.h"
 #include "sharedFoundation/ByteOrder.h"
-#include <stdio.h>
 static_assert(sizeof(ulong)==4, "32-bit long contract");
 static_assert(sizeof(ushort)==2, "16-bit short contract");
 static unsigned long checks=0;
