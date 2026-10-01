@@ -6,11 +6,13 @@ The completed x64 implementation is packaged into focused source and build chang
 
 All **220 production paths and 83 build/configuration paths** in the maintained client inventory are assigned to package closures. [Finite accounting](package-inventory/remaining-units.md) separates assignment coverage from a fresh composed-tree build. [Client map](package-inventory/remaining-package-map.json) and [server map](package-inventory/server-package-map.json) retain source identities and dependency details. No histories were force-pushed or automatically merged.
 
+[Fork status and branch guide](FORK-STATUS.md) · [Fork preparation → upstream PR map](package-inventory/fork-preparation-map.md)
+
 ## Review order
 
 Review independent master-based fixes first. Historical fork preparation reviews retain their original incremental bases. Upstream stacked PRs explicitly list the included prerequisites and link an incremental comparison; their master diffs also contain those predecessors. Joint bases preserve already-published dependencies. Follow allocator layout → addresses → sizes → statistics, and Miles contracts → facade → transport/callbacks → host/session → build/Audio → game selection → Bink host → renderer → Release configuration. Shared server counterparts have separate bases and explicitly scoped evidence.
 
-An earlier [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. The later exact-head [composed regression run](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021) passed both ABI jobs; [results and raw log](pr-ready-next/regression-ci/RESULTS.md). Final API reconciliation verified all58 upstream heads, bases, file counts and states against the table below. The final client composition passed its exact-head fork run, and all server upstream checks passed. Earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
+An earlier [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. The later exact-head [composed regression run](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021) passed both ABI jobs; [results and raw log](pr-ready-next/regression-ci/RESULTS.md). Final API reconciliation verified all 58 upstream heads, bases, file counts and states against the table below. The final client composition passed its exact-head fork run, and all server upstream checks passed. Earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
 
 ## Dependency batches
 
@@ -87,7 +89,7 @@ The table counts the **entire PR delta**, including any tests/configuration/docs
 | [SWG-Source/src #46](https://github.com/SWG-Source/src/pull/46) | Bound archive payload reads and preserve storage ownership | `0b45f5e726` | 624; +12362/−4899 | open |
 | [SWG-Source/src #47](https://github.com/SWG-Source/src/pull/47) | Capture native Windows stacks with complete DbgHelp locking | `b17b06f87a` | 622; +12296/−4805 | open |
 
-Server #35 targets `64-bit-types`, not master. The Archive and native-stack packages (#46/#47) have a true dependency on #35 and disclose that history; other master-based fixes exclude it. The maintained client master remains `94945103`; no upstream x64 target was available at the recorded target check.
+Server #35 targets `64-bit-types`, not master. The Archive and native-stack packages (#46/#47) have a true dependency on #35 and disclose that history; other master-based fixes exclude it. The upstream client source baseline remains `94945103`; fork master navigation changes do not include the x64 implementation. No upstream x64 target was available at the recorded target check.
 
 ## Historical fork preparation
 
