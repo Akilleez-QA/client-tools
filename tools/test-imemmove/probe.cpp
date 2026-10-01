@@ -1,6 +1,8 @@
+// Give the CRT's snprintf C linkage precedence over legacy PlatformGlue.h.
+// This affects test output declarations only; the real helper is unchanged.
+#include <stdio.h>
 #include "sharedFoundation/FirstSharedFoundation.h"
 #include <stddef.h>
-#include <stdio.h>
 
 #ifdef TEST_BASELINE
 #define INT_MOVE memmove
