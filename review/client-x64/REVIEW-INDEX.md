@@ -69,6 +69,11 @@ These are reviewable incremental packages, not independently qualified full-clie
 | [Akilleez-QA/client-tools #20](https://github.com/Akilleez-QA/client-tools/pull/20) | Select the original Bink host through the development video adapter | `abe067bcc7` | `client-bink-host-session` | 9; +511/−225 |
 | [Akilleez-QA/client-tools #21](https://github.com/Akilleez-QA/client-tools/pull/21) | Build matching Release Miles and Bink development components | `91d70a54b6` | `client-bink-game-selection` | 4; +57/−28 |
 | [Akilleez-QA/client-tools #22](https://github.com/Akilleez-QA/client-tools/pull/22) | Remove unused browser build inputs and disabled capture polling | `f5c3f27851` | `client-x64-projects` | 3; +5/−11 |
+| [Akilleez-QA/client-tools #23](https://github.com/Akilleez-QA/client-tools/pull/23) | Add bounded Archive storage and decoder regression runners | `6ebf897912` | `client-archive-storage` | 6; +424/−0 |
+| [Akilleez-QA/client-tools #24](https://github.com/Akilleez-QA/client-tools/pull/24) | Cover galaxy-list and ordinary-container wire encodings | `d8cb69a4b5` | `client-archive-storage` | 5; +256/−35 |
+| [Akilleez-QA/client-tools #25](https://github.com/Akilleez-QA/client-tools/pull/25) | Preserve the native UI pool alignment regression harness | `fdaa82180f` | `prerequisite/client-ui-memory-tests` | 3; +157/−0 |
+| [Akilleez-QA/client-tools #26](https://github.com/Akilleez-QA/client-tools/pull/26) | Record bounded mixed-width sessions and paired media shutdown | `926eda724a` | `client-wire-regressions` | 1; +171/−0 |
+| [Akilleez-QA/client-tools #27](https://github.com/Akilleez-QA/client-tools/pull/27) | Compose the archive and media protocol regressions in CI | `505795c7dd` | `prerequisite/client-regression-ci` | 1; +26/−1 |
 | [Akilleez-QA/src #1](https://github.com/Akilleez-QA/src/pull/1) | Preserve Windows socket handles and IOCP keys at pointer width | `9d44e3a1da` | `server-network-prerequisites` | 10; +352/−6 |
 | [Akilleez-QA/src #2](https://github.com/Akilleez-QA/src/pull/2) | Support the Windows byte-order functions on x64 | `adb1bc91d2` | `server-network-prerequisites` | 1; +26/−0 |
 | [Akilleez-QA/src #3](https://github.com/Akilleez-QA/src/pull/3) | foundation: support Windows x64 floating point controls | `01755444ed` | `server-build-workflow` | 3; +55/−2 |
@@ -78,12 +83,6 @@ These are reviewable incremental packages, not independently qualified full-clie
 | [Akilleez-QA/src #7](https://github.com/Akilleez-QA/src/pull/7) | Use native-width Windows diagnostics and API results | `fc300fe802` | `server-build-workflow` | 4; +21/−3 |
 | [Akilleez-QA/src #8](https://github.com/Akilleez-QA/src/pull/8) | Preserve host-sized string lengths in shared helpers | `7dc8ef9194` | `server-network-prerequisites` | 2; +5/−5 |
 | [Akilleez-QA/src #9](https://github.com/Akilleez-QA/src/pull/9) | Scope the native crypto PCH packing diagnostic | `485331412c` | `server-build-workflow` | 1; +11/−0 |
-
-| [Akilleez-QA/client-tools #23](https://github.com/Akilleez-QA/client-tools/pull/23) | Add bounded Archive storage and decoder regression runners | `6ebf897912` | `client-archive-storage` | 6; +424/−0 |
-| [Akilleez-QA/client-tools #24](https://github.com/Akilleez-QA/client-tools/pull/24) | Cover galaxy-list and ordinary-container wire encodings | `d8cb69a4b5` | `client-archive-storage` | 5; +256/−35 |
-| [Akilleez-QA/client-tools #25](https://github.com/Akilleez-QA/client-tools/pull/25) | Preserve the native UI pool alignment regression harness | `fdaa82180f` | `prerequisite/client-ui-memory-tests` | 3; +157/−0 |
-| [Akilleez-QA/client-tools #26](https://github.com/Akilleez-QA/client-tools/pull/26) | Record bounded mixed-width sessions and paired media shutdown | `926eda724a` | `client-wire-regressions` | 1; +171/−0 |
-| [Akilleez-QA/client-tools #27](https://github.com/Akilleez-QA/client-tools/pull/27) | Compose the archive and media protocol regressions in CI | `505795c7dd` | `prerequisite/client-regression-ci` | 1; +26/−1 |
 
 ## Source size and evidence boundaries
 
