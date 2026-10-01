@@ -1,0 +1,16 @@
+{
+  "expected_compile_cases": 100,
+  "failed_cases": [
+    "reverted-key-amd64-Debug-TcpClient",
+    "reverted-key-amd64-Debug-TcpServer",
+    "reverted-key-amd64-Release-TcpClient",
+    "reverted-key-amd64-Release-TcpServer"
+  ],
+  "observed_compile_cases": 100,
+  "passed": false,
+  "passed_cases": 96,
+  "runtime_checks": 1260,
+  "source_inputs_unchanged": true,
+  "toolchain_mode": "v120",
+  "toolchains_accepted": true
+}

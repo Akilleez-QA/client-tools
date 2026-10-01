@@ -1,0 +1,29 @@
+{
+  "branch": "review-ready/client-shell-result-widths",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "6d73ef869f45b9c1789577b87489aee7d53535f0",
+  "source_origin_commit": "12bb888097a567191455f48598a6be9d87d4a257",
+  "production_files": 2,
+  "additions": 3,
+  "deletions": 3,
+  "source": {
+    "src/engine/shared/library/sharedFoundation/src/win32/Os.cpp": {
+      "baseline_sha256": "312637f70425fb42b904bb5269841dbf78645eef32574a5aa34a8732817e0017",
+      "candidate_sha256": "dbc903e86d99b197459275e2f6f0de17edf3fe18cfbf1a808f94b6fdebcf4755",
+      "prior_integrated_sha256": "0b71b70fc570e18913169dc0cbebd144bce9fceb0d1ab2dfab6dd71fb4945bc0",
+      "whole_file_identical_to_prior_integrated": false
+    },
+    "src/game/client/application/SwgClient/src/win32/WinMain.cpp": {
+      "baseline_sha256": "bc5195b266997d98fa419cc5103863861c984133afbb192ecdcb7ed6ff8cbf53",
+      "candidate_sha256": "85c7a4dae5f1625892fc7a89778577107371493cd86f6905d459455f47c0fde9",
+      "prior_integrated_sha256": "85c7a4dae5f1625892fc7a89778577107371493cd86f6905d459455f47c0fde9",
+      "whole_file_identical_to_prior_integrated": true
+    }
+  },
+  "source_only": true,
+  "tests_run": false,
+  "fresh_master_native_build_claimed": false,
+  "published_pcre_ref": "123cce87b7b596e639a92477abde706caee08f79",
+  "clean_worktree": true,
+  "publication": "none"
+}

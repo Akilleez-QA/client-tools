@@ -1,0 +1,26 @@
+{
+  "additions": 1,
+  "baseRefName": "master",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-10-01T07:49:30Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:49:30Z",
+      "messageBody": "Use sizeof(size_t) for the existing stride alignment: four bytes on Win32 and eight on x64. Keep each size header and the measured ordinary UI objects naturally aligned. This does not add an over-aligned allocation contract or change pool allocation policy.",
+      "messageHeadline": "ui: preserve natural alignment in the pool stride",
+      "oid": "5ff93941c3f7c256fe10f2dc8f6d0e2216ea302d"
+    }
+  ],
+  "deletions": 1,
+  "headRefOid": "5ff93941c3f7c256fe10f2dc8f6d0e2216ea302d",
+  "statusCheckRollup": [],
+  "url": "https://github.com/SWG-Source/client-tools/pull/27"
+}

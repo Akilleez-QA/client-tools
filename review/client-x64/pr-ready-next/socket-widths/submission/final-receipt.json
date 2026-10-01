@@ -1,0 +1,76 @@
+{
+  "base": "a7954b5e78274ab3a9eb558fa10186697ff5e848",
+  "head": "dbcd4d7d95a2c55be0fdf4b2185c117d21d400ed",
+  "commits": [
+    "b5efaab425e4cdf576e0d4650096e7641f8d0b76 network: preserve pointer-width Windows socket handles",
+    "3ea1ae21e105e5b9798ec9c1e53bba041c319e7e network: receive IOCP completion keys at pointer width",
+    "2e2fdadc205276788f43ade24d4414efe8436439 network: receive TCP client completion keys at pointer width",
+    "aa57a659afd78c0c1a4dd647c1baa6044fc0a032 test: reproduce Windows network ABI checks from the checkout",
+    "9aa2160f55238a809184c07ac5c80b13a585b223 test: qualify network widths with explicit MSVC and strict controls",
+    "dbcd4d7d95a2c55be0fdf4b2185c117d21d400ed test: scope hosted network checks to supported headers"
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/network-widths.yml",
+      "additions": 55,
+      "deletions": 0
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/src/win32/Sock.h",
+      "additions": 3,
+      "deletions": 2
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp",
+      "additions": 1,
+      "deletions": 1
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp",
+      "additions": 1,
+      "deletions": 1
+    },
+    {
+      "path": "src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp",
+      "additions": 2,
+      "deletions": 1
+    },
+    {
+      "path": "src/external/3rd/library/udplibrary/UdpLibrary.hpp",
+      "additions": 2,
+      "deletions": 1
+    },
+    {
+      "path": "tools/test-windows-network-widths/README.md",
+      "additions": 30,
+      "deletions": 0
+    },
+    {
+      "path": "tools/test-windows-network-widths/diagnostics.py",
+      "additions": 31,
+      "deletions": 0
+    },
+    {
+      "path": "tools/test-windows-network-widths/probe.cpp",
+      "additions": 120,
+      "deletions": 0
+    },
+    {
+      "path": "tools/test-windows-network-widths/run.py",
+      "additions": 253,
+      "deletions": 0
+    },
+    {
+      "path": "tools/test-windows-network-widths/test_diagnostics.py",
+      "additions": 47,
+      "deletions": 0
+    }
+  ],
+  "production_files": 5,
+  "production_additions": 9,
+  "production_deletions": 6,
+  "total_additions": 545,
+  "total_deletions": 6,
+  "hosted_scope": "80 header cases; full 100-case production-TU matrix retained for v120",
+  "failed_hosted_run": 36831903992
+}

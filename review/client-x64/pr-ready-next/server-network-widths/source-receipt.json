@@ -1,0 +1,27 @@
+{
+  "branch": "review-ready/server-network-widths",
+  "base": "1481143ca4f033ef979faff52a4d03bb8d636292",
+  "head": "43249ae00b0599a4560191917256b9cbb259ce0f",
+  "commits": [
+    "a4ea7a1923312cb8c1710578acd1a76669f85362 network: retain pointer-width Windows socket handles",
+    "48569551fb4633328b6deeb2c20512218d6c60ad network: receive IOCP completion keys at pointer width",
+    "43249ae00b0599a4560191917256b9cbb259ce0f network: receive TCP client completion keys at pointer width"
+  ],
+  "production": {
+    "files": 5,
+    "additions": 9,
+    "deletions": 6
+  },
+  "files": {
+    "engine/shared/library/sharedNetwork/src/win32/Sock.h": "07458c9a79535985beb979ab233bd2ffea69ad2e5f22166843f35f3d677148d8",
+    "engine/shared/library/sharedNetwork/src/win32/TcpClient.cpp": "3b2d05bf0ad8bb2269cde55af0e6287b3294d94ccd43639bfbc2493468e99abe",
+    "engine/shared/library/sharedNetwork/src/win32/TcpServer.cpp": "eeda9d7e00429be73f481be632ec101b98686536d1649cbe33efe9e06ecf7e2a",
+    "external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/UdpLibrary.hpp": "e4d144d0d6a2bda2f5aed3259a56854f623285bc2fe68dc31893d7e5f33663d9",
+    "external/3rd/library/udplibrary/UdpLibrary.hpp": "689b3b1a61cb676f7a601127ac9357a1e33b9fd4da6261eadef2aa36e887bc03"
+  },
+  "preserved_helper_branch": "1481143ca4f033ef979faff52a4d03bb8d636292",
+  "clean": true,
+  "exact_server_native_result": false,
+  "tests_run_this_task": false,
+  "publication": "fork branch pushed and remote head verified; no upstream PR; exact-server Windows qualification pending"
+}

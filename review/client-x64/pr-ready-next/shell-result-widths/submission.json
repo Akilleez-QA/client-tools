@@ -1,0 +1,26 @@
+{
+  "additions": 3,
+  "baseRefName": "master",
+  "changedFiles": 2,
+  "commits": [
+    {
+      "authoredDate": "2026-10-01T07:49:30Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:49:30Z",
+      "messageBody": "Use INT_PTR for status comparisons and the matching diagnostic format. Preserve both existing success/error comparison boundaries, including the separate trial-handler less-than-32 behavior.",
+      "messageHeadline": "foundation: retain pointer-width ShellExecute results",
+      "oid": "6d73ef869f45b9c1789577b87489aee7d53535f0"
+    }
+  ],
+  "deletions": 3,
+  "headRefOid": "6d73ef869f45b9c1789577b87489aee7d53535f0",
+  "statusCheckRollup": [],
+  "url": "https://github.com/SWG-Source/client-tools/pull/28"
+}
