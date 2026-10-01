@@ -1,0 +1,54 @@
+{
+  "additions": 6,
+  "baseRefName": "master",
+  "baseRefOid": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T04:41:34Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T08:11:32Z",
+      "messageBody": "Retain the runtime equality check and assert the actual class layout at compile time. This does not widen allocation counts or allocation-owner addresses.",
+      "messageHeadline": "memory: keep allocation headers exactly one block on x64",
+      "oid": "76892e187d5b480bda16977a93e0e6bcb1c0dfde"
+    },
+    {
+      "authoredDate": "2026-09-30T04:41:35Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T08:11:32Z",
+      "messageBody": "",
+      "messageHeadline": "memory: check block ordering without narrowing addresses",
+      "oid": "2af9f19b502e9183731656cdaf93236faacb404e"
+    }
+  ],
+  "deletions": 3,
+  "files": [
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp",
+      "additions": 6,
+      "deletions": 3,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "review-ready/client-allocator-layout",
+  "headRefOid": "2af9f19b502e9183731656cdaf93236faacb404e",
+  "isDraft": false,
+  "number": 29,
+  "state": "OPEN",
+  "statusCheckRollup": [],
+  "title": "Preserve allocator header size and full-width block-order checks",
+  "url": "https://github.com/SWG-Source/client-tools/pull/29"
+}

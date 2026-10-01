@@ -1,0 +1,11 @@
+# Preserve allocator header size and full-width block-order checks
+
+On x64, `SystemAllocation` occupies 24 bytes while the allocator reserves a 32-byte block for it, violating the existing constructor assertion. Change its two unused padding fields to `size_t` and add a compile-time assertion against the actual block size. Win32 retains its 16-byte layout; x64 gets the required 32-byte header.
+
+The separate `Block::setNext` debug check narrows both addresses to `int`. Compare their `uintptr_t` values instead, rejecting backward addresses before subtracting so unsigned wraparound cannot hide them. Null successors remain allowed; self-links and forward gaps smaller than one block remain rejected.
+
+This master-based package contains two focused commits in one production file (+6/-3). No diagnostic harness, build configuration, or dependency changes are included. The resulting `MemoryManager.cpp` is byte-identical to the historical source at `f102763f701193b72d975a6f6a7822dde4bd1f23` (SHA-256 `29b0f5cd1276290ba22684c445d19129402dd667944719cb2604acf5cee62fb9`).
+
+[Recorded native results](https://github.com/Akilleez-QA/client-tools/blob/f015ce7abc08d98902c6febdd50df204fe58137b/review/client-x64/next-build/RESULTS.md) show four successful actual `MemoryManager.cpp` compilations with VS2013/v120 across Win32/x64 Debug/Release, plus two expected x64 failures when the old padding is restored while retaining the new assertion. [Reproduction notes](https://github.com/Akilleez-QA/client-tools/blob/f015ce7abc08d98902c6febdd50df204fe58137b/review/client-x64/next-build/reproduction/README.md) and the [native text packet](https://github.com/Akilleez-QA/client-tools/blob/f015ce7abc08d98902c6febdd50df204fe58137b/review/client-x64/next-build/native-text.tar.gz) retain commands, logs, input identities, and `memory-next/results.json`.
+
+Those compilations used the historical integrated headers and project configuration, including the separate `imemmove` correction; they are not fresh builds of this master-based branch. No tests or builds were repeated during packaging. The evidence establishes the compiled header-size invariant, not runtime execution of the ordering check, a complete allocator/client build, or heap safety. Owner widths, allocation-size arithmetic, minimum free-block sizing, and broader allocator behavior remain separate repairs.

@@ -1,0 +1,41 @@
+{
+  "base": "2af9f19b502e9183731656cdaf93236faacb404e",
+  "head": "fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c",
+  "branch": "review-ready/client-allocator-address-stack",
+  "preserved_base_branch": "review-ready/client-allocator-layout",
+  "production": {
+    "files": 15,
+    "added": 346,
+    "deleted": 149
+  },
+  "test_build_docs_files": 0,
+  "commits": [
+    "0ea04e41a9486d730d16371c0e7187b611742a44 foundation: emit the fatal breakpoint with an x64 intrinsic",
+    "c534754eb3dcb519b0d68bdfff42ad330df51a88 renderer: compile export-template breakpoints on x64",
+    "fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c memory: preserve allocator owner and call-stack addresses on x64"
+  ],
+  "source_hashes": {
+    "src/engine/client/application/Direct3d9/src/shared/MemoryManagerHook.cpp": "f6b326c9398f76658908539cb6d4b781fd03fd5d87d3ee0349936de9badad3fb",
+    "src/engine/client/application/DllExport/src/win32/DllExport.cpp": "a7693a71dc53f38efcffaa761553763680976a40c4421ad44465057f7abbbb9f",
+    "src/engine/client/application/Headless/src/shared/MemoryManagerHook.cpp": "e6c848798a754991b180dda1666b5f28e0bd3ca3bcbc5101287d6884100b9951",
+    "src/engine/client/library/clientGraphics/src/shared/RenderWorld.cpp": "3a1ab7389e7177fe013f8b09133f342c875f64e1a4f9780dede4407422d2d253",
+    "src/engine/client/library/clientGraphics/src/shared/RenderWorldServices.cpp": "b6acb6692a9c172d3a22116c121f78e519a6541d87a92f8ecaed5c5197847e10",
+    "src/engine/shared/library/sharedDebug/src/shared/CallStack.cpp": "a87c6c663c4dffb0f6908c854320d29a2c9ff77e9f4b076e2c285ee1b4b2c530",
+    "src/engine/shared/library/sharedDebug/src/shared/CallStack.h": "b8bb0645debbcaaaabf3b69a9080b3084456bba62db500849973325045430e86",
+    "src/engine/shared/library/sharedDebug/src/shared/CallStackCollector.cpp": "e38740088af20997d2230dfedaa2f081180de25725fa8b26a5f25932e68b63a4",
+    "src/engine/shared/library/sharedDebug/src/win32/DebugHelp.cpp": "6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "src/engine/shared/library/sharedDebug/src/win32/DebugHelp.h": "b0fd5e7f6e5972e9cd861a7ee046e9207031f8777e4823f3b67668825880d68b",
+    "src/engine/shared/library/sharedFoundation/src/shared/Fatal.cpp": "f5fd30f156c950b81a65d45f27e3fda53578da7f967995557b64c18d9cc0615c",
+    "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp": "0c84df3b9902061fa3002211f145bcc5415636676c4a03cd03d0aa8e75f9216e",
+    "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.h": "84fbb196381c6a98f4d76ce81ae6dd7f8baa61b1508be973b91a096054859203",
+    "src/engine/shared/library/sharedMemoryManager/src/win32/OsNewDel.cpp": "84fbc27ff3564d6b2078c4e8e70ec30dd092f958fd74181537f017e594ff94c9",
+    "src/engine/shared/library/sharedRegex/src/win32/RegexServices.cpp": "1b57b57d09753fc7f3e5a3919cf353b4444544051474f07a3908ed513ec632e4"
+  },
+  "evidence_commit": "f015ce7abc08d98902c6febdd50df204fe58137b",
+  "verified_evidence_matches": [
+    "DebugHelp.cpp:6b1b596c275b243dc9a8be788cf87b613c937f42b1ca41db5f5689e4a64094de",
+    "DllExport.cpp:a7693a71dc53f38efcffaa761553763680976a40c4421ad44465057f7abbbb9f",
+    "Direct3d9/MemoryManagerHook.cpp:f6b326c9398f76658908539cb6d4b781fd03fd5d87d3ee0349936de9badad3fb"
+  ],
+  "checks": "clean cherry-picks; symbol-consumer source closure; diff --check; no builds/runtime"
+}

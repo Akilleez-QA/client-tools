@@ -1,0 +1,3642 @@
+{
+  "schema_version": 1,
+  "scope": "Client only. Server counterpart inventory is a separate queued task.",
+  "parent_package": "miles-session-core",
+  "status": "Proposed static packaging; no new tests, builds, branch qualification or runtime acceptance",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "authoritative_head": "eca74ffa5741f608a1417944b2e2602868936517",
+  "core_checkpoint": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+  "independent_lifetime_delta": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+  "accounting": {
+    "exclusive_production_files": 91,
+    "final_additions": 8593,
+    "final_deletions": 0,
+    "foundation_lines": 8526,
+    "unique_files": 91,
+    "rule": "91 files and 8593 final added lines retain parent exclusive accounting. Foundation counts are historical core blobs; later game/Bink deltas are listed per file and not imported early. Audio.cpp/shared build/workflow component hunks are supplemental and remain counted by their parent-map owners."
+  },
+  "groups": [
+    {
+      "id": 1,
+      "title": "Contracts, wire codec and owned replies",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 17,
+      "foundation_lines": 1246,
+      "final_accounted_additions": 1263,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [],
+      "files": [
+        "tools/miles-bridge/src/api/ClientMiles.h",
+        "tools/miles-bridge/src/backend/reply.h",
+        "tools/miles-bridge/src/buffer/buffer_upload.cpp",
+        "tools/miles-bridge/src/buffer/buffer_upload.h",
+        "tools/miles-bridge/src/dispatch/host_dispatch.h",
+        "tools/miles-bridge/src/eos/eos_protocol.cpp",
+        "tools/miles-bridge/src/eos/eos_protocol.h",
+        "tools/miles-bridge/src/image/upload_policy.h",
+        "tools/miles-bridge/src/metadata/metadata.h",
+        "tools/miles-bridge/src/metadata/metadata_wire.cpp",
+        "tools/miles-bridge/src/protocol/miles_wire.h",
+        "tools/miles-bridge/src/protocol/pair_outputs.h",
+        "tools/miles-bridge/src/version/session_version.cpp",
+        "tools/miles-bridge/src/version/session_version.h",
+        "tools/miles-bridge/src/wire/codec.cpp",
+        "tools/miles-bridge/src/wire/codec.h",
+        "tools/miles-bridge/src/wire/resource_registry.h"
+      ],
+      "tests": [
+        "tools/miles-bridge/tests/eos_protocol.cpp"
+      ],
+      "build_and_docs": [],
+      "shared_file_deltas": [
+        ".github/workflows/wire-compatibility.yml"
+      ],
+      "origin_core_commits": [
+        "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+        "892343c92b705f5963a3a9417d804140eaaccd74",
+        "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+        "d1c5903de35586dc8cfb0939a5da1756cca43179"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Native Miles facade and ABI adapters",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 15,
+      "foundation_lines": 945,
+      "final_accounted_additions": 945,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [
+        1
+      ],
+      "files": [
+        "tools/miles-bridge/src/api/native/native_callbacks70.cpp",
+        "tools/miles-bridge/src/api/native/native_calls60.cpp",
+        "tools/miles-bridge/src/api/native/native_file_setter67.cpp",
+        "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+        "tools/miles-bridge/src/api/native/native_types70.h",
+        "tools/miles-bridge/src/api/plain_callbacks.cpp",
+        "tools/miles-bridge/src/api/plain_file_setter.cpp",
+        "tools/miles-bridge/src/api/plain_operations.cpp",
+        "tools/miles-bridge/src/api/plain_startup.cpp",
+        "tools/miles-bridge/src/api/private/failure_boundary.cpp",
+        "tools/miles-bridge/src/api/private/failure_boundary.h",
+        "tools/miles-bridge/src/api/private/native_callbacks70.h",
+        "tools/miles-bridge/src/api/private/native_calls60.h",
+        "tools/miles-bridge/src/api/private/native_file_setter67.h",
+        "tools/miles-bridge/src/api/private/native_startup_calls.h"
+      ],
+      "tests": [],
+      "build_and_docs": [],
+      "shared_file_deltas": [],
+      "origin_core_commits": [
+        "9b3154d3be3ad133d3dd0f948d76d86e7497d59c"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "File protocol, transport and reply transactions",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 20,
+      "foundation_lines": 1331,
+      "final_accounted_additions": 1332,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [
+        1
+      ],
+      "files": [
+        "src/engine/client/library/clientAudio/src/win32/AudioFileCallbacks.h",
+        "tools/miles-bridge/src/audio-callbacks/ClientAudioFileCallbacks.h",
+        "tools/miles-bridge/src/bootstrap/common.h",
+        "tools/miles-bridge/src/callback-guard/invocation_guard.cpp",
+        "tools/miles-bridge/src/callback-guard/invocation_guard.h",
+        "tools/miles-bridge/src/file-callbacks/ClientMilesFileCallbacks.h",
+        "tools/miles-bridge/src/file-channel/file_channel.cpp",
+        "tools/miles-bridge/src/file-channel/file_channel.h",
+        "tools/miles-bridge/src/file-protocol/file_protocol.cpp",
+        "tools/miles-bridge/src/file-protocol/file_protocol.h",
+        "tools/miles-bridge/src/file-replies/file_tokens.cpp",
+        "tools/miles-bridge/src/file-replies/file_tokens.h",
+        "tools/miles-bridge/src/file-replies/reply_transaction.cpp",
+        "tools/miles-bridge/src/file-replies/reply_transaction.h",
+        "tools/miles-bridge/src/file-services/selected_services.cpp",
+        "tools/miles-bridge/src/file-services/selected_services.h",
+        "tools/miles-bridge/src/host-context/call_context.cpp",
+        "tools/miles-bridge/src/host-context/call_context.h",
+        "tools/miles-bridge/src/transport/endpoint.cpp",
+        "tools/miles-bridge/src/transport/endpoint.h"
+      ],
+      "tests": [],
+      "build_and_docs": [],
+      "shared_file_deltas": [],
+      "origin_core_commits": [
+        "4f15b029a8f2d99426f096431f649017168c5a6b",
+        "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+        "d1c5903de35586dc8cfb0939a5da1756cca43179"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Engine worker, admission and client callback ownership",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 14,
+      "foundation_lines": 1589,
+      "final_accounted_additions": 1589,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [
+        1,
+        3
+      ],
+      "files": [
+        "tools/miles-bridge/src/admission/coordinator.cpp",
+        "tools/miles-bridge/src/admission/coordinator.h",
+        "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+        "tools/miles-bridge/src/eos/client_eos.cpp",
+        "tools/miles-bridge/src/eos/client_eos.h",
+        "tools/miles-bridge/src/file-control/host_association_mapper.cpp",
+        "tools/miles-bridge/src/file-control/host_association_mapper.h",
+        "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "tools/miles-bridge/src/file-executor/EngineFileWorker.h",
+        "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+        "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+        "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+        "tools/miles-bridge/src/file-owner/session_file_owner.h"
+      ],
+      "tests": [
+        "tools/miles-bridge/tests/engine_worker_context.cpp",
+        "tools/miles-bridge/tests/engine_worker_context.h",
+        "tools/miles-bridge/tests/lock_admission.cpp"
+      ],
+      "build_and_docs": [],
+      "shared_file_deltas": [],
+      "origin_core_commits": [
+        "49ab54a9c07c51b0f06b847cb1f372db21420cd2",
+        "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+        "892343c92b705f5963a3a9417d804140eaaccd74",
+        "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+        "c093035b7d938f3e76d45e004c388719df6b1755",
+        "d1c5903de35586dc8cfb0939a5da1756cca43179"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Native host backend and callback runtime",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 14,
+      "foundation_lines": 1568,
+      "final_accounted_additions": 1600,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [
+        1,
+        3,
+        4
+      ],
+      "files": [
+        "tools/miles-bridge/src/backend/backend.h",
+        "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+        "tools/miles-bridge/src/dispatch/registry_resolver.h",
+        "tools/miles-bridge/src/eos/host_eos.cpp",
+        "tools/miles-bridge/src/eos/host_eos.h",
+        "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+        "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+        "tools/miles-bridge/src/host-runtime/host_install.cpp",
+        "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+        "tools/miles-bridge/src/host/host.cpp",
+        "tools/miles-bridge/src/metadata/metadata_host.cpp",
+        "tools/miles-bridge/src/upload/upload_state.h",
+        "tools/miles-bridge/src/version/session_version_host.cpp",
+        "tools/miles-bridge/src/version/session_version_host.h"
+      ],
+      "tests": [
+        "tools/miles-bridge/tests/upload_binding.cpp"
+      ],
+      "build_and_docs": [],
+      "shared_file_deltas": [],
+      "origin_core_commits": [
+        "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+        "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+        "892343c92b705f5963a3a9417d804140eaaccd74",
+        "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+        "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+        "d1c5903de35586dc8cfb0939a5da1756cca43179"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Pipe facade and session composition",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 11,
+      "foundation_lines": 1847,
+      "final_accounted_additions": 1864,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [
+        1,
+        3,
+        4
+      ],
+      "files": [
+        "tools/miles-bridge/src/api/pipe/Channel.h",
+        "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+        "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+        "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "tools/miles-bridge/src/api/pipe/PipeCore.h",
+        "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h",
+        "tools/miles-bridge/src/api/pipe/Session.h",
+        "tools/miles-bridge/src/dev/AudioSelection.h",
+        "tools/miles-bridge/src/failure/failure_boundary.cpp",
+        "tools/miles-bridge/src/failure/failure_boundary.h"
+      ],
+      "tests": [
+        "tools/miles-bridge/tests/pipe_lock_probe.cpp"
+      ],
+      "build_and_docs": [],
+      "shared_file_deltas": [],
+      "origin_core_commits": [
+        "5c31706581bc93679300bde212d6c9a69cd95690",
+        "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+        "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+        "892343c92b705f5963a3a9417d804140eaaccd74",
+        "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+        "d1c5903de35586dc8cfb0939a5da1756cca43179"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Core build entry points and existing Audio adaptation",
+      "status": "proposed_static_split_not_individually_reviewed",
+      "production_file_count": 0,
+      "foundation_lines": 0,
+      "final_accounted_additions": 0,
+      "final_accounted_deletions": 0,
+      "direct_include_prerequisites": [],
+      "files": [],
+      "source_prerequisites": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "external_prerequisites": [
+        {
+          "package": "audio-native-contract",
+          "kind": "source_patch_context",
+          "reason": "Audio.cpp core deltas were authored after native callback-width and preference contract changes; stack or context-resolve exact core hunks without importing unrelated edits."
+        },
+        {
+          "package": "x64-projects",
+          "kind": "build_configuration_and_evidence",
+          "reason": "Historical native builds use the maintained VS2013 engine configuration; source-only foundations do not need the full project-conversion package to exist unused."
+        }
+      ],
+      "tests": [],
+      "build_and_docs": [
+        "tools/miles-bridge/build.py",
+        "tools/miles-bridge/sources.json",
+        "tools/miles-bridge/README.md",
+        "tools/miles-bridge/.gitignore"
+      ],
+      "shared_file_deltas": [
+        "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+        "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj"
+      ],
+      "origin_core_commits": []
+    }
+  ],
+  "files": [
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/AudioFileCallbacks.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "92b4205d543b17f2d9b4889999a5082a6e44aeaf",
+      "foundation_lines": 20,
+      "final_blob": "92b4205d543b17f2d9b4889999a5082a6e44aeaf",
+      "final_additions": 20,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "4f15b029a8f2d99426f096431f649017168c5a6b",
+          "subject": "audio: separate admitted file callbacks from legacy TLS setup",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/admission/coordinator.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "ce5f824d4cd56a65c426935e26834855d2677b06",
+      "foundation_lines": 156,
+      "final_blob": "dba7f427268dc032e2ff7cc4c7aa58a71e3bfa60",
+      "final_additions": 156,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "a904e489b4fed43b52751b1cab373e82a4e40976",
+          "subject": "video: admit video resources through the real session coordinator",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "a904e489b4fed43b52751b1cab373e82a4e40976",
+          "subject": "video: admit video resources through the real session coordinator",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/admission/coordinator.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "70c12f802dcaaec120a3bf25c3ffdcd45647bfa3",
+      "foundation_lines": 88,
+      "final_blob": "70c12f802dcaaec120a3bf25c3ffdcd45647bfa3",
+      "final_additions": 88,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/ClientMiles.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "1117220c8f3f410396c8163a528973ae422ae27a",
+      "foundation_lines": 180,
+      "final_blob": "1117220c8f3f410396c8163a528973ae422ae27a",
+      "final_additions": 180,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_callbacks70.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "b43adf5ca526558e3a8e46f6526a27754ce2682f",
+      "foundation_lines": 11,
+      "final_blob": "b43adf5ca526558e3a8e46f6526a27754ce2682f",
+      "final_additions": 11,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_calls60.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "c120d28dcc5d7863ace6cd1cfef044cf3bdec67d",
+      "foundation_lines": 276,
+      "final_blob": "c120d28dcc5d7863ace6cd1cfef044cf3bdec67d",
+      "final_additions": 276,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_file_setter67.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "bdd8aade562528f20737b814d362d2548472c13b",
+      "foundation_lines": 24,
+      "final_blob": "bdd8aade562528f20737b814d362d2548472c13b",
+      "final_additions": 24,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "a9bb48a82fa855ad21adf94b2f83c7b814e60e52",
+      "foundation_lines": 55,
+      "final_blob": "a9bb48a82fa855ad21adf94b2f83c7b814e60e52",
+      "final_additions": 55,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_types70.h",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "f406df4c2664c1d73acc375343fd51fb7b00f5fd",
+      "foundation_lines": 12,
+      "final_blob": "f406df4c2664c1d73acc375343fd51fb7b00f5fd",
+      "final_additions": 12,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/Channel.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "7a2d4a31c1282efcad147801ab7eed5a8d1ab416",
+      "foundation_lines": 22,
+      "final_blob": "7a2d4a31c1282efcad147801ab7eed5a8d1ab416",
+      "final_additions": 22,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "f97901326790cf38f0d0d420f548040c402ac6f1",
+      "foundation_lines": 218,
+      "final_blob": "f97901326790cf38f0d0d420f548040c402ac6f1",
+      "final_additions": 218,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "afdbb7c889c8f465a7238eebf4478cd5a98037bd",
+      "foundation_lines": 156,
+      "final_blob": "3b272c4644a9805b1e8e5c79e9469e4c1f408617",
+      "final_additions": 163,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "b41abddac0a53aed10f621d5b8bfda664d2d12a6",
+          "subject": "audio: connect the development x64 game to the Miles facade",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "36ddb906781217abb296f9319c48a65384ba93ca",
+          "subject": "audio: accept relative paths for the original Miles module",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "a68ceb4280ca59af5317f3ad5c6de8a3e0a87314",
+          "subject": "audio: use normal I/O segments for live Miles commands",
+          "package": "miles-game-selection"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "b41abddac0a53aed10f621d5b8bfda664d2d12a6",
+          "subject": "audio: connect the development x64 game to the Miles facade",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "36ddb906781217abb296f9319c48a65384ba93ca",
+          "subject": "audio: accept relative paths for the original Miles module",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "a68ceb4280ca59af5317f3ad5c6de8a3e0a87314",
+          "subject": "audio: use normal I/O segments for live Miles commands",
+          "package": "miles-game-selection"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "593eea9435c66940a44d99eb59321bf0bb756e78",
+      "foundation_lines": 15,
+      "final_blob": "593eea9435c66940a44d99eb59321bf0bb756e78",
+      "final_additions": 15,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "bddf190b2814bc9d6d16cbd6ead0a4b8416d48e9",
+      "foundation_lines": 1000,
+      "final_blob": "776430393a0c879c8cb33ce5e0fdd6a48065da5e",
+      "final_additions": 1006,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "5c31706581bc93679300bde212d6c9a69cd95690",
+          "subject": "audio: add an isolated facade compile for the real Audio source",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/PipeCore.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "ff49458d8798d353fb6f5f8b15f9f5112fca1f68",
+      "foundation_lines": 177,
+      "final_blob": "ff49458d8798d353fb6f5f8b15f9f5112fca1f68",
+      "final_additions": 177,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "3099d336366e68386ad066e72858a99c52a64309",
+      "foundation_lines": 23,
+      "final_blob": "3099d336366e68386ad066e72858a99c52a64309",
+      "final_additions": 23,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "5c31706581bc93679300bde212d6c9a69cd95690",
+          "subject": "audio: add an isolated facade compile for the real Audio source",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/Session.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "e53af35111310d81f322c1ce2de3d0085f17fe53",
+      "foundation_lines": 83,
+      "final_blob": "b352cbf3b8a97825689735147171dc179756d600",
+      "final_additions": 87,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "5c31706581bc93679300bde212d6c9a69cd95690",
+          "subject": "audio: add an isolated facade compile for the real Audio source",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_callbacks.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "59804385f5297a7daca212ec8aa6e7167731ef1e",
+      "foundation_lines": 26,
+      "final_blob": "59804385f5297a7daca212ec8aa6e7167731ef1e",
+      "final_additions": 26,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_file_setter.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "488e9884bea8b1cfa94f0f7fbe49b07f9240a3ac",
+      "foundation_lines": 18,
+      "final_blob": "488e9884bea8b1cfa94f0f7fbe49b07f9240a3ac",
+      "final_additions": 18,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_operations.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "86b8539556c08642d92d284ea7ff7dc66c409680",
+      "foundation_lines": 266,
+      "final_blob": "86b8539556c08642d92d284ea7ff7dc66c409680",
+      "final_additions": 266,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_startup.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "fcdbd6f2ec9642a8e67309ae19d725a953dd9b4e",
+      "foundation_lines": 107,
+      "final_blob": "fcdbd6f2ec9642a8e67309ae19d725a953dd9b4e",
+      "final_additions": 107,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/failure_boundary.cpp",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+      "foundation_lines": 29,
+      "final_blob": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+      "final_additions": 29,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/failure_boundary.h",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "db6327c19295f77ce54e7976c76a37927037ddc3",
+      "foundation_lines": 24,
+      "final_blob": "db6327c19295f77ce54e7976c76a37927037ddc3",
+      "final_additions": 24,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_callbacks70.h",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "2248aa31a57093d0af1527078609c783051a9a6c",
+      "foundation_lines": 8,
+      "final_blob": "2248aa31a57093d0af1527078609c783051a9a6c",
+      "final_additions": 8,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_calls60.h",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "3b44669eb6400fce569de94b94b8d0a5b6931d8b",
+      "foundation_lines": 60,
+      "final_blob": "3b44669eb6400fce569de94b94b8d0a5b6931d8b",
+      "final_additions": 60,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_file_setter67.h",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "a9b8249eb2677323564069f9eae8e43276d2e14c",
+      "foundation_lines": 8,
+      "final_blob": "a9b8249eb2677323564069f9eae8e43276d2e14c",
+      "final_additions": 8,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_startup_calls.h",
+      "group": 2,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "eff2138d16925bdac5e46a4bae7ca209a2cb4be7",
+      "foundation_lines": 21,
+      "final_blob": "eff2138d16925bdac5e46a4bae7ca209a2cb4be7",
+      "final_additions": 21,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/audio-callbacks/ClientAudioFileCallbacks.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "a9f853e903e6933bbc3de926f8f32aaad1d51fda",
+      "foundation_lines": 50,
+      "final_blob": "a9f853e903e6933bbc3de926f8f32aaad1d51fda",
+      "final_additions": 50,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/backend/backend.h",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "cdbee925b0140b8c6033293cdc05db64c27fd33a",
+      "foundation_lines": 392,
+      "final_blob": "9817640913585fc095d367a137396002a6e74b09",
+      "final_additions": 411,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "36ddb906781217abb296f9319c48a65384ba93ca",
+          "subject": "audio: accept relative paths for the original Miles module",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "36ddb906781217abb296f9319c48a65384ba93ca",
+          "subject": "audio: accept relative paths for the original Miles module",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/backend/reply.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "9026ace405b1da299dcc4a9d795a35a4c0f92187",
+      "foundation_lines": 135,
+      "final_blob": "88cf84bf29efdecf986e2a4e80e87b830bc66f84",
+      "final_additions": 144,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/bootstrap/common.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "284a127dc634d5384ee0be4004464a24f6b3e021",
+      "foundation_lines": 111,
+      "final_blob": "a3fcf0f3b0036fba2a130c92c3be5da900150788",
+      "final_additions": 112,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "e36c7f67a2e90609e5944ac65bad76ecbb32dd24",
+          "subject": "audio: keep the private Miles worker windowless",
+          "package": "miles-game-selection"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "e36c7f67a2e90609e5944ac65bad76ecbb32dd24",
+          "subject": "audio: keep the private Miles worker windowless",
+          "package": "miles-game-selection"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/buffer/buffer_upload.cpp",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "9b8d1c15629832e17f05d23b3bc11d9fae5470ee",
+      "foundation_lines": 27,
+      "final_blob": "9b8d1c15629832e17f05d23b3bc11d9fae5470ee",
+      "final_additions": 27,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/buffer/buffer_upload.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "6b427521ada22062d892b5b9742da708e2c181ca",
+      "foundation_lines": 26,
+      "final_blob": "6b427521ada22062d892b5b9742da708e2c181ca",
+      "final_additions": 26,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/callback-guard/invocation_guard.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "ff6fde809298f361fc87e68cb2359caa8a0e17e1",
+      "foundation_lines": 27,
+      "final_blob": "ff6fde809298f361fc87e68cb2359caa8a0e17e1",
+      "final_additions": 27,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/callback-guard/invocation_guard.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "34c244290b60ea08cd9902ffe38992f09545e6a7",
+      "foundation_lines": 23,
+      "final_blob": "34c244290b60ea08cd9902ffe38992f09545e6a7",
+      "final_additions": 23,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "58edea9d7987bc771d1e0639cbb6da4dc4b47e23",
+      "foundation_lines": 411,
+      "final_blob": "58edea9d7987bc771d1e0639cbb6da4dc4b47e23",
+      "final_additions": 411,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "49ab54a9c07c51b0f06b847cb1f372db21420cd2",
+          "subject": "audio: isolate bridge synchronization from the engine allocator",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "dd49a246be32d4097bfab6604a03fe13cda699e8",
+      "foundation_lines": 55,
+      "final_blob": "dd49a246be32d4097bfab6604a03fe13cda699e8",
+      "final_additions": 55,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/dev/AudioSelection.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "2b258888e34d0d1b36fb738a23f2c39fb3878753",
+      "foundation_lines": 100,
+      "final_blob": "2b258888e34d0d1b36fb738a23f2c39fb3878753",
+      "final_additions": 100,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "5c31706581bc93679300bde212d6c9a69cd95690",
+          "subject": "audio: add an isolated facade compile for the real Audio source",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "c2f70600c7ba720787a977d083f0ae9d9f22e693",
+      "foundation_lines": 337,
+      "final_blob": "c2f70600c7ba720787a977d083f0ae9d9f22e693",
+      "final_additions": 337,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/dispatch/host_dispatch.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "a0ed8b6c2781ea111b4153ae39cb60dfc7bc9786",
+      "foundation_lines": 17,
+      "final_blob": "a0ed8b6c2781ea111b4153ae39cb60dfc7bc9786",
+      "final_additions": 17,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/dispatch/registry_resolver.h",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "0067c69d844749454c16a74485ef8653387b672f",
+      "foundation_lines": 21,
+      "final_blob": "0067c69d844749454c16a74485ef8653387b672f",
+      "final_additions": 21,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/client_eos.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "5e847af464adbc99f5d212b16f154066ae0ab2ce",
+      "foundation_lines": 59,
+      "final_blob": "5e847af464adbc99f5d212b16f154066ae0ab2ce",
+      "final_additions": 59,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/client_eos.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "b5130351b7b1291756cabeda70cdf52a727a673d",
+      "foundation_lines": 31,
+      "final_blob": "b5130351b7b1291756cabeda70cdf52a727a673d",
+      "final_additions": 31,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/eos_protocol.cpp",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "d21de0897382373ffaf226b49341a4ec8e3ca04a",
+      "foundation_lines": 39,
+      "final_blob": "d21de0897382373ffaf226b49341a4ec8e3ca04a",
+      "final_additions": 39,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/eos_protocol.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "bf1aef28fc41e6eb39221dace5a9ee92839b0918",
+      "foundation_lines": 11,
+      "final_blob": "bf1aef28fc41e6eb39221dace5a9ee92839b0918",
+      "final_additions": 11,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/host_eos.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "1168729476ac0fba2312bf382826fcd0669d25bb",
+      "foundation_lines": 70,
+      "final_blob": "1168729476ac0fba2312bf382826fcd0669d25bb",
+      "final_additions": 70,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/host_eos.h",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "296d4e3e832687690161f085d086fcafa47c323e",
+      "foundation_lines": 13,
+      "final_blob": "296d4e3e832687690161f085d086fcafa47c323e",
+      "final_additions": 13,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/failure/failure_boundary.cpp",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+      "foundation_lines": 29,
+      "final_blob": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+      "final_additions": 29,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/failure/failure_boundary.h",
+      "group": 6,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "db6327c19295f77ce54e7976c76a37927037ddc3",
+      "foundation_lines": 24,
+      "final_blob": "db6327c19295f77ce54e7976c76a37927037ddc3",
+      "final_additions": 24,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-callbacks/ClientMilesFileCallbacks.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "b9678a2bd6421f414fb29486577f100f00473b44",
+      "foundation_lines": 6,
+      "final_blob": "b9678a2bd6421f414fb29486577f100f00473b44",
+      "final_additions": 6,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "02fb4b384e1621f0583d687d0a61fb4849045d8b",
+      "foundation_lines": 308,
+      "final_blob": "02fb4b384e1621f0583d687d0a61fb4849045d8b",
+      "final_additions": 308,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-channel/file_channel.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "5c8eb66b8814aff43dd4a49fa570718fffae4df1",
+      "foundation_lines": 130,
+      "final_blob": "5c8eb66b8814aff43dd4a49fa570718fffae4df1",
+      "final_additions": 130,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-control/host_association_mapper.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "e6fe86f7075c627fe8261927a9d93c7e0ed9c2fd",
+      "foundation_lines": 170,
+      "final_blob": "e6fe86f7075c627fe8261927a9d93c7e0ed9c2fd",
+      "final_additions": 170,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-control/host_association_mapper.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "cb14263de51c8497d8cb3e998635c4ac709f549e",
+      "foundation_lines": 74,
+      "final_blob": "cb14263de51c8497d8cb3e998635c4ac709f549e",
+      "final_additions": 74,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "35b2eee5d0a74b27ea6c404a41015319822750cc",
+      "foundation_lines": 169,
+      "final_blob": "35b2eee5d0a74b27ea6c404a41015319822750cc",
+      "final_additions": 169,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "c093035b7d938f3e76d45e004c388719df6b1755",
+          "subject": "audio: build the engine thread file executor separately",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/EngineFileWorker.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "937d2d443abdfacd5f80540fed7b1917556485bb",
+      "foundation_lines": 38,
+      "final_blob": "937d2d443abdfacd5f80540fed7b1917556485bb",
+      "final_additions": 38,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "bbd211e3abbcc8697d6662c3c669b10391e4f8c9",
+      "foundation_lines": 83,
+      "final_blob": "bbd211e3abbcc8697d6662c3c669b10391e4f8c9",
+      "final_additions": 83,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "78c87116cdb163bda1b500166b6bac45e825fae1",
+      "foundation_lines": 39,
+      "final_blob": "78c87116cdb163bda1b500166b6bac45e825fae1",
+      "final_additions": 39,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "01bcc9f5fccda11918e7b7612eb154aaa5c739b9",
+      "foundation_lines": 152,
+      "final_blob": "01bcc9f5fccda11918e7b7612eb154aaa5c739b9",
+      "final_additions": 152,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+      "group": 4,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "52741bc8f7961641e4b00e5abefff5f9c515d587",
+      "foundation_lines": 64,
+      "final_blob": "52741bc8f7961641e4b00e5abefff5f9c515d587",
+      "final_additions": 64,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-protocol/file_protocol.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "a9883932fa62069b841c43d1886188ce1cb6bf12",
+      "foundation_lines": 89,
+      "final_blob": "a9883932fa62069b841c43d1886188ce1cb6bf12",
+      "final_additions": 89,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-protocol/file_protocol.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "7626c0f37dd17cd59b61f51f9a124264909c717b",
+      "foundation_lines": 46,
+      "final_blob": "7626c0f37dd17cd59b61f51f9a124264909c717b",
+      "final_additions": 46,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/file_tokens.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "1ed5f5b6a11b1b005338b12a62b5f4c187c63c6f",
+      "foundation_lines": 60,
+      "final_blob": "1ed5f5b6a11b1b005338b12a62b5f4c187c63c6f",
+      "final_additions": 60,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/file_tokens.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "fe039c63320bf4e0980fa9b2572b3e82b4206156",
+      "foundation_lines": 45,
+      "final_blob": "fe039c63320bf4e0980fa9b2572b3e82b4206156",
+      "final_additions": 45,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/reply_transaction.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "bba02b920f9ddc90cdd129cf0179f167e0cb3516",
+      "foundation_lines": 79,
+      "final_blob": "bba02b920f9ddc90cdd129cf0179f167e0cb3516",
+      "final_additions": 79,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/reply_transaction.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "2db4889d6fe857779798327722225b642a7ac7ce",
+      "foundation_lines": 37,
+      "final_blob": "2db4889d6fe857779798327722225b642a7ac7ce",
+      "final_additions": 37,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-services/selected_services.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "bf1d8df2a0193d5727c12397b75998b68aa684f5",
+      "foundation_lines": 51,
+      "final_blob": "bf1d8df2a0193d5727c12397b75998b68aa684f5",
+      "final_additions": 51,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/file-services/selected_services.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "24d270673263c53e6a438e11adad27ca456547fa",
+      "foundation_lines": 16,
+      "final_blob": "24d270673263c53e6a438e11adad27ca456547fa",
+      "final_additions": 16,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host-context/call_context.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "828686417e5872bc81963dadbb56edc0fe050e46",
+      "foundation_lines": 30,
+      "final_blob": "828686417e5872bc81963dadbb56edc0fe050e46",
+      "final_additions": 30,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host-context/call_context.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "3073dab0bdf597709ae864d71c7ce7b77bebbc58",
+      "foundation_lines": 26,
+      "final_blob": "3073dab0bdf597709ae864d71c7ce7b77bebbc58",
+      "final_additions": 26,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+      "group": 5,
+      "foundation_revision": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+      "foundation_blob": "8a36154d634f20cb4d0aaa169581b524229c37ff",
+      "foundation_lines": 192,
+      "final_blob": "8a36154d634f20cb4d0aaa169581b524229c37ff",
+      "final_additions": 192,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+          "subject": "audio: forbid destruction of the process-owned callback runtime",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+      "group": 5,
+      "foundation_revision": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+      "foundation_blob": "38323085492ca96e65264ffcf3cb3fb4cb35498d",
+      "foundation_lines": 51,
+      "final_blob": "38323085492ca96e65264ffcf3cb3fb4cb35498d",
+      "final_additions": 51,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+          "subject": "audio: forbid destruction of the process-owned callback runtime",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_install.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "fd2e9d51256090ac8b9d6933ba7de19f82c37592",
+      "foundation_lines": 28,
+      "final_blob": "fd2e9d51256090ac8b9d6933ba7de19f82c37592",
+      "final_additions": 28,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "f96fd60235c819badb832ef258eeef7d6a2ab564",
+      "foundation_lines": 56,
+      "final_blob": "f96fd60235c819badb832ef258eeef7d6a2ab564",
+      "final_additions": 56,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/host/host.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "89e9086bbeb627050f5011203afc27503ffb6244",
+      "foundation_lines": 128,
+      "final_blob": "4f25609bb261de47636979d0569a49b5227e9445",
+      "final_additions": 141,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "36ddb906781217abb296f9319c48a65384ba93ca",
+          "subject": "audio: accept relative paths for the original Miles module",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "a68ceb4280ca59af5317f3ad5c6de8a3e0a87314",
+          "subject": "audio: use normal I/O segments for live Miles commands",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "36ddb906781217abb296f9319c48a65384ba93ca",
+          "subject": "audio: accept relative paths for the original Miles module",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "a68ceb4280ca59af5317f3ad5c6de8a3e0a87314",
+          "subject": "audio: use normal I/O segments for live Miles commands",
+          "package": "miles-game-selection"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/image/upload_policy.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "f852fa896054cdcdef622a5ea7f5b09f77ccc4b8",
+      "foundation_lines": 27,
+      "final_blob": "f852fa896054cdcdef622a5ea7f5b09f77ccc4b8",
+      "final_additions": 27,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/metadata/metadata.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "2ebcb2c068835bd6c7b45c6b1b6bbde5ecbec82e",
+      "foundation_lines": 37,
+      "final_blob": "2ebcb2c068835bd6c7b45c6b1b6bbde5ecbec82e",
+      "final_additions": 37,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/metadata/metadata_host.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "77fb087812ea2c1bbd4d1296afde8ea3a2171db8",
+      "foundation_lines": 43,
+      "final_blob": "77fb087812ea2c1bbd4d1296afde8ea3a2171db8",
+      "final_additions": 43,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/metadata/metadata_wire.cpp",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "d2c37336ed23577d99e83ab20eaf614bd5532e7b",
+      "foundation_lines": 57,
+      "final_blob": "d2c37336ed23577d99e83ab20eaf614bd5532e7b",
+      "final_additions": 57,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/protocol/miles_wire.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "8fc5e80f6d4b05858f3030f2dca7e75a4a021ad5",
+      "foundation_lines": 105,
+      "final_blob": "3c19325f9bb822d4aedccbd0a361cc7587a94534",
+      "final_additions": 111,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/protocol/pair_outputs.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "d22dcb0577020b257996ab94bfd7ffc2e13c905e",
+      "foundation_lines": 22,
+      "final_blob": "d22dcb0577020b257996ab94bfd7ffc2e13c905e",
+      "final_additions": 22,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/transport/endpoint.cpp",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "173858111e8e810c4660d2a4add4be449b67d817",
+      "foundation_lines": 118,
+      "final_blob": "173858111e8e810c4660d2a4add4be449b67d817",
+      "final_additions": 118,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/transport/endpoint.h",
+      "group": 3,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "f3cd1f6419d71912ac113b063910c9ccf540b05d",
+      "foundation_lines": 59,
+      "final_blob": "f3cd1f6419d71912ac113b063910c9ccf540b05d",
+      "final_additions": 59,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/upload/upload_state.h",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "68a99a4b8b36622a41bf91d84035638c33f4c45f",
+      "foundation_lines": 189,
+      "final_blob": "68a99a4b8b36622a41bf91d84035638c33f4c45f",
+      "final_additions": 189,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version.cpp",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "4709ce20de73f7dfd66862fe5ecb47927f94b471",
+      "foundation_lines": 27,
+      "final_blob": "4709ce20de73f7dfd66862fe5ecb47927f94b471",
+      "final_additions": 27,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "497d7f89a46d807e5269b2e491cfbfd6c4a8bf33",
+      "foundation_lines": 12,
+      "final_blob": "497d7f89a46d807e5269b2e491cfbfd6c4a8bf33",
+      "final_additions": 12,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version_host.cpp",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "53b233ddf1a7fcda4228676138a72ff00caeff88",
+      "foundation_lines": 39,
+      "final_blob": "53b233ddf1a7fcda4228676138a72ff00caeff88",
+      "final_additions": 39,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version_host.h",
+      "group": 5,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "7fc37e96ebf725e91b34c8f5adaec0d2d1289bb1",
+      "foundation_lines": 9,
+      "final_blob": "7fc37e96ebf725e91b34c8f5adaec0d2d1289bb1",
+      "final_additions": 9,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/codec.cpp",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "2d50d2d6d675705b990decef5e79dad0a8a6f5ab",
+      "foundation_lines": 265,
+      "final_blob": "3f304bc2b3d46e16de0566685c24359d4d7e4eb5",
+      "final_additions": 267,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/codec.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "fa14d1be7aec2150b9036bac350d02afdfd23524",
+      "foundation_lines": 26,
+      "final_blob": "fa14d1be7aec2150b9036bac350d02afdfd23524",
+      "final_additions": 26,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        }
+      ],
+      "deferred_component_deltas": []
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/resource_registry.h",
+      "group": 1,
+      "foundation_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "foundation_blob": "4adeb084b06837c7d9d1d0f132cf3bc7498ace01",
+      "foundation_lines": 233,
+      "final_blob": "2365fc603c0c9b66bec32349038d18ae093020a7",
+      "final_additions": 233,
+      "final_deletions": 0,
+      "origin_commits": [
+        {
+          "sha": "9b3154d3be3ad133d3dd0f948d76d86e7497d59c",
+          "subject": "audio: consolidate Miles adapters into buildable development targets",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ],
+      "deferred_component_deltas": [
+        {
+          "sha": "ed84ba12a2af6580fc0f6b10e0e43d0c724dfdd0",
+          "subject": "video: carry native Bink commands and frames through the private Miles session",
+          "package": "bink-host-session"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "path": "tools/miles-bridge/tests/engine_worker_context.cpp",
+      "group": 4,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "6151c35de93d36c019a93ca8dbc0bc6fd3bd602d",
+      "origin_commits": [
+        {
+          "sha": "5252ff6e5c83d51b0099e0b1b043f27455c8c23c",
+          "subject": "test: exercise Miles reverse files on the real engine worker",
+          "package": "miles-session-core"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/tests/engine_worker_context.h",
+      "group": 4,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ba6f1057bf8980dbb154553f5a8bdc151bffe910",
+      "origin_commits": [
+        {
+          "sha": "5252ff6e5c83d51b0099e0b1b043f27455c8c23c",
+          "subject": "test: exercise Miles reverse files on the real engine worker",
+          "package": "miles-session-core"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/tests/eos_protocol.cpp",
+      "group": 1,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "e698572ce1be594157299c12616b766b9ea540bd",
+      "origin_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/tests/lock_admission.cpp",
+      "group": 4,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "07137ad06f088f85924fefb11760bdc49df086f4",
+      "origin_commits": [
+        {
+          "sha": "6bd957fcfdbe3c7c89af5c490be88a873f02fbfe",
+          "subject": "audio: carry nested Miles locks through bridge admission",
+          "package": "miles-session-core"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/tests/pipe_lock_probe.cpp",
+      "group": 6,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2ada5c765fac8bdd0c5821fd372ab6f599cdc548",
+      "origin_commits": [
+        {
+          "sha": "49ab54a9c07c51b0f06b847cb1f372db21420cd2",
+          "subject": "audio: isolate bridge synchronization from the engine allocator",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "5252ff6e5c83d51b0099e0b1b043f27455c8c23c",
+          "subject": "test: exercise Miles reverse files on the real engine worker",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+          "subject": "audio: join the Miles bridge after paired SDK shutdown",
+          "package": "miles-session-core"
+        }
+      ]
+    },
+    {
+      "path": "tools/miles-bridge/tests/upload_binding.cpp",
+      "group": 5,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ce32ea83670818cc0b075a3f5b18992351b83f65",
+      "origin_commits": [
+        {
+          "sha": "60b719bc5d83e7b31a4d4389676f671b12eaae2f",
+          "subject": "audio: bind uploaded sample images through the Miles host",
+          "package": "miles-session-core"
+        }
+      ]
+    }
+  ],
+  "build_and_docs": [
+    {
+      "path": "tools/miles-bridge/build.py",
+      "group": 7,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "3495806e9b9c1bdbe326aec9680270c6264c35a1",
+      "rule": "Whole pre-selection core blob; later game/Bink/release component deltas remain with their existing integration packages."
+    },
+    {
+      "path": "tools/miles-bridge/sources.json",
+      "group": 7,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "fb0c71709f6d0ee37500b0f1d4739be953209626",
+      "rule": "Whole pre-selection core blob; later game/Bink/release component deltas remain with their existing integration packages."
+    },
+    {
+      "path": "tools/miles-bridge/README.md",
+      "group": 7,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "da0c8e4f4a859bbc741f24686e957450ec11120b",
+      "rule": "Whole pre-selection core blob; later game/Bink/release component deltas remain with their existing integration packages."
+    },
+    {
+      "path": "tools/miles-bridge/.gitignore",
+      "group": 7,
+      "revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "8cbfc39fca06911af326b4e8ff6870f144699c31",
+      "rule": "Whole pre-selection core blob; later game/Bink/release component deltas remain with their existing integration packages."
+    }
+  ],
+  "shared_file_deltas": [
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+      "group": 7,
+      "component_only_commits": [
+        {
+          "sha": "4f15b029a8f2d99426f096431f649017168c5a6b",
+          "subject": "audio: separate admitted file callbacks from legacy TLS setup",
+          "package": "miles-session-core"
+        },
+        {
+          "sha": "5c31706581bc93679300bde212d6c9a69cd95690",
+          "subject": "audio: add an isolated facade compile for the real Audio source",
+          "package": "miles-session-core"
+        }
+      ],
+      "rule": "Extract only listed commit path deltas; retain preceding non-core changes with their existing packages. Do not copy the final whole file."
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj",
+      "group": 7,
+      "component_only_commits": [
+        {
+          "sha": "4f15b029a8f2d99426f096431f649017168c5a6b",
+          "subject": "audio: separate admitted file callbacks from legacy TLS setup",
+          "package": "miles-session-core"
+        }
+      ],
+      "rule": "Extract only listed commit path deltas; retain preceding non-core changes with their existing packages. Do not copy the final whole file."
+    },
+    {
+      "path": ".github/workflows/wire-compatibility.yml",
+      "group": 1,
+      "component_only_commits": [
+        {
+          "sha": "892343c92b705f5963a3a9417d804140eaaccd74",
+          "subject": "audio: deliver typed Miles completion callbacks through the bridge",
+          "package": "miles-session-core"
+        }
+      ],
+      "rule": "Extract only listed commit path deltas; retain preceding non-core changes with their existing packages. Do not copy the final whole file."
+    }
+  ],
+  "include_analysis": {
+    "method": "Parse direct quoted/angle includes at each foundation revision, resolve relative source paths, then Tarjan SCC. Header/source families fold identical basename stems; external includes recorded separately. Static include analysis is not linker or runtime proof.",
+    "direct_source_edges": [
+      {
+        "from": "tools/miles-bridge/src/admission/coordinator.cpp",
+        "to": "tools/miles-bridge/src/admission/coordinator.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/admission/coordinator.h",
+        "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_callbacks70.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_callbacks70.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_callbacks70.cpp",
+        "to": "tools/miles-bridge/src/api/native/native_types70.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_calls60.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_calls60.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_calls60.cpp",
+        "to": "tools/miles-bridge/src/api/native/native_types70.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_file_setter67.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_file_setter67.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_startup_calls.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+        "to": "tools/miles-bridge/src/api/native/native_types70.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/Channel.h",
+        "to": "tools/miles-bridge/src/backend/reply.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+        "to": "tools/miles-bridge/src/api/pipe/PipeCore.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+        "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+        "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "to": "tools/miles-bridge/src/api/pipe/LiveChannel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "to": "tools/miles-bridge/src/bootstrap/common.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "to": "tools/miles-bridge/src/file-protocol/file_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "to": "tools/miles-bridge/src/image/upload_policy.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+        "to": "tools/miles-bridge/src/api/pipe/Channel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+        "to": "tools/miles-bridge/src/api/pipe/Session.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "to": "tools/miles-bridge/src/api/pipe/Session.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "to": "tools/miles-bridge/src/protocol/pair_outputs.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "to": "tools/miles-bridge/src/image/upload_policy.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/Session.h",
+        "to": "tools/miles-bridge/src/api/pipe/PipeCore.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/Session.h",
+        "to": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/Session.h",
+        "to": "tools/miles-bridge/src/api/pipe/Channel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/Session.h",
+        "to": "tools/miles-bridge/src/client-runtime/client_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_callbacks.cpp",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_callbacks.cpp",
+        "to": "tools/miles-bridge/src/api/private/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_callbacks.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_callbacks70.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_file_setter.cpp",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_file_setter.cpp",
+        "to": "tools/miles-bridge/src/api/private/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_file_setter.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_file_setter67.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_operations.cpp",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_operations.cpp",
+        "to": "tools/miles-bridge/src/api/private/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_operations.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_calls60.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_startup.cpp",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_startup.cpp",
+        "to": "tools/miles-bridge/src/api/private/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_startup.cpp",
+        "to": "tools/miles-bridge/src/api/private/native_startup_calls.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/failure_boundary.cpp",
+        "to": "tools/miles-bridge/src/api/private/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/native_callbacks70.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/native_calls60.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/native_file_setter67.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/native_startup_calls.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "to": "tools/miles-bridge/src/dispatch/registry_resolver.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "to": "tools/miles-bridge/src/version/session_version_host.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "to": "tools/miles-bridge/src/backend/reply.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "to": "tools/miles-bridge/src/upload/upload_state.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "to": "tools/miles-bridge/src/eos/host_eos.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/reply.h",
+        "to": "tools/miles-bridge/src/version/session_version.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/reply.h",
+        "to": "tools/miles-bridge/src/metadata/metadata.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "to": "tools/miles-bridge/src/transport/endpoint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/buffer/buffer_upload.cpp",
+        "to": "tools/miles-bridge/src/buffer/buffer_upload.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/callback-guard/invocation_guard.cpp",
+        "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "to": "tools/miles-bridge/src/client-runtime/client_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "to": "tools/miles-bridge/src/eos/client_eos.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "to": "tools/miles-bridge/src/eos/eos_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+        "to": "tools/miles-bridge/src/transport/endpoint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+        "to": "tools/miles-bridge/src/file-services/selected_services.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+        "to": "tools/miles-bridge/src/file-control/host_association_mapper.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dev/AudioSelection.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dev/AudioSelection.h",
+        "to": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dev/AudioSelection.h",
+        "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+        "to": "tools/miles-bridge/src/dispatch/host_dispatch.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+        "to": "tools/miles-bridge/src/protocol/pair_outputs.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/host_dispatch.h",
+        "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/registry_resolver.h",
+        "to": "tools/miles-bridge/src/dispatch/host_dispatch.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/registry_resolver.h",
+        "to": "tools/miles-bridge/src/wire/resource_registry.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+        "to": "tools/miles-bridge/src/eos/client_eos.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+        "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.h",
+        "to": "tools/miles-bridge/src/file-executor/EngineFileWorker.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/eos_protocol.cpp",
+        "to": "tools/miles-bridge/src/eos/eos_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/eos_protocol.h",
+        "to": "tools/miles-bridge/src/wire/codec.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/host_eos.cpp",
+        "to": "tools/miles-bridge/src/eos/host_eos.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/host_eos.cpp",
+        "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/host_eos.h",
+        "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/failure/failure_boundary.cpp",
+        "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-callbacks/ClientMilesFileCallbacks.h",
+        "to": "tools/miles-bridge/src/api/ClientMiles.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+        "to": "tools/miles-bridge/src/file-channel/file_channel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+        "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.h",
+        "to": "tools/miles-bridge/src/audio-callbacks/ClientAudioFileCallbacks.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.h",
+        "to": "tools/miles-bridge/src/wire/codec.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-control/host_association_mapper.cpp",
+        "to": "tools/miles-bridge/src/file-control/host_association_mapper.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-control/host_association_mapper.h",
+        "to": "tools/miles-bridge/src/file-owner/session_file_owner.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-control/host_association_mapper.h",
+        "to": "tools/miles-bridge/src/file-protocol/file_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "to": "tools/miles-bridge/src/file-executor/EngineFileWorker.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+        "to": "tools/miles-bridge/src/file-executor/FileInvocationJob.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+        "to": "tools/miles-bridge/src/file-executor/EngineFileWorker.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+        "to": "tools/miles-bridge/src/file-channel/file_channel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+        "to": "tools/miles-bridge/src/file-owner/session_file_owner.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+        "to": "tools/miles-bridge/src/admission/coordinator.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+        "to": "tools/miles-bridge/src/file-executor/FileInvocationJob.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-protocol/file_protocol.cpp",
+        "to": "tools/miles-bridge/src/file-protocol/file_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-protocol/file_protocol.h",
+        "to": "tools/miles-bridge/src/file-channel/file_channel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/file_tokens.cpp",
+        "to": "tools/miles-bridge/src/file-replies/file_tokens.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/file_tokens.h",
+        "to": "tools/miles-bridge/src/wire/resource_registry.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/reply_transaction.cpp",
+        "to": "tools/miles-bridge/src/file-replies/reply_transaction.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/reply_transaction.h",
+        "to": "tools/miles-bridge/src/file-replies/file_tokens.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/reply_transaction.h",
+        "to": "tools/miles-bridge/src/file-protocol/file_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-services/selected_services.cpp",
+        "to": "tools/miles-bridge/src/file-services/selected_services.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-services/selected_services.h",
+        "to": "tools/miles-bridge/src/file-callbacks/ClientMilesFileCallbacks.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-services/selected_services.h",
+        "to": "tools/miles-bridge/src/file-channel/file_channel.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-context/call_context.cpp",
+        "to": "tools/miles-bridge/src/host-context/call_context.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+        "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+        "to": "tools/miles-bridge/src/eos/eos_protocol.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+        "to": "tools/miles-bridge/src/transport/endpoint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+        "to": "tools/miles-bridge/src/file-replies/reply_transaction.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+        "to": "tools/miles-bridge/src/host-context/call_context.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_install.cpp",
+        "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+        "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host/host.cpp",
+        "to": "tools/miles-bridge/src/bootstrap/common.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host/host.cpp",
+        "to": "tools/miles-bridge/src/admission/coordinator.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host/host.cpp",
+        "to": "tools/miles-bridge/src/backend/backend.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host/host.cpp",
+        "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host/host.cpp",
+        "to": "tools/miles-bridge/src/eos/host_eos.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/image/upload_policy.h",
+        "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata.h",
+        "to": "tools/miles-bridge/src/dispatch/host_dispatch.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata.h",
+        "to": "tools/miles-bridge/src/wire/codec.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata_host.cpp",
+        "to": "tools/miles-bridge/src/metadata/metadata.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata_wire.cpp",
+        "to": "tools/miles-bridge/src/metadata/metadata.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.cpp",
+        "to": "tools/miles-bridge/src/transport/endpoint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.h",
+        "to": "tools/miles-bridge/src/wire/codec.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/upload/upload_state.h",
+        "to": "tools/miles-bridge/src/backend/reply.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/upload/upload_state.h",
+        "to": "tools/miles-bridge/src/buffer/buffer_upload.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/upload/upload_state.h",
+        "to": "tools/miles-bridge/src/image/upload_policy.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/version/session_version.cpp",
+        "to": "tools/miles-bridge/src/version/session_version.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/version/session_version.h",
+        "to": "tools/miles-bridge/src/wire/codec.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/version/session_version_host.cpp",
+        "to": "tools/miles-bridge/src/version/session_version_host.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/version/session_version_host.h",
+        "to": "tools/miles-bridge/src/version/session_version.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/wire/codec.cpp",
+        "to": "tools/miles-bridge/src/wire/codec.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/wire/codec.h",
+        "to": "tools/miles-bridge/src/wire/resource_registry.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/wire/resource_registry.h",
+        "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+      }
+    ],
+    "external_includes": [
+      {
+        "from": "src/engine/client/library/clientAudio/src/win32/AudioFileCallbacks.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/admission/coordinator.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/admission/coordinator.h",
+        "include": "map"
+      },
+      {
+        "from": "tools/miles-bridge/src/admission/coordinator.h",
+        "include": "vector"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/ClientMiles.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_callbacks70.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_calls60.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_calls60.cpp",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_file_setter67.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_file_setter67.cpp",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+        "include": "windows.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/native/native_types70.h",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+        "include": "limits"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "include": "list"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+        "include": "limits"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.h",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/PipeCore.h",
+        "include": "string"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/pipe/Session.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_callbacks.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_file_setter.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_operations.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_startup.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_startup.cpp",
+        "include": "list"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/plain_startup.cpp",
+        "include": "string"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/failure_boundary.cpp",
+        "include": "cstdlib"
+      },
+      {
+        "from": "tools/miles-bridge/src/api/private/failure_boundary.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/audio-callbacks/ClientAudioFileCallbacks.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/backend.h",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/reply.h",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/backend/reply.h",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "include": "sddl.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "include": "wincrypt.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "include": "cstdio"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "include": "string"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/bootstrap/common.h",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/buffer/buffer_upload.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/buffer/buffer_upload.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/buffer/buffer_upload.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/buffer/buffer_upload.h",
+        "include": "stddef.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/buffer/buffer_upload.h",
+        "include": "vector"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "include": "process.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+        "include": "new"
+      },
+      {
+        "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+        "include": "string.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+        "include": "windows.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+        "include": "cstdlib"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/client_eos.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/host_eos.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/eos/host_eos.cpp",
+        "include": "list"
+      },
+      {
+        "from": "tools/miles-bridge/src/failure/failure_boundary.cpp",
+        "include": "cstdlib"
+      },
+      {
+        "from": "tools/miles-bridge/src/failure/failure_boundary.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+        "include": "limits"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-channel/file_channel.h",
+        "include": "string"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-control/host_association_mapper.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "include": "sharedFoundation/FirstSharedFoundation.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "include": "sharedSynchronization/Gate.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "include": "sharedSynchronization/Mutex.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "include": "string"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "include": "sharedThread/Thread.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+        "include": "stdlib.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+        "include": "windows.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+        "include": "cstdlib"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+        "include": "new"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+        "include": "vector"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/file_tokens.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/reply_transaction.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-replies/reply_transaction.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-services/selected_services.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/file-services/selected_services.cpp",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-context/call_context.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+        "include": "limits"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_install.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+        "include": "type_traits"
+      },
+      {
+        "from": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/host/host.cpp",
+        "include": "limits"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata.h",
+        "include": "vector"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata.h",
+        "include": "list"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata_host.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata_host.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata_wire.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/metadata/metadata_wire.cpp",
+        "include": "limits"
+      },
+      {
+        "from": "tools/miles-bridge/src/protocol/miles_wire.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/protocol/miles_wire.h",
+        "include": "stddef.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/protocol/pair_outputs.h",
+        "include": "stdint.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.cpp",
+        "include": "algorithm"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.cpp",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.cpp",
+        "include": "cstring"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.cpp",
+        "include": "exception"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.h",
+        "include": "windows.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/transport/endpoint.h",
+        "include": "vector"
+      },
+      {
+        "from": "tools/miles-bridge/src/upload/upload_state.h",
+        "include": "memory"
+      },
+      {
+        "from": "tools/miles-bridge/src/upload/upload_state.h",
+        "include": "list"
+      },
+      {
+        "from": "tools/miles-bridge/src/version/session_version_host.cpp",
+        "include": "windows.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/version/session_version_host.cpp",
+        "include": "Mss.h"
+      },
+      {
+        "from": "tools/miles-bridge/src/wire/resource_registry.h",
+        "include": "stdexcept"
+      },
+      {
+        "from": "tools/miles-bridge/src/wire/resource_registry.h",
+        "include": "vector"
+      }
+    ],
+    "file_sccs": [],
+    "header_implementation_family_sccs": [
+      [
+        "tools/miles-bridge/src/api/pipe/PipeCore",
+        "tools/miles-bridge/src/api/pipe/Session"
+      ]
+    ]
+  },
+  "coupling_notes": [
+    {
+      "group": 6,
+      "members": [
+        "api/pipe/PipeCore.cpp",
+        "api/pipe/PipeCore.h",
+        "api/pipe/Session.h",
+        "api/pipe/ScopedSourceImage.h"
+      ],
+      "reason": "PipeCore.cpp implements both Session and ScopedSourceImage. Folding implementation/header families produces the PipeCore/Session SCC; declarations alone have no include cycle. Keep private session state and implementation together."
+    },
+    {
+      "group": 5,
+      "members": [
+        "host-runtime/host_file_runtime.cpp",
+        "host-runtime/host_file_runtime.h",
+        "host-runtime/host_install.cpp",
+        "host-runtime/host_sdk_callbacks.cpp",
+        "eos/host_eos.cpp"
+      ],
+      "reason": "SDK callback trampolines, admitted install and reverse runtime share ownership and callback lifetime; keep this semantic/link closure together. Not claimed as an include SCC."
+    },
+    {
+      "group": 4,
+      "members": [
+        "file-executor/EngineFileWorker.cpp",
+        "file-executor/FileInvocationJob.cpp",
+        "file-owner/session_file_owner.cpp",
+        "file-control/host_association_mapper.cpp",
+        "client-runtime/client_file_runtime.cpp",
+        "eos/client_eos.cpp"
+      ],
+      "reason": "Worker admission and paired file/EOS completion consume the same callback ownership chain; internal includes are directed rather than a forced SCC. This is a review-cohesion choice, not proof that finer subdivision is impossible."
+    }
+  ],
+  "assembly": {
+    "strategy": "Stack groups 1 through 7; materialize exact listed foundation blobs, tests, and component-only deltas. Broad original commits mix modules and must not be cherry-picked wholesale into an early group. Each new-file blob is reused byte-for-byte, with no stub or redesign.",
+    "backend_selection": "No new game backend selection in groups 1-7. Preserve b41abddac/967076aae/0458501d2 and following game-selection changes for their existing package, then Bink packages and release-build deltas in original order.",
+    "completion": "Replay per-file deferred component deltas in original ancestry order, preserving all recorded final blob IDs. This is a future assembly invariant; no assembly or test run was performed here.",
+    "build": "Stage the unchanged pre-selection build.py and sources.json only in group 7, after all referenced sources/tests exist; do not invent truncated runners. The native facade and host/pipe outputs are separate targets; engine-worker uses real engine headers/settings.",
+    "ci": "The original EOS protocol workflow hunk can accompany group 1 only on a base already carrying the existing wire workflow. Otherwise defer that exact hunk until the workflow prerequisite is present; source/test introduction is independent."
+  },
+  "limits": [
+    "Existing integrated evidence remains historical; split foundations have not been individually built or runtime-qualified.",
+    "No claim of callback fidelity, heap safety, shutdown acceptance or independently enabled functionality is added.",
+    "Private SDK and engine configuration requirements concern compiling the host/native/worker targets, not permission to introduce dormant foundation sources.",
+    "This addendum supersedes only the parent Miles-core grouping; later Miles game selection, Bink and release integration packages retain their scope."
+  ]
+}

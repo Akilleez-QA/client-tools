@@ -1,15 +1,11 @@
 # Server Windows network width package
 
-Fork branch `review-ready/server-network-widths` at `43249ae00b0599a4560191917256b9cbb259ce0f`, based on submitted helper PR37 `1481143ca4f033ef979faff52a4d03bb8d636292`. Three source-only commits, five files, +9/−6:
+[Fork draft PR #1](https://github.com/Akilleez-QA/src/pull/1) contains the networking changes above the combined prerequisites from submitted upstream helper PR #37 and workflow PR #38. Base `09932a32c9949bd40e8e4dbb22e1a7027944eb21`; head `9d44e3a1da7b96de41ff864c121dbc60d0c45c5e`. Six production files, +18/−6; four test/workflow files, +334. The displayed diff excludes both prerequisites. No upstream network PR has been opened.
 
-- `a4ea7a1923312cb8c1710578acd1a76669f85362`: Windows socket declarations and member storage.
-- `48569551fb4633328b6deeb2c20512218d6c60ad`: TCP server completion-key output.
-- `43249ae00b0599a4560191917256b9cbb259ce0f`: TCP client completion-key output.
+The socket/key repairs retain full-width Windows handles and IOCP keys while keeping status and byte counts at their existing widths. A separate +9-line common-header fix selects Winsock 2 in the networking library before foundation can import Winsock 1.1. Root inspected this sequence against Microsoft's documented Windows/Winsock include convention. Linux, wire formats and LP64 PR #35 are outside these source edits.
 
-The diff matches the three corresponding client fixes and omits unrelated integration-branch clock changes. Root and an independent source reviewer checked that `INVALID_SOCKET` remains the full-width handle sentinel, `SOCK_ERROR` remains an operation-result constant, completion keys use `ULONG_PTR`, and transferred-byte counts stay 32-bit. Shared `Sock.h` matches the client; other implementation files have pre-existing differences. Linux branches, wire formats and LP64 PR35 are outside this delta.
+[Windows compilation passed 20/20](hosted-36835813460/RESULTS.md) at the source/test head `7f5182d6`. Merging the already-qualified workflow prerequisite changed only compile-src.yml. The [exact submission head rerun](https://github.com/Akilleez-QA/src/actions/runs/36836351608) also passed 20/20; root checked all outcomes and matched all 7,929 tracked input hashes, allowing only Git Windows newline conversion. [Exact-head summary and raw logs](hosted-36836351608/RESULTS.md).
 
-**Publication state: fork source branch; no upstream PR.** This exact server candidate has no Windows compile/runtime result. Client results support the API-width rationale but do not establish that these server TUs compile. The server uses CMake and has no client `sharedNetwork.vcxproj`; copying the client runner would be incorrect. The next qualification is a bounded compile of real server Sock/TcpClient/TcpServer TUs with their own public headers/build definitions, plus deliberate key-reversion controls. It does not require another full-game acceptance run.
+The [initial failed 4/20 run](hosted-36834837153/RESULTS.md) remains preserved. The subsequent header and classifier fixes are separate commits. These tests compile genuine Sock/TcpClient/TcpServer TUs and reverted-key controls using the server's CMake-derived settings and SDK. They do not link or run a Windows server, exercise traffic or verify IOCP lifecycle.
 
-The inherited server full-build workflow has a known clone-path defect addressed separately by upstream PR38. Opening this draft on the old workflow would produce a known unrelated CI failure; keep it as a fork review branch until the workflow/dependency and exact Windows qualification are reconciled. Existing published helper history is unchanged.
-
-[Proposed description](PR.md), [exact source identities](source-receipt.json), [source diff](https://github.com/Akilleez-QA/src/compare/1481143ca4f033ef979faff52a4d03bb8d636292...43249ae00b0599a4560191917256b9cbb259ce0f).
+[PR description](PR.md), [GitHub submission receipt](submission.json). The earlier source-only receipt remains historical evidence for commit `43249ae0`.
