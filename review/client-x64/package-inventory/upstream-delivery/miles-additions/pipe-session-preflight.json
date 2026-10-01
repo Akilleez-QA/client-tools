@@ -1,0 +1,33 @@
+{
+  "name": "client-miles-pipe-session",
+  "fork_pr": 10,
+  "branch": "submit/client-miles-pipe-session",
+  "head": "d4aa214f42320bababb1b14b39b61e5c09a0acc4",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "reviewed_base": "7bedd5e2f9778e891c29c2bae0eb4092ab6ede4e",
+  "reviewed_head": "3430934cedf230e7c5c2a77ae8b9e6f607fb1fe8",
+  "source_diff_identical": true,
+  "introduced_blobs": {
+    "tools/miles-bridge/src/api/pipe/Channel.h": "7a2d4a31c1282efcad147801ab7eed5a8d1ab416",
+    "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp": "f97901326790cf38f0d0d420f548040c402ac6f1",
+    "tools/miles-bridge/src/api/pipe/LiveChannel.cpp": "afdbb7c889c8f465a7238eebf4478cd5a98037bd",
+    "tools/miles-bridge/src/api/pipe/LiveChannel.h": "593eea9435c66940a44d99eb59321bf0bb756e78",
+    "tools/miles-bridge/src/api/pipe/PipeCore.cpp": "bddf190b2814bc9d6d16cbd6ead0a4b8416d48e9",
+    "tools/miles-bridge/src/api/pipe/PipeCore.h": "ff49458d8798d353fb6f5f8b15f9f5112fca1f68",
+    "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h": "3099d336366e68386ad066e72858a99c52a64309",
+    "tools/miles-bridge/src/api/pipe/Session.h": "e53af35111310d81f322c1ce2de3d0085f17fe53",
+    "tools/miles-bridge/src/dev/AudioSelection.h": "2b258888e34d0d1b36fb738a23f2c39fb3878753",
+    "tools/miles-bridge/src/failure/failure_boundary.cpp": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+    "tools/miles-bridge/src/failure/failure_boundary.h": "db6327c19295f77ce54e7976c76a37927037ddc3",
+    "tools/miles-bridge/tests/pipe_lock_probe.cpp": "2ada5c765fac8bdd0c5821fd372ab6f599cdc548"
+  },
+  "files": 12,
+  "additions": 2158,
+  "deletions": 0,
+  "commits": [
+    "d4aa214f42320bababb1b14b39b61e5c09a0acc4"
+  ],
+  "title": "Add the Miles pipe facade and session composition",
+  "draft": true,
+  "checks": "Exact patch/blob identity and later composed-tree identity; no new build/runtime claim."
+}

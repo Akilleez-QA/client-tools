@@ -1,0 +1,38 @@
+{
+  "name": "client-miles-client-callbacks",
+  "fork_pr": 8,
+  "branch": "submit/client-miles-client-callbacks",
+  "head": "db99b70fde136922af945586cfee97befa17c7ce",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "reviewed_base": "9ef7a2c7dd99f8cdb7d351ee80704628aa53aa70",
+  "reviewed_head": "97dc8c1f9289fadf8f044dd07f07db7d57c95094",
+  "source_diff_identical": true,
+  "introduced_blobs": {
+    "tools/miles-bridge/src/admission/coordinator.cpp": "ce5f824d4cd56a65c426935e26834855d2677b06",
+    "tools/miles-bridge/src/admission/coordinator.h": "70c12f802dcaaec120a3bf25c3ffdcd45647bfa3",
+    "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp": "58edea9d7987bc771d1e0639cbb6da4dc4b47e23",
+    "tools/miles-bridge/src/client-runtime/client_file_runtime.h": "dd49a246be32d4097bfab6604a03fe13cda699e8",
+    "tools/miles-bridge/src/eos/client_eos.cpp": "5e847af464adbc99f5d212b16f154066ae0ab2ce",
+    "tools/miles-bridge/src/eos/client_eos.h": "b5130351b7b1291756cabeda70cdf52a727a673d",
+    "tools/miles-bridge/src/file-control/host_association_mapper.cpp": "e6fe86f7075c627fe8261927a9d93c7e0ed9c2fd",
+    "tools/miles-bridge/src/file-control/host_association_mapper.h": "cb14263de51c8497d8cb3e998635c4ac709f549e",
+    "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp": "35b2eee5d0a74b27ea6c404a41015319822750cc",
+    "tools/miles-bridge/src/file-executor/EngineFileWorker.h": "937d2d443abdfacd5f80540fed7b1917556485bb",
+    "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp": "bbd211e3abbcc8697d6662c3c669b10391e4f8c9",
+    "tools/miles-bridge/src/file-executor/FileInvocationJob.h": "78c87116cdb163bda1b500166b6bac45e825fae1",
+    "tools/miles-bridge/src/file-owner/session_file_owner.cpp": "01bcc9f5fccda11918e7b7612eb154aaa5c739b9",
+    "tools/miles-bridge/src/file-owner/session_file_owner.h": "52741bc8f7961641e4b00e5abefff5f9c515d587",
+    "tools/miles-bridge/tests/engine_worker_context.cpp": "6151c35de93d36c019a93ca8dbc0bc6fd3bd602d",
+    "tools/miles-bridge/tests/engine_worker_context.h": "ba6f1057bf8980dbb154553f5a8bdc151bffe910",
+    "tools/miles-bridge/tests/lock_admission.cpp": "07137ad06f088f85924fefb11760bdc49df086f4"
+  },
+  "files": 17,
+  "additions": 1798,
+  "deletions": 0,
+  "commits": [
+    "db99b70fde136922af945586cfee97befa17c7ce"
+  ],
+  "title": "Add Miles engine-worker admission and client callback ownership",
+  "draft": true,
+  "checks": "Exact patch/blob identity and later composed-tree identity; no new build/runtime claim."
+}

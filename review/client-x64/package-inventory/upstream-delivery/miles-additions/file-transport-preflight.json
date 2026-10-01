@@ -1,0 +1,41 @@
+{
+  "name": "client-miles-file-transport",
+  "fork_pr": 7,
+  "branch": "submit/client-miles-file-transport",
+  "head": "8fd7cee80e1236e3cb664d6c36f31fc5583cdb63",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "reviewed_base": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
+  "reviewed_head": "9ef7a2c7dd99f8cdb7d351ee80704628aa53aa70",
+  "source_diff_identical": true,
+  "introduced_blobs": {
+    "src/engine/client/library/clientAudio/src/win32/AudioFileCallbacks.h": "92b4205d543b17f2d9b4889999a5082a6e44aeaf",
+    "tools/miles-bridge/src/audio-callbacks/ClientAudioFileCallbacks.h": "a9f853e903e6933bbc3de926f8f32aaad1d51fda",
+    "tools/miles-bridge/src/bootstrap/common.h": "284a127dc634d5384ee0be4004464a24f6b3e021",
+    "tools/miles-bridge/src/callback-guard/invocation_guard.cpp": "ff6fde809298f361fc87e68cb2359caa8a0e17e1",
+    "tools/miles-bridge/src/callback-guard/invocation_guard.h": "34c244290b60ea08cd9902ffe38992f09545e6a7",
+    "tools/miles-bridge/src/file-callbacks/ClientMilesFileCallbacks.h": "b9678a2bd6421f414fb29486577f100f00473b44",
+    "tools/miles-bridge/src/file-channel/file_channel.cpp": "02fb4b384e1621f0583d687d0a61fb4849045d8b",
+    "tools/miles-bridge/src/file-channel/file_channel.h": "5c8eb66b8814aff43dd4a49fa570718fffae4df1",
+    "tools/miles-bridge/src/file-protocol/file_protocol.cpp": "a9883932fa62069b841c43d1886188ce1cb6bf12",
+    "tools/miles-bridge/src/file-protocol/file_protocol.h": "7626c0f37dd17cd59b61f51f9a124264909c717b",
+    "tools/miles-bridge/src/file-replies/file_tokens.cpp": "1ed5f5b6a11b1b005338b12a62b5f4c187c63c6f",
+    "tools/miles-bridge/src/file-replies/file_tokens.h": "fe039c63320bf4e0980fa9b2572b3e82b4206156",
+    "tools/miles-bridge/src/file-replies/reply_transaction.cpp": "bba02b920f9ddc90cdd129cf0179f167e0cb3516",
+    "tools/miles-bridge/src/file-replies/reply_transaction.h": "2db4889d6fe857779798327722225b642a7ac7ce",
+    "tools/miles-bridge/src/file-services/selected_services.cpp": "bf1d8df2a0193d5727c12397b75998b68aa684f5",
+    "tools/miles-bridge/src/file-services/selected_services.h": "24d270673263c53e6a438e11adad27ca456547fa",
+    "tools/miles-bridge/src/host-context/call_context.cpp": "828686417e5872bc81963dadbb56edc0fe050e46",
+    "tools/miles-bridge/src/host-context/call_context.h": "3073dab0bdf597709ae864d71c7ce7b77bebbc58",
+    "tools/miles-bridge/src/transport/endpoint.cpp": "173858111e8e810c4660d2a4add4be449b67d817",
+    "tools/miles-bridge/src/transport/endpoint.h": "f3cd1f6419d71912ac113b063910c9ccf540b05d"
+  },
+  "files": 20,
+  "additions": 1331,
+  "deletions": 0,
+  "commits": [
+    "8fd7cee80e1236e3cb664d6c36f31fc5583cdb63"
+  ],
+  "title": "Add Miles file transport and reply transactions",
+  "draft": true,
+  "checks": "Exact patch/blob identity and later composed-tree identity; no new build/runtime claim."
+}

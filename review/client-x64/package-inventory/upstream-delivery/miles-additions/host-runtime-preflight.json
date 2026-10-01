@@ -1,0 +1,36 @@
+{
+  "name": "client-miles-host-runtime",
+  "fork_pr": 9,
+  "branch": "submit/client-miles-host-runtime",
+  "head": "26b487affc772f5003d8b960f89b5dca172ea3f4",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "reviewed_base": "97dc8c1f9289fadf8f044dd07f07db7d57c95094",
+  "reviewed_head": "7bedd5e2f9778e891c29c2bae0eb4092ab6ede4e",
+  "source_diff_identical": true,
+  "introduced_blobs": {
+    "tools/miles-bridge/src/backend/backend.h": "cdbee925b0140b8c6033293cdc05db64c27fd33a",
+    "tools/miles-bridge/src/dispatch/host_dispatch.cpp": "c2f70600c7ba720787a977d083f0ae9d9f22e693",
+    "tools/miles-bridge/src/dispatch/registry_resolver.h": "0067c69d844749454c16a74485ef8653387b672f",
+    "tools/miles-bridge/src/eos/host_eos.cpp": "1168729476ac0fba2312bf382826fcd0669d25bb",
+    "tools/miles-bridge/src/eos/host_eos.h": "296d4e3e832687690161f085d086fcafa47c323e",
+    "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp": "8a36154d634f20cb4d0aaa169581b524229c37ff",
+    "tools/miles-bridge/src/host-runtime/host_file_runtime.h": "38323085492ca96e65264ffcf3cb3fb4cb35498d",
+    "tools/miles-bridge/src/host-runtime/host_install.cpp": "fd2e9d51256090ac8b9d6933ba7de19f82c37592",
+    "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp": "f96fd60235c819badb832ef258eeef7d6a2ab564",
+    "tools/miles-bridge/src/host/host.cpp": "89e9086bbeb627050f5011203afc27503ffb6244",
+    "tools/miles-bridge/src/metadata/metadata_host.cpp": "77fb087812ea2c1bbd4d1296afde8ea3a2171db8",
+    "tools/miles-bridge/src/upload/upload_state.h": "68a99a4b8b36622a41bf91d84035638c33f4c45f",
+    "tools/miles-bridge/src/version/session_version_host.cpp": "53b233ddf1a7fcda4228676138a72ff00caeff88",
+    "tools/miles-bridge/src/version/session_version_host.h": "7fc37e96ebf725e91b34c8f5adaec0d2d1289bb1",
+    "tools/miles-bridge/tests/upload_binding.cpp": "ce32ea83670818cc0b075a3f5b18992351b83f65"
+  },
+  "files": 15,
+  "additions": 1773,
+  "deletions": 0,
+  "commits": [
+    "26b487affc772f5003d8b960f89b5dca172ea3f4"
+  ],
+  "title": "Add the Miles host backend and callback runtime",
+  "draft": true,
+  "checks": "Exact patch/blob identity and later composed-tree identity; no new build/runtime claim."
+}

@@ -1,0 +1,36 @@
+{
+  "name": "client-miles-native-facade",
+  "fork_pr": 6,
+  "branch": "submit/client-miles-native-facade",
+  "head": "3c0a7485377121cd06942dbf5e1fd3b00a9368b7",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "reviewed_base": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "reviewed_head": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
+  "source_diff_identical": true,
+  "introduced_blobs": {
+    "tools/miles-bridge/src/api/native/native_callbacks70.cpp": "b43adf5ca526558e3a8e46f6526a27754ce2682f",
+    "tools/miles-bridge/src/api/native/native_calls60.cpp": "c120d28dcc5d7863ace6cd1cfef044cf3bdec67d",
+    "tools/miles-bridge/src/api/native/native_file_setter67.cpp": "bdd8aade562528f20737b814d362d2548472c13b",
+    "tools/miles-bridge/src/api/native/native_startup_calls.cpp": "a9bb48a82fa855ad21adf94b2f83c7b814e60e52",
+    "tools/miles-bridge/src/api/native/native_types70.h": "f406df4c2664c1d73acc375343fd51fb7b00f5fd",
+    "tools/miles-bridge/src/api/plain_callbacks.cpp": "59804385f5297a7daca212ec8aa6e7167731ef1e",
+    "tools/miles-bridge/src/api/plain_file_setter.cpp": "488e9884bea8b1cfa94f0f7fbe49b07f9240a3ac",
+    "tools/miles-bridge/src/api/plain_operations.cpp": "86b8539556c08642d92d284ea7ff7dc66c409680",
+    "tools/miles-bridge/src/api/plain_startup.cpp": "fcdbd6f2ec9642a8e67309ae19d725a953dd9b4e",
+    "tools/miles-bridge/src/api/private/failure_boundary.cpp": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+    "tools/miles-bridge/src/api/private/failure_boundary.h": "db6327c19295f77ce54e7976c76a37927037ddc3",
+    "tools/miles-bridge/src/api/private/native_callbacks70.h": "2248aa31a57093d0af1527078609c783051a9a6c",
+    "tools/miles-bridge/src/api/private/native_calls60.h": "3b44669eb6400fce569de94b94b8d0a5b6931d8b",
+    "tools/miles-bridge/src/api/private/native_file_setter67.h": "a9b8249eb2677323564069f9eae8e43276d2e14c",
+    "tools/miles-bridge/src/api/private/native_startup_calls.h": "eff2138d16925bdac5e46a4bae7ca209a2cb4be7"
+  },
+  "files": 15,
+  "additions": 945,
+  "deletions": 0,
+  "commits": [
+    "3c0a7485377121cd06942dbf5e1fd3b00a9368b7"
+  ],
+  "title": "Add native Miles facade adapters",
+  "draft": true,
+  "checks": "Exact patch/blob identity and later composed-tree identity; no new build/runtime claim."
+}
