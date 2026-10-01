@@ -1,0 +1,240 @@
+{
+  "branch": "review-ready/client-native-providers",
+  "base": "8f6bc338b5c3e14524f4d27280bdf6b2e144bd38",
+  "head": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+  "commits": [
+    "4046677fef9e8e8ce7591a1946ca858c714048e0 build: provide native x64 renderer dependencies from original sources",
+    "c41cbe0828dd4554aff02802a63420757aac0d89 build: reject dependency outputs without established ownership",
+    "b93a774840cd11199cec7acf20e72e20dfb9421b build: select the verified native legacy Logitech LCD SDK",
+    "4ff3d6f54720d357bcbcbe9f7d41fe7383740c87 build: use the genuine configuration-matched STLport for x64 client",
+    "ec66432e5331c4d062d0686a8874be5552ce6403 build: compile the original Vivox loader wrapper for x64",
+    "5826f91a80a70c46e60e5c9cc1c522cb53c0c13a build: supply original PCRE and XML providers for the x64 client",
+    "b3b710cce30f9ca8426b95f72e45296227e1f365 build: preserve individual linker inputs after provider filtering",
+    "ba1dd443249944edbe3d5a22520f6eaa84402e51 graphics: select the legacy D3D9 shader compiler on x64"
+  ],
+  "files": [
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9.vcxproj",
+      "additions": 4,
+      "deletions": 4,
+      "blob": "78822c05462a742bbe883fbfc3e63ea4127e5ed5",
+      "sha256": "524fb930650d70b283c5ac82513285c0939c9bf0041f36f96298cdbf06f2a85f",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9_ffp.vcxproj",
+      "additions": 4,
+      "deletions": 4,
+      "blob": "2f6161bac5be3f265c495e53b1030afaf394f0f4",
+      "sha256": "eb3e91891095e783017aac86720d62266483e6a55f802c8c21ed158c7cc14324",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9_vsps.vcxproj",
+      "additions": 4,
+      "deletions": 4,
+      "blob": "62cd178db4811be61220aea64623b147e8f363da",
+      "sha256": "bfed6b4ca8feffaa8aefa4703bd13b3fa03e91f5319e2aa597dde2ea00b9e187",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/src/win32/Direct3d9.h",
+      "additions": 8,
+      "deletions": 0,
+      "blob": "3470360060fd76088655a0bbdf728a4efe194458",
+      "sha256": "7122317f9cdccd0be0efa6f533f44b589f2207eb7b64d1d0d7d6c61f71ac8a20",
+      "class": "production"
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/src/win32/Direct3d9_VertexShaderData.cpp",
+      "additions": 6,
+      "deletions": 1,
+      "blob": "e87909aae723605700b13207ce983efe646b404e",
+      "sha256": "d47d00290854c12cb9c4605d8c881c6672d7d6444bda2bbd56df903bffcf12d8",
+      "class": "production"
+    },
+    {
+      "path": "tools/build-client-deps/PARSERS.md",
+      "additions": 20,
+      "deletions": 0,
+      "blob": "eaf60f25b044acb3298e92ade37fcada285aa02c",
+      "sha256": "f466918f0995087f37afc6da629859cd952ca7aa27248be615b5e0bc3ddc3eb9",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/README.md",
+      "additions": 89,
+      "deletions": 0,
+      "blob": "d430c69fd49c51737633b8d342292e9f2d2c1849",
+      "sha256": "ce94293a93410d432e179b96a0aa1b3975797687b5bb4f3d2b9d7f3e5245fbb7",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/build-parsers.py",
+      "additions": 173,
+      "deletions": 0,
+      "blob": "3441e6bb012a45d2d2d0e2fef71c9941ff55ae9d",
+      "sha256": "28f104312a815feb693605193af7ba373af5a3e965ba9b1b16b2a0ac4f7872a7",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/build.py",
+      "additions": 236,
+      "deletions": 0,
+      "blob": "edca1e4f43c646f10feeba5c12928cc64b4a50ff",
+      "sha256": "c9a0e3d6d4af2fc757e5a548a86f939ef826375e97fb4be21c3a4c25d4fd00e0",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/client-runtime-deps.props",
+      "additions": 14,
+      "deletions": 0,
+      "blob": "fdd79b209da9179682328c3025702dbeb23de036",
+      "sha256": "92ecbe4b55dd61848294361f6b4402ea2071fbc3f16215ce3d7477f7e43dbe0e",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/dependency-build.props",
+      "additions": 15,
+      "deletions": 0,
+      "blob": "1a77d4ed7a6415aff3aa0f1294bd415587493f31",
+      "sha256": "d13ce8252108f357741708d7c13d64868e91b9dcea0bda2a4adf86ade079553d",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/logitech-lcd.props",
+      "additions": 16,
+      "deletions": 0,
+      "blob": "d2459fc61b1ec07eb674e7269b705fb6d024d9e2",
+      "sha256": "bb58d2900336474c398c49aee863371e0c19c16a899ffbd552f29b2cc13d687a",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/parser-deps.props",
+      "additions": 25,
+      "deletions": 0,
+      "blob": "ec155108d6aacd45f59f5b58a2073d8a850c3898",
+      "sha256": "55b8768d756c3dfc902c8a78f79aabdd4b770dac762462ec174dd0d0bd0b0f74",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/renderer-deps.props",
+      "additions": 17,
+      "deletions": 0,
+      "blob": "30ff5b5047f3f204ce2e9dd499123e4a2eab215e",
+      "sha256": "46c8dbca70df3631b1f3c5c2da07d9779fbef41da03aab757b65bfebaf6802e4",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/tests/parser-smoke.c",
+      "additions": 26,
+      "deletions": 0,
+      "blob": "f1421a295af3e2cdacefc9c205308e007a1ebfc3",
+      "sha256": "1050f32cd77314b462f7ddab5d9e442af21631b14b17458f15de608ddc25dac9",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/tests/test_owner.py",
+      "additions": 200,
+      "deletions": 0,
+      "blob": "4cedf67b0870e83863ed51bbd35500d14c8f57fa",
+      "sha256": "3ecffac855e57ef3f45266612738d9746203ba8c19c39f43a7c37bf94df072b9",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/build-client-deps/validate-logitech-lcd.py",
+      "additions": 21,
+      "deletions": 0,
+      "blob": "36ca0d651da3461875d2c5fd674362f525e8ed00",
+      "sha256": "090b5ca888273afe60be5c5e355da5cb1bbbc6fd808dcca4c4a2e03cd299386e",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/configure-client-x64/README.md",
+      "additions": 30,
+      "deletions": 0,
+      "blob": "ba57b38ca440e55d0a9aeee0bb9c234c81938163",
+      "sha256": "ab6b2262323e5ce79b2caa4584ccb442236c495f54de076ff435b191abc5af55",
+      "class": "build_test_docs"
+    },
+    {
+      "path": "tools/configure-client-x64/client-x64.props",
+      "additions": 4,
+      "deletions": 0,
+      "blob": "bb0e9aea8c75fab999c3d2c6f025323191abe66b",
+      "sha256": "734c28ada8fe5cbbca4ce2b027af9453b88073cf0f7bd9656ec9604f0992e96b",
+      "class": "build_test_docs"
+    }
+  ],
+  "totals": {
+    "production": {
+      "files": 2,
+      "additions": 14,
+      "deletions": 1
+    },
+    "build_test_docs": {
+      "files": 17,
+      "additions": 898,
+      "deletions": 12
+    }
+  },
+  "new_build_test_runtime": false,
+  "conflicts": false,
+  "dependency_notes": [
+    "Provider joint base combines published x64-projects 5b558625c and local STLport SDK de5e89d01; latter not present on origin during this check.",
+    "Original 10e684ba workflow hunk deferred because wire-compatibility.yml is absent; its three tools/build-client-deps paths applied unchanged.",
+    "No SDK assets/binaries, provider installation or Miles/Bink selection added."
+  ],
+  "patch_identity": [
+    {
+      "original": "5fe9314e00e36701494c7bc689515661985ecbec",
+      "candidate": "4046677fef9e8e8ce7591a1946ca858c714048e0",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "10e684ba7362caca385ccc89fa6c555c88976a69",
+      "candidate": "c41cbe0828dd4554aff02802a63420757aac0d89",
+      "exact_changed_lines": true,
+      "limited_paths": [
+        "tools/build-client-deps"
+      ]
+    },
+    {
+      "original": "085f77cc73503176931f504a1a2a142640d67240",
+      "candidate": "b93a774840cd11199cec7acf20e72e20dfb9421b",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "0d2f8c168165dce3e629866c76e1a697fae8318c",
+      "candidate": "4ff3d6f54720d357bcbcbe9f7d41fe7383740c87",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "13c15b6d0ee1bee0418014f89172d2c94f44463b",
+      "candidate": "ec66432e5331c4d062d0686a8874be5552ce6403",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "3a487593a4b8de0cb52991a5279ed62148b77f23",
+      "candidate": "5826f91a80a70c46e60e5c9cc1c522cb53c0c13a",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "49d0eeed4ddaa177d7a93ea396c37c3d9b9942da",
+      "candidate": "b3b710cce30f9ca8426b95f72e45296227e1f365",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "f5acb69bb32fb64e935c1515f2ec3e8dc0f2e970",
+      "candidate": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    }
+  ]
+}

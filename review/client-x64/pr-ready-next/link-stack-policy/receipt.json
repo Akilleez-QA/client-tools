@@ -1,0 +1,52 @@
+{
+  "branch": "review-ready/client-link-stack-policy",
+  "base": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+  "head": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+  "commits": [
+    "7f2cd7790fa4e66a6efc5c1ae14b6fa7d1777ee4 build: require the x64 client linker to resolve every symbol",
+    "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833 build: reserve two MiB for x64 client stacks"
+  ],
+  "files": [
+    {
+      "path": "tools/configure-client-x64/client-x64.props",
+      "additions": 4,
+      "deletions": 0,
+      "blob": "fd94315cb7bbe006c7f140711e9031f7baf8a9da",
+      "sha256": "e35ea6aeed4d4a8b502354099629b82e52679c02644c8a97a3ff4539545453cd",
+      "class": "build_test_docs"
+    }
+  ],
+  "totals": {
+    "production": {
+      "files": 0,
+      "additions": 0,
+      "deletions": 0
+    },
+    "build_test_docs": {
+      "files": 1,
+      "additions": 4,
+      "deletions": 0
+    }
+  },
+  "new_build_test_runtime": false,
+  "conflicts": false,
+  "dependency_notes": [
+    "Provider joint base combines published x64-projects 5b558625c and local STLport SDK de5e89d01; latter not present on origin during this check.",
+    "Original 10e684ba workflow hunk deferred because wire-compatibility.yml is absent; its three tools/build-client-deps paths applied unchanged.",
+    "No SDK assets/binaries, provider installation or Miles/Bink selection added."
+  ],
+  "patch_identity": [
+    {
+      "original": "a21af16302efa17cf1d889cd4b246fcc493c8248",
+      "candidate": "7f2cd7790fa4e66a6efc5c1ae14b6fa7d1777ee4",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    },
+    {
+      "original": "dd32e5dcc392243a8f651a4d322316187ad1cf70",
+      "candidate": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+      "exact_changed_lines": true,
+      "limited_paths": []
+    }
+  ]
+}

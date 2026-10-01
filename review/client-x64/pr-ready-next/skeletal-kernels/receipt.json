@@ -1,0 +1,23 @@
+{
+  "branch": "review-ready/client-skeletal-kernels",
+  "base": "f56090f3178995985f23a646458c03deb6f222a5",
+  "head": "4f44852113e7c5dbb4a6dd3296a15f6c03d1356d",
+  "original": "3c172d1b139f7177b5012ad83380654f2cf14382",
+  "source_path": "src/engine/client/library/clientSkeletalAnimation/src/shared/appearance/SoftwareBlendSkeletalShaderPrimitive.cpp",
+  "candidate_blob": "2cc27803617399ede46334dc49c122b5d3568c97",
+  "candidate_sha256": "3e9ffe48152a54e5f938f0e0ae90660dc849f645cf728f684ba14ff4dccc4e79",
+  "full_source_matches_original_candidate": true,
+  "original_changed_lines_exact": true,
+  "numstat": "97\t0\tsrc/engine/client/library/clientSkeletalAnimation/src/shared/appearance/SoftwareBlendSkeletalShaderPrimitive.cpp",
+  "tools": 0,
+  "new_build_test_runtime": false,
+  "conflicts": false,
+  "prerequisites": {
+    "joint_base_parents": [
+      "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+      "9396a5181497ba259c0bba0af8c2511154937088"
+    ],
+    "source": "Included SseMath.h has MSVC inline assembly on master; published math package provides x64 intrinsic path.",
+    "configuration": "Published UI-width package supplies Tag.h native-length correction relevant to /W4 /WX inclusion, and sibling MeshConstructionHelper Debug range types for the skeletal project. Other UI edits are inherited package ordering, not dependencies of this kernel patch."
+  }
+}

@@ -1,0 +1,13 @@
+# Independent review — native client providers
+
+No introduced blocker found in the bounded review of joint base 8f6bc338b5c3e14524f4d27280bdf6b2e144bd38 to ba1dd443249944edbe3d5a22520f6eaa84402e51. All 19 receipt file hashes and all eight original changed-line sequences match independently; the ownership commit comparison correctly excludes its explicitly deferred workflow hunk.
+
+The native builders use pinned original JPEG/PCRE/XML archives, bundled STLport and the original Vivox wrapper. They require native v120, reject ambient compiler/linker flags, verify object/DLL architecture and separate output ownership by checkout, ABI and configuration. The renderer cache includes source/header, builder and compiler/include-tree identities plus output hashes; parser builds deliberately rebuild rather than claiming equivalent cache coverage. These are not complete downstream link-closure identities. Missing SDK/archive inputs fail explicitly; no SDK binaries, substitute stubs or feature-removal source edits appear in this delta.
+
+The shared property import is already conditioned on x64 at the project import position. Renderer and executable sheets select genuine configuration-matched archives, retain unrelated input order through explicit MSBuild unescaping, and leave Win32 settings intact. Parser feature options match the existing libxml-configure-win32.bat, including Debug/Release differences. The original XML DLL/data-import ABI is retained and its generated DLL is copied beside the executable. The Logitech check pins the stated legacy archive; the Vivox rebuild supplies a loader wrapper, not its dynamically loaded SDK or service.
+
+The source prerequisites are explicit: published x64 project changes and the local STLport SDK fix in the joint base. The absent wire workflow justifies deferring its three-line ownership-test invocation; the tests and manual invocation remain included, and no CI execution claim is made. The shader change preserves Win32 flags and the original asset grammar, with the additional native legacy compiler DLL requirement documented. Existing black-window/close failures and lack of visual equivalence remain disclosed.
+
+The PR body and receipt correctly identify historical integrated observations, rather than claiming a fresh package build or complete client qualification. Exact patch identity does not by itself certify every historical provider/toolchain input against this restack. No substantive claim blocker found.
+
+Only this report was written. No source edits, tests, builds, runtime, remote actions or descendant agents were used. Public URL reachability was not checked.

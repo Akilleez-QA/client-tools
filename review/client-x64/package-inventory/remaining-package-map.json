@@ -851,7 +851,7 @@
     {
       "id": "stlport-sdk",
       "title": "Build bundled STLport sources using native SDK declarations",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -860,9 +860,9 @@
           "subject": "stlport: use native SDK declarations when building library sources"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-stlport-sdk",
+      "branch_head": "de5e89d01c82c8a8f982f604935e3b07dd918fe2",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/38",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Source prefix repair and required vendor modification notice; provider build selection belongs to native-providers. Does not bundle SDK binaries.",
       "exclusive_production_accounting": {
@@ -947,7 +947,7 @@
     {
       "id": "allocator-sizes",
       "title": "Allocator size invariants, statistics and realloc metadata",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "allocator-address-stack"
@@ -974,9 +974,9 @@
           "subject": "memory: preserve allocation metadata rules for null reallocation"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-allocator-statistics",
+      "branch_head": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/14",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Preserve original sequence: allocation/region checks, full-width statistics through all consumers, minimum free representation, full-address diagnostics, then null-reallocate metadata/call sites. Retain each as a reviewable commit; statistics API and consumers travel together. Most edits share MemoryManager.cpp, so one source package avoids an artificial cycle. This does not claim resolution of the rejected allocator/Audio fault workload. Selected size/minimum-node subset is now fork draft PR4; aggregate remains remaining until statistics, diagnostics and realloc packages are prepared.",
       "exclusive_production_accounting": {
@@ -1033,6 +1033,15 @@
           "45fae5093c16757e2c779ad5daf6f63d170ed8a4",
           "fcf54ab3fcbf4a0b2ef1c2915b620a510975a429"
         ]
+      },
+      "remaining_subset": {
+        "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/14",
+        "head": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+        "base": "1f8f341aab958ac13f04b070bb6575be0af36091",
+        "source_files": 15,
+        "additions": 85,
+        "deletions": 65,
+        "scope": "statistics, pointer diagnostic and null-reallocation follow-ups; earlier size/minimum-block subset remains fork4"
       }
     },
     {
@@ -1206,11 +1215,9 @@
     {
       "id": "crypto-boundaries",
       "title": "Crypto packing and checked public count interfaces",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
-      "prerequisites": [
-        "stlport-sdk"
-      ],
+      "prerequisites": [],
       "origin_commits": [
         {
           "sha": "78e1f907c1fc0e386ffa75f7fdd0d915e66fe8e4",
@@ -1229,9 +1236,9 @@
           "subject": "crypto: keep MessageQueue counts within the public result width"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-crypto-boundaries",
+      "branch_head": "19eb22639fed6a76226656412ad975aacd423f3e",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/39",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "FirstCrypto scoped packing diagnostics and three original crypto length/count interfaces; preserve vendor source and notices.",
       "exclusive_production_accounting": {
@@ -1251,7 +1258,8 @@
         "src/external/ours/library/crypto/src/shared/original/filters.h",
         "src/external/ours/library/crypto/src/shared/original/mqueue.h"
       ],
-      "build_files": []
+      "build_files": [],
+      "dependency_note": "STLport provider source prefix is a native provider-build prerequisite, not a dependency of these crypto source edits."
     },
     {
       "id": "trackir-provider",
