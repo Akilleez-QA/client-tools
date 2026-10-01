@@ -1,0 +1,53 @@
+{
+  "candidate": "a7954b5e78274ab3a9eb558fa10186697ff5e848",
+  "baseline": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "source_verification": "All275files in each reused header input checkout match exact Git blobs; partial header closure only, not a full consumer build.",
+  "results": {
+    "baseline-32-Release": {
+      "passed": true,
+      "build_exit": 0,
+      "runtime_executed": true,
+      "checks": 30,
+      "observed_expected_ambiguity": null
+    },
+    "baseline-64-Release": {
+      "passed": true,
+      "build_exit": 2,
+      "runtime_executed": false,
+      "checks": null,
+      "observed_expected_ambiguity": true
+    },
+    "candidate-32-Debug": {
+      "passed": true,
+      "build_exit": 0,
+      "runtime_executed": false,
+      "checks": null,
+      "observed_expected_ambiguity": null
+    },
+    "candidate-32-Release": {
+      "passed": true,
+      "build_exit": 0,
+      "runtime_executed": true,
+      "checks": 30,
+      "observed_expected_ambiguity": null
+    },
+    "candidate-64-Debug": {
+      "passed": true,
+      "build_exit": 0,
+      "runtime_executed": false,
+      "checks": null,
+      "observed_expected_ambiguity": null
+    },
+    "candidate-64-Release": {
+      "passed": true,
+      "build_exit": 0,
+      "runtime_executed": true,
+      "checks": 30,
+      "observed_expected_ambiguity": null
+    }
+  },
+  "fixture_sha256": {
+    "run.py": "a617ca35eb6ee0eb08b73853c2ac79de97e1c49f88631a306861fddad7dc01e3",
+    "probe.cpp": "b9dbe5c4c86741e9767c3df2c79ce4764bbcacc39a33b0085e41320e2590bf4c"
+  }
+}
