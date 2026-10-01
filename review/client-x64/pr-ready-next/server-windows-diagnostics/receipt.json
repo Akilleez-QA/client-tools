@@ -1,0 +1,87 @@
+{
+  "branch": "review-ready/server-windows-diagnostics",
+  "base": "1c0152794e5597f16cd9e4b03930df654f73aa03",
+  "head": "fc300fe802730f1ce837e6f4b593cef9c68bf780",
+  "commits": [
+    {
+      "original": "2a3b1463d7b0bf7db16f0fc84ecee92f1c32125d",
+      "candidate": "f31587324977c16ecf589856f669c6eea32dd332",
+      "exact_added_removed_lines": true
+    },
+    {
+      "original": "b6967a0246227501aa14c6c562204afcbc59c159",
+      "candidate": "123900096f4596727ab2e387ef1eb9782d593a9e",
+      "exact_added_removed_lines": true
+    },
+    {
+      "original": "e10e858ff3b431010a1715ce83ba4168c11d46af",
+      "candidate": "2004e3d37177edcb822e8444b94b9c3810d9cab9",
+      "exact_added_removed_lines": true
+    },
+    {
+      "original": "51373f7f1f8debbd988782c4a2961d5723615424",
+      "candidate": "73197bf47f6ff858093052a4b758fff805397c04",
+      "exact_added_removed_lines": true
+    },
+    {
+      "original": "1b662b4df91ff72e3fed7f2337c1c3b6e71a43d6",
+      "candidate": "fc300fe802730f1ce837e6f4b593cef9c68bf780",
+      "exact_added_removed_lines": true
+    }
+  ],
+  "files": [
+    {
+      "path": "engine/shared/library/sharedDebug/src/win32/ProfilerTimer.cpp",
+      "additions": 10,
+      "deletions": 0,
+      "base_blob": "774765a6cbb581b4638984a08b34f4ecc55f7cfb",
+      "candidate_blob": "d8920b5c0073d214505187b8d3687a1326bec1b1",
+      "sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb",
+      "client_comparison_ref": "855b299004da38f48aa6517c76d30338488eeba2",
+      "client_comparison_sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb",
+      "whole_file_matches_client": true
+    },
+    {
+      "path": "engine/shared/library/sharedFoundation/src/shared/Fatal.cpp",
+      "additions": 8,
+      "deletions": 0,
+      "base_blob": "c684c6e45b127c8e84cb3a11943b32a14ed80efc",
+      "candidate_blob": "e1dd16bcda45fba259f3fdcfded6a66a6ff3d8da",
+      "sha256": "ee900818c7776588541bf41a9ef564f07d57e20ff59d6c49b7fead6db1f6372c",
+      "client_comparison_ref": "2fdd4639bc7a0547925d93d733cd3a8ef5838630",
+      "client_comparison_sha256": "faae70c8e77b97a60804f1f181aa9305c955e0820cf269b52489b6b83952261c",
+      "whole_file_matches_client": false
+    },
+    {
+      "path": "engine/shared/library/sharedFoundation/src/win32/Os.cpp",
+      "additions": 2,
+      "deletions": 2,
+      "base_blob": "9c82836133a0104058779b039aa33a9cff370d7f",
+      "candidate_blob": "251f12d46f5c45c3d14451b0de2aac8b77a237f9",
+      "sha256": "46a9d62528b66bb0f73e31f8bef5406dd01469cffc1297f8c387dc91f404fc1e",
+      "client_comparison_ref": "12bb888097a567191455f48598a6be9d87d4a257",
+      "client_comparison_sha256": "0b71b70fc570e18913169dc0cbebd144bce9fceb0d1ab2dfab6dd71fb4945bc0",
+      "whole_file_matches_client": false
+    },
+    {
+      "path": "engine/shared/library/sharedFoundation/src/win32/SetupSharedFoundation.cpp",
+      "additions": 1,
+      "deletions": 1,
+      "base_blob": "98889b52582fba017cd74ec9001847b912623349",
+      "candidate_blob": "2c20211d3f7c4c9f3812a3788a1969e9a10740aa",
+      "sha256": "aa90c0313e2f65f24e75181893588d02caef779ca4d2bb5a3f1f722ca9708541",
+      "client_comparison_ref": "855b299004da38f48aa6517c76d30338488eeba2",
+      "client_comparison_sha256": "06cb8fe56b3de2966af1cf3a449ad718dfdd2c5e40c0be970148d9288ffcb791",
+      "whole_file_matches_client": false
+    }
+  ],
+  "production_files": 4,
+  "production_additions": 21,
+  "production_deletions": 3,
+  "tests_build_docs_added": 0,
+  "cherry_picks_conflict_free": true,
+  "new_build_test_runtime": false,
+  "remote_mutation": false,
+  "base_reason": "Published PR38 repaired CI; source hunks preserve master context.",
+  "evidence_scope": "Historical client/component results and server original commit provenance; no fresh server package build or whole-file equivalence except explicitly recorded timer comparison."
+}

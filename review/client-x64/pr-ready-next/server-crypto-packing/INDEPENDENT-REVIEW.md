@@ -1,0 +1,15 @@
+# Independent review: server crypto packing diagnostics
+
+Result: no introduced source defect or blocking claim found. Reviewed source and historical evidence only; no build, test, runtime, network verification or public action was performed.
+
+Reviewed `review-ready/server-crypto-packing` at `485331412cfd8170a4d209f3b7afbd7b78603a20` above `1c0152794e5597f16cd9e4b03930df654f73aa03`, plus `server-crypto-packing-body.md`, preparation and receipt. One commit changes one production header by +11/−0. The source worktree remained clean and unchanged.
+
+Original `78ec0f03f48cc6a71730ca8fcdf5ec3546c3a8d8` and candidate `485331412cfd8170a4d209f3b7afbd7b78603a20` have identical added/removed sequences and stable patch ID `be782f950024210583346f698247bfe6582ded74`. The final FirstCrypto.h SHA256 is `d1b2db3c5b392c5c8a6185c187ceaf7fb2a49e67703d32bdba69411515cbc5ff`, matching the receipt, maintained server and packaged client wrapper.
+
+The `_MSC_VER && _WIN64` guard encloses a balanced warning push/pop, C4103 suppression, the existing vendor includes and deque/memory preloads. The source adds no packing pragma. It restores the entering warning state after the include scope, so a later packing warning is not globally suppressed. As a consequence of warning push/pop, warning changes made by included headers are also scoped; this is consistent with restoring the prior state, not an algorithm or object-layout edit. Win32 and Linux preprocess the prior include path unchanged.
+
+The master and PR35 FirstCrypto.h baseline blobs are both `e0fd85cee0033eabe75a716743450c0b2457ecbe`. Their Crypto++ original-source trees differ: master `ce01011981aa792c9252e9fae08828fd3f189b31`, PR35 `4161e077b343fee3c500456a7663989abbf54de4`. Importing the PR35 vendor refresh is not a source prerequisite for this wrapper change. PR38 contributes maintained CI infrastructure, not an x64 provider or Windows build result. Other diagnostic, string and allocator packages are not source prerequisites.
+
+I inspected existing client packing records under `allocator-next/integration-current-v2/crypto-pack-controls-v3` and `crypto-pack-after-v3`, also present in immutable evidence commit `115d618f039a7fb36350611c104e9cb25d45e60c`. Four positive controls exit 0; four deliberate later packing-warning controls exit 2. The four layout probes compile/run successfully and report before/after `32/16`, with their recorded ABI-specific string/buffered sizes. Those are sampled client layout/warning controls, not proof that the different server vendor tree has the same layouts, warnings or native behavior.
+
+The body explicitly disclaims server compilation, ABI, cryptographic correctness and fresh branch-head CI, and does not transfer the client provider result to the server. It adds no SDK material, binary or vendor refresh. `git diff --check` is clean. The pre-existing Windows Os.cpp syntax defect is untouched; no complete Windows server qualification is claimed. No further source change or execution is needed for this bounded review.

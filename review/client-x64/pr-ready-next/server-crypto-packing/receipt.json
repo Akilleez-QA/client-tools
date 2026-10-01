@@ -1,0 +1,32 @@
+{
+  "branch": "review-ready/server-crypto-packing",
+  "base": "1c0152794e5597f16cd9e4b03930df654f73aa03",
+  "head": "485331412cfd8170a4d209f3b7afbd7b78603a20",
+  "commits": [
+    {
+      "original": "78ec0f03f48cc6a71730ca8fcdf5ec3546c3a8d8",
+      "candidate": "485331412cfd8170a4d209f3b7afbd7b78603a20",
+      "exact_changed_lines": true
+    }
+  ],
+  "files": [
+    {
+      "path": "external/ours/library/crypto/src/shared/core/FirstCrypto.h",
+      "additions": 11,
+      "deletions": 0,
+      "sha256": "d1b2db3c5b392c5c8a6185c187ceaf7fb2a49e67703d32bdba69411515cbc5ff",
+      "blob": "0dd9a644565d1e933247e1b54e7ec9c60eb72e5e",
+      "matches_maintained_server": true
+    }
+  ],
+  "production_files": 1,
+  "production_additions": 11,
+  "production_deletions": 0,
+  "tests_build_docs_added": 0,
+  "conflicts": false,
+  "new_build_test_runtime": false,
+  "remote_mutation": false,
+  "master_vs_pr35_crypto_tree_equal": false,
+  "evidence_scope": "Client packing controls only; no exact server vendor/linked-library qualification",
+  "dependency_and_evidence_note": "Workflow38 base avoids inherited broken master CI. Header baseline equals PR35 and final header matches maintained server, but complete Crypto++ trees differ. Client packing controls are not native server vendor qualification."
+}

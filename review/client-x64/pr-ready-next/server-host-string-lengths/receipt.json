@@ -1,0 +1,50 @@
+{
+  "branch": "review-ready/server-host-string-lengths",
+  "base": "09932a32c9949bd40e8e4dbb22e1a7027944eb21",
+  "head": "7dc8ef919449e482817e00017889ec52ee0a75c5",
+  "commits": [
+    {
+      "original": "c98f2a6dca7794ec8a2f1705208b2796f25c981f",
+      "candidate": "e889cd3a6991708e8d34cb3a3be96c8e9cb9a585",
+      "exact_added_removed_lines": true
+    },
+    {
+      "original": "c03e4a1a72c3f5daff8501907e4bfc70e1919fa1",
+      "candidate": "7dc8ef919449e482817e00017889ec52ee0a75c5",
+      "exact_added_removed_lines": true
+    }
+  ],
+  "files": [
+    {
+      "path": "engine/shared/library/sharedFoundation/src/shared/Misc.h",
+      "additions": 3,
+      "deletions": 3,
+      "base_blob": "2c84ef0a7aaa69ff91d9b460dda47aa091142e62",
+      "candidate_blob": "92ac76f673130d771b702129555575e7d1f8adcd",
+      "sha256": "4331869b95f0760d68746c1702a9f6ec0d0db323d7450d84ba661180c4fd9152",
+      "client_comparison_ref": "949451032647e45e42c3aaef3f41b132c8af36e3",
+      "client_comparison_sha256": "cdca0e777a69c413002a8e3ee7e39070a7c7f2946096b46405486c4cd27e57e1",
+      "whole_file_matches_client": false
+    },
+    {
+      "path": "engine/shared/library/sharedFoundation/src/shared/Tag.h",
+      "additions": 2,
+      "deletions": 2,
+      "base_blob": "261b474ecf5b6d556d36e0fa2f14817e63420618",
+      "candidate_blob": "8f4741c975128199678855e070f9fa44abb57ce2",
+      "sha256": "f918aef2cb7abb3e9f2358d5897e0670e1c8e410723fdbc44efc959ebaf23a93",
+      "client_comparison_ref": "9396a5181497ba259c0bba0af8c2511154937088",
+      "client_comparison_sha256": "80d760a63173af0d346bd8df5cbdb6f5094488f2ba63ea952dc2802d0a91de6b",
+      "whole_file_matches_client": false
+    }
+  ],
+  "production_files": 2,
+  "production_additions": 5,
+  "production_deletions": 5,
+  "tests_build_docs_added": 0,
+  "cherry_picks_conflict_free": true,
+  "new_build_test_runtime": false,
+  "remote_mutation": false,
+  "base_reason": "Existing published PR37+PR38 joint base preserves imemmove correction and repaired CI.",
+  "evidence_scope": "Historical client/component results and server original commit provenance; no fresh server package build or whole-file equivalence."
+}
