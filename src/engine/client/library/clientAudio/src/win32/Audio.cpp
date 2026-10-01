@@ -45,6 +45,8 @@
 
 #if defined(CLIENT_MILES_DEV_FACADE)
 #include "dev/AudioSelection.h"
+#include "dev/AudioBootstrap.h"
+namespace ClientMilesDevelopment { void removeAudioCache(); }
 #endif
 
 #if 0
@@ -119,6 +121,14 @@ namespace AudioNamespace
 	SoundObject3d                s_listener;
 	SoundIdList                  s_localPurgeList;
 	bool                         s_installed = false;
+#if defined(CLIENT_MILES_DEV_FACADE)
+	bool                         s_devMilesStarted = false;
+	bool                         s_devAudioRemovalComplete = true;
+	void devMilesFatal(uint32_t reason, char const *message)
+	{
+		FATAL(true, ("Development Miles failure %lu: %s", static_cast<unsigned long>(reason), message));
+	}
+#endif
 	int                          s_currentCacheSize = 0;
 	int                          s_cacheHitCount = 0;
 	int                          s_cacheMissCount = 0;
@@ -230,16 +240,28 @@ namespace AudioNamespace
 			fileClosed ? 1 : 0));
 	}
 #endif
+	void clearSampleCache()
+	{
+		for (SampleCache::iterator i = s_sampleCache.begin(); i != s_sampleCache.end(); ++i)
+		{
+			delete i->first;
+			delete [] i->second.m_sampleRawData;
+		}
+		s_sampleCache.clear();
+	}
+
 }
 
 using namespace AudioNamespace;
 
 // Callbacks for Miles to the TreeFile system
 
+#if !defined(CLIENT_MILES_DEV_FACADE)
 static U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle);
 static void __stdcall fileCloseCallBack(UINTa fileHandle);
 static S32 __stdcall fileSeekCallBack(UINTa fileHandle, S32 offset, U32 type);
 static U32 __stdcall fileReadCallBack(UINTa fileHandle, void *buffer, U32 bytes);
+#endif
 
 static SoundId attachSound(SoundTemplate const *soundTemplate, Object const *object, char const *hardPointName=0);
 static bool cacheSound(SoundTemplate const *soundTemplate);
@@ -1224,6 +1246,9 @@ bool Audio::install()
 		return false;
 	}
 
+#if defined(CLIENT_MILES_DEV_FACADE)
+	s_devAudioRemovalComplete = false;
+#endif
 #ifdef _DEBUG
 	DebugFlags::registerFlag(s_debugTimerDelay, "ClientAudio", "debugView_TimerDelay");
 	DebugFlags::registerFlag(s_debugVisuals, "ClientAudio", "debugVisuals");
@@ -1287,15 +1312,34 @@ bool Audio::install()
 
 	// Set the miles directory
 
+#if defined(CLIENT_MILES_DEV_FACADE)
+	ClientMilesDevelopment::connectAudio(
+		ConfigFile::getKeyString("ClientAudio", "devMilesHost", ""),
+		ConfigFile::getKeyString("ClientAudio", "devMilesDll", ""),
+		ConfigFile::getKeyString("ClientAudio", "devMilesUploadBudget", ""), devMilesFatal);
+#endif
 	std::string redistDirectory(AIL_set_redist_directory("miles"));
 
 	// Initialize the Miles Sound System
 
+#if defined(CLIENT_MILES_DEV_FACADE)
+	if (!AIL_startup())
+		ClientMilesPrivate52::fail(ClientMilesPrivate52::InvalidComposition,
+			"development Miles startup returned zero; retaining session");
+	s_devMilesStarted = true;
+#else
 	AIL_startup();
+#endif
 
 	// Set the file system callbacks
 
+#if defined(CLIENT_MILES_DEV_FACADE)
+	// The facade worker already owns engine TLS for its complete thread lifetime.
+	AIL_set_file_callbacks(AudioFileCallbacks::openAdmitted, AudioFileCallbacks::closeAdmitted,
+		AudioFileCallbacks::seekAdmitted, AudioFileCallbacks::readAdmitted);
+#else
 	AIL_set_file_callbacks(fileOpenCallBack, fileCloseCallBack, fileSeekCallBack, fileReadCallBack);
+#endif
 
 	// Initialize the audio driver
 
@@ -1383,6 +1427,10 @@ bool Audio::install()
 //-----------------------------------------------------------------------------
 void Audio::remove()
 {
+#if defined(CLIENT_MILES_DEV_FACADE)
+	if (s_devAudioRemovalComplete)
+		return;
+#endif
 	setRoomType(RT_generic);
 
 #ifdef _DEBUG
@@ -1397,6 +1445,19 @@ void Audio::remove()
 #endif // _DEBUG
 
 	Audio::stopAllSounds();
+
+#if defined(CLIENT_MILES_DEV_FACADE)
+	// Driver initialization can fail before s_installed is set. Preserve callback
+	// maps and sample images until genuine shutdown and paired worker joins finish.
+	if (s_devMilesStarted)
+	{
+		ClientMilesDevelopment::shutdownAndCloseAudio();
+		s_devMilesStarted = false;
+		s_installed = false;
+		s_digitalDevice2d = 0;
+	}
+	AbstractFile::setAudioServe(0);
+#endif
 
 #ifdef _DEBUG
 	size_t const sample2dMapSize = s_sampleIdToSample2dMap.size();
@@ -1423,6 +1484,7 @@ void Audio::remove()
 
 	// Shutdown Miles
 
+#if !defined(CLIENT_MILES_DEV_FACADE)
 	if (s_installed)
 	{
 		s_installed = false;
@@ -1441,6 +1503,7 @@ void Audio::remove()
 
 		AIL_shutdown();
 	}
+#endif
 
 #ifdef _DEBUG
 	size_t const fileMapCount = s_fileMap.size();
@@ -1452,26 +1515,27 @@ void Audio::remove()
 	delete s_musicDataTable;
 	s_musicDataTable = NULL;
 
-	// Delete all the reference counted samples
+#if !defined(CLIENT_MILES_DEV_FACADE)
+	clearSampleCache();
 
-	SampleCache::iterator iterSampleCache= s_sampleCache.begin();
-
-	for (; iterSampleCache != s_sampleCache.end(); ++iterSampleCache)
-	{
-		// Delete the CrcString
-
-		delete iterSampleCache->first;
-
-		// Delete the sample data
-
-		delete [] iterSampleCache->second.m_sampleRawData;
-	}
-
-	s_sampleCache.clear();
+#endif
 
 	delete s_audioServePerformanceTimer;
 	s_audioServePerformanceTimer = NULL;
+#if defined(CLIENT_MILES_DEV_FACADE)
+	s_devAudioRemovalComplete = true;
+#endif
 }
+
+#if defined(CLIENT_MILES_DEV_FACADE)
+// Final setup-owner operation, after SoundTemplateList released its cache paths.
+// Partial Audio failure keeps the registry/cache available to continuing UI code.
+void ClientMilesDevelopment::removeAudioCache()
+{
+	clearSampleCache();
+}
+
+#endif
 
 //-----------------------------------------------------------------------------
 bool Audio::isEnabled()
@@ -4088,6 +4152,7 @@ U32 fileReadCommon(UINTa const fileHandle, void *buffer, U32 const bytes)
 
 }
 
+#if !defined(CLIENT_MILES_DEV_FACADE)
 static int once = true;
 
 //-----------------------------------------------------------------------------
@@ -4147,6 +4212,7 @@ U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const b
 
 	return fileReadCommon(fileHandle, buffer, bytes);
 }
+#endif
 
 //-----------------------------------------------------------------------------
 uint32_t __stdcall AudioFileCallbacks::openAdmitted(char const *fileName, uintptr_t *fileHandle)
