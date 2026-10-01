@@ -1,4 +1,4 @@
-// Experimental reviewed shape only. No transport or vendor implementation.
+// Private paired-process Miles protocol shared by the client and host.
 #ifndef EXPERIMENTAL_MILES_WIRE_H
 #define EXPERIMENTAL_MILES_WIRE_H
 #include <stdint.h>
@@ -14,7 +14,9 @@ struct Handle { uint32_t kind, slot, generation; }; // all zero is vendor null
 struct Span { uint32_t offset, length; }; // offset from frame start; checked subtraction
 struct Header { uint32_t magic; uint16_t version, kind; uint32_t opcode, bytes;
  uint64_t request, causal_request, lane, lock_lease; };
-// value[] positions are defined in API-MAP.md; floats retain raw uint32 bits.
+// value[] positions follow the matching host dispatcher (dispatch/host_dispatch.cpp).
+// Float arguments retain their raw uint32 bit patterns; wire layout is encoded
+// field by field rather than copied from these native structs.
 // Resource buffer transfers are explicit and chunked, no native input pointers.
 struct Call { Handle target, resource; uint32_t value[8]; Span bytes, text;
  uint32_t output_mask, reserved; uint64_t callback; };

@@ -1,7 +1,7 @@
 #ifndef CLIENT_MILES_PLAIN_SURFACE70_H
 #define CLIENT_MILES_PLAIN_SURFACE70_H
 
-// Source-only proposal for the game/private-adapter boundary.
+// Game-facing boundary for the native and pipe Miles adapters.
 // Selected Windows SDK opaque tag names only; no vendor bodies or SDK includes.
 // This nominal-type revision requires a consistent rebuild and one backend.
 #include <stdint.h>
