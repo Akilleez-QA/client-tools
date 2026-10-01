@@ -40,6 +40,8 @@ The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) 
 
 [Client math #34](https://github.com/SWG-Source/client-tools/pull/34) and [server fork draft #4](https://github.com/Akilleez-QA/src/pull/4) each contain four source files, +235/−1. The server stack uses the same #38 CI prerequisite. [Client evidence](pr-ready-next/client-math-kernels/RESULTS.md) and [server counterpart limits](pr-ready-next/server-math-kernels/RESULTS.md) include the fresh exact-source SseMath x64 Debug/Release check: 33,280 records per configuration, byte-identical to each historical candidate oracle. Numerical exceptions remain bounded as documented.
 
+[Client UI/tag/mesh #35](https://github.com/SWG-Source/client-tools/pull/35) applies directly on master: six commits, seven production files, +19/−11. [Source identities, bounded historical checks and independent review](pr-ready-next/ui-native-widths/RESULTS.md). Tag conversion and skeletal debug bounds are separate non-UI consumers in the same native-width package.
+
 ## Earlier candidate packages and dependency drafts
 
 Candidate source and diff links below pin immutable fork commits. `M` means upstream master `949451032647e45e42c3aaef3f41b132c8af36e3`; `S` means submitted imemmove PR #25 at `a7954b5e78274ab3a9eb558fa10186697ff5e848`; `P` means the earlier imemmove production prerequisite `9eadbbbebd515a0fffad2133300703dff68bd7ef`. Counts are production `src/` additions/deletions against the stated base; test tooling and evidence are separate.

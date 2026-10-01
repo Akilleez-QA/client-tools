@@ -1,0 +1,9 @@
+# Unicode writer byte-count guard candidate
+
+POODO bounded root: the existing checked unsigned32 code-unit count did not bound the byte count passed to ByteStream::put(unsigned int). On Win32 multiplication could wrap in size_t; on Win64 multiplication could narrow at the call. Candidate computes the maximum count by division first, rejects with std::out_of_range, then multiplies in unsigned int. No header has been written at either count rejection. The wire count remains unsigned int, and Unicode code units remain their existing unsigned-short type. Client/server candidate implementation is identical, authored server first. Explicit limits/stdexcept includes avoid relying on transitive helper headers. No decoder changes, no new generic framework.
+
+With two-byte code units:2147483647 units maps to4294967294 payload bytes;2147483648 units is rejected before multiplication/output. This bounds payload representation only. A payload fitting unsigned int may still exceed ByteStream's aggregate destination capacity when its header or existing bytes are included. Such failure may occur after the header; nested/aggregate rollback is not established by this patch.
+
+Extracted exact arithmetic tested on host g++ -m32 and -m64:6/6 each at0,1,3,max safe units, first invalid units andUINT_MAX units. Fixture substitutes a count for source.size only; no giant strings/allocations, no actual writer oversized rejection tested. This is arithmetic boundary coverage, not fabricated oversized-container runtime coverage. Real small Unicode paths remain in existing wire suite.
+
+Candidate clang/MinGW real PE + Wine suite:71/71 Win32 and78/78 Win64. Initial32 run predated addition of explicit standard includes; final exact-source32 rerun also passed71/71 (final-wire32.log). No MSVC full product or server native build yet. No commits or pushes. Source order establishes pre-header count-failure rejection; tests do not claim allocation-failure atomicity.

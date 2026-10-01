@@ -753,7 +753,7 @@
     {
       "id": "ui-native-widths",
       "title": "UI parsing and native-size source expressions",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -782,9 +782,9 @@
           "subject": "skeletal: match native sizes in debug range checks"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-ui-native-widths",
+      "branch_head": "9396a5181497ba259c0bba0af8c2511154937088",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/35",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Existing intrinsics, parser positions, string overload and tag/debug-count corrections. Can be split by original commit if maintainer preference; no new implementation needed.",
       "exclusive_production_accounting": {

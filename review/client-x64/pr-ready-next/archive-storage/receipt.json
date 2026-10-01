@@ -1,0 +1,831 @@
+{
+  "schema_version": 1,
+  "prepared_date": "2026-10-01",
+  "id": "client-archive-storage",
+  "title": "Archive: bound payload reads and preserve ByteStream storage",
+  "repository": "https://github.com/Akilleez-QA/client-tools",
+  "branch": "review-ready/client-archive-storage",
+  "base_ref": "ci/client-wire",
+  "base": "e6738a9f5b912f62c496f866a911fa33b2539908",
+  "head": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+  "merge_base": "e6738a9f5b912f62c496f866a911fa33b2539908",
+  "prerequisite_pr": "https://github.com/SWG-Source/client-tools/pull/23",
+  "commit_count": 5,
+  "units": [
+    {
+      "original": "5755f8f3beee3ddf16d0767c0cf78f1b700327a6",
+      "packaged": "3dadcd6e57345e4c0b97edd86f43a27f9555a638",
+      "subject": "archive: reuse checked string length for the payload write",
+      "original_source_patch_id": "4fa4c8464db6fcbbf78922f6fcf54bdeabb47165",
+      "packaged_source_patch_id": "4fa4c8464db6fcbbf78922f6fcf54bdeabb47165",
+      "source_patch_identity": true,
+      "excluded_original_paths": [],
+      "source_paths": [
+        "src/external/ours/library/archive/src/shared/Archive.h"
+      ]
+    },
+    {
+      "original": "8d9010900c02e449ad2de496ee6b47196dcae1fa",
+      "packaged": "e211ff29ba550b3a414b127406866ef1eb494d0d",
+      "subject": "archive: preserve ByteStream bounds and storage through growth",
+      "original_source_patch_id": "5b43856c389798fd8b26ffb4ed74b823d181cc13",
+      "packaged_source_patch_id": "5b43856c389798fd8b26ffb4ed74b823d181cc13",
+      "source_patch_identity": true,
+      "excluded_original_paths": [
+        ".github/workflows/wire-compatibility.yml",
+        "tools/test-byte-stream/README.md",
+        "tools/test-byte-stream/fixtures.cpp",
+        "tools/test-byte-stream/run.py"
+      ],
+      "source_paths": [
+        "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+        "src/external/ours/library/archive/src/shared/ByteStream.h"
+      ]
+    },
+    {
+      "original": "d89b9f49e228d3390899aed3da6987424d1e41c0",
+      "packaged": "e136c726b3a7f54454d13c08b76005d5b40a5e8d",
+      "subject": "archive: preflight decoder payloads and copy Unicode safely",
+      "original_source_patch_id": "2e0ad5f222c992ca75e24e0d5a8f8ea8d7a49889",
+      "packaged_source_patch_id": "2e0ad5f222c992ca75e24e0d5a8f8ea8d7a49889",
+      "source_patch_identity": true,
+      "excluded_original_paths": [
+        ".github/workflows/wire-compatibility.yml",
+        "tools/test-archive-decoders/README.md",
+        "tools/test-archive-decoders/fixtures.cpp",
+        "tools/test-archive-decoders/run.py"
+      ],
+      "source_paths": [
+        "src/external/ours/library/archive/src/shared/Archive.h",
+        "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp"
+      ]
+    },
+    {
+      "original": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "packaged": "cf9cb8b78421d4c04457a6dcc4e1897d2674bb0f",
+      "subject": "archive: check AutoArray and AutoList count headers",
+      "original_source_patch_id": "e5086483aae4125cf5d82e130416d1c874f65922",
+      "packaged_source_patch_id": "e5086483aae4125cf5d82e130416d1c874f65922",
+      "source_patch_identity": true,
+      "excluded_original_paths": [
+        "tools/test-wire-compatibility/README.md",
+        "tools/test-wire-compatibility/fixtures.cpp",
+        "tools/test-wire-compatibility/run.py"
+      ],
+      "source_paths": [
+        "src/external/ours/library/archive/src/shared/AutoByteStream.h"
+      ]
+    },
+    {
+      "original": "edc04cb1d8417d509065af53928c1b840fbaf3ae",
+      "packaged": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+      "subject": "archive: bound Unicode payload bytes before publishing its count",
+      "original_source_patch_id": "78d0130eb36aeaea9338a9a80295dab6c3a912a2",
+      "packaged_source_patch_id": "78d0130eb36aeaea9338a9a80295dab6c3a912a2",
+      "source_patch_identity": true,
+      "excluded_original_paths": [],
+      "source_paths": [
+        "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp"
+      ]
+    }
+  ],
+  "counts": {
+    "production_source": {
+      "files": 5,
+      "additions": 117,
+      "deletions": 100
+    },
+    "tests_build_tooling_docs_sdks_assets": {
+      "files": 0,
+      "additions": 0,
+      "deletions": 0
+    }
+  },
+  "inventory_master_accounting": {
+    "production_files": 5,
+    "additions": 127,
+    "deletions": 107,
+    "limit": "Inventory whole-file ownership versus master includes already-published wire changes; actual proposed delta is measured above PR23."
+  },
+  "authoritative_source_head": "eca74ffa5741f608a1417944b2e2602868936517",
+  "files": [
+    {
+      "path": "src/external/ours/library/archive/src/shared/Archive.h",
+      "additions": 12,
+      "deletions": 6,
+      "base_blob": "d300dad56ca1c9bd7c2daf49cbaf8e3c5d3cb580",
+      "first_original_parent_blob": "d300dad56ca1c9bd7c2daf49cbaf8e3c5d3cb580",
+      "head_blob": "b719bf8a9949504e5e1ebde0ec9b682c5d446b0e",
+      "last_original_blob": "b719bf8a9949504e5e1ebde0ec9b682c5d446b0e",
+      "maintained_blob": "b719bf8a9949504e5e1ebde0ec9b682c5d446b0e",
+      "sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_decoder_manifest_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+      "final_portable_win32_source_identity": true
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+      "additions": 2,
+      "deletions": 2,
+      "base_blob": "21eb963f08b407e40aad1f48f12fc295c02492ea",
+      "first_original_parent_blob": "21eb963f08b407e40aad1f48f12fc295c02492ea",
+      "head_blob": "f434c68556d7546e99f42ae9e720a911679f87ad",
+      "last_original_blob": "f434c68556d7546e99f42ae9e720a911679f87ad",
+      "maintained_blob": "f434c68556d7546e99f42ae9e720a911679f87ad",
+      "sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "final_portable_win32_source_identity": true
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "additions": 63,
+      "deletions": 66,
+      "base_blob": "d8e738728e3498360203d80df6372cc3df519937",
+      "first_original_parent_blob": "d8e738728e3498360203d80df6372cc3df519937",
+      "head_blob": "40e35d9fd154de007f6a390c3dd7784eea905aa0",
+      "last_original_blob": "40e35d9fd154de007f6a390c3dd7784eea905aa0",
+      "maintained_blob": "40e35d9fd154de007f6a390c3dd7784eea905aa0",
+      "sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_candidate_manifest_sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+      "recorded_candidate_manifest_identity": true,
+      "final_portable_win32_source_identity": true
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/ByteStream.h",
+      "additions": 22,
+      "deletions": 18,
+      "base_blob": "ec360ca0c0ad976d3f45e6f89b77087dae89fe1d",
+      "first_original_parent_blob": "ec360ca0c0ad976d3f45e6f89b77087dae89fe1d",
+      "head_blob": "b3523eeeeedbe1e09d25aa3a6e719e7e8e6351b1",
+      "last_original_blob": "b3523eeeeedbe1e09d25aa3a6e719e7e8e6351b1",
+      "maintained_blob": "b3523eeeeedbe1e09d25aa3a6e719e7e8e6351b1",
+      "sha256": "9360282060132e2c6d26b7a0fd451fcc5346bbef85af9c49c8a2e8de339d76b6",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_candidate_manifest_sha256": "9360282060132e2c6d26b7a0fd451fcc5346bbef85af9c49c8a2e8de339d76b6",
+      "recorded_candidate_manifest_identity": true,
+      "final_portable_win32_source_identity": true
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+      "additions": 18,
+      "deletions": 8,
+      "base_blob": "ff506001b7818171f63a54bc9272ecb659695b00",
+      "first_original_parent_blob": "ff506001b7818171f63a54bc9272ecb659695b00",
+      "head_blob": "0d6b261601a9771a64899e0365169adc8b8713d3",
+      "last_original_blob": "0d6b261601a9771a64899e0365169adc8b8713d3",
+      "maintained_blob": "0d6b261601a9771a64899e0365169adc8b8713d3",
+      "sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_native_decoder_stage_sha256": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5",
+      "exact_final_native_translation_unit_identity": false,
+      "decoder_function_sha256": "1fb0e386c50c5309ee80aa95d7486b400bd53e02a05a717e9638a595b000b52a",
+      "decoder_function_identical_to_recorded_stage": true,
+      "remaining_change": "Explicit standard includes and original Unicode writer byte-count preflight from edc04cb1d8 only.",
+      "final_portable_win32_source_identity": true
+    }
+  ],
+  "preserved_refs": {
+    "review-ready/client-math-kernels": "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+    "review-ready/client-fpu-controls": "16dbf07a4e6696fa1ebc133b567619643b76c3ce",
+    "ci/client-wire": "e6738a9f5b912f62c496f866a911fa33b2539908"
+  },
+  "source_dependencies": [
+    "Published PR23 wire contract provides ArchiveCount and fixes wire widths. No math/FPU, allocator, SDK or other integration source prerequisite was imported."
+  ],
+  "excluded_test_dependency": {
+    "commit": "3550071ed388dea71d39ebc2d0c942e5f90da5db",
+    "subject": "tests: cover bounded LoginClusterStatus legacy encodings",
+    "reason": "The original AutoArray/AutoList fixture commit expects 58 common checks and the LoginCluster fixture; PR23 expects 49. Those nine checks are a test-history prerequisite only. Original production patches were extracted without adapting tests or changing source behavior.",
+    "ci_limit": "The PR retains base wire workflow and suite; the 85-check ByteStream and 34-check decoder runners are linked at their original commits and are not newly installed in this branch."
+  },
+  "evidence_ref": "115d618f039a7fb36350611c104e9cb25d45e60c",
+  "evidence": [
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/CANDIDATE.md",
+      "sha256": "84911b492493264675ac6ecf0015d10600c7826471a7a79d3add4bc107cbaa2e",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/CANDIDATE.md"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/INDEPENDENT-REVIEW.md",
+      "sha256": "ea122d829561de86750642c3b895e6e868c79fe33d73ab91164dcf663f6abcbd",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/INDEPENDENT-REVIEW.md"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/candidate-manifest.json",
+      "sha256": "fdb723fb912e4523a468fc10686ceb16ddc97be43359d1db66551c8ec16fcb28",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/candidate-manifest.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/candidate-probe.cpp",
+      "sha256": "d2074a01b4d749b4f97530aa30ca27e5d21eaeaf103d1f08c4ec74434f765912",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/candidate-probe.cpp"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/STRING-RESULTS.md",
+      "sha256": "44e29f9eb18936d82cdc94ddd0130b52a4b13e37264f9a761aa4d6d1e9d3f4f3",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/STRING-RESULTS.md"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/string-repair-manifest.json",
+      "sha256": "20905228bf0bc52214265a463ca70494106f6624c92d4855e894ed50eeef4233",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/string-repair-manifest.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/run-native-v2.py",
+      "sha256": "66d792343074b73a524bf59a314e544125253acc5ff45a6c8f9fbb7eb680ed3a",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/run-native-v2.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/verify-native-v2.py",
+      "sha256": "4936224bac0d6c9d60ac4fc6df1b5b669172d0d5468d957cb0f01b95ff80e893",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/verify-native-v2.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/native-v2-text.zip",
+      "sha256": "1550b8b2dc9ea24c281aefb0ad0e6fdc052f2361361e36740578c6d5a2833149",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/native-v2-text.zip"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/CANDIDATE.md",
+      "sha256": "2788ccf291081d657b3af80e7c69ac1ef6f4fe44390668aa57228b7017f11b5e",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/CANDIDATE.md"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/REVIEW.md",
+      "sha256": "daea60184d20d6885f699330f8f40cdd0180347947291784e42dc201872b64e4",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/REVIEW.md"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/decoder-manifest.json",
+      "sha256": "74c029e6b08570dba37d413d1c6c4ef0e2aa7279583cddacf15549cde80c1227",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/decoder-manifest.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/run-native.py",
+      "sha256": "f260dc8a454f46cd443ee8c92d0addbbde06651a392f63f23bb9b8a3c6ebeff9",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/run-native.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/verify-native.py",
+      "sha256": "2117a0af6d6393513fb4a55d13fb65b30d12ed24254d5e4eb3dc56afb7c462a4",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/verify-native.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/native-v1-text.zip",
+      "sha256": "3db3dbc47876844eda360d8419405d764447d2b1c45463bda22709e15cb02f7a",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/native-v1-text.zip"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent32/manifest.json",
+      "sha256": "80967f03d3db18c1e0958b058669a46fbaa23a11eeb19f7fefc170463db7d31b",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent32/manifest.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent32/run.log",
+      "sha256": "3cdf2b5e3138b0bfebf873ee369b1d3c8d65034b26ff30d145f9ddf813e35ae1",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent32/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent64/manifest.json",
+      "sha256": "eeacb7cd58d47258b29174f729eb96aea2cd13fa8239bff9d4394e4089c68945",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent64/manifest.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent64/run.log",
+      "sha256": "3cdf2b5e3138b0bfebf873ee369b1d3c8d65034b26ff30d145f9ddf813e35ae1",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/bytestream-next/raw-decoder-review/parent64/run.log"
+    }
+  ],
+  "native_packets": [
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/native-v2-text.zip",
+      "sha256": "1550b8b2dc9ea24c281aefb0ad0e6fdc052f2361361e36740578c6d5a2833149",
+      "members": [
+        {
+          "path": "Debug-Win32\\build.cmd",
+          "sha256": "3c2273f1fc9fa115d53ffb7e8ce781d538339c94df627d4317aee334b943fb4e"
+        },
+        {
+          "path": "Debug-Win32\\build.log",
+          "sha256": "0e92bbdcdd0f8bbf5a7ee6d746110a9f445e6cee0d135ffb38211b798c0c7817"
+        },
+        {
+          "path": "Debug-Win32\\run-verified.log",
+          "sha256": "21a860d8096b2ca9bc927a832f3449049f53f513f1fcc5540a9ee4661dc525dc"
+        },
+        {
+          "path": "Debug-Win32\\run.log",
+          "sha256": "21a860d8096b2ca9bc927a832f3449049f53f513f1fcc5540a9ee4661dc525dc"
+        },
+        {
+          "path": "Debug-x64\\build.cmd",
+          "sha256": "76f247321298f14bbfcd3194781e906e11a93a3d27ca23c059a4b0ec6fa0da7c"
+        },
+        {
+          "path": "Debug-x64\\build.log",
+          "sha256": "9418d13c0cbe4e5f659105f2794784dd3fed608dbedd691759c0eaf5117a342b"
+        },
+        {
+          "path": "Debug-x64\\run-verified.log",
+          "sha256": "e07f431ba21a70b38ac642af0aa13ff6a61ec4ad634814537b5b2ce16cd58bf3"
+        },
+        {
+          "path": "Debug-x64\\run.log",
+          "sha256": "e07f431ba21a70b38ac642af0aa13ff6a61ec4ad634814537b5b2ce16cd58bf3"
+        },
+        {
+          "path": "Release-Win32\\build.cmd",
+          "sha256": "43b232ccbb13c7f4e22f63c1676379fbca403367137d21e7674def9fbbc15fa1"
+        },
+        {
+          "path": "Release-Win32\\build.log",
+          "sha256": "9deacd095bae5a46f24a30b243ce56888f9b289d609d86d675668c42aeb5ff17"
+        },
+        {
+          "path": "Release-Win32\\run-verified.log",
+          "sha256": "03430a03c207dd5c1cef33992e5a93178083069efc8f61eb820d9ce188dd8abd"
+        },
+        {
+          "path": "Release-Win32\\run.log",
+          "sha256": "03430a03c207dd5c1cef33992e5a93178083069efc8f61eb820d9ce188dd8abd"
+        },
+        {
+          "path": "Release-x64\\build.cmd",
+          "sha256": "ef02549bfb10c5324d69b0b467c0979d23e1b0eb160c97ef7843f977bb5f9f6a"
+        },
+        {
+          "path": "Release-x64\\build.log",
+          "sha256": "1133edc79860e9fa477ae5441f187a0459c5a520b18735e09c1a4c09041cef72"
+        },
+        {
+          "path": "Release-x64\\run-verified.log",
+          "sha256": "03430a03c207dd5c1cef33992e5a93178083069efc8f61eb820d9ce188dd8abd"
+        },
+        {
+          "path": "Release-x64\\run.log",
+          "sha256": "03430a03c207dd5c1cef33992e5a93178083069efc8f61eb820d9ce188dd8abd"
+        },
+        {
+          "path": "results.json",
+          "sha256": "0bb91eec0cc5074c6ec3ecc0af123cb67c93ba825062135bee95858591538249"
+        },
+        {
+          "path": "verified-results.json",
+          "sha256": "6555d7878e5fde11b3ec257286dfeaa48cdb349b950708c61fe775046bcea530"
+        }
+      ],
+      "observations": [
+        {
+          "name": "Debug-Win32",
+          "compile": 0,
+          "machine": 332,
+          "run": 0,
+          "passed": false,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [
+            "MM::remove 2032/2736=bytes 2/13=allocs"
+          ],
+          "checks": 85,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "d2074a01b4d749b4f97530aa30ca27e5d21eaeaf103d1f08c4ec74434f765912"
+          },
+          "link_input_count": 40,
+          "output": "MM::remove 2032/2736=bytes 2/13=allocs\nPASS: 85 bounded initialized-storage checks\r\n"
+        },
+        {
+          "name": "Debug-x64",
+          "compile": 0,
+          "machine": 34404,
+          "run": 0,
+          "passed": false,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [
+            "MM::remove 2848/3840=bytes 3/14=allocs"
+          ],
+          "checks": 85,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "d2074a01b4d749b4f97530aa30ca27e5d21eaeaf103d1f08c4ec74434f765912"
+          },
+          "link_input_count": 39,
+          "output": "MM::remove 2848/3840=bytes 3/14=allocs\nPASS: 85 bounded initialized-storage checks\r\n"
+        },
+        {
+          "name": "Release-Win32",
+          "compile": 0,
+          "machine": 332,
+          "run": 0,
+          "passed": true,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [],
+          "checks": 85,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "d2074a01b4d749b4f97530aa30ca27e5d21eaeaf103d1f08c4ec74434f765912"
+          },
+          "link_input_count": 40,
+          "output": "PASS: 85 bounded initialized-storage checks\r\n"
+        },
+        {
+          "name": "Release-x64",
+          "compile": 0,
+          "machine": 34404,
+          "run": 0,
+          "passed": true,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [],
+          "checks": 85,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "d2074a01b4d749b4f97530aa30ca27e5d21eaeaf103d1f08c4ec74434f765912"
+          },
+          "link_input_count": 39,
+          "output": "PASS: 85 bounded initialized-storage checks\r\n"
+        }
+      ],
+      "dependency_limit": "Recorded mixed genuine core/STLport link set, LCD-v4 minimum-block MemoryManager and allocator-minimum DebugHelp/InstallTimer; not a fresh build of the PR branch."
+    },
+    {
+      "path": "review/client-x64/vendor-next/bytestream-next/raw-decoder-review/native-v1-text.zip",
+      "sha256": "3db3dbc47876844eda360d8419405d764447d2b1c45463bda22709e15cb02f7a",
+      "members": [
+        {
+          "path": "Debug-Win32\\build.cmd",
+          "sha256": "bc90e3118f1f569185493ebc8b3e3c492e074f769cdd58b9999224c86323383f"
+        },
+        {
+          "path": "Debug-Win32\\build.log",
+          "sha256": "7c7086b70323fcfdbabf082ee48b3d6920fed92071418b772791f48631794c75"
+        },
+        {
+          "path": "Debug-Win32\\run-verified.log",
+          "sha256": "c9edf66fc6861cd09f2d1335602ea87819c91c009dd22913bc8c1d4a822f349d"
+        },
+        {
+          "path": "Debug-Win32\\run.log",
+          "sha256": "c9edf66fc6861cd09f2d1335602ea87819c91c009dd22913bc8c1d4a822f349d"
+        },
+        {
+          "path": "Debug-x64\\build.cmd",
+          "sha256": "c2fa95c41d1b7b500098d1f92a11a1b7653e9ed7269bee1bebbd70f8cd25d383"
+        },
+        {
+          "path": "Debug-x64\\build.log",
+          "sha256": "cc2c22f03349c2ad7dac9d07b8d0961acaada8d54421f9e2e6fb6e62cd5a34df"
+        },
+        {
+          "path": "Debug-x64\\run-verified.log",
+          "sha256": "5ced2bd84790ea381496ecb39ed9fb2ef6f1c711507ce37c2965d151f5162f32"
+        },
+        {
+          "path": "Debug-x64\\run.log",
+          "sha256": "5ced2bd84790ea381496ecb39ed9fb2ef6f1c711507ce37c2965d151f5162f32"
+        },
+        {
+          "path": "Release-Win32\\build.cmd",
+          "sha256": "ed7f65379aa2eaadb497c6ede0c33dab44624e6c00c342da35d249f602e193fd"
+        },
+        {
+          "path": "Release-Win32\\build.log",
+          "sha256": "94acb844001432289b3835561135162604824c7a59ec50c4b1139f94161d6255"
+        },
+        {
+          "path": "Release-Win32\\run-verified.log",
+          "sha256": "1082b00263addd8872d4fa51ad2f0347af7736a65d8bbdd04be0779671700843"
+        },
+        {
+          "path": "Release-Win32\\run.log",
+          "sha256": "1082b00263addd8872d4fa51ad2f0347af7736a65d8bbdd04be0779671700843"
+        },
+        {
+          "path": "Release-x64\\build.cmd",
+          "sha256": "6425e3b4b5b8a7178994bf6dc5f52a44cd6e41ae76e75003f8b43ff21c6c83d9"
+        },
+        {
+          "path": "Release-x64\\build.log",
+          "sha256": "66055ab72d0941e93acfc8a4d93d3c636cc0cc89545b51e3ff6ba116704ee6bf"
+        },
+        {
+          "path": "Release-x64\\run-verified.log",
+          "sha256": "1082b00263addd8872d4fa51ad2f0347af7736a65d8bbdd04be0779671700843"
+        },
+        {
+          "path": "Release-x64\\run.log",
+          "sha256": "1082b00263addd8872d4fa51ad2f0347af7736a65d8bbdd04be0779671700843"
+        },
+        {
+          "path": "results.json",
+          "sha256": "0cfbe880bda03c1603ad45399fc26095d8f8144c243aa7fe57d723672c2ad3a1"
+        },
+        {
+          "path": "verified-results.json",
+          "sha256": "395063c4bc0c6816fd76ead79bf1686a480e8475ac7d48d834c8fc43971f1cd8"
+        }
+      ],
+      "observations": [
+        {
+          "name": "Debug-Win32",
+          "compile": 0,
+          "machine": 332,
+          "run": 0,
+          "passed": false,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [
+            "MM::remove 1680/2448=bytes 2/26=allocs"
+          ],
+          "checks": 34,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "02b83e89b9d6983ff8df07379dfb5e5692d0550909209d79cb05fa20702b0246",
+            "UnicodeArchive.cpp": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5"
+          },
+          "link_input_count": 40,
+          "output": "MM::remove 1680/2448=bytes 2/26=allocs\nPASS: 34 bounded decoder checks\r\n"
+        },
+        {
+          "name": "Debug-x64",
+          "compile": 0,
+          "machine": 34404,
+          "run": 0,
+          "passed": false,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [
+            "MM::remove 8000/9536=bytes 3/27=allocs"
+          ],
+          "checks": 34,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "02b83e89b9d6983ff8df07379dfb5e5692d0550909209d79cb05fa20702b0246",
+            "UnicodeArchive.cpp": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5"
+          },
+          "link_input_count": 39,
+          "output": "MM::remove 8000/9536=bytes 3/27=allocs\nPASS: 34 bounded decoder checks\r\n"
+        },
+        {
+          "name": "Release-Win32",
+          "compile": 0,
+          "machine": 332,
+          "run": 0,
+          "passed": true,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [],
+          "checks": 34,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "02b83e89b9d6983ff8df07379dfb5e5692d0550909209d79cb05fa20702b0246",
+            "UnicodeArchive.cpp": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5"
+          },
+          "link_input_count": 40,
+          "output": "PASS: 34 bounded decoder checks\r\n"
+        },
+        {
+          "name": "Release-x64",
+          "compile": 0,
+          "machine": 34404,
+          "run": 0,
+          "passed": true,
+          "verified_exit": 0,
+          "verified_pass": true,
+          "production_map_binding": true,
+          "diagnostic_lines": [],
+          "checks": 34,
+          "source_sha256": {
+            "ByteStream.cpp": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "ArchiveMutex.cpp": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753",
+            "candidate-probe.cpp": "02b83e89b9d6983ff8df07379dfb5e5692d0550909209d79cb05fa20702b0246",
+            "UnicodeArchive.cpp": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5"
+          },
+          "link_input_count": 39,
+          "output": "PASS: 34 bounded decoder checks\r\n"
+        }
+      ],
+      "dependency_limit": "Recorded mixed genuine core/STLport link set, LCD-v4 minimum-block MemoryManager and allocator-minimum DebugHelp/InstallTimer; not a fresh build of the PR branch."
+    }
+  ],
+  "unchanged_native_dependency": {
+    "path": "src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+    "base_blob": "016c070bf6f6140a1090bf646cc7da11eacf689b",
+    "head_blob": "016c070bf6f6140a1090bf646cc7da11eacf689b",
+    "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753"
+  },
+  "portable_final_source_evidence": {
+    "text_supplement_directory": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence",
+    "files": [
+      {
+        "source": "/home/akilleez/Work/client-wire-validation/unicode-count-next/RESULTS.md",
+        "destination": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/RESULTS.md",
+        "sha256": "7e7d020f5e5c45dc7e58df6c54354d3130c2b666527a7f471d4a135c384efa15",
+        "copied_without_modification": true
+      },
+      {
+        "source": "/home/akilleez/Work/client-wire-validation/unicode-count-next/manifest.json",
+        "destination": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/manifest.json",
+        "sha256": "c0645b445af1f00216e11e89562fe1977658d3eb0d5e990a0121ed98d575b226",
+        "copied_without_modification": true
+      },
+      {
+        "source": "/home/akilleez/Work/client-wire-validation/unicode-count-next/arithmetic.cpp",
+        "destination": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/arithmetic.cpp",
+        "sha256": "bab5bfee514e487c6d5b5cc80ee3ff1b3e514758be831221a4e5079305a3616b",
+        "copied_without_modification": true
+      },
+      {
+        "source": "/home/akilleez/Work/client-wire-validation/unicode-count-next/final-wire32.log",
+        "destination": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/final-wire32.log",
+        "sha256": "12e944b17aebb72821173df763fa975c1a8476bda5e4e33a37a871b72c07a8b5",
+        "copied_without_modification": true
+      },
+      {
+        "source": "/home/akilleez/Work/client-wire-validation/unicode-count-next/final-wire32/commands-32.jsonl",
+        "destination": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/final-wire32/commands-32.jsonl",
+        "sha256": "a9843356580bbcf13fdc595f0acf3af8c4a4c3d03ff6a96639d7a72a98c33732",
+        "copied_without_modification": true
+      },
+      {
+        "source": "/home/akilleez/Work/client-wire-validation/unicode-count-next/wire64/commands-64.jsonl",
+        "destination": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/wire64/commands-64.jsonl",
+        "sha256": "0e7cf2d6e06e0e86a8e95bd639e24a6b41357c5e5382c59525ba132cc1754d65",
+        "copied_without_modification": true
+      }
+    ],
+    "selected_source_manifests": [
+      {
+        "original_path": "/home/akilleez/Work/client-wire-validation/unicode-count-next/final-wire32/staged-source-32.json",
+        "original_sha256": "f97139b0aebd2b4d56683a86442a0ed2792f25d6f575990c5b87947e3b2f4f68",
+        "extraction": "Only the five packaged source entries from the original staged-source manifest; no modified hashes.",
+        "sources": [
+          {
+            "path": "src/external/ours/library/archive/src/shared/Archive.h",
+            "recorded_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+            "packaged_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+            "recorded_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+            "packaged_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+            "recorded_sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "packaged_sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/archive/src/shared/ByteStream.h",
+            "recorded_sha256": "9360282060132e2c6d26b7a0fd451fcc5346bbef85af9c49c8a2e8de339d76b6",
+            "packaged_sha256": "9360282060132e2c6d26b7a0fd451fcc5346bbef85af9c49c8a2e8de339d76b6",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+            "recorded_sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+            "packaged_sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+            "identity": true
+          }
+        ]
+      },
+      {
+        "original_path": "/home/akilleez/Work/client-wire-validation/unicode-count-next/wire64/staged-source-64.json",
+        "original_sha256": "f97139b0aebd2b4d56683a86442a0ed2792f25d6f575990c5b87947e3b2f4f68",
+        "extraction": "Only the five packaged source entries from the original staged-source manifest; no modified hashes.",
+        "sources": [
+          {
+            "path": "src/external/ours/library/archive/src/shared/Archive.h",
+            "recorded_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+            "packaged_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+            "recorded_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+            "packaged_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+            "recorded_sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "packaged_sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/archive/src/shared/ByteStream.h",
+            "recorded_sha256": "9360282060132e2c6d26b7a0fd451fcc5346bbef85af9c49c8a2e8de339d76b6",
+            "packaged_sha256": "9360282060132e2c6d26b7a0fd451fcc5346bbef85af9c49c8a2e8de339d76b6",
+            "identity": true
+          },
+          {
+            "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+            "recorded_sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+            "packaged_sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+            "identity": true
+          }
+        ]
+      }
+    ],
+    "win32_raw_verdict": "OK: 71/71 checks passed",
+    "win32_exact_all_five_source_hashes": true,
+    "win64_claim": "The standalone wire64.log is absent, but commands-64.jsonl retains the raw Wine stdout and exit zero: 77 PASS lines, no FAIL/NOT RUN/ABSENT/SKIP lines, plus successful wire_types.cpp compilation. This supports the original 78/78 summary; all five staged source hashes match the package.",
+    "arithmetic_claim": "Historical RESULTS.md records 6/6 extracted arithmetic boundaries on host -m32/-m64. No oversized real Unicode string execution; arithmetic.cpp is preserved as provenance, not executed now.",
+    "selected_source_manifest_excerpt_sha256": "0131741c001a78d6ef9a400e38a4f6018b993b6423ac2a7d4ccbc0c11eb70723",
+    "win64_exact_all_five_source_hashes": true,
+    "recorded_command_assessment": [
+      {
+        "abi_bits": 32,
+        "input": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/final-wire32/commands-32.jsonl",
+        "input_sha256": "a9843356580bbcf13fdc595f0acf3af8c4a4c3d03ff6a96639d7a72a98c33732",
+        "command_rows": 34,
+        "all_recorded_commands_exit_zero": true,
+        "recorded_runtime_exit": 0,
+        "recorded_runtime_pass_lines": 70,
+        "recorded_compile_time_width_check": true,
+        "equivalent_original_runner_total": 71,
+        "unexpected_failure_or_absent_lines": [],
+        "skip_lines": [
+          "SKIP: time_t is 32-bit; no out-of-range timestamp exists (6 checks)",
+          "SKIP: size_t is 32-bit; UINT32_MAX + 1 is not a size (1 check)"
+        ],
+        "assessment": "Read-only inspection of historical command records against the original runner oracle; no commands executed."
+      },
+      {
+        "abi_bits": 64,
+        "input": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/wire64/commands-64.jsonl",
+        "input_sha256": "0e7cf2d6e06e0e86a8e95bd639e24a6b41357c5e5382c59525ba132cc1754d65",
+        "command_rows": 34,
+        "all_recorded_commands_exit_zero": true,
+        "recorded_runtime_exit": 0,
+        "recorded_runtime_pass_lines": 77,
+        "recorded_compile_time_width_check": true,
+        "equivalent_original_runner_total": 78,
+        "unexpected_failure_or_absent_lines": [],
+        "skip_lines": [],
+        "assessment": "Read-only inspection of historical command records against the original runner oracle; no commands executed."
+      }
+    ]
+  },
+  "historical_failures_retained": [
+    "Initial candidate host attempt used nonexistent client Linux mutex and failed before compilation.",
+    "Native v1 ByteStream compiled but failed linkage on custom MemoryManagerNotALeak allocation dependency; v2 used recorded genuine dependencies.",
+    "Original native exact-single-line verifier marked Debug outputs false because of numeric MM::remove summaries; later constrained verification required exact verdict, exit zero and map binding while allowing only those diagnostics. Both original and verified records remain.",
+    "Decoder verifier was invoked before results existed once; later verification used completed builds."
+  ],
+  "claim_limits": [
+    "No new build, test, runtime, fork CI or full-product exact-head acceptance was run for this package.",
+    "Native ByteStream.cpp source is exact; ByteStream.h and Archive.h identities come from recorded candidate manifests. Native Unicode translation unit predates the final writer guard; decoder function bytes are unchanged.",
+    "Final five source hashes match both recorded Win32 and Win64 portable wire input manifests; expanded fixture source/test history is not included in this PR.",
+    "Preflight rejects declared payload beyond remaining bytes before destination mutation; a completely read length header remains consumed.",
+    "Earlier decoded members/callbacks are not rolled back; no full message or AutoDelta transaction guarantee.",
+    "Unicode writer count/byte representation failure precedes header publication, but later allocation or aggregate destination-capacity failure may follow a written header.",
+    "Allocation-failure guarantees and real oversized pack-site rejection are source-reviewed only; no fault injection or huge allocation.",
+    "Bound empty/end zero-byte reads now succeed; unbound get remains invalid. Iterator guards detect position beyond current logical end, not every invalidation after clear/refill.",
+    "Public field widths/layout and representable legacy wire encodings retained; private allocation helper changes.",
+    "ByteStream clear retains basic failure semantics, refcounts remain non-atomic, no shared-stream thread-safety claim."
+  ],
+  "packaging_checks": {
+    "source_patch_ids_all_match": true,
+    "all_base_source_blobs_match_original_parents": true,
+    "all_final_source_blobs_match_original_and_maintained": true,
+    "diff_check_exit": 0,
+    "clean_worktree": true,
+    "new_builds_or_tests": false,
+    "remote_mutations": false,
+    "server_counterpart_started": false
+  },
+  "blockers": [],
+  "publication_state": "local_only; bounded independent review and parent publication pending",
+  "ready_for_bounded_review": true
+}

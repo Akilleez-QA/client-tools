@@ -1,0 +1,33 @@
+[
+  {
+    "abi_bits": 32,
+    "input": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/final-wire32/commands-32.jsonl",
+    "input_sha256": "a9843356580bbcf13fdc595f0acf3af8c4a4c3d03ff6a96639d7a72a98c33732",
+    "command_rows": 34,
+    "all_recorded_commands_exit_zero": true,
+    "recorded_runtime_exit": 0,
+    "recorded_runtime_pass_lines": 70,
+    "recorded_compile_time_width_check": true,
+    "equivalent_original_runner_total": 71,
+    "unexpected_failure_or_absent_lines": [],
+    "skip_lines": [
+      "SKIP: time_t is 32-bit; no out-of-range timestamp exists (6 checks)",
+      "SKIP: size_t is 32-bit; UINT32_MAX + 1 is not a size (1 check)"
+    ],
+    "assessment": "Read-only inspection of historical command records against the original runner oracle; no commands executed."
+  },
+  {
+    "abi_bits": 64,
+    "input": "/home/akilleez/Work/client-wire-validation/pr-submissions/client-archive-storage-evidence/wire64/commands-64.jsonl",
+    "input_sha256": "0e7cf2d6e06e0e86a8e95bd639e24a6b41357c5e5382c59525ba132cc1754d65",
+    "command_rows": 34,
+    "all_recorded_commands_exit_zero": true,
+    "recorded_runtime_exit": 0,
+    "recorded_runtime_pass_lines": 77,
+    "recorded_compile_time_width_check": true,
+    "equivalent_original_runner_total": 78,
+    "unexpected_failure_or_absent_lines": [],
+    "skip_lines": [],
+    "assessment": "Read-only inspection of historical command records against the original runner oracle; no commands executed."
+  }
+]
