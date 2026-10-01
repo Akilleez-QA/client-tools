@@ -1,0 +1,33 @@
+In file included from /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/Misc.h:1,
+                 from /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/shared/FirstSharedFoundation.h:78,
+                 from /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h:1,
+                 from /home/akilleez/Work/swg-source/server-pr-imemmove/tools/test-imemmove/probe.cpp:1:
+/home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/shared/Misc.h: In function 'void* memmove(void*, const void*, int)':
+/home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/shared/Misc.h:233:23: error: call of overloaded 'memmove(void*&, const void*&, uint)' is ambiguous
+  233 |         return memmove(destination, source, static_cast<uint>(length));
+      |                ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  • there are 2 candidates
+In file included from /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/linux/FirstPlatform.h:31,
+                 from /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstPlatform.h:4,
+                 from /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/shared/FirstSharedFoundation.h:36:
+    • candidate 1: 'void* memmove(void*, const void*, size_t)'
+      /usr/include/string.h:51:14:
+         51 | extern void *memmove (void *__dest, const void *__src, size_t __n)
+            |              ^~~~~~~
+    • candidate 2: 'void* memmove(void*, const void*, int)'
+      /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/shared/Misc.h:229:14:
+        229 | inline void *memmove(void *destination, const void *source, int length)
+            |              ^~~~~~~
+/home/akilleez/Work/swg-source/server-pr-imemmove/tools/test-imemmove/probe.cpp: In function 'int main()':
+/home/akilleez/Work/swg-source/server-pr-imemmove/tools/test-imemmove/probe.cpp:29:34: error: call of overloaded 'memmove(unsigned char*, unsigned char*, ptrdiff_t)' is ambiguous
+   29 |             else result = memmove(actual + dst, actual + src, static_cast<ptrdiff_t>(length));
+      |                           ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  • there are 2 candidates
+    • candidate 1: 'void* memmove(void*, const void*, size_t)'
+      /usr/include/string.h:51:14:
+         51 | extern void *memmove (void *__dest, const void *__src, size_t __n)
+            |              ^~~~~~~
+    • candidate 2: 'void* memmove(void*, const void*, int)'
+      /home/akilleez/Work/swg-source/src/engine/shared/library/sharedFoundation/include/public/../../src/shared/Misc.h:229:14:
+        229 | inline void *memmove(void *destination, const void *source, int length)
+            |              ^~~~~~~

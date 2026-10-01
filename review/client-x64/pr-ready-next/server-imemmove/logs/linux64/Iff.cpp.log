@@ -1,0 +1,13 @@
+/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp: In member function 'void Iff::adjustDataAsNeeded(int)':
+/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp:638:39: warning: 'void* memcpy(void*, const void*, size_t)' reading 8 bytes from a region of size 4 [-Wstringop-overread]
+  638 |                                 memcpy(data+stack[i].start-sizeof(uint32), &ui32, sizeof(uint32));
+      |                                 ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp:637:43: note: source object 'ui32' of size 4
+  637 |                                 const int ui32 = static_cast<int>(htonl(static_cast<unsigned long>(stack[i].length)));
+      |                                           ^~~~
+/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp:644:39: warning: 'void* memcpy(void*, const void*, size_t)' reading 8 bytes from a region of size 4 [-Wstringop-overread]
+  644 |                                 memcpy(data+stack[i].start-sizeof(Tag)-sizeof(uint32), &ui32, sizeof(uint32));
+      |                                 ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp:643:43: note: source object 'ui32' of size 4
+  643 |                                 const int ui32 = static_cast<int>(htonl(static_cast<unsigned long>(stack[i].length) + sizeof(Tag)));
+      |                                           ^~~~
