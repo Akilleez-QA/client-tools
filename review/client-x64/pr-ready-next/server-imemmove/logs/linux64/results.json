@@ -1,0 +1,106 @@
+{
+  "passed": true,
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "exit": 0,
+      "log": "compiler.log"
+    },
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "-m64",
+        "-std=c++17",
+        "-DLINUX",
+        "-DEXPECT_BITS=64",
+        "-fdiagnostics-color=never",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundation/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundationTypes/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedDebug/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedMath/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/external/ours/library/fileInterface/include/public",
+        "-MMD",
+        "-MF",
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/probe.d",
+        "/home/akilleez/Work/swg-source/server-pr-imemmove/tools/test-imemmove/probe.cpp",
+        "-o",
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/probe"
+      ],
+      "exit": 0,
+      "log": "build.log"
+    },
+    {
+      "argv": [
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/probe"
+      ],
+      "exit": 0,
+      "log": "run.log"
+    },
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "-m64",
+        "-std=c++17",
+        "-DLINUX",
+        "-DEXPECT_BITS=64",
+        "-fdiagnostics-color=never",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundation/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundationTypes/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedDebug/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedMath/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/external/ours/library/fileInterface/include/public",
+        "-MMD",
+        "-MF",
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/Md5.cpp.d",
+        "-c",
+        "/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundation/src/shared/Md5.cpp",
+        "-o",
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/Md5.cpp.o"
+      ],
+      "exit": 0,
+      "log": "Md5.cpp.log"
+    },
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "-m64",
+        "-std=c++17",
+        "-DLINUX",
+        "-DEXPECT_BITS=64",
+        "-fdiagnostics-color=never",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundation/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundationTypes/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedDebug/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedMath/include/public",
+        "-I/home/akilleez/Work/swg-source/server-pr-imemmove/external/ours/library/fileInterface/include/public",
+        "-MMD",
+        "-MF",
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/Iff.cpp.d",
+        "-c",
+        "/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp",
+        "-o",
+        "/home/akilleez/Work/client-wire-validation/server-imemmove/final64/Iff.cpp.o"
+      ],
+      "exit": 0,
+      "log": "Iff.cpp.log"
+    }
+  ],
+  "bits": 64,
+  "baseline": false,
+  "compiler_version": "g++ (GCC) 16.2.1 20260810\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "input_sha256": {
+    "/home/akilleez/Work/swg-source/server-pr-imemmove/tools/test-imemmove/probe.cpp": "b7f837309421d903c013d62dbf1e0b0d08c04aa33c5f76fe653ce449b443a93a",
+    "/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundation/src/shared/Misc.h": "92421daa244f97ef932b56f3a4fecd41cdf6a51d3ae362b27208ed49014c180f",
+    "/home/akilleez/Work/swg-source/server-pr-imemmove/tools/test-imemmove/run-linux.py": "1dbf47cfb9d278a62d2fac20cca1be3641427974830472f76bcca4bfd6c78ec8",
+    "/usr/bin/g++": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFoundation/src/shared/Md5.cpp": "cdf6448e23b32fa520250f0469d87892c596d7e6ca88f7e25cdce1801642da5b",
+    "/home/akilleez/Work/swg-source/server-pr-imemmove/engine/shared/library/sharedFile/src/shared/Iff.cpp": "6a45297bbc81698bcf4adc1b7789062cd9243413ccc3c2a52c411e65c95d8d71"
+  },
+  "checks": 30
+}
