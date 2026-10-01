@@ -1,0 +1,27 @@
+VeCritsec.hpp(43) : error C4235: nonstandard extension used : '__asm' keyword not supported on this architecture
+VeCritsec.hpp(45) : error C2065: 'mov' : undeclared identifier
+VeCritsec.hpp(45) : error C2146: syntax error : missing ';' before identifier 'esi'
+VeCritsec.hpp(45) : error C2065: 'esi' : undeclared identifier
+VeCritsec.hpp(46) : error C2061: syntax error : identifier 'lock'
+VeCritsec.hpp(52) : warning C4573: the usage of 'VeCritsec::m_uThreadID' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(52) : error C3493: 'uCallingThread' cannot be implicitly captured because no default capture mode has been specified
+VeCritsec.hpp(53) : warning C4573: the usage of 'VeCritsec::m_uLockCount' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(91) : warning C4573: the usage of 'VeCritsec::m_uLockCount' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(92) : warning C4573: the usage of 'VeCritsec::m_uLockCount' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(94) : warning C4573: the usage of 'VeCritsec::m_uThreadID' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(95) : warning C4573: the usage of 'VeCritsec::m_iLock' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(105) : warning C4573: the usage of 'VeCritsec::trylock' requires the compiler to capture 'this' but the current default capture mode does not allow it
+VeCritsec.hpp(112) : warning C4573: the usage of 'VeCritsec::yield_thread' requires the compiler to capture 'this' but the current default capture mode does not allow it
+probe.cpp(23) : error C3493: 'value' cannot be implicitly captured because no default capture mode has been specified
+probe.cpp(23) : error C3493: 'name' cannot be implicitly captured because no default capture mode has been specified
+probe.cpp(28) : error C3493: 'handle' cannot be implicitly captured because no default capture mode has been specified
+probe.cpp(34) : error C3487: 'HANDLE': all return expressions in a lambda must have the same type: previously it was 'bool'
+probe.cpp(38) : error C3493: 'lock' cannot be implicitly captured because no default capture mode has been specified
+probe.cpp(49) : error C3493: 'opaque' cannot be implicitly captured because no default capture mode has been specified
+probe.cpp(52) : error C3487: 'int': all return expressions in a lambda must have the same type: previously it was 'bool'
+probe.cpp(62) : error C3487: 'int': all return expressions in a lambda must have the same type: previously it was 'bool'
+probe.cpp(66) : error C3493: 'thread' cannot be implicitly captured because no default capture mode has been specified
+probe.cpp(102) : error C3487: 'int': all return expressions in a lambda must have the same type: previously it was 'bool'
+probe.cpp(117) : error C3487: 'int': all return expressions in a lambda must have the same type: previously it was 'bool'
+probe.cpp(139) : error C3487: 'int': all return expressions in a lambda must have the same type: previously it was 'bool'
+probe.cpp(141) : error C3487: 'int': all return expressions in a lambda must have the same type: previously it was 'bool'

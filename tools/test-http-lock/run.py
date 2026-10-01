@@ -2,6 +2,8 @@
 import argparse
 import hashlib
 import json
+import ntpath
+import re
 from pathlib import Path
 import shutil
 import struct
@@ -29,6 +31,36 @@ def execute(command, cwd, log, timeout):
     return code, output.decode(errors="replace"), time.monotonic() - started
 
 
+def stock_x64_rejected(code, log, header):
+    """Recognize only the recorded v120 stock-header diagnostic cascade."""
+    if type(code) is not int or code != 2:
+        return False
+    expected = (Path(__file__).with_name("stock-x64-diagnostics.txt")
+                .read_text().splitlines())
+    directory = ntpath.dirname(str(header))
+    paths = {ntpath.normcase(ntpath.normpath(ntpath.join(directory, name))): name
+             for name in ("VeCritsec.hpp", "probe.cpp")}
+    found = []
+    pattern = re.compile(r"^(.+)(\(\d+\) : (?:error|warning) C\d+: .+)$")
+    for line in log.splitlines():
+        match = pattern.fullmatch(line)
+        if match:
+            name = paths.get(ntpath.normcase(ntpath.normpath(match.group(1))))
+            if name is None:
+                return False
+            found.append(name + match.group(2))
+        elif re.search(r"\b(?:error|warning|fatal|[A-Z]+\d{4})\b", line, re.I):
+            # Includes malformed diagnostics and linker/command failures.
+            return False
+        elif line and not (
+                re.fullmatch(r"[A-Za-z]:\\.*\\cl\.exe", line, re.I)
+                or line == "Microsoft (R) C/C++ Optimizing Compiler Version 18.00.40629 for x64"
+                or line == "Copyright (C) Microsoft Corporation.  All rights reserved."
+                or line == "probe.cpp" or line.startswith("cl /EHsc /W4 ")):
+            return False
+    return found == expected
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkout", type=Path, default=Path(__file__).resolve().parents[2])
@@ -41,7 +73,8 @@ def main():
     header = root / "src/engine/client/library/clientGame/src/shared/HTTPpost/VeCritsec.hpp"
     probe = root / "tools/test-http-lock/probe.cpp"
     types = root / "src/engine/shared/library/sharedFoundationTypes"
-    inputs = [header, probe, Path(__file__).resolve(), args.vcvarsall]
+    inputs = [header, probe, Path(__file__).resolve(), args.vcvarsall,
+              Path(__file__).with_name("stock-x64-diagnostics.txt")]
     inputs += [types / "include/public/sharedFoundationTypes/FoundationTypes.h",
                types / "src/shared/FoundationTypes.h", types / "src/win32/FoundationTypesWin32.h"]
     if args.stock_header:
@@ -85,7 +118,7 @@ def main():
                 (directory / "build.rsp").write_text(" ".join(flags))
                 script = directory / "build.cmd"
                 script.write_text("@echo off\ncall " + quoted(args.vcvarsall) + " " + arch +
-                                  " >nul\nif errorlevel 1 exit /b %errorlevel%\nwhere cl\ncl @" +
+                                  " >nul\nif errorlevel 1 exit /b %errorlevel%\nset VSLANG=1033\nwhere cl\ncl @" +
                                   quoted(directory / "build.rsp") + "\nexit /b %errorlevel%\n")
                 compile_code, build_log, compile_seconds = execute(
                     ["cmd.exe", "/d", "/c", str(script)], directory, directory / "build.log", 120)
@@ -99,7 +132,7 @@ def main():
                     run_code, run_log, run_seconds = execute(
                         [str(directory / "probe.exe")], directory, directory / "run.log", 45)
                 if mode == "stock" and platform == "x64":
-                    passed = compile_code not in (0, "timeout") and "C4235" in build_log
+                    passed = stock_x64_rejected(compile_code, build_log, local_header)
                 elif failure:
                     passed = (compile_code == 0 and machine == expected_machine and run_code == 1
                               and ("FAIL " + failure + " error=") in run_log)
