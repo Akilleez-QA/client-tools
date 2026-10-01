@@ -42,8 +42,9 @@ Application CRT/configuration compatibility remains an integration prerequisite.
 The three engine-dependent targets require an external maintained engine checkout
 whose `clientAudio.vcxproj` contains explicit `Debug|x64` definitions and include
 paths, with no unresolved MSBuild substitutions. Its include paths must contain
-real `src/external/3rd/library/stlport453/stlport` headers. This package's inherited
-project has only Win32 configurations; it does not supply that x64 conversion.
+real `src/external/3rd/library/stlport453/stlport` headers. The inherited x64-projects prerequisite supplies these configurations; its
+configuration conversion alone does not provide the full client source fixes or
+built external libraries.
 
 `pipe-probe` also requires Debug-x64 archives under `src/compile/x64/<name>/Debug`:
 `sharedThread`, `sharedSynchronization`, `sharedFoundation`, `sharedMemoryManager`,
@@ -124,7 +125,7 @@ particular, obsolete browser/capture inputs and the other separately packaged
 x64 source fixes must be composed before claiming a working full client build.
 `link-client-dev.py` is a development relink tool using existing real libraries
 and pinned build receipts, not a fresh whole-source rebuild or runtime qualifier.
-Release selection and the game movie-rendering adapter remain later packages.
+Release selection remains a later package.
 
 The host is windowless; original module paths are normalized and compared as
 absolute Windows paths. Forward traffic uses normal-size I/O segments. These
@@ -149,9 +150,9 @@ and buffer-size settings before every open, including failed attempts.
 
 Private paired protocol version 4 adds driver-owned Video resources, synchronous
 controls, metadata and bounded pixel transfer. Both endpoints must match. The
-client retains frame storage and validates metadata/chunk replies; this component
-does not yet select a movie renderer in the game. The later renderer package is
-required before the actual-client procedure in `tests/bink-replay.md` can run.
+client retains frame storage and validates metadata/chunk replies; the opt-in game adapter below consumes these frames. The actual-client procedure
+in `tests/bink-replay.md` still requires the complete client build dependencies
+and privately supplied matching providers/assets.
 
 The unchanged `bink_protocol.cpp`, `video_reply.cpp` and `video_admission.cpp`
 tests accompany the source. CI wiring is deferred; they were not rerun for this
@@ -159,3 +160,22 @@ split. Historical integrated evidence and the replay failure/repair are recorded
 at the [original Bink checkpoint](https://github.com/Akilleez-QA/client-tools/blob/da9c56054b70761b983b4b367fd4479ac344e8e6/tools/miles-bridge/README.md)
 and [replay procedure](https://github.com/Akilleez-QA/client-tools/blob/da9c56054b70761b983b4b367fd4479ac344e8e6/tools/miles-bridge/tests/bink-replay.md).
 These records do not qualify this split composition or arbitrary provider versions.
+
+
+## Opt-in Bink game adapter
+
+The selected Debug-x64 game uses `PipeBinkVideo` through the existing VideoList
+factory. Default builds retain direct Bink. Both paths share the extracted
+`VideoBlit` texture resources and draw math; frame copying still occurs under the
+texture lock. Supported backbuffer formats and the original frame scheduling
+remain in the adapter.
+
+Build clientGraphics as well as clientAudio with `ClientMilesDevelopment=true`
+before linking SwgClient. The property sheet uses explicit isolated archive paths
+for both to avoid selecting stale direct-provider objects. The matching helper
+must carry the original Bink/Miles providers described above.
+
+The [original extraction](https://github.com/Akilleez-QA/client-tools/commit/81cee3f524d6268c5d507d981655f69233b10ffd)
+and [game integration](https://github.com/Akilleez-QA/client-tools/commit/afacd961f7dd0d70e518d835b3581d261f3f62b1)
+record historical native compile/link results. No build or playback was rerun for
+this source split. Compilation alone is not pixel, waveform or timing equivalence.
