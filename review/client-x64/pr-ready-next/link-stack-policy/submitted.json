@@ -1,0 +1,44 @@
+{
+  "additions": 4,
+  "baseRefName": "review-ready/client-native-providers",
+  "baseRefOid": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T09:21:57Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:00:13Z",
+      "messageBody": "Clear inherited ForceFileOutput for SwgClient x64, preserving Win32 and renderer policies. The old raw Debug linker could emit an unusable executable with /FORCE while returning zero; the MSBuild Link task separately detected its unresolved diagnostics.\n\nEight native metadata comparisons and actual MSBuild-generated linker commands verify the narrow override. The same 61 unresolved Miles imports now end in LNK1120 with no /FORCE or LNK4088 forced image. This is a failure-policy proof, not a successful client link.",
+      "messageHeadline": "build: require the x64 client linker to resolve every symbol",
+      "oid": "7f2cd7790fa4e66a6efc5c1ae14b6fa7d1777ee4"
+    },
+    {
+      "authoredDate": "2026-09-30T09:33:11Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:00:14Z",
+      "messageBody": "The original PCRE 4.1 recursion corpus exhausts the default one-MiB stack in x64 Debug while the stock Win32 providers complete it. A separately declared two-MiB reserve completes all 24 corpus runs. Change only the x64 SwgClient executable reserve; leave the commit size, Win32 and other executables unchanged.\n\nNative evaluation at the real project import position passes eight cases. Minimal v120 executable PE headers confirm two MiB reserve and four KiB initial commit only in candidate x64 configurations. Full-client link/game acceptance and arbitrary regex depth remain open.",
+      "messageHeadline": "build: reserve two MiB for x64 client stacks",
+      "oid": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833"
+    }
+  ],
+  "deletions": 0,
+  "headRefName": "review-ready/client-link-stack-policy",
+  "headRefOid": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+  "isDraft": true,
+  "number": 17,
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/17"
+}

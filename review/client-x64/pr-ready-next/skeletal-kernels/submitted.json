@@ -1,0 +1,29 @@
+{
+  "additions": 97,
+  "baseRefName": "review-ready/client-skeletal-prerequisites",
+  "baseRefOid": "f56090f3178995985f23a646458c03deb6f222a5",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T06:43:18Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:57:35Z",
+      "messageBody": "Add the two hard-vertex kernels for x64 with the assembly operand order,\nposition bounds, dot3 flip value, iterator movement and full MXCSR restore.\nKeep the original Win32 assembly and soft skinning paths unchanged.\n\nActual source compiles in VS2013 Debug/Release on Win32 and x64. Native\nsource-slice comparisons run 2688 records per build across stock Win32,\ncandidate Win32 and x64: no sampled output/bounds differences or buffer,\ninput, iterator or MXCSR contract failures. Win32 records match stock.\n\nThe slice probes are not a full renderer or scene test. Whole-TU standalone\nlink failures from its real renderer dependencies remain recorded. No GPU\nupload, performance or general exceptional-value equivalence is claimed.\nEvidence: review/client-x64-evidence, skeletal-native-results.md packet.",
+      "messageHeadline": "skeletal: implement x64 hard skinning with SSE intrinsics",
+      "oid": "4f44852113e7c5dbb4a6dd3296a15f6c03d1356d"
+    }
+  ],
+  "deletions": 0,
+  "headRefName": "review-ready/client-skeletal-kernels",
+  "headRefOid": "4f44852113e7c5dbb4a6dd3296a15f6c03d1356d",
+  "isDraft": true,
+  "number": 15,
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/15"
+}

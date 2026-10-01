@@ -1,0 +1,134 @@
+{
+  "additions": 912,
+  "baseRefName": "review-ready/client-native-provider-prerequisites",
+  "baseRefOid": "8f6bc338b5c3e14524f4d27280bdf6b2e144bd38",
+  "changedFiles": 19,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T07:22:13Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "Build bundled STLport and pinned official JPEG6b source with v120 into private\narchitecture/configuration outputs. Keep offline input the default, verify archive\nand compiler identity, and invalidate the cache for source/header/tool changes.\nPreserve the original Win32 providers.\n\nSelect genuine x64 SDK DirectDraw/DxErr libraries for the three renderer projects,\nand use DxErr's real diagnostic API only on x64. Disable the old STLport automatic\nlibrary name there. Retain the original DllExport project dependency.\n\nValidation: six isolated actual renderer/reference project builds pass across\nx64 Debug/Release. Provider traces and object directives show no old STLport\nprovider. A header mutation rebuilds dependencies and relinks all three Debug\nrenderers. Concurrent clean builds, cache invalidation, failed rebuild, bad archive\nand cross-checkout cache rejection pass. All eight source/configuration files\nmatch the tested manifest. Win32 conditioned project XML remains unchanged.\n\nEarlier native probes covered both ABIs for JPEG ABI/header interoperability and\none RGB sample, plus 39 legacy/new DxErr strings. These are bounded comparisons.\nNo full parallel solution, production deployment, new Win32 binary regression,\nDirect3D device creation, rendering, or runtime allocator lifecycle is claimed.",
+      "messageHeadline": "build: provide native x64 renderer dependencies from original sources",
+      "oid": "4046677fef9e8e8ce7591a1946ca858c714048e0"
+    },
+    {
+      "authoredDate": "2026-10-01T09:59:57Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "",
+      "messageHeadline": "build: reject dependency outputs without established ownership",
+      "oid": "c41cbe0828dd4554aff02802a63420757aac0d89"
+    },
+    {
+      "authoredDate": "2026-09-30T08:27:20Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "Require an explicit local SDK root for SwgClient x64 and verify the exact tested genuine low-level library before link. Retain original wrapper, headers and link symbol names; no SDK or device software is bundled or installed.\n\nActual native property evaluation preserves both Win32 configurations and changes only the x64 library directory. Four wrapper executable links with real SWG allocator/core providers pass; hardware/manager behavior and the full client link are not established. Document the official package and external setup.",
+      "messageHeadline": "build: select the verified native legacy Logitech LCD SDK",
+      "oid": "b93a774840cd11199cec7acf20e72e20dfb9421b"
+    },
+    {
+      "authoredDate": "2026-09-30T09:01:41Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "Factor the native dependency target used by the renderers and select its authentic static STLport provider for SwgClient x64. Preserve consumer macros and CRT mode; remove the one stale explicit STL-debug archive and suppress only the observed old static autolink name. Win32 inputs are unchanged.\n\nNative evidence: 16 metadata comparisons, 63-archive directive census per configuration, fresh 79-TU dependency build and verified cache reuse. Final-link experiments progress beyond the old x86 STLport archive; a complete client link and runtime acceptance remain outstanding.",
+      "messageHeadline": "build: use the genuine configuration-matched STLport for x64 client",
+      "oid": "4ff3d6f54720d357bcbcbe9f7d41fe7383740c87"
+    },
+    {
+      "authoredDate": "2026-09-30T09:07:56Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "Build unchanged Vivox.cpp with the consumer VIVOX_VERSION=3 API and matching STLport, CRT and wchar settings. Keep the wrapper as a verified third dependency archive and replace only the stale x86 wrapper inputs for SwgClient x64. The original SDK DLL loading and runtime behavior remain.\n\nNative wrapper source builds pass all four configurations; integrated source target builds and cache reuse pass both x64 configurations. Sixteen metadata comparisons preserve Win32/renderer inputs. Private link replay resolves wrapper imports but does not establish a full client link, an x64 Vivox SDK DLL or voice service operation.",
+      "messageHeadline": "build: compile the original Vivox loader wrapper for x64",
+      "oid": "ec66432e5331c4d062d0686a8874be5552ce6403"
+    },
+    {
+      "authoredDate": "2026-09-30T09:19:25Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "Build pinned PCRE 4.1 with the original UTF-8/static configuration and libxml2 2.6.7 with the original DLL/allocator interface. Preserve Win32 providers and replace only named x86 inputs on x64. Require verified offline source archives, isolated owned outputs, successful native API smoke checks, and deployment of the matching XML DLL. No generated vendor binaries are committed.\n\nExact native builders/smoke pass all four configurations; missing/bad source archives fail before output creation. Sixteen metadata comparisons preserve unrelated inputs. Real MSBuild dependency/deployment target copies a hash-identical DLL; no complete client link or game XML lifecycle is claimed. Broader PCRE corpus testing and stack-resource behavior are tracked separately.",
+      "messageHeadline": "build: supply original PCRE and XML providers for the x64 client",
+      "oid": "5826f91a80a70c46e60e5c9cc1c522cb53c0c13a"
+    },
+    {
+      "authoredDate": "2026-09-30T09:33:36Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "MSBuild property functions escape semicolons in their returned strings. The actual native Link task received the inherited library list as one argument and failed opening .obj. Unescape the filtered return values so the existing dependency names and order remain separate task inputs.\n\nSixteen native metadata evaluations preserve flattened names/order, Win32 and renderer inputs. An isolated v120 Link task changes from LNK1181 to the expected unresolved Miles imports; omitted-PCRE and wrong-width parser controls fail. The full product build remains the next integration check.",
+      "messageHeadline": "build: preserve individual linker inputs after provider filtering",
+      "oid": "b3b710cce30f9ca8426b95f72e45296227e1f365"
+    },
+    {
+      "authoredDate": "2026-09-30T23:30:34Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:59:57Z",
+      "messageBody": "The newer SDK HLSL compiler rejects the original shader include point identifier. Select the supported legacy compiler for x64 without changing assets, profiles or Win32 flags. Requires the original AMD64 d3dx9_31 runtime.\n\nVS2013 builds: Debug x64 gl05/gl06/gl07 and Release Win32 gl07, zero errors; existing warnings retained. The actual development client under Proton returned successful compilation and GPU shader creation for three startup UI shaders. Overall startup still fails with a black window and close timeout. Stock embeds a different compiler version; bytecode and visual equivalence remain unproven.",
+      "messageHeadline": "graphics: select the legacy D3D9 shader compiler on x64",
+      "oid": "ba1dd443249944edbe3d5a22520f6eaa84402e51"
+    }
+  ],
+  "deletions": 13,
+  "headRefName": "review-ready/client-native-providers",
+  "headRefOid": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+  "isDraft": true,
+  "number": 16,
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/16"
+}

@@ -10675,7 +10675,7 @@
       {
         "id": "floating-controls",
         "title": "Windows x64 SSE floating-point controls",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "cc361630e09eea6a5ae031fe86907930c9ea39dd",
@@ -10734,7 +10734,10 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-fpu-controls-ci",
+        "branch_head": "01755444ed579611bc3cfa75d2cf67d880d44bfb",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/3"
       },
       {
         "id": "native-stack",
@@ -10788,7 +10791,7 @@
       {
         "id": "sse-math",
         "title": "Windows x64 scalar/vector/affine SSE math",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "ad4d5c7f814f5d4b061fb738f3046253d538bf53",
@@ -10869,7 +10872,10 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-sse-math-ci",
+        "branch_head": "9aa3e319beb7f9be3a20f62b2b36400073e1be79",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/4"
       },
       {
         "id": "archive-payload-bounds",
@@ -11562,5 +11568,6 @@
     "No unimplemented client-only allocator/media/UI work is invented as a ready server package.",
     "Old CURRENT-STATUS network gating text is superseded by exact current fork PR metadata; earlier failed runs remain preserved."
   ],
-  "classification_note": "Runtime source includes engine/server C/C++ and Miff parser code. Schemas and operational database scripts are separately counted production deliverables. Code generators/templates and CMake are separate categories; tests/docs/CI are excluded from runtime-source counts."
+  "classification_note": "Runtime source includes engine/server C/C++ and Miff parser code. Schemas and operational database scripts are separately counted production deliverables. Code generators/templates and CMake are separate categories; tests/docs/CI are excluded from runtime-source counts.",
+  "submission_metadata_update": "2026-10-01: floating-controls and sse-math fork drafts published. Original remaining_package_ids/counts are frozen inventory snapshot; use individual package status for current queue."
 }

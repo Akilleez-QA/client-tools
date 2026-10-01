@@ -54,6 +54,12 @@ The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) 
 
 [Allocator statistics and null metadata, fork draft #14](https://github.com/Akilleez-QA/client-tools/pull/14): [scope, evidence and review](pr-ready-next/allocator-statistics/RESULTS.md). 15 total changed files, +85/−65; source and auxiliary-file counts are separated in the package.
 
+[Skeletal SSE kernels, fork draft #15](https://github.com/Akilleez-QA/client-tools/pull/15): [reviewed scope and historical evidence](pr-ready-next/skeletal-kernels/RESULTS.md). Base and head are explicit; this draft does not import later media integration or claim a fresh complete client build.
+
+[Native dependency providers, fork draft #16](https://github.com/Akilleez-QA/client-tools/pull/16): [reviewed scope and historical evidence](pr-ready-next/native-providers/RESULTS.md). Base and head are explicit; this draft does not import later media integration or claim a fresh complete client build.
+
+[Strict link and stack policy, fork draft #17](https://github.com/Akilleez-QA/client-tools/pull/17): [reviewed scope and historical evidence](pr-ready-next/link-stack-policy/RESULTS.md). Base and head are explicit; this draft does not import later media integration or claim a fresh complete client build.
+
 ## Earlier candidate packages and dependency drafts
 
 Candidate source and diff links below pin immutable fork commits. `M` means upstream master `949451032647e45e42c3aaef3f41b132c8af36e3`; `S` means submitted imemmove PR #25 at `a7954b5e78274ab3a9eb558fa10186697ff5e848`; `P` means the earlier imemmove production prerequisite `9eadbbbebd515a0fffad2133300703dff68bd7ef`. Counts are production `src/` additions/deletions against the stated base; test tooling and evidence are separate.

@@ -1126,7 +1126,7 @@
     {
       "id": "skeletal-kernel",
       "title": "x64 hard skinning SSE kernel",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "math-kernels",
@@ -1138,9 +1138,9 @@
           "subject": "skeletal: implement x64 hard skinning with SSE intrinsics"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-skeletal-kernels",
+      "branch_head": "4f44852113e7c5dbb4a6dd3296a15f6c03d1356d",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/15",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "One production TU; dependency on established math/FPU environment is a integration ordering constraint, not a reason to copy unrelated headers.",
       "exclusive_production_accounting": {
@@ -1504,7 +1504,7 @@
     {
       "id": "native-providers",
       "title": "Genuine renderer, STLport, LCD, Vivox and parser providers",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "x64-projects",
@@ -1544,9 +1544,9 @@
           "subject": "graphics: select the legacy D3D9 shader compiler on x64"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-native-providers",
+      "branch_head": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/16",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Build tools/property ownership, native configuration-matched providers, strict output ownership and D3D9 legacy shader compiler. No vendor binaries or private SDK headers. Properties are shared; preserve semicolon list filtering and import sequence. For review this can retain subcommits by provider (renderer, LCD, STLport/Vivox, PCRE/XML).",
       "exclusive_production_accounting": {
@@ -1580,7 +1580,7 @@
     {
       "id": "link-stack-policy",
       "title": "Strict x64 final link and two-MiB stack reserve",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "native-providers"
@@ -1595,9 +1595,9 @@
           "subject": "build: reserve two MiB for x64 client stacks"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-link-stack-policy",
+      "branch_head": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/17",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Two small hunks in shared client-x64.props; strict unresolved-symbol behavior and stack reserve belong to final link policy. PCRE stack evidence is bounded; no universal stack-size guarantee.",
       "exclusive_production_accounting": {
