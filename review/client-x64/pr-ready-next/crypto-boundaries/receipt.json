@@ -1,0 +1,697 @@
+{
+  "schema_version": 1,
+  "prepared_date": "2026-10-01",
+  "id": "client-crypto-boundaries",
+  "repository": "https://github.com/Akilleez-QA/client-tools",
+  "branch": "review-ready/client-crypto-boundaries",
+  "base_ref": "master",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "19eb22639fed6a76226656412ad975aacd423f3e",
+  "merge_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "authoritative_source_head": "eca74ffa5741f608a1417944b2e2602868936517",
+  "commit_count": 4,
+  "units": [
+    {
+      "original": "78e1f907c1fc0e386ffa75f7fdd0d915e66fe8e4",
+      "packaged": "8ed8b65640d9fe855b3989f534aa188663260af8",
+      "subject": "crypto: scope x64 STLport packing warnings in the PCH",
+      "original_patch_id": "77327cfb21f7d09862840dbc3986f6a38e78789c",
+      "packaged_patch_id": "77327cfb21f7d09862840dbc3986f6a38e78789c",
+      "full_patch_identity": true
+    },
+    {
+      "original": "8fe43cca91e41503e3d47602c93058b76026f561",
+      "packaged": "166967ec9f30dc4393512c923cc56d2859e46081",
+      "subject": "crypto: reject StringStore lengths outside its unsigned range",
+      "original_patch_id": "b09e14017b646a20d3450d0e4b06ba6368527fa5",
+      "packaged_patch_id": "b09e14017b646a20d3450d0e4b06ba6368527fa5",
+      "full_patch_identity": true
+    },
+    {
+      "original": "978a45d812961d80ce766be1676f5c6a88d61981",
+      "packaged": "ba8ee6609c48f944235efdfd79db5f30c37dd19b",
+      "subject": "crypto: test attached message counts explicitly for presence",
+      "original_patch_id": "96881218c5c821681502d95d75d7087c06f6c19e",
+      "packaged_patch_id": "96881218c5c821681502d95d75d7087c06f6c19e",
+      "full_patch_identity": true
+    },
+    {
+      "original": "91dc05e8bebe0881d0540e74d4c53de909feb876",
+      "packaged": "19eb22639fed6a76226656412ad975aacd423f3e",
+      "subject": "crypto: keep MessageQueue counts within the public result width",
+      "original_patch_id": "82567f8701f36d9b76768aa0806b2b70b37b7a8b",
+      "packaged_patch_id": "82567f8701f36d9b76768aa0806b2b70b37b7a8b",
+      "full_patch_identity": true
+    }
+  ],
+  "counts": {
+    "production_source": {
+      "files": 4,
+      "additions": 28,
+      "deletions": 5
+    },
+    "vendor_modification_notice": {
+      "files": 0,
+      "additions": 0,
+      "deletions": 0
+    },
+    "tests_build_tools_sdks_assets": {
+      "files": 0,
+      "additions": 0,
+      "deletions": 0
+    }
+  },
+  "files": [
+    {
+      "path": "src/external/ours/library/crypto/src/shared/core/FirstCrypto.h",
+      "category": "production_source",
+      "additions": 11,
+      "deletions": 0,
+      "base_blob": "e0fd85cee0033eabe75a716743450c0b2457ecbe",
+      "original_parent_blob": "e0fd85cee0033eabe75a716743450c0b2457ecbe",
+      "head_blob": "0dd9a644565d1e933247e1b54e7ec9c60eb72e5e",
+      "original_blob": "0dd9a644565d1e933247e1b54e7ec9c60eb72e5e",
+      "maintained_blob": "0dd9a644565d1e933247e1b54e7ec9c60eb72e5e",
+      "sha256": "d1b2db3c5b392c5c8a6185c187ceaf7fb2a49e67703d32bdba69411515cbc5ff",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_candidate_sha256": "d1b2db3c5b392c5c8a6185c187ceaf7fb2a49e67703d32bdba69411515cbc5ff",
+      "recorded_candidate_identity": true
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/original/cryptlib.cpp",
+      "category": "production_source",
+      "additions": 1,
+      "deletions": 1,
+      "base_blob": "a800e872e38d1584eea753e30db8f65daa2dbceb",
+      "original_parent_blob": "a800e872e38d1584eea753e30db8f65daa2dbceb",
+      "head_blob": "6fcc4ca9cec581ccbe2ba092c11aa97f8f49c789",
+      "original_blob": "6fcc4ca9cec581ccbe2ba092c11aa97f8f49c789",
+      "maintained_blob": "6fcc4ca9cec581ccbe2ba092c11aa97f8f49c789",
+      "sha256": "bafd6a513be220161c8c41ed48086607a2eeee5a9e2678cf18982559a3ad398d",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_candidate_sha256": "bafd6a513be220161c8c41ed48086607a2eeee5a9e2678cf18982559a3ad398d",
+      "recorded_candidate_identity": true
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/original/filters.h",
+      "category": "production_source",
+      "additions": 9,
+      "deletions": 2,
+      "base_blob": "6a2f0389c88a961c00baa64473be5da51c476904",
+      "original_parent_blob": "6a2f0389c88a961c00baa64473be5da51c476904",
+      "head_blob": "bedbed9f3bff31a3e81921c9fc1ea7e84cb9c569",
+      "original_blob": "bedbed9f3bff31a3e81921c9fc1ea7e84cb9c569",
+      "maintained_blob": "bedbed9f3bff31a3e81921c9fc1ea7e84cb9c569",
+      "sha256": "045d28030d6a7505d3b40a3ed41ddd069162588b1dfabe99bc7a1657614c8cfe",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_candidate_sha256": "045d28030d6a7505d3b40a3ed41ddd069162588b1dfabe99bc7a1657614c8cfe",
+      "recorded_candidate_identity": true
+    },
+    {
+      "path": "src/external/ours/library/crypto/src/shared/original/mqueue.h",
+      "category": "production_source",
+      "additions": 7,
+      "deletions": 2,
+      "base_blob": "822df8003f8e7687aa41a8f3c776973961a2d0d2",
+      "original_parent_blob": "822df8003f8e7687aa41a8f3c776973961a2d0d2",
+      "head_blob": "d90668b65f31f0db68d28cec43115ef772c35528",
+      "original_blob": "d90668b65f31f0db68d28cec43115ef772c35528",
+      "maintained_blob": "d90668b65f31f0db68d28cec43115ef772c35528",
+      "sha256": "8cab94c36b67060656b616cd2ba362240ea48f429dba678100edc94513fb31e0",
+      "base_identical_to_original_parent": true,
+      "original_source_identity": true,
+      "maintained_source_identity": true,
+      "recorded_candidate_sha256": "8cab94c36b67060656b616cd2ba362240ea48f429dba678100edc94513fb31e0",
+      "recorded_candidate_identity": true
+    }
+  ],
+  "preserved_refs": {
+    "review-ready/client-archive-storage": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+    "review-ready/client-math-kernels": "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+    "review-ready/client-fpu-controls": "16dbf07a4e6696fa1ebc133b567619643b76c3ce"
+  },
+  "source_dependencies": [],
+  "cherry_pick_conflicts": false,
+  "diff_check_exit": 0,
+  "worktree_clean_after_preparation": true,
+  "evidence_ref": "115d618f039a7fb36350611c104e9cb25d45e60c",
+  "new_builds_tests_or_runtime": false,
+  "remote_mutations": false,
+  "publication_state": "local_only",
+  "ready_for_bounded_review": true,
+  "blockers": [],
+  "evidence": [
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-Win32/build.log",
+      "sha256": "8365707624c40fd8e8f498d4287a2ec6801aed4225a3ccd0b83f6c9c3e1988aa",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-Win32/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-Win32/cmd.json",
+      "sha256": "bffab8622a7f478ed9942175426f874940e8b32c508c0071db5c888398f40745",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-Win32/cmd.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-x64/build.log",
+      "sha256": "8fc7e2cd102c7744cf71665231910f47d3ddb2a91c742e605a68e91a5082b221",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-x64/cmd.json",
+      "sha256": "bc3dc3c313c563aa6e352be7df4cb1b914cfd7c48ee68e1d787f31b9ca35f6db",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Debug-x64/cmd.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-Win32/build.log",
+      "sha256": "c7a7d808a37d04b1b4eeadb7ef40ea2f82d8c0bc1fceb64f9e3ff9b044f9aada",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-Win32/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-Win32/cmd.json",
+      "sha256": "fc0b5d6b40dfb95cf82a1ea1505e7b195087bf5ea74444e85c0d09d8f661e43b",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-Win32/cmd.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-x64/build.log",
+      "sha256": "0f360c731517c85e6821b44b2b080f0858f54be47d6df27ead644fe1dc47eecd",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-x64/cmd.json",
+      "sha256": "26ba74e50dbecabfb6defb9a2a1508728c70c64d2df2225f2b078c97773f8c55",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/Release-x64/cmd.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/results.json",
+      "sha256": "973f40efbccac7805cc361971febe3d59fb1354228fc8b2c2b10fadff0ddc26d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-complete-v3/results.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-Win32/build.cmd",
+      "sha256": "2b85cb235d7507db858be604eb7429975c345ec9ce1946933a3554dfc54812e1",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-Win32/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-Win32/build.log",
+      "sha256": "384a1d1e990816f8da0725a85ddeb4262eb31bb8c2922fb1db38e1e061a9830f",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-Win32/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-Win32/run.log",
+      "sha256": "896fcaa6193cb054ec5cc876a5b0a5e95568e8e294bb00485e3fe7caf543ef1f",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-Win32/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-x64/build.cmd",
+      "sha256": "53a5f5a6cc4f8ca0a376b5ad5c2d3644edbb8b7e7ef9214fda74aed604257bb6",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-x64/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-x64/build.log",
+      "sha256": "e89153064bef58523765d2ba4b95cf21dcf66b9b2d348937060acf5d252e9f3a",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Debug-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-Win32/build.cmd",
+      "sha256": "e9b8fc9f70d8e255521b482893057df5aeee845ca7ada24629ef50228290cb00",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-Win32/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-Win32/build.log",
+      "sha256": "52dfb26a5de36fc933c9914970d34b301282cc05ae2d3a78863d35aa28afa420",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-Win32/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-Win32/run.log",
+      "sha256": "f8f3eba145baca42b5aa662e5825baf114643d8e3233fb87033ea9d60e816fe6",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-Win32/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-x64/build.cmd",
+      "sha256": "e2eb515c9c51c5f641637176b105e93f4c77adccf2eb6c0ec6253574b32f9d3a",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-x64/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-x64/build.log",
+      "sha256": "26359e248e2ac499be56dc55d9c2cc580eb7668c344e367e4334c35fa39ca2df",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-x64/run.log",
+      "sha256": "6ab49e85e1e73b486b5b79375bfc9a6b9bb61e8d66e0947f89ea9f9e90ffb527",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/Release-x64/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/results.json",
+      "sha256": "fcd738c1ccb0ab9f126176d83621a85ef2a10e993bb7b8fcd4aade6140b4461d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v3/results.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/build.cmd",
+      "sha256": "01bcd8b9e4175c7227b2be4c1605cd082d9f8ec18ec434a10c029ae596ca7ed2",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/build.log",
+      "sha256": "0ed5cee240c8f5b9edfb354257090424a5a8d08310f02c8d6a2eecc3d59e0131",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/run.log",
+      "sha256": "05b936112455130c4944bcff2d248a7192d5e8ff06f4850dbb6fb0be7b951d06",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/unused-missing-archives.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/Debug-x64/unused-missing-archives.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/results.json",
+      "sha256": "96e9b3ad5d8422b3beb7486ffe4d410754c4e309676dbce0f1895edcfb12df57",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-v4/results.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-Win32/build.cmd",
+      "sha256": "ec6387e0ad6cd21c56a7912f9c2503536835e12e45ba25d23fe167c388aeb9a1",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-Win32/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-Win32/build.log",
+      "sha256": "15f8bfa851454fcedb29464c07e82e47cd8e6f2212aee90962306b6109947ca2",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-Win32/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-Win32/run.log",
+      "sha256": "3d44e1a0bee67a3cde091a3312bbbc7921d79f72934522f2b7728a49f4d67b54",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-Win32/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-x64/build.cmd",
+      "sha256": "823aac982056ec56f104906c7d903ce08940c9eb4d0be451d74500e11f874903",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-x64/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-x64/build.log",
+      "sha256": "33293f590968ac684ad635a2616cf08371c994c4c9c31f682395cf8fb13bdc30",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-x64/run.log",
+      "sha256": "35eaa74701897d67bc38df903f3ccc9d872192f5c15dafe07a3689df467a8e62",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Debug-x64/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-Win32/build.cmd",
+      "sha256": "71e732e9f49c62e9530015d7499c49cc6b3ac5ef721b3e95652d0a7d0245cc6c",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-Win32/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-Win32/build.log",
+      "sha256": "15f8bfa851454fcedb29464c07e82e47cd8e6f2212aee90962306b6109947ca2",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-Win32/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-Win32/run.log",
+      "sha256": "3d44e1a0bee67a3cde091a3312bbbc7921d79f72934522f2b7728a49f4d67b54",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-Win32/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-x64/build.cmd",
+      "sha256": "19d6a39819babff4b6620810e0ac4989dba21a601d9aba772ed1e34353b9a4c7",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-x64/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-x64/build.log",
+      "sha256": "33293f590968ac684ad635a2616cf08371c994c4c9c31f682395cf8fb13bdc30",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-x64/run.log",
+      "sha256": "35eaa74701897d67bc38df903f3ccc9d872192f5c15dafe07a3689df467a8e62",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/Release-x64/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/results.json",
+      "sha256": "71f8adfa558a7ea2104bfae1df223686187cef669984023590fe490e5f19db71",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-after-v3/results.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/negative.cmd",
+      "sha256": "cd44e52e8319c97cb87caa85a3d4723193f0ceb2118768078d6456cc4482dcb2",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/negative.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/negative.log",
+      "sha256": "c69f47f0c75d28b761a07f98d60b9406a618cefee009207c199d15a9c0832407",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/negative.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/positive.cmd",
+      "sha256": "222d31a81b992d9c2e60020b196f38a446644a2056099cb4477d86f74d1debc5",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/positive.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/positive.log",
+      "sha256": "afcd92a0c8e9feeb779461604a90676224b9be9a529b64007bcc8fba7c94480d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-Win32/positive.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/negative.cmd",
+      "sha256": "41b7e349f38bc5249f3036b660b6f08d4f05adc10f36ca1313e914562db91e30",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/negative.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/negative.log",
+      "sha256": "8c212d2eca34ecc342390edf42f5f99769cc0d84872e230d5cc1e011d69190d6",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/negative.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/positive.cmd",
+      "sha256": "aece6e484bb70cb2f3ff393291ac37b5ae727230f45bdcd8a7ec0c2941762ee3",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/positive.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/positive.log",
+      "sha256": "afcd92a0c8e9feeb779461604a90676224b9be9a529b64007bcc8fba7c94480d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Debug-x64/positive.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/negative.cmd",
+      "sha256": "71d8d9c185af716934ad986df906a91cf7e3e694648fcfc34f6d9462106e5d24",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/negative.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/negative.log",
+      "sha256": "c8e1ebbffccf818aefe9f2ff2a568aa3a8a67f57b22cde655f17d2ea1c76acf5",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/negative.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/positive.cmd",
+      "sha256": "103b5c7e0f59bc1c40fbd5542d1174003ae6356bb2578a42dfcd8d415768a69b",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/positive.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/positive.log",
+      "sha256": "afcd92a0c8e9feeb779461604a90676224b9be9a529b64007bcc8fba7c94480d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-Win32/positive.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/negative.cmd",
+      "sha256": "a591dec918f4da76d9afc2a5ab6ee6a04e6ffe645e57484f1bc1f11725263a36",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/negative.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/negative.log",
+      "sha256": "276af1c1322ac4a0763989d67a12a4192f1a75260205f10ced19c7803bacb99f",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/negative.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/positive.cmd",
+      "sha256": "3a247695def4e74d78fdcee663c10bd78b41e54a92bcab8a35a84e737b416f6d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/positive.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/positive.log",
+      "sha256": "afcd92a0c8e9feeb779461604a90676224b9be9a529b64007bcc8fba7c94480d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/Release-x64/positive.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/results.json",
+      "sha256": "294ac79f7f35ba14f92b1433554c36bbd928a685519909a8b684f75d92a6fcdb",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-controls-v3/results.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/build.cmd",
+      "sha256": "a7edae1c15c4276d3a062fc6d734964ec79e3a72d1bf34ed68c0363352000d29",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/build.cmd"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/build.log",
+      "sha256": "619be77068fe00c98b202f7f88cf35fc28f9a5ab11c5764924d8ab664e6090e5",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/build.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/run.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/run.log"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/unused-missing-archives.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/Release-x64/unused-missing-archives.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/results.json",
+      "sha256": "d0ad4c02e6a01abe93af07e83a9b8b71cdf21f52774080383db837030d782c12",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-unchecked-control-v1/results.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-candidate-manifest.json",
+      "sha256": "ec5d03f18786c0a75e12b3db3f6964c2f39f1faf61d885d53c5a6cd0620a9e3e",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-candidate-manifest.json"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-packing-findings.md",
+      "sha256": "28189d839a8d44e3842efa440e9a1ffbcf75319fb9b10d1f3145db2bfddcddf8",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-packing-findings.md"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-probe.cpp",
+      "sha256": "ef84729774471bc2c336830345cc549975836f5a421553c16c497f16b685b8ff",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-length-queue-probe.cpp"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-probe.cpp",
+      "sha256": "a96e8d603b849bcb911753cb4e9e05c49a2cbbd7df47aa3ced5ded08582bc861",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/crypto-pack-probe.cpp"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-complete-v3.py",
+      "sha256": "e1324919beb0197dd70bac71414a4830f412731a2a238a4bc242b214d0ba7487",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-complete-v3.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-controls-v3.py",
+      "sha256": "dbc18cae0f73fceba6cc4361da754ffe3062b1561b272c8fdb34984ce2e0fd87",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-controls-v3.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-pack-after-v3.py",
+      "sha256": "29e50a511554ae6f92c34ccf0a3f7a87e1d089805cbb9a4ca6551f8aa03c6473",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-pack-after-v3.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-length-queue-v3.py",
+      "sha256": "7f13dd3ea218fc8de4440b8c0be667ed33671d493430b613ddf3ddd352d49c53",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-length-queue-v3.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-length-queue-v4.py",
+      "sha256": "49950cf351d10dc2535ff5180d193c1a3ff05efa85139748ac799657338b7bd8",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-length-queue-v4.py"
+    },
+    {
+      "path": "review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-unchecked-control.py",
+      "sha256": "468c7c0767d88fbb2faaaea54a507c4faf69d33f98531ce03c120505e7f5cd3e",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/115d618f039a7fb36350611c104e9cb25d45e60c/review/client-x64/vendor-next/allocator-next/integration-current-v2/run-crypto-unchecked-control.py"
+    }
+  ],
+  "native_recorded_results": {
+    "crypto-complete-v3/results.json": [
+      {
+        "configuration": "Release",
+        "platform": "Win32",
+        "exit": 0
+      },
+      {
+        "configuration": "Release",
+        "platform": "x64",
+        "exit": 0
+      },
+      {
+        "configuration": "Debug",
+        "platform": "Win32",
+        "exit": 0
+      },
+      {
+        "configuration": "Debug",
+        "platform": "x64",
+        "exit": 0
+      }
+    ],
+    "crypto-pack-controls-v3/results.json": [
+      {
+        "configuration": "Release",
+        "platform": "Win32",
+        "kind": "positive",
+        "exit": 0,
+        "expected": true
+      },
+      {
+        "configuration": "Release",
+        "platform": "Win32",
+        "kind": "negative",
+        "exit": 2,
+        "expected": true
+      },
+      {
+        "configuration": "Release",
+        "platform": "x64",
+        "kind": "positive",
+        "exit": 0,
+        "expected": true
+      },
+      {
+        "configuration": "Release",
+        "platform": "x64",
+        "kind": "negative",
+        "exit": 2,
+        "expected": true
+      },
+      {
+        "configuration": "Debug",
+        "platform": "Win32",
+        "kind": "positive",
+        "exit": 0,
+        "expected": true
+      },
+      {
+        "configuration": "Debug",
+        "platform": "Win32",
+        "kind": "negative",
+        "exit": 2,
+        "expected": true
+      },
+      {
+        "configuration": "Debug",
+        "platform": "x64",
+        "kind": "positive",
+        "exit": 0,
+        "expected": true
+      },
+      {
+        "configuration": "Debug",
+        "platform": "x64",
+        "kind": "negative",
+        "exit": 2,
+        "expected": true
+      }
+    ],
+    "crypto-pack-after-v3/results.json": [
+      {
+        "configuration": "Release",
+        "platform": "Win32",
+        "compile": 0,
+        "run": 0,
+        "output": "before=32/16 after=32/16 string=12 buffered=4\r\n"
+      },
+      {
+        "configuration": "Release",
+        "platform": "x64",
+        "compile": 0,
+        "run": 0,
+        "output": "before=32/16 after=32/16 string=24 buffered=8\r\n"
+      },
+      {
+        "configuration": "Debug",
+        "platform": "Win32",
+        "compile": 0,
+        "run": 0,
+        "output": "before=32/16 after=32/16 string=12 buffered=4\r\n"
+      },
+      {
+        "configuration": "Debug",
+        "platform": "x64",
+        "compile": 0,
+        "run": 0,
+        "output": "before=32/16 after=32/16 string=24 buffered=8\r\n"
+      }
+    ],
+    "crypto-length-queue-v3/results.json": [
+      {
+        "configuration": "Release",
+        "platform": "Win32",
+        "compile": 0,
+        "run": 0,
+        "output": "PASS 10 crypto checks; synthetic limit view never transferred\r\n"
+      },
+      {
+        "configuration": "Release",
+        "platform": "x64",
+        "compile": 0,
+        "run": 0,
+        "output": "PASS 12 crypto checks; synthetic limit view never transferred\r\n"
+      },
+      {
+        "configuration": "Debug",
+        "platform": "Win32",
+        "compile": 0,
+        "run": 0,
+        "output": "MM::remove 6576/7216=bytes 3/7=allocs\nPASS 10 crypto checks; synthetic limit view never transferred\r\n"
+      },
+      {
+        "configuration": "Debug",
+        "platform": "x64",
+        "compile": 2
+      }
+    ],
+    "crypto-length-queue-v4/results.json": [
+      {
+        "configuration": "Debug",
+        "platform": "x64",
+        "compile": 0,
+        "run": 0,
+        "output": "MM::remove 7632/8336=bytes 3/7=allocs\nPASS 12 crypto checks; synthetic limit view never transferred\r\n"
+      }
+    ],
+    "crypto-unchecked-control-v1/results.json": [
+      {
+        "configuration": "Release",
+        "platform": "x64",
+        "compile": 0,
+        "run": 4,
+        "output": ""
+      }
+    ]
+  },
+  "inventory_dependency_resolution": {
+    "inventory_prerequisite": "stlport-sdk",
+    "source_prerequisite_required": false,
+    "basis": "The prefix is included only by STLport vendor source TUs. Crypto includes installed STLport headers, unchanged by the prefix repair. All four master source blobs equal original parents. The prefix repair matters to native provider construction, not application of these crypto source patches.",
+    "recorded_native_dependency": "Matching genuine STLport and production core/MemoryManager libraries remain requirements of the historical native fixtures; those builds are not reproduced by this source-only master branch."
+  },
+  "base_project_configurations": [
+    "Debug|Win32",
+    "Optimized|Win32",
+    "Release|Win32"
+  ],
+  "x64_project_limit": "Master crypto.vcxproj has no x64 target. Recorded four-configuration native results used integration project metadata; separate x64 project/provider packages are required for that build route. Do not call this an exact master-head four-target rebuild.",
+  "historical_failures_retained": [
+    "Earlier PCH-only attempts did not resolve later count warnings; complete v2 used unconditional deque/memory preincludes and is not the final scoped header.",
+    "Final v3 runtime Debug x64 failed linkage on sharedNetworkMessages.lib; v4 passed after resolving against available genuine core inputs. The v4 recorded unused-missing-archives.json is empty; do not claim an archive was omitted in that final run.",
+    "Original filters.h unchecked Release x64 control compiled successfully but runtime exited 4 at the oversized generic-view rejection oracle.",
+    "Existing balanced packing warnings outside the scoped header remain in fixture compile logs; no global /WX policy change is introduced."
+  ],
+  "claim_limits": [
+    "Four final candidate source hashes match; native result JSONs record commands/exits but do not independently hash every linked crypto/core archive. No new link-closure or exact branch-head build identity claim.",
+    "Scoped _MSC_VER/_WIN64 C4103 warning push/pop preloads deque/memory; no pack pragma or global warning-policy change.",
+    "Runtime fixture covers three-byte C-string/generic-view/raw-byte transfers, a synthetic UINT_MAX constructor and x64 UINT_MAX+1 rejection, plus small queue completion/swap/retrieval.",
+    "Synthetic UINT_MAX view is never transferred. Win32 size_t cannot represent above UINT_MAX; large C-string rejection and huge buffer processing are not runtime-covered.",
+    "The saved queue fixture does not explicitly construct an attached queue for the modified AnyMessages attached branch; !=0 is source-equivalent and no direct attached-branch runtime coverage is asserted.",
+    "The multi-billion completed-message count boundary is arithmetic/source review only, not allocation of a huge queue.",
+    "Existing per-message cumulative unsigned-long byte overflow in Put is unchanged and outside this patch.",
+    "No cryptographic algorithm correctness/security, full ABI coverage, algorithm replacement, new allocator or upgraded server Crypto++ backport is claimed.",
+    "Existing vendor source and its notices are preserved exactly except for the original four source patches; no new test/build/source redesign."
+  ],
+  "preserved_sibling_ref": {
+    "branch": "review-ready/client-stlport-sdk",
+    "head": "de5e89d01c82c8a8f982f604935e3b07dd918fe2"
+  }
+}

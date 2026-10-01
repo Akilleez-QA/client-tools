@@ -815,20 +815,18 @@
     {
       "id": "archive-callbacks",
       "title": "Game callbacks match fixed-width archive indices",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
-      "prerequisites": [
-        "wire-contract"
-      ],
+      "prerequisites": [],
       "origin_commits": [
         {
           "sha": "966365f945cd928dd4d0426b674f5a8563cc9fc4",
           "subject": "game: match fixed-width archive callback indices on x64"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-archive-callbacks",
+      "branch_head": "e26bdd9b2fa64d0ef46e6af9aab328deb18c29a5",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/36",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Four CreatureObject/GroupObject files; callback signatures must agree with the already submitted archive uint32 index contract.",
       "exclusive_production_accounting": {
@@ -1288,7 +1286,7 @@
     {
       "id": "file-manifest",
       "title": "Retain FileManifest entries until removal",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -1297,9 +1295,9 @@
           "subject": "file: retain manifest entries until removal"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-file-manifest",
+      "branch_head": "514498397a9ead2518ab11d5894a785ef877b82d",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/37",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "One independent source commit with no x64 configuration dependency; reuses established runtime baseline rather than introducing another acceptance campaign.",
       "exclusive_production_accounting": {

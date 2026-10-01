@@ -1,0 +1,163 @@
+{
+  "branch": "review-ready/client-allocator-statistics",
+  "base": "1f8f341aab958ac13f04b070bb6575be0af36091",
+  "head": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+  "prerequisite": "https://github.com/Akilleez-QA/client-tools/pull/4",
+  "units": [
+    {
+      "original": "cf82805a9d13e6082ae96977093d670ea116a82f",
+      "packaged": "fb0d5526bbc5d7bbcc8f1176e4f6140e058ebf4d",
+      "changed_lines_identical": true
+    },
+    {
+      "original": "45fae5093c16757e2c779ad5daf6f63d170ed8a4",
+      "packaged": "e5d9b59ef063faa3659d91757223d1a4c530966f",
+      "changed_lines_identical": true
+    },
+    {
+      "original": "fcf54ab3fcbf4a0b2ef1c2915b620a510975a429",
+      "packaged": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+      "changed_lines_identical": true
+    }
+  ],
+  "production_counts": {
+    "files": 15,
+    "additions": 85,
+    "deletions": 65
+  },
+  "files": [
+    {
+      "path": "src/engine/client/application/MayaExporter/src/win32/ExportStaticMesh.cpp",
+      "additions": 2,
+      "deletions": 1,
+      "sha256": "2318fb9eba8cdc96061c3b5dab56ab11b4fe2821614a797a7532f021a0c96961",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/client/application/Viewer/src/win32/ViewerDoc.cpp",
+      "additions": 4,
+      "deletions": 3,
+      "sha256": "b370a6789b0b8311ba102f48af1166d25fffa46b31b8169e1529b779d6851196",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/core/Game.cpp",
+      "additions": 10,
+      "deletions": 9,
+      "sha256": "6c7da0639e9e41af73f2ff550167c879cb77abad8f3f46be762cbd4959edfc2f",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/client/library/clientGame/src/shared/core/PlotterManager.cpp",
+      "additions": 2,
+      "deletions": 2,
+      "sha256": "820051f5c5cc0fd6cf9fddd7c81c1a18e78dc8aa803f3809af00778800941301",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/appearance/SkeletalAppearance2.cpp",
+      "additions": 15,
+      "deletions": 14,
+      "sha256": "ef61b1f365a06abc9fb3c995161e7712a7ff8674b7c5a1218b325f82eea8efb3",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/controller/LogicalAnimationTableTemplateList.cpp",
+      "additions": 3,
+      "deletions": 3,
+      "sha256": "ce2fb209d43eb927ca8c9e665cceb5b40daac0fb273f26faeda502c1d221a996",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedDatabaseInterface/src_oci/OciSession.cpp",
+      "additions": 3,
+      "deletions": 0,
+      "sha256": "15a64c5f40136617fea93b18d8982fddf97a9c5f4f5d0ae3eb81ef73d53db32b",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/InstallTimer.cpp",
+      "additions": 3,
+      "deletions": 2,
+      "sha256": "3eab45d4cb41d55c0e8788178b8983f69c0d3f5d10c180e7aa5911834b67234a",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/shared/InstallTimer.h",
+      "additions": 2,
+      "deletions": 1,
+      "sha256": "f812eaf3d1d08d4581e23b73e44d7da9bb25263cbb893c6ddf179385e942ccf5",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp",
+      "additions": 20,
+      "deletions": 20,
+      "sha256": "86675283bf63d052d5012c8f0b9c8a8a06aedaa88e6200c0e4ef45cac8c1827f",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.h",
+      "additions": 10,
+      "deletions": 3,
+      "sha256": "280ff0106d5f4667de20bd6d7ae6966525de79c52fb800271babbb858b4da463",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedUtility/src/shared/CachedFileManager.cpp",
+      "additions": 3,
+      "deletions": 3,
+      "sha256": "5dae1dea07406dcbe97b324e94acfffc978c9fc395d1e0ee741fee601393017c",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/src/shared/core/SetupSharedXml.cpp",
+      "additions": 3,
+      "deletions": 0,
+      "sha256": "d10c172df4af1dc8b128bdccca12f021a1211d4509188ee11cffdb1f52531d68",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/src/shared/tree/XmlTreeDocumentList.cpp",
+      "additions": 4,
+      "deletions": 3,
+      "sha256": "49cdf348cf60bf67c131280c86c945a2f9b9de78628d6b4bb08c8f2863ac4881",
+      "maintained_blob_identical": true
+    },
+    {
+      "path": "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiDebugInfoPage.cpp",
+      "additions": 1,
+      "deletions": 1,
+      "sha256": "c233d1d6461389f829192a2ea431c85311ba48e80a91f4bb6767bd363da0de9d",
+      "maintained_blob_identical": true
+    }
+  ],
+  "null_compile_source_identities": [
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp",
+      "package_sha256": "86675283bf63d052d5012c8f0b9c8a8a06aedaa88e6200c0e4ef45cac8c1827f",
+      "recorded_lf_sha256": "86675283bf63d052d5012c8f0b9c8a8a06aedaa88e6200c0e4ef45cac8c1827f",
+      "exact_recorded_lf_match": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/src/shared/core/SetupSharedXml.cpp",
+      "package_sha256": "d10c172df4af1dc8b128bdccca12f021a1211d4509188ee11cffdb1f52531d68",
+      "recorded_lf_sha256": "d10c172df4af1dc8b128bdccca12f021a1211d4509188ee11cffdb1f52531d68",
+      "exact_recorded_lf_match": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedDatabaseInterface/src_oci/OciSession.cpp",
+      "package_sha256": "15a64c5f40136617fea93b18d8982fddf97a9c5f4f5d0ae3eb81ef73d53db32b",
+      "recorded_lf_sha256": "15a64c5f40136617fea93b18d8982fddf97a9c5f4f5d0ae3eb81ef73d53db32b",
+      "exact_recorded_lf_match": true
+    }
+  ],
+  "new_tests_or_runtime": false,
+  "limits": [
+    "Historical integrated and diagnostic evidence only; no exact restacked build.",
+    "No resident multi-GiB heap or live GC test.",
+    "Viewer/Maya edits source-reviewed only.",
+    "Null realloc evidence is compile-only, not lifecycle acceptance.",
+    "Rejected standalone allocator/Audio fault workload remains unresolved and was not rerun."
+  ]
+}
