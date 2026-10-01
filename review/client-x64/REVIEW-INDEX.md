@@ -28,7 +28,7 @@ The [complete client package inventory](package-inventory/remaining-package-map.
 
 [Server byte-order fork draft #2](https://github.com/Akilleez-QA/src/pull/2) carries the matching Windows conversion implementation above the helper/workflow prerequisite base: one file, +26/−0. [Exact source comparison and evidence boundary](pr-ready-next/server-byteorder/RESULTS.md).
 
-The first Miles foundation source branches are prepared and independently reviewed: [contracts/codec](pr-ready-next/miles-contracts/RESULTS.md), [native facade](pr-ready-next/miles-native-facade/RESULTS.md), and [file transport](pr-ready-next/miles-file-transport/RESULTS.md). They preserve dormant source boundaries; later source closure and build/Audio handoff remain pending. The contracts branch’s existing portable EOS test passes 298 checks with ASan/UBSan.
+The first Miles foundation source branches are published as fork drafts [#5](https://github.com/Akilleez-QA/client-tools/pull/5), [#6](https://github.com/Akilleez-QA/client-tools/pull/6) and [#7](https://github.com/Akilleez-QA/client-tools/pull/7), with independent source review: [contracts/codec](pr-ready-next/miles-contracts/RESULTS.md), [native facade](pr-ready-next/miles-native-facade/RESULTS.md), and [file transport](pr-ready-next/miles-file-transport/RESULTS.md). They preserve dormant source boundaries; later source closure and build/Audio handoff remain pending. The contracts branch’s existing portable EOS test passes 298 checks with ASan/UBSan.
 
 ## Earlier candidate packages and dependency drafts
 

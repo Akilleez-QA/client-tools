@@ -62,6 +62,8 @@ There are 34 aggregate accounting units: 9 submitted upstream, 3 prepared fork d
 
 The checked-size/minimum-node subset of `allocator-sizes` is now [fork draft #4](https://github.com/Akilleez-QA/client-tools/pull/4), head `1f8f341aab958ac13f04b070bb6575be0af36091`. Its two commits are +70/−29 in GitHub’s diff, one file. The aggregate remains in the remaining column because statistics, pointer diagnostics and null-reallocation have separate pending packages.
 
+Miles foundations 1–3 are now fork drafts [#5](https://github.com/Akilleez-QA/client-tools/pull/5), [#6](https://github.com/Akilleez-QA/client-tools/pull/6) and [#7](https://github.com/Akilleez-QA/client-tools/pull/7). Foundations 4–6 and the build/Audio handoff remain pending; the aggregate stays remaining until that closure is prepared. The two comment-only documentation corrections add two lines relative to the historical foundation snapshot; the frozen maintained-client accounting above is unchanged.
+
 ## Concrete next branches
 
 - **`review-ready/client-allocator-address-stack`**: base `2af9f19b502e9183731656cdaf93236faacb404e`; apply `2fdd4639bc7a0547925d93d733cd3a8ef5838630` → `b4b4289b26772c933781dc4ebba44168fecf5600` → `d905d5254b281974e82ae80be28c01aafdcbd979`. Next substantial source package. Keep breakpoint prerequisites and the complete owner/stack/hook ABI patch together; existing PR29 is the base.

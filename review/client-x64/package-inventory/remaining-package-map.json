@@ -1864,6 +1864,29 @@
         "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj",
         "tools/miles-bridge/build.py",
         "tools/miles-bridge/sources.json"
+      ],
+      "prepared_foundations": [
+        {
+          "part": "contracts",
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/5",
+          "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+          "head": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+          "scope": "Dormant source foundation; complete source closure and build entrypoints follow."
+        },
+        {
+          "part": "native-facade",
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/6",
+          "base": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+          "head": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
+          "scope": "Dormant source foundation; complete source closure and build entrypoints follow."
+        },
+        {
+          "part": "file-transport",
+          "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/7",
+          "base": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
+          "head": "9ef7a2c7dd99f8cdb7d351ee80704628aa53aa70",
+          "scope": "Dormant source foundation; complete source closure and build entrypoints follow."
+        }
       ]
     },
     {
