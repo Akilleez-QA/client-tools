@@ -1,0 +1,255 @@
+{
+  "package": "client-archive-regressions",
+  "branch": "review-ready/client-archive-regressions",
+  "base": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+  "base_ref": "review-ready/client-archive-storage",
+  "head": "6ebf897912710fb201ba08fadd505afbf7b77527",
+  "prerequisite_pr": "https://github.com/Akilleez-QA/client-tools/pull/13",
+  "transitive_wire_pr": "https://github.com/SWG-Source/client-tools/pull/23",
+  "transitive_wire_head": "e6738a9f5b912f62c496f866a911fa33b2539908",
+  "worktree": "/home/akilleez/Work/swg-source/client-pr-next-byteorder",
+  "units": [
+    {
+      "original": "8d9010900c02e449ad2de496ee6b47196dcae1fa",
+      "packaged": "208da424ae3405de7dfe15b3219ec34ad7406472",
+      "selected_paths": [
+        "tools/test-byte-stream"
+      ],
+      "original_selected_patch_id": "7b731ba7f669c988bbaae7223075c8a3d739450c",
+      "packaged_selected_patch_id": "7b731ba7f669c988bbaae7223075c8a3d739450c",
+      "selected_patch_identity": true
+    },
+    {
+      "original": "d89b9f49e228d3390899aed3da6987424d1e41c0",
+      "packaged": "6ebf897912710fb201ba08fadd505afbf7b77527",
+      "selected_paths": [
+        "tools/test-archive-decoders"
+      ],
+      "original_selected_patch_id": "ff285d672280fdbc096cc6033a3b1d8706588650",
+      "packaged_selected_patch_id": "ff285d672280fdbc096cc6033a3b1d8706588650",
+      "selected_patch_identity": true
+    }
+  ],
+  "files": [
+    {
+      "path": "tools/test-archive-decoders/README.md",
+      "additions": 12,
+      "deletions": 0,
+      "blob": "e562b4557530f63d509130d76fa2fefb8ee394df",
+      "sha256": "aad136296a2faf0aa05b52507ed090a736586c47613bf4714d6a6c0bc5fdef91",
+      "original_ref": "d89b9f49e228d3390899aed3da6987424d1e41c0",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-archive-decoders/fixtures.cpp",
+      "additions": 135,
+      "deletions": 0,
+      "blob": "15ace34730fcf67081b8e5003a69f30747fb29cd",
+      "sha256": "02b83e89b9d6983ff8df07379dfb5e5692d0550909209d79cb05fa20702b0246",
+      "original_ref": "d89b9f49e228d3390899aed3da6987424d1e41c0",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-archive-decoders/run.py",
+      "additions": 85,
+      "deletions": 0,
+      "blob": "5a47ee2e4886a897adec73c396cacfd0e42d56d8",
+      "sha256": "f32975954142883d1e69723b2910c1f081e80549bbc03ed317e75d04baee3a80",
+      "original_ref": "d89b9f49e228d3390899aed3da6987424d1e41c0",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-byte-stream/README.md",
+      "additions": 14,
+      "deletions": 0,
+      "blob": "ce84a07219d53568bbc92721db6ba0fed7a7276b",
+      "sha256": "646066207193741f5f321f8ea584332fe35ca34e003ea7ab5b1e61eb8288cef7",
+      "original_ref": "8d9010900c02e449ad2de496ee6b47196dcae1fa",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-byte-stream/fixtures.cpp",
+      "additions": 99,
+      "deletions": 0,
+      "blob": "fcf748b29e840bfd7442abd8a8948daf90452bc5",
+      "sha256": "9a103e92e48cfc49368971600543ebca1ec9ad622a18dda2e7d3e078ad1dad60",
+      "original_ref": "8d9010900c02e449ad2de496ee6b47196dcae1fa",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-byte-stream/run.py",
+      "additions": 79,
+      "deletions": 0,
+      "blob": "b641859f077122b0728fc584d1378c0cea82747d",
+      "sha256": "3500e480f14ed31884926cdf876f7658cba50f49f3ad18aa3bff039ff74e1be9",
+      "original_ref": "8d9010900c02e449ad2de496ee6b47196dcae1fa",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    }
+  ],
+  "counts": {
+    "commits": 2,
+    "files": 6,
+    "additions": 424,
+    "deletions": 0,
+    "production_changes": 0,
+    "workflow_changes": 0
+  },
+  "packaging_checks": {
+    "diff_check_exit": 0,
+    "all_selected_patch_ids_match": true,
+    "all_final_files_match_original": true,
+    "clean_worktree": true,
+    "new_builds_tests_runtime": false,
+    "remote_mutations": false,
+    "new_source_copies": false
+  },
+  "dependency_closure": {
+    "source_base": "PR13 contains the ByteStream storage/read fixes, Archive/Unicode decoder preflight, ordinary-container counts and final Unicode writer byte limit above PR23.",
+    "other_prepared_package_required": false,
+    "toolchain": "Python 3; both MinGW-w64 g++ compilers for Win32/Win64; Wine and a compatible dedicated/temporary prefix; Windows SDK declarations provided by MinGW. No integration STLport/core providers are needed by these portable runners.",
+    "linked_sources": [
+      "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+      "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp"
+    ],
+    "headers": "Archive shared headers and Windows mutex forwarding header; decoder also uses Unicode/UnicodeArchive public include trees. All are present in PR13."
+  },
+  "runner_contract": {
+    "byte_stream": {
+      "expected": "PASS: 85 bounded initialized-storage checks",
+      "source_count_arithmetic": "21 checks outside loop + 4 checks for each n=1..16 = 85"
+    },
+    "decoder": {
+      "expected": "PASS: 34 bounded decoder checks",
+      "source_count_arithmetic": "34 straight-line CHECK invocations"
+    },
+    "both": "Delete prior executable before rebuild; compiler nonzero returns failure; parse PE machine and require 0x14c/0x8664; runtime exit zero and stdout splitlines exactly one expected verdict; no skipped/extra/duplicate verdict accepted. Hashes source manifest/compiler version/Wine version/command/executable; stderr retained separately.",
+    "review_method": "Static source inspection only; no runner imports or execution."
+  },
+  "historical_portable_records": [
+    {
+      "directory": "/home/akilleez/Work/client-wire-validation/bytestream-next/portable-final85-32",
+      "manifest_sha256": "1040cf2e9af60a167c7e3ed5fc2861872b644ea3b7b331f8393a9b66ee6281b8",
+      "run_log_sha256": "8703622ed32fe2f0031632030dee5136d617ed09c40b73b483899c3203edf3ea",
+      "run_stdout": "PASS: 85 bounded initialized-storage checks\n",
+      "recorded_bits": 32,
+      "recorded_machine": 332,
+      "recorded_exit": 0,
+      "recorded_passed": true,
+      "matching_inputs": 19,
+      "recorded_inputs": 21,
+      "mismatches": [
+        {
+          "path": "src/external/ours/library/archive/src/shared/Archive.h",
+          "recorded_sha256": "1040814bc1a24e3a891061dab1ccf017382f72ca60cb22d2514b3129be155248",
+          "packaged_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+          "identity": false
+        },
+        {
+          "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+          "recorded_sha256": "af88e62c83e240f738468b7c5a71b1131dbe586016d654c9c5b50e764de7c2bf",
+          "packaged_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+          "identity": false
+        }
+      ],
+      "fixture_identity": true
+    },
+    {
+      "directory": "/home/akilleez/Work/client-wire-validation/bytestream-next/portable-final85-64",
+      "manifest_sha256": "7f665cbc0aa1ccd131fbaa9632f904de2a469e7bbef2c7d52b446c21343484f5",
+      "run_log_sha256": "8703622ed32fe2f0031632030dee5136d617ed09c40b73b483899c3203edf3ea",
+      "run_stdout": "PASS: 85 bounded initialized-storage checks\n",
+      "recorded_bits": 64,
+      "recorded_machine": 34404,
+      "recorded_exit": 0,
+      "recorded_passed": true,
+      "matching_inputs": 19,
+      "recorded_inputs": 21,
+      "mismatches": [
+        {
+          "path": "src/external/ours/library/archive/src/shared/Archive.h",
+          "recorded_sha256": "1040814bc1a24e3a891061dab1ccf017382f72ca60cb22d2514b3129be155248",
+          "packaged_sha256": "6383eff6ee5216c9cb295d89b083e21754149473706c52125413b6472fdae2b8",
+          "identity": false
+        },
+        {
+          "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+          "recorded_sha256": "af88e62c83e240f738468b7c5a71b1131dbe586016d654c9c5b50e764de7c2bf",
+          "packaged_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+          "identity": false
+        }
+      ],
+      "fixture_identity": true
+    },
+    {
+      "directory": "/home/akilleez/Work/client-wire-validation/bytestream-next/raw-decoder-review/parent32",
+      "manifest_sha256": "80967f03d3db18c1e0958b058669a46fbaa23a11eeb19f7fefc170463db7d31b",
+      "run_log_sha256": "3cdf2b5e3138b0bfebf873ee369b1d3c8d65034b26ff30d145f9ddf813e35ae1",
+      "run_stdout": "PASS: 34 bounded decoder checks\n",
+      "recorded_bits": 32,
+      "recorded_machine": 332,
+      "recorded_exit": 0,
+      "recorded_passed": true,
+      "matching_inputs": 23,
+      "recorded_inputs": 25,
+      "mismatches": [
+        {
+          "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+          "recorded_sha256": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5",
+          "packaged_sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+          "identity": false
+        },
+        {
+          "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+          "recorded_sha256": "af88e62c83e240f738468b7c5a71b1131dbe586016d654c9c5b50e764de7c2bf",
+          "packaged_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+          "identity": false
+        }
+      ],
+      "fixture_identity": true
+    },
+    {
+      "directory": "/home/akilleez/Work/client-wire-validation/bytestream-next/raw-decoder-review/parent64",
+      "manifest_sha256": "eeacb7cd58d47258b29174f729eb96aea2cd13fa8239bff9d4394e4089c68945",
+      "run_log_sha256": "3cdf2b5e3138b0bfebf873ee369b1d3c8d65034b26ff30d145f9ddf813e35ae1",
+      "run_stdout": "PASS: 34 bounded decoder checks\n",
+      "recorded_bits": 64,
+      "recorded_machine": 34404,
+      "recorded_exit": 0,
+      "recorded_passed": true,
+      "matching_inputs": 23,
+      "recorded_inputs": 25,
+      "mismatches": [
+        {
+          "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+          "recorded_sha256": "d76e7f0349f47dbe102f7c6477d2c421b9d916ace6e5730bd90174410d660cd5",
+          "packaged_sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549",
+          "identity": false
+        },
+        {
+          "path": "src/external/ours/library/archive/src/shared/AutoByteStream.h",
+          "recorded_sha256": "af88e62c83e240f738468b7c5a71b1131dbe586016d654c9c5b50e764de7c2bf",
+          "packaged_sha256": "a073b1bc6c1345f6720ef8fa790bae121f337807d3dba67e2533d1259425f2f8",
+          "identity": false
+        }
+      ],
+      "fixture_identity": true
+    }
+  ],
+  "claim_limits": [
+    "No fresh branch-head execution. Fixtures/runners/READMEs are original bytes; source manifests retain differences from the later PR13 source prerequisite.",
+    "Portable 85-check record predates decoder/count source updates; decoder 34-check record predates AutoArray/List count and final Unicode writer changes. Shared ByteStream and fixture hashes match.",
+    "Native v120 85/34 records use recorded integrated genuine core/STLport provider snapshots and separate native harness commands, not these portable runners or a fresh PR13 build.",
+    "No huge allocation, allocation-failure injection, nested message rollback, general iterator invalidation or full-client/runtime qualification.",
+    "No workflow jobs added; archive harnesses require explicit invocation until separate CI composition."
+  ],
+  "ready_for_bounded_review": true,
+  "publication_state": "local only; parent owns independent review and publication",
+  "draft_sha256": "023e8005f6f7c27a88287e66533bd7f2cd84c3fa3014b0fb178e8ca64dd2ea5b"
+}

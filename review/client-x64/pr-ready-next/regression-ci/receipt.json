@@ -1,0 +1,41 @@
+{
+  "branch": "review-ready/client-regression-ci",
+  "base": "d4069fac3739257d185b0d58a7463497ce49468f",
+  "head": "505795c7dd132b88d282151d8c95de999d1f45ba",
+  "files": [
+    {
+      "path": ".github/workflows/wire-compatibility.yml",
+      "sha256": "6a7f1a05621c1b3bc7d5f373152afea7eeb365089583aee30926953b18e6bf9d"
+    }
+  ],
+  "production_changes": 0,
+  "additions": 26,
+  "deletions": 1,
+  "prerequisites": [
+    "16942c5fc6724f33e7633985c5fc5b0bc9be5103",
+    "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185",
+    "6ebf897912710fb201ba08fadd505afbf7b77527"
+  ],
+  "run": {
+    "url": "https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021",
+    "id": 36850510021,
+    "head": "505795c7dd132b88d282151d8c95de999d1f45ba",
+    "conclusion": "success",
+    "wire32": 71,
+    "wire64": 78,
+    "bytestream_per_abi": 85,
+    "decoder_per_abi": 34,
+    "ownership_python_tests": 12,
+    "video_admission": 22,
+    "protocol_scope": "Linux ASan/UBSan tests, no vendor DLL execution",
+    "eos_protocol": 298,
+    "bink_protocol": 1047
+  },
+  "raw_log_sha256": "5a7aa7a0786500ff8e4e993522e27e89b115a15d9468f269326d08b06ea6306c",
+  "limits": [
+    "not native MSVC or UI harness",
+    "not genuine Miles/Bink provider behavior",
+    "not full game build or gameplay",
+    "source composition limited to declared prerequisites"
+  ]
+}

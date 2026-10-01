@@ -1,0 +1,9 @@
+# Record bounded mixed-width live sessions and paired shutdown
+
+Add the manual normal-login, existing-character, movement/persistence and ordinary-close procedure alongside the wire regressions. Preserve the recorded four Debug client/server architecture combinations and one Release-x64/server64 follow-up, with their exact build identities and failure/cleanup caveats.
+
+The final section records two separately measured Release game/media-host exits. Saved raw observer logs capture the exact host image and parent before WM_CLOSE and report both Windows exit codes 0. Native harmless controls distinguish success, child exit 7 and timeout. Loaded-session database snapshots preserve two old positions before the later saved movement; this does not establish the persistence mechanism.
+
+One documentation-only commit adds `tools/test-wire-compatibility/live-session.md` (171 lines). It is byte-identical to the maintained document, combining the previously committed [mixed-width record](https://github.com/Akilleez-QA/client-tools/commit/a422c4e48) and [Release follow-up](https://github.com/Akilleez-QA/client-tools/commit/eca74ffa5) with the existing paired-shutdown note. No production, test implementation, private raw logs, credentials, assets or binaries are added.
+
+Packaging inspected the saved paired-close logs, sensor control results, process/compositor statuses, restoration records and timed database snapshots. Earlier committed session claims remain their previously reviewed observations; screenshots/audio were not independently re-examined in this pass and no runtime was repeated. These are bounded Proton observations, not complete gameplay, native-Windows, media-fidelity or general teardown qualification. The file explicitly preserves failed attempts, delayed persistence and cleanup failures.

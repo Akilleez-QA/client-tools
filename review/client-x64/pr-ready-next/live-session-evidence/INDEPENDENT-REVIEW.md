@@ -1,0 +1,3 @@
+# Source and evidence review
+
+The document on926eda724 is byte-identical to the maintained note and isolated above wire-regressionsd8cb69a4. No source/test implementation changed. Preparer inspected the raw paired-close records, native observer controls, persisted positions and restoration records. Root rechecked the recorded file identities and raw paired-close exit records. The prose correctly distinguishes process-handle observations before cleanup from later process absence, delayed persistence from a traced mechanism, and Proton results from native-Windows gameplay. Earlier session/image/audio claims remain previously reviewed observations; this pass did not rerun or requalify them. No introduced contradiction or private raw material found in the proposed document.

@@ -1,0 +1,9 @@
+# Independent bounded review
+
+Reviewed `505795c7dd132b88d282151d8c95de999d1f45ba` against joint base `d4069fac3739257d185b0d58a7463497ce49468f`, the draft/receipt, saved run JSON and raw hosted log. No introduced blocker found in this bounded pass.
+
+The delta is only `.github/workflows/wire-compatibility.yml`, +26/-1, and its recorded SHA256 matches. Relative to maintained `eca74ffa`, the sole difference is the named review-branch push trigger. Every workflow command input exists in this composition; the omitted archive harnesses and expanded wire runner are now supplied by explicit prerequisites. No new production hunks or vendor assets are introduced by the workflow delta.
+
+GitHub's fail-fast shell behavior and explicit pipefail on piped fixture commands preserve compiler/runtime nonzero failures through tee. Python runner failures propagate; no continue-on-error is used. Archive runners enforce PE machine and exact verdicts. The wire gate requires its count, type compilation, exit and skip/absence conditions. Logs/artifacts are retained with always(); read-only permissions and pinned actions remain. Ownership and Linux ASan/UBSan media protocol commands run once on the 64-bit matrix leg; archive/wire Windows-target fixtures run on both legs. Master-target PR filtering and the explicit branch push trigger are honestly described.
+
+Saved run `36850510021` identifies this exact head and success for both legs. The raw log SHA256 is `5a7aa7a0786500ff8e4e993522e27e89b115a15d9468f269326d08b06ea6306c`, matching the receipt; it retains 71/78 wire, 85 ByteStream and 34 decoder per ABI, 12 ownership, 298 EOS and 1,047 Bink protocol checks, plus the admission result. This supports portable composed-head qualification only, not MSVC/UI/native vendor/full-game behavior. No new execution, external research, checkout/ref mutation or remote action was performed for this review.

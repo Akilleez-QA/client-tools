@@ -1,0 +1,92 @@
+{
+  "branch": "review-ready/client-ui-memory-tests",
+  "head": "fdaa82180f97bcd9c371d588059ebe488b757cda",
+  "base": "91ceee4ae087bbad556c15a77dbe7d88250e7e7d",
+  "base_branch": "prerequisite/client-ui-memory-tests",
+  "prerequisite_heads": {
+    "native_providers": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+    "allocator_statistics": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+    "ui_pool_alignment": "5ff93941c3f7c256fe10f2dc8f6d0e2216ea302d"
+  },
+  "original_commit": "2a06b9dcb08d0ba0c090536f34e27cfcaeaa12f5",
+  "files": [
+    {
+      "path": "tools/test-ui-memory/README.md",
+      "sha256": "593d667ea2ff12a36d89ac5a839271638fbdc0127c4be23d3a487434f0bb793b",
+      "exact_original": true
+    },
+    {
+      "path": "tools/test-ui-memory/fixtures.cpp",
+      "sha256": "35efb5021629d945a372a214b2b74417ac46b5982cd3ae7ec5eedcbf7e540556",
+      "exact_original": true
+    },
+    {
+      "path": "tools/test-ui-memory/run.py",
+      "sha256": "a1d71e47b63f7517349099f212e7e91c62bdea06ca652707f4380d7fd00cc4d1",
+      "exact_original": true
+    }
+  ],
+  "numstat": "29\t0\ttools/test-ui-memory/README.md\n26\t0\ttools/test-ui-memory/fixtures.cpp\n102\t0\ttools/test-ui-memory/run.py\n",
+  "historical_results": [
+    {
+      "configuration": "Debug-Win32",
+      "passed": true,
+      "build_exit": 0,
+      "run_exit": 0,
+      "link_inputs": 40,
+      "source_matches": {
+        "src/external/3rd/library/ui/src/shared/core/UiMemoryBlockManager.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UiReport.cpp": true,
+        "tools/test-ui-memory/fixtures.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UILowerString.cpp": true
+      }
+    },
+    {
+      "configuration": "Debug-x64",
+      "passed": true,
+      "build_exit": 0,
+      "run_exit": 0,
+      "link_inputs": 39,
+      "source_matches": {
+        "src/external/3rd/library/ui/src/shared/core/UiMemoryBlockManager.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UiReport.cpp": true,
+        "tools/test-ui-memory/fixtures.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UILowerString.cpp": true
+      }
+    },
+    {
+      "configuration": "Release-Win32",
+      "passed": true,
+      "build_exit": 0,
+      "run_exit": 0,
+      "link_inputs": 40,
+      "source_matches": {
+        "src/external/3rd/library/ui/src/shared/core/UiMemoryBlockManager.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UiReport.cpp": true,
+        "tools/test-ui-memory/fixtures.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UILowerString.cpp": true
+      }
+    },
+    {
+      "configuration": "Release-x64",
+      "passed": true,
+      "build_exit": 0,
+      "run_exit": 0,
+      "link_inputs": 39,
+      "source_matches": {
+        "src/external/3rd/library/ui/src/shared/core/UiMemoryBlockManager.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UiReport.cpp": true,
+        "tools/test-ui-memory/fixtures.cpp": true,
+        "src/external/3rd/library/ui/src/shared/core/UILowerString.cpp": true
+      }
+    }
+  ],
+  "fresh_build_tests_runtime": false,
+  "publication": "none",
+  "clean_worktree": true,
+  "limits": [
+    "Base supplies published source prerequisites, not the historical prebuilt integrated core library closure.",
+    "Caller must supply genuine matching v120 dependencies and evaluated project inputs; no automatic dependency build.",
+    "Historical zip does not include runner source; fixture and three production TU identities were checked against recorded hashes."
+  ]
+}

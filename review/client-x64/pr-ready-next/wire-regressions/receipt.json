@@ -1,0 +1,438 @@
+{
+  "package": "client-wire-regressions",
+  "branch": "review-ready/client-wire-regressions",
+  "base": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+  "base_ref": "review-ready/client-archive-storage",
+  "head": "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185",
+  "prerequisite_pr": "https://github.com/Akilleez-QA/client-tools/pull/13",
+  "transitive_wire_pr": "https://github.com/SWG-Source/client-tools/pull/23",
+  "transitive_wire_head": "e6738a9f5b912f62c496f866a911fa33b2539908",
+  "worktree": "/home/akilleez/Work/swg-source/client-pr-next-byteorder",
+  "units": [
+    {
+      "original": "3550071ed388dea71d39ebc2d0c942e5f90da5db",
+      "packaged": "21fc42b9fde3ee42a94b0266ecab212b0ec9dca2",
+      "selected_paths": [
+        "tools/test-wire-compatibility"
+      ],
+      "original_selected_patch_id": "99cb784bc838dde5eff75bbc3856dc45ffbf915a",
+      "packaged_selected_patch_id": "99cb784bc838dde5eff75bbc3856dc45ffbf915a",
+      "selected_patch_identity": true
+    },
+    {
+      "original": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "packaged": "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185",
+      "selected_paths": [
+        "tools/test-wire-compatibility"
+      ],
+      "original_selected_patch_id": "cfb29f3e879a563788c63ca4791e6cb948e59696",
+      "packaged_selected_patch_id": "cfb29f3e879a563788c63ca4791e6cb948e59696",
+      "selected_patch_identity": true
+    }
+  ],
+  "files": [
+    {
+      "path": "tools/test-wire-compatibility/README.md",
+      "additions": 57,
+      "deletions": 10,
+      "blob": "61fca11a94d7a4e51cba7e0a6cd569ecdf073721",
+      "sha256": "fb29572e0b5bff94ffac33b48c8718d917a94fadf1bf4d3da45a70f58289a3f0",
+      "original_ref": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "matches_original_file": true,
+      "matches_maintained_file": false
+    },
+    {
+      "path": "tools/test-wire-compatibility/fixtures.cpp",
+      "additions": 36,
+      "deletions": 0,
+      "blob": "22a18bd54d09aede4e5b856980c894245e06283c",
+      "sha256": "ce0b1a3d3c7ed52637b6b6a476a73ad6e1fbaf78448081f97c3ac97f9f05e2e6",
+      "original_ref": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-wire-compatibility/login_cluster.cpp",
+      "additions": 105,
+      "deletions": 0,
+      "blob": "5229989afeac134a410c0fae4da45ef441a59af3",
+      "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+      "original_ref": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-wire-compatibility/mission_glue.cpp",
+      "additions": 8,
+      "deletions": 4,
+      "blob": "417dcc9afaa9cb8dfdbd8fb69cbb6ef23640eae3",
+      "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+      "original_ref": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    },
+    {
+      "path": "tools/test-wire-compatibility/run.py",
+      "additions": 50,
+      "deletions": 21,
+      "blob": "db9bf4222d9fab8e8d34eb14bec9e234551fb774",
+      "sha256": "888992ef641bb1f740a39c6796b96b3e18f81d6f87d87b1741436ed307948411",
+      "original_ref": "4d3009851ec6cdd005ef41c9dc1fc666dffe7e64",
+      "matches_original_file": true,
+      "matches_maintained_file": true
+    }
+  ],
+  "counts": {
+    "commits": 2,
+    "files": 5,
+    "additions": 256,
+    "deletions": 35,
+    "production_changes": 0,
+    "workflow_changes": 0
+  },
+  "packaging_checks": {
+    "diff_check_exit": 0,
+    "all_selected_patch_ids_match": true,
+    "all_final_files_match_original": true,
+    "clean_worktree": true,
+    "new_builds_tests_runtime": false,
+    "remote_mutations": false,
+    "new_source_copies": false
+  },
+  "runner_declared_inputs": {
+    "EXPECTED_RUNTIME_PASSES": 70,
+    "EXPECTED_WIN64_ONLY_PASSES": 7,
+    "TRIPLE": {
+      "32": "i686-w64-mingw32",
+      "64": "x86_64-w64-mingw32"
+    },
+    "SOURCES": [
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+      "external/ours/library/archive/src/shared/ByteStream.cpp",
+      "external/ours/library/archive/src/shared/AutoByteStream.cpp",
+      "external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+      "external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+      "external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+      "engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+      "engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+      "engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+      "external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+      "external/ours/library/localization/src/shared/StringId.cpp",
+      "external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+      "external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+      "engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+      "external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+      "external/ours/library/unicode/src/shared/utf8.cpp"
+    ],
+    "SYNTAX_ONLY": [
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp"
+    ],
+    "OPTIONAL_SOURCES": [
+      "engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatLogEntryArchive.cpp",
+      "engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatLogEntry.cpp"
+    ],
+    "LIBS": [
+      "engine/shared/library",
+      "external/ours/library",
+      "game/shared/library"
+    ]
+  },
+  "required_input_identities": [
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientLoginServer/LoginClusterStatus.cpp",
+      "sha256": "cbacc979157fe03e001f1b16944a8da65030ba6b602ddc157b6d1d63eecbf121"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/ByteStream.cpp",
+      "sha256": "5694af77276419b4edaee2d3ecbe14fab764ae62952d8770dba8c2e030d7e38c"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoByteStream.cpp",
+      "sha256": "71d57efb1aed088ac2a368fe05472dae79fc15b52f7081684995c3505fcda6fa"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaByteStream.cpp",
+      "sha256": "5277be38d2d5bb2088d423dfc40aa4162f1c807f4937d2cf3c05e18a3c5af309"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/shared/AutoDeltaPackedMap.cpp",
+      "sha256": "02feb8a658c70ad64df1d6ea7f5f76a014e5ec04688a3977a34159c645ac35f2"
+    },
+    {
+      "path": "src/external/ours/library/archive/src/win32/ArchiveMutex.cpp",
+      "sha256": "e52757c67c992e56ac612e1ac301fe0966ef2a5059d845bba4bf2cadc5dfe753"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/NetworkId.cpp",
+      "sha256": "8cac765dee1fce6c601f3375ec5727aaaf3a07d21cb293e4bc6fbd9098e0dd0e"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/NetworkIdArchive.cpp",
+      "sha256": "aaf105b30b3d02cf81c1e6c4c538f97f3fc263d0c37e8b4f3573752067d69976"
+    },
+    {
+      "path": "src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+      "sha256": "98e09e46549d551e89039fa8710bf94c172d292e46af3e7ba150418fd8b2628a"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseArchive.cpp",
+      "sha256": "f5fdbc9f0d7bb9681993ece34bd06a29492a98793188e9a11468773dfb025724"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseData.cpp",
+      "sha256": "1e03f1aec3457dab27e498babbd97748486675f2250a647d250b5dff0ce0e1a9"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueMissionListResponseDataArchive.cpp",
+      "sha256": "a4acb36019f8a1e3a9c10f87429f2e972cca26b1f72deb5c9bade72c749b469a"
+    },
+    {
+      "path": "src/external/ours/library/localizationArchive/src/shared/StringIdArchive.cpp",
+      "sha256": "25a89f573eb34e2644b64f30b0970f39d2e8449bf40fcfe1d073443f9249ad91"
+    },
+    {
+      "path": "src/external/ours/library/localization/src/shared/StringId.cpp",
+      "sha256": "cbb39a88174c86b8467fd0da4f6a170600098a7af2c057672888f6d87b0efe6e"
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeArchive.cpp",
+      "sha256": "c249a5b1b0747b734b095f30b3aa6caaabef1be045062c9ec51091589be5a549"
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/src/shared/UnicodeAutoDeltaPackedMap.cpp",
+      "sha256": "a6b2d602fb833a3b0eb453184071439d091db995301428ebbbf2ac77956a60df"
+    },
+    {
+      "path": "src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+      "sha256": "d361e319de39419c481b079508fe54caa5473b4b415798f7207a77a4559fc5d3"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatOnRequestLog.cpp",
+      "sha256": "f148bc334173a2c60fd82e9b06c2822eeb79df1aa186500c48b6af2423dd25b0"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/ImageDesignChangeMessage.cpp",
+      "sha256": "b04f796957b77ef2d53187f1e49f10a3a6daef8d62076e8695636cd6d56e49bf"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/BuffBuilderChangeMessage.cpp",
+      "sha256": "aea5f227f069fea8f90d33d1e10e462965036d45458c6ed6c71330c62f702992"
+    },
+    {
+      "path": "src/external/ours/library/unicode/src/shared/UnicodeUtils.cpp",
+      "sha256": "0dfde1d3142b749f3b86cf4990044e298f2c579fc6ac904a170ad752f8dc6690"
+    },
+    {
+      "path": "src/external/ours/library/unicode/src/shared/utf8.cpp",
+      "sha256": "4eb56f7760ceeaf97bf5eee5cbd93f7083179af5672da947ccbcb56ec7bc36a1"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/DroidCommandProgrammingMessage.cpp",
+      "sha256": "b0f8f57a288121b8e5e3c1fdbf3225bc46f8fbe92b8544444d19dabaf7c595be"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueCraftExperiment.cpp",
+      "sha256": "975827363f28c4d002caf8b5c72996edb48729507147470d152d1831e21ce689"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/clientGameServer/MessageQueueDraftSlotsDataArchive.cpp",
+      "sha256": "408e65fab977af62340f623f1b69991dacda59f877eb66dd5a0fd51db7710cc4"
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/customerService/CustomerServiceCategoryArchive.cpp",
+      "sha256": "2d4233be08c084b1b9656b40a7e80ce4b75d6e533743ae19088b07e13ec366f8"
+    },
+    {
+      "path": "tools/test-wire-compatibility/fixtures.cpp",
+      "sha256": "ce0b1a3d3c7ed52637b6b6a476a73ad6e1fbaf78448081f97c3ac97f9f05e2e6"
+    },
+    {
+      "path": "tools/test-wire-compatibility/login_cluster.cpp",
+      "sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57"
+    },
+    {
+      "path": "tools/test-wire-compatibility/fatal.cpp",
+      "sha256": "c88f2f7643af7ca70969f79ab188998f857dccd48b7d3a7fdc028b0da1171825"
+    },
+    {
+      "path": "tools/test-wire-compatibility/mission_glue.cpp",
+      "sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4"
+    },
+    {
+      "path": "tools/test-wire-compatibility/count_sites.cpp",
+      "sha256": "e1aea41ab02d8742720563fc4a0607d501a10fa690bdf19489b864b3d683433a"
+    },
+    {
+      "path": "tools/test-wire-compatibility/wire_types.cpp",
+      "sha256": "49a2e39004d0a3a379227339e5d54d1ad87489eae4e61795d948ddf8456d18d7"
+    },
+    {
+      "path": "tools/test-wire-compatibility/shim/StlForwardDeclaration.h",
+      "sha256": "3baa2de7cd4ebe02bbf878dc8a9f64aacf31ef59be7d2fcfb458b5ae9fa46c73"
+    },
+    {
+      "path": "tools/test-wire-compatibility/shim/hashmap_shim.h",
+      "sha256": "bf7db636b7d76a64ed0a9ecc585a141d76f5d49b08dfb6294caaf555a1a601d2"
+    },
+    {
+      "path": "tools/test-wire-compatibility/shim/sharedFoundation/FirstSharedFoundation.h",
+      "sha256": "d4c3886078613a1907c19210f4aeadf25427faa9ed8f58ed77e3ad7a63bd790f"
+    }
+  ],
+  "optional_source_presence": [
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatLogEntryArchive.cpp",
+      "present": false
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/src/shared/chat/ChatLogEntry.cpp",
+      "present": false
+    }
+  ],
+  "dependency_closure": {
+    "source_base": "Archive PR13 includes wire PR23 and both the checked AutoArray/List source hunks plus ByteStream/decoder changes. The LoginClusterStatus TU/header already exist in that base.",
+    "other_prepared_package_required": false,
+    "standalone_archive_harness_required": false,
+    "toolchain": "Python 3, clang++ with MinGW Windows target support, MinGW-w64 g++ for the selected ABI, Wine. Existing test shims and compiler-compatible staged copies remain required; no integration core/STLport provider linking.",
+    "inherited_ci": "Existing PR23 workflow contains the runner job with --require-current-coverage, but automatic triggers are master PRs and pushes to ci/client-wire/x64-fixed-width-wire only. This dependent draft target is not automatically covered; separate parent-owned CI composition/dispatch is needed for fresh qualification."
+  },
+  "runner_contract": {
+    "common_runtime": 70,
+    "win64_only_runtime": 7,
+    "compile_time_width_check": 1,
+    "expected_current_totals": {
+      "Win32": 71,
+      "Win64": 78
+    },
+    "expected_stock_Win32_total": 68,
+    "new_checks": {
+      "login_cluster": 9,
+      "ordinary_array_list": 12
+    },
+    "count_arithmetic": "49 prior common + 9 galaxy checks + 12 container checks = 70; Win64 adds six timestamp and one ArchiveCount limit checks.",
+    "skip_and_absence": "Win32 requires the exact timestamp(6) and size_t(1) SKIP strings. Only one exact ArchiveCount ABSENT string may deduct three common/one Win64 checks; --require-current-coverage rejects every absence. Unknown/duplicate SKIP or ABSENT notices fail.",
+    "abi_controls": "--bits chooses clang --target i686/x86_64-w64-mingw32 and matching linker; default Win32 _USE_32BIT_TIME_T; fixture sizeof(time_t)/sizeof(size_t) selects extra checks and exact notice/count gate detects incompatible width behavior. No explicit PE-machine validation is implemented in this wire runner.",
+    "scope": "Three compile-time timestamp width assertions plus runtime serializers and four syntax-only TU checks; success requires compile/link success, runtime zero, exact PASS count and no FAIL/NOT RUN. Types-only mode intentionally does not run fixtures.",
+    "artifacts": "Recorded commands, exits, raw diagnostics, compiled TU hashes and staged source hashes when --artifacts is set. This is not a complete transitive toolchain/input manifest.",
+    "shim_boundary": "GameNetworkMessage permits LoginClusterStatus only and omits command CRC registration; MessageBase type initialized to zero; production put/get/pack/unpack and LoginClusterStatus constructors are used. Existing allocator/registration/type syntax shims remain."
+  },
+  "historical_records": {
+    "login_original_commit_ready_manifest": "/home/akilleez/Work/client-wire-validation/login-cluster-next/commit-ready-manifest.json",
+    "login_original_manifest_sha256": "c4c8631329f20b2bb98fc87fee8e7ed2a62840e84383595222179b6d98bea6f0",
+    "login_prior_matrix": "Candidate 59/59 Win32,66/66 Win64; stock Win32 56/56. Native-size encoding mutant passed Win32 and failed exactly three Win64 encodings. Fourteen saved enforcement controls retain absence/missing-check/exit/failure behavior.",
+    "expanded_matrix": "Original 4d3009851 records 71/71 Win32,78/78 Win64; stock 68/68. Final Unicode writer-stage portable command records retain 70/77 runtime PASS lines plus successful compile-time width TU.",
+    "final_input_comparison": [
+      {
+        "record": "/home/akilleez/Work/client-wire-validation/unicode-count-next/final-wire32/commands-32.jsonl",
+        "sha256": "a9843356580bbcf13fdc595f0acf3af8c4a4c3d03ff6a96639d7a72a98c33732",
+        "commands": 34,
+        "all_exit_zero": true,
+        "matched_translation_units": 30,
+        "compared_translation_units": 32,
+        "mismatches": [
+          {
+            "path": "src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+            "recorded_sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+            "packaged_sha256": "98e09e46549d551e89039fa8710bf94c172d292e46af3e7ba150418fd8b2628a",
+            "identity": false,
+            "documented_runner_syntax_edit_sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+            "matches_after_documented_runner_edit": true
+          },
+          {
+            "path": "src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+            "recorded_sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+            "packaged_sha256": "d361e319de39419c481b079508fe54caa5473b4b415798f7207a77a4559fc5d3",
+            "identity": false,
+            "documented_runner_syntax_edit_sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+            "matches_after_documented_runner_edit": true
+          }
+        ],
+        "all_compared_TUs_match_raw_or_documented_syntax_edits": true
+      },
+      {
+        "record": "/home/akilleez/Work/client-wire-validation/unicode-count-next/wire64/commands-64.jsonl",
+        "sha256": "0e7cf2d6e06e0e86a8e95bd639e24a6b41357c5e5382c59525ba132cc1754d65",
+        "commands": 34,
+        "all_exit_zero": true,
+        "matched_translation_units": 30,
+        "compared_translation_units": 32,
+        "mismatches": [
+          {
+            "path": "src/engine/shared/library/sharedGame/src/shared/quest/PlayerQuestData.cpp",
+            "recorded_sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+            "packaged_sha256": "98e09e46549d551e89039fa8710bf94c172d292e46af3e7ba150418fd8b2628a",
+            "identity": false,
+            "documented_runner_syntax_edit_sha256": "bbc7dd5c694a08b3575fca09680d65a49e722b76a79bd8bca00ac37628b5c851",
+            "matches_after_documented_runner_edit": true
+          },
+          {
+            "path": "src/engine/shared/library/sharedUtility/src/shared/NetworkIdAutoDeltaPackedMap.cpp",
+            "recorded_sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+            "packaged_sha256": "d361e319de39419c481b079508fe54caa5473b4b415798f7207a77a4559fc5d3",
+            "identity": false,
+            "documented_runner_syntax_edit_sha256": "7aa9eabceed2a08c9ca377f9bd4fa2d75a0cc6ce5debd67abe1b8d98dbc51124",
+            "matches_after_documented_runner_edit": true
+          }
+        ],
+        "all_compared_TUs_match_raw_or_documented_syntax_edits": true
+      }
+    ],
+    "login_commit_stage_identity": [
+      {
+        "path": "tools/test-wire-compatibility/README.md",
+        "recorded_sha256": "59598280cee5c268e46e516c045e27f6a7d104e87403234a9832cfaa8a5caa27",
+        "packaged_first_commit_sha256": "59598280cee5c268e46e516c045e27f6a7d104e87403234a9832cfaa8a5caa27",
+        "identity": true
+      },
+      {
+        "path": "tools/test-wire-compatibility/fixtures.cpp",
+        "recorded_sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "packaged_first_commit_sha256": "e09bed6439c9ca685d824e26d61e0b6ed12c634cfa92365ff5f5e9a4b0c89108",
+        "identity": true
+      },
+      {
+        "path": "tools/test-wire-compatibility/login_cluster.cpp",
+        "recorded_sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "packaged_first_commit_sha256": "34ac7c8ba4bd196e9750d77a9cca8fbd621ed7ccbc8dbbf8caff082487deab57",
+        "identity": true
+      },
+      {
+        "path": "tools/test-wire-compatibility/mission_glue.cpp",
+        "recorded_sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "packaged_first_commit_sha256": "61d2c3b4ac0769cf4771eb77fed06a6559e7ef1e9c2ec93bc4eefb1da6286bd4",
+        "identity": true
+      },
+      {
+        "path": "tools/test-wire-compatibility/run.py",
+        "recorded_sha256": "68e21d52b9acd60f3c3c3b71a1f7148e08506f9b6cdf9f3aeb63fa6ff15fa46b",
+        "packaged_first_commit_sha256": "68e21d52b9acd60f3c3c3b71a1f7148e08506f9b6cdf9f3aeb63fa6ff15fa46b",
+        "identity": true
+      }
+    ],
+    "final_input_comparison_note": "Thirty raw translation units match; the other two match after the original runner\u2019s exact template<> syntax edits, applied only to in-memory strings for this read-only identity comparison. No staged source tree or compiler execution was created."
+  },
+  "claim_limits": [
+    "No fresh execution or CI on this restacked branch; original files/hunks are preserved. Historical integration/source-shim inputs are not a new complete branch qualification.",
+    "Nine galaxy checks cover the original 14-field records, fixed list data, empty/two-galaxy cases and iterator boundary. They exclude 12-field optional-flag variants, command CRC, real message base, packet framing/dispatch and live login.",
+    "Twelve container checks cover only 0/1/3 initialized byte elements and exact consumption. Real oversized-container rejection remains source-reviewed; helper limit tests do not prove actual oversized pack sites.",
+    "No native MSVC/STLport/full-client qualification or new provider closure. Historical initial link failures, mutant failures and enforcement rejections remain failures.",
+    "PASS gate counts lines rather than requiring distinct check-name membership; arbitrary unrelated stdout is not rejected. No stronger oracle claim is made."
+  ],
+  "superseded_local_ref": {
+    "branch": "review-ready/client-login-cluster-regressions",
+    "head": "b406eb4fb8b8fabc1e1cb42b8ce3942e9bbe88e5",
+    "status": "Preserved preliminary Login-only branch; replaced for publication by this combined wire-regression closure."
+  },
+  "ready_for_bounded_review": true,
+  "publication_state": "local only; parent owns independent review and publication",
+  "draft_sha256": "8a2e706ffbe9c3e3061d3f144d3337ca63b6d4e80fbdf86cb6913b81d0c2360d"
+}

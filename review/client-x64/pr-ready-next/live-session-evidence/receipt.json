@@ -1,0 +1,35 @@
+{
+  "branch": "review-ready/client-live-session-evidence-final",
+  "base": "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185",
+  "head": "926eda724a2ed4e9dac1e5a591eeba84880e460a",
+  "commits": 1,
+  "changed_path": "tools/test-wire-compatibility/live-session.md",
+  "sha256": "cac6b014adb05121fa293d1a1541fb95d6469f6fa406fc4c1ee19b72d12529cd",
+  "source_document": "maintained working-tree document, byte-identical",
+  "origins": [
+    "a422c4e48",
+    "eca74ffa5",
+    "existing uncommitted paired-shutdown note"
+  ],
+  "production_changes": 0,
+  "maintained_document_unchanged": true,
+  "validation": "documentation whitespace and identity checks only; no runtime rerun",
+  "limits": [
+    "Raw record review scoped to paired-shutdown addition; earlier committed session claims retained from previously reviewed evidence.",
+    "No independent pixel/audio examination in this packaging pass.",
+    "Restoration checked from saved boolean/hash-verification records, not a new staging operation."
+  ],
+  "diff_numstat": "171\t0\ttools/test-wire-compatibility/live-session.md",
+  "original_preparation": {
+    "branch": "review-ready/client-live-session-evidence",
+    "base": "b406eb4fb8b8fabc1e1cb42b8ce3942e9bbe88e5",
+    "head": "250dff08078d14afc2c0cc4c4acb07e6e54e97eb"
+  },
+  "files": [
+    {
+      "path": "tools/test-wire-compatibility/live-session.md",
+      "sha256": "cac6b014adb05121fa293d1a1541fb95d6469f6fa406fc4c1ee19b72d12529cd"
+    }
+  ],
+  "evidence_access": "Raw private records and inspection manifest are retained locally. Public prose contains only scoped outcomes, build identities and reproduction procedure."
+}
