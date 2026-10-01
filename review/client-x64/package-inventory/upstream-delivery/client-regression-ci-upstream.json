@@ -1,0 +1,21 @@
+{
+  "additions": 23449,
+  "baseRefName": "master",
+  "body": "Restore the existing dependency-ownership, ByteStream, decoder, Miles callback and Bink protocol checks to the portable wire workflow. Explicit joint prerequisites supply the tested source and every runner; this delta changes only one workflow, +35/\u22125. SHA-pinned actions, read-only permissions, fresh builds, strict runner verdicts and retained artifacts stay in place.\n\nThis targets upstream `master` and includes [Bink host/session #64](https://github.com/SWG-Source/client-tools/pull/64), [expanded wire fixtures #61](https://github.com/SWG-Source/client-tools/pull/61) and [Archive regression runners #60](https://github.com/SWG-Source/client-tools/pull/60), with their stated prerequisites. The full PR diff includes those dependencies; the [incremental comparison](https://github.com/Akilleez-QA/client-tools/compare/69d70c55f6d4e50347d50fca6cf5f39f5a39af20...49ad4dc9da9fb19e0ef761c192a68fe12b83f7be) isolates this workflow change. Merge those prerequisites first. It deliberately excludes native UI tests, which need genuine v120 engine dependencies. Pushes to the original `review-ready/client-regression-ci` branch run the composition automatically; the inherited master PR and integration push triggers remain. Fork drafts targeting prerequisite branches do not gain a blanket automatic test trigger.\n\n[Exact-head hosted qualification](https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547) passed at `49ad4dc9da9fb19e0ef761c192a68fe12b83f7be`. The raw logs report:\n\n| Check | Result |\n|---|---|\n| Win32/Win64 wire fixtures | 71/71 and 78/78 |\n| ByteStream | 85 per ABI |\n| Archive decoder | 34 per ABI |\n| Dependency-output ownership | 12 Python tests |\n| Miles EOS, Bink protocol and video admission | 298 EOS, 1,047 Bink protocol and 22 admission checks under Linux ASan/UBSan |\n\nThis is fresh validation of the declared portable composition, not an MSVC build, UI allocator run, original-provider execution or complete game acceptance. The workflow does not install private SDKs or game assets.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/16436319afab9fe4c32fd71dc48c5068cde009ea/review/client-x64/pr-ready-next/regression-ci/RESULTS.md).\n\nThe first [new-head qualification](https://github.com/Akilleez-QA/client-tools/actions/runs/36901211475) exhausted the 20-minute job limit downloading the toolchain; the C++ tests never ran. That failed run remains visible. A separate CI commit installs the required packages without optional recommendations, retains the installation log and gives a cold runner a bounded 40-minute allowance. No runner, input, expected count or failure rule changed.\n\nThe repaired head passed both ABI jobs before this PR was opened. Its production and runner blobs match the [earlier composed test tree](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021); the setup repair changes only this workflow.\n",
+  "changedFiles": 272,
+  "deletions": 301,
+  "headRefOid": "49ad4dc9da9fb19e0ef761c192a68fe12b83f7be",
+  "isDraft": false,
+  "number": 67,
+  "statusCheckRollup": [],
+  "title": "Compose Archive and media protocol regressions in CI",
+  "url": "https://github.com/SWG-Source/client-tools/pull/67",
+  "qualification_ci": {
+    "conclusion": "success",
+    "headSha": "49ad4dc9da9fb19e0ef761c192a68fe12b83f7be",
+    "status": "completed",
+    "url": "https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547"
+  },
+  "state": "OPEN",
+  "last_api_verification": "2026-10-01T18:12:13.597467+00:00"
+}

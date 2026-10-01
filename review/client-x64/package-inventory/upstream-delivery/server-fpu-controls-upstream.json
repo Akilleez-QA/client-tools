@@ -5,9 +5,20 @@
   "changedFiles": 4,
   "deletions": 21,
   "headRefOid": "eb75e4e007e07a7af2c9557834ebf79c3e212fa2",
-  "isDraft": true,
+  "isDraft": false,
   "number": 39,
-  "statusCheckRollup": [],
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-01T18:05:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902388496/job/110504451819",
+      "name": "compile-src",
+      "startedAt": "2026-10-01T17:50:43Z",
+      "status": "COMPLETED",
+      "workflowName": "SWG Source - Continuous Integration for src repo"
+    }
+  ],
   "title": "foundation: support Windows x64 floating point controls",
   "url": "https://github.com/SWG-Source/src/pull/39",
   "qualification_ci": {
@@ -15,5 +26,7 @@
     "headSha": "eb75e4e007e07a7af2c9557834ebf79c3e212fa2",
     "status": "completed",
     "url": "https://github.com/Akilleez-QA/src/actions/runs/36899813580"
-  }
+  },
+  "state": "OPEN",
+  "last_api_verification": "2026-10-01T18:12:13.597467+00:00"
 }

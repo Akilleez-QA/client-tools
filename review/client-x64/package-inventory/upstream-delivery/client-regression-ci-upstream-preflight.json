@@ -13,9 +13,9 @@
   "limits": "All production and runner files still match the reviewed composition. One CI-only repair after a setup timeout reduces recommended packages, extends the bounded job limit and retains setup logs. New run must pass.",
   "dispatch_result": "https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547",
   "latest": {
+    "conclusion": "success",
     "headSha": "49ad4dc9da9fb19e0ef761c192a68fe12b83f7be",
-    "status": "in_progress",
-    "conclusion": "",
+    "status": "completed",
     "url": "https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547"
   },
   "first_qualification": {
@@ -26,5 +26,16 @@
   },
   "next_prediction": "Required-package-only install and40-minute bound allow the unchanged suites to run; require every original count, no ignored failures. Keep installation log even on failure.",
   "composition_before_ci_repair_tree_identical": true,
-  "production_and_runner_blobs_unchanged": true
+  "production_and_runner_blobs_unchanged": true,
+  "raw_log_counts": {
+    "wire32": "OK: 71/71 checks passed",
+    "wire64": "OK: 78/78 checks passed",
+    "bytestream": "PASS: 85 bounded initialized-storage checks",
+    "decoder": "PASS: 34 bounded decoder checks",
+    "ownership": "Ran 12 tests",
+    "eos": "EOS protocol passed: 298 checks",
+    "bink": "Bink protocol: 1047 checks passed",
+    "admission": "PASS video admission: 22 checks"
+  },
+  "counts_verified": true
 }

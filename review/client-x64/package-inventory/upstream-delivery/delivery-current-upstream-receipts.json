@@ -1,6 +1,19 @@
 {
-  "recorded_at": "2026-10-01T17:55:51.409827+00:00",
+  "recorded_at": "2026-10-01T18:12:13.597467+00:00",
   "pull_requests": [
+    {
+      "additions": 23449,
+      "baseRefName": "master",
+      "changedFiles": 272,
+      "deletions": 301,
+      "headRefOid": "49ad4dc9da9fb19e0ef761c192a68fe12b83f7be",
+      "isDraft": false,
+      "number": 67,
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "title": "Compose Archive and media protocol regressions in CI",
+      "url": "https://github.com/SWG-Source/client-tools/pull/67"
+    },
     {
       "additions": 22105,
       "baseRefName": "master",
@@ -598,12 +611,12 @@
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T18:09:51Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902756023/job/110505675137",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:53:39Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         },
         {
@@ -642,12 +655,12 @@
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T18:09:35Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902702754/job/110505496639",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:53:15Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         },
         {
@@ -662,12 +675,12 @@
         },
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T17:56:17Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902702653/job/110505496019",
           "name": "portable (64)",
           "startedAt": "2026-10-01T17:53:13Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "Server portable regressions"
         }
       ],
@@ -686,16 +699,6 @@
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
-          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902653904/job/110505335374",
-          "name": "compile-src",
-          "startedAt": "2026-10-01T17:52:54Z",
-          "status": "IN_PROGRESS",
-          "workflowName": "SWG Source - Continuous Integration for src repo"
-        },
-        {
-          "__typename": "CheckRun",
           "completedAt": "2026-10-01T17:53:25Z",
           "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902653966/job/110505336617",
@@ -703,6 +706,16 @@
           "startedAt": "2026-10-01T17:52:54Z",
           "status": "COMPLETED",
           "workflowName": "Memory move real-header regression"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T18:07:54Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902653904/job/110505335374",
+          "name": "compile-src",
+          "startedAt": "2026-10-01T17:52:54Z",
+          "status": "COMPLETED",
+          "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
       "title": "Use native byte swaps for Windows x64 network conversions",
@@ -720,16 +733,6 @@
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
-          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902609676/job/110505190539",
-          "name": "compile-src",
-          "startedAt": "2026-10-01T17:52:53Z",
-          "status": "IN_PROGRESS",
-          "workflowName": "SWG Source - Continuous Integration for src repo"
-        },
-        {
-          "__typename": "CheckRun",
           "completedAt": "2026-10-01T17:54:03Z",
           "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902609610/job/110505190415",
@@ -737,6 +740,16 @@
           "startedAt": "2026-10-01T17:52:54Z",
           "status": "COMPLETED",
           "workflowName": "Memory move real-header regression"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T18:05:25Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902609676/job/110505190539",
+          "name": "compile-src",
+          "startedAt": "2026-10-01T17:52:53Z",
+          "status": "COMPLETED",
+          "workflowName": "SWG Source - Continuous Integration for src repo"
         },
         {
           "__typename": "CheckRun",
@@ -758,18 +771,18 @@
       "changedFiles": 3,
       "deletions": 24,
       "headRefOid": "0c8df6db37db5aadacf9cd823ad70f22d105e639",
-      "isDraft": true,
+      "isDraft": false,
       "number": 43,
       "state": "OPEN",
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T18:00:36Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902435781/job/110504611945",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:51:14Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
@@ -782,18 +795,18 @@
       "changedFiles": 2,
       "deletions": 19,
       "headRefOid": "af7c4fa5200dc823000eafb16e54ffbf71a383e3",
-      "isDraft": true,
+      "isDraft": false,
       "number": 42,
       "state": "OPEN",
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T18:06:18Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902425755/job/110504575994",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:51:00Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
@@ -806,18 +819,18 @@
       "changedFiles": 5,
       "deletions": 22,
       "headRefOid": "72bddb36342ff831d340dfd6c5461fe44e5f2f7f",
-      "isDraft": true,
+      "isDraft": false,
       "number": 41,
       "state": "OPEN",
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T18:00:24Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902411937/job/110504530532",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:50:55Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
@@ -830,18 +843,18 @@
       "changedFiles": 5,
       "deletions": 20,
       "headRefOid": "8931a807e135b72897105c82c9576b7795f5d081",
-      "isDraft": true,
+      "isDraft": false,
       "number": 40,
       "state": "OPEN",
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T17:59:57Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902401526/job/110504494773",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:50:48Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
@@ -854,18 +867,18 @@
       "changedFiles": 4,
       "deletions": 21,
       "headRefOid": "eb75e4e007e07a7af2c9557834ebf79c3e212fa2",
-      "isDraft": true,
+      "isDraft": false,
       "number": 39,
       "state": "OPEN",
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "0001-01-01T00:00:00Z",
-          "conclusion": "",
+          "completedAt": "2026-10-01T18:05:48Z",
+          "conclusion": "SUCCESS",
           "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902388496/job/110504451819",
           "name": "compile-src",
           "startedAt": "2026-10-01T17:50:43Z",
-          "status": "IN_PROGRESS",
+          "status": "COMPLETED",
           "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
@@ -897,34 +910,34 @@
       "url": "https://github.com/SWG-Source/src/pull/38"
     },
     {
-      "additions": 338,
+      "additions": 384,
       "baseRefName": "master",
-      "changedFiles": 9,
-      "deletions": 5,
-      "headRefOid": "1481143ca4f033ef979faff52a4d03bb8d636292",
+      "changedFiles": 10,
+      "deletions": 24,
+      "headRefOid": "12c98077c01c39674adc9b17bdcd1b3a57e82f80",
       "isDraft": false,
       "number": 37,
       "state": "OPEN",
       "statusCheckRollup": [
         {
           "__typename": "CheckRun",
-          "completedAt": "2026-10-01T05:19:59Z",
-          "conclusion": "FAILURE",
-          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36819210211/job/110230904692",
-          "name": "compile-src",
-          "startedAt": "2026-10-01T05:19:23Z",
+          "completedAt": "2026-10-01T17:59:02Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36903309679/job/110507515446",
+          "name": "linux",
+          "startedAt": "2026-10-01T17:58:09Z",
           "status": "COMPLETED",
-          "workflowName": "SWG Source - Continuous Integration for src repo"
+          "workflowName": "Memory move real-header regression"
         },
         {
           "__typename": "CheckRun",
-          "completedAt": "2026-10-01T05:19:52Z",
+          "completedAt": "2026-10-01T18:06:20Z",
           "conclusion": "SUCCESS",
-          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36819210363/job/110230905061",
-          "name": "linux",
-          "startedAt": "2026-10-01T05:19:23Z",
+          "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36903309525/job/110507514541",
+          "name": "compile-src",
+          "startedAt": "2026-10-01T17:58:06Z",
           "status": "COMPLETED",
-          "workflowName": "Memory move real-header regression"
+          "workflowName": "SWG Source - Continuous Integration for src repo"
         }
       ],
       "title": "Separate the checked int-length move helper from CRT memmove",

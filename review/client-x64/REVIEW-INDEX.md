@@ -1,6 +1,6 @@
 # SWG client/server submission index
 
-Upstream delivery is in progress: **57 upstream PRs and 1 package still available only as a fork draft**. All six previously failing server PRs now have successful upstream checks on fork-qualified repair heads. The two new LP64 full builds and final client CI qualification remain live. Fork preparation does not satisfy upstream submission.
+**All 58 agreed packages now have upstream PRs: 46 client and 12 server.** No package remains fork-only. All submitted server heads have successful upstream checks; client qualification remains the scoped native/fork evidence in each PR. No upstream client checks were reported, so no upstream-client CI pass is claimed. Maintainer review and merging remain.
 
 The completed x64 implementation is packaged into focused source and build changes. Independent source/evidence reviews found no remaining introduced blockers in the submitted packages. This is a review map, not merge approval or a claim of full gameplay/fidelity acceptance.
 
@@ -8,9 +8,9 @@ All **220 production paths and 83 build/configuration paths** in the maintained 
 
 ## Review order
 
-Review independent master-based fixes first. For fork drafts, use the displayed base branch. Upstream stacked PRs explicitly list the included prerequisites and link an incremental comparison; their master diffs also contain those predecessors. Joint bases preserve already-published dependencies. Follow allocator layout → addresses → sizes → statistics, and Miles contracts → facade → transport/callbacks → host/session → build/Audio → game selection → Bink host → renderer → Release configuration. Shared server counterparts have separate bases and explicitly scoped evidence.
+Review independent master-based fixes first. Historical fork preparation reviews retain their original incremental bases. Upstream stacked PRs explicitly list the included prerequisites and link an incremental comparison; their master diffs also contain those predecessors. Joint bases preserve already-published dependencies. Follow allocator layout → addresses → sizes → statistics, and Miles contracts → facade → transport/callbacks → host/session → build/Audio → game selection → Bink host → renderer → Release configuration. Shared server counterparts have separate bases and explicitly scoped evidence.
 
-The latest [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. The later exact-head [composed regression run](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021) passed both ABI jobs; [results and raw log](pr-ready-next/regression-ci/RESULTS.md). Other earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
+An earlier [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. The later exact-head [composed regression run](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021) passed both ABI jobs; [results and raw log](pr-ready-next/regression-ci/RESULTS.md). Final API reconciliation verified all58 upstream heads, bases, file counts and states against the table below. The final client composition passed its exact-head fork run, and all server upstream checks passed. Earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
 
 ## Dependency batches
 
@@ -73,14 +73,15 @@ The table counts the **entire PR delta**, including any tests/configuration/docs
 | [SWG-Source/client-tools #64](https://github.com/SWG-Source/client-tools/pull/64) | Carry original Bink decoding through the existing media host | `ae5245be10` | 226; +21575/−107 | open |
 | [SWG-Source/client-tools #65](https://github.com/SWG-Source/client-tools/pull/65) | Select the original Bink host through the development video adapter | `1f4c0f03e3` | 232; +22076/−322 | open |
 | [SWG-Source/client-tools #66](https://github.com/SWG-Source/client-tools/pull/66) | Build matching Release Miles and Bink development components | `308f6ddecb` | 232; +22105/−322 | open |
+| [SWG-Source/client-tools #67](https://github.com/SWG-Source/client-tools/pull/67) | Compose Archive and media protocol regressions in CI | `49ad4dc9da` | 272; +23449/−301 | open |
 | [SWG-Source/src #35](https://github.com/SWG-Source/src/pull/35) | Complete Linux server LP64 compatibility, database boundaries and shutdown fixes | `6b998f6fc2` | 621; +12247/−4800 | open |
-| [SWG-Source/src #37](https://github.com/SWG-Source/src/pull/37) | Separate the checked int-length move helper from CRT memmove | `1481143ca4` | 9; +338/−5 | open |
+| [SWG-Source/src #37](https://github.com/SWG-Source/src/pull/37) | Separate the checked int-length move helper from CRT memmove | `12c98077c0` | 10; +384/−24 | open |
 | [SWG-Source/src #38](https://github.com/SWG-Source/src/pull/38) | Build the submitted server revision in legacy CI | `1c0152794e` | 1; +45/−19 | open |
-| [SWG-Source/src #39](https://github.com/SWG-Source/src/pull/39) | foundation: support Windows x64 floating point controls | `eb75e4e007` | 4; +101/−21 | draft; checks pending |
-| [SWG-Source/src #40](https://github.com/SWG-Source/src/pull/40) | math: add Windows x64 SSE kernels | `8931a807e1` | 5; +281/−20 | draft; checks pending |
-| [SWG-Source/src #41](https://github.com/SWG-Source/src/pull/41) | Use native-width Windows diagnostics and API results | `72bddb3634` | 5; +67/−22 | draft; checks pending |
-| [SWG-Source/src #42](https://github.com/SWG-Source/src/pull/42) | Scope the native crypto PCH packing diagnostic | `af7c4fa520` | 2; +57/−19 | draft; checks pending |
-| [SWG-Source/src #43](https://github.com/SWG-Source/src/pull/43) | Preserve host-sized string lengths in shared helpers | `0c8df6db37` | 3; +51/−24 | draft; checks pending |
+| [SWG-Source/src #39](https://github.com/SWG-Source/src/pull/39) | foundation: support Windows x64 floating point controls | `eb75e4e007` | 4; +101/−21 | open |
+| [SWG-Source/src #40](https://github.com/SWG-Source/src/pull/40) | math: add Windows x64 SSE kernels | `8931a807e1` | 5; +281/−20 | open |
+| [SWG-Source/src #41](https://github.com/SWG-Source/src/pull/41) | Use native-width Windows diagnostics and API results | `72bddb3634` | 5; +67/−22 | open |
+| [SWG-Source/src #42](https://github.com/SWG-Source/src/pull/42) | Scope the native crypto PCH packing diagnostic | `af7c4fa520` | 2; +57/−19 | open |
+| [SWG-Source/src #43](https://github.com/SWG-Source/src/pull/43) | Preserve host-sized string lengths in shared helpers | `0c8df6db37` | 3; +51/−24 | open |
 | [SWG-Source/src #44](https://github.com/SWG-Source/src/pull/44) | Preserve native Windows socket handles and IOCP keys | `acc7aa8bd1` | 20; +736/−30 | open |
 | [SWG-Source/src #45](https://github.com/SWG-Source/src/pull/45) | Use native byte swaps for Windows x64 network conversions | `5353694a69` | 11; +410/−24 | open |
 | [SWG-Source/src #46](https://github.com/SWG-Source/src/pull/46) | Bound archive payload reads and preserve storage ownership | `0b45f5e726` | 624; +12362/−4899 | open |
@@ -88,9 +89,9 @@ The table counts the **entire PR delta**, including any tests/configuration/docs
 
 Server #35 targets `64-bit-types`, not master. The Archive and native-stack packages (#46/#47) have a true dependency on #35 and disclose that history; other master-based fixes exclude it. The maintained client master remains `94945103`; no upstream x64 target was available at the recorded target check.
 
-## Dependent fork drafts
+## Historical fork preparation
 
-These are historical preparation reviews with incremental bases. 35 of the 36 preparation packages now have upstream PRs; 1 remains fork-only. The [submission ledger](package-inventory/submission-ledger.json) maps each preparation PR to its upstream submission. Upstream bodies identify true prerequisites and link exact incremental comparisons. No private SDKs, provider binaries or game media are included.
+These are historical preparation reviews with incremental bases. All 36 preparation packages now have upstream PRs; none remains fork-only. The [submission ledger](package-inventory/submission-ledger.json) maps each preparation PR to its upstream submission. Upstream bodies identify true prerequisites and link exact incremental comparisons. No private SDKs, provider binaries or game media are included.
 
 | Fork / PR | Scope | Head | Base | Files; +/− |
 |---|---|---|---|---|
@@ -143,11 +144,10 @@ The recorded full VS2013 Release-x64 dependency rebuild had 0 errors and 3,274 w
 
 The earlier completion claim remains withdrawn. [Delivery receipts](package-inventory/upstream-delivery/) record actual upstream PR heads, bases, counts and descriptions. [Package accounting](package-inventory/final-packaging-disposition.json) distinguishes preparation from upstream delivery.
 
-The inherited master workflow failed before compiling because it passed a bare repository name to `git clone`. The old failures remain visible. The repaired heads include [server #38](https://github.com/SWG-Source/src/pull/38)'s pinned checkout/container workflow and a manual qualification trigger. Each was built on the fork before publication; adding the repair changed no production files. The new upstream checks are tracked separately and are not inferred from fork success. No workflow or community notification setting was disabled.
+The inherited master workflow failed before compiling because it passed a bare repository name to `git clone`. The old failures remain visible. The repaired heads include [server #38](https://github.com/SWG-Source/src/pull/38)'s pinned checkout/container workflow and a manual qualification trigger. Each was built on the fork before publication; adding the repair changed no production files. Every submitted server head now has successful upstream checks, observed separately from its fork qualification. Historical failed runs remain visible. No workflow or community notification setting was disabled.
 
-Additional exact-head client fork runs passed the Archive source and runner branches (50/57 inherited wire checks) and expanded galaxy/container suite (71/78). The Archive runner branch's wire workflow did not execute its separate 85/34 runners; their existing native and composed-CI evidence retains that boundary. The first final-composition qualification timed out downloading packages before C++ tests ran. A CI-only follow-up removes optional recommended packages, retains setup logs and extends the job bound to40minutes; it changes no production source, runner or expected result. Win64 passed all original counts at49ad4dc9; Win32 is still installing. The final CI PR remains held until both succeed.
+Additional exact-head client fork runs passed the Archive source and runner branches (50/57 inherited wire checks) and expanded galaxy/container suite (71/78). The Archive runner branch's wire workflow did not execute its separate 85/34 runners; their existing native and composed-CI evidence retains that boundary. [Final client CI #67](https://github.com/SWG-Source/client-tools/pull/67) passed [exact-head fork qualification](https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547) on both ABIs before submission. Its CI-only setup repair followed a preserved package-download timeout; no test was skipped or expected count relaxed.
 
+At final submitted CI head `49ad4dc9d`, wire checks passed 71/71 Win32 and 78/78 Win64; ByteStream passed 85 and decoder checks 34 per ABI. Dependency ownership passed 12 tests; Linux sanitizer checks passed 298 EOS, 1,047 Bink protocol and 22 video-admission assertions. These counts are separate suites, not a full-client correctness metric. Native UI retains its scoped historical four-configuration records and manual genuine-provider requirements.
 
-At CI head `505795c7d`, wire checks passed 71/71 Win32 and 78/78 Win64; ByteStream passed 85 and decoder checks 34 per ABI. Dependency ownership passed 12 tests; Linux sanitizer checks passed 298 EOS, 1,047 Bink protocol and 22 video-admission assertions. These counts are separate suites, not a full-client correctness metric. Native UI retains its scoped historical four-configuration records and manual genuine-provider requirements.
-
-Maintainers control merges and upstream prerequisite decisions. Dependent diffs must be reconciled without duplicate application; no automatic merge or history rewrite was performed. Historical baseline failures, consumer dependencies, numerical limitations and incomplete runtime acceptance remain in each packet. Upstream delivery remains active; neither package preparation nor PR creation establishes universal gameplay/fidelity equivalence. No numerical review score substitutes for that assessment.
+Maintainers control merges and upstream prerequisite decisions. Dependent diffs must be reconciled without duplicate application; no automatic merge or history rewrite was performed. Historical baseline failures, consumer dependencies, numerical limitations and incomplete runtime acceptance remain in each packet. Agreed upstream delivery is complete; neither package preparation nor PR creation establishes universal gameplay/fidelity equivalence. No numerical review score substitutes for that assessment.

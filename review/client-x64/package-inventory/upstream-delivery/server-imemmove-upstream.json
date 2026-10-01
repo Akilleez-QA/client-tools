@@ -1,0 +1,42 @@
+{
+  "additions": 384,
+  "baseRefName": "master",
+  "body": "The foundation `memmove(..., int)` overload competes with the CRT's `size_t` overload on 64-bit builds. Rename the checked helper to `imemmove`, delegate using `size_t`, and update its three integer-count calls in Md5 and Iff. Ordinary CRT calls retain the standard name.\n\nThe production change is three files, **+5/\u22125 lines**. Tests and CI are separate commits. This applies directly to `master`; it does not depend on the `64-bit-types` branch or PR #35. It mirrors [client-tools #25](https://github.com/SWG-Source/client-tools/pull/25), and either side can merge independently.\n\n### Validation\n\n- Linux32 and Linux64: **30 valid-buffer checks each**, plus compilation of the actual changed Md5.cpp and Iff.cpp translation units.\n- Pinned upstream Linux32: the same 30 checks pass. Upstream Linux64 fails with exactly the two expected overload errors; additional, missing or unrelated errors fail the control.\n- Native VS2013 Win32 and x64 Release: **30 checks each**, using exact repository headers. Fourteen text-only tests exercise the MSVC error classifier.\n- The original source head `1481143ca4` also completed a clean **full legacy Linux32 build** in the pinned container: all 7,925 tracked inputs unchanged and all 20 inspected outputs ELF32. [Build log, command and limits](https://github.com/Akilleez-QA/client-tools/blob/e515a78f54abf71bf677fd6f9e46dcc9ba662bfb/review/client-x64/pr-ready-next/server-imemmove/full-build/RESULTS.md). Three existing Oracle `libaio.so.1` linker warnings are retained; those binaries were not run.\n- [Hosted Linux CI passed on the original source head](https://github.com/Akilleez-QA/src/actions/runs/36818778615), including the real callers and upstream controls. The added workflow repeats these checks on relevant pull requests and retains text evidence.\n\n[Commands, hashes and native/compiler logs](https://github.com/Akilleez-QA/client-tools/blob/4bf51e7275e61e2c4699c87ad7f121e8fbb7adc6/review/client-x64/pr-ready-next/server-imemmove/RESULTS.md) \u00b7 [Reproduction instructions](https://github.com/Akilleez-QA/src/blob/1481143ca4f033ef979faff52a4d03bb8d636292/tools/test-imemmove/README.md)\n\nThe helper retains its Debug pointer checks and adds no length-range validation. These tests cover valid buffers, not invalid-input equivalence or initialized-engine Debug behavior. The native Windows run builds the header probe, not a Windows server. Linux64 Iff compilation retains two warnings in unchanged code caused by master's legacy `uint32` definition; no platform-type, wire-format, full-server LP64 or gameplay claim is included here.\n\nThe earlier Linux regression job passed [on the upstream PR](https://github.com/SWG-Source/src/actions/runs/36819210363). Its original full-build job [failed before compilation](https://github.com/SWG-Source/src/actions/runs/36819210211), because the inherited workflow passed `SWG-Source/src` to `git clone` as a local path. That failure remains visible.\n\nThis revision includes the [workflow repair #38](https://github.com/SWG-Source/src/pull/38) and a manual qualification trigger in separate CI commits. Production and regression-test files are unchanged. The repaired workflow checks out the submitted head, uses the pinned legacy container and verifies tracked inputs after building.\n\n[Full legacy Linux32 qualification](https://github.com/Akilleez-QA/src/actions/runs/36901376480) passed at `12c98077c01c39674adc9b17bdcd1b3a57e82f80`, including the tracked-input integrity check. The updated upstream check is separate from this completed fork run.\n",
+  "changedFiles": 10,
+  "deletions": 24,
+  "headRefOid": "12c98077c01c39674adc9b17bdcd1b3a57e82f80",
+  "isDraft": false,
+  "number": 37,
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-01T17:59:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36903309679/job/110507515446",
+      "name": "linux",
+      "startedAt": "2026-10-01T17:58:09Z",
+      "status": "COMPLETED",
+      "workflowName": "Memory move real-header regression"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-01T18:06:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36903309525/job/110507514541",
+      "name": "compile-src",
+      "startedAt": "2026-10-01T17:58:06Z",
+      "status": "COMPLETED",
+      "workflowName": "SWG Source - Continuous Integration for src repo"
+    }
+  ],
+  "title": "Separate the checked int-length move helper from CRT memmove",
+  "url": "https://github.com/SWG-Source/src/pull/37",
+  "qualification_ci": {
+    "conclusion": "success",
+    "headSha": "12c98077c01c39674adc9b17bdcd1b3a57e82f80",
+    "status": "completed",
+    "url": "https://github.com/Akilleez-QA/src/actions/runs/36901376480"
+  },
+  "state": "OPEN",
+  "last_api_verification": "2026-10-01T18:12:13.597467+00:00"
+}

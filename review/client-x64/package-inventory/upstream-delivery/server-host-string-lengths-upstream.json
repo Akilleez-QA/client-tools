@@ -5,9 +5,20 @@
   "changedFiles": 3,
   "deletions": 24,
   "headRefOid": "0c8df6db37db5aadacf9cd823ad70f22d105e639",
-  "isDraft": true,
+  "isDraft": false,
   "number": 43,
-  "statusCheckRollup": [],
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-01T18:00:36Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/SWG-Source/src/actions/runs/36902435781/job/110504611945",
+      "name": "compile-src",
+      "startedAt": "2026-10-01T17:51:14Z",
+      "status": "COMPLETED",
+      "workflowName": "SWG Source - Continuous Integration for src repo"
+    }
+  ],
   "title": "Preserve host-sized string lengths in shared helpers",
   "url": "https://github.com/SWG-Source/src/pull/43",
   "qualification_ci": {
@@ -15,5 +26,7 @@
     "headSha": "0c8df6db37db5aadacf9cd823ad70f22d105e639",
     "status": "completed",
     "url": "https://github.com/Akilleez-QA/src/actions/runs/36899834257"
-  }
+  },
+  "state": "OPEN",
+  "last_api_verification": "2026-10-01T18:12:13.597467+00:00"
 }

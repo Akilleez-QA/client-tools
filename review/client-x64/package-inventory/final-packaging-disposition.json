@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T18:09:27.062054+00:00",
+  "updated_at": "2026-10-01T18:12:13.597467+00:00",
   "unassigned_production_build_units": [],
   "remaining_auxiliary_units": [],
   "covered_auxiliary_units": {
@@ -15,18 +15,17 @@
     "conclusion": "success"
   },
   "limits": [
-    "Upstream submission, checks and maintainer merges are outstanding.",
+    "Agreed upstream submissions and applicable checks are complete; maintainer reviews and merges remain.",
     "Dependent packages are explicit fork drafts, not stand-alone complete client builds.",
     "Historical runtime/fidelity gaps remain stated; packaging completion does not resolve them.",
     "Maintained local live-session edit is preserved and its exact contents delivered separately."
   ],
-  "delivery_complete": false,
-  "upstream_pull_requests": 57,
-  "fork_only_packages": 1,
+  "delivery_complete": true,
+  "upstream_pull_requests": 58,
+  "fork_only_packages": 0,
   "upstream_drafts_awaiting_ci": 0,
   "next_steps": [
-    "Finish remaining upstream submission only after exact-head fork CI passes.",
-    "Verify new upstream checks, including the repaired server workflows; retain historical failures.",
-    "Reconcile dependency stacks at merge time without direct upstream pushes or automatic merges."
-  ]
+    "Maintainer review and prerequisite-ordered merging. Respond to concrete review feedback; no automatic merge or history rewrite."
+  ],
+  "completion_scope": "Agreed package submission and applicable-check verification, not upstream merging or new full-client fidelity acceptance."
 }
