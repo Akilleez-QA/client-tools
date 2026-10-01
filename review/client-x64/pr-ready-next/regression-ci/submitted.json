@@ -1,0 +1,32 @@
+{
+  "additions": 26,
+  "baseRefName": "prerequisite/client-regression-ci",
+  "baseRefOid": "d4069fac3739257d185b0d58a7463497ce49468f",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-10-01T10:38:15Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:38:15Z",
+      "messageBody": "Restore the existing ByteStream, decoder, dependency-ownership and media protocol steps on their explicit reviewed prerequisites. Keep SHA-pinned actions and both Windows fixture ABIs. Add this review branch to push triggers so the composed inputs are checked before submission. Native UI, genuine SDK providers and full-client runtime remain outside this portable job.",
+      "messageHeadline": "ci: compose the archive and media protocol regressions",
+      "oid": "505795c7dd132b88d282151d8c95de999d1f45ba"
+    }
+  ],
+  "deletions": 1,
+  "headRefName": "review-ready/client-regression-ci",
+  "headRefOid": "505795c7dd132b88d282151d8c95de999d1f45ba",
+  "isDraft": true,
+  "number": 27,
+  "state": "OPEN",
+  "title": "Compose the archive and media protocol regressions in CI",
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/27",
+  "evidence_commit": "16436319afab9fe4c32fd71dc48c5068cde009ea"
+}

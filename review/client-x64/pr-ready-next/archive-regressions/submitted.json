@@ -1,0 +1,47 @@
+{
+  "additions": 424,
+  "baseRefName": "review-ready/client-archive-storage",
+  "baseRefOid": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+  "changedFiles": 6,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T08:06:33Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:33:33Z",
+      "messageBody": "Extract the original fixture, runner and README unchanged above the published archive source prerequisite. Production and workflow changes from the original commit are excluded. Existing historical evidence is retained; no build or runtime was repeated for packaging.\n\nSource-commit: 8d9010900c02e449ad2de496ee6b47196dcae1fa",
+      "messageHeadline": "test: retain bounded ByteStream storage regressions",
+      "oid": "208da424ae3405de7dfe15b3219ec34ad7406472"
+    },
+    {
+      "authoredDate": "2026-09-30T08:27:20Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:33:33Z",
+      "messageBody": "Extract the original fixture, runner and README unchanged above the published archive source prerequisite. Production and workflow changes from the original commit are excluded. Existing historical evidence is retained; no build or runtime was repeated for packaging.\n\nSource-commit: d89b9f49e228d3390899aed3da6987424d1e41c0",
+      "messageHeadline": "test: retain Archive payload preflight regressions",
+      "oid": "6ebf897912710fb201ba08fadd505afbf7b77527"
+    }
+  ],
+  "deletions": 0,
+  "headRefName": "review-ready/client-archive-regressions",
+  "headRefOid": "6ebf897912710fb201ba08fadd505afbf7b77527",
+  "isDraft": true,
+  "number": 23,
+  "state": "OPEN",
+  "title": "Add bounded Archive storage and decoder regression runners",
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/23",
+  "evidence_commit": "16436319afab9fe4c32fd71dc48c5068cde009ea"
+}

@@ -8,7 +8,7 @@ All **220 production paths and 83 build/configuration paths** in the maintained 
 
 Review independent master-based fixes first. For fork drafts, use the displayed base branch: its prerequisite changes are intentionally excluded from the diff. Joint bases preserve already-published dependencies. Follow allocator layout → addresses → sizes → statistics, and Miles contracts → facade → transport/callbacks → host/session → build/Audio → game selection → Bink host → renderer → Release configuration. Shared server counterparts have separate bases and explicitly scoped evidence.
 
-The latest [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. Other earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
+The latest [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. The later exact-head [composed regression run](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021) passed both ABI jobs; [results and raw log](pr-ready-next/regression-ci/RESULTS.md). Other earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
 
 ## Upstream submissions
 
@@ -79,6 +79,12 @@ These are reviewable incremental packages, not independently qualified full-clie
 | [Akilleez-QA/src #8](https://github.com/Akilleez-QA/src/pull/8) | Preserve host-sized string lengths in shared helpers | `7dc8ef9194` | `server-network-prerequisites` | 2; +5/−5 |
 | [Akilleez-QA/src #9](https://github.com/Akilleez-QA/src/pull/9) | Scope the native crypto PCH packing diagnostic | `485331412c` | `server-build-workflow` | 1; +11/−0 |
 
+| [Akilleez-QA/client-tools #23](https://github.com/Akilleez-QA/client-tools/pull/23) | Add bounded Archive storage and decoder regression runners | `6ebf897912` | `client-archive-storage` | 6; +424/−0 |
+| [Akilleez-QA/client-tools #24](https://github.com/Akilleez-QA/client-tools/pull/24) | Cover galaxy-list and ordinary-container wire encodings | `d8cb69a4b5` | `client-archive-storage` | 5; +256/−35 |
+| [Akilleez-QA/client-tools #25](https://github.com/Akilleez-QA/client-tools/pull/25) | Preserve the native UI pool alignment regression harness | `fdaa82180f` | `prerequisite/client-ui-memory-tests` | 3; +157/−0 |
+| [Akilleez-QA/client-tools #26](https://github.com/Akilleez-QA/client-tools/pull/26) | Record bounded mixed-width sessions and paired media shutdown | `926eda724a` | `client-wire-regressions` | 1; +171/−0 |
+| [Akilleez-QA/client-tools #27](https://github.com/Akilleez-QA/client-tools/pull/27) | Compose the archive and media protocol regressions in CI | `505795c7dd` | `prerequisite/client-regression-ci` | 1; +26/−1 |
+
 ## Source size and evidence boundaries
 
 The maintained implementation is `eca74ffa5741f608a1417944b2e2602868936517`, with last production change `da9c56054`. Its frozen count is **12,761 changed production lines: +11,965/−796 in 220 files**. This includes 9,852 Miles/Bink runtime lines under `tools/miles-bridge/src`; it excludes tests, build tools and docs. Explicit Myers counting gives 12,759 because of hunk alignment in two files; [the accounting record](package-inventory/remaining-units.md) explains the difference. Do not add dependent PR totals together or compare this focused work with PR21's entire migration as an equal-scope ratio. The later TrackIR registry correction is separate from that frozen snapshot.
@@ -87,8 +93,10 @@ The recorded full VS2013 Release-x64 dependency rebuild had 0 errors and 3,274 w
 
 [TrackIR's new registry boundary check](pr-ready-next/trackir-provider/RESULTS.md) is separately scoped: 16 cases / 32 queries per native ABI, with original failing-capacity controls. It executes the extracted real WinAPI contract, not the production loader or hardware. The original runner and hardened reproduction runner remain distinct.
 
-## Finite packaging remainder
+## Packaging disposition
 
-Production/build source packaging is assigned and published. The remaining auxiliary follow-ups are archive regression harnesses, UI memory tests, the two-galaxy LoginClusterStatus fixture and runner, portable CI composition, and live-session evidence documentation. These are being prepared separately; no broad runtime campaign is being restarted. The maintained tree's one local live-session note remains preserved pending its evidence-only follow-up.
+All planned production/build packages and identified auxiliary follow-ups are now reviewed and published: **22 upstream PRs and 36 dependent fork drafts**, including the earlier wire/DPVS/link submissions. [Final accounting](package-inventory/final-packaging-disposition.json) records the completed auxiliary queue. The last five drafts deliver archive tests, galaxy/container wire regressions, native UI tests, scoped live-session notes and the portable CI composition.
 
-Historical baseline failures, consumer dependencies, numerical limitations and incomplete acceptance remain in each package. No numerical score is used as a substitute for review. Maintainers control merge decisions; dependencies must be reconciled without duplicate patch application.
+At CI head `505795c7d`, wire checks passed 71/71 Win32 and 78/78 Win64; ByteStream passed 85 and decoder checks 34 per ABI. Dependency ownership passed 12 tests; Linux sanitizer checks passed 298 EOS, 1,047 Bink protocol and 22 video-admission assertions. These counts are separate suites, not a full-client correctness metric. Native UI retains its scoped historical four-configuration records and manual genuine-provider requirements.
+
+Maintainers control merges and upstream prerequisite decisions. Dependent diffs must be reconciled without duplicate application; no automatic merge or history rewrite was performed. Historical baseline failures, consumer dependencies, numerical limitations and incomplete runtime acceptance remain in each packet. The completed deliverable is PR packaging, not a new claim of universal gameplay/fidelity equivalence. No numerical review score substitutes for that assessment.

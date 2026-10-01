@@ -11734,16 +11734,37 @@
     "branch_application_or_runtime_test": false
   },
   "current_submission_accounting": {
-    "updated_at": "2026-10-01T10:33:49.089420+00:00",
+    "updated_at": "2026-10-01T10:51:13.412077+00:00",
     "unassigned_production_build_paths": [],
     "coverage_record": "remaining-units.json",
-    "scope": "All maintained production/build units assigned to prepared/published package closures. This does not prove newly composed branch equivalence or builds.",
-    "nonproduction_remainder": [
-      "archive regression harnesses",
-      "UI memory harness",
-      "LoginClusterStatus fixture and runner",
-      "portable CI composition",
-      "live-session evidence documentation"
+    "scope": "All maintained production/build units and identified auxiliary follow-ups have reviewed submission packages. Branch composition/merge and full-game acceptance are separate. Frozen per-file status/count snapshots remain historical.",
+    "nonproduction_remainder": [],
+    "auxiliary_submissions": [
+      {
+        "url": "https://github.com/Akilleez-QA/client-tools/pull/23",
+        "head": "6ebf897912710fb201ba08fadd505afbf7b77527",
+        "base": "085a62e3358e7b51c5198c93bb1581864020c3fb"
+      },
+      {
+        "url": "https://github.com/Akilleez-QA/client-tools/pull/24",
+        "head": "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185",
+        "base": "085a62e3358e7b51c5198c93bb1581864020c3fb"
+      },
+      {
+        "url": "https://github.com/Akilleez-QA/client-tools/pull/25",
+        "head": "fdaa82180f97bcd9c371d588059ebe488b757cda",
+        "base": "91ceee4ae087bbad556c15a77dbe7d88250e7e7d"
+      },
+      {
+        "url": "https://github.com/Akilleez-QA/client-tools/pull/26",
+        "head": "926eda724a2ed4e9dac1e5a591eeba84880e460a",
+        "base": "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185"
+      },
+      {
+        "url": "https://github.com/Akilleez-QA/client-tools/pull/27",
+        "head": "505795c7dd132b88d282151d8c95de999d1f45ba",
+        "base": "d4069fac3739257d185b0d58a7463497ce49468f"
+      }
     ]
   }
 }

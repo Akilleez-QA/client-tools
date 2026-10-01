@@ -1,0 +1,32 @@
+{
+  "additions": 171,
+  "baseRefName": "review-ready/client-wire-regressions",
+  "baseRefOid": "d8cb69a4b50fbbb23e09a8cc6bc97cedc6d9a185",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-10-01T10:34:17Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:37:30Z",
+      "messageBody": "Preserve the committed Debug/Release live-session records and add the existing paired game/host shutdown observation. Separate delayed persistence, cleanup failures and sensor controls from the bounded success claims. No production changes, raw private artifacts or new runtime execution.",
+      "messageHeadline": "docs: record bounded mixed-width sessions and paired media shutdown",
+      "oid": "926eda724a2ed4e9dac1e5a591eeba84880e460a"
+    }
+  ],
+  "deletions": 0,
+  "headRefName": "review-ready/client-live-session-evidence-final",
+  "headRefOid": "926eda724a2ed4e9dac1e5a591eeba84880e460a",
+  "isDraft": true,
+  "number": 26,
+  "state": "OPEN",
+  "title": "Record bounded mixed-width sessions and paired media shutdown",
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/26",
+  "evidence_commit": "16436319afab9fe4c32fd71dc48c5068cde009ea"
+}
