@@ -1,9 +1,9 @@
 # Miles component development
 
 This package contains the private paired-process Miles bridge and a direct native
-facade. It does **not select the bridge in SwgClient**. The guarded `audio-dev`
-target compiles Audio against the facade without linking a game or enabling a
-backend. Native and pipe adapters implement the same public names; choose one,
+facade. The default game retains direct Miles. Explicit `ClientMilesDevelopment=true`
+selects the pipe facade for a development Debug-x64 game; the separate `audio-dev`
+target remains a compile-only check. Native and pipe adapters implement the same public names; choose one,
 never link both.
 
 ## Build prerequisites and commands
@@ -85,8 +85,8 @@ Paired close requires SDK shutdown, an exact final reply, helper exit zero,
 callback drain and engine/control-thread joins before client owner release.
 Disconnect alone is not success. Uncertain roots remain retained on failure.
 The host runtime and vendor module remain process-owned; paired stop does not
-permit runtime destruction or synthetic DLL unload. Actual Audio bootstrap,
-admitted callback registration and game backend selection are later integration.
+permit runtime destruction or synthetic DLL unload. The opt-in Audio bootstrap binds admitted callbacks and pairs shutdown while
+retaining template/cache paths until their consumers are released.
 
 ## Portable checks and evidence
 
@@ -109,3 +109,26 @@ including strict stderr failures and the corrected mixed file/EOS sequence bug.
 Those integrated results apply to their recorded source/configuration snapshots;
 they do not establish that this split branch builds standalone, enables game
 audio, or proves callback fidelity, device behavior or heap safety.
+
+## Opt-in game selection
+
+The x64 property sheet imports `client-miles-dev.props` only when
+`ClientMilesDevelopment=true`. It requires Debug|x64/v120 and explicit existing
+`ClientMilesPipeLibrary` and `ClientMilesWorkerLibrary` archive paths. Build
+clientAudio with the same property before SwgClient; its isolated archive path
+prevents fallback to an old direct-Miles archive. Outputs are under
+`src/compile/miles-dev/x64`; ordinary Win32/default selection is unchanged.
+
+This source package is not the full client correctness/build closure. In
+particular, obsolete browser/capture inputs and the other separately packaged
+x64 source fixes must be composed before claiming a working full client build.
+`link-client-dev.py` is a development relink tool using existing real libraries
+and pinned build receipts, not a fresh whole-source rebuild or runtime qualifier.
+Release selection and movie integration remain later packages.
+
+The host is windowless; original module paths are normalized and compared as
+absolute Windows paths. Forward traffic uses normal-size I/O segments. These
+changes preserve diagnostics and terminal transport failure behavior.
+Historical game-integration observations remain at the
+[original checkpoint](https://github.com/Akilleez-QA/client-tools/blob/a68ceb4280ca59af5317f3ad5c6de8a3e0a87314/tools/miles-bridge/README.md),
+not fresh acceptance of this split branch. No CI workflow is present here.
