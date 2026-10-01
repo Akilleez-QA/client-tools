@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-01T16:52:04.992729+00:00",
+  "recorded_at": "2026-10-01T17:14:04.200789+00:00",
   "pull_requests": [
     {
       "repository": "SWG-Source/client-tools",
@@ -298,7 +298,9 @@
       "baseRefName": "review-ready/client-imemmove",
       "changedFiles": 6,
       "additions": 307,
-      "deletions": 0
+      "deletions": 0,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/42",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -311,7 +313,9 @@
       "baseRefName": "review-ready/client-imemmove",
       "changedFiles": 11,
       "additions": 545,
-      "deletions": 6
+      "deletions": 6,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/43",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -324,7 +328,9 @@
       "baseRefName": "review-ready/client-allocator-layout",
       "changedFiles": 15,
       "additions": 346,
-      "deletions": 149
+      "deletions": 149,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/44",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -337,7 +343,9 @@
       "baseRefName": "review-ready/client-allocator-address-stack",
       "changedFiles": 1,
       "additions": 70,
-      "deletions": 29
+      "deletions": 29,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/45",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -363,7 +371,9 @@
       "baseRefName": "review-ready/client-miles-contracts",
       "changedFiles": 15,
       "additions": 945,
-      "deletions": 0
+      "deletions": 0,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/47",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -376,7 +386,9 @@
       "baseRefName": "review-ready/client-miles-native-facade",
       "changedFiles": 20,
       "additions": 1331,
-      "deletions": 0
+      "deletions": 0,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/48",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -389,7 +401,9 @@
       "baseRefName": "review-ready/client-miles-file-transport",
       "changedFiles": 17,
       "additions": 1798,
-      "deletions": 0
+      "deletions": 0,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/49",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -402,7 +416,9 @@
       "baseRefName": "review-ready/client-miles-client-callbacks",
       "changedFiles": 15,
       "additions": 1773,
-      "deletions": 0
+      "deletions": 0,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/50",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -415,7 +431,9 @@
       "baseRefName": "review-ready/client-miles-host-runtime",
       "changedFiles": 12,
       "additions": 2158,
-      "deletions": 0
+      "deletions": 0,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/51",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -467,7 +485,9 @@
       "baseRefName": "review-ready/client-allocator-size-invariants",
       "changedFiles": 15,
       "additions": 85,
-      "deletions": 65
+      "deletions": 65,
+      "upstream_url": "https://github.com/SWG-Source/client-tools/pull/46",
+      "delivery_state": "submitted_upstream"
     },
     {
       "repository": "Akilleez-QA/client-tools",
@@ -1034,12 +1054,152 @@
       "url": "https://github.com/SWG-Source/src/pull/43",
       "repository": "SWG-Source/src",
       "package": "server-host-string-lengths"
+    },
+    {
+      "number": 42,
+      "title": "Support Windows x64 byte-order conversions",
+      "url": "https://github.com/SWG-Source/client-tools/pull/42",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "b0a977f8dfffdb46f2ae7d412a6e4dbf4d135fd5",
+      "baseRefName": "master",
+      "changedFiles": 15,
+      "additions": 572,
+      "deletions": 7,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/1"
+    },
+    {
+      "number": 43,
+      "title": "Preserve Windows socket handles and IOCP keys at pointer width",
+      "url": "https://github.com/SWG-Source/client-tools/pull/43",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "dbcd4d7d95a2c55be0fdf4b2185c117d21d400ed",
+      "baseRefName": "master",
+      "changedFiles": 20,
+      "additions": 810,
+      "deletions": 13,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/2"
+    },
+    {
+      "number": 44,
+      "title": "Preserve allocator owner and diagnostic stack addresses on Windows x64",
+      "url": "https://github.com/SWG-Source/client-tools/pull/44",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c",
+      "baseRefName": "master",
+      "changedFiles": 15,
+      "additions": 352,
+      "deletions": 152,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/3"
+    },
+    {
+      "number": 45,
+      "title": "Check allocator sizes and preserve the minimum free-block representation",
+      "url": "https://github.com/SWG-Source/client-tools/pull/45",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "1f8f341aab958ac13f04b070bb6575be0af36091",
+      "baseRefName": "master",
+      "changedFiles": 15,
+      "additions": 421,
+      "deletions": 180,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/4"
+    },
+    {
+      "number": 46,
+      "title": "Preserve allocator byte statistics and null reallocation metadata",
+      "url": "https://github.com/SWG-Source/client-tools/pull/46",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+      "baseRefName": "master",
+      "changedFiles": 28,
+      "additions": 505,
+      "deletions": 244,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/14"
+    },
+    {
+      "number": 47,
+      "title": "Add native Miles facade adapters",
+      "url": "https://github.com/SWG-Source/client-tools/pull/47",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "3c0a7485377121cd06942dbf5e1fd3b00a9368b7",
+      "baseRefName": "master",
+      "changedFiles": 15,
+      "additions": 945,
+      "deletions": 0,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/6"
+    },
+    {
+      "number": 48,
+      "title": "Add Miles file transport and reply transactions",
+      "url": "https://github.com/SWG-Source/client-tools/pull/48",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "8fd7cee80e1236e3cb664d6c36f31fc5583cdb63",
+      "baseRefName": "master",
+      "changedFiles": 20,
+      "additions": 1331,
+      "deletions": 0,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/7"
+    },
+    {
+      "number": 49,
+      "title": "Add Miles engine-worker admission and client callback ownership",
+      "url": "https://github.com/SWG-Source/client-tools/pull/49",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "db99b70fde136922af945586cfee97befa17c7ce",
+      "baseRefName": "master",
+      "changedFiles": 17,
+      "additions": 1798,
+      "deletions": 0,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/8"
+    },
+    {
+      "number": 50,
+      "title": "Add the Miles host backend and callback runtime",
+      "url": "https://github.com/SWG-Source/client-tools/pull/50",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "26b487affc772f5003d8b960f89b5dca172ea3f4",
+      "baseRefName": "master",
+      "changedFiles": 15,
+      "additions": 1773,
+      "deletions": 0,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/9"
+    },
+    {
+      "number": 51,
+      "title": "Add the Miles pipe facade and session composition",
+      "url": "https://github.com/SWG-Source/client-tools/pull/51",
+      "state": "OPEN",
+      "isDraft": false,
+      "headRefOid": "d4aa214f42320bababb1b14b39b61e5c09a0acc4",
+      "baseRefName": "master",
+      "changedFiles": 12,
+      "additions": 2158,
+      "deletions": 0,
+      "repository": "SWG-Source/client-tools",
+      "preparation_pr": "https://github.com/Akilleez-QA/client-tools/pull/10"
     }
   ],
-  "count": 64,
-  "limits": "PR entries include earlier fork reviews of six now-upstream packages. Count packages separately from PR URLs. Upstream submission/checks remain unfinished; no merge acceptance inferred.",
+  "count": 74,
+  "limits": "PR entries retain earlier fork preparation reviews. Count packages separately from URLs; prerequisites and checks remain open. No merges performed.",
   "delivery_complete": false,
-  "upstream_pull_requests": 28,
-  "fork_only_packages": 30,
+  "upstream_pull_requests": 38,
+  "fork_only_packages": 20,
   "upstream_drafts_awaiting_ci": 5
 }

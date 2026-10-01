@@ -1,6 +1,6 @@
 # SWG client/server submission index
 
-Upstream delivery is in progress: **28 upstream PRs (including five drafts awaiting the CI repair) and 30 packages still available only as fork drafts**. Fork preparation does not satisfy upstream submission.
+Upstream delivery is in progress: **38 upstream PRs (including five server drafts awaiting the CI repair) and 20 packages still available only as fork drafts**. Fork preparation does not satisfy upstream submission.
 
 The completed x64 implementation is packaged into focused source and build changes. Independent source/evidence reviews found no remaining introduced blockers in the submitted packages. This is a review map, not merge approval or a claim of full gameplay/fidelity acceptance.
 
@@ -8,7 +8,7 @@ All **220 production paths and 83 build/configuration paths** in the maintained 
 
 ## Review order
 
-Review independent master-based fixes first. For fork drafts, use the displayed base branch: its prerequisite changes are intentionally excluded from the diff. Joint bases preserve already-published dependencies. Follow allocator layout → addresses → sizes → statistics, and Miles contracts → facade → transport/callbacks → host/session → build/Audio → game selection → Bink host → renderer → Release configuration. Shared server counterparts have separate bases and explicitly scoped evidence.
+Review independent master-based fixes first. For fork drafts, use the displayed base branch. Upstream stacked PRs explicitly list the included prerequisites and link an incremental comparison; their master diffs also contain those predecessors. Joint bases preserve already-published dependencies. Follow allocator layout → addresses → sizes → statistics, and Miles contracts → facade → transport/callbacks → host/session → build/Audio → game selection → Bink host → renderer → Release configuration. Shared server counterparts have separate bases and explicitly scoped evidence.
 
 The latest [submission hygiene check](package-inventory/final-submission-hygiene.md) verified 24 selected PRs and 86 pinned evidence links. No checks were reported on that selected set; absent CI is not a pass. The later exact-head [composed regression run](https://github.com/Akilleez-QA/client-tools/actions/runs/36850510021) passed both ABI jobs; [results and raw log](pr-ready-next/regression-ci/RESULTS.md). Other earlier checks and failures remain in the individual packets and [historical index](REVIEW-INDEX-before-final-packaging.md).
 
@@ -40,19 +40,28 @@ The table counts the **entire PR delta**, including any tests/configuration/docs
 | [SWG-Source/src #35](https://github.com/SWG-Source/src/pull/35) | Complete Linux server LP64 compatibility, database boundaries and shutdown fixes | `6b998f6fc2` | 621; +12247/−4800 | open |
 | [SWG-Source/src #37](https://github.com/SWG-Source/src/pull/37) | Separate the checked int-length move helper from CRT memmove | `1481143ca4` | 9; +338/−5 | open |
 | [SWG-Source/src #38](https://github.com/SWG-Source/src/pull/38) | Build the submitted server revision in legacy CI | `1c0152794e` | 1; +45/−19 | open |
-
 | [SWG-Source/client-tools #41](https://github.com/SWG-Source/client-tools/pull/41) | miles contracts | `8ebfbe2c8b` | 18; +1359/−0 | open |
 | [SWG-Source/src #39](https://github.com/SWG-Source/src/pull/39) | fpu controls | `e4b02d6681` | 3; +55/−2 | draft; CI #38 pending |
 | [SWG-Source/src #40](https://github.com/SWG-Source/src/pull/40) | sse math | `274d3a6dbc` | 4; +235/−1 | draft; CI #38 pending |
 | [SWG-Source/src #41](https://github.com/SWG-Source/src/pull/41) | windows diagnostics | `32de00ef89` | 4; +21/−3 | draft; CI #38 pending |
 | [SWG-Source/src #42](https://github.com/SWG-Source/src/pull/42) | crypto packing | `6e258f2f2f` | 1; +11/−0 | draft; CI #38 pending |
 | [SWG-Source/src #43](https://github.com/SWG-Source/src/pull/43) | host string lengths | `9cf3ef1e76` | 2; +5/−5 | draft; CI #38 pending |
+| [SWG-Source/client-tools #42](https://github.com/SWG-Source/client-tools/pull/42) | Support Windows x64 byte-order conversions | `b0a977f8df` | 15; +572/−7 | open |
+| [SWG-Source/client-tools #43](https://github.com/SWG-Source/client-tools/pull/43) | Preserve Windows socket handles and IOCP keys at pointer width | `dbcd4d7d95` | 20; +810/−13 | open |
+| [SWG-Source/client-tools #44](https://github.com/SWG-Source/client-tools/pull/44) | Preserve allocator owner and diagnostic stack addresses on Windows x64 | `fc667f38ea` | 15; +352/−152 | open |
+| [SWG-Source/client-tools #45](https://github.com/SWG-Source/client-tools/pull/45) | Check allocator sizes and preserve the minimum free-block representation | `1f8f341aab` | 15; +421/−180 | open |
+| [SWG-Source/client-tools #46](https://github.com/SWG-Source/client-tools/pull/46) | Preserve allocator byte statistics and null reallocation metadata | `0c09740e0c` | 28; +505/−244 | open |
+| [SWG-Source/client-tools #47](https://github.com/SWG-Source/client-tools/pull/47) | Add native Miles facade adapters | `3c0a748537` | 15; +945/−0 | open |
+| [SWG-Source/client-tools #48](https://github.com/SWG-Source/client-tools/pull/48) | Add Miles file transport and reply transactions | `8fd7cee80e` | 20; +1331/−0 | open |
+| [SWG-Source/client-tools #49](https://github.com/SWG-Source/client-tools/pull/49) | Add Miles engine-worker admission and client callback ownership | `db99b70fde` | 17; +1798/−0 | open |
+| [SWG-Source/client-tools #50](https://github.com/SWG-Source/client-tools/pull/50) | Add the Miles host backend and callback runtime | `26b487affc` | 15; +1773/−0 | open |
+| [SWG-Source/client-tools #51](https://github.com/SWG-Source/client-tools/pull/51) | Add the Miles pipe facade and session composition | `d4aa214f42` | 12; +2158/−0 | open |
 
 Server #35 targets `64-bit-types`, not master. Its upstream dependency history is not part of the other focused PRs. The maintained client master remains `94945103`; no upstream x64 target was available at the recorded target check.
 
 ## Dependent fork drafts
 
-These are reviewable incremental packages, not independently qualified full-client/server builds. Six also have upstream submissions: client fork #5 → upstream #41; server fork #3/#4/#7/#9/#8 → upstream #39/#40/#41/#42/#43. The other 30 remain pending upstream delivery. Remaining dependencies are explicit. No private SDKs, provider binaries or game media are included.
+These are reviewable incremental packages, not independently qualified full-client/server builds. Sixteen also have upstream submissions: client fork #1/#2/#3/#4/#14 → upstream #42/#43/#44/#45/#46; client fork #5–#10 → upstream #41/#47–#51; server fork #3/#4/#7/#9/#8 → upstream #39/#40/#41/#42/#43. The other 20 remain pending upstream delivery. Remaining dependencies are explicit. No private SDKs, provider binaries or game media are included.
 
 | Fork / PR | Scope | Head | Base | Files; +/− |
 |---|---|---|---|---|
