@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T10:51:13.412077+00:00",
+  "updated_at": "2026-10-01T16:52:04.992729+00:00",
   "unassigned_production_build_units": [],
   "remaining_auxiliary_units": [],
   "covered_auxiliary_units": {
@@ -15,9 +15,18 @@
     "conclusion": "success"
   },
   "limits": [
-    "Maintainer merges are outstanding.",
+    "Upstream submission, checks and maintainer merges are outstanding.",
     "Dependent packages are explicit fork drafts, not stand-alone complete client builds.",
     "Historical runtime/fidelity gaps remain stated; packaging completion does not resolve them.",
     "Maintained local live-session edit is preserved and its exact contents delivered separately."
+  ],
+  "delivery_complete": false,
+  "upstream_pull_requests": 28,
+  "fork_only_packages": 30,
+  "upstream_drafts_awaiting_ci": 5,
+  "next_steps": [
+    "Resolve independent package bases and submit remaining qualified packages upstream.",
+    "Verify server drafts once upstream CI repair #38 is available; inherited workflow failure is not a candidate build result.",
+    "Preserve clean incremental diffs for true dependencies; fork reviews are preparation, not completion."
   ]
 }

@@ -1,5 +1,7 @@
 # SWG client/server submission index
 
+Upstream delivery is in progress: **28 upstream PRs (including five drafts awaiting the CI repair) and 30 packages still available only as fork drafts**. Fork preparation does not satisfy upstream submission.
+
 The completed x64 implementation is packaged into focused source and build changes. Independent source/evidence reviews found no remaining introduced blockers in the submitted packages. This is a review map, not merge approval or a claim of full gameplay/fidelity acceptance.
 
 All **220 production paths and 83 build/configuration paths** in the maintained client inventory are assigned to package closures. [Finite accounting](package-inventory/remaining-units.md) separates assignment coverage from a fresh composed-tree build. [Client map](package-inventory/remaining-package-map.json) and [server map](package-inventory/server-package-map.json) retain source identities and dependency details. No histories were force-pushed or automatically merged.
@@ -39,11 +41,18 @@ The table counts the **entire PR delta**, including any tests/configuration/docs
 | [SWG-Source/src #37](https://github.com/SWG-Source/src/pull/37) | Separate the checked int-length move helper from CRT memmove | `1481143ca4` | 9; +338/−5 | open |
 | [SWG-Source/src #38](https://github.com/SWG-Source/src/pull/38) | Build the submitted server revision in legacy CI | `1c0152794e` | 1; +45/−19 | open |
 
+| [SWG-Source/client-tools #41](https://github.com/SWG-Source/client-tools/pull/41) | miles contracts | `8ebfbe2c8b` | 18; +1359/−0 | open |
+| [SWG-Source/src #39](https://github.com/SWG-Source/src/pull/39) | fpu controls | `e4b02d6681` | 3; +55/−2 | draft; CI #38 pending |
+| [SWG-Source/src #40](https://github.com/SWG-Source/src/pull/40) | sse math | `274d3a6dbc` | 4; +235/−1 | draft; CI #38 pending |
+| [SWG-Source/src #41](https://github.com/SWG-Source/src/pull/41) | windows diagnostics | `32de00ef89` | 4; +21/−3 | draft; CI #38 pending |
+| [SWG-Source/src #42](https://github.com/SWG-Source/src/pull/42) | crypto packing | `6e258f2f2f` | 1; +11/−0 | draft; CI #38 pending |
+| [SWG-Source/src #43](https://github.com/SWG-Source/src/pull/43) | host string lengths | `9cf3ef1e76` | 2; +5/−5 | draft; CI #38 pending |
+
 Server #35 targets `64-bit-types`, not master. Its upstream dependency history is not part of the other focused PRs. The maintained client master remains `94945103`; no upstream x64 target was available at the recorded target check.
 
 ## Dependent fork drafts
 
-These are reviewable incremental packages, not independently qualified full-client/server builds. Remaining dependencies are explicit. No private SDKs, provider binaries or game media are included.
+These are reviewable incremental packages, not independently qualified full-client/server builds. Six also have upstream submissions: client fork #5 → upstream #41; server fork #3/#4/#7/#9/#8 → upstream #39/#40/#41/#42/#43. The other 30 remain pending upstream delivery. Remaining dependencies are explicit. No private SDKs, provider binaries or game media are included.
 
 | Fork / PR | Scope | Head | Base | Files; +/− |
 |---|---|---|---|---|
@@ -94,8 +103,10 @@ The recorded full VS2013 Release-x64 dependency rebuild had 0 errors and 3,274 w
 
 ## Packaging disposition
 
-All planned production/build packages and identified auxiliary follow-ups are now reviewed and published: **22 upstream PRs and 36 dependent fork drafts**, including the earlier wire/DPVS/link submissions. [Final accounting](package-inventory/final-packaging-disposition.json) records the completed auxiliary queue. The last five drafts deliver archive tests, galaxy/container wire regressions, native UI tests, scoped live-session notes and the portable CI composition.
+The earlier claim that fork publication completed delivery is withdrawn. Assignment and preparation are accounted for; upstream submission is not complete. [Delivery receipts](package-inventory/upstream-delivery/) record six additional upstream PRs and their exact bases, heads and counts. [Package accounting](package-inventory/final-packaging-disposition.json) now distinguishes preparation from upstream delivery.
+
+The five new server drafts exclude unrelated preparation-only prerequisites. Their production diffs match the reviewed packages. Upstream master's inherited build workflow still requires [server #38](https://github.com/SWG-Source/src/pull/38); these drafts do not claim successful upstream CI or a complete Windows server build. True source dependencies remain on the queued packages and will not be hidden in large cumulative diffs.
 
 At CI head `505795c7d`, wire checks passed 71/71 Win32 and 78/78 Win64; ByteStream passed 85 and decoder checks 34 per ABI. Dependency ownership passed 12 tests; Linux sanitizer checks passed 298 EOS, 1,047 Bink protocol and 22 video-admission assertions. These counts are separate suites, not a full-client correctness metric. Native UI retains its scoped historical four-configuration records and manual genuine-provider requirements.
 
-Maintainers control merges and upstream prerequisite decisions. Dependent diffs must be reconciled without duplicate application; no automatic merge or history rewrite was performed. Historical baseline failures, consumer dependencies, numerical limitations and incomplete runtime acceptance remain in each packet. The completed deliverable is PR packaging, not a new claim of universal gameplay/fidelity equivalence. No numerical review score substitutes for that assessment.
+Maintainers control merges and upstream prerequisite decisions. Dependent diffs must be reconciled without duplicate application; no automatic merge or history rewrite was performed. Historical baseline failures, consumer dependencies, numerical limitations and incomplete runtime acceptance remain in each packet. Upstream delivery remains active; neither package preparation nor PR creation establishes universal gameplay/fidelity equivalence. No numerical review score substitutes for that assessment.

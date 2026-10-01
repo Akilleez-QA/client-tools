@@ -1,0 +1,32 @@
+{
+  "additions": 11,
+  "baseRefName": "master",
+  "baseRefOid": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T08:15:26Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T16:48:01Z",
+      "messageBody": "Mirror the client PCH wrapper around balanced STLport vendor includes. Limit C4103 suppression to that include scope and restore it afterward; do not change packing. The guard leaves Linux and Win32 untouched.\n\nClient VS2013 probes preserve before/after layout in four configurations, compile under /WX, and still reject a deliberate packing warning after this header. This is not a native Windows build of the server or validation of its newer Crypto++ sources.\n\n(cherry picked from commit 78ec0f03f48cc6a71730ca8fcdf5ec3546c3a8d8)",
+      "messageHeadline": "crypto: scope the Windows x64 vendor packing diagnostic",
+      "oid": "6e258f2f2f998821a2b53888de27789a66c9c243"
+    }
+  ],
+  "deletions": 0,
+  "headRefName": "submit/server-crypto-packing",
+  "headRefOid": "6e258f2f2f998821a2b53888de27789a66c9c243",
+  "isDraft": true,
+  "number": 42,
+  "state": "OPEN",
+  "url": "https://github.com/SWG-Source/src/pull/42",
+  "repository": "SWG-Source/src",
+  "package": "server-crypto-packing"
+}

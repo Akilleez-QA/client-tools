@@ -1,0 +1,62 @@
+{
+  "additions": 235,
+  "baseRefName": "master",
+  "baseRefOid": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+  "changedFiles": 4,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T06:29:06Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:15:26Z",
+      "messageBody": "Retain the Win32 assembly and use explicit SSE operations, CPUID and prefetch intrinsics on x64. Preserve arithmetic grouping, discarded-lane evaluation and sequential alias behavior; no feature or math path is replaced with a no-op.\n\nNative v120 Debug/Release comparisons expose a pre-existing Win32 register-clobber bug between asm blocks. Disassembly and a tiny six-build discriminator confirm it. A separately named diagnostic reload control (not stock) agrees with x64 on finite/subnormal/extreme/discarded-lane cases in a 33,280-record corpus; exceptional NaN differences remain. No callers of the four arithmetic helpers were found in the client tree; this is not gameplay acceptance or a general bit-identity claim.\n\n(cherry picked from commit ad4d5c7f814f5d4b061fb738f3046253d538bf53)",
+      "messageHeadline": "math: provide x64 SSE intrinsics for legacy Windows helpers",
+      "oid": "f9f68216cb2207413bd343259cf284c422e6964d"
+    },
+    {
+      "authoredDate": "2026-09-30T06:29:06Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:15:26Z",
+      "messageBody": "Retain Win32 assembly; on x64 preserve its add grouping, zero-lane additions and read-before-write alias contract using unaligned SSE loads.\n\nActual client translation-unit probes under v120 Debug/Release record 1,024 cases each. Stock and candidate Win32 records match. All 768 finite records, tested aliases and control checks match x64; Debug is exact throughout. Release has 464 NaN-payload word differences in 136 exceptional records, retained as an explicit limit. Normal client dispatch and scene acceptance remain untested.\n\n(cherry picked from commit 1cc02f6ab4fce25e26ca7c04da1ae4813fd3f0a1)",
+      "messageHeadline": "math: implement the x64 affine transform SSE kernel",
+      "oid": "e523431af37d0347ad3e9a6311c49d8583fce9c9"
+    },
+    {
+      "authoredDate": "2026-09-30T06:29:06Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:15:26Z",
+      "messageBody": "Replace only the unavailable x64 FSQRT assembly path with SQRTSS on the already-rounded float input. Win32 assembly and other platform paths stay unchanged.\n\nMatching client sharedCollision builds all four v120 configurations. Actual normalization/line-twist probes match all 8,192 sampled values, classifications and MXCSR records per Debug/Release run against PC64 Win32; candidate Win32 records are unchanged. Separate x87 status words differ by design and remain recorded. No exhaustive numerical or gameplay equivalence claim.\n\n(cherry picked from commit 517d80bd8044188859b618655a7c40d2825d8fd0)",
+      "messageHeadline": "collision: use scalar SSE square root on Windows x64",
+      "oid": "274d3a6dbcd7b3195db4266ac4b753ee2a6b3a89"
+    }
+  ],
+  "deletions": 1,
+  "headRefName": "submit/server-sse-math",
+  "headRefOid": "274d3a6dbcd7b3195db4266ac4b753ee2a6b3a89",
+  "isDraft": true,
+  "number": 40,
+  "state": "OPEN",
+  "url": "https://github.com/SWG-Source/src/pull/40",
+  "repository": "SWG-Source/src",
+  "package": "server-sse-math"
+}

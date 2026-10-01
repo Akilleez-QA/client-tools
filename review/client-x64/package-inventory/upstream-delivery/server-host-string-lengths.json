@@ -1,0 +1,47 @@
+{
+  "additions": 5,
+  "baseRefName": "master",
+  "baseRefOid": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+  "changedFiles": 2,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T05:49:02Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T16:49:44Z",
+      "messageBody": "Match the client helpers by retaining strlen results and the lowercase copy index as size_t. This removes uint narrowing on LP64; it does not change allocation failure policy or the existing tolower input contract.\n\n(cherry picked from commit c98f2a6dca7794ec8a2f1705208b2796f25c981f)",
+      "messageHeadline": "foundation: keep duplicated string lengths at host size",
+      "oid": "aadc8d5500512a537b2f9892de0e561c9c31689b"
+    },
+    {
+      "authoredDate": "2026-09-30T06:23:15Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T16:49:44Z",
+      "messageBody": "Use size_t for strlen results and the tag-building loop index. Preserve character conversion, byte order, and the existing first-four-character behavior with space padding.\n\nMatching client header was compiled by native v120 Win32/x64 Debug consumers and produces the same 4,098 sampled tags as stock on both architectures. This does not validate arbitrary oversized inputs or the full server.\n\n(cherry picked from commit c03e4a1a72c3f5daff8501907e4bfc70e1919fa1)",
+      "messageHeadline": "foundation: retain native string lengths in tag conversion",
+      "oid": "9cf3ef1e7608e20473e05ad92cd426367f57488b"
+    }
+  ],
+  "deletions": 5,
+  "headRefName": "submit/server-host-string-lengths",
+  "headRefOid": "9cf3ef1e7608e20473e05ad92cd426367f57488b",
+  "isDraft": true,
+  "number": 43,
+  "state": "OPEN",
+  "url": "https://github.com/SWG-Source/src/pull/43",
+  "repository": "SWG-Source/src",
+  "package": "server-host-string-lengths"
+}
