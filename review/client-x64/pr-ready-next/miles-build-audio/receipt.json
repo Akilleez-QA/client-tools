@@ -1,0 +1,91 @@
+{
+  "branch": "review-ready/client-miles-build-audio",
+  "base": "b2d1583b1552cb8f5595d8038d4cfa614d84ddae",
+  "head": "afe844818e86b24313a9e940d4723a02f7262ae8",
+  "joint_base_branch": "review-ready/client-miles-audio-prerequisites",
+  "joint_base_parents": [
+    "3430934cedf230e7c5c2a77ae8b9e6f607fb1fe8",
+    "0699bd3d9b08998cb731d6ac7655681f3d003e6d"
+  ],
+  "numstat": "2\t1\tsrc/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj\n117\t39\tsrc/engine/client/library/clientAudio/src/win32/Audio.cpp\n3\t0\ttools/miles-bridge/.gitignore\n111\t0\ttools/miles-bridge/README.md\n271\t0\ttools/miles-bridge/build.py\n60\t0\ttools/miles-bridge/sources.json",
+  "files": [
+    {
+      "path": "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj",
+      "blob": "ecd6bf4c295f44eff3e3bfbd5427ccc724210e0e",
+      "sha256": "1c2df54c70658f3386306e250f5326a182a53b664bd370f43b22e4c1a448a828",
+      "historical_build_blob_exact": false
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+      "blob": "2cb64005548be4c4cc913e2b488132bf59a34c87",
+      "sha256": "bacfd9338812400926f6e22d43b5563207b73f272da18326b988e9ff6aabec8a",
+      "historical_build_blob_exact": false
+    },
+    {
+      "path": "tools/miles-bridge/.gitignore",
+      "blob": "8cbfc39fca06911af326b4e8ff6870f144699c31",
+      "sha256": "a7d3ec2efb2be8ee8da74403ec1b1bc0ab32cbe92efabe5aca57aa5b2c7613b4",
+      "historical_build_blob_exact": true
+    },
+    {
+      "path": "tools/miles-bridge/README.md",
+      "blob": "34d9541917301e3e86b25a0bd2941972347bc579",
+      "sha256": "64f48bae136f71ea1f0fe0d1728f8c1916a4227fe82ca31aa50790cd8459dd2a",
+      "historical_build_blob_exact": false,
+      "historical_blob": "da0c8e4f4a859bbc741f24686e957450ec11120b",
+      "historical_sha256": "f5d075ee19343d72207b62ba0b903a65096d6d0a553294de6773e9ff4cffb353",
+      "adaptation": "Documentation only: concise current-package instructions with immutable link to original historical README."
+    },
+    {
+      "path": "tools/miles-bridge/build.py",
+      "blob": "3495806e9b9c1bdbe326aec9680270c6264c35a1",
+      "sha256": "8e99363ad9243b22bf23331bc6f3819a82495607e7ce86d7d624fa4643eaff96",
+      "historical_build_blob_exact": true
+    },
+    {
+      "path": "tools/miles-bridge/sources.json",
+      "blob": "fb0c71709f6d0ee37500b0f1d4739be953209626",
+      "sha256": "45a628a3ca74f4fdbe496ead17f11ba4d6f9fd0d443bab6d11a316f0a377abef",
+      "historical_build_blob_exact": true
+    }
+  ],
+  "original_component_patches": [
+    {
+      "commit": "4f15b029a8f2d99426f096431f649017168c5a6b",
+      "paths": [
+        "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+        "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj"
+      ],
+      "patch_sha256": "a4f68b6ad8e09ffdea72c2161277aa00a7604347d2ab3c6028a0906cb0653171",
+      "applied_unmodified": true
+    },
+    {
+      "commit": "5c31706581bc93679300bde212d6c9a69cd95690",
+      "paths": [
+        "src/engine/client/library/clientAudio/src/win32/Audio.cpp"
+      ],
+      "patch_sha256": "48aac055171e15225fa0436bfbcc5ea2e8817b5f36d46b395c0f177635379a92",
+      "applied_unmodified": true
+    }
+  ],
+  "source_manifest_entries": 50,
+  "missing_manifest_sources": [],
+  "fresh_build_test_runtime": false,
+  "config_prerequisites": [
+    "Windows Python 3 and VS2013/v120 vcvars environment; genuine Miles include/Mss.h for all targets except engine-worker; genuine x86 Mss32.lib for host.",
+    "engine-worker/audio-dev/pipe-probe require an external maintained engine checkout whose clientAudio.vcxproj contains explicit resolved Debug|x64 ClCompile definitions/include paths and genuine stlport453 headers. This branch contains only Win32 project configurations.",
+    "pipe-probe additionally requires genuine Debug-x64 sharedThread/sharedSynchronization/sharedFoundation/sharedMemoryManager/sharedDebug/sharedMath/sharedRandom/unicode/sharedFile/sharedCompression/fileInterface/archive/zlib libraries and deps/v120/x64/Debug/stlport.lib (matching compiler PDBs).",
+    "README describes current-package prerequisites; historical outcomes/failures are linked at the original checkpoint. No CI workflow is present."
+  ],
+  "excluded": [
+    "Game backend selection",
+    "Bink",
+    "Release integration",
+    "wire-compatibility workflow prerequisite"
+  ],
+  "status": "",
+  "pre_readme_polish_head": "81c053d876dbecc3fd780db91acd1bda8adbd3e9",
+  "readme_only_followup_verified": true,
+  "configured_diff_numstat": "2\t1\tsrc/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj\n120\t42\tsrc/engine/client/library/clientAudio/src/win32/Audio.cpp\n3\t0\ttools/miles-bridge/.gitignore\n111\t0\ttools/miles-bridge/README.md\n271\t0\ttools/miles-bridge/build.py\n60\t0\ttools/miles-bridge/sources.json",
+  "diff_algorithm_note": "GitHub/myers: +564/-40; local configured algorithm: +567/-43. Same source; different alignment of moved callback-body lines."
+}
