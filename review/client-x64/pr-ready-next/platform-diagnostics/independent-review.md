@@ -1,0 +1,17 @@
+# Independent review — client platform diagnostics
+
+Disposition: no actionable introduced source/API blocker found. The four small fixes are independently applicable to master; no additional integrated-build prerequisite is required to make these particular source changes coherent.
+
+Reviewed 949451032647e45e42c3aaef3f41b132c8af36e3 → 855b299004da38f48aa6517c76d30338488eeba2 in client-http-candidate23. The checkout was clean. Four files change +14/−4. Independently verified each commit's added/removed lines match originals 9dc0e340fd, eb73c7e8fc, b8e359f414 and b1277c963d exactly.
+
+ProfilerTimer's x64 helper returns the intrinsic timestamp through the existing signed 64-bit API; the Win32 assembly, selection and calibration logic are unchanged. This adds no serialization or cross-core clock guarantee. RaiseException now receives pointer-width exception arguments and a count measured in those same units, consistent with its native parameter contract and the existing thread-name structure. The thread ID remains DWORD-sized; no thread-naming protocol or exception-filter behavior is otherwise changed.
+
+StatusWindow stores and retrieves the complete object pointer through the paired LongPtr APIs and GWLP_USERDATA. The result variable also has the native LONG_PTR type. Existing zero-return/GetLastError handling remains appropriate, including success when the prior userdata value was zero. Crash formatting passes the existing pointer-typed ExceptionAddress to %p, removing the width mismatch without changing address ownership or dereferencing it. The 128-byte output buffer comfortably holds this fixed-format diagnostic on both target ABIs. No new master header/type dependency was found.
+
+Inspected existing assembly-next/timer-results.json and its RESULTS narrative: candidate runs record 10,000 bracketed samples per native Debug/Release × Win32/x64 configuration, with stock x64 compile rejection and zero-return negative controls. The package ProfilerTimer.cpp SHA-256 bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb matches those candidate records. This is source-helper runtime coverage plus recorded actual-TU compilation, not full profiler calibration/lifecycle qualification.
+
+Inspected warning-fixes-next/crash-format-results.json and its RESULTS narrative: 36/36 per native configuration, including high address bits and canaries. This is the exact extracted sprintf statement with synthetic Windows exception records, not execution of the crash handler or a complete Foundation rebuild. No isolated historical thread-naming or StatusWindow runtime result was supplied, and none is inferred. Their API/type correctness is source-reviewed.
+
+Follow-up document review: the completed PR body and receipt agree with the already-reviewed source, counts, hashes and evidence scope. They distinguish actual-TU timer compilation from extracted-helper runtime, keep crash testing at the formatting-statement boundary, and explicitly decline isolated thread/window runtime or fresh-master build claims. The receipt also binds the crash source SHA-256 06cb8fe56b3de2966af1cf3a449ad718dfdd2c5e40c0be970148d9288ffcb791, matching the candidate hash independently computed during source review; root verified that identity against the stored historical manifest. No prose blocker found. No new tests are requested solely because wider historical builds contained other prerequisites.
+
+Only this report was written. No production edits, builds, tests/runtime execution or remote actions occurred.

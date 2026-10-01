@@ -5,3 +5,5 @@ Head `01755444ed579611bc3cfa75d2cf67d880d44bfb`; one source commit, three files,
 Stacked above the existing server build-workflow repair (upstream #38); [exact source-equivalence and workflow prerequisite receipt](workflow-stack.json). The master-based source head remains preserved.
 
 Native historical FPU implementation hashes match this package. The recorded client dependency closure and numerical/state limits remain in the description; no fresh package build, configured exception startup test, collision-loop execution or full-server qualification is claimed. Win32 behavior stays unchanged, including the existing setter bug.
+
+Submitted as [3](https://github.com/Akilleez-QA/src/pull/3); exact head and 3-file +55/−2 GitHub delta confirmed.

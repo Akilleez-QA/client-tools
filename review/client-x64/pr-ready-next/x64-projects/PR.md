@@ -1,0 +1,11 @@
+# Generate isolated v120 Debug/Release x64 client configurations
+
+Adds Debug and Release x64 configurations for the SwgClient solution dependency closure while retaining existing Win32 project settings and mappings. The generator and checker accompany the generated XML. A shared x64-only property sheet isolates outputs and intermediates, selects MachineX64, and uses the supplied June 2010 DirectX SDK x64 directories. Renderer deployment goes to dev/x64. DPVS retains its existing x64 settings; no Optimized/IntelCPP x64 mapping is invented.
+
+Review base: `review-ready/client-x64-config-prerequisites` at `83b29883aa44af948d302b1832a9dc5696269d27`, combining the published DPVS head `ebce07521eba3b4c92eccf5aaf3bdcb3d6f475c4` and link-cleanup head `46a56f6a5219932ab2567970c79144570b97ac36`. Head: `5b558625c0c42a7d2b1dcce67fb80e0200f53850`. One configuration commit changes **66 project files, one solution and four tooling/documentation/property files (+7727/−0)**; no production C/C++ source changes. All added/removed lines match original commit `cbfa4dca3ed2c907f995521935f9799faf7a37b5`.
+
+Read-only packaging checks against this exact joint base passed: `generate.py --check` reports 67 closure projects and zero regeneration differences; `check.py` confirms unchanged Win32 XML semantics and original solution mappings. No generated files were rewritten by these checks.
+
+[Existing native evidence](https://github.com/Akilleez-QA/client-tools/blob/39dc3c354246e4273d6ce940932985bbc23c59c7/review/client-x64/next-build/RESULTS.md) records 268 native evaluations plus 134 x64 output/link evaluations for the historical integration. It also records the successful integrated Win32 build and failed x64 build at that checkpoint. These are historical source/configuration results, not a fresh build of this branch; no native build or runtime was repeated during packaging.
+
+This supplies configuration mechanics, not complete x64 compiler/provider compatibility. Genuine VS2013/v120, the selected DirectX SDK (`DXSDK_DIR`) and matching architecture dependencies are required. Third-party directories are not silently rewritten, vendor binaries are not bundled, and inherited runtime/library choices remain unchanged. Native-provider builds, remaining source fixes, later link adjustments and media/backend selection remain separate packages.

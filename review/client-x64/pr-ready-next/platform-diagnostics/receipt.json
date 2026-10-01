@@ -1,0 +1,46 @@
+{
+  "branch": "review-ready/client-platform-diagnostics",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "855b299004da38f48aa6517c76d30338488eeba2",
+  "commit_count": 4,
+  "numstat": "10\t0\tsrc/engine/shared/library/sharedDebug/src/win32/ProfilerTimer.cpp\n1\t1\tsrc/engine/shared/library/sharedFoundation/src/win32/Os.cpp\n1\t1\tsrc/engine/shared/library/sharedFoundation/src/win32/SetupSharedFoundation.cpp\n2\t2\tsrc/engine/shared/library/sharedStatusWindow/src/win32/StatusWindow.cpp\n",
+  "files": [
+    {
+      "path": "src/engine/shared/library/sharedDebug/src/win32/ProfilerTimer.cpp",
+      "blob": "d8920b5c0073d214505187b8d3687a1326bec1b1",
+      "sha256": "bfa1dd7cada2bced9a80d102e77fe579a9c894b3f940ccecd50879ffaa9acbeb"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/Os.cpp",
+      "blob": "68c16c3166606adf7d74eae6842c1719b84a76d5",
+      "sha256": "ccc46b6e2a123ccb63947eb9f54d8489e28df435392f1ef730421e226a040c58"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/win32/SetupSharedFoundation.cpp",
+      "blob": "145eee1b2984e7d7e00e708a43834d77e2dbdabf",
+      "sha256": "06cb8fe56b3de2966af1cf3a449ad718dfdd2c5e40c0be970148d9288ffcb791"
+    },
+    {
+      "path": "src/engine/shared/library/sharedStatusWindow/src/win32/StatusWindow.cpp",
+      "blob": "1f5fefba89b88e9cf86955b6b098900cfa7fd6bf",
+      "sha256": "2303f82f368fea003efe4419d79f0cd17955d7a964f8a4818a3d570ed4cc8702"
+    }
+  ],
+  "origin_commits": [
+    "9dc0e340fd91d79d8de1f246100d6b94f77646e5",
+    "eb73c7e8fc998c7da6878ebd6dd2bb160604e371",
+    "b8e359f414d63334052bd354f7ff1346d53180ab",
+    "b1277c963dbdff0f4e718b037171e67dabfa59bd"
+  ],
+  "cherry_picks_conflict_free": true,
+  "historical_timer_source_exact": true,
+  "historical_crash_source_sha256": "06cb8fe56b3de2966af1cf3a449ad718dfdd2c5e40c0be970148d9288ffcb791",
+  "historical_crash_source_exact": true,
+  "fresh_build_test_runtime": false,
+  "limits": [
+    "Timer actual-TU compile plus extracted-helper runtime, not full profiler integration/calibration.",
+    "Crash extracted sprintf statement with Windows exception record, not crashing/fullhandler.",
+    "Thread naming/status window source-reviewed; no isolated runtime check claimed.",
+    "Historical integrated dependencies, not fresh-master build."
+  ]
+}

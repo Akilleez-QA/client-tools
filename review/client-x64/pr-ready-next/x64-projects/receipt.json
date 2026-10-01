@@ -1,0 +1,471 @@
+{
+  "branch": "review-ready/client-x64-projects",
+  "base": "83b29883aa44af948d302b1832a9dc5696269d27",
+  "head": "5b558625c0c42a7d2b1dcce67fb80e0200f53850",
+  "joint_prerequisite_branch": "review-ready/client-x64-config-prerequisites",
+  "joint_base_parents": [
+    "ebce07521eba3b4c92eccf5aaf3bdcb3d6f475c4",
+    "46a56f6a5219932ab2567970c79144570b97ac36"
+  ],
+  "published_prerequisite_heads": {
+    "x64-dpvs": "ebce07521eba3b4c92eccf5aaf3bdcb3d6f475c4",
+    "x64-link-cleanup": "46a56f6a5219932ab2567970c79144570b97ac36"
+  },
+  "origin_commit": "cbfa4dca3ed2c907f995521935f9799faf7a37b5",
+  "commit_count_above_joint_base": 1,
+  "files": [
+    {
+      "path": "src/build/win32/swg.sln",
+      "blob": "63612ef5eb97c1afb6aae22e0faab1a55f388cf6",
+      "sha256": "2c4f649f2f4752ffd2b714e17dfe708cb17dbd9f3d9725727abb83e0436e7447",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9.vcxproj",
+      "blob": "57e40ca1f03582c76d2c46fe201e2b805858f4cc",
+      "sha256": "c64f48868e084a5ebf67e4e4d12b23b257df7b7ef2c8d447faa0dbda88b99128",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9_ffp.vcxproj",
+      "blob": "e174059d98b8796c177270af5d9432e95bf20ee1",
+      "sha256": "8f9fdc9e0a81d4614d81c93369e81086db46d13147c4357f4ed7d1a7fc16140a",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/application/Direct3d9/build/win32/Direct3d9_vsps.vcxproj",
+      "blob": "146f6bf8be6dfa3d981fb465795777b7c969244a",
+      "sha256": "48e59f432c4f37c006d9920b4d9175e5f6dd7342f98d6dd4b0ff3cf9e6678c3a",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/application/DllExport/build/win32/DllExport.vcxproj",
+      "blob": "6f47e6a6055b6d9ff6c842c9eddbf5425aabaab7",
+      "sha256": "164c9af4e3a6a8b4159bee63ef61b59017de21eca2048de35f9813f1491e31fe",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientAnimation/build/win32/clientAnimation.vcxproj",
+      "blob": "43663b8665c82ff311490b10571653ad1757ad71",
+      "sha256": "563b5157c0ab4b89b94be6e98694f28d5b466e12060552dca0155f9eac738c3b",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientAudio/build/win32/clientAudio.vcxproj",
+      "blob": "4cad551a6c9952da33074fc6e8783a310740f77b",
+      "sha256": "d8726db4096dbf6b211ab103b65975e36f1c651a097830a06341438627f46fc7",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientBugReporting/build/win32/clientBugReporting.vcxproj",
+      "blob": "a0c6407987bde53ae2535b68a5aef89002b110c0",
+      "sha256": "b18855fcd43f1680aced2f1e97a7fc43fb22810a69e3549e51d5130351c075cd",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientDirectInput/build/win32/clientDirectInput.vcxproj",
+      "blob": "1ed75b35c52e0230205c772f74741c85992e29e9",
+      "sha256": "acf56e99032419ff4aa0b646a1889c9e7dff96e8a6c2a5c13c70cfbeb515883a",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientGame/build/win32/clientGame.vcxproj",
+      "blob": "11bc15650daa27bf9d74df18e08c4525a7333448",
+      "sha256": "043665e0da9633fa0b93336cdaf3715588c86558318b9c9b9298edf17f3f8e26",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientGraphics/build/win32/clientGraphics.vcxproj",
+      "blob": "0452689df082ab15033bee6fcd471af827a85a18",
+      "sha256": "9253332dc4bfb669fcccc5ef63d521c3d898ddaf4b572b684e1535226c4374e2",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientObject/build/win32/clientObject.vcxproj",
+      "blob": "569b9a85ae7cb73b150c77e3c9ee6d78f98c903f",
+      "sha256": "c86aa3b6803f699254614f1cae80d898718f3a037eee3cd81ce268f9f446d2a6",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientParticle/build/win32/clientParticle.vcxproj",
+      "blob": "bf0309cbb1586ca84e5da71adcf8e37614b47287",
+      "sha256": "e8c9e5e60737d4c2e6671744cf8160d58db5f0f86f3e740875b19e030d76e03e",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/build/win32/clientSkeletalAnimation.vcxproj",
+      "blob": "606c02034e99d332f16e0c421d91db01c14c7ba4",
+      "sha256": "e7f8b42358531aa75d6ca1b8fa2c67005c91ed7eb47ff195ede9a2259d51cb55",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientTerrain/build/win32/clientTerrain.vcxproj",
+      "blob": "c686e5c2966f57cd1e608f39f189eb9449b21063",
+      "sha256": "869fec20ae22b5934531329617459075309188c79694c4680b5bf1f7a1c48658",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientTextureRenderer/build/win32/clientTextureRenderer.vcxproj",
+      "blob": "cb6931637fb4fe86b680b0409a9ec72e6e48bac9",
+      "sha256": "a001747dbdf95b59a126ff2c2ef1dee77d13bfd206ff0ba4be4723e67b83b690",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/build/win32/clientUserInterface.vcxproj",
+      "blob": "e03a918989914fe3174327b639a1432de927c993",
+      "sha256": "edac53e823d003d1b9a81283241c7ec1f9d50fd9d78dcc7c61c6278dce414104",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedCollision/build/win32/sharedCollision.vcxproj",
+      "blob": "a2d1b275112da2e686c8be3f3e79f9b53d0f8a4e",
+      "sha256": "0236e41cd55db9c4d75e3cadcd5a7660b89613ff62257f11c5d7c8aa1a02c23b",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedCommandParser/build/win32/sharedCommandParser.vcxproj",
+      "blob": "13410ee3a9c3880df7eff1e4a094de335d906491",
+      "sha256": "ee5e82e3b968e3f84914bcd54539e38e939dba11986620702a8e514e2c86cd44",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedCompression/build/win32/sharedCompression.vcxproj",
+      "blob": "fca5b03aa4cfe6cc8b3e801288f78908aa008e0e",
+      "sha256": "e237b93690b46840e4ccd1ee2f73453b8299a9eca8601b9ef6c0284effd00e0a",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedDebug/build/win32/sharedDebug.vcxproj",
+      "blob": "6b14c0b115fd3ede1e6898ce1786409ff7037f5b",
+      "sha256": "9591777c14d4b96e2c1299d18cebaa78a8296e2043be3c35e6e61d4e05dbc276",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedFile/build/win32/sharedFile.vcxproj",
+      "blob": "53634527e0089b5eb801c1f2a3232400f272da2c",
+      "sha256": "d85183435a19d0439a73e006385d1d539d36c2da145e92d5fee60fe68f9822b8",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/build/win32/sharedFoundation.vcxproj",
+      "blob": "29910d80a0570e7da4965b8b49d160984c917b74",
+      "sha256": "3cc0b26bfeedf08852581fda50e317d9c5c92ef33dbd67b24464bb28eaeb8ba1",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundationTypes/build/win32/sharedFoundationTypes.vcxproj",
+      "blob": "16af397a0a5119595ddeaa8319924781ecb1bb1e",
+      "sha256": "656cbc91177a788d27962505b4eb41ea48117e33ed4570f18f1b5987c5a966c0",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedFractal/build/win32/sharedFractal.vcxproj",
+      "blob": "6398cbf7db01bed4fb5448c5d4376a08980e6595",
+      "sha256": "9368d595f9ad9437e692707c06e44a9e198eb33b90f5ac4d00301754fc87a32d",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedGame/build/win32/sharedGame.vcxproj",
+      "blob": "f0610a76f1d2069bde34ea703baaddda1c1e37c0",
+      "sha256": "82c7d94b60f8e3814e58213db88bba257f7cbadc6eda345a54179c0f8497f5f1",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedImage/build/win32/sharedImage.vcxproj",
+      "blob": "bfcea23e600a49f616303836b583f17e6750a002",
+      "sha256": "98fa65713885a6fa58812faa1a216cb62e6d62bc26c0348f66e622d80406a510",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedInputMap/build/win32/sharedInputMap.vcxproj",
+      "blob": "0f2a0e347950ded2cc0ae567f95009f04a9787ab",
+      "sha256": "29140eabdf146a4de48c870ecbc7490a75382524277015d9e41fae24c3562ad7",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedIoWin/build/win32/sharedIoWin.vcxproj",
+      "blob": "dfb49642a3dfb8a4052814740ab5bc06219981bf",
+      "sha256": "105abd24b28798b485cc959ffdf6a285ad1ff9d9b48a0541f7bb382ee2cff50b",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedLog/build/win32/sharedLog.vcxproj",
+      "blob": "150535376cea71d1149d48ab17c5227324e8e0f5",
+      "sha256": "4508a4dcacd0d8e42055b4a22b54a745153398feeb00a32b3dce161c9a8ae160",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedMath/build/win32/sharedMath.vcxproj",
+      "blob": "16b648bc9100cfdb514463d53db1117bae3c9800",
+      "sha256": "f740ac98118cc4ac52632d63fa3c721793589b9cd60053e1b1f17f095c65c16d",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedMathArchive/build/win32/sharedMathArchive.vcxproj",
+      "blob": "c3b70511501cbf8ed8a0fa90eae7831d39491d7c",
+      "sha256": "f740c531a352f8bbaa8c1c84619c8331e964a15b1ff92f85c7f14c8c235911c7",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/build/win32/sharedMemoryManager.vcxproj",
+      "blob": "846b31586a0c070ba33a6e13733478ad6f1f589c",
+      "sha256": "a3b22aa70f4c48084fed3460d0ee906717199602843a7915a9fabb87897a93a9",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedMessageDispatch/build/win32/sharedMessageDispatch.vcxproj",
+      "blob": "6eba9c95031b2a4380c19a7e9d6f942828926f0a",
+      "sha256": "f327fcd48279e98408b6372cb7e475dc9cb789b75426b7197d2e1aa5141a1755",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetwork/build/win32/sharedNetwork.vcxproj",
+      "blob": "8882b314846c00c093d93117efc1358650787698",
+      "sha256": "850d9e501f3a1c43ea5d4c6ad3431e82711c8a512f694a963b2da006ee9de36f",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedNetworkMessages/build/win32/sharedNetworkMessages.vcxproj",
+      "blob": "7e756cbe427f39eb573e168895eaf8c85c7856fe",
+      "sha256": "0072c570ef0eb15236a1cc339d4564437c888d1e64baefc9fdc3cf0d1ad83eb8",
+      "matches_original_blob": false
+    },
+    {
+      "path": "src/engine/shared/library/sharedObject/build/win32/sharedObject.vcxproj",
+      "blob": "1e9bdaf1425ed71d8052a4c6202e0a65b95a76db",
+      "sha256": "86e2596b698b296beaf79ce08f5bb56f2585ac5fa4919306cfa7601b6e966f20",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedPathfinding/build/win32/sharedPathfinding.vcxproj",
+      "blob": "6a058b959cb4b65630617fe794647f6a6c5bbb5b",
+      "sha256": "99a0d71ac3ff79995c73a2d000e88bef0375f128a2a912e3c5ac7ed54d162c28",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedRandom/build/win32/sharedRandom.vcxproj",
+      "blob": "4719e4d101e94e0772df7496ce487a5adb1a9e56",
+      "sha256": "7602d61b5d7c0d8c7865b646d442b155da5afc6ae331bf49b1059aca31f2f24e",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedRegex/build/win32/sharedRegex.vcxproj",
+      "blob": "43ad7080db20cc60ce8354d3fe6ecd2060cb4abc",
+      "sha256": "0e08daec7f8803de41ed052cf36fc5d13bf8de98b4b475060dd80b224e4ef0cc",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedRemoteDebugServer/build/win32/sharedRemoteDebugServer.vcxproj",
+      "blob": "78ea3cad9e3c0004618ec66b2c25d8e7e18610b7",
+      "sha256": "7c9007bd5c690a50a33e70c34c3c366bc9416d2e7b0e370f5d0b16ac4967a930",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedSkillSystem/build/win32/sharedSkillSystem.vcxproj",
+      "blob": "556203d4036ce1d3bc0857fe2a2b6b08ee1c53d8",
+      "sha256": "9d553d293fe14a1abfc35b2b3d094d9aaed978c57c4dbdd0a94595ef6d697d8e",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedStatusWindow/build/win32/sharedStatusWindow.vcxproj",
+      "blob": "0255859910ecfdb6780537fa1d9c737091440bea",
+      "sha256": "42416ff8570f24109fa1f43c096d9527ced407fd40dded81bfc7ef4afd0a2d8e",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedSwitcher/build/win32/sharedSwitcher.vcxproj",
+      "blob": "183ba851e1650460c750a5cf418bb5f0e71fae93",
+      "sha256": "39ba1489c870fa96abca3505d91e9afc83113930e607e536ffcb8770334bfb0b",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedSynchronization/build/win32/sharedSynchronization.vcxproj",
+      "blob": "46e0321b61f94d2c3580960dcde8c2a568758f0e",
+      "sha256": "236cf885b08116ede373626f28a1812443a3be9a57b7e083661ffaa638f79e5e",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedTerrain/build/win32/sharedTerrain.vcxproj",
+      "blob": "a838d7af13cd0bc4e3387a517cf67760d0fa0fa4",
+      "sha256": "17fe81e7d895b8dd1fb6d83374efb1b12ae827f182ea60ecaabb2359f6bcdc29",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedThread/build/win32/sharedThread.vcxproj",
+      "blob": "b9c83a878c8b4652289ad9f0da9a1d44601167dd",
+      "sha256": "a37530719b7b4079bb0a63b9ef7414470f74eb958763a019a76ba0384ab9b675",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedUtility/build/win32/sharedUtility.vcxproj",
+      "blob": "3bcd8d87ea7b37fbbd064938361447fce58bd0a1",
+      "sha256": "dd745efcfe86656959170969043f569db1256a75799166e7e3670013c96643f9",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/engine/shared/library/sharedXml/build/win32/sharedXml.vcxproj",
+      "blob": "74eff0c9d79b8287dab9a785bce11d9eff6f384b",
+      "sha256": "c8536d6d8fae6b60dca1e1c92e952bd64a9b54e02742ffc0d45d38fc7dafe138",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/blat194/build/win32/blat.vcxproj",
+      "blob": "050b69c69ba25231b66127d43093e4f4d987a4e7",
+      "sha256": "f00f5e9148caf763869671b7c7d99f6b7ed7f4b9121556428528289d2be7efc4",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/lcdui_src/build/win32/lcdui.vcxproj",
+      "blob": "dad9fd66293399f3e65fd412f705f5a80301c648",
+      "sha256": "334e198c847db3cbbf89e7d102774488d3b0b0ca56d73d6e5b15ab633c2c66ac",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/libEverQuestTCG/build/win32/libEverQuestTCG.vcxproj",
+      "blob": "40a9445e45bc8f066a0e353a191f4b9c701de1fa",
+      "sha256": "88dd82777087c4487afc8de8ed9a8205830f16fda796cc9b6140b55c951dcb33",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/libMozilla/build/win32/libMozilla.vcxproj",
+      "blob": "2c53337ccb6a218549c2166654be51fd6f7cc944",
+      "sha256": "27c0a98aef102f37beb6f1e767c1b706ef5d19603f26cfbf4f5b31e97d0d51a6",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/udplibrary/udplibrary.vcxproj",
+      "blob": "ffbdacadcab187bf3a1cafab0db49aa63e941e46",
+      "sha256": "71745534da62378ab226058f2dba9131708d31409b580e5c96b16d6ed2c44901",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/ui/build/win32/ui.vcxproj",
+      "blob": "61f3278d11379ea1d43cbb9dd5d42e607c397706",
+      "sha256": "4d842bcb7a133399ef33632e3c1a9f58ec1351e167dd0403942d17c8eca897f6",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/3rd/library/zlib-1.2.3/zlib.vcxproj",
+      "blob": "0a9b02cdd4f6e8b7d03f009662152647517685b8",
+      "sha256": "e1459c2f3380e186d6e70df58b7dd1aec059fdc531a3f7281f90bc6eecb1d8e0",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/ours/library/archive/build/win32/archive.vcxproj",
+      "blob": "e8f77b59436549309c107a1fe8641320390da067",
+      "sha256": "72b11220d50e2ad05b09432286d9da8564cee4678e94fb46a3a427508d9ad0b8",
+      "matches_original_blob": false
+    },
+    {
+      "path": "src/external/ours/library/crypto/build/win32/crypto.vcxproj",
+      "blob": "6226b3df18285df11776c479447fa07fbc5fc96a",
+      "sha256": "6a702a139e3e3f975b041f3d1988a5da804333e088f1c5a84e44bae16ec0132e",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/ours/library/fileInterface/build/win32/fileInterface.vcxproj",
+      "blob": "05f00707d9dc2f0c783d0de687cc9d6d9d56830b",
+      "sha256": "81e77040e932914023fbd52a10b37a5a448d0ba16cd3348050b26fea4871c8d5",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/ours/library/localization/build/win32/localization.vcxproj",
+      "blob": "d5b1f6594bc9d8d5f19cbb1f0740e7b37c27c566",
+      "sha256": "50038d932bc61d3ac35244efda981c69a43048f203c50aca48a0bb14b0efaf64",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/ours/library/localizationArchive/build/win32/localizationArchive.vcxproj",
+      "blob": "f9f4498c1ee4322c9cd9d9e98eae9e3b039d0eab",
+      "sha256": "a6fe8afc11093f2336832d4097fc0716d56014412427af0cb454370ddb7e8511",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/ours/library/unicode/build/win32/unicode.vcxproj",
+      "blob": "6b23644a22b42b382c951aa44b55999526609c39",
+      "sha256": "4db19b932c78e3f275b94149dec59bfcbfcbcd098e9ce56f76809491389a51a4",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/external/ours/library/unicodeArchive/build/win32/unicodeArchive.vcxproj",
+      "blob": "d3f7c22d11170d8a0899c999f12e4a8e060c5742",
+      "sha256": "b324df0cd73ab0332e804cfef73cfe642f6956a015b868055b5b87529e835c09",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/game/client/application/SwgClient/build/win32/SwgClient.vcxproj",
+      "blob": "8782f27b66da2386eadd644fe017ecbc535397a7",
+      "sha256": "50827069a7abc6c3eba920f52ea9027efe5c3aa50a7dad9fde7d0494f1e42857",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/game/client/library/swgClientUserInterface/build/win32/swgClientUserInterface.vcxproj",
+      "blob": "e088bd7232db2f1dc027c37aba8b6fa9fee6567b",
+      "sha256": "be10a8eeacf5694864adb8bcd6e5d4c53237f2bf005b89dd4d13dedac101872f",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/game/shared/library/swgSharedNetworkMessages/build/win32/swgSharedNetworkMessages.vcxproj",
+      "blob": "827896df47f14a58359dbc21ea1be1e291a80d4d",
+      "sha256": "e37468b013d5ba19b158c74e12c8b09827f5ffd3650f73bd85662b40cc77fe31",
+      "matches_original_blob": true
+    },
+    {
+      "path": "src/game/shared/library/swgSharedUtility/build/win32/swgSharedUtility.vcxproj",
+      "blob": "76a10405a91c48d0a02d5c65078e2a3ecc28a7fb",
+      "sha256": "6216ddb4092968344914eb2bf00a77ea4fdd05d66b5e641f5d2a2fcd4a4449b2",
+      "matches_original_blob": true
+    },
+    {
+      "path": "tools/configure-client-x64/README.md",
+      "blob": "cd821aec0e7bc70feb7d866baf80b21146af23d7",
+      "sha256": "4cfb118d228bfd7a13a516fc7b6a1bc53d648ca1a5e17435cc05c3db75383c4c",
+      "matches_original_blob": true
+    },
+    {
+      "path": "tools/configure-client-x64/check.py",
+      "blob": "6bdcccfdd3be3ef1e2a115ed6921d46fb40e1bef",
+      "sha256": "1c88cda77362c4e5e41a376b8e7b77538cca3f7ce138bc216ed216361ac09258",
+      "matches_original_blob": true
+    },
+    {
+      "path": "tools/configure-client-x64/client-x64.props",
+      "blob": "c7c62bd24824f7a970dd4b37b63427dd33a814ec",
+      "sha256": "a45d46b0d3a3f16ce969c40fbd2cd4c30340e3da3a84cd6fe646ea136c675b07",
+      "matches_original_blob": true
+    },
+    {
+      "path": "tools/configure-client-x64/generate.py",
+      "blob": "10ecad1a0f03137c12ed56bf384234a712f56541",
+      "sha256": "92cb9aa696ee579ee4acc89ff73d3cc97ea533b355fbcc736a648e6e49cdbacb",
+      "matches_original_blob": true
+    }
+  ],
+  "counts": {
+    "project_xml": 66,
+    "solution": 1,
+    "tooling_docs_props": 4,
+    "all_files": 71,
+    "additions": 7727,
+    "deletions": 0,
+    "production_source": 0
+  },
+  "original_added_removed_lines_exact": true,
+  "static_checks": [
+    "generate.py --check --base 83b29883aa44af948d302b1832a9dc5696269d27: 67 closure projects; 0 files requiring generation",
+    "check.py --base 83b29883aa44af948d302b1832a9dc5696269d27: 67 Win32 XML trees and original solution mappings unchanged"
+  ],
+  "checks_write_source": false,
+  "new_native_build_runtime": false,
+  "configuration_scope": [
+    "Debug|x64",
+    "Release|x64"
+  ],
+  "excluded": [
+    "Optimized|x64",
+    "native provider build/selection",
+    "Miles/Bink game selection",
+    "later dependency/CRT/integration properties"
+  ],
+  "status": ""
+}

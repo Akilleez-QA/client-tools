@@ -1,0 +1,17 @@
+# Independent review — client x64 project configurations
+
+Disposition: no meaningful introduced blocker found within the stated configuration-mechanics scope. The package remains a prerequisite layer, not a standalone successful x64 build. Keep the explicit source/provider/link limitations and historical failed-x64-build outcome.
+
+Reviewed joint base 83b29883aa44af948d302b1832a9dc5696269d27 to head 5b558625c0c42a7d2b1dcce67fb80e0200f53850. The checkout was clean at that head. The base parents match the stated DPVS and link-cleanup prerequisites. Independently verified all 71 file hashes against the receipt and exact added/removed-line equality with original cbfa4dca3ed2c907f995521935f9799faf7a37b5. Counts agree: 66 project files, one solution, four tooling/documentation/property files, +7727/−0, no production C/C++ delta.
+
+I reran only the authorized read-only packaging checks with Python bytecode generation disabled. generate.py --check against the exact joint base reports 67 closure projects and zero files requiring generation. check.py confirms all 67 Win32 XML trees and original solution mappings remain unchanged. The worktree remained clean. The extra closure project is the already-configured DPVS prerequisite.
+
+The generator discovers the SwgClient solution dependency closure, clones Debug/Release settings and preserves the source solution's per-project configuration mapping rather than assuming every project uses the solution configuration name. Missing mappings and partial x64 configurations fail explicitly; no Optimized/IntelCPP x64 mapping is created. Existing Win32 text is retained. The generator intentionally derives output from the supplied base, with its overwrite behavior documented.
+
+The x64-only property import occurs after project definitions and before Cpp.targets. It overrides output/intermediate locations and compiler/PCH/PDB/resource paths, selects x64 linker/librarian machines, and prepends the explicitly supplied DirectX SDK include/x64 library directories. Generated projects each have the expected single import. Inspection found no remaining compile/win32 built-library paths or _USE_32BIT_TIME_T in their x64-conditioned settings. Renderer commands use quoted dev/x64 destinations and create/check the directory. The checker tests build-event paths as well as Win32 semantic preservation. DPVS deliberately retains its independently supplied settings.
+
+These static checks do not prove arbitrary inherited property-sheet behavior or native provider availability. Vendor directories, runtime-library choices, source compatibility, per-user properties and later link integration remain inherited requirements, as the draft and README disclose. The explicit x64 configuration does not make an x86 vendor library usable. Those limitations are not hidden as completed work.
+
+I inspected the cited RESULTS.md from local immutable evidence object 39dc3c354246e4273d6ce940932985bbc23c59c7. It supports the historical 268 evaluations plus 134 x64 output/link evaluations, Win32 observations and failed integrated x64 build. The PR correctly attributes those to their historical source/configuration snapshot and makes no fresh native-build/runtime claim. Public URL reachability was not independently rechecked.
+
+Only this report was written. No generated files or production source were edited, and no native build, runtime or remote action occurred. No broader build campaign or review loop is requested.

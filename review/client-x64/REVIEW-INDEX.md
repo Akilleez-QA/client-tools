@@ -34,7 +34,9 @@ Miles foundations 4–6 are published as fork drafts [#8](https://github.com/Aki
 
 The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) is published as [fork draft #11](https://github.com/Akilleez-QA/client-tools/pull/11) at `afe844818e86b24313a9e940d4723a02f7262ae8`, above the joint Miles-foundation/native-Audio base. Six files, +564/−40; source review found no blocker. Its README identifies external build prerequisites and keeps historical results separate.
 
-The reviewed [client FPU controls](pr-ready-next/client-fpu-controls/RESULTS.md) apply on master; the matching [server FPU controls](pr-ready-next/server-fpu-controls/RESULTS.md) are stacked above server #38 for CI. Each changes three source files, +55/−2, retaining the historical Win32 setter behavior.
+[Client FPU #32](https://github.com/SWG-Source/client-tools/pull/32) applies on master ([evidence](pr-ready-next/client-fpu-controls/RESULTS.md)); matching [server fork draft #3](https://github.com/Akilleez-QA/src/pull/3) is stacked above server #38 for CI ([evidence](pr-ready-next/server-fpu-controls/RESULTS.md)). Each changes three source files, +55/−2, retaining the historical Win32 setter behavior.
+
+The [generated x64 configurations](pr-ready-next/x64-projects/RESULTS.md) are prepared above the published DPVS/link prerequisites: 71 configuration/tooling files, +7727, no production C/C++ changes. The [Windows diagnostics package](pr-ready-next/platform-diagnostics/RESULTS.md) is reviewed directly on master: four source files, +14/−4.
 
 ## Earlier candidate packages and dependency drafts
 
