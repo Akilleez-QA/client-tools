@@ -1,0 +1,15 @@
+# Independent review — UI, Tag and mesh native widths
+
+Disposition: no actionable introduced blocker found. The package preserves six distinct fixes, including independent Tag and mesh consumers, and its description does not hide them as UI prerequisites.
+
+Reviewed master 949451032647e45e42c3aaef3f41b132c8af36e3 to 9396a5181497ba259c0bba0af8c2511154937088. The checkout was clean. Seven production files change +19/−11. Independently verified all seven candidate hashes against the receipt and all six candidate commits' added/removed lines against their original commits.
+
+API/caller review found consistent types and source closure. UIOutputStream already declares the size_t overload; %Iu matches that unsigned native-width argument under the Windows/MSVC runtime. UILoader's iterator originates at begin and advances through the same string, making the diagnostic distance nonnegative on its valid parser paths. The explicit cast selects the intended existing overload. This also intentionally avoids signed decimal interpretation of large Win32 size_t values; no negative-offset contract is being preserved.
+
+The chat insert explicitly selects position/count/Unicode-character semantics and still inserts one quote at the beginning. Unicode::NarrowString is std::string, and getFirstToken takes a size_t position/output reference, so the combat position change matches both the actual API and npos width. Existing token-count/malformed-template handling is unchanged. Tag retains strlen's native type and the same four iterations, padding, byte conversion and shift behavior; it does not alter the public Tag width. Required size_t/string declarations are already available in these source contexts.
+
+Each mesh lower bound now matches its size_t index/container-size arguments, allowing the existing single-T template to instantiate without narrowing the predicate. Debug checks stay active; release behavior stays unchanged. The template still casts values to int only for failure diagnostics, a pre-existing limitation accurately disclosed. UITabbedPane's intrinsic header and __nop call are x64-only; the original Win32 instruction remains.
+
+The PR and receipt maintain appropriate historical scope: real UI project compilation for the nop/parser work; no claimed formatter runtime pass; bounded actual-header Tag values and Debug consumer compilation; no dedicated chat/combat runtime or gameplay claim. The cited allocator/math RESULTS at immutable evidence object 56ecc29fc95c62d10241b6cac0d8d9e713961db1 records the matching source commits and 4,098 bounded Tag values per ABI. The previously reviewed next-build evidence records the four UI configurations and blocked standalone formatter fixture. Neither packet establishes a fresh build of this master-based package, and the body says so. The separate old Audio signature failure is not a dependency of these source hunks.
+
+Only this report was written. No source edits, builds, tests/runtime execution or remote actions were performed. No new testing loop is requested; public URL reachability was not independently rechecked.

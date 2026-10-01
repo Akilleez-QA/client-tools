@@ -1,0 +1,98 @@
+{
+  "branch": "review-ready/client-ui-native-widths",
+  "worktree": "/home/akilleez/Work/swg-source/client-warning-stock",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "9396a5181497ba259c0bba0af8c2511154937088",
+  "commits": [
+    {
+      "original": "291e706032a0566a96c253a78c128300a564c8bc",
+      "candidate": "fc170b89afc14a1f56c98ac816aae0e1decfb52b",
+      "exact_added_removed_lines_match": true
+    },
+    {
+      "original": "1ee6a5f4b87ae1cb4657f662ed5d164127c0d107",
+      "candidate": "d104e5ce3dc27be69586e2d8644e1b74e87ff14e",
+      "exact_added_removed_lines_match": true
+    },
+    {
+      "original": "032f632a9b18bf6444e501afd896e0a325cd96fc",
+      "candidate": "65f3151a957c717feb4b14b92c502237004f69ba",
+      "exact_added_removed_lines_match": true
+    },
+    {
+      "original": "edcf5b4610f3777f806025e2f1a9dd60ab228562",
+      "candidate": "7079fe1a922bcecfc90262797abe8fdf37f6701d",
+      "exact_added_removed_lines_match": true
+    },
+    {
+      "original": "c08d6c4f7ce2dc31424d77e5b144e009e45f7c15",
+      "candidate": "f2cb05fe5b53ade09d999e721566d0f7036d60b9",
+      "exact_added_removed_lines_match": true
+    },
+    {
+      "original": "aa77373637bf1b2c1bcf13e17ad9fa96b6303d80",
+      "candidate": "9396a5181497ba259c0bba0af8c2511154937088",
+      "exact_added_removed_lines_match": true
+    }
+  ],
+  "files": [
+    {
+      "path": "src/engine/client/library/clientSkeletalAnimation/src/shared/appearance/MeshConstructionHelper.cpp",
+      "base_blob": "b23436ffcde3965a3b90ce5c5401a4052dc5e5f4",
+      "candidate_blob": "b444f6204d770ae363b4fee1128c068de6302f6c",
+      "candidate_sha256": "0e0e87bfd0118a4d59d020c9990ce59155304543cb010904a89e4b09443a2332"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/src/shared/core/CuiChatFormatter.cpp",
+      "base_blob": "5dccf811f14b59893f6cf2cf13add34ebe228844",
+      "candidate_blob": "a2c271e7f4e53f30071bfb3f15fe2b4b4910a6e8",
+      "candidate_sha256": "1f57184a56419ffa7374a5e2c05bb876a4e80a061bb5c28765a7948028746335"
+    },
+    {
+      "path": "src/engine/client/library/clientUserInterface/src/shared/core/CuiCombatManager.cpp",
+      "base_blob": "65b2be0d3385ab8d4ae6114ee684ef2046900741",
+      "candidate_blob": "89979e5866ae3a960bbcd9d6828cfc45f61204fa",
+      "candidate_sha256": "e6f27a3e7a605d387bc6391b4d72bfd96032902c03be9c3c931581baeb687df0"
+    },
+    {
+      "path": "src/engine/shared/library/sharedFoundation/src/shared/Tag.h",
+      "base_blob": "82a4f3931f7b16000bbbaee5b239169cd057cf6b",
+      "candidate_blob": "3b77585d8e87fb73319603b1ee84141708258746",
+      "candidate_sha256": "80d760a63173af0d346bd8df5cbdb6f5094488f2ba63ea952dc2802d0a91de6b"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/win32/UILoader.cpp",
+      "base_blob": "1adb95e493d14fe131beb71cf253c38aa868e467",
+      "candidate_blob": "61112283b3730060b471e48e299abe5eb76db8a9",
+      "candidate_sha256": "7ae29cee17782f5f064429c32c485bd198062fe107d32c8c82154adbe1e830e4"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/win32/UIOutputStream.cpp",
+      "base_blob": "d7fcbc1c775e3f72e4f820727111b464833be58f",
+      "candidate_blob": "a15b669a4aadf0b4825ff4eb12e683a2a78aeaf1",
+      "candidate_sha256": "f84d94c3cdeeb3ffdac5db6989868c981e49ed082819c22a21a3694e3ed3ed1d"
+    },
+    {
+      "path": "src/external/3rd/library/ui/src/win32/UITabbedPane.cpp",
+      "base_blob": "ce42475fdf56db9d2427ce465b72bb8db10ca389",
+      "candidate_blob": "ea35d456320d6fba01f9adeada991b6a4302194e",
+      "candidate_sha256": "3711a970a4c6395a5024b8328d53d88cfe1e19d09e7b0d7587fe3eba11c524a5"
+    }
+  ],
+  "numstat": "5\t5\tsrc/engine/client/library/clientSkeletalAnimation/src/shared/appearance/MeshConstructionHelper.cpp\n1\t1\tsrc/engine/client/library/clientUserInterface/src/shared/core/CuiChatFormatter.cpp\n1\t1\tsrc/engine/client/library/clientUserInterface/src/shared/core/CuiCombatManager.cpp\n2\t2\tsrc/engine/shared/library/sharedFoundation/src/shared/Tag.h\n1\t1\tsrc/external/3rd/library/ui/src/win32/UILoader.cpp\n1\t1\tsrc/external/3rd/library/ui/src/win32/UIOutputStream.cpp\n8\t0\tsrc/external/3rd/library/ui/src/win32/UITabbedPane.cpp",
+  "production_files": 7,
+  "production_additions": 19,
+  "production_deletions": 11,
+  "tool_files": 0,
+  "conflicts": false,
+  "fresh_build_runtime": false,
+  "scope_note": "Tag and mesh checks are independent non-UI consumers; retained as separate root-cause commits and disclosed in title/body. No UI pool or ShellExecute patch imported.",
+  "evidence_limits": [
+    "Existing native UI project builds cover nop/parser changes; dedicated formatter runtime blocked on genuine dependencies.",
+    "Native Tag probes cover 4098 bounded actual-header inputs per ABI and Debug consumer compilation; not giant strings/null input.",
+    "Mesh actual TU compiles Debug Win32/x64; diagnostic range predicates preserved, preexisting int display formatting unchanged.",
+    "Chat/combat changes have historical source provenance; no dedicated runtime test claim supplied by this package.",
+    "No exact master-package rebuild."
+  ],
+  "status": ""
+}
