@@ -1,0 +1,76 @@
+name: Memory move real-header regression
+
+on:
+  push:
+    branches: [review-ready/client-imemmove]
+  pull_request:
+    paths:
+      - .github/workflows/imemmove.yml
+      - tools/test-imemmove/**
+      - src/engine/shared/library/sharedFoundation/**
+      - src/engine/shared/library/sharedFoundationTypes/**
+      - src/engine/shared/library/sharedMemoryManager/**
+      - src/engine/shared/library/sharedDebug/**
+      - src/engine/shared/library/sharedFile/**
+      - src/engine/client/library/clientGame/src/shared/HTTPpost/TCPQueue.cpp
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        bits: [32, 64]
+        configuration: [Debug, Release]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Test classifier and prepare pinned upstream control
+        shell: pwsh
+        run: |
+          python tools/test-imemmove/test_diagnostics.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          git worktree add --detach "$env:RUNNER_TEMP/imemmove-baseline" 949451032647e45e42c3aaef3f41b132c8af36e3
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check candidate and upstream with hosted MSVC
+        shell: pwsh
+        env:
+          TEST_BITS: ${{ matrix.bits }}
+          TEST_CONFIGURATION: ${{ matrix.configuration }}
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+          $vs = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (-not $vs) { throw 'MSVC installation not found' }
+          $dev = Join-Path $vs 'Common7/Tools/VsDevCmd.bat'
+          $arch = if ($env:TEST_BITS -eq '32') { 'x86' } else { 'x64' }
+          $negative = if ($env:TEST_BITS -eq '64') { '--expect-ambiguity' } else { '' }
+          $batch = @"
+          @echo off
+          call "$dev" -no_logo -arch=$arch -host_arch=x64
+          if errorlevel 1 exit /b 1
+          python tools/test-imemmove/run.py --checkout . --bits $env:TEST_BITS --configuration $env:TEST_CONFIGURATION --out "$env:RUNNER_TEMP/imemmove-candidate"
+          if errorlevel 1 exit /b 1
+          python tools/test-imemmove/run.py --checkout "$env:RUNNER_TEMP/imemmove-baseline" --bits $env:TEST_BITS --configuration $env:TEST_CONFIGURATION --baseline $negative --out "$env:RUNNER_TEMP/imemmove-control"
+          exit /b %errorlevel%
+          "@
+          $script = Join-Path $env:RUNNER_TEMP 'test-imemmove.cmd'
+          Set-Content -Path $script -Value $batch -Encoding ascii
+          & $script
+          exit $LASTEXITCODE
+      - name: Preserve text evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: imemmove-windows-${{ matrix.bits }}-${{ matrix.configuration }}
+          path: |
+            ${{ runner.temp }}/imemmove-candidate/*.log
+            ${{ runner.temp }}/imemmove-candidate/results.json
+            ${{ runner.temp }}/imemmove-control/*.log
+            ${{ runner.temp }}/imemmove-control/results.json
+          if-no-files-found: warn

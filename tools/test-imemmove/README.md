@@ -16,3 +16,5 @@ For a separate checkout at upstream `94945103`, run the same tool with `--baseli
 Outputs must be fresh. The runner records commands, source/compiler/included-header hashes, build/run logs and strict results. Any unexpected compile, runtime result, count or missing input fails the process. Actual caller translation-unit builds require the original project metadata and its dependency environment; they are separate evidence, not supplied or silently assumed by this compact header test.
 
 Run `python tools/test-imemmove/test_diagnostics.py` for 14 safe text-only classifier tests, including mixed expected/unrelated errors and incidental memmove text. They do not compile malformed C++ or execute a failed baseline.
+
+The `Memory move real-header regression` workflow runs this matrix on Windows 2022 with its installed MSVC toolchain. It repeats the pinned upstream positive/negative controls and publishes only text logs and results. Hosted compiler results supplement the separately recorded VS2013 checks; they do not establish a VS2013 build or whole-library x64 compatibility. Debug remains compile-only in both environments.
