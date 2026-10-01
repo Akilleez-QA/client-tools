@@ -30,6 +30,8 @@ The [complete client package inventory](package-inventory/remaining-package-map.
 
 The first Miles foundation source branches are published as fork drafts [#5](https://github.com/Akilleez-QA/client-tools/pull/5), [#6](https://github.com/Akilleez-QA/client-tools/pull/6) and [#7](https://github.com/Akilleez-QA/client-tools/pull/7), with independent source review: [contracts/codec](pr-ready-next/miles-contracts/RESULTS.md), [native facade](pr-ready-next/miles-native-facade/RESULTS.md), and [file transport](pr-ready-next/miles-file-transport/RESULTS.md). They preserve dormant source boundaries; later source closure and build/Audio handoff remain pending. The contracts branch’s existing portable EOS test passes 298 checks with ASan/UBSan.
 
+Miles foundations 4–6 are source-reviewed and ready for fork drafts: [client callbacks/admission](pr-ready-next/miles-client-callbacks/RESULTS.md), [host runtime](pr-ready-next/miles-host-runtime/RESULTS.md) and [pipe/session composition](pr-ready-next/miles-pipe-session/RESULTS.md). They remain dormant until the later build/Audio handoff. The separate [native Audio width/diagnostic prerequisite](pr-ready-next/audio-native-contract/RESULTS.md) applies directly to maintained master.
+
 ## Earlier candidate packages and dependency drafts
 
 Candidate source and diff links below pin immutable fork commits. `M` means upstream master `949451032647e45e42c3aaef3f41b132c8af36e3`; `S` means submitted imemmove PR #25 at `a7954b5e78274ab3a9eb558fa10186697ff5e848`; `P` means the earlier imemmove production prerequisite `9eadbbbebd515a0fffad2133300703dff68bd7ef`. Counts are production `src/` additions/deletions against the stated base; test tooling and evidence are separate.

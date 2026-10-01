@@ -1,0 +1,274 @@
+{
+  "group": 5,
+  "title": "Native host backend and callback runtime",
+  "branch": "review-ready/client-miles-host-runtime",
+  "base": "97dc8c1f9289fadf8f044dd07f07db7d57c95094",
+  "head": "7bedd5e2f9778e891c29c2bae0eb4092ab6ede4e",
+  "manifest_sha256": "502c30a0b604b58d6eebdd121df243423bf4a89ce84877dca08c674dd22420fa",
+  "production_files": 14,
+  "production_additions": 1568,
+  "deletions": 0,
+  "tests_additions": 205,
+  "files": [
+    {
+      "path": "tools/miles-bridge/src/backend/backend.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "cdbee925b0140b8c6033293cdc05db64c27fd33a",
+      "sha256": "6687a7f85ea4afdebc3f4282777f3c05c783e77477064e5c941ed1639a369cac",
+      "lines": 392
+    },
+    {
+      "path": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "c2f70600c7ba720787a977d083f0ae9d9f22e693",
+      "sha256": "5a1afd1e4fb9d71ab6e0efab0332041a85fa1daad61347867fedbbdc974a15b4",
+      "lines": 337
+    },
+    {
+      "path": "tools/miles-bridge/src/dispatch/registry_resolver.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "0067c69d844749454c16a74485ef8653387b672f",
+      "sha256": "1ad337bd41483a65ccba6f85af87c84f1f93b591fbbd8f86d6d20a646aec5eec",
+      "lines": 21
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/host_eos.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "1168729476ac0fba2312bf382826fcd0669d25bb",
+      "sha256": "cdb52f367c83a349c12a82feb4659ca99bd94304ae810f247ae9a09c657c06cc",
+      "lines": 70
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/host_eos.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "296d4e3e832687690161f085d086fcafa47c323e",
+      "sha256": "80b306ee4da3cf6b824f65e0cc9ec242a1b9ab506dd13bff6e43491a46c3d7ef",
+      "lines": 13
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+      "kind": "production",
+      "origin_revision": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+      "blob": "8a36154d634f20cb4d0aaa169581b524229c37ff",
+      "sha256": "f160e70a74f27563dca07357b577f8ba2915ac160b400b15a9f34c4f54feec79",
+      "lines": 192
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+      "kind": "production",
+      "origin_revision": "b9d3408f1c8c2b39c8ce0ba8dc777cb7a215ab72",
+      "blob": "38323085492ca96e65264ffcf3cb3fb4cb35498d",
+      "sha256": "792572f74845420e89b6c3d413983c27695cd064068a8aba59d50471fcd7e05f",
+      "lines": 51
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_install.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "fd2e9d51256090ac8b9d6933ba7de19f82c37592",
+      "sha256": "2e8270f2f1f82cc322163d2a3cf098d21ffbe63657cf1bd97e07e5373a9916fc",
+      "lines": 28
+    },
+    {
+      "path": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "f96fd60235c819badb832ef258eeef7d6a2ab564",
+      "sha256": "32b2ac052e7f2126a3ed4048e2cee4b7f35dd3c0ba321462eee51b45af124118",
+      "lines": 56
+    },
+    {
+      "path": "tools/miles-bridge/src/host/host.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "89e9086bbeb627050f5011203afc27503ffb6244",
+      "sha256": "719e125a04d28914fb1d02db8ce9eb13a76f3b910ddbeefef4df8401a5cd7870",
+      "lines": 128
+    },
+    {
+      "path": "tools/miles-bridge/src/metadata/metadata_host.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "77fb087812ea2c1bbd4d1296afde8ea3a2171db8",
+      "sha256": "b2b20355c011a4db01c67cc29614be82cbe009eda1e6a841d63411e0300c4e90",
+      "lines": 43
+    },
+    {
+      "path": "tools/miles-bridge/src/upload/upload_state.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "68a99a4b8b36622a41bf91d84035638c33f4c45f",
+      "sha256": "95460981462ec4fb5e8644cd9c5e43e45be06e5abc6e2968cf56f1cb6850813b",
+      "lines": 189
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version_host.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "53b233ddf1a7fcda4228676138a72ff00caeff88",
+      "sha256": "829bc1fdb17558f4e309c8a8de9ba5ff5559884302e8a4fe87d92c57ea952ce8",
+      "lines": 39
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version_host.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "7fc37e96ebf725e91b34c8f5adaec0d2d1289bb1",
+      "sha256": "66033cb9f6edd347566e04d3c6425667399c8858363c466e0d76abe02eeec01c",
+      "lines": 9
+    },
+    {
+      "path": "tools/miles-bridge/tests/upload_binding.cpp",
+      "kind": "test",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ce32ea83670818cc0b075a3f5b18992351b83f65",
+      "sha256": "4923c2fc71e2f0260757afbc5899e953e43f849093d1a1b1cdef15d1ce1d4802",
+      "lines": 205
+    }
+  ],
+  "direct_include_prerequisites": [
+    1,
+    3,
+    4
+  ],
+  "stack_prerequisites": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "fresh_build_test_runtime": false,
+  "build_boundary": "Dormant sources; existing complete build entry points are deferred to group 7. No project/backend selection changes.",
+  "inherited_comment_polish": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f changes standalone comments in ClientMiles.h and miles_wire.h; newly introduced files in this package match the manifest exactly.",
+  "status": "",
+  "manifest_resolved_internal_include_edges": [
+    {
+      "from": "tools/miles-bridge/src/backend/backend.h",
+      "to": "tools/miles-bridge/src/dispatch/registry_resolver.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/backend/backend.h",
+      "to": "tools/miles-bridge/src/version/session_version_host.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/backend/backend.h",
+      "to": "tools/miles-bridge/src/backend/reply.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/backend/backend.h",
+      "to": "tools/miles-bridge/src/upload/upload_state.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/backend/backend.h",
+      "to": "tools/miles-bridge/src/eos/host_eos.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+      "to": "tools/miles-bridge/src/dispatch/host_dispatch.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dispatch/host_dispatch.cpp",
+      "to": "tools/miles-bridge/src/protocol/pair_outputs.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dispatch/registry_resolver.h",
+      "to": "tools/miles-bridge/src/dispatch/host_dispatch.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dispatch/registry_resolver.h",
+      "to": "tools/miles-bridge/src/wire/resource_registry.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/host_eos.cpp",
+      "to": "tools/miles-bridge/src/eos/host_eos.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/host_eos.cpp",
+      "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/host_eos.h",
+      "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+      "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.cpp",
+      "to": "tools/miles-bridge/src/eos/eos_protocol.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+      "to": "tools/miles-bridge/src/transport/endpoint.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+      "to": "tools/miles-bridge/src/file-replies/reply_transaction.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_file_runtime.h",
+      "to": "tools/miles-bridge/src/host-context/call_context.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_install.cpp",
+      "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host-runtime/host_sdk_callbacks.cpp",
+      "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host/host.cpp",
+      "to": "tools/miles-bridge/src/bootstrap/common.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host/host.cpp",
+      "to": "tools/miles-bridge/src/admission/coordinator.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host/host.cpp",
+      "to": "tools/miles-bridge/src/backend/backend.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host/host.cpp",
+      "to": "tools/miles-bridge/src/host-runtime/host_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/host/host.cpp",
+      "to": "tools/miles-bridge/src/eos/host_eos.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/metadata/metadata_host.cpp",
+      "to": "tools/miles-bridge/src/metadata/metadata.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/upload/upload_state.h",
+      "to": "tools/miles-bridge/src/backend/reply.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/upload/upload_state.h",
+      "to": "tools/miles-bridge/src/buffer/buffer_upload.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/upload/upload_state.h",
+      "to": "tools/miles-bridge/src/image/upload_policy.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/version/session_version_host.cpp",
+      "to": "tools/miles-bridge/src/version/session_version_host.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/version/session_version_host.h",
+      "to": "tools/miles-bridge/src/version/session_version.h"
+    }
+  ],
+  "missing_manifest_internal_include_targets": [],
+  "closure_limit": "Manifest direct internal include closure checked only; not a compiler/linker or external SDK/engine closure proof.",
+  "publication_state": "source_branch_published_draft_pending"
+}

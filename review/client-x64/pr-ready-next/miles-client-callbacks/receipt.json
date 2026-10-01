@@ -1,0 +1,256 @@
+{
+  "group": 4,
+  "title": "Engine worker, admission and client callback ownership",
+  "branch": "review-ready/client-miles-client-callbacks",
+  "base": "9ef7a2c7dd99f8cdb7d351ee80704628aa53aa70",
+  "head": "97dc8c1f9289fadf8f044dd07f07db7d57c95094",
+  "manifest_sha256": "502c30a0b604b58d6eebdd121df243423bf4a89ce84877dca08c674dd22420fa",
+  "production_files": 14,
+  "production_additions": 1589,
+  "deletions": 0,
+  "tests_additions": 209,
+  "files": [
+    {
+      "path": "tools/miles-bridge/src/admission/coordinator.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ce5f824d4cd56a65c426935e26834855d2677b06",
+      "sha256": "550d88321437065c80da6141fb3dca597cd559d65e505a3065b4c2663d80455b",
+      "lines": 156
+    },
+    {
+      "path": "tools/miles-bridge/src/admission/coordinator.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "70c12f802dcaaec120a3bf25c3ffdcd45647bfa3",
+      "sha256": "dfbc7d7f233755ed63c63ca7a83035b67ab774be20e6813bca2a8eba24f555a2",
+      "lines": 88
+    },
+    {
+      "path": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "58edea9d7987bc771d1e0639cbb6da4dc4b47e23",
+      "sha256": "17a29c329f8b8a4b355e27bb4e508c2c057fc85c9b9817293460c1de96d7b857",
+      "lines": 411
+    },
+    {
+      "path": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "dd49a246be32d4097bfab6604a03fe13cda699e8",
+      "sha256": "ebf25fe730b01aa3175b32a82f755f588cfead74a2ed327fa4c013a6d2a53c5a",
+      "lines": 55
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/client_eos.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "5e847af464adbc99f5d212b16f154066ae0ab2ce",
+      "sha256": "cd748b28dab276bb2e664c3bd5d4ee2c2f4158bd746d77f146126400e5c79010",
+      "lines": 59
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/client_eos.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "b5130351b7b1291756cabeda70cdf52a727a673d",
+      "sha256": "e94c23400dad11a983b89c91d277ffae681acada329a51985a955aad5a3fd53a",
+      "lines": 31
+    },
+    {
+      "path": "tools/miles-bridge/src/file-control/host_association_mapper.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "e6fe86f7075c627fe8261927a9d93c7e0ed9c2fd",
+      "sha256": "6822b94d7c5b8b6d722410461489c71e7131bbfabb6578d7beb7a03fb50962b0",
+      "lines": 170
+    },
+    {
+      "path": "tools/miles-bridge/src/file-control/host_association_mapper.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "cb14263de51c8497d8cb3e998635c4ac709f549e",
+      "sha256": "f359b74c68e3214c7debb4d492a7a38bdc9fb599f3de5088aecf14fa5482f0ee",
+      "lines": 74
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "35b2eee5d0a74b27ea6c404a41015319822750cc",
+      "sha256": "2cbad198b35b98013ef5a2d92153566599776704ea033132ad21fbf3194e5216",
+      "lines": 169
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/EngineFileWorker.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "937d2d443abdfacd5f80540fed7b1917556485bb",
+      "sha256": "f00074469b9edc75675ec0b259d7134cdc994706413413c6606919ae460b37f4",
+      "lines": 38
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "bbd211e3abbcc8697d6662c3c669b10391e4f8c9",
+      "sha256": "8a5b62395d75bd50df091e2f7b1065cf32ae9f287ac53bf6bfe93d93f1c4605c",
+      "lines": 83
+    },
+    {
+      "path": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "78c87116cdb163bda1b500166b6bac45e825fae1",
+      "sha256": "bc77709f9966573aa58b170d126fac0515569fe4740fef2c69823d5108bc38bd",
+      "lines": 39
+    },
+    {
+      "path": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "01bcc9f5fccda11918e7b7612eb154aaa5c739b9",
+      "sha256": "7702c45f8b93a4c04be495e71c2987b4ee15d5d69265896726426095801f40be",
+      "lines": 152
+    },
+    {
+      "path": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "52741bc8f7961641e4b00e5abefff5f9c515d587",
+      "sha256": "c1df529cf0b30d7d7c3681e6b60c0a77b928ce94eb0b3efaea16c91b542ad059",
+      "lines": 64
+    },
+    {
+      "path": "tools/miles-bridge/tests/engine_worker_context.cpp",
+      "kind": "test",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "6151c35de93d36c019a93ca8dbc0bc6fd3bd602d",
+      "sha256": "fd5085da23546341d32ecbf7a686caedb6654b2cf380b8e9380010d5e732aef9",
+      "lines": 117
+    },
+    {
+      "path": "tools/miles-bridge/tests/engine_worker_context.h",
+      "kind": "test",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ba6f1057bf8980dbb154553f5a8bdc151bffe910",
+      "sha256": "4acbb7698c628cec1880e07f97fd919d76022c8dfba492fcf6d7ff63d79314ba",
+      "lines": 13
+    },
+    {
+      "path": "tools/miles-bridge/tests/lock_admission.cpp",
+      "kind": "test",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "07137ad06f088f85924fefb11760bdc49df086f4",
+      "sha256": "36d0959aaa3cca0b60bf0f90d1936c8af9a26e300c51820b910781c925ddefb9",
+      "lines": 79
+    }
+  ],
+  "direct_include_prerequisites": [
+    1,
+    3
+  ],
+  "stack_prerequisites": [
+    1,
+    2,
+    3
+  ],
+  "fresh_build_test_runtime": false,
+  "build_boundary": "Dormant sources; existing complete build entry points are deferred to group 7. No project/backend selection changes.",
+  "inherited_comment_polish": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f changes standalone comments in ClientMiles.h and miles_wire.h; newly introduced files in this package match the manifest exactly.",
+  "status": "",
+  "manifest_resolved_internal_include_edges": [
+    {
+      "from": "tools/miles-bridge/src/admission/coordinator.cpp",
+      "to": "tools/miles-bridge/src/admission/coordinator.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/admission/coordinator.h",
+      "to": "tools/miles-bridge/src/protocol/miles_wire.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+      "to": "tools/miles-bridge/src/client-runtime/client_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+      "to": "tools/miles-bridge/src/eos/client_eos.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.cpp",
+      "to": "tools/miles-bridge/src/eos/eos_protocol.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+      "to": "tools/miles-bridge/src/transport/endpoint.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+      "to": "tools/miles-bridge/src/file-services/selected_services.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/client-runtime/client_file_runtime.h",
+      "to": "tools/miles-bridge/src/file-control/host_association_mapper.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+      "to": "tools/miles-bridge/src/eos/client_eos.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/client_eos.cpp",
+      "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/client_eos.h",
+      "to": "tools/miles-bridge/src/api/ClientMiles.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/eos/client_eos.h",
+      "to": "tools/miles-bridge/src/file-executor/EngineFileWorker.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-control/host_association_mapper.cpp",
+      "to": "tools/miles-bridge/src/file-control/host_association_mapper.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-control/host_association_mapper.h",
+      "to": "tools/miles-bridge/src/file-owner/session_file_owner.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-control/host_association_mapper.h",
+      "to": "tools/miles-bridge/src/file-protocol/file_protocol.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-executor/EngineFileWorker.cpp",
+      "to": "tools/miles-bridge/src/file-executor/EngineFileWorker.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.cpp",
+      "to": "tools/miles-bridge/src/file-executor/FileInvocationJob.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+      "to": "tools/miles-bridge/src/file-executor/EngineFileWorker.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-executor/FileInvocationJob.h",
+      "to": "tools/miles-bridge/src/file-channel/file_channel.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-owner/session_file_owner.cpp",
+      "to": "tools/miles-bridge/src/file-owner/session_file_owner.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+      "to": "tools/miles-bridge/src/admission/coordinator.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/file-owner/session_file_owner.h",
+      "to": "tools/miles-bridge/src/file-executor/FileInvocationJob.h"
+    }
+  ],
+  "missing_manifest_internal_include_targets": [],
+  "closure_limit": "Manifest direct internal include closure checked only; not a compiler/linker or external SDK/engine closure proof.",
+  "publication_state": "source_branch_published_draft_pending"
+}

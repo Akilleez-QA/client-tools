@@ -1,0 +1,95 @@
+{
+  "branch": "review-ready/client-audio-native-contract",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "0699bd3d9b08998cb731d6ac7655681f3d003e6d",
+  "numstat": "28\t24\tsrc/engine/client/library/clientAudio/src/win32/Audio.cpp",
+  "source_path": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+  "base_blob": "18cfb81c95a302a40d9d79483f26eb6b84147d7f",
+  "candidate_blob": "1adfadf450c813b6b722f7ff2d2923d087e82a64",
+  "candidate_sha256": "1d405eada590ef5188cd4c796caa5bee904769819ab9097272c6f16d10826209",
+  "changes": [
+    {
+      "original": "d0fea5bc79fc0ee31cd38fdc9122dbb18574f3c0",
+      "candidate": "52738ff0716dc8612b9a984c9bd477116cdb1da0",
+      "exact_added_removed_lines_match": true,
+      "lines": [
+        "+#include <inttypes.h>",
+        "+#include <stdint.h>",
+        "-\ttypedef std::map<unsigned int, AbstractFile *>                               FileMap;",
+        "+\ttypedef std::map<UINTa, AbstractFile *>                               FileMap;",
+        "-\tunsigned int                 s_nextFileHandle = 0;",
+        "+\tUINTa                        s_nextFileHandle = 0;",
+        "-\ttypedef std::map<uint32, std::string> HandleNameMap;",
+        "+\ttypedef std::map<UINTa, std::string> HandleNameMap;",
+        "-\ttypedef std::set<uint32> HandleSet;",
+        "+\ttypedef std::set<UINTa> HandleSet;",
+        "-\tvoid determineCallbackError(char const * const callbackName, uint32 const handle)",
+        "+\tvoid determineCallbackError(char const * const callbackName, UINTa const handle)",
+        "-\t\tDEBUG_FATAL(true, (\"Trying to file %s on a file that no longer exists. handle=%d, filename=%s, open=%d, still open=%d, closed=%d\",",
+        "+\t\tDEBUG_FATAL(true, (\"Trying to file %s on a file that no longer exists. handle=%\" PRIuPTR \", filename=%s, open=%d, still open=%d, closed=%d\",",
+        "-\t\t\thandle,",
+        "+\t\t\tstatic_cast<uintptr_t>(handle),",
+        "-static U32 __stdcall fileOpenCallBack(char const *fileName, U32 *fileHandle);",
+        "-static void __stdcall fileCloseCallBack(U32 fileHandle);",
+        "-static S32 __stdcall fileSeekCallBack(U32 fileHandle, S32 offset, U32 type);",
+        "-static U32 __stdcall fileReadCallBack(U32 fileHandle, void *buffer, U32 bytes);",
+        "+static U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle);",
+        "+static void __stdcall fileCloseCallBack(UINTa fileHandle);",
+        "+static S32 __stdcall fileSeekCallBack(UINTa fileHandle, S32 offset, U32 type);",
+        "+static U32 __stdcall fileReadCallBack(UINTa fileHandle, void *buffer, U32 bytes);",
+        "-U32 __stdcall fileOpenCallBack(char const *fileName, U32 *fileHandle)",
+        "+U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)",
+        "-void __stdcall fileCloseCallBack(U32 const fileHandle)",
+        "+void __stdcall fileCloseCallBack(UINTa const fileHandle)",
+        "-S32 __stdcall fileSeekCallBack(U32 const fileHandle, S32 const offset, U32 const type)",
+        "+S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)",
+        "-U32 __stdcall fileReadCallBack(U32 const fileHandle, void *buffer, U32 const bytes)",
+        "+U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const bytes)"
+      ]
+    },
+    {
+      "original": "25f7fff28d24c91b932ba95df5a740081b5248e5",
+      "candidate": "d95d008fe3032d3afa0bef2e3832d245bf5fe143",
+      "exact_added_removed_lines_match": true,
+      "lines": [
+        "-\ts_maxDigitalMixerChannels = AIL_get_preference(DIG_MIXER_CHANNELS);",
+        "+\tSINTa const maxDigitalMixerChannels = AIL_get_preference(DIG_MIXER_CHANNELS);",
+        "+\tFATAL(maxDigitalMixerChannels < (std::numeric_limits<int>::min)() || maxDigitalMixerChannels > (std::numeric_limits<int>::max)(), (\"Miles mixer channel count exceeds int range\"));",
+        "+\ts_maxDigitalMixerChannels = static_cast<int>(maxDigitalMixerChannels);",
+        "-\tunsigned int const sample2dMapSize = s_sampleIdToSample2dMap.size();",
+        "+\tsize_t const sample2dMapSize = s_sampleIdToSample2dMap.size();",
+        "-\tunsigned int const sample3dMapSize = s_sampleIdToSample3dMap.size();",
+        "+\tsize_t const sample3dMapSize = s_sampleIdToSample3dMap.size();",
+        "-\tunsigned int const streamMapSize = s_sampleIdToSampleStreamMap.size();",
+        "+\tsize_t const streamMapSize = s_sampleIdToSampleStreamMap.size();",
+        "-\tint const fileMapCount = s_fileMap.size();",
+        "-\tDEBUG_WARNING((fileMapCount > 0), (\"File handles (%d) are still allocated.\", fileMapCount));",
+        "+\tsize_t const fileMapCount = s_fileMap.size();",
+        "+\tDEBUG_WARNING((fileMapCount > 0), (\"File handles (%\" PRIu64 \") are still allocated.\", static_cast<uint64_t>(fileMapCount)));"
+      ]
+    },
+    {
+      "original": "681f337c3f0064b831c4fd0ba10935daeaf024f5",
+      "candidate": "0699bd3d9b08998cb731d6ac7655681f3d003e6d",
+      "exact_added_removed_lines_match": true,
+      "lines": [
+        "-\tDEBUG_REPORT_PRINT(true, (\"User Speaker Setting       - %s\\n\", getCurrent3dProvider()));",
+        "-\tDEBUG_REPORT_PRINT(true, (\"Miles Speaker Setting      - %s\\n\", getSpeakerSpec()));",
+        "+\tDEBUG_REPORT_PRINT(true, (\"User Speaker Setting       - %s\\n\", getCurrent3dProvider().c_str()));",
+        "+\tDEBUG_REPORT_PRINT(true, (\"Miles Speaker Setting      - %s\\n\", getSpeakerSpec().c_str()));",
+        "-\tREPORT_LOG(true, (\"Audio: Miles speakers are %s\\n\", getSpeakerSpec()));",
+        "+\tREPORT_LOG(true, (\"Audio: Miles speakers are %s\\n\", getSpeakerSpec().c_str()));"
+      ]
+    }
+  ],
+  "conflicts": false,
+  "context_adaptation": "Git applied all three original hunks cleanly; every added/removed source line matches the originals. Later diagnostic line positions differ, with no changed patch content.",
+  "fresh_build_test_runtime": false,
+  "status": "",
+  "limits": [
+    "Historical native evidence uses integrated engine/allocator/archive prerequisites; not an exact master-package rebuild.",
+    "No facade, pipe, backend selection, TLS lifetime or SDK redistribution changes.",
+    "Speaker diagnostics source proof preserves temporary std::string lifetime through the full expression; no isolated runtime claim."
+  ],
+  "publication_state": "source_branch_published_upstream_PR_pending"
+}

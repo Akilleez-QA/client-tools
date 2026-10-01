@@ -1,0 +1,231 @@
+{
+  "group": 6,
+  "title": "Pipe facade and session composition",
+  "branch": "review-ready/client-miles-pipe-session",
+  "base": "7bedd5e2f9778e891c29c2bae0eb4092ab6ede4e",
+  "head": "3430934cedf230e7c5c2a77ae8b9e6f607fb1fe8",
+  "manifest_sha256": "502c30a0b604b58d6eebdd121df243423bf4a89ce84877dca08c674dd22420fa",
+  "production_files": 11,
+  "production_additions": 1847,
+  "deletions": 0,
+  "tests_additions": 311,
+  "files": [
+    {
+      "path": "tools/miles-bridge/src/api/pipe/Channel.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "7a2d4a31c1282efcad147801ab7eed5a8d1ab416",
+      "sha256": "185580cd164e7225535c4b80cf029737c56a0f5e22b5081b8e7ec9f04708c736",
+      "lines": 22
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "f97901326790cf38f0d0d420f548040c402ac6f1",
+      "sha256": "3a791dd922b91328784860de85bc55f792e12ed3128c397776e60e268163fd9b",
+      "lines": 218
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "afdbb7c889c8f465a7238eebf4478cd5a98037bd",
+      "sha256": "76eb3343daaaa9591bc75d2c41079945045a850eb5044bea5c064006861153a5",
+      "lines": 156
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "593eea9435c66940a44d99eb59321bf0bb756e78",
+      "sha256": "c33a9edab8f1b2ad834b6b3d696704bfd2404de1eaa7753435e735a9fb097225",
+      "lines": 15
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "bddf190b2814bc9d6d16cbd6ead0a4b8416d48e9",
+      "sha256": "58e3ebf142c9f09aa27acaec8906d55e894fdcc752532c915267b654059c8d2d",
+      "lines": 1000
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/PipeCore.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ff49458d8798d353fb6f5f8b15f9f5112fca1f68",
+      "sha256": "c3d26e9d97665947f07c9b738b7315841d91d700536f39b1400dccf92c3ade45",
+      "lines": 177
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "3099d336366e68386ad066e72858a99c52a64309",
+      "sha256": "3eaa7740d066836cc26aa038f493dc8dc4f366e556ff5ab7636dd2c01e559d17",
+      "lines": 23
+    },
+    {
+      "path": "tools/miles-bridge/src/api/pipe/Session.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "e53af35111310d81f322c1ce2de3d0085f17fe53",
+      "sha256": "d60a2a8edf2916654629e5cb737ecbdc2c2e309dc0f8460536a8f4780b1e0089",
+      "lines": 83
+    },
+    {
+      "path": "tools/miles-bridge/src/dev/AudioSelection.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2b258888e34d0d1b36fb738a23f2c39fb3878753",
+      "sha256": "cdde8a2640b2586c9a701a2e2accfc455a3157d481864a66c64789159c58ae2b",
+      "lines": 100
+    },
+    {
+      "path": "tools/miles-bridge/src/failure/failure_boundary.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+      "sha256": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353",
+      "lines": 29
+    },
+    {
+      "path": "tools/miles-bridge/src/failure/failure_boundary.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "db6327c19295f77ce54e7976c76a37927037ddc3",
+      "sha256": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541",
+      "lines": 24
+    },
+    {
+      "path": "tools/miles-bridge/tests/pipe_lock_probe.cpp",
+      "kind": "test",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2ada5c765fac8bdd0c5821fd372ab6f599cdc548",
+      "sha256": "42042af816a3392faf8f9456f7fc19bcbf94d91d703bd401edfb75b8e784ec9a",
+      "lines": 311
+    }
+  ],
+  "direct_include_prerequisites": [
+    1,
+    3,
+    4
+  ],
+  "stack_prerequisites": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "fresh_build_test_runtime": false,
+  "build_boundary": "Dormant sources; existing complete build entry points are deferred to group 7. No project/backend selection changes.",
+  "inherited_comment_polish": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f changes standalone comments in ClientMiles.h and miles_wire.h; newly introduced files in this package match the manifest exactly.",
+  "status": "",
+  "manifest_resolved_internal_include_edges": [
+    {
+      "from": "tools/miles-bridge/src/api/pipe/Channel.h",
+      "to": "tools/miles-bridge/src/backend/reply.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+      "to": "tools/miles-bridge/src/api/ClientMiles.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+      "to": "tools/miles-bridge/src/api/pipe/PipeCore.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+      "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/ClientMilesPipe.cpp",
+      "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "to": "tools/miles-bridge/src/api/pipe/LiveChannel.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "to": "tools/miles-bridge/src/bootstrap/common.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "to": "tools/miles-bridge/src/file-protocol/file_protocol.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/LiveChannel.cpp",
+      "to": "tools/miles-bridge/src/image/upload_policy.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+      "to": "tools/miles-bridge/src/api/pipe/Channel.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/LiveChannel.h",
+      "to": "tools/miles-bridge/src/api/pipe/Session.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "to": "tools/miles-bridge/src/api/pipe/Session.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "to": "tools/miles-bridge/src/callback-guard/invocation_guard.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "to": "tools/miles-bridge/src/protocol/pair_outputs.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/PipeCore.cpp",
+      "to": "tools/miles-bridge/src/image/upload_policy.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/PipeCore.h",
+      "to": "tools/miles-bridge/src/api/ClientMiles.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/Session.h",
+      "to": "tools/miles-bridge/src/api/pipe/PipeCore.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/Session.h",
+      "to": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/Session.h",
+      "to": "tools/miles-bridge/src/api/pipe/Channel.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/api/pipe/Session.h",
+      "to": "tools/miles-bridge/src/client-runtime/client_file_runtime.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dev/AudioSelection.h",
+      "to": "tools/miles-bridge/src/api/ClientMiles.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dev/AudioSelection.h",
+      "to": "tools/miles-bridge/src/api/pipe/ScopedSourceImage.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/dev/AudioSelection.h",
+      "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+    },
+    {
+      "from": "tools/miles-bridge/src/failure/failure_boundary.cpp",
+      "to": "tools/miles-bridge/src/failure/failure_boundary.h"
+    }
+  ],
+  "missing_manifest_internal_include_targets": [],
+  "closure_limit": "Manifest direct internal include closure checked only; not a compiler/linker or external SDK/engine closure proof.",
+  "publication_state": "source_branch_published_draft_pending"
+}
