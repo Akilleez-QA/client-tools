@@ -1,3 +1,17 @@
+# Akilleez-QA client x64 working fork
+
+**[Current client/server status](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/FORK-STATUS.md) · [All 58 upstream PRs](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/REVIEW-INDEX.md) · [Fork draft → upstream map](https://github.com/Akilleez-QA/client-tools/blob/review/client-x64-evidence/review/client-x64/package-inventory/fork-preparation-map.md)**
+
+As verified on 2026-10-01, 46 client and 12 server PRs are submitted to SWG Source. All reported server checks pass. Client qualification is the scoped native/fork evidence linked from each PR; no upstream client check pass is claimed.
+
+Use [integration/client-x64-next](https://github.com/Akilleez-QA/client-tools/tree/integration/client-x64-next) for the maintained combined implementation, or the exact branch/head named in the PR being reviewed. This fork's `master` retains upstream source baseline `94945103` plus this navigation; it does **not** contain the x64 implementation. The evidence branch contains reports, not a buildable x64 release.
+
+The recorded client builds and bounded game sessions are described in the current status. Representative gameplay and complete audiovisual fidelity are separate acceptance questions. Maintainers control upstream review and merging.
+
+---
+
+## Original upstream README (legacy baseline)
+
 # Client/Tools Repo
 This repository contains the source for the SWG Client as well as the tools that support certain aspects of development.
 
