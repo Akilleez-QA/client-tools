@@ -2,7 +2,7 @@
 
 This package contains the private paired-process Miles bridge and a direct native
 facade. The default game retains direct Miles. Explicit `ClientMilesDevelopment=true`
-selects the pipe facade for a development Debug-x64 game; the separate `audio-dev`
+selects the pipe facade for a development Debug- or Release-x64 game; the separate `audio-dev`
 target remains a compile-only check. Native and pipe adapters implement the same public names; choose one,
 never link both.
 
@@ -34,23 +34,25 @@ and artifact hashes in `receipt.json`. The script builds but does not run binari
 | `pipe-probe` | x64 probe linked with the pipe adapter, engine worker and genuine engine archives. |
 | `audio-dev` | Real Audio object compiled with explicit `CLIENT_MILES_DEV_FACADE`; no game link. |
 
-These component targets use the debug static CRT (`/MTd`); there is no Release
-configuration switch here. Engine translation units retain the engine's STLport
+The default Debug targets use the debug static CRT (`/MTd`). Add
+`--configuration Release` for matching Release components (`/MT`, `/O2`,
+`NDEBUG`); Debug output paths remain unchanged and Release outputs add a
+configuration directory. Engine translation units retain the engine's STLport
 and `wchar_t` settings, separately from modern component translation units.
 Application CRT/configuration compatibility remains an integration prerequisite.
 
 The three engine-dependent targets require an external maintained engine checkout
-whose `clientAudio.vcxproj` contains explicit `Debug|x64` definitions and include
+whose `clientAudio.vcxproj` contains explicit matching `Debug|x64` or `Release|x64` definitions and include
 paths, with no unresolved MSBuild substitutions. Its include paths must contain
 real `src/external/3rd/library/stlport453/stlport` headers. The inherited x64-projects prerequisite supplies these configurations; its
 configuration conversion alone does not provide the full client source fixes or
 built external libraries.
 
-`pipe-probe` also requires Debug-x64 archives under `src/compile/x64/<name>/Debug`:
+`pipe-probe` also requires matching archives under `src/compile/x64/<name>/<Configuration>`:
 `sharedThread`, `sharedSynchronization`, `sharedFoundation`, `sharedMemoryManager`,
 `sharedDebug`, `sharedMath`, `sharedRandom`, `unicode`, `sharedFile`,
 `sharedCompression`, `fileInterface`, `archive`, and `zlib`, plus
-`src/compile/deps/v120/x64/Debug/stlport.lib`. The runner records selected libraries
+`src/compile/deps/v120/x64/<Configuration>/stlport.lib`. The runner records selected libraries
 and copies their available compiler PDBs from `obj` directories for linking.
 
 ## Source and ownership boundaries
@@ -114,7 +116,7 @@ audio, or proves callback fidelity, device behavior or heap safety.
 ## Opt-in game selection
 
 The x64 property sheet imports `client-miles-dev.props` only when
-`ClientMilesDevelopment=true`. It requires Debug|x64/v120 and explicit existing
+`ClientMilesDevelopment=true`. It requires Debug|x64 or Release|x64 with v120 and explicit existing
 `ClientMilesPipeLibrary` and `ClientMilesWorkerLibrary` archive paths. Build
 clientAudio with the same property before SwgClient; its isolated archive path
 prevents fallback to an old direct-Miles archive. Outputs are under
@@ -125,7 +127,7 @@ particular, obsolete browser/capture inputs and the other separately packaged
 x64 source fixes must be composed before claiming a working full client build.
 `link-client-dev.py` is a development relink tool using existing real libraries
 and pinned build receipts, not a fresh whole-source rebuild or runtime qualifier.
-Release selection remains a later package.
+The relink tool remains Debug-only; use the project build for Release.
 
 The host is windowless; original module paths are normalized and compared as
 absolute Windows paths. Forward traffic uses normal-size I/O segments. These
@@ -164,7 +166,7 @@ These records do not qualify this split composition or arbitrary provider versio
 
 ## Opt-in Bink game adapter
 
-The selected Debug-x64 game uses `PipeBinkVideo` through the existing VideoList
+The selected Debug- or Release-x64 game uses `PipeBinkVideo` through the existing VideoList
 factory. Default builds retain direct Bink. Both paths share the extracted
 `VideoBlit` texture resources and draw math; frame copying still occurs under the
 texture lock. Supported backbuffer formats and the original frame scheduling
@@ -179,3 +181,19 @@ The [original extraction](https://github.com/Akilleez-QA/client-tools/commit/81c
 and [game integration](https://github.com/Akilleez-QA/client-tools/commit/afacd961f7dd0d70e518d835b3581d261f3f62b1)
 record historical native compile/link results. No build or playback was rerun for
 this source split. Compilation alone is not pixel, waveform or timing equivalence.
+
+
+## Matching Release composition
+
+Use `--configuration Release` for host, pipe and engine-worker builds, and pass
+those Release archives to the project with `Configuration=Release`,
+`Platform=x64`, and `ClientMilesDevelopment=true`. Build the isolated Audio and
+Graphics projects with the same settings before SwgClient. The Release executable
+is named `SwgClient_r`; Debug retains `SwgClient_d`. The explicit archive existence
+checks do not replace verification of their configuration/ABI and build receipts.
+
+The [original Release checkpoint](https://github.com/Akilleez-QA/client-tools/commit/33efad160379912308171fbbb0e3cab54eddd523)
+records a full integrated Release rebuild with 0 errors and 3274 warnings, and
+strict component builds. It is evidence for that recorded integrated tree, not a
+new build of this split branch. Original matching providers and the other full
+client prerequisites remain required; no SDK assets are redistributed here.
