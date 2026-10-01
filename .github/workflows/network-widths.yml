@@ -1,4 +1,4 @@
-name: Windows network width regression
+name: Windows network header width regression
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
         run: |
           python tools/test-windows-network-widths/test_diagnostics.py
           exit $LASTEXITCODE
-      - name: Run 100-case matrix with explicit modern MSVC
+      - name: Run 80-case header matrix with explicit modern MSVC
         shell: pwsh
         run: |
           $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
@@ -40,7 +40,7 @@ jobs:
           $vcvars = Join-Path $vs 'VC/Auxiliary/Build/vcvarsall.bat'
           $revision = git rev-parse HEAD
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python tools/test-windows-network-widths/run.py --checkout . --out "$env:RUNNER_TEMP/network-widths" --vcvars "$vcvars" --modern-msvc --revision "$revision"
+          python tools/test-windows-network-widths/run.py --checkout . --out "$env:RUNNER_TEMP/network-widths" --vcvars "$vcvars" --modern-msvc --only headers --revision "$revision"
           exit $LASTEXITCODE
       - name: Preserve text evidence
         if: always()

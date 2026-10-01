@@ -7,6 +7,12 @@ def key(path):
     return ntpath.normcase(ntpath.normpath(str(path)))
 
 
+def assertion_message(message):
+    """Exact v120 text or verified modern-MSVC quoted static_assert text."""
+    escaped = re.escape(message)
+    return r"(?:" + escaped + r"|static_assert failed: '" + escaped + r"')"
+
+
 def expected_failure(text, allowed):
     """allowed maps exact source paths to (line or None, code, message regex)."""
     allowed = {key(path): rules for path, rules in allowed.items()}

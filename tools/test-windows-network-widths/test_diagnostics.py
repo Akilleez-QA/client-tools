@@ -1,5 +1,5 @@
 """Negative diagnostics must identify the actual control, not another failure."""
-from diagnostics import expected_failure
+from diagnostics import expected_failure, assertion_message
 
 checks = 0
 source = r'C:\fixture\reverted-TcpClient.cpp'
@@ -33,4 +33,15 @@ for text in ('', valid.replace(source, r'C:\other.cpp'), valid.replace('(550)', 
              valid + error(source, 550, 'C2664', 'unrelated overload'),
              valid + 'fatal error: unknown tool failure\n'):
     expect(text, False)
+for message in ('Sock::handle truncates SOCKET', 'Sock::handle must be pointer-sized', 'SOCKET width'):
+    rules = {probe: [(46, 'C2338', assertion_message(message))]}
+    for wording in (message, "static_assert failed: '" + message + "'"):
+        expect(error(probe, 46, 'C2338', wording), True)
+    for wording in ('static_assert failed: "' + message + '"',
+                    "static_assert failed: '" + message,
+                    "static_assert failed: '" + message + "' extra",
+                    "static_assert failed: 'unrelated'", message + ' extra'):
+        expect(error(probe, 46, 'C2338', wording), False)
+    expect(error(probe, 47, 'C2338', "static_assert failed: '" + message + "'"), False)
+    expect(error(source, 46, 'C2338', "static_assert failed: '" + message + "'"), False)
 print('PASS %d diagnostic classification checks' % checks)

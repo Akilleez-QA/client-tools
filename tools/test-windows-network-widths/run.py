@@ -10,7 +10,7 @@ import struct
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
-from diagnostics import expected_failure
+from diagnostics import expected_failure, assertion_message
 
 NETWORK = 'src/engine/shared/library/sharedNetwork'
 HEADERS = [NETWORK + '/src/win32/Sock.h',
@@ -138,7 +138,7 @@ def main():
                     for i, line in enumerate(probe.read_text().splitlines(), 1):
                         for message in ('Sock::handle truncates SOCKET', 'Sock::handle must be pointer-sized', 'SOCKET width'):
                             if '"' + message + '"' in line:
-                                assertions.append((i, 'C2338', re.escape(message)))
+                                assertions.append((i, 'C2338', assertion_message(message)))
                     rules[str(probe)] = assertions
                 record['passed'] = (run.returncode != 0 and expected_failure(text, rules)
                                     and any(r['name'] == positive_name and r['passed'] for r in results))
