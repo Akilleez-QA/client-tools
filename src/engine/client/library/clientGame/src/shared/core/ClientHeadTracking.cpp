@@ -64,9 +64,10 @@ void ClientHeadTracking::install()
 	if (currentUserRegistryKey && currentUserRegistryKey->subKeyExists(ms_npClientLocation))
 	{
 		RegistryKey * const npClientLocationRegistryKey = currentUserRegistryKey->openSubkey(ms_npClientLocation);
-		// Reserve the separator and DLL name, including the final terminator.
+		// Limit path characters to leave room for the separator, DLL name and final terminator.
 		DWORD const pathCapacity = static_cast<DWORD>(sizeof(libraryName) - strlen(ms_npClientLibrary) - 2);
-		if (npClientLocationRegistryKey && npClientLocationRegistryKey->getStringValue("Path", "", libraryName, pathCapacity, true) && strlen(libraryName) <= pathCapacity)
+		// The registry byte capacity also includes a REG_SZ's existing terminator.
+		if (npClientLocationRegistryKey && npClientLocationRegistryKey->getStringValue("Path", "", libraryName, pathCapacity + 1, true) && strlen(libraryName) <= pathCapacity)
 		{
 			strcat(libraryName, "\\");
 			strcat(libraryName, ms_npClientLibrary);
@@ -128,8 +129,8 @@ void ClientHeadTracking::install()
 				}
 			}
 
-			delete npClientLocationRegistryKey;
 		}
+		delete npClientLocationRegistryKey;
 	}
 
 	if (ms_supported)
