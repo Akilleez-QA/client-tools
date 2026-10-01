@@ -36,6 +36,8 @@
 #include "sharedUtility/DataTable.h"
 #include "sharedUtility/LocalMachineOptionManager.h"
 
+#include <inttypes.h>
+#include <stdint.h>
 #include <limits>
 #include <list>
 #include <map>
@@ -83,7 +85,7 @@ namespace AudioNamespace
 
 	typedef std::map<CrcString const *, SampleCacheEntry, LessPointerComparator> SampleCache;
 	typedef std::map<CrcString const *, int, LessPointerComparator>              MusicOffsetMap;
-	typedef std::map<unsigned int, AbstractFile *>                               FileMap;
+	typedef std::map<UINTa, AbstractFile *>                               FileMap;
 	typedef std::map<SampleId, Sample2d>                                         SampleIdToSample2dMap;
 	typedef std::map<SampleId, Sample3d>                                         SampleIdToSample3dMap;
 	typedef std::map<SampleId, SampleStream>                                     SampleIdToSampleStreamMap;
@@ -118,7 +120,7 @@ namespace AudioNamespace
 	int                          s_instantRejectionCount = 0;
 	int                          s_nextSoundId = 1;
 	int                          s_nextSampleId = 1;
-	unsigned int                 s_nextFileHandle = 0;
+	UINTa                        s_nextFileHandle = 0;
 	float                        s_soundCategoryVolumes[Audio::SC_count];
 	float                        s_streamVolume = 1.0f;
 	bool                         s_audioEnabled = true;
@@ -202,21 +204,21 @@ namespace AudioNamespace
 #endif // _DEBUG
 
 #ifdef _DEBUG
-	typedef std::map<uint32, std::string> HandleNameMap;
+	typedef std::map<UINTa, std::string> HandleNameMap;
 	HandleNameMap ms_handleNameMap;
 
-	typedef std::set<uint32> HandleSet;
+	typedef std::set<UINTa> HandleSet;
 	HandleSet ms_fileCloseHandleSet;
 
-	void determineCallbackError(char const * const callbackName, uint32 const handle)
+	void determineCallbackError(char const * const callbackName, UINTa const handle)
 	{
 		HandleNameMap::iterator iter = ms_handleNameMap.find(handle);
 		bool const fileOpen = iter != ms_handleNameMap.end();
 		bool const fileClosed = ms_fileCloseHandleSet.find(handle) != ms_fileCloseHandleSet.end();
 
-		DEBUG_FATAL(true, ("Trying to file %s on a file that no longer exists. handle=%d, filename=%s, open=%d, still open=%d, closed=%d",
+		DEBUG_FATAL(true, ("Trying to file %s on a file that no longer exists. handle=%" PRIuPTR ", filename=%s, open=%d, still open=%d, closed=%d",
 			callbackName,
-			handle,
+			static_cast<uintptr_t>(handle),
 			fileOpen ? iter->second.c_str() : "invalid handle",
 			fileOpen ? 1 : 0,
 			s_fileMap.find(handle) != s_fileMap.end() ? 1 : 0,
@@ -229,10 +231,10 @@ using namespace AudioNamespace;
 
 // Callbacks for Miles to the TreeFile system
 
-static U32 __stdcall fileOpenCallBack(char const *fileName, U32 *fileHandle);
-static void __stdcall fileCloseCallBack(U32 fileHandle);
-static S32 __stdcall fileSeekCallBack(U32 fileHandle, S32 offset, U32 type);
-static U32 __stdcall fileReadCallBack(U32 fileHandle, void *buffer, U32 bytes);
+static U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle);
+static void __stdcall fileCloseCallBack(UINTa fileHandle);
+static S32 __stdcall fileSeekCallBack(UINTa fileHandle, S32 offset, U32 type);
+static U32 __stdcall fileReadCallBack(UINTa fileHandle, void *buffer, U32 bytes);
 
 static SoundId attachSound(SoundTemplate const *soundTemplate, Object const *object, char const *hardPointName=0);
 static bool cacheSound(SoundTemplate const *soundTemplate);
@@ -1009,8 +1011,8 @@ void Audio::showAudioDebug()
 	DEBUG_REPORT_PRINT(true, ("Sound Instant Rejections   - %d\n", s_instantRejectionCount));
 	DEBUG_REPORT_PRINT(true, ("Next sampleId/soundId      - %d/%d\n", s_nextSampleId, s_nextSoundId));
 	DEBUG_REPORT_PRINT(true, ("Timer Delay (ms)           - %d/%d peak (%.1f) avg\n", s_timerCurrentDelay, s_timerHighestDelay, s_averageTimerDelay));
-	DEBUG_REPORT_PRINT(true, ("User Speaker Setting       - %s\n", getCurrent3dProvider()));
-	DEBUG_REPORT_PRINT(true, ("Miles Speaker Setting      - %s\n", getSpeakerSpec()));
+	DEBUG_REPORT_PRINT(true, ("User Speaker Setting       - %s\n", getCurrent3dProvider().c_str()));
+	DEBUG_REPORT_PRINT(true, ("Miles Speaker Setting      - %s\n", getSpeakerSpec().c_str()));
 	DEBUG_REPORT_PRINT(true, ("Environmental Reverb       - %s\n", getRoomTypeString()));
 	DEBUG_REPORT_PRINT(true, ("Obstruction (interiors)    - %d%%\n", static_cast<int>(getObstruction() * 100.0f + 0.5f)));
 	DEBUG_REPORT_PRINT(true, ("Occlusion (inside vs out)  - %d%%\n", static_cast<int>(getOcclusion() * 100.0f + 0.5f)));
@@ -1292,7 +1294,9 @@ bool Audio::install()
 
 	// Initialize the audio driver
 
-	s_maxDigitalMixerChannels = AIL_get_preference(DIG_MIXER_CHANNELS);
+	SINTa const maxDigitalMixerChannels = AIL_get_preference(DIG_MIXER_CHANNELS);
+	FATAL(maxDigitalMixerChannels < (std::numeric_limits<int>::min)() || maxDigitalMixerChannels > (std::numeric_limits<int>::max)(), ("Miles mixer channel count exceeds int range"));
+	s_maxDigitalMixerChannels = static_cast<int>(maxDigitalMixerChannels);
 
 	s_digitalDevice2d = AIL_open_digital_driver(getFrequency(), getBits(), getProviderSpec(getCurrent3dProvider()), 0);
 
@@ -1322,7 +1326,7 @@ bool Audio::install()
 	AIL_speaker_configuration(s_digitalDevice2d, NULL, NULL, NULL, &s_speakers);
 
 	REPORT_LOG(true, ("Audio: %s\n", getCurrent3dProvider().c_str()));
-	REPORT_LOG(true, ("Audio: Miles speakers are %s\n", getSpeakerSpec()));
+	REPORT_LOG(true, ("Audio: Miles speakers are %s\n", getSpeakerSpec().c_str()));
 	REPORT_LOG(true, ("Audio: Miles Max DIG_MIXER_CHANNELS(%d)\n", getMaxDigitalMixerChannels()));
 
 	// This disables any reberb from a previous product
@@ -1390,21 +1394,21 @@ void Audio::remove()
 	Audio::stopAllSounds();
 
 #ifdef _DEBUG
-	unsigned int const sample2dMapSize = s_sampleIdToSample2dMap.size();
+	size_t const sample2dMapSize = s_sampleIdToSample2dMap.size();
 	UNREF(sample2dMapSize);
 	DEBUG_WARNING(!s_sampleIdToSample2dMap.empty(), ("Sample 2d map not empty"));
 #endif // _DEBUG
 	s_sampleIdToSample2dMap.clear();
 
 #ifdef _DEBUG
-	unsigned int const sample3dMapSize = s_sampleIdToSample3dMap.size();
+	size_t const sample3dMapSize = s_sampleIdToSample3dMap.size();
 	UNREF(sample3dMapSize);
 	DEBUG_WARNING(!s_sampleIdToSample3dMap.empty(), ("Sample 3d map not empty"));
 #endif // _DEBUG
 	s_sampleIdToSample3dMap.clear();
 
 #ifdef _DEBUG
-	unsigned int const streamMapSize = s_sampleIdToSampleStreamMap.size();
+	size_t const streamMapSize = s_sampleIdToSampleStreamMap.size();
 	UNREF(streamMapSize);
 	DEBUG_WARNING(!s_sampleIdToSampleStreamMap.empty(), ("Sample stream map not empty"));
 #endif // _DEBUG
@@ -1434,8 +1438,8 @@ void Audio::remove()
 	}
 
 #ifdef _DEBUG
-	int const fileMapCount = s_fileMap.size();
-	DEBUG_WARNING((fileMapCount > 0), ("File handles (%d) are still allocated.", fileMapCount));
+	size_t const fileMapCount = s_fileMap.size();
+	DEBUG_WARNING((fileMapCount > 0), ("File handles (%" PRIu64 ") are still allocated.", static_cast<uint64_t>(fileMapCount)));
 #endif // _DEBUG
 
 	clearMusicOffsets();
@@ -3932,7 +3936,7 @@ float Audio::getSampleEffectsLevel(SampleId const &sampleId)
 static int once = true;
 
 //-----------------------------------------------------------------------------
-U32 __stdcall fileOpenCallBack(char const *fileName, U32 *fileHandle)
+U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
 {
 	if (once && !Os::isMainThread())
 	{
@@ -3961,7 +3965,7 @@ U32 __stdcall fileOpenCallBack(char const *fileName, U32 *fileHandle)
 }
 
 //-----------------------------------------------------------------------------
-void __stdcall fileCloseCallBack(U32 const fileHandle)
+void __stdcall fileCloseCallBack(UINTa const fileHandle)
 {
 	if (once && !Os::isMainThread())
 	{
@@ -4000,7 +4004,7 @@ void __stdcall fileCloseCallBack(U32 const fileHandle)
 }
 
 //-----------------------------------------------------------------------------
-S32 __stdcall fileSeekCallBack(U32 const fileHandle, S32 const offset, U32 const type)
+S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)
 {
 	if (once && !Os::isMainThread())
 	{
@@ -4056,7 +4060,7 @@ S32 __stdcall fileSeekCallBack(U32 const fileHandle, S32 const offset, U32 const
 }
 
 //-----------------------------------------------------------------------------
-U32 __stdcall fileReadCallBack(U32 const fileHandle, void *buffer, U32 const bytes)
+U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const bytes)
 {
 // miles crasher hack
 #if 0
