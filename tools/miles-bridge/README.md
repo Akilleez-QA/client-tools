@@ -124,7 +124,7 @@ particular, obsolete browser/capture inputs and the other separately packaged
 x64 source fixes must be composed before claiming a working full client build.
 `link-client-dev.py` is a development relink tool using existing real libraries
 and pinned build receipts, not a fresh whole-source rebuild or runtime qualifier.
-Release selection and movie integration remain later packages.
+Release selection and the game movie-rendering adapter remain later packages.
 
 The host is windowless; original module paths are normalized and compared as
 absolute Windows paths. Forward traffic uses normal-size I/O segments. These
@@ -132,3 +132,30 @@ changes preserve diagnostics and terminal transport failure behavior.
 Historical game-integration observations remain at the
 [original checkpoint](https://github.com/Akilleez-QA/client-tools/blob/a68ceb4280ca59af5317f3ad5c6de8a3e0a87314/tools/miles-bridge/README.md),
 not fresh acceptance of this split branch. No CI workflow is present here.
+
+
+## Bink host/session component
+
+The x86 host now also requires genuine Bink 1.9c headers. The existing host
+build command accepts `--bink-sdk <directory-containing-bink.h>`; its default
+is `src/external/3rd/library/bink/include`. Supply the matching original
+`binkw32.dll` beside the helper privately. No SDK library, DLL or media is
+redistributed by this component.
+
+The native owner binds Bink to its process-local Miles digital driver. File IO
+uses the existing reverse transport and engine TreeFile worker; only opaque
+file tokens cross processes. The owner reapplies Bink's consumed IO callback
+and buffer-size settings before every open, including failed attempts.
+
+Private paired protocol version 4 adds driver-owned Video resources, synchronous
+controls, metadata and bounded pixel transfer. Both endpoints must match. The
+client retains frame storage and validates metadata/chunk replies; this component
+does not yet select a movie renderer in the game. The later renderer package is
+required before the actual-client procedure in `tests/bink-replay.md` can run.
+
+The unchanged `bink_protocol.cpp`, `video_reply.cpp` and `video_admission.cpp`
+tests accompany the source. CI wiring is deferred; they were not rerun for this
+split. Historical integrated evidence and the replay failure/repair are recorded
+at the [original Bink checkpoint](https://github.com/Akilleez-QA/client-tools/blob/da9c56054b70761b983b4b367fd4479ac344e8e6/tools/miles-bridge/README.md)
+and [replay procedure](https://github.com/Akilleez-QA/client-tools/blob/da9c56054b70761b983b4b367fd4479ac344e8e6/tools/miles-bridge/tests/bink-replay.md).
+These records do not qualify this split composition or arbitrary provider versions.
