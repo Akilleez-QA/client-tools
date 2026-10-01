@@ -1,0 +1,180 @@
+{
+  "branch": "review-ready/server-byteorder",
+  "base": "09932a32c9949bd40e8e4dbb22e1a7027944eb21",
+  "head": "adb1bc91d2ad0a923a828204410c72d7cab9dbc1",
+  "origin_commit": "3bb838a261ddc795045b246fcce2c10ebab0746c",
+  "upstream_master": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+  "production": {
+    "files": 1,
+    "additions": 26,
+    "deletions": 0,
+    "paths": [
+      "engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp"
+    ]
+  },
+  "source_commit_only": true,
+  "source_base_decision": "ByteOrder.cpp is byte-identical on master, the original integration parent, and selected base. The +26-line source repair itself is master-applicable. Package is stacked on existing joint PR37/38 base to retain helper/native-header and workflow prerequisites without duplicating them in the review diff.",
+  "prerequisites": [
+    {
+      "pr": 37,
+      "head": "1481143ca4f033ef979faff52a4d03bb8d636292",
+      "kind": "native_header_compile_closure",
+      "reason": "FirstSharedFoundation.h includes Misc.h; the checked int-length memmove helper conflicts with CRT overloads in x64 header compilation. PR37 renames it and preserves explicit size_t delegation."
+    },
+    {
+      "pr": 38,
+      "head": "1c0152794e5597f16cd9e4b03930df654f73aa03",
+      "kind": "inherited_CI_workflow",
+      "reason": "Joint base carries the separately validated workflow fix; not required by byteswap semantics."
+    }
+  ],
+  "preserved_branch": {
+    "name": "review-ready/server-network-widths",
+    "head": "9d44e3a1da7b96de41ff864c121dbc60d0c45c5e"
+  },
+  "remotes": {
+    "fork": "https://github.com/Akilleez-QA/src.git",
+    "origin": "https://github.com/SWG-Source/src"
+  },
+  "source_comparisons": [
+    {
+      "kind": "candidate",
+      "server_revision": "adb1bc91d2ad0a923a828204410c72d7cab9dbc1",
+      "client_revision": "b0a977f8dfffdb46f2ae7d412a6e4dbf4d135fd5",
+      "server_path": "engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp",
+      "client_path": "src/engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp",
+      "raw_byte_identical": true,
+      "sha256": "84d6a070f6412908e2fb95cf4dfb9268478f9dc0be5b2fe4cd10f4b77b7a2f17"
+    },
+    {
+      "kind": "original baseline",
+      "server_revision": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+      "client_revision": "949451032647e45e42c3aaef3f41b132c8af36e3",
+      "server_path": "engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp",
+      "client_path": "src/engine/shared/library/sharedFoundation/src/win32/ByteOrder.cpp",
+      "raw_byte_identical": true,
+      "sha256": "7dc6c2f83371f4a99ebf87fe64f87bdf02fe35e271843d04ed086a9a69f391c2"
+    }
+  ],
+  "header_comparisons": [
+    {
+      "server_path": "engine/shared/library/sharedFoundation/src/shared/FirstSharedFoundation.h",
+      "client_path": "src/engine/shared/library/sharedFoundation/src/shared/FirstSharedFoundation.h",
+      "server_blob": "6117ad637300b98b80514e0dc97a60534fb7aaed",
+      "client_blob": "f845ce12c2887919337076603b6e157864c5a3b1",
+      "server_sha256": "86215a4421682e44062c1ce67b108fc5f13f5d2772b2877f0b5eff867a79875f",
+      "client_sha256": "bb5725ae4de117f54661770bd8fd63fb8d96f3c58a00cfb29db6a60838b7ba09",
+      "raw_identical": false,
+      "lf_identical": false
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundation/src/shared/Misc.h",
+      "client_path": "src/engine/shared/library/sharedFoundation/src/shared/Misc.h",
+      "server_blob": "2c84ef0a7aaa69ff91d9b460dda47aa091142e62",
+      "client_blob": "fde957d6a00f2f97295911279b40bc47730ab19f",
+      "server_sha256": "92421daa244f97ef932b56f3a4fecd41cdf6a51d3ae362b27208ed49014c180f",
+      "client_sha256": "9df049a2f788359a3270bc2088913abf03eda5a7d9b03c9c65230409ddbfc599",
+      "raw_identical": false,
+      "lf_identical": false
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundation/src/win32/FirstPlatform.h",
+      "client_path": "src/engine/shared/library/sharedFoundation/src/win32/FirstPlatform.h",
+      "server_blob": "25a298f2f03ae4679c3e1e3deb1a26183361245a",
+      "client_blob": "cd67c2afeaa8c193b078e7d6d1d1112904a93ec8",
+      "server_sha256": "b0240a520bb854decfd9dd2641d05e5f4837c070a15565853e839ec64108059f",
+      "client_sha256": "9aa15842e1e4be409b394c888795429edf0e4a356fce851b977e5460ecde9e31",
+      "raw_identical": false,
+      "lf_identical": false
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundation/src/win32/ByteOrder.h",
+      "client_path": "src/engine/shared/library/sharedFoundation/src/win32/ByteOrder.h",
+      "server_blob": "4e4787031299e7843fd60bf11e77dfd5f461c397",
+      "client_blob": "4e4787031299e7843fd60bf11e77dfd5f461c397",
+      "server_sha256": "9d0bf90a4ee2a1ee74846e343f5488d84bf2b3748d9ca2fec0a42feea4f7b363",
+      "client_sha256": "9d0bf90a4ee2a1ee74846e343f5488d84bf2b3748d9ca2fec0a42feea4f7b363",
+      "raw_identical": true,
+      "lf_identical": true
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundationTypes/src/shared/FoundationTypes.h",
+      "client_path": "src/engine/shared/library/sharedFoundationTypes/src/shared/FoundationTypes.h",
+      "server_blob": "04017bce23f663a6edafa53785d054624d9441ff",
+      "client_blob": "04017bce23f663a6edafa53785d054624d9441ff",
+      "server_sha256": "d6868ab05ab2ae12013467fab0d49ce325fb4b4cb01859c6829b2b519683897d",
+      "client_sha256": "d6868ab05ab2ae12013467fab0d49ce325fb4b4cb01859c6829b2b519683897d",
+      "raw_identical": true,
+      "lf_identical": true
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundationTypes/src/win32/FoundationTypesWin32.h",
+      "client_path": "src/engine/shared/library/sharedFoundationTypes/src/win32/FoundationTypesWin32.h",
+      "server_blob": "622039d8b753599cda4617842b95c279d6fe6c0f",
+      "client_blob": "622039d8b753599cda4617842b95c279d6fe6c0f",
+      "server_sha256": "4f8d064f02ae76617b662cc41c48d4352681c4649367639ebe7a88fe0e29f4c0",
+      "client_sha256": "4f8d064f02ae76617b662cc41c48d4352681c4649367639ebe7a88fe0e29f4c0",
+      "raw_identical": true,
+      "lf_identical": true
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h",
+      "client_path": "src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h",
+      "server_blob": "9ba92c6b8612df8ff1b9daf0ccc5f594be397d7f",
+      "client_blob": "821d1da2cb637e52eff387be76267d1478db2803",
+      "server_sha256": "a878b02d9bb200698079bb9b4583ea0e7708b2a01ef83e212e1b75dcae661e47",
+      "client_sha256": "1fac9323a871ff7eb4deb852b0c26f85f8cda78c931d4e84f45b06ba4273fd3d",
+      "raw_identical": false,
+      "lf_identical": false
+    },
+    {
+      "server_path": "engine/shared/library/sharedFoundation/include/public/sharedFoundation/ByteOrder.h",
+      "client_path": "src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/ByteOrder.h",
+      "server_blob": "5dec355eda4002ab68c3be8f6163c7b074596bb4",
+      "client_blob": "f5dfebd5ccca82b2ee7dbbcf297b74c5d13ebb53",
+      "server_sha256": "25d919b958c4292e48e64cc2e9ecc6cf2936160a47aa4256da0479218d05a34c",
+      "client_sha256": "467e1cbc3148b05792230d2ce05e27148c071f541ee3abb452c75c57e10361ce",
+      "raw_identical": false,
+      "lf_identical": false
+    }
+  ],
+  "probe_comparison": {
+    "path": "tools/test-byteorder/probe.cpp",
+    "server_package_has_probe": false,
+    "historical_client_revision": "110c7b4ba7cf317760119c1b298fabe7d30b61d8",
+    "historical_sha256": "12c7c0477bd729e87b67fdb7d81c1909969ce770204c2166be9717627f719044",
+    "hosted_client_revision": "b0a977f8dfffdb46f2ae7d412a6e4dbf4d135fd5",
+    "hosted_sha256": "e17472e478a24fbe0017ae696b5cd4dc0aba12e4ef4c0ca6a80060f994c1e707",
+    "raw_identical": false,
+    "body_after_compiler_guard_identical": false,
+    "reuse_boundary": "The byte oracle is an existing reusable fixture, but this source-only server branch carries no probe or runner. Client run.py hardcodes src/engine paths and stages client public headers; it is not directly a server runner. No fixture execution or exact server include-closure parity is claimed.",
+    "oracle_and_width_assertions_identical": true,
+    "differences": "Only compiler-version guard and stdio.h include ordering differ; width assertions and complete byte oracle are identical."
+  },
+  "evidence": [
+    {
+      "kind": "historical_client_leaf_function",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/94e606c9e4031622b0893314b3b1f738c3b82467/review/client-x64/pr-ready-next/byteorder/submission/RESULTS.md",
+      "claim": "Recorded VS2013 and hosted MSVC fixture outcomes for byte-identical production TU; not a server-native build."
+    },
+    {
+      "kind": "historical_client_hosted",
+      "url": "https://github.com/Akilleez-QA/client-tools/actions/runs/36829714456",
+      "source": "b0a977f8dfffdb46f2ae7d412a6e4dbf4d135fd5"
+    }
+  ],
+  "checks": {
+    "cherry_pick_clean": true,
+    "original_and_candidate_source_identity": true,
+    "header_context_identity": false,
+    "diff_check_passed": true,
+    "worktree_clean": true,
+    "published_branch_preserved": true,
+    "new_tests_run": false,
+    "new_builds_run": false
+  },
+  "diagnostics_included": false,
+  "pushed": true,
+  "pr_created": "https://github.com/Akilleez-QA/src/pull/2",
+  "next_action": "Await or reconcile upstream prerequisites; no merge or direct upstream branch push."
+}

@@ -1,0 +1,189 @@
+{
+  "group": 3,
+  "title": "File protocol, transport and reply transactions",
+  "branch": "review-ready/client-miles-file-transport",
+  "base": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
+  "head": "9ef7a2c7dd99f8cdb7d351ee80704628aa53aa70",
+  "manifest_sha256": "502c30a0b604b58d6eebdd121df243423bf4a89ce84877dca08c674dd22420fa",
+  "production_files": 20,
+  "production_additions": 1331,
+  "deletions": 0,
+  "tests_additions": 0,
+  "files": [
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/AudioFileCallbacks.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "92b4205d543b17f2d9b4889999a5082a6e44aeaf",
+      "sha256": "3527c2ed8ae4a9b11f01fae5edbba131ffd0697e00a1b67bea5c251697c2ab1f",
+      "lines": 20
+    },
+    {
+      "path": "tools/miles-bridge/src/audio-callbacks/ClientAudioFileCallbacks.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "a9f853e903e6933bbc3de926f8f32aaad1d51fda",
+      "sha256": "d116186a05fc44cc4809231ff114aa526514edb6155e40e70edd6a147769a9b0",
+      "lines": 50
+    },
+    {
+      "path": "tools/miles-bridge/src/bootstrap/common.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "284a127dc634d5384ee0be4004464a24f6b3e021",
+      "sha256": "f4f0024684f71ea6226502d8c7de53d44a0628ff7737db24c63ae6a6a8998619",
+      "lines": 111
+    },
+    {
+      "path": "tools/miles-bridge/src/callback-guard/invocation_guard.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "ff6fde809298f361fc87e68cb2359caa8a0e17e1",
+      "sha256": "1356b6b54f23c081f3b24b019e641ee7323bbc7a787c1525f94d6449251cf9a6",
+      "lines": 27
+    },
+    {
+      "path": "tools/miles-bridge/src/callback-guard/invocation_guard.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "34c244290b60ea08cd9902ffe38992f09545e6a7",
+      "sha256": "4c97c35a2b1ba799a90223396d45f0d8395cc7cfe3387e77565a9ef514ef8198",
+      "lines": 23
+    },
+    {
+      "path": "tools/miles-bridge/src/file-callbacks/ClientMilesFileCallbacks.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "b9678a2bd6421f414fb29486577f100f00473b44",
+      "sha256": "c9eff094e8d0190378e2859be61ca470a8f6aa10d503d35f66d6cf788a5fc603",
+      "lines": 6
+    },
+    {
+      "path": "tools/miles-bridge/src/file-channel/file_channel.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "02fb4b384e1621f0583d687d0a61fb4849045d8b",
+      "sha256": "68cf8c276c4e41a02cbf832b555b64fb820f5fe89550220ae85480fd4e741617",
+      "lines": 308
+    },
+    {
+      "path": "tools/miles-bridge/src/file-channel/file_channel.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "5c8eb66b8814aff43dd4a49fa570718fffae4df1",
+      "sha256": "81e2fccb980bdc602ff068259f4dd82843bba299ae6ff11c07a8e6d25a64b6f8",
+      "lines": 130
+    },
+    {
+      "path": "tools/miles-bridge/src/file-protocol/file_protocol.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "a9883932fa62069b841c43d1886188ce1cb6bf12",
+      "sha256": "35ecadfe3526d04aa691e5609dd5f689d0b5a962e3d27a1cb2fbfdc1541e1d5e",
+      "lines": 89
+    },
+    {
+      "path": "tools/miles-bridge/src/file-protocol/file_protocol.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "7626c0f37dd17cd59b61f51f9a124264909c717b",
+      "sha256": "1a50f4d8ec615ce1002477ba0fc19efcb47df9ea81c4bf501a18198768463dff",
+      "lines": 46
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/file_tokens.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "1ed5f5b6a11b1b005338b12a62b5f4c187c63c6f",
+      "sha256": "74f282f65aa1e5c26f2ec47e252c70b1c3769f94bf1cff3b028cb0f7222a9401",
+      "lines": 60
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/file_tokens.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "fe039c63320bf4e0980fa9b2572b3e82b4206156",
+      "sha256": "0a35e33a7ffbd1fed22da79804ce925aaac96a2b417c74ccde309fd51bcafbe2",
+      "lines": 45
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/reply_transaction.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "bba02b920f9ddc90cdd129cf0179f167e0cb3516",
+      "sha256": "9e0edd6cd7678fa662d8cd4df1b2785bfdc7e545751bd43ff68bd8aaad72b4db",
+      "lines": 79
+    },
+    {
+      "path": "tools/miles-bridge/src/file-replies/reply_transaction.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2db4889d6fe857779798327722225b642a7ac7ce",
+      "sha256": "5848e786615c0b2e80b75a81c6d771fa8084310096808305b055022e856e3597",
+      "lines": 37
+    },
+    {
+      "path": "tools/miles-bridge/src/file-services/selected_services.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "bf1d8df2a0193d5727c12397b75998b68aa684f5",
+      "sha256": "091d07b6ce75801e4aee7a2c9b9e0298c6651b5d1b074c4a942057850682ebc5",
+      "lines": 51
+    },
+    {
+      "path": "tools/miles-bridge/src/file-services/selected_services.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "24d270673263c53e6a438e11adad27ca456547fa",
+      "sha256": "cf2b1fad49be99c3ed1799d8eb825e9a465cbc9f283308a06a86b6a6d9555ff2",
+      "lines": 16
+    },
+    {
+      "path": "tools/miles-bridge/src/host-context/call_context.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "828686417e5872bc81963dadbb56edc0fe050e46",
+      "sha256": "3b65cc93a945bceeda161f54c227471c1085e9a3a2009921cb70112b1c6d7c8c",
+      "lines": 30
+    },
+    {
+      "path": "tools/miles-bridge/src/host-context/call_context.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "3073dab0bdf597709ae864d71c7ce7b77bebbc58",
+      "sha256": "6c1439efb94d2a1e2bd3d4977e04a23cfa96e357e81f3a81ef7d5985242b3244",
+      "lines": 26
+    },
+    {
+      "path": "tools/miles-bridge/src/transport/endpoint.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "173858111e8e810c4660d2a4add4be449b67d817",
+      "sha256": "b9c695de0a84f95a8ffdfcb4aa803b78f641ebfc73f37cc335ab3c58c74d5fb8",
+      "lines": 118
+    },
+    {
+      "path": "tools/miles-bridge/src/transport/endpoint.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "f3cd1f6419d71912ac113b063910c9ccf540b05d",
+      "sha256": "fd126254efe918179b92656bed3233b5a2e80f11e4a8d5b2a4efe49b4198d033",
+      "lines": 59
+    }
+  ],
+  "direct_include_prerequisites": [
+    1
+  ],
+  "stack_prerequisites": [
+    1,
+    2
+  ],
+  "fresh_build_test_runtime": false,
+  "build_boundary": "Dormant sources; existing complete build entry points are deferred to group 7. No project/backend selection changes.",
+  "deferred_ci": null,
+  "status": "",
+  "pre_comment_polish_head": "79ce000a0a114524b53d6c244e9567b459869b29",
+  "comment_polish_prerequisite": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "source_semantics_proof": "All changed source lines relative to pinned foundations are standalone // comments; no code tokens, identifiers, directives or behavior changed.",
+  "publication_state": "source_branch_pushed_fork_draft_pending"
+}

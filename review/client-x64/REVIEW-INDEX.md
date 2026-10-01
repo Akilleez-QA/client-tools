@@ -22,7 +22,13 @@ Client base is `94945103`; server base is `7d2159a3`. Each helper PR applies ind
 
 [Allocator address/stack fork draft #3](https://github.com/Akilleez-QA/client-tools/pull/3) preserves full-width addresses across the allocator hooks, DLL interface and diagnostic consumers. It is stacked above PR #29: 15 production files, +346/−149. [Source identities, review and evidence limits](pr-ready-next/allocator-address-stack/RESULTS.md).
 
-The [complete client package inventory](package-inventory/remaining-package-map.md) accounts for all 353 changed paths, including 220 production files, with exact source identities and mixed-file ownership. The [Miles foundation split](package-inventory/miles-core-package-split.md) proposes six source units and one build/Audio handoff. It is a packaging plan, not six newly qualified implementations. Server residual inventory is separate.
+[Allocator size fork draft #4](https://github.com/Akilleez-QA/client-tools/pull/4) follows the address/stack package: one source file, +70/−29 in GitHub’s diff. It checks request and region sizes and preserves the minimum free-node representation; statistics and reallocation are separate. [Description and evidence limits](pr-ready-next/allocator-size-invariants/RESULTS.md).
+
+The [complete client package inventory](package-inventory/remaining-package-map.md) accounts for all 353 changed paths, including 220 production files, with exact source identities and mixed-file ownership. The [Miles foundation split](package-inventory/miles-core-package-split.md) proposes six source units and one build/Audio handoff. It is a packaging plan, not six newly qualified implementations. The [server counterpart inventory](package-inventory/server-package-map.md) separately accounts for PR #35, remaining shared fixes and the master-based submissions, excluding older upstream history.
+
+[Server byte-order fork draft #2](https://github.com/Akilleez-QA/src/pull/2) carries the matching Windows conversion implementation above the helper/workflow prerequisite base: one file, +26/−0. [Exact source comparison and evidence boundary](pr-ready-next/server-byteorder/RESULTS.md).
+
+The first Miles foundation source branches are prepared and independently reviewed: [contracts/codec](pr-ready-next/miles-contracts/RESULTS.md), [native facade](pr-ready-next/miles-native-facade/RESULTS.md), and [file transport](pr-ready-next/miles-file-transport/RESULTS.md). They preserve dormant source boundaries; later source closure and build/Audio handoff remain pending. The contracts branch’s existing portable EOS test passes 298 checks with ASan/UBSan.
 
 ## Earlier candidate packages and dependency drafts
 

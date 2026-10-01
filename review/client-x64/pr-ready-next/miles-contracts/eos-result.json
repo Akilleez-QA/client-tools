@@ -1,0 +1,21 @@
+{
+  "head": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "purpose": "Verify the existing portable EOS test source closure on the first isolated foundation; no engine, vendor, IPC or full client acceptance.",
+  "prediction": "Existing two-mode EOS fixture compiles from this branch alone, exits zero and prints its completed check count without ASan/UBSan diagnostics.",
+  "failure_meaning": "Named package dependency or test failure; stop and inspect, do not add runtime stubs.",
+  "command": "clang++ -std=c++11 -Wall -Wextra -Werror -fsanitize=address,undefined tools/miles-bridge/tests/eos_protocol.cpp tools/miles-bridge/src/eos/eos_protocol.cpp tools/miles-bridge/src/wire/codec.cpp -o <output>/miles-eos-protocol",
+  "files": {
+    "tools/miles-bridge/tests/eos_protocol.cpp": "d964bf7f0cd54c4cba9010c970e83b9a3cbef91acbb1cadf776eda67e022d48b",
+    "tools/miles-bridge/src/eos/eos_protocol.cpp": "351307044b8bf99188c7cc04ff8828fce3915a658b6236aac250c43365275eab",
+    "tools/miles-bridge/src/eos/eos_protocol.h": "d9249099b011307bcaee34be5bbb064c47c497252d7901436da0ce44b9ef84bd",
+    "tools/miles-bridge/src/wire/codec.cpp": "25ecb722ed0efb6dc10ede235c3888d4def8330171f6162260b996148dc349be",
+    "tools/miles-bridge/src/wire/codec.h": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7",
+    "tools/miles-bridge/src/protocol/miles_wire.h": "a2384dedc7a3c8a01182d9d7dade0b5545c0caf310686087bff3ce52c1bc50fe"
+  },
+  "toolchain": "clang version 22.1.8\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\n",
+  "build_exit": 0,
+  "run_exit": 0,
+  "result": "EOS protocol passed: 298 checks",
+  "sanitizer_diagnostics": false,
+  "build_log_empty": true
+}

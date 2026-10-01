@@ -60,6 +60,8 @@ Production file states: 161 remaining components, 35 fully submitted components,
 
 There are 34 aggregate accounting units: 9 submitted upstream, 3 prepared fork drafts, 22 remaining. The Miles aggregate is further divided in the linked foundation proposal. Zero exclusive files does not mean an empty package: allocator-layout owns already-submitted hunks inside the final allocator file, and build-only units have separate build-file accounting.
 
+The checked-size/minimum-node subset of `allocator-sizes` is now [fork draft #4](https://github.com/Akilleez-QA/client-tools/pull/4), head `1f8f341aab958ac13f04b070bb6575be0af36091`. Its two commits are +70/−29 in GitHub’s diff, one file. The aggregate remains in the remaining column because statistics, pointer diagnostics and null-reallocation have separate pending packages.
+
 ## Concrete next branches
 
 - **`review-ready/client-allocator-address-stack`**: base `2af9f19b502e9183731656cdaf93236faacb404e`; apply `2fdd4639bc7a0547925d93d733cd3a8ef5838630` → `b4b4289b26772c933781dc4ebba44168fecf5600` → `d905d5254b281974e82ae80be28c01aafdcbd979`. Next substantial source package. Keep breakpoint prerequisites and the complete owner/stack/hook ABI patch together; existing PR29 is the base.

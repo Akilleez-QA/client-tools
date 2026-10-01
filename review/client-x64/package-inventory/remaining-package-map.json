@@ -980,7 +980,7 @@
       "branch_head": null,
       "pull_request": null,
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
-      "boundary": "Preserve original sequence: allocation/region checks, full-width statistics through all consumers, minimum free representation, full-address diagnostics, then null-reallocate metadata/call sites. Retain each as a reviewable commit; statistics API and consumers travel together. Most edits share MemoryManager.cpp, so one source package avoids an artificial cycle. This does not claim resolution of the rejected allocator/Audio fault workload.",
+      "boundary": "Preserve original sequence: allocation/region checks, full-width statistics through all consumers, minimum free representation, full-address diagnostics, then null-reallocate metadata/call sites. Retain each as a reviewable commit; statistics API and consumers travel together. Most edits share MemoryManager.cpp, so one source package avoids an artificial cycle. This does not claim resolution of the rejected allocator/Audio fault workload. Selected size/minimum-node subset is now fork draft PR4; aggregate remains remaining until statistics, diagnostics and realloc packages are prepared.",
       "exclusive_production_accounting": {
         "files": 15,
         "additions": 190,
@@ -1020,7 +1020,22 @@
         "src/engine/shared/library/sharedXml/src/shared/tree/XmlTreeDocumentList.cpp",
         "src/game/client/library/swgClientUserInterface/src/shared/page/SwgCuiDebugInfoPage.cpp"
       ],
-      "build_files": []
+      "build_files": [],
+      "prepared_subset": {
+        "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/4",
+        "head": "1f8f341aab958ac13f04b070bb6575be0af36091",
+        "base": "fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c",
+        "scope": "Checked request/region sizes and minimum free representation only",
+        "original_commits": [
+          "03fafe0cc8efb2c991a7d16ebd025929bc9812f4",
+          "8e6b08fbd47775ca48083b102a7d14bc717be4dc"
+        ],
+        "remaining_commits": [
+          "cf82805a9d13e6082ae96977093d670ea116a82f",
+          "45fae5093c16757e2c779ad5daf6f63d170ed8a4",
+          "fcf54ab3fcbf4a0b2ef1c2915b620a510975a429"
+        ]
+      }
     },
     {
       "id": "fpu-controls",

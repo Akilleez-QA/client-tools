@@ -1,0 +1,48 @@
+{
+  "branch": "review-ready/client-allocator-size-invariants",
+  "base": "fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c",
+  "head": "1f8f341aab958ac13f04b070bb6575be0af36091",
+  "source_commits": [
+    "f8f41bc06ff759117236e9956dfc810e24d2e386 memory: check allocation and region sizes before narrowing",
+    "1f8f341aab958ac13f04b070bb6575be0af36091 memory: keep x64 blocks large enough for their free-list representation"
+  ],
+  "source_numstat": "69\t28\tsrc/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp",
+  "source_sha256": {
+    "base": "0c84df3b9902061fa3002211f145bcc5415636676c4a03cd03d0aa8e75f9216e",
+    "candidate": "6ce194eed86724e7f1fa57a8acce7e8b3f947ab42eb9c54de6540f22921f3bbb",
+    "historical_minimum_candidate": "172dcd8958b78af24ef4b08f1f0a2409e89ae81665fb2ef6717b9a24d161467f"
+  },
+  "original_commits": [
+    "03fafe0cc8efb2c991a7d16ebd025929bc9812f4",
+    "8e6b08fbd47775ca48083b102a7d14bc717be4dc"
+  ],
+  "original_added_removed_lines_exact": true,
+  "conflicts": false,
+  "fresh_build_or_runtime": false,
+  "status": "prepared_and_published_fork_draft",
+  "remaining_queue": [
+    {
+      "commit": "cf82805a9d13e6082ae96977093d670ea116a82f",
+      "scope": "ByteCount API and consumers: separate 13-file statistics package; not required by checked-size or minimum-block expressions."
+    },
+    {
+      "commit": "45fae5093c16757e2c779ad5daf6f63d170ed8a4",
+      "scope": "Free-pattern diagnostic pointer casts/format: separate one-line fix; existing x64 diagnostic narrowing remains outside this package."
+    },
+    {
+      "commit": "fcf54ab3fcbf4a0b2ef1c2915b620a510975a429",
+      "scope": "Tracked null reallocation and matching XML/OCI allocation hooks: separate three-file metadata contract."
+    }
+  ],
+  "limits": [
+    "Historical evidence uses integrated dependencies and is not an exact-base build.",
+    "Historical minimum-block source includes separate statistics work; selected original hunks do not use ByteCount or widened statistics.",
+    "No source-dependent snapshot harness imported.",
+    "Published as fork draft PR4 after primary and independent source review."
+  ],
+  "github_numstat": {
+    "additions": 70,
+    "deletions": 29
+  },
+  "diff_alignment_note": "GitHub/myers counts an added and removed blank line that minimal/patience/histogram alignment omits. Exact base/head blobs are unchanged; source_numstat uses the latter alignment."
+}

@@ -1,0 +1,5 @@
+# Checked allocator sizes and minimum free representation
+
+[Fork draft #4](https://github.com/Akilleez-QA/client-tools/pull/4) is stacked on the address/stack package. Verified base `fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c`, head `1f8f341aab958ac13f04b070bb6575be0af36091`: two source-only commits, one file, +70/−29 in GitHub’s diff. Minimal/patience alignment gives +69/−28; the difference is one added/removed blank line, not changed source. Both primary and independent senior-engineer review found no introduced blocker in the selected hunks.
+
+[Description and original native results](PR.md) distinguish integrated historical evidence from this newly stacked branch. The original changed lines are reproduced exactly, but the complete MemoryManager file differs from the historical minimum-block checkpoint because the independent statistics work is not included. No new build/runtime result is claimed. [Source identities and remaining packages](receipt.json) keep statistics, pointer diagnostics and tracked null-reallocation separate.

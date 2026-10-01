@@ -1,0 +1,148 @@
+{
+  "group": 2,
+  "title": "Native Miles facade and ABI adapters",
+  "branch": "review-ready/client-miles-native-facade",
+  "base": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "head": "0fb8da90bd7e59c054b4932513ca6ce60b020c6a",
+  "manifest_sha256": "502c30a0b604b58d6eebdd121df243423bf4a89ce84877dca08c674dd22420fa",
+  "production_files": 15,
+  "production_additions": 945,
+  "deletions": 0,
+  "tests_additions": 0,
+  "files": [
+    {
+      "path": "tools/miles-bridge/src/api/native/native_callbacks70.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "b43adf5ca526558e3a8e46f6526a27754ce2682f",
+      "sha256": "617dcd4ca499b9429df867befde3c9b8d4d8e742edd055a52f44b8c518b54d9a",
+      "lines": 11
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_calls60.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "c120d28dcc5d7863ace6cd1cfef044cf3bdec67d",
+      "sha256": "d4cf06299942ef5b780514844df54133f1363f8fbb52d8731cddd8b45955f9cd",
+      "lines": 276
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_file_setter67.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "bdd8aade562528f20737b814d362d2548472c13b",
+      "sha256": "5ed07b9e84042f58a64bc6161294cac8c3c665438e6c448280451258fa13b5a0",
+      "lines": 24
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_startup_calls.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "a9bb48a82fa855ad21adf94b2f83c7b814e60e52",
+      "sha256": "74eb0cd42bbe2e45abadf6452bacfabbadf848123cf4c70b26c37f5de70b3c4d",
+      "lines": 55
+    },
+    {
+      "path": "tools/miles-bridge/src/api/native/native_types70.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "f406df4c2664c1d73acc375343fd51fb7b00f5fd",
+      "sha256": "c6363bda1aa15e12489c467b4c9a806649f4726040ae4390a68f4980a4c94100",
+      "lines": 12
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_callbacks.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "59804385f5297a7daca212ec8aa6e7167731ef1e",
+      "sha256": "599d3fcdf21d415048104a19cd1145e2525f60bd90147a17df5f0ca8ed193f16",
+      "lines": 26
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_file_setter.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "488e9884bea8b1cfa94f0f7fbe49b07f9240a3ac",
+      "sha256": "7eb796f6e2fb43b1b10594ad0e7dd214c193897dc618e0945e4384027cc2e828",
+      "lines": 18
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_operations.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "86b8539556c08642d92d284ea7ff7dc66c409680",
+      "sha256": "f8c5fb3d014a70f1853fe9bb87a4273fdb827b08b8fc343baad2974996019b1b",
+      "lines": 266
+    },
+    {
+      "path": "tools/miles-bridge/src/api/plain_startup.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "fcdbd6f2ec9642a8e67309ae19d725a953dd9b4e",
+      "sha256": "bf65172c9f5fd5282fe96e95c50be235c052cfacf866fd239a3cad68e69a5b66",
+      "lines": 107
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/failure_boundary.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "7232549a04945c25ecfd3650cd2ea8bb6b144ace",
+      "sha256": "a5f85b7463c393a405251b8b6f5e7ce5924376ffcf364dbfd6275cdef3f7d353",
+      "lines": 29
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/failure_boundary.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "db6327c19295f77ce54e7976c76a37927037ddc3",
+      "sha256": "565deffde077163318eba3b6e893a2be328ed9b0ed1a7610e868cd5a42f3f541",
+      "lines": 24
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_callbacks70.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2248aa31a57093d0af1527078609c783051a9a6c",
+      "sha256": "a65423a93199e69dcaad8406643830e0c96e6136e857aa5cb76d03a06c8c00c1",
+      "lines": 8
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_calls60.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "3b44669eb6400fce569de94b94b8d0a5b6931d8b",
+      "sha256": "17b14a12c44433eb0aa3c461d15c821f3cfa16df613e5efbf51bd7db2e4a6eea",
+      "lines": 60
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_file_setter67.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "a9b8249eb2677323564069f9eae8e43276d2e14c",
+      "sha256": "5387da7fec8dfa97b35277ae09c3b998a2d785a2927d293b1f64ec0ec933c29a",
+      "lines": 8
+    },
+    {
+      "path": "tools/miles-bridge/src/api/private/native_startup_calls.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "eff2138d16925bdac5e46a4bae7ca209a2cb4be7",
+      "sha256": "a6c653ba80f43205049deb1fe7e20d3244451d4b431bebe9152cfe3e60cea158",
+      "lines": 21
+    }
+  ],
+  "direct_include_prerequisites": [
+    1
+  ],
+  "stack_prerequisites": [
+    1
+  ],
+  "fresh_build_test_runtime": false,
+  "build_boundary": "Dormant sources; existing complete build entry points are deferred to group 7. No project/backend selection changes.",
+  "deferred_ci": null,
+  "status": "",
+  "pre_comment_polish_head": "729b424ae79d20adff2344113e6cb28958f795ba",
+  "comment_polish_prerequisite": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "source_semantics_proof": "All changed source lines relative to pinned foundations are standalone // comments; no code tokens, identifiers, directives or behavior changed.",
+  "publication_state": "source_branch_pushed_fork_draft_pending"
+}

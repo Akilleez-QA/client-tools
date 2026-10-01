@@ -1,0 +1,178 @@
+{
+  "group": 1,
+  "title": "Contracts, wire codec and owned replies",
+  "branch": "review-ready/client-miles-contracts",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "head": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "manifest_sha256": "502c30a0b604b58d6eebdd121df243423bf4a89ce84877dca08c674dd22420fa",
+  "production_files": 17,
+  "production_additions": 1248,
+  "deletions": 0,
+  "tests_additions": 111,
+  "files": [
+    {
+      "path": "tools/miles-bridge/src/api/ClientMiles.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "715450b9ec590fb93090ce362204acb43df43f31",
+      "sha256": "e0733361ba8092d9692b4c23ec1dd8ae36dae313fa35d5c7eba7783e3e9f0430",
+      "lines": 180,
+      "pinned_foundation_blob": "1117220c8f3f410396c8163a528973ae422ae27a",
+      "pinned_foundation_sha256": "952a0d1fe803d02d0c280e2e1c95558cdf5d8dc9bbe9db1d44e330fb4d6452fc",
+      "comment_only_change": true
+    },
+    {
+      "path": "tools/miles-bridge/src/backend/reply.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "9026ace405b1da299dcc4a9d795a35a4c0f92187",
+      "sha256": "150cb484b602b11653d4c628c0482bb676f1efcac8f7ee6dcdce03fa99d01ab4",
+      "lines": 135
+    },
+    {
+      "path": "tools/miles-bridge/src/buffer/buffer_upload.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "9b8d1c15629832e17f05d23b3bc11d9fae5470ee",
+      "sha256": "e36e074e1031f4df9366b865131e7575045a0d497c07219b576f3ce419fd9bd5",
+      "lines": 27
+    },
+    {
+      "path": "tools/miles-bridge/src/buffer/buffer_upload.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "6b427521ada22062d892b5b9742da708e2c181ca",
+      "sha256": "a3fef35e517a2f3a8d6bc96592f09876eca61ae8241686059160ca1a751d889e",
+      "lines": 26
+    },
+    {
+      "path": "tools/miles-bridge/src/dispatch/host_dispatch.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "a0ed8b6c2781ea111b4153ae39cb60dfc7bc9786",
+      "sha256": "42c42541a72f6972cc650b9eef1b9189faa94e2c2f2a535cb455cfd9249756c2",
+      "lines": 17
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/eos_protocol.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "d21de0897382373ffaf226b49341a4ec8e3ca04a",
+      "sha256": "351307044b8bf99188c7cc04ff8828fce3915a658b6236aac250c43365275eab",
+      "lines": 39
+    },
+    {
+      "path": "tools/miles-bridge/src/eos/eos_protocol.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "bf1aef28fc41e6eb39221dace5a9ee92839b0918",
+      "sha256": "d9249099b011307bcaee34be5bbb064c47c497252d7901436da0ce44b9ef84bd",
+      "lines": 11
+    },
+    {
+      "path": "tools/miles-bridge/src/image/upload_policy.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "f852fa896054cdcdef622a5ea7f5b09f77ccc4b8",
+      "sha256": "9edfc13f52cfe26979cd3a810f401262726fd23e56360d2031011258ec9e6d97",
+      "lines": 27
+    },
+    {
+      "path": "tools/miles-bridge/src/metadata/metadata.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2ebcb2c068835bd6c7b45c6b1b6bbde5ecbec82e",
+      "sha256": "70155e2aba7d9e16223140584306ef8097d59f8a349c3b2628ebfc0da3c0b527",
+      "lines": 37
+    },
+    {
+      "path": "tools/miles-bridge/src/metadata/metadata_wire.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "d2c37336ed23577d99e83ab20eaf614bd5532e7b",
+      "sha256": "14c2466b9a9fdcaadfd94b4dc930913a7268e429b15484eef18634a1afdb6fa2",
+      "lines": 57
+    },
+    {
+      "path": "tools/miles-bridge/src/protocol/miles_wire.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "4c55f045f66d3e87281239b51fb1f98ed243d48a",
+      "sha256": "a2384dedc7a3c8a01182d9d7dade0b5545c0caf310686087bff3ce52c1bc50fe",
+      "lines": 107,
+      "pinned_foundation_blob": "8fc5e80f6d4b05858f3030f2dca7e75a4a021ad5",
+      "pinned_foundation_sha256": "7c0762a95eb3a74aeca9c84f07122f250a247f8db95787fe124bf34d3cae7aa3",
+      "comment_only_change": true
+    },
+    {
+      "path": "tools/miles-bridge/src/protocol/pair_outputs.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "d22dcb0577020b257996ab94bfd7ffc2e13c905e",
+      "sha256": "28de0482cf0888b25876c115128ce712fc63a205d0a26de8260853b483ef0484",
+      "lines": 22
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "4709ce20de73f7dfd66862fe5ecb47927f94b471",
+      "sha256": "3ca508bf978f664a5bdf82609086a99f71c72272e139cadbaeef5295624bf8b2",
+      "lines": 27
+    },
+    {
+      "path": "tools/miles-bridge/src/version/session_version.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "497d7f89a46d807e5269b2e491cfbfd6c4a8bf33",
+      "sha256": "ccf9b10cb80dbd47fac8eee40114baef63f358baed712287bb303d601e3880eb",
+      "lines": 12
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/codec.cpp",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "2d50d2d6d675705b990decef5e79dad0a8a6f5ab",
+      "sha256": "25ecb722ed0efb6dc10ede235c3888d4def8330171f6162260b996148dc349be",
+      "lines": 265
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/codec.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "fa14d1be7aec2150b9036bac350d02afdfd23524",
+      "sha256": "f68fa5f923d7ed60f0561dfadd1be4b31b61e937f42f9f30072ea51bbb6a98e7",
+      "lines": 26
+    },
+    {
+      "path": "tools/miles-bridge/src/wire/resource_registry.h",
+      "kind": "production",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "4adeb084b06837c7d9d1d0f132cf3bc7498ace01",
+      "sha256": "61b888e6af4ab912d8a344d1c6de3b3ee96170f14f3a3eee2068fd1e2dd32a10",
+      "lines": 233
+    },
+    {
+      "path": "tools/miles-bridge/tests/eos_protocol.cpp",
+      "kind": "test",
+      "origin_revision": "d1c5903de35586dc8cfb0939a5da1756cca43179",
+      "blob": "e698572ce1be594157299c12616b766b9ea540bd",
+      "sha256": "d964bf7f0cd54c4cba9010c970e83b9a3cbef91acbb1cadf776eda67e022d48b",
+      "lines": 111
+    }
+  ],
+  "direct_include_prerequisites": [],
+  "stack_prerequisites": [],
+  "fresh_build_test_runtime": false,
+  "build_boundary": "Dormant sources; existing complete build entry points are deferred to group 7. No project/backend selection changes.",
+  "deferred_ci": "EOS workflow hunk requires the absent wire-compatibility workflow prerequisite.",
+  "status": "",
+  "pre_comment_polish_head": "b2ceca3233fb2e9dd06ad69255d6e056b6c05ab1",
+  "comment_polish_prerequisite": "8ebfbe2c8b8f7efa72250558ea45cba208c43f6f",
+  "source_semantics_proof": "All changed source lines relative to pinned foundations are standalone // comments; no code tokens, identifiers, directives or behavior changed.",
+  "comment_only_edits": [
+    "tools/miles-bridge/src/api/ClientMiles.h",
+    "tools/miles-bridge/src/protocol/miles_wire.h"
+  ],
+  "publication_state": "source_branch_pushed_fork_draft_pending"
+}

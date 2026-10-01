@@ -1,0 +1,19 @@
+diff --git a/tools/miles-bridge/src/api/ClientMiles.h b/tools/miles-bridge/src/api/ClientMiles.h
+index 1117220c8..715450b9e 100644
+--- a/tools/miles-bridge/src/api/ClientMiles.h
++++ b/tools/miles-bridge/src/api/ClientMiles.h
+@@ -4 +4 @@
+-// Source-only proposal for the game/private-adapter boundary.
++// Game-facing boundary for the native and pipe Miles adapters.
+diff --git a/tools/miles-bridge/src/protocol/miles_wire.h b/tools/miles-bridge/src/protocol/miles_wire.h
+index 8fc5e80f6..4c55f045f 100644
+--- a/tools/miles-bridge/src/protocol/miles_wire.h
++++ b/tools/miles-bridge/src/protocol/miles_wire.h
+@@ -1 +1 @@
+-// Experimental reviewed shape only. No transport or vendor implementation.
++// Private paired-process Miles protocol shared by the client and host.
+@@ -17 +17,3 @@ struct Header { uint32_t magic; uint16_t version, kind; uint32_t opcode, bytes;
+-// value[] positions are defined in API-MAP.md; floats retain raw uint32 bits.
++// value[] positions follow the matching host dispatcher (dispatch/host_dispatch.cpp).
++// Float arguments retain their raw uint32 bit patterns; wire layout is encoded
++// field by field rather than copied from these native structs.
