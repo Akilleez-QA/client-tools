@@ -705,7 +705,7 @@
     {
       "id": "platform-diagnostics",
       "title": "Native Windows diagnostic primitives and pointer values",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -726,9 +726,9 @@
           "subject": "debug: retain full exception addresses in crash diagnostics"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-platform-diagnostics",
+      "branch_head": "855b299004da38f48aa6517c76d30338488eeba2",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/33",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Profiler TSC helper, thread-name exception, window user data and crash-address formatting. Native bounded observations remain separate by function; no need to import allocator owner repair to expose these earlier changes.",
       "exclusive_production_accounting": {
@@ -1040,7 +1040,7 @@
     {
       "id": "fpu-controls",
       "title": "x64 MXCSR policy and collision caller contract",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -1049,9 +1049,9 @@
           "subject": "foundation: define native SSE floating-point controls on x64"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-fpu-controls",
+      "branch_head": "16dbf07a4e6696fa1ebc133b567619643b76c3ce",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/32",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "FloatingPointUnit declarations/implementation and CollisionWorld caller change are one unit. Keep historical Win32 setter behavior and numerical evidence limits.",
       "exclusive_production_accounting": {
@@ -1074,7 +1074,7 @@
     {
       "id": "math-kernels",
       "title": "x64 SSE arithmetic, affine transform and collision square root",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -1091,9 +1091,9 @@
           "subject": "collision: use scalar SSE square root on x64"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-math-kernels",
+      "branch_head": "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/34",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Three original algorithm commits can remain separately reviewable in one math branch. Existing numerical evidence contains NaN-payload/signed-zero/Win32-register limitations; not universal bit identity.",
       "exclusive_production_accounting": {
@@ -1398,7 +1398,7 @@
     {
       "id": "x64-projects",
       "title": "Generated v120 Debug/Release x64 project closure",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "link-cleanup",
@@ -1410,9 +1410,9 @@
           "subject": "build: generate isolated v120 Debug and Release x64 configurations"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-x64-projects",
+      "branch_head": "5b558625c0c42a7d2b1dcce67fb80e0200f53850",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/12",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Generated project/solution configurations and generator/check tooling. Separate mechanics from source correctness. Reapply provider and development imports in later packages rather than copying final project files at this stage.",
       "exclusive_production_accounting": {
@@ -1608,7 +1608,7 @@
     {
       "id": "miles-session-core",
       "title": "Miles facade, private host session and engine callback bridge",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "audio-native-contract",
@@ -1662,9 +1662,9 @@
           "subject": "audio: forbid destruction of the process-owned callback runtime"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-miles-build-audio",
+      "branch_head": "afe844818e86b24313a9e940d4723a02f7262ae8",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/11",
       "assembly_method": "Superseded by six source foundations plus build/Audio handoff in miles-core-package-split.json; retain this aggregate only for whole-diff accounting.",
       "boundary": "Foundations 1\u20136 and core build/Audio handoff are fork drafts #5\u201311. Later game/Bink deltas on these files remain; final whole-file accounting does not measure completed hunk coverage.",
       "exclusive_production_accounting": {

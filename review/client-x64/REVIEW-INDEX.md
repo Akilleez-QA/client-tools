@@ -36,7 +36,9 @@ The [component build/Audio handoff](pr-ready-next/miles-build-audio/RESULTS.md) 
 
 [Client FPU #32](https://github.com/SWG-Source/client-tools/pull/32) applies on master ([evidence](pr-ready-next/client-fpu-controls/RESULTS.md)); matching [server fork draft #3](https://github.com/Akilleez-QA/src/pull/3) is stacked above server #38 for CI ([evidence](pr-ready-next/server-fpu-controls/RESULTS.md)). Each changes three source files, +55/−2, retaining the historical Win32 setter behavior.
 
-The [generated x64 configurations](pr-ready-next/x64-projects/RESULTS.md) are prepared above the published DPVS/link prerequisites: 71 configuration/tooling files, +7727, no production C/C++ changes. The [Windows diagnostics package](pr-ready-next/platform-diagnostics/RESULTS.md) is reviewed directly on master: four source files, +14/−4.
+[Generated x64 configurations, fork draft #12](https://github.com/Akilleez-QA/client-tools/pull/12), are above the published DPVS/link prerequisites ([evidence](pr-ready-next/x64-projects/RESULTS.md)): 71 configuration/tooling files, +7727, no production C/C++ changes. [Windows diagnostics, upstream #33](https://github.com/SWG-Source/client-tools/pull/33), apply directly on master ([evidence](pr-ready-next/platform-diagnostics/RESULTS.md)): four source files, +14/−4.
+
+[Client math #34](https://github.com/SWG-Source/client-tools/pull/34) and [server fork draft #4](https://github.com/Akilleez-QA/src/pull/4) each contain four source files, +235/−1. The server stack uses the same #38 CI prerequisite. [Client evidence](pr-ready-next/client-math-kernels/RESULTS.md) and [server counterpart limits](pr-ready-next/server-math-kernels/RESULTS.md) include the fresh exact-source SseMath x64 Debug/Release check: 33,280 records per configuration, byte-identical to each historical candidate oracle. Numerical exceptions remain bounded as documented.
 
 ## Earlier candidate packages and dependency drafts
 
