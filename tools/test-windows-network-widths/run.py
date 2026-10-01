@@ -10,6 +10,7 @@ import struct
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
+from diagnostics import expected_failure
 
 NETWORK = 'src/engine/shared/library/sharedNetwork'
 HEADERS = [NETWORK + '/src/win32/Sock.h',
@@ -64,7 +65,9 @@ def main():
     parser.add_argument('--vcvars', type=Path, default=Path('C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/vcvarsall.bat'))
     parser.add_argument('--only', choices=('all', 'implementation', 'headers'), default='all')
     parser.add_argument('--revision', default='unreported', help='Reported source revision; hashes below bind actual inputs')
+    parser.add_argument('--modern-msvc', action='store_true', help='Explicitly permit MSVC 19.x; default requires v120')
     args = parser.parse_args()
+    environment = dict(os.environ, VSLANG='1033')
     if os.name != 'nt':
         parser.error('Run on native Windows with Visual Studio 2013 v120 installed')
     root, out, vcvars = args.checkout.resolve(), args.out.resolve(), args.vcvars.resolve()
@@ -78,7 +81,8 @@ def main():
     write_json(out / 'identity.json', {'reported_revision': args.revision,
                'checkout': str(root), 'python': sys.version, 'vcvars': str(vcvars),
                'vcvars_sha256': sha(vcvars), 'runner_sha256': sha(runner),
-               'probe_sha256': sha(probe), 'sources': source_hashes})
+               'probe_sha256': sha(probe), 'diagnostics_sha256': sha(runner.with_name('diagnostics.py')),
+               'modern_msvc': args.modern_msvc, 'VSLANG': '1033', 'sources': source_hashes})
 
     def compile_case(name, arch, config, source, includes, definitions, options,
                      executable=False, expected_diagnostic=None, positive_name=None, probe_values=None):
@@ -96,14 +100,17 @@ def main():
                   'source_sha256': sha(source), 'command': command,
                   'expected': expected_diagnostic or 'compile success', 'positive_case': positive_name}
         try:
-            run = subprocess.run(['cmd', '/d', '/c', str(batch)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=90)
+            run = subprocess.run(['cmd', '/d', '/c', str(batch)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=90, env=environment)
             raw = run.stdout
             record['compile_exit'] = run.returncode
             text = raw.decode('utf-8', errors='replace')
             (directory / 'compile.log').write_bytes(raw)
+            winsock_headers = []
             for line in text.splitlines():
                 if 'Note: including file:' in line:
                     path = Path(line.split('Note: including file:', 1)[1].strip()).resolve()
+                    if path.name.lower() == 'winsock2.h':
+                        winsock_headers.append(path)
                     if path.is_file():
                         try:
                             key = 'checkout/' + path.relative_to(root).as_posix()
@@ -111,7 +118,29 @@ def main():
                             key = str(path)
                         included_hashes[key] = sha(path)
             if expected_diagnostic:
-                record['passed'] = (run.returncode != 0 and re.search(expected_diagnostic, text) is not None
+                rules = {}
+                if name.startswith('reverted-key-'):
+                    body = source.read_text()
+                    call, = list(re.finditer(r'GetQueuedCompletionStatus\s*\([^;]*;', body))
+                    # MSVC anchors this argument mismatch at the closing call line.
+                    at = body.count('\n', 0, call.end()) + 1
+                    rules[str(source)] = [(at, 'C2664', r".*GetQueuedCompletionStatus.*cannot convert argument 3 from 'unsigned long \*' to 'PULONG_PTR'.*")]
+                else:
+                    cause = r"'SOCKET'\s*:\s*redefinition; different basic types"
+                    for header in winsock_headers:
+                        rules[str(header)] = [(None, 'C2371', cause)]
+                    for path in HEADERS:
+                        header = out / 'reverted-headers' / path
+                        at, = [i for i, line in enumerate(header.read_text().splitlines(), 1)
+                               if 'typedef unsigned int SOCKET;' in line]
+                        rules[str(header)] = [(at, 'C2371', cause)]
+                    assertions = []
+                    for i, line in enumerate(probe.read_text().splitlines(), 1):
+                        for message in ('Sock::handle truncates SOCKET', 'Sock::handle must be pointer-sized', 'SOCKET width'):
+                            if '"' + message + '"' in line:
+                                assertions.append((i, 'C2338', re.escape(message)))
+                    rules[str(probe)] = assertions
+                record['passed'] = (run.returncode != 0 and expected_failure(text, rules)
                                     and any(r['name'] == positive_name and r['passed'] for r in results))
             else:
                 record['passed'] = run.returncode == 0 and obj.is_file()
@@ -137,14 +166,20 @@ def main():
 
     # Capture compiler/SDK paths and versions separately for both architectures.
     toolchains_ok = True
+    toolchains = {}
     for arch in ('x86', 'amd64'):
         metadata = out / ('toolchain-' + arch + '.cmd')
         metadata.write_text('@echo off\ncall "' + str(vcvars) + '" ' + arch + ' >nul\nif errorlevel 1 exit /b %errorlevel%\nwhere cl\nwhere link\ncl /Bv\nset INCLUDE\nset LIB\nver\n')
-        run = subprocess.run(['cmd', '/d', '/c', str(metadata)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=30)
+        run = subprocess.run(['cmd', '/d', '/c', str(metadata)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=30, env=environment)
         (out / ('toolchain-' + arch + '.log')).write_bytes(run.stdout)
-        toolchains_ok &= b'Compiler Version 18.00.' in run.stdout
-        if not toolchains_ok:
-            raise ValueError('Expected native Visual Studio 2013 v120 compiler')
+        versions = re.findall(rb'Compiler Version (\d+\.\d+[^ \r\n]*)', run.stdout)
+        permitted = b'19.' if args.modern_msvc else b'18.00.'
+        accepted = bool(versions) and all(v.startswith(permitted) for v in versions)
+        toolchains_ok &= accepted
+        toolchains[arch] = {'versions': [v.decode() for v in versions], 'accepted': accepted}
+        write_json(out / 'toolchains.json', toolchains)
+        if not accepted:
+            raise ValueError('Compiler does not match explicit modern-MSVC or default v120 selection')
 
     if args.only in ('all', 'headers'):
         controls = out / 'reverted-headers'
@@ -205,7 +240,8 @@ def main():
                'runtime_checks': sum(r.get('runtime_checks', 0) for r in results),
                'failed_cases': [r['name'] for r in results if not r['passed']]}
     summary['passed'] = len(results) == expected and not summary['failed_cases']
-    summary['toolchains_v120'] = toolchains_ok
+    summary['toolchains_accepted'] = toolchains_ok
+    summary['toolchain_mode'] = 'modern-msvc' if args.modern_msvc else 'v120'
     summary['source_inputs_unchanged'] = all(sha(root / path) == value for path, value in source_hashes.items())
     summary['passed'] &= summary['source_inputs_unchanged']
     write_json(out / 'summary.json', summary)

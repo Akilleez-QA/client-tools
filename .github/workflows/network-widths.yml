@@ -1,0 +1,55 @@
+name: Windows network width regression
+
+on:
+  push:
+    branches: [review-ready/client-network-widths]
+  pull_request:
+    paths:
+      - .github/workflows/network-widths.yml
+      - tools/test-windows-network-widths/**
+      - src/engine/shared/library/sharedNetwork/**
+      - src/engine/shared/library/sharedFoundation/**
+      - src/engine/shared/library/sharedFoundationTypes/**
+      - src/engine/shared/library/sharedDebug/**
+      - src/engine/shared/library/sharedMemoryManager/**
+      - src/external/3rd/library/udplibrary/**
+      - src/external/3rd/library/soePlatform/VChatAPI/utils2.0/utils/UdpLibrary/**
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Check diagnostic classifier
+        shell: pwsh
+        run: |
+          python tools/test-windows-network-widths/test_diagnostics.py
+          exit $LASTEXITCODE
+      - name: Run 100-case matrix with explicit modern MSVC
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+          $vs = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (-not $vs) { throw 'MSVC installation not found' }
+          $vcvars = Join-Path $vs 'VC/Auxiliary/Build/vcvarsall.bat'
+          $revision = git rev-parse HEAD
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/test-windows-network-widths/run.py --checkout . --out "$env:RUNNER_TEMP/network-widths" --vcvars "$vcvars" --modern-msvc --revision "$revision"
+          exit $LASTEXITCODE
+      - name: Preserve text evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: network-widths-windows
+          path: |
+            ${{ runner.temp }}/network-widths/*.json
+            ${{ runner.temp }}/network-widths/*.log
+            ${{ runner.temp }}/network-widths/*/*.log
+            ${{ runner.temp }}/network-widths/*/*.cmd
+          if-no-files-found: warn
