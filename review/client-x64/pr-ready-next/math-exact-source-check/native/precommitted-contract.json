@@ -1,0 +1,44 @@
+{
+  "created_utc": "2026-10-01T09:31:21.188938+00:00",
+  "run_id": "20261001-093121-efb0d590",
+  "remote_output": "C:/ssemath-pr-source-check-20261001-093121-efb0d590",
+  "source": "C:/client-next-build/src/engine/shared/library/sharedMath/src/win32/SseMath.cpp",
+  "header": "C:/client-next-build/src/engine/shared/library/sharedMath/src/win32/SseMath.h",
+  "probe": "C:/math-next/ssemath-probe-v2.cpp",
+  "comparator": "C:/math-next/compare-ssemath-v2.py",
+  "source_sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089",
+  "header_sha256": "54af98ab49f9488c1190a932b9095dce1b3ac6b7089d64a248a2f70fb02448f1",
+  "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+  "comparator_sha256": "6798a1fa093e594463d329c210c2f949c60b949893d891827dfd91ee6fc57c6b",
+  "historical_records_sha256": {
+    "Debug": "d7e08b523bff6e406a67e7bc5f2b46160090b3f2a429621ee9a457187b5d7ddc",
+    "Release": "f729d25c5f2123b67cc6ecb8fb3d72b66f53a638367c90b9110213e0089e5a4c"
+  },
+  "record_header": [
+    1397966130,
+    2,
+    33280,
+    56,
+    16,
+    196607,
+    2400418481,
+    0
+  ],
+  "oracle": "Fresh corrected records equal original candidate records byte-for-byte; header/schema and exactly 33280 records required. Any difference is failure; do not tune.",
+  "allowed_native_targets": [
+    "Debug-x64-candidate",
+    "Release-x64-candidate"
+  ],
+  "allowed_command_changes": "Only /Fo outputs, matching linker object paths, /OUT and /MAP paths; original forced include and all flags preserved.",
+  "direct_project_headers": [
+    "src/engine/shared/library/sharedMath/src/shared/FirstSharedMath.h",
+    "src/engine/shared/library/sharedMath/src/shared/Transform.h",
+    "src/engine/shared/library/sharedMath/src/shared/Vector.h",
+    "src/engine/shared/library/sharedMath/include/public/sharedMath/Transform.h",
+    "src/engine/shared/library/sharedMath/include/public/sharedMath/Vector.h",
+    "src/engine/shared/library/sharedFoundation/include/public/sharedFoundation/FirstSharedFoundation.h",
+    "src/engine/shared/library/sharedFoundation/src/shared/FirstSharedFoundation.h",
+    "src/engine/shared/library/sharedMath/include/public/sharedMath/FirstSharedMath.h",
+    "src/engine/shared/library/sharedMath/include/public/sharedMath/SseMath.h"
+  ]
+}

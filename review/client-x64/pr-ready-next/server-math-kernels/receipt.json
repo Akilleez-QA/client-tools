@@ -1,0 +1,780 @@
+{
+  "schema_version": 1,
+  "prepared_date": "2026-10-01",
+  "purpose": "Local source-only PR packaging; exact existing evidence identity receipt",
+  "packages": [
+    {
+      "id": "client-math-kernels",
+      "repository": "https://github.com/Akilleez-QA/client-tools",
+      "worktree": "/home/akilleez/Work/swg-source/client-pr-next-byteorder",
+      "branch": "review-ready/client-math-kernels",
+      "base_ref": "master",
+      "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+      "head": "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+      "merge_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+      "authoritative_source_head": "eca74ffa5741f608a1417944b2e2602868936517",
+      "commits": [
+        {
+          "original": "8cdd61ed5b373c4766d107cdad31925309bec21b",
+          "original_url": "https://github.com/Akilleez-QA/client-tools/commit/8cdd61ed5b373c4766d107cdad31925309bec21b",
+          "packaged": "5234804a5bf6e8a14e84f33c189ba3731d57b910",
+          "subject": "math: provide x64 SSE intrinsics for legacy Windows helpers",
+          "original_patch_id": "ed34ae2706e60704d9debea97df9b3130fcb6bad",
+          "packaged_patch_id": "ed34ae2706e60704d9debea97df9b3130fcb6bad",
+          "patch_identity": true
+        },
+        {
+          "original": "631c79266695e4cdffada33b954033b965fed0de",
+          "original_url": "https://github.com/Akilleez-QA/client-tools/commit/631c79266695e4cdffada33b954033b965fed0de",
+          "packaged": "22ffea2f6bdf03a967f94782eae461cd0a6c1067",
+          "subject": "math: implement the x64 affine transform SSE kernel",
+          "original_patch_id": "f8c988e7caa72a20626b63e681b1d03b31934682",
+          "packaged_patch_id": "f8c988e7caa72a20626b63e681b1d03b31934682",
+          "patch_identity": true
+        },
+        {
+          "original": "1a2d514b6a44c4a30badfec959db5a526d4fc767",
+          "original_url": "https://github.com/Akilleez-QA/client-tools/commit/1a2d514b6a44c4a30badfec959db5a526d4fc767",
+          "packaged": "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+          "subject": "collision: use scalar SSE square root on x64",
+          "original_patch_id": "e535b466e342c521490eaa7f7694e138b293c580",
+          "packaged_patch_id": "e535b466e342c521490eaa7f7694e138b293c580",
+          "patch_identity": true
+        }
+      ],
+      "counts": {
+        "production_source": {
+          "files": 4,
+          "additions": 235,
+          "deletions": 1
+        },
+        "tests": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        },
+        "build_tooling": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        },
+        "documentation": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        }
+      },
+      "files": [
+        {
+          "path": "src/engine/shared/library/sharedCollision/src/shared/core/CollisionUtils.cpp",
+          "category": "production_source",
+          "additions": 7,
+          "deletions": 0,
+          "base_blob": "c97710ba02549f7806f606013db70a1e3a15d8c1",
+          "original_pre_kernel_blob": "c97710ba02549f7806f606013db70a1e3a15d8c1",
+          "baseline_identity": true,
+          "head_blob": "1d6a44bccbe6775a6867e3ae6166b06a974404ab",
+          "authoritative_blob": "1d6a44bccbe6775a6867e3ae6166b06a974404ab",
+          "authoritative_identity": true,
+          "sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+          "historical_client_candidate_sha256": [
+            "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e"
+          ],
+          "historical_client_full_source_identity": true,
+          "evidence_url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/collision-sqrt-v5-results.json"
+        },
+        {
+          "path": "src/engine/shared/library/sharedMath/src/shared/Transform.cpp",
+          "category": "production_source",
+          "additions": 27,
+          "deletions": 0,
+          "base_blob": "9cc8c181f2388b0f5a94c66334d913047e92466a",
+          "original_pre_kernel_blob": "9cc8c181f2388b0f5a94c66334d913047e92466a",
+          "baseline_identity": true,
+          "head_blob": "61afe7f680d8344c67858e49e9d558717aec8cc9",
+          "authoritative_blob": "61afe7f680d8344c67858e49e9d558717aec8cc9",
+          "authoritative_identity": true,
+          "sha256": "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c",
+          "historical_client_candidate_sha256": [
+            "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c"
+          ],
+          "historical_client_full_source_identity": true,
+          "evidence_url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/transform-v6-results.json"
+        },
+        {
+          "path": "src/engine/shared/library/sharedMath/src/win32/SseMath.cpp",
+          "category": "production_source",
+          "additions": 194,
+          "deletions": 0,
+          "base_blob": "11624aabee09cd93e8c7700a2f34b98aa3ba3e5f",
+          "original_pre_kernel_blob": "11624aabee09cd93e8c7700a2f34b98aa3ba3e5f",
+          "baseline_identity": true,
+          "head_blob": "4e2963c091a8ee454dcca4c55844e69c8fc2566c",
+          "authoritative_blob": "4e2963c091a8ee454dcca4c55844e69c8fc2566c",
+          "authoritative_identity": true,
+          "sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089",
+          "historical_client_candidate_sha256": [
+            "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5"
+          ],
+          "historical_client_full_source_identity": false,
+          "evidence_url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/reload-control-v1-results.json"
+        },
+        {
+          "path": "src/engine/shared/library/sharedMath/src/win32/SseMath.h",
+          "category": "production_source",
+          "additions": 7,
+          "deletions": 1,
+          "base_blob": "fcbeaef2a797d0341293dddc00161eeeee712fe4",
+          "original_pre_kernel_blob": "fcbeaef2a797d0341293dddc00161eeeee712fe4",
+          "baseline_identity": true,
+          "head_blob": "00afa926518b33a04f76e3b89f1701f87a81da1c",
+          "authoritative_blob": "00afa926518b33a04f76e3b89f1701f87a81da1c",
+          "authoritative_identity": true,
+          "sha256": "54af98ab49f9488c1190a932b9095dce1b3ac6b7089d64a248a2f70fb02448f1",
+          "evidence_limit": "No independent header digest recorded in this probe packet; exact original/maintained source provenance only."
+        }
+      ],
+      "preserved_previous_branch": {
+        "branch": "review-ready/client-byteorder-x64",
+        "head": "8f136d19935515c471af46e56c509df0cbdeed89"
+      },
+      "source_prerequisites": [],
+      "integration_requirements": "Existing x64 project/foundation support remains separately packaged. No claim this source branch alone builds the entire library or product.",
+      "fpu_dependency": "None in kernel source: no FloatingPointUnit references or new API calls; floating-point state is inherited from the caller.",
+      "clean_worktree": true,
+      "diff_check": "passed",
+      "cherry_pick_conflicts": false,
+      "remote_mutations": false,
+      "new_builds_or_tests": false,
+      "publication_state": "local_only"
+    },
+    {
+      "id": "server-sse-math",
+      "repository": "https://github.com/Akilleez-QA/src",
+      "worktree": "/home/akilleez/Work/swg-source/server-pr-build-workflow",
+      "branch": "review-ready/server-sse-math",
+      "base_ref": "master",
+      "base": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+      "head": "274d3a6dbcd7b3195db4266ac4b753ee2a6b3a89",
+      "merge_base": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+      "authoritative_source_head": "731d85cc10326f5f2d656b4b66f09c5feab30635",
+      "commits": [
+        {
+          "original": "ad4d5c7f814f5d4b061fb738f3046253d538bf53",
+          "original_url": "https://github.com/Akilleez-QA/src/commit/ad4d5c7f814f5d4b061fb738f3046253d538bf53",
+          "packaged": "f9f68216cb2207413bd343259cf284c422e6964d",
+          "subject": "math: provide x64 SSE intrinsics for legacy Windows helpers",
+          "original_patch_id": "66cff34b2983fa6c07477e0f594975d61a5321c7",
+          "packaged_patch_id": "66cff34b2983fa6c07477e0f594975d61a5321c7",
+          "patch_identity": true
+        },
+        {
+          "original": "1cc02f6ab4fce25e26ca7c04da1ae4813fd3f0a1",
+          "original_url": "https://github.com/Akilleez-QA/src/commit/1cc02f6ab4fce25e26ca7c04da1ae4813fd3f0a1",
+          "packaged": "e523431af37d0347ad3e9a6311c49d8583fce9c9",
+          "subject": "math: implement the x64 affine transform SSE kernel",
+          "original_patch_id": "4165fa5f27bd195770b576839726849b6fde11d4",
+          "packaged_patch_id": "4165fa5f27bd195770b576839726849b6fde11d4",
+          "patch_identity": true
+        },
+        {
+          "original": "517d80bd8044188859b618655a7c40d2825d8fd0",
+          "original_url": "https://github.com/Akilleez-QA/src/commit/517d80bd8044188859b618655a7c40d2825d8fd0",
+          "packaged": "274d3a6dbcd7b3195db4266ac4b753ee2a6b3a89",
+          "subject": "collision: use scalar SSE square root on Windows x64",
+          "original_patch_id": "dd24741d5eec1bf9a0398e303d88f9e144edc5ac",
+          "packaged_patch_id": "dd24741d5eec1bf9a0398e303d88f9e144edc5ac",
+          "patch_identity": true
+        }
+      ],
+      "counts": {
+        "production_source": {
+          "files": 4,
+          "additions": 235,
+          "deletions": 1
+        },
+        "tests": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        },
+        "build_tooling": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        },
+        "documentation": {
+          "files": 0,
+          "additions": 0,
+          "deletions": 0
+        }
+      },
+      "files": [
+        {
+          "path": "engine/shared/library/sharedCollision/src/shared/core/CollisionUtils.cpp",
+          "category": "production_source",
+          "additions": 7,
+          "deletions": 0,
+          "base_blob": "5d8192b538531287169efeec58111d8943bdc9b2",
+          "original_pre_kernel_blob": "5d8192b538531287169efeec58111d8943bdc9b2",
+          "baseline_identity": true,
+          "head_blob": "5fbb5a4462c27117d4386358c7d2faa654ed6546",
+          "authoritative_blob": "5fbb5a4462c27117d4386358c7d2faa654ed6546",
+          "authoritative_identity": true,
+          "sha256": "e8f912a3492523b79125792c071e78515f27a7d9da0c166c2ef3fecc38cc7156",
+          "historical_client_candidate_sha256": [
+            "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e"
+          ],
+          "historical_client_full_source_identity": false,
+          "evidence_url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/collision-sqrt-v5-results.json"
+        },
+        {
+          "path": "engine/shared/library/sharedMath/src/shared/Transform.cpp",
+          "category": "production_source",
+          "additions": 27,
+          "deletions": 0,
+          "base_blob": "3c43e539f74a2c1ebdcef32e3fbce3b14a3195f9",
+          "original_pre_kernel_blob": "3c43e539f74a2c1ebdcef32e3fbce3b14a3195f9",
+          "baseline_identity": true,
+          "head_blob": "5dfaded63267ae6b9f5ec1f7b33cee8802a45105",
+          "authoritative_blob": "5dfaded63267ae6b9f5ec1f7b33cee8802a45105",
+          "authoritative_identity": true,
+          "sha256": "e2e8eaf02c5b634ab2d0407970cc2ec9227badb7e795f950949f5c3dec71cc0c",
+          "historical_client_candidate_sha256": [
+            "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c"
+          ],
+          "historical_client_full_source_identity": false,
+          "evidence_url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/transform-v6-results.json"
+        },
+        {
+          "path": "engine/shared/library/sharedMath/src/win32/SseMath.cpp",
+          "category": "production_source",
+          "additions": 194,
+          "deletions": 0,
+          "base_blob": "11624aabee09cd93e8c7700a2f34b98aa3ba3e5f",
+          "original_pre_kernel_blob": "11624aabee09cd93e8c7700a2f34b98aa3ba3e5f",
+          "baseline_identity": true,
+          "head_blob": "4e2963c091a8ee454dcca4c55844e69c8fc2566c",
+          "authoritative_blob": "4e2963c091a8ee454dcca4c55844e69c8fc2566c",
+          "authoritative_identity": true,
+          "sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089",
+          "historical_client_candidate_sha256": [
+            "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5"
+          ],
+          "historical_client_full_source_identity": false,
+          "evidence_url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/reload-control-v1-results.json"
+        },
+        {
+          "path": "engine/shared/library/sharedMath/src/win32/SseMath.h",
+          "category": "production_source",
+          "additions": 7,
+          "deletions": 1,
+          "base_blob": "fcbeaef2a797d0341293dddc00161eeeee712fe4",
+          "original_pre_kernel_blob": "fcbeaef2a797d0341293dddc00161eeeee712fe4",
+          "baseline_identity": true,
+          "head_blob": "00afa926518b33a04f76e3b89f1701f87a81da1c",
+          "authoritative_blob": "00afa926518b33a04f76e3b89f1701f87a81da1c",
+          "authoritative_identity": true,
+          "sha256": "54af98ab49f9488c1190a932b9095dce1b3ac6b7089d64a248a2f70fb02448f1",
+          "evidence_limit": "No independent header digest recorded in this probe packet; exact original/maintained source provenance only."
+        }
+      ],
+      "preserved_previous_branch": {
+        "branch": "review-ready/server-build-workflow",
+        "head": "1c0152794e5597f16cd9e4b03930df654f73aa03"
+      },
+      "source_prerequisites": [],
+      "integration_requirements": "Existing x64 project/foundation support remains separately packaged. No claim this source branch alone builds the entire library or product.",
+      "fpu_dependency": "None in kernel source: no FloatingPointUnit references or new API calls; floating-point state is inherited from the caller.",
+      "clean_worktree": true,
+      "diff_check": "passed",
+      "cherry_pick_conflicts": false,
+      "remote_mutations": false,
+      "new_builds_or_tests": false,
+      "publication_state": "local_only"
+    }
+  ],
+  "evidence_ref": "4849c510c4983fd00a0515bc309a133090ffb7ab",
+  "evidence": [
+    {
+      "path": "review/client-x64/allocator-math-next/math-native-results.md",
+      "sha256": "96d00a14b6765d9c426d009b699e7a4064781e3ef2b40617cc5663f20989ecee",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/math-native-results.md"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/ssemath-clobber-analysis.md",
+      "sha256": "3ce7440f69a57d5bc966894f81f786db7900d9c1928f913d7017722aa4d2534d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/ssemath-clobber-analysis.md"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/reload-control-v1-results.json",
+      "sha256": "97e1a9def55f34ed2468ebdd16be2c9700b3fea029743e0790ca1dbb733a6fcd",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/reload-control-v1-results.json",
+      "recorded_builds": [
+        {
+          "name": "Debug-Win32-candidate",
+          "config": "Debug",
+          "platform": "Win32",
+          "mode": "candidate",
+          "source_sha256": "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "recorded",
+          "production_compile": 0,
+          "probe_compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 33280
+        },
+        {
+          "name": "Debug-Win32-reload-control",
+          "config": "Debug",
+          "platform": "Win32",
+          "mode": "reload-control",
+          "source_sha256": "3d438fd2ca9d2044d85f2ddc6c5019d0d9cf74a8aa447624efb290e502b74923",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "recorded",
+          "production_compile": 0,
+          "probe_compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 33280
+        },
+        {
+          "name": "Debug-x64-candidate",
+          "config": "Debug",
+          "platform": "x64",
+          "mode": "candidate",
+          "source_sha256": "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "recorded",
+          "production_compile": 0,
+          "probe_compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 33280
+        },
+        {
+          "name": "Debug-x64-reload-control",
+          "config": "Debug",
+          "platform": "x64",
+          "mode": "reload-control",
+          "source_sha256": "3d438fd2ca9d2044d85f2ddc6c5019d0d9cf74a8aa447624efb290e502b74923",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "expected-reload-control-x64-rejection",
+          "production_compile": 2
+        },
+        {
+          "name": "Release-Win32-candidate",
+          "config": "Release",
+          "platform": "Win32",
+          "mode": "candidate",
+          "source_sha256": "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "recorded",
+          "production_compile": 0,
+          "probe_compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 33280
+        },
+        {
+          "name": "Release-Win32-reload-control",
+          "config": "Release",
+          "platform": "Win32",
+          "mode": "reload-control",
+          "source_sha256": "3d438fd2ca9d2044d85f2ddc6c5019d0d9cf74a8aa447624efb290e502b74923",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "recorded",
+          "production_compile": 0,
+          "probe_compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 33280
+        },
+        {
+          "name": "Release-x64-candidate",
+          "config": "Release",
+          "platform": "x64",
+          "mode": "candidate",
+          "source_sha256": "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "recorded",
+          "production_compile": 0,
+          "probe_compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 33280
+        },
+        {
+          "name": "Release-x64-reload-control",
+          "config": "Release",
+          "platform": "x64",
+          "mode": "reload-control",
+          "source_sha256": "3d438fd2ca9d2044d85f2ddc6c5019d0d9cf74a8aa447624efb290e502b74923",
+          "probe_sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018",
+          "fp": "precise",
+          "status": "expected-reload-control-x64-rejection",
+          "production_compile": 2
+        }
+      ],
+      "comparisons": [
+        {
+          "config": "Debug",
+          "win32_records_unchanged": false,
+          "comparison_exit": 0,
+          "note": "Exceptional categories require explicit assessment even if comparison exits zero."
+        },
+        {
+          "config": "Release",
+          "win32_records_unchanged": false,
+          "comparison_exit": 0,
+          "note": "Exceptional categories require explicit assessment even if comparison exits zero."
+        }
+      ]
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/reload-control-v1-Debug-comparison.json",
+      "sha256": "ba1c97e464f012e5d9e6eb20615003c04d75f788ed4317af44eed4e93d46acbd",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/reload-control-v1-Debug-comparison.json"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/reload-control-v1-Release-comparison.json",
+      "sha256": "63a86bb5dd67af171c80d6018cf71c0a4e4ffa86ef6dbe07ecb15cbb39522248",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/reload-control-v1-Release-comparison.json"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/transform-v6-results.json",
+      "sha256": "d4909d1c2c230b5e7e95589ea0160d292ea6342a218bad27d0dab85b5f9e2e2e",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/transform-v6-results.json",
+      "recorded_builds": [
+        {
+          "name": "Debug-Win32-candidate",
+          "config": "Debug",
+          "platform": "Win32",
+          "mode": "candidate",
+          "source_sha256": "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 1024
+        },
+        {
+          "name": "Debug-Win32-stock",
+          "config": "Debug",
+          "platform": "Win32",
+          "mode": "stock",
+          "source_sha256": "1d86db83b4243fa1f3a1b93efd6d5dc0b5ade63a7e97df1e7e61e8ee9cee58fb",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 1024
+        },
+        {
+          "name": "Debug-x64-candidate",
+          "config": "Debug",
+          "platform": "x64",
+          "mode": "candidate",
+          "source_sha256": "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 1024
+        },
+        {
+          "name": "Debug-x64-stock",
+          "config": "Debug",
+          "platform": "x64",
+          "mode": "stock",
+          "source_sha256": "1d86db83b4243fa1f3a1b93efd6d5dc0b5ade63a7e97df1e7e61e8ee9cee58fb",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "expected-stock-x64-rejection",
+          "compile": 2
+        },
+        {
+          "name": "Release-Win32-candidate",
+          "config": "Release",
+          "platform": "Win32",
+          "mode": "candidate",
+          "source_sha256": "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 1024
+        },
+        {
+          "name": "Release-Win32-stock",
+          "config": "Release",
+          "platform": "Win32",
+          "mode": "stock",
+          "source_sha256": "1d86db83b4243fa1f3a1b93efd6d5dc0b5ade63a7e97df1e7e61e8ee9cee58fb",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 1024
+        },
+        {
+          "name": "Release-x64-candidate",
+          "config": "Release",
+          "platform": "x64",
+          "mode": "candidate",
+          "source_sha256": "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 1024
+        },
+        {
+          "name": "Release-x64-stock",
+          "config": "Release",
+          "platform": "x64",
+          "mode": "stock",
+          "source_sha256": "1d86db83b4243fa1f3a1b93efd6d5dc0b5ade63a7e97df1e7e61e8ee9cee58fb",
+          "probe_sha256": "afa9f266ac7f916d1a3f82e5978625406001f3f84d2e059a290ecb62805b22dc",
+          "fp": "precise",
+          "status": "expected-stock-x64-rejection",
+          "compile": 2
+        }
+      ],
+      "comparisons": [
+        {
+          "config": "Debug",
+          "win32_records_unchanged": true,
+          "comparison_exit": 0,
+          "note": "All recorded value/flag differences fail. Dispatch is bound directly in diagnostic TU; install/startup is not covered."
+        },
+        {
+          "config": "Release",
+          "win32_records_unchanged": true,
+          "comparison_exit": 1,
+          "note": "All recorded value/flag differences fail. Dispatch is bound directly in diagnostic TU; install/startup is not covered."
+        }
+      ]
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/transform-v6-Debug-comparison.json",
+      "sha256": "4846078434b406fdf9ff355a005260d55b196c693deed1786619794c5a57353b",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/transform-v6-Debug-comparison.json"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/transform-v6-Release-comparison.json",
+      "sha256": "1f787bf66c1ae19b95fa0e1342e413f3f4500c48efe7463639f7d46b13b1eeab",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/transform-v6-Release-comparison.json"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/collision-sqrt-v5-results.json",
+      "sha256": "b9fa05329dcaeed3311c63d43e8a59f20710c683b3926b79ea8185c5719410f0",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/collision-sqrt-v5-results.json",
+      "recorded_builds": [
+        {
+          "name": "Debug-Win32-candidate",
+          "config": "Debug",
+          "platform": "Win32",
+          "mode": "candidate",
+          "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 8192
+        },
+        {
+          "name": "Debug-Win32-stock",
+          "config": "Debug",
+          "platform": "Win32",
+          "mode": "stock",
+          "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 8192
+        },
+        {
+          "name": "Debug-x64-candidate",
+          "config": "Debug",
+          "platform": "x64",
+          "mode": "candidate",
+          "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 8192
+        },
+        {
+          "name": "Debug-x64-stock",
+          "config": "Debug",
+          "platform": "x64",
+          "mode": "stock",
+          "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "expected-stock-x64-rejection",
+          "compile": 2
+        },
+        {
+          "name": "Release-Win32-candidate",
+          "config": "Release",
+          "platform": "Win32",
+          "mode": "candidate",
+          "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 8192
+        },
+        {
+          "name": "Release-Win32-stock",
+          "config": "Release",
+          "platform": "Win32",
+          "mode": "stock",
+          "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 8192
+        },
+        {
+          "name": "Release-x64-candidate",
+          "config": "Release",
+          "platform": "x64",
+          "mode": "candidate",
+          "source_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "recorded",
+          "compile": 0,
+          "link": 0,
+          "run": 0,
+          "records": 8192
+        },
+        {
+          "name": "Release-x64-stock",
+          "config": "Release",
+          "platform": "x64",
+          "mode": "stock",
+          "source_sha256": "5c74134099db14fc42418884aadd53ba3c186664c63441f9d8d44770b1143951",
+          "probe_sha256": "80f21314b73378c7ae3c5d2f168115994adf5d49de20eb83bd94c14311d4cbfc",
+          "fp": "precise",
+          "status": "expected-stock-x64-rejection",
+          "compile": 2
+        }
+      ],
+      "comparisons": [
+        {
+          "config": "Debug",
+          "win32_records_unchanged": true,
+          "comparison_exit": 0,
+          "note": "Finite values/classification are the verdict; exceptional and hardware-unit flag differences remain data."
+        },
+        {
+          "config": "Release",
+          "win32_records_unchanged": true,
+          "comparison_exit": 0,
+          "note": "Finite values/classification are the verdict; exceptional and hardware-unit flag differences remain data."
+        }
+      ]
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/collision-sqrt-v5-Debug-comparison.json",
+      "sha256": "79c0a4970db3a48e7fe5912008f2ce30dc7d2f10e6c480513985a56048f98d9d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/collision-sqrt-v5-Debug-comparison.json"
+    },
+    {
+      "path": "review/client-x64/allocator-math-next/collision-sqrt-v5-Release-comparison.json",
+      "sha256": "79c0a4970db3a48e7fe5912008f2ce30dc7d2f10e6c480513985a56048f98d9d",
+      "url": "https://github.com/Akilleez-QA/client-tools/blob/4849c510c4983fd00a0515bc309a133090ffb7ab/review/client-x64/allocator-math-next/collision-sqrt-v5-Release-comparison.json"
+    }
+  ],
+  "counterpart_identity": [
+    {
+      "client_path": "src/engine/shared/library/sharedMath/src/win32/SseMath.cpp",
+      "server_path": "engine/shared/library/sharedMath/src/win32/SseMath.cpp",
+      "whole_file_identical": true,
+      "client_sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089",
+      "server_sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089"
+    },
+    {
+      "client_path": "src/engine/shared/library/sharedMath/src/win32/SseMath.h",
+      "server_path": "engine/shared/library/sharedMath/src/win32/SseMath.h",
+      "whole_file_identical": true,
+      "client_sha256": "54af98ab49f9488c1190a932b9095dce1b3ac6b7089d64a248a2f70fb02448f1",
+      "server_sha256": "54af98ab49f9488c1190a932b9095dce1b3ac6b7089d64a248a2f70fb02448f1"
+    },
+    {
+      "client_path": "src/engine/shared/library/sharedMath/src/shared/Transform.cpp",
+      "server_path": "engine/shared/library/sharedMath/src/shared/Transform.cpp",
+      "whole_file_identical": false,
+      "client_sha256": "28c8514ca2975e0347b6baab5599bd2081c14a5ba5b47c520a7165d3d269780c",
+      "server_sha256": "e2e8eaf02c5b634ab2d0407970cc2ec9227badb7e795f950949f5c3dec71cc0c",
+      "compared_kernel_sha256": "ae5fe33c47fdd3de468d49a59ce51ae5ec22c58ee7dcface3223896e43f59b49",
+      "kernel_identical": true,
+      "kernel_begin": "#if defined(_M_X64)\nvoid sse_xf_matrix_3x4",
+      "kernel_end_exclusive": "\n#else\n__declspec(naked)"
+    },
+    {
+      "client_path": "src/engine/shared/library/sharedCollision/src/shared/core/CollisionUtils.cpp",
+      "server_path": "engine/shared/library/sharedCollision/src/shared/core/CollisionUtils.cpp",
+      "whole_file_identical": false,
+      "client_sha256": "0138c32cbbf176d30fa5d92f85f8364c01bcba826e0e5d2fc461e4146a84f81e",
+      "server_sha256": "e8f912a3492523b79125792c071e78515f27a7d9da0c166c2ef3fecc38cc7156",
+      "compared_kernel_sha256": "a0c6bfac8d7791d2caea48dc62eb1c3cb5afe5b012f43b78d4cf42d4fa2420fa",
+      "kernel_identical": true,
+      "kernel_begin": "inline void faster_normalize",
+      "kernel_end_exclusive": "\n// ----------------------------------------------------------------------"
+    }
+  ],
+  "open_evidence_identity_gap": {
+    "file": "SseMath.cpp",
+    "packaged_and_original_sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089",
+    "historical_probe_sha256": "701111df195b344d5626361292b6ff01901c7ad1ed3284895269b6ab1140e1a5",
+    "disposition": "Unresolved historical source identity difference; no exact-source evidence claim, no source modification, no new native execution."
+  },
+  "claim_limits": [
+    "Historical v120 /fp:precise client actual-TU results are not new isolated branch CI.",
+    "Server Transform and CollisionUtils full TUs differ from client source; only matching kernel additions are bridged.",
+    "SseMath Win32 stock register clobber differs from the separate diagnostic reload control; exceptional differences remain.",
+    "Transform Release strict comparator fails for 136 exceptional records / 464 NaN-payload value words.",
+    "Collision Win32 oracle uses PC64 and aligned rounding controls with DAZ off; x87 status is recorded separately.",
+    "Corrected probes preserve signaling-NaN input bits across the Win32 return ABI; old failed probes remain historical failures.",
+    "No universal NaN-payload/signed-zero identity, exception-delivery, gameplay, startup-dispatch, or full-server qualification claim."
+  ]
+}

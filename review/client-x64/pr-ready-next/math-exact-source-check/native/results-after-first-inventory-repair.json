@@ -1,0 +1,259 @@
+{
+  "contract_sha256": "b076bf7d9f646389cf05b0b6229c4c8b89cf01004c908fccea9c80176e4b0c32",
+  "runner_sha256": "4d682e3acc19daf9b7ac351f6aff7c7983349b6d3ec647c985e373a03cbfd16d",
+  "started_utc": "2026-10-01T09:33:53Z",
+  "qualification": "Existing integrated client dependency environment; native x64 TU only",
+  "input_identity": {
+    "source": {
+      "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\win32\\SseMath.cpp",
+      "sha256": "7d23411f142e3819e7371356d2bf52aa6727c11f6a289407a279677414b13089"
+    },
+    "header": {
+      "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\win32\\SseMath.h",
+      "sha256": "54af98ab49f9488c1190a932b9095dce1b3ac6b7089d64a248a2f70fb02448f1"
+    },
+    "probe": {
+      "path": "C:\\math-next\\ssemath-probe-v2.cpp",
+      "sha256": "7b8fc53b18d003f63201fe5e3e01419e30fe32d90a94141f7641b88f0fb2d018"
+    },
+    "comparator": {
+      "path": "C:\\math-next\\compare-ssemath-v2.py",
+      "sha256": "6798a1fa093e594463d329c210c2f949c60b949893d891827dfd91ee6fc57c6b"
+    }
+  },
+  "configurations": [
+    {
+      "configuration": "Debug",
+      "architecture": "x64",
+      "okay": false,
+      "original_command_sha256": {
+        "production": "66d91767c9e5caaa4cabbb61435a1885ed9a05f4d9aaab07b491e915ea3beefc",
+        "probe": "73c54129b37200fab4cd82b07ef32fece3f7e01ac2307d762598d6bba336983f",
+        "link": "8f89c0fce8d1e83f0a2105c43c4848f07846753361b28d92637aadaf3c776b73"
+      },
+      "historical_records_sha256": "d7e08b523bff6e406a67e7bc5f2b46160090b3f2a429621ee9a457187b5d7ddc",
+      "compiler": {
+        "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe",
+        "sha256": "4f3919c3033446e1edc9c1731779d89211a1a818c81f5205317e92aa48e34ea5"
+      },
+      "linker": {
+        "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\link.exe",
+        "sha256": "aee454fa877980e2fa1f2ceaeede638bf946012d932c1c13b24c687b95353700"
+      },
+      "intrinsic_headers": [
+        {
+          "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\intrin.h",
+          "sha256": "53dc1056c24110ec2801d2f24bc23a3a33f1b86ea85f3a38ffe4fe359fa58db7"
+        },
+        {
+          "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\xmmintrin.h",
+          "sha256": "76c9d6be8175c732b180c4eb244fab9f07dad5c8249b3b49b3994d916e9f672f"
+        }
+      ],
+      "v120_guard": {
+        "path": "C:\\ssemath-reload-control-v1\\Debug-x64-candidate\\require-v120.h",
+        "sha256": "f3db09ba9076887900bc950294a6041565837e9b609629b26a5b2fa8e2cdf2e4"
+      },
+      "direct_project_headers": [
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\shared\\FirstSharedMath.h",
+          "sha256": "53e4bd5d7c3dda7351d0eb0e0c1830878d26b4a9a64969bddb5a7faf5ce487d0"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\shared\\Transform.h",
+          "sha256": "c7241769796f9fb61e65fa7b5b5f8c4c9d609d6c404a91df81bc516ceb7917a5"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\shared\\Vector.h",
+          "sha256": "424e229814f516d2d96d305b5ebf4252204670b59d2d52d10e64e3bc201b2d81"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\Transform.h",
+          "sha256": "3c755363c03ac556733b07e437570e7ef72f2c9c1d82bca2e9e84d0e49d6997f"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\Vector.h",
+          "sha256": "3301c03bca31a16b5992c2a7a8fcee0fd031283d6ae86c6c6b1df906c1441317"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedFoundation\\include\\public\\sharedFoundation\\FirstSharedFoundation.h",
+          "sha256": "1fac9323a871ff7eb4deb852b0c26f85f8cda78c931d4e84f45b06ba4273fd3d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedFoundation\\src\\shared\\FirstSharedFoundation.h",
+          "sha256": "bb5725ae4de117f54661770bd8fd63fb8d96f3c58a00cfb29db6a60838b7ba09"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\FirstSharedMath.h",
+          "sha256": "df4b9e487a4799815e59f9b46e12b874eb69a78441e85f12e75b8fb817812595"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\SseMath.h",
+          "sha256": "31085d47ed6b3b4f4aa0ae8ed8c997f40176c859357ccbf8180e0e3e4de3e2ed"
+        }
+      ],
+      "production_exit": 0,
+      "production_object_sha256": "88b8be8b78bb872566d88f816b59c420f249cb308b1948c95158de859548bbcc",
+      "probe_exit": 0,
+      "probe_object_sha256": "9bde94bb01127a55fa62daad0362982250bdfcca95917d71fbfa662f60dc20e5",
+      "link_exit": 0,
+      "symbol_owners": {
+        "canDoSseMath": [
+          "0001:00000290       ?canDoSseMath@SseMath@@SA_NXZ 0000000140001290 f   production.obj",
+          "0002:0000bd10       $unwind$?canDoSseMath@SseMath@@SA_NXZ 000000014003ed10     production.obj",
+          "0004:00000000       $pdata$?canDoSseMath@SseMath@@SA_NXZ 0000000140045000     production.obj"
+        ],
+        "rotateTranslateScale_l2p": [
+          "0001:000006a0       ?rotateTranslateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 00000001400016a0 f   production.obj",
+          "0002:0000bd20       $unwind$?rotateTranslateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 000000014003ed20     production.obj",
+          "0004:00000024       $pdata$?rotateTranslateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 0000000140045024     production.obj"
+        ],
+        "rotateScale_l2p": [
+          "0001:00000420       ?rotateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 0000000140001420 f   production.obj",
+          "0002:0000bd20       $unwind$?rotateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 000000014003ed20     production.obj",
+          "0004:00000018       $pdata$?rotateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 0000000140045018     production.obj"
+        ],
+        "skinPositionNormal_l2p": [
+          "0001:00000e80       ?skinPositionNormal_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 0000000140001e80 f   production.obj",
+          "0002:0000bd30       $unwind$?skinPositionNormal_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 000000014003ed30     production.obj",
+          "0004:0000003c       $pdata$?skinPositionNormal_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 000000014004503c     production.obj"
+        ],
+        "skinPositionNormalAdd_l2p": [
+          "0001:00000960       ?skinPositionNormalAdd_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 0000000140001960 f   production.obj",
+          "0002:0000bd30       $unwind$?skinPositionNormalAdd_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 000000014003ed30     production.obj",
+          "0004:00000030       $pdata$?skinPositionNormalAdd_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 0000000140045030     production.obj"
+        ]
+      },
+      "linked_libraries": [
+        {
+          "map_name": "LIBCMTD",
+          "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\LIB\\amd64\\LIBCMTD.lib",
+          "sha256": "a61ed4dae5e91698ae0acfe28e76f5dcf3fe32e3c5e284b403bce8ca94f46a35"
+        }
+      ],
+      "pre_execution_inventory_error": "Cannot resolve mapped library: 0001",
+      "error": "Cannot resolve mapped library: Lib"
+    },
+    {
+      "configuration": "Release",
+      "architecture": "x64",
+      "okay": false,
+      "original_command_sha256": {
+        "production": "ef99f4c477b100f1cbbcc4249a9eb1162d58a0ddb38fd79e5afd67921dd0c0fc",
+        "probe": "0493d213209251be9c67c8ab1cbd3d8b2cdaf1df7286cf42f96561ebd6bdbc73",
+        "link": "75fbde0c594514aaa96102bceb3079cf74a9052be22a31ddd0f2dd3b17deb017"
+      },
+      "historical_records_sha256": "f729d25c5f2123b67cc6ecb8fb3d72b66f53a638367c90b9110213e0089e5a4c",
+      "compiler": {
+        "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\cl.exe",
+        "sha256": "4f3919c3033446e1edc9c1731779d89211a1a818c81f5205317e92aa48e34ea5"
+      },
+      "linker": {
+        "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\BIN\\amd64\\link.exe",
+        "sha256": "aee454fa877980e2fa1f2ceaeede638bf946012d932c1c13b24c687b95353700"
+      },
+      "intrinsic_headers": [
+        {
+          "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\intrin.h",
+          "sha256": "53dc1056c24110ec2801d2f24bc23a3a33f1b86ea85f3a38ffe4fe359fa58db7"
+        },
+        {
+          "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\include\\xmmintrin.h",
+          "sha256": "76c9d6be8175c732b180c4eb244fab9f07dad5c8249b3b49b3994d916e9f672f"
+        }
+      ],
+      "v120_guard": {
+        "path": "C:\\ssemath-reload-control-v1\\Release-x64-candidate\\require-v120.h",
+        "sha256": "f3db09ba9076887900bc950294a6041565837e9b609629b26a5b2fa8e2cdf2e4"
+      },
+      "direct_project_headers": [
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\shared\\FirstSharedMath.h",
+          "sha256": "53e4bd5d7c3dda7351d0eb0e0c1830878d26b4a9a64969bddb5a7faf5ce487d0"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\shared\\Transform.h",
+          "sha256": "c7241769796f9fb61e65fa7b5b5f8c4c9d609d6c404a91df81bc516ceb7917a5"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\src\\shared\\Vector.h",
+          "sha256": "424e229814f516d2d96d305b5ebf4252204670b59d2d52d10e64e3bc201b2d81"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\Transform.h",
+          "sha256": "3c755363c03ac556733b07e437570e7ef72f2c9c1d82bca2e9e84d0e49d6997f"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\Vector.h",
+          "sha256": "3301c03bca31a16b5992c2a7a8fcee0fd031283d6ae86c6c6b1df906c1441317"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedFoundation\\include\\public\\sharedFoundation\\FirstSharedFoundation.h",
+          "sha256": "1fac9323a871ff7eb4deb852b0c26f85f8cda78c931d4e84f45b06ba4273fd3d"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedFoundation\\src\\shared\\FirstSharedFoundation.h",
+          "sha256": "bb5725ae4de117f54661770bd8fd63fb8d96f3c58a00cfb29db6a60838b7ba09"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\FirstSharedMath.h",
+          "sha256": "df4b9e487a4799815e59f9b46e12b874eb69a78441e85f12e75b8fb817812595"
+        },
+        {
+          "path": "C:\\client-next-build\\src\\engine\\shared\\library\\sharedMath\\include\\public\\sharedMath\\SseMath.h",
+          "sha256": "31085d47ed6b3b4f4aa0ae8ed8c997f40176c859357ccbf8180e0e3e4de3e2ed"
+        }
+      ],
+      "production_exit": 0,
+      "production_object_sha256": "a00a996cbad374fcfd770b6be0091d7b34c37832771e3e13451aa6f897a0d410",
+      "probe_exit": 0,
+      "probe_object_sha256": "6838b707e28dd0a89987de75a0358f4e893489c20f2fb9ffb36596323cdf7dc5",
+      "link_exit": 0,
+      "symbol_owners": {
+        "canDoSseMath": [
+          "0001:00000000       ?canDoSseMath@SseMath@@SA_NXZ 0000000140001000 f   production.obj",
+          "0002:00005540       $unwind$?canDoSseMath@SseMath@@SA_NXZ 0000000140016540     production.obj",
+          "0004:00000000       $pdata$?canDoSseMath@SseMath@@SA_NXZ 000000014001c000     production.obj"
+        ],
+        "rotateTranslateScale_l2p": [
+          "0001:000000e0       ?rotateTranslateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 00000001400010e0 f   production.obj"
+        ],
+        "rotateScale_l2p": [
+          "0001:00000050       ?rotateScale_l2p@SseMath@@SA?AVVector@@AEBVTransform@@AEBV2@M@Z 0000000140001050 f   production.obj"
+        ],
+        "skinPositionNormal_l2p": [
+          "0001:00000330       ?skinPositionNormal_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 0000000140001330 f   production.obj",
+          "0002:00005548       $unwind$?skinPositionNormal_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 0000000140016548     production.obj",
+          "0004:00000018       $pdata$?skinPositionNormal_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 000000014001c018     production.obj"
+        ],
+        "skinPositionNormalAdd_l2p": [
+          "0001:000001a0       ?skinPositionNormalAdd_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 00000001400011a0 f   production.obj",
+          "0002:00005560       $unwind$?skinPositionNormalAdd_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 0000000140016560     production.obj",
+          "0004:0000000c       $pdata$?skinPositionNormalAdd_l2p@SseMath@@SAXAEBVTransform@@AEBVVector@@1MAEAV3@2@Z 000000014001c00c     production.obj"
+        ]
+      },
+      "linked_libraries": [
+        {
+          "map_name": "LIBCMT",
+          "path": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\LIB\\amd64\\LIBCMT.lib",
+          "sha256": "2c6b1abc6e738b2e22c9e46e27740029624fc0af6b03b76cc058383857e42891"
+        }
+      ],
+      "pre_execution_inventory_error": "Cannot resolve mapped library: 0001",
+      "error": "Cannot resolve mapped library: Lib"
+    }
+  ],
+  "finished_utc": "2026-10-01T09:35:48Z",
+  "okay": false,
+  "collector_repair": {
+    "reason": "Map section label 0001 was parsed as a library; exclude numeric section names",
+    "prior_results": "results-before-inventory-repair.json",
+    "native_probe_executions_before_repair": 0,
+    "compiler_or_linker_replays_during_repair": 0,
+    "repair_sha256": "e87dc5611d8041b9ca51284ba6570e8960493e5cf314a484435969f629382459",
+    "python_runtime": {
+      "path": "C:\\ci-dpvs-review\\python\\python.exe",
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    }
+  }
+}

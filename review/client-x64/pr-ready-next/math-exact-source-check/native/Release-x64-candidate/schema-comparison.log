@@ -1,0 +1,871 @@
+{
+  "schema": 2,
+  "reference_mxcsr_mask": "0002ffff",
+  "candidate_mxcsr_mask": "0002ffff",
+  "groups": {
+    "round=0 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=0 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=1 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=2 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=0 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=0 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 caller-shaped-rigid": {
+      "category": 0,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 bounded-finite-adversarial": {
+      "category": 1,
+      "records": 1024,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 subnormal-adversarial": {
+      "category": 2,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 extreme-adversarial": {
+      "category": 3,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 exceptional-adversarial": {
+      "category": 4,
+      "records": 256,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    },
+    "round=3 ftz=1 daz=1 discarded-lane-adversarial": {
+      "category": 5,
+      "records": 32,
+      "differing_records": 0,
+      "differing_value_words": 0,
+      "differing_mxcsr_words": 0,
+      "functions": {},
+      "examples": []
+    }
+  }
+}
