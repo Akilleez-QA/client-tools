@@ -13,7 +13,7 @@ permissions:
 jobs:
   wire:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
@@ -28,9 +28,14 @@ jobs:
         run: python3 -B -m unittest discover -s tools/build-client-deps/tests -v
       - name: Install compiler and Wine runtime
         run: |
-          sudo dpkg --add-architecture i386
-          sudo apt-get update
-          sudo apt-get install -y clang g++-mingw-w64-i686 g++-mingw-w64-x86-64 wine wine32:i386 wine64
+          set -o pipefail
+          mkdir -p artifacts
+          git rev-parse HEAD > artifacts/source-revision.txt
+          {
+            sudo dpkg --add-architecture i386
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends clang g++-mingw-w64-i686 g++-mingw-w64-x86-64 wine wine32:i386 wine64
+          } 2>&1 | tee artifacts/toolchain-install.log
       - name: Record source and toolchain
         run: |
           mkdir -p artifacts
