@@ -1,0 +1,32 @@
+name: PCRE caller structure
+
+on:
+  push:
+    branches: [review-ready/client-pcre-capacity]
+  pull_request:
+    branches: [master]
+    paths:
+      - .github/workflows/pcre-caller-structure.yml
+      - tools/test-pcre-capture-count/**
+      - src/game/client/library/swgClientUserInterface/src/shared/parser/SwgCuiCommandParserScene.cpp
+
+permissions:
+  contents: read
+
+jobs:
+  caller-structure:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Check caller structure and reject safe reversion
+        run: python3 tools/test-pcre-capture-count/run.py --checkout . --out "$RUNNER_TEMP/pcre-caller-structure" --check-only
+      - name: Preserve text result
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: pcre-caller-structure
+          path: ${{ runner.temp }}/pcre-caller-structure/results.json
+          if-no-files-found: warn
