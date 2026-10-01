@@ -7,6 +7,7 @@
 
 #include "clientAudio/FirstClientAudio.h"
 #include "clientAudio/Audio.h"
+#include "AudioFileCallbacks.h"
 
 #include "clientAudio/AudioSampleInformation.h"
 #include "clientAudio/ConfigClientAudio.h"
@@ -41,6 +42,10 @@
 #include <limits>
 #include <list>
 #include <map>
+
+#if defined(CLIENT_MILES_DEV_FACADE)
+#include "dev/AudioSelection.h"
+#endif
 
 #if 0
 #include "clientAudio/SwgAudioCapture.h"
@@ -2922,7 +2927,16 @@ void Audio::startSample(Sound2 &sound)
 			void *sampleRawData = iterSample->second.m_sampleRawData;
 			HSAMPLE hSample3d = iterSampleIdToSample3dMap->second.m_sample;
 
-			S32 resultSet3dSampleFile = AIL_set_sample_file(hSample3d, sampleRawData, 0);
+			S32 resultSet3dSampleFile;
+#if defined(CLIENT_MILES_DEV_FACADE)
+			{
+				ClientMilesPipe::ScopedSourceImage sourceImage(sampleRawData,
+					static_cast<uint32_t>(iterSample->second.m_fileSize));
+				resultSet3dSampleFile = AIL_set_sample_file(hSample3d, sampleRawData, 0);
+			}
+#else
+			resultSet3dSampleFile = AIL_set_sample_file(hSample3d, sampleRawData, 0);
+#endif
 
 			if (resultSet3dSampleFile != 0)
 			{
@@ -3707,7 +3721,15 @@ AudioSampleInformation Audio::getSampleInformation(std::string const &path)
 				byte *fileImage = file->readEntireFileAndClose();
 				delete file;
 
-				S32 result = AIL_WAV_info(fileImage, &soundInfo);
+				S32 result;
+#if defined(CLIENT_MILES_DEV_FACADE)
+				{
+					ClientMilesPipe::ScopedSourceImage sourceImage(fileImage, static_cast<uint32_t>(fileSize));
+					result = AIL_WAV_info(fileImage, &soundInfo);
+				}
+#else
+				result = AIL_WAV_info(fileImage, &soundInfo);
+#endif
 
 				if (result)
 				{
@@ -3933,17 +3955,11 @@ float Audio::getSampleEffectsLevel(SampleId const &sampleId)
 }
 
 
-static int once = true;
-
-//-----------------------------------------------------------------------------
-U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
+namespace
 {
-	if (once && !Os::isMainThread())
-	{
-		once = false;
-		PerThreadData::threadInstall(false);
-	}
-
+//-----------------------------------------------------------------------------
+U32 fileOpenCommon(char const *fileName, UINTa *fileHandle)
+{
 	AbstractFile *abstractFile = TreeFile::open(fileName, AbstractFile::PriorityAudioVideo, true);
 
 	if (abstractFile != NULL)
@@ -3965,14 +3981,8 @@ U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
 }
 
 //-----------------------------------------------------------------------------
-void __stdcall fileCloseCallBack(UINTa const fileHandle)
+void fileCloseCommon(UINTa const fileHandle)
 {
-	if (once && !Os::isMainThread())
-	{
-		once = false;
-		PerThreadData::threadInstall(false);
-	}
-
 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
 
 	if (fileMapIter != s_fileMap.end())
@@ -4004,14 +4014,8 @@ void __stdcall fileCloseCallBack(UINTa const fileHandle)
 }
 
 //-----------------------------------------------------------------------------
-S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)
+S32 fileSeekCommon(UINTa const fileHandle, S32 const offset, U32 const type)
 {
-	if (once && !Os::isMainThread())
-	{
-		once = false;
-		PerThreadData::threadInstall(false);
-	}
-
 	int result = 0;
 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
 
@@ -4060,24 +4064,8 @@ S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 con
 }
 
 //-----------------------------------------------------------------------------
-U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const bytes)
+U32 fileReadCommon(UINTa const fileHandle, void *buffer, U32 const bytes)
 {
-// miles crasher hack
-#if 0
-	static bool trashMiles = false;
-
-	if(trashMiles)
-	{
-		buffer = (void *)0xdeadbeef;
-	}
-#endif
-// end miles crasher hack
-	if (once && !Os::isMainThread())
-	{
-		once = false;
-		PerThreadData::threadInstall(false);
-	}
-
 	int bytesRead = 0;
 
 	FileMap::iterator fileMapIter = s_fileMap.find(fileHandle);
@@ -4096,6 +4084,96 @@ U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const b
 	}
 
 	return static_cast<U32>(bytesRead);
+}
+
+}
+
+static int once = true;
+
+//-----------------------------------------------------------------------------
+U32 __stdcall fileOpenCallBack(char const *fileName, UINTa *fileHandle)
+{
+	if (once && !Os::isMainThread())
+	{
+		once = false;
+		PerThreadData::threadInstall(false);
+	}
+
+	return fileOpenCommon(fileName, fileHandle);
+}
+
+//-----------------------------------------------------------------------------
+void __stdcall fileCloseCallBack(UINTa const fileHandle)
+{
+	if (once && !Os::isMainThread())
+	{
+		once = false;
+		PerThreadData::threadInstall(false);
+	}
+
+	fileCloseCommon(fileHandle);
+}
+
+//-----------------------------------------------------------------------------
+S32 __stdcall fileSeekCallBack(UINTa const fileHandle, S32 const offset, U32 const type)
+{
+	if (once && !Os::isMainThread())
+	{
+		once = false;
+		PerThreadData::threadInstall(false);
+	}
+
+	return fileSeekCommon(fileHandle, offset, type);
+}
+
+//-----------------------------------------------------------------------------
+U32 __stdcall fileReadCallBack(UINTa const fileHandle, void *buffer, U32 const bytes)
+{
+// miles crasher hack
+#if 0
+	static bool trashMiles = false;
+
+	if(trashMiles)
+	{
+		buffer = (void *)0xdeadbeef;
+	}
+#endif
+// end miles crasher hack
+	if (once && !Os::isMainThread())
+	{
+		once = false;
+		PerThreadData::threadInstall(false);
+	}
+
+	return fileReadCommon(fileHandle, buffer, bytes);
+}
+
+//-----------------------------------------------------------------------------
+uint32_t __stdcall AudioFileCallbacks::openAdmitted(char const *fileName, uintptr_t *fileHandle)
+{
+	// UINTa and uintptr_t need not be the same C++ type on Win32.
+	UINTa nativeHandle = 0;
+	U32 const status = fileOpenCommon(fileName, &nativeHandle);
+	*fileHandle = static_cast<uintptr_t>(nativeHandle);
+	return static_cast<uint32_t>(status);
+}
+
+//-----------------------------------------------------------------------------
+void __stdcall AudioFileCallbacks::closeAdmitted(uintptr_t const fileHandle)
+{
+	fileCloseCommon(static_cast<UINTa>(fileHandle));
+}
+
+//-----------------------------------------------------------------------------
+int32_t __stdcall AudioFileCallbacks::seekAdmitted(uintptr_t const fileHandle, int32_t const offset, uint32_t const type)
+{
+	return static_cast<int32_t>(fileSeekCommon(static_cast<UINTa>(fileHandle), static_cast<S32>(offset), static_cast<U32>(type)));
+}
+
+//-----------------------------------------------------------------------------
+uint32_t __stdcall AudioFileCallbacks::readAdmitted(uintptr_t const fileHandle, void *buffer, uint32_t const bytes)
+{
+	return static_cast<uint32_t>(fileReadCommon(static_cast<UINTa>(fileHandle), buffer, static_cast<U32>(bytes)));
 }
 
 //-----------------------------------------------------------------------------
