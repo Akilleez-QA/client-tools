@@ -1,0 +1,13 @@
+{
+  "additions": 171,
+  "baseRefName": "master",
+  "body": "Add the manual normal-login, existing-character, movement/persistence and ordinary-close procedure alongside the wire regressions. Preserve the recorded four Debug client/server architecture combinations and one Release-x64/server64 follow-up, with their exact build identities and failure/cleanup caveats.\n\nThe final section records two separately measured Release game/media-host exits. Saved raw observer logs capture the exact host image and parent before WM_CLOSE and report both Windows exit codes 0. Native harmless controls distinguish success, child exit 7 and timeout. Loaded-session database snapshots preserve two old positions before the later saved movement; this does not establish the persistence mechanism.\n\nThis master-based documentation-only PR belongs alongside the wire harness in #23; it does not require importing the allocator or media implementation into this diff. One commit adds `tools/test-wire-compatibility/live-session.md` (171 lines). It is byte-identical to the maintained document, combining the previously committed [mixed-width record](https://github.com/Akilleez-QA/client-tools/commit/a422c4e48) and [Release follow-up](https://github.com/Akilleez-QA/client-tools/commit/eca74ffa5) with the existing paired-shutdown note. No production, test implementation, private raw logs, credentials, assets or binaries are added.\n\nPackaging inspected the saved paired-close logs, sensor control results, process/compositor statuses, restoration records and timed database snapshots. Earlier committed session claims remain their previously reviewed observations; screenshots/audio were not independently re-examined in this pass and no runtime was repeated. These are bounded Proton observations, not complete gameplay, native-Windows, media-fidelity or general teardown qualification. The file explicitly preserves failed attempts, delayed persistence and cleanup failures.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/16436319afab9fe4c32fd71dc48c5068cde009ea/review/client-x64/pr-ready-next/live-session-evidence/RESULTS.md).\n",
+  "changedFiles": 1,
+  "deletions": 0,
+  "headRefOid": "71684dc5c6453791c7a40d38d4aca216b9cc7e03",
+  "isDraft": false,
+  "number": 57,
+  "statusCheckRollup": [],
+  "title": "Record bounded mixed-width sessions and paired media shutdown",
+  "url": "https://github.com/SWG-Source/client-tools/pull/57"
+}

@@ -1,0 +1,13 @@
+{
+  "additions": 22076,
+  "baseRefName": "master",
+  "body": "Extract the existing texture resource/draw implementation into internal VideoBlit, then select PipeBinkVideo through VideoList only for the opt-in Debug-x64 development game. Preserve the texture-lock copy boundary, supported formats and frame scheduling. Ordinary builds continue using direct Bink.\n\nBuild clientGraphics and clientAudio with the same development property before SwgClient. Explicit isolated archive paths prevent fallback to stale direct-provider objects. **Depends on #64 and its prerequisites.** The master comparison includes that stack; review the [nine-file renderer delta](https://github.com/Akilleez-QA/client-tools/compare/ae5245be108caa253ad2dd508893ea8d8dabc64e...1f4c0f03e34c03824de41bb14603d85ae7ccea9a). The whole candidate tree matches the reviewed tree exactly.\n\nTwo unchanged source/build patches plus one documentation commit: 6 production files +474/-215; 2 build files +11/-4; README +26/-6 (Myers). Original [blitter extraction](https://github.com/Akilleez-QA/client-tools/commit/81cee3f524d6268c5d507d981655f69233b10ffd) records Win32 Release graphics compilation with no warnings/errors. Original [game selection](https://github.com/Akilleez-QA/client-tools/commit/afacd961f7dd0d70e518d835b3581d261f3f62b1) records Debug-x64 graphics compilation (26 existing warnings), ordinary Release-Win32 graphics compilation, and a zero-warning/error development game link. Those results belong to their integrated snapshots, not this split branch.\n\nPackaging verified identical selected added/removed lines and clean whitespace; no build or runtime was repeated. The inherited host retains the later per-open IO repair. The genuine original Bink/Miles providers and full-client source/build prerequisites remain required. No SDK binaries/media are included, and this package claims no pixel, waveform or timing equivalence. Release opt-in support is the next separate package.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/9a4516600f63edfbb1ab3babd2a67746bc70d3ee/review/client-x64/pr-ready-next/bink-game-selection/RESULTS.md).\n",
+  "changedFiles": 232,
+  "deletions": 322,
+  "headRefOid": "1f4c0f03e34c03824de41bb14603d85ae7ccea9a",
+  "isDraft": false,
+  "number": 65,
+  "statusCheckRollup": [],
+  "title": "Select the original Bink host through the development video adapter",
+  "url": "https://github.com/SWG-Source/client-tools/pull/65"
+}

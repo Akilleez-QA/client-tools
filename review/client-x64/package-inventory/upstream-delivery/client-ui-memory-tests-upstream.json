@@ -1,0 +1,13 @@
+{
+  "additions": 157,
+  "baseRefName": "master",
+  "body": "Preserve the native UI pool alignment fixture omitted from [UI source PR27](https://github.com/SWG-Source/client-tools/pull/27). This tests-only delta adds the original three `tools/test-ui-memory` files (+157/-0), unchanged from `2a06b9dcb08d0ba0c090536f34e27cfcaeaa12f5`. It compiles the real allocator and UI sources, checks native UIButton/UIPage/UIText sizes/alignment and raw storage reuse, and requires exactly 3,129 checks plus a link-map binding to the freshly compiled allocator.\n\nThis master-based PR contains only the three test files. **Run it with #27 (UI alignment), #46 and its allocator prerequisites, #53 (x64 configurations), #38 (STLport SDK declarations), and #54 (native providers)**, or the documented matching integration build. Those production/configuration changes are not duplicated here. Composing the test additions with the reviewed prerequisite tree reproduces the reviewed package exactly.\n\nThis is a manually configured native v120 harness. Supply configuration/architecture-matched genuine core, allocator and STLport artifacts and evaluated include/define inputs using the README schema. These three files do not reproduce or build the historical integrated library closure automatically. No clean-checkout build or CI readiness is claimed.\n\n[Historical native text evidence](https://github.com/Akilleez-QA/client-tools/blob/3d2107ff7ede73ee7afa7643cd24f56947c1c1a2/review/client-x64/vendor-next/ui-alignment-next/native-repository-v4-text.zip) records passing Win32/x64 Debug/Release runs. All four recorded fixture and production translation-unit hashes match this branch; the saved zip does not contain the runner source. Those runs used 39\u201340 explicitly recorded link inputs from the integrated build, not a build of this new prerequisite base. No builds, tests or runtime were executed during packaging.\n\nThe fixture measures raw pool storage and natural alignment, without constructing UI objects. It does not cover arbitrary 16-byte-aligned subclasses, overflow, large free-list keys, or complete UI object lifecycles. Toolchain, system libraries and all transitive headers are not exhaustively hashed by the runner.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/16436319afab9fe4c32fd71dc48c5068cde009ea/review/client-x64/pr-ready-next/ui-memory-tests/RESULTS.md).\n",
+  "changedFiles": 3,
+  "deletions": 0,
+  "headRefOid": "cb05e68401fac8d08f760d22454f65e5a2e1d28b",
+  "isDraft": false,
+  "number": 56,
+  "statusCheckRollup": [],
+  "title": "Preserve the native UI pool alignment regression harness",
+  "url": "https://github.com/SWG-Source/client-tools/pull/56"
+}

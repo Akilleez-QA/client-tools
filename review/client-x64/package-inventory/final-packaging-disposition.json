@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T17:14:04.200789+00:00",
+  "updated_at": "2026-10-01T18:09:27.062054+00:00",
   "unassigned_production_build_units": [],
   "remaining_auxiliary_units": [],
   "covered_auxiliary_units": {
@@ -21,12 +21,12 @@
     "Maintained local live-session edit is preserved and its exact contents delivered separately."
   ],
   "delivery_complete": false,
-  "upstream_pull_requests": 38,
-  "fork_only_packages": 20,
-  "upstream_drafts_awaiting_ci": 5,
+  "upstream_pull_requests": 57,
+  "fork_only_packages": 1,
+  "upstream_drafts_awaiting_ci": 0,
   "next_steps": [
-    "Resolve independent package bases and submit remaining qualified packages upstream.",
-    "Verify server drafts once upstream CI repair #38 is available; inherited workflow failure is not a candidate build result.",
-    "Preserve clean incremental diffs for true dependencies; fork reviews are preparation, not completion."
+    "Finish remaining upstream submission only after exact-head fork CI passes.",
+    "Verify new upstream checks, including the repaired server workflows; retain historical failures.",
+    "Reconcile dependency stacks at merge time without direct upstream pushes or automatic merges."
   ]
 }

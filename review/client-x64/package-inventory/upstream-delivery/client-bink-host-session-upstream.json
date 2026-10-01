@@ -1,0 +1,13 @@
+{
+  "additions": 21575,
+  "baseRefName": "master",
+  "body": "Add a genuine Bink owner and reverse TreeFile adapter to the x86 Miles host, using its local digital driver. Extend the paired session with driver-owned video resources, native controls, metadata and bounded pixel transfer. The game-side renderer adapter is a separate dependent package.\n\nKeep both required repairs in this unit: admit Video resources through the real coordinator, and reapply Bink's consumed IO callback/buffer settings before every open so repeated playback retains TreeFile access.\n\n**Depends on #63 and its listed prerequisites.** Those changes are included in the master comparison; use the [incremental Bink host comparison](https://github.com/Akilleez-QA/client-tools/compare/f5c25c91ccca54c750c6ed301f3bdddce3d3d81a...ae5245be108caa253ad2dd508893ea8d8dabc64e) for this package. The whole candidate tree matches the reviewed tree exactly.\n\nProduction: 20 files, +1274/-21; build entrypoints: 2 files, +14/-2; tests/procedure: 4 files, +300; README: +28/-1 (Myers). Four source/build/test commits preserve the selected original changes, followed by scoped component documentation.\n\nThe host requires genuine Bink 1.9c headers and the matching privately supplied x86 DLL. No SDK binaries, vendor implementation or movie assets are included. Private protocol version 4 requires matching client/host builds; it does not change the SWG network protocol.\n\nExisting integrated evidence is preserved at the [original checkpoint](https://github.com/Akilleez-QA/client-tools/blob/da9c56054b70761b983b4b367fd4479ac344e8e6/tools/miles-bridge/README.md) and [replay regression](https://github.com/Akilleez-QA/client-tools/blob/da9c56054b70761b983b4b367fd4479ac344e8e6/tools/miles-bridge/tests/bink-replay.md). Included portable tests cover protocol/reply/admission logic; they were not rerun for packaging and CI wiring is deferred. Exact selected-change and whitespace checks passed. Historical full-game results are not exact-base build/runtime results for this split branch. The actual-client replay procedure requires the later renderer package and complete client build dependencies.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/9a4516600f63edfbb1ab3babd2a67746bc70d3ee/review/client-x64/pr-ready-next/bink-host-session/RESULTS.md).\n",
+  "changedFiles": 226,
+  "deletions": 107,
+  "headRefOid": "ae5245be108caa253ad2dd508893ea8d8dabc64e",
+  "isDraft": false,
+  "number": 64,
+  "statusCheckRollup": [],
+  "title": "Carry original Bink decoding through the existing media host",
+  "url": "https://github.com/SWG-Source/client-tools/pull/64"
+}

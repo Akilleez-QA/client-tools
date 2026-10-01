@@ -1,0 +1,30 @@
+{
+  "name": "client-regression-ci",
+  "branch": "submit/client-regression-ci",
+  "head": "49ad4dc9da9fb19e0ef761c192a68fe12b83f7be",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "extraction_base": "69d70c55f6d4e50347d50fca6cf5f39f5a39af20",
+  "reviewed_base": "d4069fac3739257d185b0d58a7463497ce49468f",
+  "reviewed_head": "505795c7dd132b88d282151d8c95de999d1f45ba",
+  "composition_tree_identical": true,
+  "source_diff_identical": false,
+  "complete_tree_identical": false,
+  "tree": "5f14b0376968f1aa5415b5b653e578c93d106181",
+  "limits": "All production and runner files still match the reviewed composition. One CI-only repair after a setup timeout reduces recommended packages, extends the bounded job limit and retains setup logs. New run must pass.",
+  "dispatch_result": "https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547",
+  "latest": {
+    "headSha": "49ad4dc9da9fb19e0ef761c192a68fe12b83f7be",
+    "status": "in_progress",
+    "conclusion": "",
+    "url": "https://github.com/Akilleez-QA/client-tools/actions/runs/36903954547"
+  },
+  "first_qualification": {
+    "head": "cbc30e735fe544c3300d8fb3503fa9f6e1bc6d86",
+    "run": "https://github.com/Akilleez-QA/client-tools/actions/runs/36901211475",
+    "result": "cancelled after the 20-minute job limit during package download; no C++ tests executed",
+    "evidence": "client-regression-ci-install-timeout-64.log"
+  },
+  "next_prediction": "Required-package-only install and40-minute bound allow the unchanged suites to run; require every original count, no ignored failures. Keep installation log even on failure.",
+  "composition_before_ci_repair_tree_identical": true,
+  "production_and_runner_blobs_unchanged": true
+}

@@ -1,0 +1,19 @@
+{
+  "additions": 57,
+  "baseRefName": "master",
+  "body": "Scope MSVC x64 C4103 suppression around the crypto PCH's vendor includes, preload `deque` and `memory` inside that scope, and restore the warning state afterward. No packing pragma, global warning policy or crypto algorithm is changed; the guard leaves Linux and Win32 behavior unchanged.\n\nOne original commit, **one header, +11/\u22120**, directly above upstream `master`. `FirstCrypto.h` has the same baseline on master and PR35, and the final header matches the maintained server counterpart. The large Crypto++ vendor refresh on the `64-bit-types` line is not a source prerequisite for this wrapper change and is not imported.\n\nThe [original record](https://github.com/Akilleez-QA/src/commit/78ec0f03f48cc6a71730ca8fcdf5ec3546c3a8d8) attributes historical layout, `/WX` and warning-restoration controls to the client. Complete server vendor trees differ between master and PR35, so matching the wrapper does not establish matching included libraries, layouts or native server behavior. Those client results establish neither native Windows server compilation nor server ABI or cryptographic correctness.\n\nNo new Windows build or runtime test was run during packaging. The source delta and final header match the reviewed fork draft; the source is independent of the CI repair. No SDK contents, binaries or vendor source refresh are included.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/de951450e45a8caf37cf3b8cea691aad36c75e54/review/client-x64/pr-ready-next/server-crypto-packing/RESULTS.md).\n\nThe CI commits include the [existing workflow repair (#38)](https://github.com/SWG-Source/src/pull/38) and a manual qualification trigger. They check out the submitted head and build it in the pinned legacy container instead of invoking the broken bare-repository clone. The earlier failed upstream checks remain visible. No production file changed when adding this repair.\n\n[Full legacy Linux32 build on this head](https://github.com/Akilleez-QA/src/actions/runs/36899829605) passed at `af7c4fa5200dc823000eafb16e54ffbf71a383e3`, including the tracked-input integrity check. This checks the Linux configuration; it does not compile or execute the Windows-only paths described above.\n",
+  "changedFiles": 2,
+  "deletions": 19,
+  "headRefOid": "af7c4fa5200dc823000eafb16e54ffbf71a383e3",
+  "isDraft": true,
+  "number": 42,
+  "statusCheckRollup": [],
+  "title": "Scope the native crypto PCH packing diagnostic",
+  "url": "https://github.com/SWG-Source/src/pull/42",
+  "qualification_ci": {
+    "conclusion": "success",
+    "headSha": "af7c4fa5200dc823000eafb16e54ffbf71a383e3",
+    "status": "completed",
+    "url": "https://github.com/Akilleez-QA/src/actions/runs/36899829605"
+  }
+}

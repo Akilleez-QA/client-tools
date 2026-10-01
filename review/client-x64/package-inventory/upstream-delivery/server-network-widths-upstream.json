@@ -1,0 +1,23 @@
+{
+  "additions": 736,
+  "baseRefName": "master",
+  "baseRefOid": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+  "body": "Windows socket handles and IOCP completion keys are pointer-sized. This patch uses `uintptr_t` for the Windows socket declarations/storage and `ULONG_PTR` for the completion-key outputs in TcpClient and TcpServer. Operation status and transferred-byte counts retain their existing widths. A separate networking-header commit selects Winsock 2 before foundation can introduce conflicting Winsock 1.1 declarations.\n\nThe production delta is six files, +18/\u22126. Four test/workflow files add 334 lines. The shared handle/key repairs mirror the [client network PR #43](https://github.com/SWG-Source/client-tools/pull/43); the include-order prerequisite is specific to the server's existing header structure.\n\nThis targets upstream `master` and carries the true foundation-header prerequisite [#37](https://github.com/SWG-Source/src/pull/37) plus the tested build-workflow repair [#38](https://github.com/SWG-Source/src/pull/38). The full PR diff includes those prerequisites; review the [network-only delta](https://github.com/Akilleez-QA/src/compare/09932a32c9949bd40e8e4dbb22e1a7027944eb21...9d44e3a1da7b96de41ff864c121dbc60d0c45c5e) separately. Those production and regression-runner blobs are unchanged. The final CI-only commit also enables manual fork qualification. Merge the prerequisites first.\n\n[Exact-head Windows compile CI](https://github.com/Akilleez-QA/src/actions/runs/36836351608) passed **20/20** at `9d44e3a1da7b96de41ff864c121dbc60d0c45c5e`: twelve genuine Sock/TcpClient/TcpServer compilations across x86/x64 Debug/Release, four Win32 key-reversion compilations and four expected x64 reversion failures at the real GetQueuedCompletionStatus call. The runner's 65 local checks passed; all 7,929 tracked inputs matched the checkout and remained unchanged. [Runner and reproduction](https://github.com/Akilleez-QA/src/blob/9d44e3a1da7b96de41ff864c121dbc60d0c45c5e/tools/test-windows-network-widths/README.md).\n\nThe [initial failed 4/20 run](https://github.com/Akilleez-QA/src/actions/runs/36834837153) is preserved: it exposed the Winsock include collision and a control-classifier line-location assumption. Those were repaired in separate commits. These results establish compilation of the three Windows source files, not linking, network traffic, IOCP lifecycle or a full Windows server build. The fixture uses server CMake-derived settings and genuine Windows SDK headers; no client build files, provider shims or runtime substitutes are supplied.\n\n[Full legacy Linux32 build](https://github.com/Akilleez-QA/src/actions/runs/36899839118) passed at `acc7aa8bd134ed57f4e0fb0f4443e2c398e78641`, including tracked-input integrity. The earlier Windows compile result remains evidence for the unchanged Windows sources and runner; this Linux build does not extend it to Windows linking or runtime.\n",
+  "changedFiles": 20,
+  "deletions": 30,
+  "headRefName": "submit/server-network-widths",
+  "headRefOid": "acc7aa8bd134ed57f4e0fb0f4443e2c398e78641",
+  "isDraft": false,
+  "number": 44,
+  "statusCheckRollup": [],
+  "title": "Preserve native Windows socket handles and IOCP keys",
+  "url": "https://github.com/SWG-Source/src/pull/44",
+  "qualification_ci": [
+    {
+      "conclusion": "success",
+      "headSha": "acc7aa8bd134ed57f4e0fb0f4443e2c398e78641",
+      "status": "completed",
+      "url": "https://github.com/Akilleez-QA/src/actions/runs/36899839118"
+    }
+  ]
+}

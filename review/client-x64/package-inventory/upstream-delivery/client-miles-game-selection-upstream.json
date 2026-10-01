@@ -1,0 +1,13 @@
+{
+  "additions": 19983,
+  "baseRefName": "master",
+  "body": "Connect the real Audio bootstrap to the existing pipe facade and engine callback worker under `ClientMilesDevelopment=true`. Keep ordinary direct-Miles selection unchanged. The selected path retains template/cache dependencies through paired shutdown, verifies normalized module paths, and uses a windowless helper with normal-size command IO.\n\nThe property sheet isolates Debug-x64 clientAudio outputs and requires explicit matching pipe/worker libraries. The receipt-checked relink tool reuses real existing archives; it does not constitute a full source rebuild.\n\n**Stacked review: merge or reconcile #31, #37, #38, #41, #47\u2013#51, #53\u2013#55 and #59 first, including their listed prerequisites.** The master comparison contains those components. Review only this package using the [incremental comparison](https://github.com/Akilleez-QA/client-tools/compare/41374db1ccc8e56ed77e3a60711786189e3b0d50...f5c25c91ccca54c750c6ed301f3bdddce3d3d81a). The branch now shares the actual upstream PR heads; its whole tree is identical to the previously reviewed game-selection tree.\n\nProduction: 9 files, +195/-22; build tooling: 5 files, +270/-6; README: +28/-5 (Myers). Six source/build commits preserve the selected original added/removed lines; one documentation commit replaces historical diary hunks with scoped usage notes.\n\nExisting integrated build/runtime observations remain pinned to the [original checkpoint](https://github.com/Akilleez-QA/client-tools/blob/a68ceb4280ca59af5317f3ad5c6de8a3e0a87314/tools/miles-bridge/README.md). Packaging checks verified exact selected changes and whitespace; no builds/tests/runtime were rerun. This branch has no CI workflow. A complete client still needs the separately packaged x64 source fixes and obsolete browser/capture build-input cleanup. Release selection and Bink rendering are outside this change; this is not standalone full-client qualification.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/9a4516600f63edfbb1ab3babd2a67746bc70d3ee/review/client-x64/pr-ready-next/miles-game-selection/RESULTS.md).\n",
+  "changedFiles": 211,
+  "deletions": 107,
+  "headRefOid": "f5c25c91ccca54c750c6ed301f3bdddce3d3d81a",
+  "isDraft": false,
+  "number": 63,
+  "statusCheckRollup": [],
+  "title": "Opt in to the development x64 Miles process boundary",
+  "url": "https://github.com/SWG-Source/client-tools/pull/63"
+}

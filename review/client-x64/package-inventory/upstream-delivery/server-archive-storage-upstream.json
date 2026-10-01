@@ -1,0 +1,29 @@
+{
+  "additions": 12362,
+  "baseRefName": "64-bit-types",
+  "baseRefOid": "22dd13d4a40014899c547cd370de969ac6ae1fdc",
+  "body": "Bound archive reads by logical data size, validate declared payloads before copying, and retain existing backing storage until replacement allocation and copying complete. String writes reuse checked lengths, ordinary arrays/lists check their count before writing it, and Unicode reads copy into aligned owned code units. Unicode writes check the multiplied byte count before publishing the header. Replacement storage uses `unique_ptr`, including the original C++17 follow-up.\n\nThis targets upstream `64-bit-types` at `22dd13d4a40014899c547cd370de969ac6ae1fdc`. Its full PR diff also includes prerequisite [#35](https://github.com/SWG-Source/src/pull/35), which must land first. The [incremental package comparison](https://github.com/Akilleez-QA/src/compare/6b998f6fc281a88a50a710d7ae6afd55814b1946...0b45f5e7268c39bfa3743bc99bebc52db31ff57e) isolates the changes described here.\n\nSix original source commits, **five files, +116/\u2212100**, above [PR35](https://github.com/SWG-Source/src/pull/35) head `6b998f6fc281a88a50a710d7ae6afd55814b1946`. This package requires that branch's fixed-width archive APIs and checked-count helper; it is not a master-based replacement of legacy headers. No new build files, tests or vendor assets are included. Valid wire bytes and public server widths are preserved.\n\nAll five final files match the maintained server implementation. The packaged `ByteStream.cpp` also matches the source hash in the [existing C++17 ownership results](https://github.com/Akilleez-QA/client-tools/blob/3d2107ff7ede73ee7afa7643cd24f56947c1c1a2/review/client-x64/vendor-next/bytestream-next/server-unique-ptr/results.json): 85 bounded initialized-storage checks per Linux ABI, with existing wire fixtures passing 19/19 on 32-bit and 20/20 on 64-bit. Those tests used **libstdc++**, not the full libc++ server build. [Payload-preflight provenance](https://github.com/Akilleez-QA/src/commit/5474d3d0920ef33f8fef7d0acdda490c8c40c453) records 34 focused server checks per portable ABI; the [Unicode arithmetic record](https://github.com/Akilleez-QA/src/commit/c6cdbe85d301aecd5e3e443e246baf3dbb84e8f3) distinguishes extracted arithmetic from real oversized strings.\n\nThese component results are historical. The new branch-head checks below qualify the existing Linux build/regression configuration; they do not rerun every focused ownership or decoder fixture.\n\nRejection can consume a header; this is not outer-message or nested-delta rollback. Huge allocations, allocation-failure injection, arbitrary iterator invalidation, concurrent stream mutation, raw-pointer decoders and complete server acceptance remain outside the evidence. No new runtime acceptance campaign was performed during packaging.\n\nExact-head qualification at `0b45f5e7268c39bfa3743bc99bebc52db31ff57e`: [full Linux build](https://github.com/Akilleez-QA/src/actions/runs/36900284696) and [portable 32-bit/64-bit regression jobs](https://github.com/Akilleez-QA/src/actions/runs/36900287761) passed. This is not a complete Windows server build or live server acceptance.\n",
+  "changedFiles": 624,
+  "deletions": 4899,
+  "headRefName": "review-ready/server-archive-storage",
+  "headRefOid": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+  "isDraft": false,
+  "number": 46,
+  "statusCheckRollup": [],
+  "title": "Bound archive payload reads and preserve storage ownership",
+  "url": "https://github.com/SWG-Source/src/pull/46",
+  "qualification_ci": [
+    {
+      "conclusion": "success",
+      "headSha": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+      "status": "completed",
+      "url": "https://github.com/Akilleez-QA/src/actions/runs/36900284696"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+      "status": "completed",
+      "url": "https://github.com/Akilleez-QA/src/actions/runs/36900287761"
+    }
+  ]
+}

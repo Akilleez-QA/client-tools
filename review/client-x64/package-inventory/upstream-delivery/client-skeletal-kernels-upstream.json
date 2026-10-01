@@ -1,0 +1,13 @@
+{
+  "additions": 97,
+  "baseRefName": "master",
+  "body": "Add x64 implementations for the hard position/normal and position/normal/dot3 kernels, retaining the original Win32 assembly. The intrinsic path preserves the assembly's operation grouping, aligned layout requirements, iterator updates and saved MXCSR state; compile-time assertions bind the consumed layouts.\n\nOne source commit adds 97 lines to `SoftwareBlendSkeletalShaderPrimitive.cpp`. The master-based branch contains only this change. The complete file matches the reviewed implementation; composing it with its prerequisites reproduces the reviewed tree exactly. No new implementation or test behavior was introduced during packaging.\n\n**Depends on #34 (SSE math) and #35 (native widths).** `SseMath.h` needs its x64 intrinsic implementation. The width fix supplies Tag's native-length handling and the sibling mesh TU's Debug range types. Merge those before building this x64 translation unit. No prerequisite changes are duplicated here.\n\n[Historical native evidence](https://github.com/Akilleez-QA/client-tools/blob/2a1ff9279341516cce2746889b29cbc6a0e8a788/review/client-x64/allocator-skeletal-next/skeletal-native-results.md) records whole-TU compilation in four configurations. Standalone whole-TU linking failed on genuine renderer dependencies and is not a runtime pass. Exact source-slice kernel comparisons produced 2688 records per Debug/Release build with zero sampled value/bounds differences across stock Win32, candidate Win32 and candidate x64, plus zero sentinel, input, iterator or full-MXCSR restoration failures.\n\nThose integrated dependency snapshots are not a fresh build of this isolated branch. Sampled exceptional-input matches do not establish general NaN payload equivalence, all numerical inputs, renderer integration, performance or visual fidelity. No builds or runtime were repeated during packaging.\n\n[Source identities and review](https://github.com/Akilleez-QA/client-tools/blob/eb4b4fca0354b143ac714d5d64e6b65538f8b03d/review/client-x64/pr-ready-next/skeletal-kernels/RESULTS.md).\n",
+  "changedFiles": 1,
+  "deletions": 0,
+  "headRefOid": "08954b6ec8f357071752ca9834da79442903b7c9",
+  "isDraft": false,
+  "number": 52,
+  "statusCheckRollup": [],
+  "title": "Implement x64 hard-skinning kernels with SSE intrinsics",
+  "url": "https://github.com/SWG-Source/client-tools/pull/52"
+}

@@ -1,0 +1,29 @@
+{
+  "additions": 12296,
+  "baseRefName": "64-bit-types",
+  "baseRefOid": "22dd13d4a40014899c547cd370de969ac6ae1fdc",
+  "body": "Capture Windows x64 stacks with `RtlCaptureContext`, AMD64 `StackWalk64`, the current thread handle and the native system DbgHelp library. Bypass cached function-table pointers on x64 because DbgHelp can reuse that storage. Serialize complete capture, symbol lookup/loading and minidump operations with the existing critical section. The Win32 capture path remains, with the same wider lock scope and corrected thread handle.\n\nThis targets upstream `64-bit-types` at `22dd13d4a40014899c547cd370de969ac6ae1fdc`. Its full PR diff also includes prerequisite [#35](https://github.com/SWG-Source/src/pull/35), which must land first. The [incremental package comparison](https://github.com/Akilleez-QA/src/compare/6b998f6fc281a88a50a710d7ae6afd55814b1946...b17b06f87af1617877ab86a7ebb05037d5c5b723) isolates the changes described here.\n\nOne original commit, **one file, +49/\u22125**, above [PR35](https://github.com/SWG-Source/src/pull/35) head `6b998f6fc281a88a50a710d7ae6afd55814b1946`. PR35 is a real source prerequisite: master still exposes uint32 call-stack/address contracts and caller buffers, which would truncate x64 addresses. This package does not transplant the final file onto master or import unrelated Windows fixes.\n\nThe candidate file matches both the maintained server implementation and the source hash recorded in the existing [Debug](https://github.com/Akilleez-QA/client-tools/blob/56ecc29fc95c62d10241b6cac0d8d9e713961db1/review/client-x64/allocator-math-next/debughelp-server-debug-v1-results.json) and [Release](https://github.com/Akilleez-QA/client-tools/blob/56ecc29fc95c62d10241b6cac0d8d9e713961db1/review/client-x64/allocator-math-next/debughelp-server-release-v1-results.json) records. Each Win32/x64 configuration reports 257 captures without failures, including concurrent walks and source lookup. These runs compiled the actual server Windows TU against the **client native v120 dependency closure**; they are not complete Windows server builds or exact server linked-library qualification.\n\nThe branch inherits PR35's `64-bit-types` history and workflows, rather than PR38's master CI base. The new checks below exercise Linux; the Windows capture evidence remains the historical v120 result. Quiescent install/remove, module unload/reload, minidump lifecycle and full server runtime remain outside the historical test. Linux stack code is unchanged.\n\nExact-head qualification at `b17b06f87af1617877ab86a7ebb05037d5c5b723`: [full Linux build](https://github.com/Akilleez-QA/src/actions/runs/36900291690) and [portable 32-bit/64-bit regression jobs](https://github.com/Akilleez-QA/src/actions/runs/36900295342) passed. This is not a complete Windows server build or live server acceptance.\n",
+  "changedFiles": 622,
+  "deletions": 4805,
+  "headRefName": "review-ready/server-native-stack",
+  "headRefOid": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+  "isDraft": false,
+  "number": 47,
+  "statusCheckRollup": [],
+  "title": "Capture native Windows stacks with complete DbgHelp locking",
+  "url": "https://github.com/SWG-Source/src/pull/47",
+  "qualification_ci": [
+    {
+      "conclusion": "success",
+      "headSha": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+      "status": "completed",
+      "url": "https://github.com/Akilleez-QA/src/actions/runs/36900291690"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+      "status": "completed",
+      "url": "https://github.com/Akilleez-QA/src/actions/runs/36900295342"
+    }
+  ]
+}

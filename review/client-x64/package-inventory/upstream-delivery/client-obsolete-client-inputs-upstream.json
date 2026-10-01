@@ -1,0 +1,13 @@
+{
+  "additions": 7730,
+  "baseRefName": "master",
+  "body": "Remove SwgClient's Mozilla solution dependency and stale browser link inputs, including the remaining Optimized-Win32 entries. Remove the nonproduction capture poll and unused include whose start/stop/configuration and parser paths were already disabled upstream. Keep the browser/capture implementations and other tool dependencies.\n\n**Depends on #22 (link cleanup) and #53 (x64 configurations); their changes are included in the master comparison.** Review this package through the [three-file incremental comparison](https://github.com/Akilleez-QA/client-tools/compare/2c70e446bff38fdee532f3f7191ddb8f37595fa1...16773a1e0eb4d0a1178e195d99d3011abf6f3a53). The source patches are unchanged; adding the DPVS prerequisite reproduces the previously reviewed whole tree. Three unchanged root-cause patches: 2 build files +5/-6 and 1 production file -5 (Myers). This package has no Miles/Bink dependency.\n\nHistorical evidence is scoped to the original integrated snapshots:\n\n- [Browser cleanup](https://github.com/Akilleez-QA/client-tools/commit/94a81438c4c442f21105a58047c82d34e04c9cb4): Win32 Debug/Release relinks match after normalization of timestamps and PDB age; code, PDB GUID/path remain compared. Other tool dependency edges are retained.\n- [Optimized follow-up](https://github.com/Akilleez-QA/client-tools/commit/d36090a8cec01785b25bcb9608473a8b1b770c18): native project evaluation preserves other ordered inputs; full Optimized linking was not verified.\n- [Disabled capture poll](https://github.com/Akilleez-QA/client-tools/commit/4d4d03aac3329ae56d16fbe564c6da844af7d1ab): four native CuiIoWin compilation configurations passed; Win32 Debug relinks resolved. The historical x64 diagnostic used inherited /FORCE and is explicitly not link-success evidence.\n\nSelected source/build changes match the originals and whitespace checks pass. No builds/tests/runtime were rerun for this package; these records do not establish an exact-base full-client build or live-game equivalence.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/9a4516600f63edfbb1ab3babd2a67746bc70d3ee/review/client-x64/pr-ready-next/obsolete-client-inputs/RESULTS.md).\n",
+  "changedFiles": 72,
+  "deletions": 9,
+  "headRefOid": "16773a1e0eb4d0a1178e195d99d3011abf6f3a53",
+  "isDraft": false,
+  "number": 62,
+  "statusCheckRollup": [],
+  "title": "Remove unused browser build inputs and disabled capture polling",
+  "url": "https://github.com/SWG-Source/client-tools/pull/62"
+}

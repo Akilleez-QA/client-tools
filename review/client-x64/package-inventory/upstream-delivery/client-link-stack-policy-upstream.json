@@ -1,0 +1,13 @@
+{
+  "additions": 7731,
+  "baseRefName": "master",
+  "body": "Clear inherited `ForceFileOutput` for SwgClient x64 so unresolved/duplicate symbols cannot produce a forced output image. Set its stack reserve to 2097152 bytes for the exercised original PCRE recursion corpus. Stack commit size, Win32 and other executables retain their existing policy.\n\n**Depends on #53 (x64 configurations).** Two unchanged source-policy commits add four lines to its property sheet; review the [incremental comparison](https://github.com/Akilleez-QA/client-tools/compare/2fc85d31f3a6f0e541b9dc15483c8155da728dd2...45fde670783ef79b159a510c56eec9fe24f38bc3). The master comparison includes #53 (71 files). Native provider selection in #54 is separate and is not duplicated here.\n\nComposing this change with the actual configuration/provider prerequisite heads reproduces the reviewed tree exactly. There are no production source, vendor or media-selection changes.\n\n[Strict-link evidence](https://github.com/Akilleez-QA/client-tools/commit/a21af16302efa17cf1d889cd4b246fcc493c8248) records eight native metadata comparisons and actual linker commands: the existing 61 unresolved Miles imports fail with LNK1120, without `/FORCE` or LNK4088. This proves failure policy, not successful linking.\n\n[Stack evidence](https://github.com/Akilleez-QA/client-tools/commit/dd32e5dcc392243a8f651a4d322316187ad1cf70) records the original x64 Debug corpus exhausting one MiB, completion of 24 corpus runs with the separately declared two-MiB reserve, eight native metadata evaluations and minimal-executable PE header verification. This is a bounded corpus result, not a universal recursion-depth guarantee.\n\nThese are historical integrated results, not a new build of this stack. No builds or runtime were repeated during packaging. Native-provider and source prerequisites remain separate; no whole-client acceptance is inferred.\n\n[Source identities and review](https://github.com/Akilleez-QA/client-tools/blob/eb4b4fca0354b143ac714d5d64e6b65538f8b03d/review/client-x64/pr-ready-next/link-stack-policy/RESULTS.md).\n",
+  "changedFiles": 71,
+  "deletions": 0,
+  "headRefOid": "45fde670783ef79b159a510c56eec9fe24f38bc3",
+  "isDraft": false,
+  "number": 59,
+  "statusCheckRollup": [],
+  "title": "Require a resolved x64 client link and reserve two MiB of stack",
+  "url": "https://github.com/SWG-Source/client-tools/pull/59"
+}

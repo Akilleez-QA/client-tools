@@ -1,0 +1,13 @@
+{
+  "additions": 22105,
+  "baseRefName": "master",
+  "body": "Add `--configuration Release` while retaining Debug defaults and output paths. Use the matching engine configuration and static CRT, isolate Release outputs, enable PipeBinkVideo for Release-x64, and name the selected game SwgClient_r. The project requires matching pipe/worker archives and isolated Audio/Graphics libraries.\n\n**Depends on #65 and its prerequisites.** The master comparison includes those changes; review the [four-file Release delta](https://github.com/Akilleez-QA/client-tools/compare/1f4c0f03e34c03824de41bb14603d85ae7ccea9a...308f6ddecb4d97fe20b3ad28f6023fe8c9e3e7eb). Its whole source tree is unchanged from the reviewed package. The original build commit is kept whole: 3 build files +30/-19, followed by README +27/-9 (Myers). There are no production C/C++ changes. The existing development relink tool remains Debug-only.\n\nThe [original checkpoint](https://github.com/Akilleez-QA/client-tools/commit/33efad160379912308171fbbb0e3cab54eddd523) records a full integrated Release-x64 rebuild with 0 errors and 3274 warnings, 20616 source/build inputs unchanged across the build, and strict Debug/Release host plus Release pipe/worker builds. These are recorded historical results, not a fresh exact-base build of this split branch.\n\nPackaging verified the unchanged original build hunks and clean whitespace. No new builds/tests/runtime were run. Matching genuine providers and the separately enumerated full-client dependencies remain required; an archive existence check alone cannot prove its configuration or ABI. No SDK assets are included and no new runtime/fidelity claim is made.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/9a4516600f63edfbb1ab3babd2a67746bc70d3ee/review/client-x64/pr-ready-next/media-release-build/RESULTS.md).\n",
+  "changedFiles": 232,
+  "deletions": 322,
+  "headRefOid": "308f6ddecb4d97fe20b3ad28f6023fe8c9e3e7eb",
+  "isDraft": false,
+  "number": 66,
+  "statusCheckRollup": [],
+  "title": "Build matching Release Miles and Bink development components",
+  "url": "https://github.com/SWG-Source/client-tools/pull/66"
+}

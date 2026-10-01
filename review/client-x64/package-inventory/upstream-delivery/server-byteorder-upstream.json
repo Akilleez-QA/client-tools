@@ -1,0 +1,23 @@
+{
+  "additions": 410,
+  "baseRefName": "master",
+  "baseRefOid": "7d2159a337281184d6a55db30d2bc9a4013c0e80",
+  "body": "MSVC x64 rejects the naked inline-assembly implementations of `htonl`, `ntohl`, `htons` and `ntohs`. Use the corresponding 32-bit and 16-bit byte-swap functions under `_M_X64`, preserving the Win32 implementation and public signatures. The production change is **one file, +26/-0**.\n\nThis targets upstream `master` and includes the true foundation-header prerequisite [#37](https://github.com/SWG-Source/src/pull/37) plus the tested workflow repair [#38](https://github.com/SWG-Source/src/pull/38). The full PR diff includes both prerequisites; review the [ByteOrder-only delta](https://github.com/Akilleez-QA/src/compare/09932a32c9949bd40e8e4dbb22e1a7027944eb21...adb1bc91d2ad0a923a828204410c72d7cab9dbc1) separately. PR37 resolves the foundation header's x64 move-overload ambiguity. The CI-only addition enables manual qualification; it does not change byte-order semantics. Merge the prerequisites first.\n\nThe original and patched production files are byte-identical to the corresponding client files. [Recorded client native/hosted leaf-function evidence](https://github.com/Akilleez-QA/client-tools/blob/94e606c9e4031622b0893314b3b1f738c3b82467/review/client-x64/pr-ready-next/byteorder/submission/RESULTS.md) covers 166,631 input cases in both directions per candidate configuration, original-source controls and deliberate no-swap controls. This supports the conversion implementation; **it is not an exact server native build result**. Server foundation headers differ, and the client runner assumes a different source/include layout.\n\nThe ByteOrder delta adds no test runner. Its source is unchanged from the reviewed package; the inherited CI is repaired separately. Complete server Windows compilation, packet behavior and runtime acceptance are outside the existing evidence.\n\n[Full legacy Linux32 build](https://github.com/Akilleez-QA/src/actions/runs/36899844263) passed at `5353694a6989ff51f8f63da3eec754039e86c4bc`, including tracked-input integrity. This confirms the Linux build remains intact; it does not execute the new Windows x64 conversion path.\n",
+  "changedFiles": 11,
+  "deletions": 24,
+  "headRefName": "submit/server-byteorder",
+  "headRefOid": "5353694a6989ff51f8f63da3eec754039e86c4bc",
+  "isDraft": false,
+  "number": 45,
+  "statusCheckRollup": [],
+  "title": "Use native byte swaps for Windows x64 network conversions",
+  "url": "https://github.com/SWG-Source/src/pull/45",
+  "qualification_ci": [
+    {
+      "conclusion": "success",
+      "headSha": "5353694a6989ff51f8f63da3eec754039e86c4bc",
+      "status": "completed",
+      "url": "https://github.com/Akilleez-QA/src/actions/runs/36899844263"
+    }
+  ]
+}

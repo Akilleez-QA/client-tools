@@ -1,0 +1,19 @@
+{
+  "additions": 51,
+  "baseRefName": "master",
+  "body": "Keep duplicate-string allocation lengths, lowercase-copy indices and tag-conversion string lengths as `size_t`. This removes narrowing of `strlen` results to `uint` or `int` while preserving null handling, allocation policy, lowercase conversion and the existing first-four-character tag encoding with space padding.\n\nTwo source commits, two production headers, +5/\u22125, directly above upstream `master`. The duplication and tag helpers do not call `imemmove`; that source repair remains excluded. All changed source hunks and their surrounding context match the reviewed fork package. Misc.h has a different whole-file hash because the unrelated move-helper change is absent. No tests or vendor files are added; the workflow repair is separate from the production edits.\n\nThe [duplicate-string change](https://github.com/Akilleez-QA/src/commit/c98f2a6dca7794ec8a2f1705208b2796f25c981f) follows the already host-sized client helpers. The [tag-conversion record](https://github.com/Akilleez-QA/src/commit/c03e4a1a72c3f5daff8501907e4bfc70e1919fa1) describes historical client native Debug consumer compilation and 4,098 sampled tags on both ABIs. This is supporting component evidence, not an exact build of these server headers: server `Tag.h` retains different null-diagnostic wording, and `Misc.h` retains server `nullptr` conventions and its existing move-helper overload.\n\nNo new Windows build or runtime check was performed during packaging. Giant inputs, allocation failure, arbitrary character conversion and full server behavior are not newly qualified. The existing `tolower` input contract remains unchanged. These are host-memory lengths; wire formats and tag byte order are unchanged.\n\n[Review packet and exact source identities](https://github.com/Akilleez-QA/client-tools/blob/de951450e45a8caf37cf3b8cea691aad36c75e54/review/client-x64/pr-ready-next/server-host-string-lengths/RESULTS.md).\n\nThe CI commits include the [existing workflow repair (#38)](https://github.com/SWG-Source/src/pull/38) and a manual qualification trigger. They check out the submitted head and build it in the pinned legacy container instead of invoking the broken bare-repository clone. The earlier failed upstream checks remain visible. No production file changed when adding this repair.\n\n[Full legacy Linux32 build on this head](https://github.com/Akilleez-QA/src/actions/runs/36899834257) passed at `0c8df6db37db5aadacf9cd823ad70f22d105e639`, including the tracked-input integrity check. This checks the Linux configuration; it does not compile or execute the Windows-only paths described above.\n",
+  "changedFiles": 3,
+  "deletions": 24,
+  "headRefOid": "0c8df6db37db5aadacf9cd823ad70f22d105e639",
+  "isDraft": true,
+  "number": 43,
+  "statusCheckRollup": [],
+  "title": "Preserve host-sized string lengths in shared helpers",
+  "url": "https://github.com/SWG-Source/src/pull/43",
+  "qualification_ci": {
+    "conclusion": "success",
+    "headSha": "0c8df6db37db5aadacf9cd823ad70f22d105e639",
+    "status": "completed",
+    "url": "https://github.com/Akilleez-QA/src/actions/runs/36899834257"
+  }
+}

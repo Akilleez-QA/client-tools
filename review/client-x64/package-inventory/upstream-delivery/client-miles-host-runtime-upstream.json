@@ -1,0 +1,14 @@
+{
+  "additions": 1773,
+  "baseRefName": "master",
+  "body": "The 32-bit Miles host must retain ownership of native handles and reverse callbacks across client requests. Add its native backend, dispatcher/resolver, entry point, SDK file/EOS callback trampolines, upload bindings, metadata/version queries and reverse callback runtime.\n\n**Depends on #41 (contracts), #48 (file transport) and #49 (client callbacks).** This master-based branch adds 14 production files (+1568/\u22120) and the unchanged upload-binding test (+205 lines), 15 files total.\n\nThe host file runtime retains the reviewed process-owned lifetime repair: paired stop does not authorize destroying that runtime. Building the host requires the genuine Miles SDK/provider. No vendor headers or binaries are redistributed.\n\nThese are dormant additions: no existing project, backend selection or workflow changes. Build entry points and game integration are separate follow-ups. The individual branch does not build or enable audio by itself. Existing native/component results used the integrated implementation; no new runtime test was performed on this isolated package.\n\n[Source identity and composition verification](https://github.com/Akilleez-QA/client-tools/blob/ef190a47e431ffa58dfba01d81e0a73e07fa96bf/review/client-x64/package-inventory/upstream-delivery/miles-additions/README.md): all introduced files retain the reviewed blobs. Merging contracts and the five component branches reproduces the complete reviewed pre-Bink tree exactly. That is source-composition evidence, not a new build or a claim of audio fidelity or shutdown acceptance.\n",
+  "changedFiles": 15,
+  "deletions": 0,
+  "headRefOid": "26b487affc772f5003d8b960f89b5dca172ea3f4",
+  "isDraft": false,
+  "number": 50,
+  "statusCheckRollup": [],
+  "url": "https://github.com/SWG-Source/client-tools/pull/50",
+  "state": "OPEN",
+  "title": "Add the Miles host backend and callback runtime"
+}
