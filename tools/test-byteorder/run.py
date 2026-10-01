@@ -1,4 +1,4 @@
-"""Build the actual ByteOrder TU using VS2013, real headers and a byte oracle."""
+"""Build the actual ByteOrder TU using MSVC 2013 or newer, real headers and a byte oracle."""
 import argparse
 import hashlib
 import json
@@ -50,7 +50,8 @@ def build_case(directory, source, probe, includes, vcvars, arch, config, mode):
                  'production.obj probe.obj /OUT:probe.exe /MAP:probe.map', 'exit /b %errorlevel%']
     batch = directory / 'build.cmd'
     batch.write_text('\n'.join(commands) + '\n', encoding='utf-8')
-    build = subprocess.run(['cmd', '/d', '/c', str(batch)], cwd=directory,
+    environment = dict(os.environ, VSLANG='1033')
+    build = subprocess.run(['cmd', '/d', '/c', str(batch)], cwd=directory, env=environment,
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=120)
     (directory / 'build.log').write_bytes(build.stdout)
     row = dict(configuration=config, arch=arch, mode=mode, build_exit=build.returncode,
@@ -84,7 +85,7 @@ def main():
     )) / '../../VC/vcvarsall.bat')
     args = parser.parse_args()
     if os.name != 'nt':
-        parser.error('run natively on Windows with VS2013 installed')
+        parser.error('run natively on Windows with MSVC 2013 or newer installed')
     vcvars = args.vcvars.resolve(strict=True)
     output = args.out.resolve()
     output.mkdir(parents=True, exist_ok=False)
