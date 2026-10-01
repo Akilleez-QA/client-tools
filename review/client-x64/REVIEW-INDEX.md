@@ -33,7 +33,7 @@ These five deltas total **75 changed production lines** (+60/−15), excluding t
 
 ## Remaining integration queue
 
-The combined product snapshot is [a904e489b4fed43b52751b1cab373e82a4e40976](https://github.com/Akilleez-QA/client-tools/tree/a904e489b4fed43b52751b1cab373e82a4e40976). Both implementation/client-miles and integration/client-x64-next pointed there at audit. It contains 121 commits after M; the small candidate histories above are not ancestors of this combined branch. Their equivalent production fixes must be reconciled without duplicate application.
+The current combined product snapshot is [10fe0da59d63b5e7e0736d0427d100ed72b641e0](https://github.com/Akilleez-QA/client-tools/tree/10fe0da59d63b5e7e0736d0427d100ed72b641e0). Both implementation/client-miles and integration/client-x64-next were clean and remotely verified there. It contains 124 commits after M; the small candidate histories above are not ancestors of this combined branch. Their equivalent production fixes must be reconciled without duplicate application. [Integration CI passed](https://github.com/Akilleez-QA/client-tools/actions/runs/36807127038); this is the workflow's scoped result, not full-game acceptance.
 
 | Committed C/C++ category against M | Files | Added | Deleted |
 |---|---:|---:|---:|
@@ -44,7 +44,16 @@ The combined product snapshot is [a904e489b4fed43b52751b1cab373e82a4e40976](http
 | Miles/Bink product runtime (`tools/miles-bridge/src`) | 103 | 9,846 | 0 |
 | **Total** | **220** | **11,959** | **796** |
 
-That is **12,755 changed production source lines**, not 12,755 additions (net +11,163). Reproduce with `git diff --numstat 94945103 a904e489b`, classifying `.c/.cpp/.cc/.cxx/.h/.hpp/.hxx/.inl` in the listed paths. Tests/harnesses, build/project configuration and documentation are excluded (another 131 files, +13,650/−28). Runtime code counts as product code even when located under `tools/`.
+That is **12,755 changed production source lines**, not 12,755 additions (net +11,163). Reproduce with `git diff --numstat 94945103 10fe0da59`, classifying `.c/.cpp/.cc/.cxx/.h/.hpp/.hxx/.inl` in the listed paths. Tests/harnesses, build/project configuration and documentation are excluded (another 131 files, +13,702/−28). Runtime code counts as product code even when located under `tools/`.
+
+## Product evidence checkpoint
+
+- The source-verified full VS2013 Release x64 client dependency rebuild completed with **0 errors and 3,274 warnings**. Matching Release renderer, DPVS, libxml2 and original-provider host were packaged privately. The source/build files match this head; the final commit changes documentation only. Warnings are retained, not suppressed.
+- Earlier Debug development builds under Proton rendered login and local ground/space scenes, responded to bounded ground movement, produced routed original Miles audio, and closed normally. These are artifact-specific observations, not representative gameplay or fidelity acceptance on the current head.
+- At a904e489b, the actual Debug client visibly played one original Falcon Bink movie, returned to UI and closed normally. The Video7 admission repair was necessary: the earlier real-game attempt failed despite component checks.
+- **Repeated movie playback remains a product failure under investigation.** The second command was visibly received by the console, but a second movie was not shown. The console's success text is unconditional. A private diagnostic build is ready to identify the rejection gate; there is no speculative source repair or repeated-playback claim.
+- **Release runtime is not qualified.** One run reached login but its close sensor selected the wrong window title. After that sensor correction, a second run encountered a fatal X11/compositor failure before close. The initiating cause is not established. Neither run demonstrates normal Release shutdown.
+- Vivox, native Windows/GPU operation, representative ground/space and mixed-width gameplay, and audiovisual fidelity remain open. Private SDKs, binaries, assets and raw runtime records are not public review artifacts.
 
 Read-only GitHub heads showed upstream SWG-Source/client-tools/master still at M and **no published x64 branch**. Thus the verified upstream-master merge-base equals the original wire base; an alternate upstream x64 target cannot be assumed. Final submission target must be named before rebasing packages.
 
@@ -53,6 +62,6 @@ Remaining packaging work, not already completed packages:
 1. Separate the remaining shared/client correctness changes and source-build/configuration work into dependency-ordered diffs, retaining production consumer tests and known limitations.
 2. Reconcile the existing wire/DPVS/link candidates with later integrated tests and provider changes; earlier branch evidence does not automatically validate the latest combined tree.
 3. Package the Miles process boundary and Bink integration around coherent lifecycle/API/engine integration units. **The 9,846-line bridge is not currently split into small PR packages**; preserve causal callback, ownership and shutdown invariants when choosing boundaries. Vendor binaries, SDK bodies and private media remain outside public source.
-4. Keep the pending Release enablement and deleted-destructor repair separate from a904 counts. At audit these were five uncommitted files in the implementation checkout; the integration checkout was clean. Neither change is approved by this index.
+4. Keep the new changes separately reviewable: b9d3408f1 enforces the process-owned callback runtime's non-deletion at compile time; 33efad160 enables isolated Release development targets; 10fe0da59 documents the evidence limits. The two host configurations built, and attempted deletion fails with the expected compiler diagnostic. These commits do not establish Release runtime or media fidelity.
 
 This index deliberately makes no 10/10 quality claim. Small diffs, recorded evidence and meaningful review gates make work inspectable; full client, media, voice and mixed-width gameplay acceptance remain distinct from package organization. Historical packet introductions may describe older product states; use their pinned evidence for the stated candidate only.
