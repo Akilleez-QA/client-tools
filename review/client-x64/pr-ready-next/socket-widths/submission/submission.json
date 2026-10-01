@@ -1,0 +1,102 @@
+{
+  "additions": 545,
+  "baseRefName": "review-ready/client-imemmove",
+  "baseRefOid": "a7954b5e78274ab3a9eb558fa10186697ff5e848",
+  "changedFiles": 11,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T04:34:41Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:30:06Z",
+      "messageBody": "Match server a81742ee. Widen both SOCKET declarations and Sock storage; keep recvfrom status sentinel at its original 32-bit width.",
+      "messageHeadline": "network: preserve pointer-width Windows socket handles",
+      "oid": "b5efaab425e4cdf576e0d4650096e7641f8d0b76"
+    },
+    {
+      "authoredDate": "2026-09-30T04:34:41Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:30:06Z",
+      "messageBody": "Match server a3f496be; the byte-count output remains DWORD-sized.",
+      "messageHeadline": "network: receive IOCP completion keys at pointer width",
+      "oid": "3ea1ae21e105e5b9798ec9c1e53bba041c319e7e"
+    },
+    {
+      "authoredDate": "2026-09-30T08:07:12Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:30:06Z",
+      "messageBody": "Use ULONG_PTR for GetQueuedCompletionStatus output. The key is not consumed by TcpClient and registrations still use zero; bytesTransferred remains a DWORD-width count. This is the separate client-side IOCP site exposed by the fresh x64 build.\n\nNative v120 actual sharedNetwork project rebuilds pass Debug/Release on Win32/x64 with the matching client edit. A real Windows posted-completion probe retains a high-bit x64 key and surrounding guards in all four configurations. This does not exercise a full TcpClient connection or a server build; server Windows source mirrors the same one-line correction.",
+      "messageHeadline": "network: receive TCP client completion keys at pointer width",
+      "oid": "2e2fdadc205276788f43ade24d4414efe8436439"
+    },
+    {
+      "authoredDate": "2026-09-30T11:23:06Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:30:06Z",
+      "messageBody": "Compile the actual Sock, TcpClient and TcpServer translation units using the checkout project inputs. Check both UDP header copies in both include orders, raw UDP and IOCP behavior, and independently reverted completion-key declarations against the real SDK.\n\nRequire every matrix outcome, preserve source/header identities and raw logs, and propagate failures. Document the explicit imemmove prerequisite and separate compile/API evidence from production network runtime behavior.",
+      "messageHeadline": "test: reproduce Windows network ABI checks from the checkout",
+      "oid": "aa57a659afd78c0c1a4dd647c1baa6044fc0a032"
+    },
+    {
+      "authoredDate": "2026-10-01T07:35:00Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:37:45Z",
+      "messageBody": "",
+      "messageHeadline": "test: qualify network widths with explicit MSVC and strict controls",
+      "oid": "9aa2160f55238a809184c07ac5c80b13a585b223"
+    },
+    {
+      "authoredDate": "2026-10-01T07:48:43Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T07:48:43Z",
+      "messageBody": "",
+      "messageHeadline": "test: scope hosted network checks to supported headers",
+      "oid": "dbcd4d7d95a2c55be0fdf4b2185c117d21d400ed"
+    }
+  ],
+  "deletions": 6,
+  "headRefOid": "dbcd4d7d95a2c55be0fdf4b2185c117d21d400ed",
+  "isDraft": true,
+  "url": "https://github.com/Akilleez-QA/client-tools/pull/2"
+}
