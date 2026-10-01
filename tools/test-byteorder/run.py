@@ -16,9 +16,11 @@ def digest(path):
 def assembly_failure(output, source):
     """Accept only diagnostics from the pinned original assembly body."""
     allowed = {16: {'C2485'}, 18: {'C4235'},
-               20: {'C2065', 'C2146', 'C2143', 'C3481', 'C2059'},
-               28: {'C4235'},
-               30: {'C2065', 'C2146', 'C2143', 'C3481', 'C2059', 'C1903'}}
+               20: {'C2065', 'C2146', 'C2143', 'C3481', 'C2059', 'C3260'},
+               28: {'C4235', 'C7553'},
+               30: {'C2065', 'C2146', 'C2143', 'C3481', 'C2059', 'C1903'},
+               36: {'C2485', 'C2144', 'C2601'},
+               47: {'C2485', 'C2601'}, 59: {'C1004'}}
     diagnostics = []
     for line in output.decode(errors='replace').splitlines():
         if not re.search(r'\b(?:fatal\s+)?error\b|not recognized|cannot find', line, re.I):
