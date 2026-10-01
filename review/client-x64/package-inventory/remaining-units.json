@@ -1,0 +1,495 @@
+{
+  "scope": "Read-only finite packaging accounting; branch coverage is not a fresh merged-tree/build equivalence proof.",
+  "base": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "maintained_head": "eca74ffa5741f608a1417944b2e2602868936517",
+  "last_production_commit": "da9c56054b70761b983b4b367fd4479ac344e8e6",
+  "inventory_sha256": "edf02c934e222e125d87fb26cc7dd06217ad20075dca91e3cb15a17ddbc53de8",
+  "frozen_counts_unchanged": {
+    "build_configuration": {
+      "files": 83,
+      "additions": 8897,
+      "deletions": 28
+    },
+    "excluded_tests_docs_ci": {
+      "files": 50,
+      "additions": 5050,
+      "deletions": 0
+    },
+    "runtime_tools_production": {
+      "files": 103,
+      "additions": 9852,
+      "deletions": 0
+    },
+    "src_production": {
+      "files": 117,
+      "additions": 2113,
+      "deletions": 796
+    }
+  },
+  "frozen_production_total_unchanged": {
+    "files": 220,
+    "additions": 11965,
+    "deletions": 796,
+    "changed_lines": 12761
+  },
+  "myers_production_total": {
+    "files": 220,
+    "additions": 11964,
+    "deletions": 795
+  },
+  "count_algorithm_differences": [
+    {
+      "path": "src/engine/client/library/clientAudio/src/win32/Audio.cpp",
+      "frozen": [
+        225,
+        77
+      ],
+      "myers": [
+        223,
+        75
+      ]
+    },
+    {
+      "path": "src/engine/shared/library/sharedMemoryManager/src/shared/MemoryManager.cpp",
+      "frozen": [
+        117,
+        72
+      ],
+      "myers": [
+        118,
+        73
+      ]
+    }
+  ],
+  "all_changed_paths_match_inventory": true,
+  "unassigned_production_or_build_paths": [],
+  "packages": [
+    {
+      "unit": "wire-contract",
+      "inventory_status": "submitted_upstream",
+      "branch": "ci/client-wire",
+      "head": "e6738a9f5b912f62c496f866a911fa33b2539908",
+      "submission_records": []
+    },
+    {
+      "unit": "dpvs",
+      "inventory_status": "submitted_upstream",
+      "branch": "ci/client-dpvs",
+      "head": "ebce07521eba3b4c92eccf5aaf3bdcb3d6f475c4",
+      "submission_records": []
+    },
+    {
+      "unit": "link-cleanup",
+      "inventory_status": "submitted_upstream",
+      "branch": "x64-link-cleanup",
+      "head": "46a56f6a5219932ab2567970c79144570b97ac36",
+      "submission_records": []
+    },
+    {
+      "unit": "imemmove",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-imemmove",
+      "head": "a7954b5e78274ab3a9eb558fa10186697ff5e848",
+      "submission_records": []
+    },
+    {
+      "unit": "network-widths",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-network-widths",
+      "head": "dbcd4d7d95a2c55be0fdf4b2185c117d21d400ed",
+      "submission_records": []
+    },
+    {
+      "unit": "byteorder",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-byteorder",
+      "head": "b0a977f8dfffdb46f2ae7d412a6e4dbf4d135fd5",
+      "submission_records": []
+    },
+    {
+      "unit": "http-lock",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-http-lock",
+      "head": "003f8757c7c1386e33c997be7d5bf5b8109669d4",
+      "submission_records": [
+        {
+          "record": "client-http-header-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/30"
+        }
+      ]
+    },
+    {
+      "unit": "allocator-layout",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-allocator-layout",
+      "head": "2af9f19b502e9183731656cdaf93236faacb404e",
+      "submission_records": [
+        {
+          "record": "client-allocator-layout-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/29"
+        }
+      ]
+    },
+    {
+      "unit": "shell-results",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-shell-result-widths",
+      "head": "6d73ef869f45b9c1789577b87489aee7d53535f0",
+      "submission_records": []
+    },
+    {
+      "unit": "ui-pool",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-ui-pool-alignment",
+      "head": "5ff93941c3f7c256fe10f2dc8f6d0e2216ea302d",
+      "submission_records": []
+    },
+    {
+      "unit": "pcre-capacity",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-pcre-capacity",
+      "head": "123cce87b7b596e639a92477abde706caee08f79",
+      "submission_records": []
+    },
+    {
+      "unit": "platform-diagnostics",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-platform-diagnostics",
+      "head": "855b299004da38f48aa6517c76d30338488eeba2",
+      "submission_records": [
+        {
+          "record": "client-platform-diagnostics-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/33"
+        }
+      ]
+    },
+    {
+      "unit": "ui-native-widths",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-ui-native-widths",
+      "head": "9396a5181497ba259c0bba0af8c2511154937088",
+      "submission_records": [
+        {
+          "record": "client-ui-native-widths-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/35"
+        }
+      ]
+    },
+    {
+      "unit": "archive-callbacks",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-archive-callbacks",
+      "head": "e26bdd9b2fa64d0ef46e6af9aab328deb18c29a5",
+      "submission_records": [
+        {
+          "record": "client-archive-callbacks-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/36"
+        }
+      ]
+    },
+    {
+      "unit": "stlport-sdk",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-stlport-sdk",
+      "head": "de5e89d01c82c8a8f982f604935e3b07dd918fe2",
+      "submission_records": [
+        {
+          "record": "client-stlport-sdk-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/38"
+        }
+      ]
+    },
+    {
+      "unit": "allocator-address-stack",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-allocator-address-stack",
+      "head": "fc667f38eafbd4a2b4d50f96a31efb5cca3ef55c",
+      "submission_records": [
+        {
+          "record": "client-allocator-address-stack-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/3"
+        }
+      ]
+    },
+    {
+      "unit": "allocator-sizes",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-allocator-statistics",
+      "head": "0c09740e0ca44fbf1428eeba779ac06824e69075",
+      "submission_records": [
+        {
+          "record": "client-allocator-statistics-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/14"
+        }
+      ]
+    },
+    {
+      "unit": "fpu-controls",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-fpu-controls",
+      "head": "16dbf07a4e6696fa1ebc133b567619643b76c3ce",
+      "submission_records": [
+        {
+          "record": "client-fpu-controls-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/32"
+        }
+      ]
+    },
+    {
+      "unit": "math-kernels",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-math-kernels",
+      "head": "3c8c9099dc8962f411f9045dc7e915d21bcff31a",
+      "submission_records": [
+        {
+          "record": "client-math-kernels-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/34"
+        }
+      ]
+    },
+    {
+      "unit": "skeletal-kernel",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-skeletal-kernels",
+      "head": "4f44852113e7c5dbb4a6dd3296a15f6c03d1356d",
+      "submission_records": [
+        {
+          "record": "client-skeletal-kernels-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/15"
+        }
+      ]
+    },
+    {
+      "unit": "archive-storage",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-archive-storage",
+      "head": "085a62e3358e7b51c5198c93bb1581864020c3fb",
+      "submission_records": [
+        {
+          "record": "client-archive-storage-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/13"
+        }
+      ]
+    },
+    {
+      "unit": "crypto-boundaries",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-crypto-boundaries",
+      "head": "19eb22639fed6a76226656412ad975aacd423f3e",
+      "submission_records": [
+        {
+          "record": "client-crypto-boundaries-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/39"
+        }
+      ]
+    },
+    {
+      "unit": "trackir-provider",
+      "inventory_status": "remaining",
+      "branch": "review-ready/client-trackir-provider",
+      "head": "12e1a62160f83827ad345ddf8fb8a53299b5060a",
+      "submission_records": [
+        {
+          "record": "client-trackir-provider-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/40"
+        }
+      ]
+    },
+    {
+      "unit": "file-manifest",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-file-manifest",
+      "head": "514498397a9ead2518ab11d5894a785ef877b82d",
+      "submission_records": [
+        {
+          "record": "client-file-manifest-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/37"
+        }
+      ]
+    },
+    {
+      "unit": "audio-native-contract",
+      "inventory_status": "submitted_upstream",
+      "branch": "review-ready/client-audio-native-contract",
+      "head": "0699bd3d9b08998cb731d6ac7655681f3d003e6d",
+      "submission_records": [
+        {
+          "record": "client-audio-native-contract-submitted.json",
+          "url": "https://github.com/SWG-Source/client-tools/pull/31"
+        }
+      ]
+    },
+    {
+      "unit": "obsolete-client-inputs",
+      "inventory_status": "remaining",
+      "branch": "review-ready/client-obsolete-client-inputs",
+      "head": "f5c3f278516900cd9b7655eb2d5cacd803dbd2fa",
+      "submission_records": [
+        {
+          "record": "client-obsolete-client-inputs-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/22"
+        }
+      ]
+    },
+    {
+      "unit": "x64-projects",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-x64-projects",
+      "head": "5b558625c0c42a7d2b1dcce67fb80e0200f53850",
+      "submission_records": [
+        {
+          "record": "client-x64-projects-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/12"
+        }
+      ]
+    },
+    {
+      "unit": "native-providers",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-native-providers",
+      "head": "ba1dd443249944edbe3d5a22520f6eaa84402e51",
+      "submission_records": [
+        {
+          "record": "client-native-providers-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/16"
+        }
+      ]
+    },
+    {
+      "unit": "link-stack-policy",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-link-stack-policy",
+      "head": "5292d6fd8d07cd1d8f93091e57b1ca468c7b5833",
+      "submission_records": [
+        {
+          "record": "client-link-stack-policy-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/17"
+        }
+      ]
+    },
+    {
+      "unit": "miles-session-core",
+      "inventory_status": "prepared_fork_draft",
+      "branch": "review-ready/client-miles-build-audio",
+      "head": "afe844818e86b24313a9e940d4723a02f7262ae8",
+      "submission_records": [
+        {
+          "record": "client-miles-build-audio-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/11"
+        }
+      ]
+    },
+    {
+      "unit": "miles-game-selection",
+      "inventory_status": "remaining",
+      "branch": "review-ready/client-miles-game-selection",
+      "head": "78428d8c3f63048bccca579421f170a627be8fda",
+      "submission_records": [
+        {
+          "record": "client-miles-game-selection-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/18"
+        }
+      ]
+    },
+    {
+      "unit": "bink-host-session",
+      "inventory_status": "remaining",
+      "branch": "review-ready/client-bink-host-session",
+      "head": "16942c5fc6724f33e7633985c5fc5b0bc9be5103",
+      "submission_records": [
+        {
+          "record": "client-bink-host-session-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/19"
+        }
+      ]
+    },
+    {
+      "unit": "bink-game-selection",
+      "inventory_status": "remaining",
+      "branch": "review-ready/client-bink-game-selection",
+      "head": "abe067bcc70fffd397ff4de531943400c38a7caa",
+      "submission_records": [
+        {
+          "record": "client-bink-game-selection-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/20"
+        }
+      ]
+    },
+    {
+      "unit": "media-release-build",
+      "inventory_status": "remaining",
+      "branch": "review-ready/client-media-release-build",
+      "head": "91d70a54b60082303a88df3f12bc7e6e13e166a4",
+      "submission_records": [
+        {
+          "record": "client-media-release-build-submitted.json",
+          "url": "https://github.com/Akilleez-QA/client-tools/pull/21"
+        }
+      ]
+    }
+  ],
+  "remaining_nonproduction_units": [
+    {
+      "unit": "archive-regression-harnesses",
+      "paths": [
+        "tools/test-archive-decoders",
+        "tools/test-byte-stream"
+      ],
+      "status": "deliberately excluded source-package harnesses; integrated dependency/evidence scope"
+    },
+    {
+      "unit": "ui-memory-harness",
+      "paths": [
+        "tools/test-ui-memory"
+      ],
+      "status": "deliberately excluded snapshot-dependent harness"
+    },
+    {
+      "unit": "login-cluster-regression",
+      "paths": [
+        "tools/test-wire-compatibility/login_cluster.cpp",
+        "tools/test-wire-compatibility/run.py"
+      ],
+      "original_commit": "3550071ed",
+      "status": "new test TU not present in selected package heads; existing run.py path coverage does not imply later hunks included"
+    },
+    {
+      "unit": "autoarray-list-wire-regression",
+      "paths": [
+        "tools/test-wire-compatibility/fixtures.cpp",
+        "tools/test-wire-compatibility/run.py"
+      ],
+      "original_commit": "4d3009851",
+      "status": "Additional shared-fixture delta identified by math packaging worker; depends on archive source changes. Separate from LoginClusterStatus."
+    },
+    {
+      "unit": "portable-ci-composition",
+      "paths": [
+        ".github/workflows/wire-compatibility.yml"
+      ],
+      "status": "Miles/Bink/native-provider/archive workflow hunks deliberately deferred; existing workflow path coverage is not those jobs"
+    },
+    {
+      "unit": "live-session-evidence",
+      "paths": [
+        "tools/test-wire-compatibility/live-session.md"
+      ],
+      "committed_origins": [
+        "a422c4e48",
+        "eca74ffa5"
+      ],
+      "local_followup": "separately measured media-host shutdown section",
+      "status": "separate scoped evidence/documentation follow-up above client wire tests; not runtime source or bundled media prerequisite"
+    }
+  ],
+  "accounting_cautions": [
+    "Do not sum cumulative branch diffs to master: joint bases duplicate prerequisites.",
+    "Frozen 220 production paths are exclusive accounting-owner totals; package incremental line counts can differ for shared edits.",
+    "miles-session-core is an umbrella over foundations1-7, not an additional packet to count.",
+    "allocator-sizes is an umbrella spanning size invariants and statistics/null/pointer followups, not an additional packet.",
+    "Prepared/published is not merged, fully built from split bases, or all portable CI wired.",
+    "TrackIR published boundary repair adds production lines beyond the frozen maintained snapshot; preserve frozen totals."
+  ],
+  "source_mutated": false,
+  "tests_builds_runtime_run": false
+}

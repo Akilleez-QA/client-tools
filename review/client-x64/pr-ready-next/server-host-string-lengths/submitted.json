@@ -1,0 +1,47 @@
+{
+  "additions": 5,
+  "baseRefName": "review-ready/server-network-prerequisites",
+  "baseRefOid": "09932a32c9949bd40e8e4dbb22e1a7027944eb21",
+  "changedFiles": 2,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T05:49:02Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:24Z",
+      "messageBody": "Match the client helpers by retaining strlen results and the lowercase copy index as size_t. This removes uint narrowing on LP64; it does not change allocation failure policy or the existing tolower input contract.\n\n(cherry picked from commit c98f2a6dca7794ec8a2f1705208b2796f25c981f)",
+      "messageHeadline": "foundation: keep duplicated string lengths at host size",
+      "oid": "e889cd3a6991708e8d34cb3a3be96c8e9cb9a585"
+    },
+    {
+      "authoredDate": "2026-09-30T06:23:15Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:24Z",
+      "messageBody": "Use size_t for strlen results and the tag-building loop index. Preserve character conversion, byte order, and the existing first-four-character behavior with space padding.\n\nMatching client header was compiled by native v120 Win32/x64 Debug consumers and produces the same 4,098 sampled tags as stock on both architectures. This does not validate arbitrary oversized inputs or the full server.\n\n(cherry picked from commit c03e4a1a72c3f5daff8501907e4bfc70e1919fa1)",
+      "messageHeadline": "foundation: retain native string lengths in tag conversion",
+      "oid": "7dc8ef919449e482817e00017889ec52ee0a75c5"
+    }
+  ],
+  "deletions": 5,
+  "headRefName": "review-ready/server-host-string-lengths",
+  "headRefOid": "7dc8ef919449e482817e00017889ec52ee0a75c5",
+  "isDraft": true,
+  "number": 8,
+  "state": "OPEN",
+  "title": "Preserve host-sized string lengths in shared helpers",
+  "url": "https://github.com/Akilleez-QA/src/pull/8",
+  "evidence_commit": "de951450e45a8caf37cf3b8cea691aad36c75e54"
+}

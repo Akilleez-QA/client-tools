@@ -1,0 +1,32 @@
+{
+  "additions": 49,
+  "baseRefName": "lp64-fixed-width-boundaries",
+  "baseRefOid": "6b998f6fc281a88a50a710d7ae6afd55814b1946",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T06:26:54Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:28Z",
+      "messageBody": "Use RtlCaptureContext and AMD64 StackWalk64 with the real thread handle and native system DbgHelp on x64. Serialize complete DbgHelp operations. Bypass the retained function-table pointer cache on x64: native known-chain probes fail with it and recover when only that cache is bypassed; changing the module-base cache alone does not recover.\n\nThis server Windows translation unit was built and exercised against the real client dependency closure under v120 Debug/Release, Win32/x64: 257/257 captures each including concurrent walks and source lookup. Linux stack code is unchanged. Quiescent install/remove, module unload/reload, minidump lifecycle and complete server runtime remain outside this test.\n\n(cherry picked from commit 742878485cfded30843d7160ba85de48d0e43333)",
+      "messageHeadline": "debug: capture native x64 Windows stacks without stale function tables",
+      "oid": "b17b06f87af1617877ab86a7ebb05037d5c5b723"
+    }
+  ],
+  "deletions": 5,
+  "headRefName": "review-ready/server-native-stack",
+  "headRefOid": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+  "isDraft": true,
+  "number": 6,
+  "state": "OPEN",
+  "title": "Capture native Windows stacks with complete DbgHelp locking",
+  "url": "https://github.com/Akilleez-QA/src/pull/6",
+  "evidence_commit": "9a4516600f63edfbb1ab3babd2a67746bc70d3ee"
+}

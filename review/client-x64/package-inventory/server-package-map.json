@@ -10467,7 +10467,7 @@
       {
         "id": "native-diagnostics",
         "title": "Windows x64 breakpoint, timestamp counter and address diagnostics",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "2a3b1463d7b0bf7db16f0fc84ecee92f1c32125d",
@@ -10542,12 +10542,16 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-windows-diagnostics",
+        "branch_head": "fc300fe802730f1ce837e6f4b593cef9c68bf780",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/7",
+        "submission_base": "1c0152794e5597f16cd9e4b03930df654f73aa03"
       },
       {
         "id": "host-string-lengths",
         "title": "Host-sized duplicate/tag string lengths",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "c98f2a6dca7794ec8a2f1705208b2796f25c981f",
@@ -10613,12 +10617,16 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-host-string-lengths",
+        "branch_head": "7dc8ef919449e482817e00017889ec52ee0a75c5",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/8",
+        "submission_base": "09932a32c9949bd40e8e4dbb22e1a7027944eb21"
       },
       {
         "id": "windows-api-widths",
         "title": "Thread-name exception arguments and ShellExecute result widths",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "51373f7f1f8debbd988782c4a2961d5723615424",
@@ -10670,7 +10678,11 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-windows-diagnostics",
+        "branch_head": "fc300fe802730f1ce837e6f4b593cef9c68bf780",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/7",
+        "submission_base": "1c0152794e5597f16cd9e4b03930df654f73aa03"
       },
       {
         "id": "floating-controls",
@@ -10742,7 +10754,7 @@
       {
         "id": "native-stack",
         "title": "Windows x64 native stack capture",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "742878485cfded30843d7160ba85de48d0e43333",
@@ -10786,7 +10798,11 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-native-stack",
+        "branch_head": "b17b06f87af1617877ab86a7ebb05037d5c5b723",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/6",
+        "submission_base": "6b998f6fc281a88a50a710d7ae6afd55814b1946"
       },
       {
         "id": "sse-math",
@@ -10880,7 +10896,7 @@
       {
         "id": "archive-payload-bounds",
         "title": "Checked archive lengths, payloads and ordinary collection counts",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "28f43f686d4ac81338a4b097d2f1726ae20e8f38",
@@ -10969,12 +10985,16 @@
           }
         ],
         "next_action": "Extract the four related archive boundary commits together above PR35; do not copy final files onto master.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-archive-storage",
+        "branch_head": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/5",
+        "submission_base": "6b998f6fc281a88a50a710d7ae6afd55814b1946"
       },
       {
         "id": "archive-storage",
         "title": "ByteStream bounds and exception-safe replacement ownership",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "7131fd38806b53774cb25ae68fcf5c55789c85fd",
@@ -11039,12 +11059,16 @@
           }
         ],
         "next_action": "Extract authoritative combined commits above PR35 as a focused stack; do not submit intermediate storage without its existing unique_ptr follow-up.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-archive-storage",
+        "branch_head": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/5",
+        "submission_base": "6b998f6fc281a88a50a710d7ae6afd55814b1946"
       },
       {
         "id": "crypto-packing",
         "title": "Scoped Windows x64 vendor packing diagnostic",
-        "status": "remaining",
+        "status": "fork_draft_submitted",
         "origin_commits": [
           {
             "sha": "78ec0f03f48cc6a71730ca8fcdf5ec3546c3a8d8",
@@ -11094,7 +11118,11 @@
           }
         ],
         "next_action": "Prepare focused source branch using listed commits/paths; preserve any explicitly identified master-vs-PR35 context. Reuse evidence without calling client builds server qualification.",
-        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification."
+        "evidence_limits": "No new build/test performed. Origin commit records and prior integrated/client results are not exact fresh server-package Windows qualification.",
+        "branch": "review-ready/server-crypto-packing",
+        "branch_head": "485331412cfd8170a4d209f3b7afbd7b78603a20",
+        "pull_request": "https://github.com/Akilleez-QA/src/pull/9",
+        "submission_base": "1c0152794e5597f16cd9e4b03930df654f73aa03"
       },
       {
         "id": "integration-ci",
@@ -11569,5 +11597,6 @@
     "Old CURRENT-STATUS network gating text is superseded by exact current fork PR metadata; earlier failed runs remain preserved."
   ],
   "classification_note": "Runtime source includes engine/server C/C++ and Miff parser code. Schemas and operational database scripts are separately counted production deliverables. Code generators/templates and CMake are separate categories; tests/docs/CI are excluded from runtime-source counts.",
-  "submission_metadata_update": "2026-10-01: floating-controls and sse-math fork drafts published. Original remaining_package_ids/counts are frozen inventory snapshot; use individual package status for current queue."
+  "submission_metadata_update": "2026-10-01T10:33:49.089420+00:00",
+  "current_source_submission_status": "All listed maintained source counterpart units now have focused upstream or dependent fork PRs; integration CI remains fork-only. Frozen original remaining aggregates are historical."
 }

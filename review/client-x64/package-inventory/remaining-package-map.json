@@ -1264,7 +1264,7 @@
     {
       "id": "trackir-provider",
       "title": "Native TrackIR provider and bounded loader path",
-      "status": "remaining",
+      "status": "submitted_upstream",
       "proposed_base": "949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [],
       "origin_commits": [
@@ -1273,9 +1273,9 @@
           "subject": "headtracking: select the native TrackIR provider with bounded paths"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-trackir-provider",
+      "branch_head": "12e1a62160f83827ad345ddf8fb8a53299b5060a",
+      "pull_request": "https://github.com/SWG-Source/client-tools/pull/40",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "One independent ClientHeadTracking.cpp source commit; genuine external provider remains an input.",
       "exclusive_production_accounting": {
@@ -1360,7 +1360,7 @@
     {
       "id": "obsolete-client-inputs",
       "title": "Remove already unused browser/capture inputs",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "link-cleanup",
@@ -1380,9 +1380,9 @@
           "subject": "ui: stop polling the already-disabled video capture path"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-obsolete-client-inputs",
+      "branch_head": "f5c3f278516900cd9b7655eb2d5cacd803dbd2fa",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/22",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Only existing deprecation/unused inputs: solution/browser link entries and disabled video capture polling. Not new feature removal. Build files are mixed with configuration and development selection.",
       "exclusive_production_accounting": {
@@ -1927,7 +1927,7 @@
     {
       "id": "miles-game-selection",
       "title": "Opt-in Miles game integration and Debug/Release builds",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "miles-session-core",
@@ -1961,9 +1961,9 @@
           "subject": "audio: use normal I/O segments for live Miles commands"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-miles-game-selection",
+      "branch_head": "78428d8c3f63048bccca579421f170a627be8fda",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/18",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Facade selection, template-path lifetime, relative host module path, windowless host, normal I/O segments and separate development outputs. Do not select facade in default Win32 build. Final shared Release support is deliberately queued in media-release-build after Bink rather than creating a dependency cycle.",
       "exclusive_production_accounting": {
@@ -2021,7 +2021,7 @@
     {
       "id": "bink-host-session",
       "title": "Original Bink owner and private-session video extension",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "miles-game-selection"
@@ -2044,9 +2044,9 @@
           "subject": "bink: reapply consumed file IO settings before every open"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-bink-host-session",
+      "branch_head": "16942c5fc6724f33e7633985c5fc5b0bc9be5103",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/19",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Genuine x86 Bink beside its Miles driver, reverse file adapter, frame protocol/validation and real Video admission. Include per-open IO-settings repair da9c; do not publish the earlier repeated-open failure as final behavior. Common coordinator/backend/wire/host files are mixed with Miles core, requiring ordered commit/hunk composition.",
       "exclusive_production_accounting": {
@@ -2097,7 +2097,7 @@
     {
       "id": "bink-game-selection",
       "title": "Shared video blitter and opt-in game adapter",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "bink-host-session"
@@ -2112,9 +2112,9 @@
           "subject": "video: connect the development game to original Bink through its Miles host"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-bink-game-selection",
+      "branch_head": "abe067bcc70fffd397ff4de531943400c38a7caa",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/20",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "First extract shared legacy blitter (81cee3), then PipeBinkVideo/factory and clientGraphics build selection (afacd). Release graphics follow-up is queued separately in media-release-build, preserving the complete original 33efad commit. Movie lifecycle evidence is bounded; no waveform/pixel equivalence claim.",
       "exclusive_production_accounting": {
@@ -2146,7 +2146,7 @@
     {
       "id": "media-release-build",
       "title": "Matching Release builds for the paired Miles/Bink development client",
-      "status": "remaining",
+      "status": "prepared_fork_draft",
       "proposed_base": "stack on named prerequisites, ultimately 949451032647e45e42c3aaef3f41b132c8af36e3",
       "prerequisites": [
         "miles-game-selection",
@@ -2158,9 +2158,9 @@
           "subject": "build: add isolated Release x64 Miles and Bink development targets"
         }
       ],
-      "branch": null,
-      "branch_head": null,
-      "pull_request": null,
+      "branch": "review-ready/client-media-release-build",
+      "branch_head": "91d70a54b60082303a88df3f12bc7e6e13e166a4",
+      "pull_request": "https://github.com/Akilleez-QA/client-tools/pull/21",
       "assembly_method": "existing commits; isolate source/build/test payloads as stated",
       "boundary": "Apply this entire original commit after both Audio and Bink selection. It touches the common build.py, client-miles-dev.props and clientGraphics project. Splitting it earlier requires manual audio/graphics property hunks; final placement avoids that split.",
       "exclusive_production_accounting": {
@@ -11732,5 +11732,18 @@
     "dependency_graph_acyclic": true,
     "category_and_package_sums_equal_git_diff": true,
     "branch_application_or_runtime_test": false
+  },
+  "current_submission_accounting": {
+    "updated_at": "2026-10-01T10:33:49.089420+00:00",
+    "unassigned_production_build_paths": [],
+    "coverage_record": "remaining-units.json",
+    "scope": "All maintained production/build units assigned to prepared/published package closures. This does not prove newly composed branch equivalence or builds.",
+    "nonproduction_remainder": [
+      "archive regression harnesses",
+      "UI memory harness",
+      "LoginClusterStatus fixture and runner",
+      "portable CI composition",
+      "live-session evidence documentation"
+    ]
   }
 }

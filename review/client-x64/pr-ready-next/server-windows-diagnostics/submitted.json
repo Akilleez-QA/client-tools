@@ -1,0 +1,92 @@
+{
+  "additions": 21,
+  "baseRefName": "review-ready/server-build-workflow",
+  "baseRefOid": "1c0152794e5597f16cd9e4b03930df654f73aa03",
+  "changedFiles": 4,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T05:26:57Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:16Z",
+      "messageBody": "Keep the Win32 naked helper and QPC selection/calibration unchanged. Native v120 compiles the actual TU in four configurations. The exact helper extracted from source passes 10000 bracketed TSC samples per run; zero mutants fail. Full profiler initialization and calibration runtime are not established by this leaf probe.\n\n(cherry picked from commit 2a3b1463d7b0bf7db16f0fc84ecee92f1c32125d)",
+      "messageHeadline": "debug: read x64 timestamp counter with compiler intrinsic",
+      "oid": "f31587324977c16ecf589856f669c6eea32dd332"
+    },
+    {
+      "authoredDate": "2026-09-30T06:26:54Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:16Z",
+      "messageBody": "Use __debugbreak on Windows x64, retaining the existing Win32 int3 and non-Windows paths. Matching client actual TU compiles in all four v120 configurations and a source-extracted SEH probe observes and resumes the breakpoint. Full crash-report lifecycle remains untested.\n\n(cherry picked from commit b6967a0246227501aa14c6c562204afcbc59c159)",
+      "messageHeadline": "foundation: emit the fatal breakpoint with an x64 intrinsic",
+      "oid": "123900096f4596727ab2e387ef1eb9782d593a9e"
+    },
+    {
+      "authoredDate": "2026-09-30T08:26:10Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:16Z",
+      "messageBody": "Format the existing PVOID exception address with %p while retaining exception code formatting. A bounded extracted-statement fixture passes36 checks in each native Win32/x64 Release/Debug configuration without crashing a process; this is not execution of the full exception handler.\n\n(cherry picked from commit e10e858ff3b431010a1715ce83ba4168c11d46af)",
+      "messageHeadline": "debug: print exception addresses at pointer width",
+      "oid": "2004e3d37177edcb822e8444b94b9c3810d9cab9"
+    },
+    {
+      "authoredDate": "2026-09-30T06:02:29Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:16Z",
+      "messageBody": "(cherry picked from commit 51373f7f1f8debbd988782c4a2961d5723615424)",
+      "messageHeadline": "foundation: pass pointer-sized thread naming exception arguments",
+      "oid": "73197bf47f6ff858093052a4b758fff805397c04"
+    },
+    {
+      "authoredDate": "2026-09-30T06:29:41Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:10:16Z",
+      "messageBody": "Keep the documented HINSTANCE-style status in INT_PTR before comparing it with 32. Matching client actual TUs compile in all four native v120 configurations; synthetic full-width status and formatting probes pass, while the old x64 narrowing control fails. No browser launch or full server behavior claim.\n\n(cherry picked from commit 1b662b4df91ff72e3fed7f2337c1c3b6e71a43d6)",
+      "messageHeadline": "foundation: test ShellExecute results at pointer width",
+      "oid": "fc300fe802730f1ce837e6f4b593cef9c68bf780"
+    }
+  ],
+  "deletions": 3,
+  "headRefName": "review-ready/server-windows-diagnostics",
+  "headRefOid": "fc300fe802730f1ce837e6f4b593cef9c68bf780",
+  "isDraft": true,
+  "number": 7,
+  "state": "OPEN",
+  "title": "Use native-width Windows diagnostics and API results",
+  "url": "https://github.com/Akilleez-QA/src/pull/7",
+  "evidence_commit": "de951450e45a8caf37cf3b8cea691aad36c75e54"
+}

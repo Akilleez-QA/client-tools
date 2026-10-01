@@ -1,0 +1,47 @@
+{
+  "additions": 14,
+  "baseRefName": "master",
+  "baseRefOid": "949451032647e45e42c3aaef3f41b132c8af36e3",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T07:54:50Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T09:57:34Z",
+      "messageBody": "Use NPClient64.dll in the x64 game process and preserve NPClient.dll on Win32. Reserve room for the separator, provider name and terminator before reading the registry path. Signatures, profile 6001 and camera behavior remain unchanged.\n\nNative v120 preprocessing and actual translation-unit compilation pass Debug/Release on both ABIs. Original/current SDK layout probes match; separate path arithmetic/canary checks pass 80/80 in each configuration. These do not test registry failure recovery or provider/hardware operation. The separate Win32 setup executable correctly retains its Win32 provider.",
+      "messageHeadline": "headtracking: select the native TrackIR provider with bounded paths",
+      "oid": "07a73c30fd7e2bca2f0755ef5cb0a46eb250ce6f"
+    },
+    {
+      "authoredDate": "2026-10-01T10:14:33Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:14:33Z",
+      "messageBody": "Pass one additional registry byte for a REG_SZ terminator while retaining the existing path-character append bound. Release the opened registry key even when the read succeeds but the length guard rejects it. Preserve provider names, registration policy and the original candidate commit.\n\nA separately recorded native Win32/x64 temporary-key probe covers 16 registry cases and 32 queries per ABI with backing canaries and verified key cleanup. Old-capacity controls reject the fitting terminated boundary; the corrected capacity accepts it. This exercises the extracted WinAPI/call contract, not the production loader or provider/hardware.",
+      "messageHeadline": "headtracking: account for terminated registry path capacity",
+      "oid": "12e1a62160f83827ad345ddf8fb8a53299b5060a"
+    }
+  ],
+  "deletions": 4,
+  "headRefName": "review-ready/client-trackir-provider",
+  "headRefOid": "12e1a62160f83827ad345ddf8fb8a53299b5060a",
+  "isDraft": false,
+  "number": 40,
+  "state": "OPEN",
+  "title": "Select the native TrackIR provider with bounded paths",
+  "url": "https://github.com/SWG-Source/client-tools/pull/40",
+  "evidence_commit": "9a4516600f63edfbb1ab3babd2a67746bc70d3ee"
+}

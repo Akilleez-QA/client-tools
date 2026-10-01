@@ -1,0 +1,107 @@
+{
+  "additions": 116,
+  "baseRefName": "lp64-fixed-width-boundaries",
+  "baseRefOid": "6b998f6fc281a88a50a710d7ae6afd55814b1946",
+  "changedFiles": 5,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T07:51:03Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:27Z",
+      "messageBody": "Check the size once before emitting either legacy length header, then use the checked unsigned count for ByteStream::put. This removes the later implicit size_t narrowing without changing representable wire encodings.\n\nValidation: existing wire fixtures pass 19/19 with -m32 and 20/20 with -m64, including the 65534/65535 string boundary. No claim of nested serialization rollback or full server acceptance.\n(cherry picked from commit 28f43f686d4ac81338a4b097d2f1726ae20e8f38)",
+      "messageHeadline": "archive: reuse checked string length for the payload write",
+      "oid": "297453b8da535dbc2236ea3bbffb6412ff6760db"
+    },
+    {
+      "authoredDate": "2026-09-30T08:06:33Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:27Z",
+      "messageBody": "Reject reads and advances beyond logical data, preflight append arithmetic, and retain old storage until allocation/copy completes. Keep shared storage intact during detach/reserve and valid self-append. Pool insertion failure releases its lock and deletes optional cached storage. Preserve public server widths and wire bytes; bound-stream zero-byte reads consistently succeed.\n\nValidation:85 small initialized-storage checks on each Linux ABI; existing wire19/19 (-m32),20/20 (-m64). Mirror of independently reviewed client algorithm. This does not validate raw-pointer decoders before their reads, general iterator invalidation, nested delta rollback, concurrent stream access or full-server acceptance.\n(cherry picked from commit 7131fd38806b53774cb25ae68fcf5c55789c85fd)",
+      "messageHeadline": "archive: bound ByteStream access and publish storage after copying",
+      "oid": "6b013a5e1e46f3a558e52cb05fcd7003bed1e69d"
+    },
+    {
+      "authoredDate": "2026-09-30T08:26:10Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:27Z",
+      "messageBody": "Reject declared payloads exceeding remaining input before touching the destination. Decode Unicode via a checked byte copy into aligned owned code units, avoiding typed reads from unaligned packet storage. Keep valid wire bytes and header-consumed rejection behavior; this is not outer-message rollback.\n\nMatching client candidate passes34 focused checks on both portable ABIs and four native v120/STLport configurations; parent independently ran34 on this server fork with -m32/-m64. No malformed-input run on old code, huge allocation or allocation-failure injection.\n\n(cherry picked from commit 5474d3d0920ef33f8fef7d0acdda490c8c40c453)",
+      "messageHeadline": "archive: preflight string and stream payloads before copying",
+      "oid": "e5a12544437d412404dda2fc1acef5e2f6fca880"
+    },
+    {
+      "authoredDate": "2026-09-30T08:26:10Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:27Z",
+      "messageBody": "Use the existing unsigned32 count helper before writing either header. Ordinary 0/1/3-element legacy bytes and full decode consumption pass in client/server tests, and the client fixtures pass on stock Win32. Oversized rejection at the actual container call sites is source-reviewed, not claimed runtime tested.\n\n(cherry picked from commit 2648217a654cfa5e7beb3f95498cb8f534d043ea)",
+      "messageHeadline": "archive: check ordinary array and list counts before serialization",
+      "oid": "5f1044c2b615aa552351eb81d8980cbd626169c5"
+    },
+    {
+      "authoredDate": "2026-09-30T08:38:02Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:27Z",
+      "messageBody": "After checking the legacy unsigned code-unit count, reject counts whose multiplied byte size cannot fit ByteStream's unsigned byte argument. Divide before multiplying, then publish the unchanged unsigned count and bounded payload length.\n\nExtracted arithmetic checks pass6/6 on both host ABIs; client real wire fixtures pass71/78. Oversized actual strings were not allocated or claimed tested. Aggregate buffer capacity and nested rollback remain separate; this guards count rejection before the header.\n\n(cherry picked from commit c6cdbe85d301aecd5e3e443e246baf3dbb84e8f3)",
+      "messageHeadline": "archive: bound Unicode payload bytes before writing a header",
+      "oid": "5a1266e14cd45a70560f353e35b624a43025df9e"
+    },
+    {
+      "authoredDate": "2026-09-30T09:06:19Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:27Z",
+      "messageBody": "Replace the two noncopying server auto_ptr guards with unique_ptr. Both retain the same cleanup and release points; old backing storage remains alive until a self-source copy completes. The legacy v120/STLport client keeps its compatible guard.\n\nC++17 with deprecated declarations treated as errors passes 85 bounded initialized-storage checks on both Linux ABIs. Existing wire fixtures pass 19/19 (-m32) and 20/20 (-m64). Tests use libstdc++; a full libc++ server build is not claimed.\n\n(cherry picked from commit 731d85cc10326f5f2d656b4b66f09c5feab30635)",
+      "messageHeadline": "archive: use C++17 ownership guards for replacement byte storage",
+      "oid": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e"
+    }
+  ],
+  "deletions": 100,
+  "headRefName": "review-ready/server-archive-storage",
+  "headRefOid": "0b45f5e7268c39bfa3743bc99bebc52db31ff57e",
+  "isDraft": true,
+  "number": 5,
+  "state": "OPEN",
+  "title": "Bound archive payload reads and preserve storage ownership",
+  "url": "https://github.com/Akilleez-QA/src/pull/5",
+  "evidence_commit": "9a4516600f63edfbb1ab3babd2a67746bc70d3ee"
+}

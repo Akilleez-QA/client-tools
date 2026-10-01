@@ -1,0 +1,32 @@
+{
+  "additions": 11,
+  "baseRefName": "review-ready/server-build-workflow",
+  "baseRefOid": "1c0152794e5597f16cd9e4b03930df654f73aa03",
+  "changedFiles": 1,
+  "commits": [
+    {
+      "authoredDate": "2026-09-30T08:15:26Z",
+      "authors": [
+        {
+          "email": "scubasteve4sq@gmail.com",
+          "id": "MDQ6VXNlcjcwNTk3Njgy",
+          "login": "Akilleez-QA",
+          "name": "Craig A Ward"
+        }
+      ],
+      "committedDate": "2026-10-01T10:13:28Z",
+      "messageBody": "Mirror the client PCH wrapper around balanced STLport vendor includes. Limit C4103 suppression to that include scope and restore it afterward; do not change packing. The guard leaves Linux and Win32 untouched.\n\nClient VS2013 probes preserve before/after layout in four configurations, compile under /WX, and still reject a deliberate packing warning after this header. This is not a native Windows build of the server or validation of its newer Crypto++ sources.\n\n(cherry picked from commit 78ec0f03f48cc6a71730ca8fcdf5ec3546c3a8d8)",
+      "messageHeadline": "crypto: scope the Windows x64 vendor packing diagnostic",
+      "oid": "485331412cfd8170a4d209f3b7afbd7b78603a20"
+    }
+  ],
+  "deletions": 0,
+  "headRefName": "review-ready/server-crypto-packing",
+  "headRefOid": "485331412cfd8170a4d209f3b7afbd7b78603a20",
+  "isDraft": true,
+  "number": 9,
+  "state": "OPEN",
+  "title": "Scope the native crypto PCH packing diagnostic",
+  "url": "https://github.com/Akilleez-QA/src/pull/9",
+  "evidence_commit": "de951450e45a8caf37cf3b8cea691aad36c75e54"
+}
